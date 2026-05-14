@@ -1,0 +1,52 @@
+{
+  "name": "eslint-plugin-node-memory",
+  "version": "0.1.0",
+  "description": "ESLint rules for Node.js memory anti-patterns (fetch body, TextDecoder, toWeb, streams)",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    ".cursor"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "npm run build && node --import tsx --test tests/*.test.ts",
+    "lint": "eslint eslint.config.js",
+    "dogfood": "eslint fixtures/dogfood-samples.js",
+    "prepublishOnly": "npm run build && npm test"
+  },
+  "keywords": [
+    "eslint",
+    "eslintplugin",
+    "node",
+    "memory",
+    "fetch",
+    "streams"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "@typescript-eslint/parser": "^8.0.0",
+    "eslint": "^9.0.0",
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@typescript-eslint/utils": "^8.0.0"
+  },
+  "devDependencies": {
+    "@typescript-eslint/parser": "^8.0.0",
+    "@typescript-eslint/rule-tester": "^8.0.0",
+    "eslint": "^9.0.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=18.18.0"
+  }
+}
