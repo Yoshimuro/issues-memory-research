@@ -1,0 +1,33 @@
+services:
+  app:
+    build: .
+    image: v8-flags-lab:local
+    command: ["node", "async-http-server.js"]
+    environment:
+      PORT: "3000"
+      WARMUP_S: "${WARMUP_S:-5}"
+      DURATION_S: "${DURATION_S:-30}"
+      LABEL: "${LABEL:-compose-async}"
+      OUT: "${OUT:-results/compose/async.json}"
+      RETAIN_CACHE: "${RETAIN_CACHE:-1}"
+      CACHE_LIMIT: "${CACHE_LIMIT:-300}"
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/lab
+    mem_limit: "${MEMORY_LIMIT:-512m}"
+    memswap_limit: "${MEMORY_LIMIT:-512m}"
+
+  loadgen:
+    image: v8-flags-lab:local
+    command: ["node", "load-client.js"]
+    depends_on:
+      - app
+    environment:
+      URL: "http://app:3000/mixed"
+      DURATION_S: "${LOAD_DURATION_S:-35}"
+      CONCURRENCY: "${CONCURRENCY:-50}"
+    volumes:
+      - .:/lab
+    mem_limit: "128m"
+    memswap_limit: "128m"
