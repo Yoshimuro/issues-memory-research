@@ -1,0 +1,14 @@
+IC-переходы для getX(o){return o.x} (LoadIC по ключу 'x'), V8 14.9.207:
+
+строка 4: 0 (uninitialized) -> 1 (MONOMORPHIC)
+  raw: LoadIC,0x23b2010001d0,9962,4,12,0,1,0x3fe50101e429,x,,
+строка 4: 1 (MONOMORPHIC) -> P (POLYMORPHIC)
+  raw: LoadIC,0x23b2010001d0,10135,4,12,1,P,0x3fe50101e4ad,x,,
+строка 4: P (POLYMORPHIC) -> P (POLYMORPHIC)
+  raw: LoadIC,0x23b2010001d0,10166,4,12,P,P,0x3fe50101e549,x,,
+строка 4: P (POLYMORPHIC) -> P (POLYMORPHIC)
+  raw: LoadIC,0x23b2010001d0,10212,4,12,P,P,0x3fe50101e599,x,,
+строка 4: P (POLYMORPHIC) -> N (MEGAMORPHIC)
+  raw: LoadIC,0x23b2010001d0,10284,4,12,P,N,0x3fe50101e65d,x,,
+
+сырой лог целиком: /home/user/issues-memory-research/demos/results/04-ic-v8.log

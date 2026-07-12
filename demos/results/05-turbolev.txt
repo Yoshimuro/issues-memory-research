@@ -1,0 +1,25 @@
+=== d8 14.x: V8 14.9.207 ===
+--turbolev: есть, по умолчанию выключен (--no-turbolev)
+   (use Turbolev (≈ Maglev + Turboshaft combined) as the 4th tier compiler instead of Turbofan)
+--turboshaft: есть, по умолчанию ВКЛЮЧЕН (--turboshaft)
+   (enable TurboFan's Turboshaft phases for JS)
+
+=== d8 последний из jsvu: V8 15.2.61 ===
+--turbolev: есть, по умолчанию выключен (--no-turbolev)
+   (use Turbolev (≈ Maglev + Turboshaft combined) as the 4th tier compiler instead of Turbofan)
+--turboshaft: есть, по умолчанию ВКЛЮЧЕН (--turboshaft)
+   (enable TurboFan's Turboshaft phases for JS)
+
+Бенч демо 2 (1000 DTO, 20k итераций) на d8 14.x, прогонов: 10
+
+--no-turbolev  : 44.3 ± 5.8 ms (n=10)  [57.3, 41.9, 42.1, 40.2, 41.5, 47.5, 40.2, 40.5, 41.0, 51.0]
+--turbolev     : 119.7 ± 12.0 ms (n=10)  [111.6, 135.7, 112.2, 111.3, 111.8, 112.5, 133.4, 140.9, 117.3, 110.6]
+(без флагов)   : 40.7 ± 0.6 ms (n=10)  [41.7, 40.6, 40.2, 40.1, 39.4, 41.0, 40.4, 41.1, 41.0, 41.3]
+
+Turbolev vs TurboFan на этом бенче: x0.37 (V8 14.9.207)
+(без флагов) совпадает с --no-turbolev => Turbolev по умолчанию ВЫКЛЮЧЕН в этой версии
+
+Тот же бенч на последнем d8, прогонов: 10
+
+--no-turbolev  : 36.0 ± 1.7 ms (n=10)  [34.2, 36.0, 36.5, 35.0, 35.5, 34.8, 34.8, 36.2, 39.8, 37.6]
+--turbolev     : 41.6 ± 2.8 ms (n=10)  [40.7, 40.7, 39.4, 48.2, 40.5, 44.9, 39.6, 41.8, 39.9, 40.2]

@@ -1,0 +1,9 @@
+node v24.18.0, V8 13.6.233.17-node.50
+вызов       0: ignition
+вызов     164: ignition -> sparkplug
+вызов     263: sparkplug -> maglev
+вызов   10000: активный тир = maglev, %ActiveTierIsMaglev = true
+вызов   10001: maglev -> turbofan
+---
+Maglev-окно: вызовы ~263..10000 (9738 вызовов до тир-апа в TurboFan)
+sink=2493105652
