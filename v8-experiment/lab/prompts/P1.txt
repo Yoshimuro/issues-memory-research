@@ -1,0 +1,1 @@
+Напиши на JavaScript (CommonJS) функцию normalizeUser(raw), приводящую сырой объект пользователя из API к единому виду. Обязательные поля результата: id, name (default ''), email (default ''), plan (default 'free'), credits (default 0). Опциональные поля: referrer, trialUntil, teamId. Экспортируй строго так: module.exports = { normalizeUser }. В ответе только код, без пояснений.
