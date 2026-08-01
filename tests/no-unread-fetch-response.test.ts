@@ -19,43 +19,103 @@ const ruleTester = new RuleTester({
 
 ruleTester.run('no-unread-fetch-response', rule, {
   valid: [
-    'async function ok() { const r = await fetch(url); await r.json(); }',
-    'async function ok() { const r = await fetch(url); await r.text(); }',
-    'async function ok() { const r = await fetch(url); await r.arrayBuffer(); }',
-    'async function ok() { const r = await fetch(url); await r.blob(); }',
-    'async function ok() { const r = await fetch(url); await r.formData(); }',
-    'async function ok() { const r = await fetch(url); await r.body?.cancel(); }',
-    'async function ok() { const r = await fetch(url); await r.body.cancel(); }',
-    'async function ok() { await fetch(url).then(r => r.text()); }',
     {
-      code: 'async function ok() { return await fetch(url); }',
+      code: `async function ok() {
+        const r = await fetch(url);
+        await r.json();
+      }`,
+    },
+    {
+      code: `async function ok() {
+        const r = await fetch(url);
+        await r.text();
+      }`,
+    },
+    {
+      code: `async function ok() {
+        const r = await fetch(url);
+        await r.arrayBuffer();
+      }`,
+    },
+    {
+      code: `async function ok() {
+        const r = await fetch(url);
+        await r.blob();
+      }`,
+    },
+    {
+      code: `async function ok() {
+        const r = await fetch(url);
+        await r.formData();
+      }`,
+    },
+    {
+      code: `async function ok() {
+        const r = await fetch(url);
+        await r.body?.cancel();
+      }`,
+    },
+    {
+      code: `async function ok() {
+        const r = await fetch(url);
+        await r.body.cancel();
+      }`,
+    },
+    {
+      code: `async function ok() {
+        await fetch(url).then(r => r.text());
+      }`,
+    },
+    {
+      code: `async function ok() {
+        return await fetch(url);
+      }`,
       options: [{ allowReturnResponse: true }],
     },
-    'async function ok() { await other(url); }',
+    {
+      code: `async function ok() {
+        await other(url);
+      }`,
+    },
   ],
   invalid: [
     {
-      code: 'async function bad() { await fetch(url); }',
+      code: `async function bad() {
+        await fetch(url);
+      }`,
       errors: [{ messageId: 'unreadFetchResponse' }],
     },
     {
-      code: 'async function bad() { const r = await fetch(url); if (!r.ok) return; }',
+      code: `async function bad() {
+        const r = await fetch(url);
+        if (!r.ok) return;
+      }`,
       errors: [{ messageId: 'unreadFetchResponse' }],
     },
     {
-      code: 'async function bad() { const r = await fetch(url); console.log(r.status); }',
+      code: `async function bad() {
+        const r = await fetch(url);
+        console.log(r.status);
+      }`,
       errors: [{ messageId: 'unreadFetchResponse' }],
     },
     {
-      code: 'async function bad() { let r; r = await fetch(url); }',
+      code: `async function bad() {
+        let r;
+        r = await fetch(url);
+      }`,
       errors: [{ messageId: 'unreadFetchResponse' }],
     },
     {
-      code: 'async function bad() { const r = await globalThis.fetch(url); }',
+      code: `async function bad() {
+        const r = await globalThis.fetch(url);
+      }`,
       errors: [{ messageId: 'unreadFetchResponse' }],
     },
     {
-      code: 'async function bad() { return await fetch(url); }',
+      code: `async function bad() {
+        return await fetch(url);
+      }`,
       errors: [{ messageId: 'unreadFetchResponse' }],
     },
   ],
