@@ -27,6 +27,11 @@ ruleTester.run('no-unread-fetch-response', rule, {
     },
     {
       code: `async function ok() {
+        (await fetch(url)).json();
+      }`,
+    },
+    {
+      code: `async function ok() {
         const r = await fetch(url);
         await r.text();
       }`,
@@ -52,6 +57,12 @@ ruleTester.run('no-unread-fetch-response', rule, {
     {
       code: `async function ok() {
         const r = await fetch(url);
+        r.body.getReader();
+      }`,
+    },
+    {
+      code: `async function ok() {
+        const r = await fetch(url);
         await r.body?.cancel();
       }`,
     },
@@ -59,6 +70,19 @@ ruleTester.run('no-unread-fetch-response', rule, {
       code: `async function ok() {
         const r = await fetch(url);
         await r.body.cancel();
+      }`,
+    },
+    {
+      code: `async function ok() {
+        const r = await globalThis.fetch(url);
+        await r.json();
+      }`,
+    },
+    {
+      code: `async function ok() {
+        let r;
+        r = await fetch(url);
+        await r.json();
       }`,
     },
     {
@@ -74,7 +98,26 @@ ruleTester.run('no-unread-fetch-response', rule, {
     },
     {
       code: `async function ok() {
+        const r = await customFetch(url);
+        await r.json();
+      }`,
+      options: [{ fetchNames: ['customFetch'] }],
+    },
+    {
+      code: `async function ok() {
+        const r = await fetch(url);
+        await r.bytes();
+      }`,
+      options: [{ additionalConsumeMethods: ['bytes'] }],
+    },
+    {
+      code: `async function ok() {
         await other(url);
+      }`,
+    },
+    {
+      code: `async function ok<T>({ fetch }: TRequestOptions<T>): Promise<T> {
+        return await fetch();
       }`,
     },
   ],
@@ -82,6 +125,12 @@ ruleTester.run('no-unread-fetch-response', rule, {
     {
       code: `async function bad() {
         await fetch(url);
+      }`,
+      errors: [{ messageId: 'unreadFetchResponse' }],
+    },
+    {
+      code: `async function bad() {
+        const r = await fetch(url);
       }`,
       errors: [{ messageId: 'unreadFetchResponse' }],
     },
@@ -101,6 +150,15 @@ ruleTester.run('no-unread-fetch-response', rule, {
     },
     {
       code: `async function bad() {
+        const r = await fetch(url);
+        if (!r.ok) {
+          throw new Error('fail');
+        }
+      }`,
+      errors: [{ messageId: 'unreadFetchResponse' }],
+    },
+    {
+      code: `async function bad() {
         let r;
         r = await fetch(url);
       }`,
@@ -110,6 +168,13 @@ ruleTester.run('no-unread-fetch-response', rule, {
       code: `async function bad() {
         const r = await globalThis.fetch(url);
       }`,
+      errors: [{ messageId: 'unreadFetchResponse' }],
+    },
+    {
+      code: `async function bad() {
+        const r = await customFetch(url);
+      }`,
+      options: [{ fetchNames: ['customFetch'] }],
       errors: [{ messageId: 'unreadFetchResponse' }],
     },
     {
