@@ -23,7 +23,38 @@ function getConsumeMethods(options: Options[0]): Set<string> {
 
 function isFetchAwait(node: TSESTree.Node, fetchNames: readonly string[], scope: Scope): boolean {
   const inner = unwrapAwait(node);
-  return inner.type === 'CallExpression' && isFetchCall(inner, fetchNames, scope);
+  return inner.type === 'CallExpression' && isFetchCall(inner, fetchNames, scope) && !isBodylessRequest(inner);
+}
+
+function getStaticKeyName(key: TSESTree.Node): string | null {
+  if (key.type === 'Identifier') {
+    return key.name;
+  }
+  if (key.type === 'Literal' && typeof key.value === 'string') {
+    return key.value;
+  }
+  return null;
+}
+
+/**
+ * Responses to HEAD requests never carry a body, so there is nothing to consume or cancel.
+ */
+function isBodylessRequest(node: TSESTree.CallExpression): boolean {
+  const init = node.arguments[1];
+  if (init?.type !== 'ObjectExpression') {
+    return false;
+  }
+  return init.properties.some((property) => {
+    if (property.type !== 'Property' || property.computed) {
+      return false;
+    }
+    return (
+      getStaticKeyName(property.key) === 'method' &&
+      property.value.type === 'Literal' &&
+      typeof property.value.value === 'string' &&
+      property.value.value.toUpperCase() === 'HEAD'
+    );
+  });
 }
 
 function memberConsumesBody(member: TSESTree.MemberExpression, consumeMethods: Set<string>): boolean {
