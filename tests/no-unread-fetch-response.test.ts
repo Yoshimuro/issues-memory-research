@@ -74,6 +74,13 @@ ruleTester.run('no-unread-fetch-response', rule, {
     },
     {
       code: `async function ok() {
+        // for HEAD query r.body === null
+        const r = await fetch(url, { method: 'HEAD', credentials: 'omit' });
+        return r.headers.get('content-length');
+      }`,
+    },
+    {
+      code: `async function ok() {
         const r = await globalThis.fetch(url);
         await r.json();
       }`,
