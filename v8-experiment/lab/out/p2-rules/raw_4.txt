@@ -1,0 +1,28 @@
+```javascript
+function normalizeUser(raw) {
+  const src = raw != null ? raw : {};
+
+  const id = src.id != null ? String(src.id) : '';
+  const name = src.name != null ? String(src.name) : '';
+  const email = src.email != null ? String(src.email) : '';
+  const plan = src.plan != null ? String(src.plan) : 'free';
+  const credits = Number.isInteger(src.credits) ? src.credits : 0;
+
+  const referrer = src.referrer != null ? String(src.referrer) : null;
+  const trialUntil = src.trialUntil != null ? String(src.trialUntil) : null;
+  const teamId = src.teamId != null ? String(src.teamId) : null;
+
+  return {
+    id: id,
+    name: name,
+    email: email,
+    plan: plan,
+    credits: credits,
+    referrer: referrer,
+    trialUntil: trialUntil,
+    teamId: teamId,
+  };
+}
+
+module.exports = { normalizeUser };
+```

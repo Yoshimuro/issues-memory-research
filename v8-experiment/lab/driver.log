@@ -1,0 +1,94 @@
+driver start: node=v24.18.0 claude=/opt/node22/bin/claude
+===== BRANCH 1/4: P1 no-rules =====
+run 1: {"shapes":8,"ic":"MEGA","p50_ms":1.6,"correct":true,"run":1,"deopts":10}
+run 2: {"shapes":8,"ic":"MEGA","p50_ms":1.62,"correct":true,"run":2,"deopts":9}
+run 3: {"shapes":8,"ic":"MEGA","p50_ms":1.6,"correct":true,"run":3,"deopts":10}
+run 4: {"shapes":8,"ic":"MEGA","p50_ms":1.58,"correct":true,"run":4,"deopts":10}
+run 5: {"shapes":8,"ic":"MEGA","p50_ms":1.59,"correct":true,"run":5,"deopts":10}
+run 6: {"shapes":8,"ic":"MEGA","p50_ms":1.64,"correct":true,"run":6,"deopts":10}
+run 7: {"shapes":8,"ic":"MEGA","p50_ms":1.59,"correct":true,"run":7,"deopts":10}
+run 8: {"shapes":8,"ic":"MEGA","p50_ms":1.6,"correct":true,"run":8,"deopts":10}
+run 9: {"shapes":8,"ic":"MEGA","p50_ms":1.6,"correct":true,"run":9,"deopts":11}
+run 10: {"shapes":8,"ic":"MEGA","p50_ms":1.6,"correct":true,"run":10,"deopts":10}
+run 11: {"shapes":8,"ic":"MEGA","p50_ms":1.61,"correct":true,"run":11,"deopts":10}
+run 12: {"shapes":8,"ic":"MEGA","p50_ms":1.61,"correct":true,"run":12,"deopts":10}
+run 13: {"shapes":8,"ic":"MEGA","p50_ms":1.65,"correct":true,"run":13,"deopts":10}
+run 14: {"shapes":8,"ic":"MEGA","p50_ms":1.59,"correct":true,"run":14,"deopts":10}
+run 15: {"shapes":8,"ic":"MEGA","p50_ms":1.66,"correct":true,"run":15,"deopts":10}
+--- СВОДКА out/p1-no-rules/results.jsonl ---
+всего генераций : 15
+рабочих         : 15 | битых: 0 | некорректных: 0
+IC-распределение: {"MEGA":15}
+shapes медиана  : 8
+p50 медиана     : 1.6 ms
+deopts медиана  : 10
+===== BRANCH 2/4: P1 rules =====
+run 1: {"shapes":1,"ic":"MONO","p50_ms":0.32,"correct":true,"run":1,"deopts":18}
+run 2: {"shapes":1,"ic":"MONO","p50_ms":0.36,"correct":true,"run":2,"deopts":5}
+run 3: {"shapes":1,"ic":"MONO","p50_ms":0.34,"correct":true,"run":3,"deopts":6}
+run 4: {"shapes":1,"ic":"MONO","p50_ms":0.36,"correct":true,"run":4,"deopts":5}
+run 5: {"shapes":1,"ic":"MONO","p50_ms":0.37,"correct":true,"run":5,"deopts":18}
+run 6: {"shapes":1,"ic":"MONO","p50_ms":0.35,"correct":true,"run":6,"deopts":19}
+run 7: {"shapes":1,"ic":"MONO","p50_ms":0.37,"correct":true,"run":7,"deopts":4}
+run 8: {"shapes":1,"ic":"MONO","p50_ms":0.37,"correct":true,"run":8,"deopts":17}
+run 9: {"shapes":1,"ic":"MONO","p50_ms":0.33,"correct":true,"run":9,"deopts":4}
+run 10: {"shapes":1,"ic":"MONO","p50_ms":0.4,"correct":true,"run":10,"deopts":16}
+run 11: {"shapes":1,"ic":"MONO","p50_ms":0.36,"correct":true,"run":11,"deopts":14}
+run 12: {"shapes":1,"ic":"MONO","p50_ms":0.4,"correct":true,"run":12,"deopts":18}
+run 13: {"shapes":1,"ic":"MONO","p50_ms":0.36,"correct":true,"run":13,"deopts":16}
+run 14: {"shapes":1,"ic":"MONO","p50_ms":0.37,"correct":true,"run":14,"deopts":5}
+run 15: {"shapes":1,"ic":"MONO","p50_ms":0.38,"correct":true,"run":15,"deopts":18}
+--- СВОДКА out/p1-rules/results.jsonl ---
+всего генераций : 15
+рабочих         : 15 | битых: 0 | некорректных: 0
+IC-распределение: {"MONO":15}
+shapes медиана  : 1
+p50 медиана     : 0.36 ms
+deopts медиана  : 16
+===== BRANCH 3/4: P2 no-rules =====
+run 1: {"shapes":8,"ic":"MEGA","p50_ms":1.62,"correct":true,"run":1,"deopts":10}
+run 2: {"shapes":8,"ic":"MEGA","p50_ms":1.64,"correct":true,"run":2,"deopts":11}
+run 3: {"shapes":8,"ic":"MEGA","p50_ms":1.6,"correct":true,"run":3,"deopts":10}
+run 4: {"shapes":8,"ic":"MEGA","p50_ms":1.6,"correct":true,"run":4,"deopts":10}
+run 5: {"shapes":8,"ic":"MEGA","p50_ms":1.59,"correct":true,"run":5,"deopts":10}
+run 6: {"shapes":8,"ic":"MEGA","p50_ms":1.59,"correct":true,"run":6,"deopts":10}
+run 7: {"shapes":8,"ic":"MEGA","p50_ms":1.68,"correct":true,"run":7,"deopts":11}
+run 8: {"shapes":8,"ic":"MEGA","p50_ms":1.65,"correct":true,"run":8,"deopts":11}
+run 9: {"shapes":8,"ic":"MEGA","p50_ms":1.6,"correct":true,"run":9,"deopts":11}
+run 10: {"shapes":8,"ic":"MEGA","p50_ms":1.63,"correct":true,"run":10,"deopts":11}
+run 11: {"shapes":8,"ic":"MEGA","p50_ms":1.6,"correct":true,"run":11,"deopts":11}
+run 12: {"shapes":8,"ic":"MEGA","p50_ms":1.63,"correct":true,"run":12,"deopts":11}
+run 13: {"shapes":8,"ic":"MEGA","p50_ms":1.61,"correct":true,"run":13,"deopts":10}
+run 14: {"shapes":8,"ic":"MEGA","p50_ms":1.57,"correct":true,"run":14,"deopts":11}
+run 15: {"shapes":8,"ic":"MEGA","p50_ms":1.6,"correct":true,"run":15,"deopts":11}
+--- СВОДКА out/p2-no-rules/results.jsonl ---
+всего генераций : 15
+рабочих         : 15 | битых: 0 | некорректных: 0
+IC-распределение: {"MEGA":15}
+shapes медиана  : 8
+p50 медиана     : 1.6 ms
+deopts медиана  : 11
+===== BRANCH 4/4: P2 rules =====
+run 1: {"shapes":1,"ic":"MONO","p50_ms":0.36,"correct":true,"run":1,"deopts":18}
+run 2: {"shapes":1,"ic":"MONO","p50_ms":0.37,"correct":true,"run":2,"deopts":9}
+run 3: {"shapes":1,"ic":"MONO","p50_ms":0.4,"correct":true,"run":3,"deopts":16}
+run 4: {"shapes":1,"ic":"MONO","p50_ms":0.42,"correct":true,"run":4,"deopts":5}
+run 5: {"shapes":1,"ic":"MONO","p50_ms":0.35,"correct":true,"run":5,"deopts":18}
+run 6: {"shapes":1,"ic":"MONO","p50_ms":0.41,"correct":true,"run":6,"deopts":10}
+run 7: {"shapes":1,"ic":"MONO","p50_ms":0.36,"correct":true,"run":7,"deopts":18}
+run 8: {"shapes":1,"ic":"MONO","p50_ms":0.47,"correct":true,"run":8,"deopts":16}
+run 9: {"shapes":1,"ic":"MONO","p50_ms":0.42,"correct":true,"run":9,"deopts":6}
+run 10: {"shapes":1,"ic":"MONO","p50_ms":0.45,"correct":true,"run":10,"deopts":6}
+run 11: {"shapes":1,"ic":"MONO","p50_ms":0.38,"correct":true,"run":11,"deopts":5}
+run 12: {"shapes":1,"ic":"MONO","p50_ms":0.36,"correct":true,"run":12,"deopts":16}
+run 13: {"shapes":1,"ic":"MONO","p50_ms":0.4,"correct":true,"run":13,"deopts":5}
+run 14: {"shapes":1,"ic":"MONO","p50_ms":0.36,"correct":true,"run":14,"deopts":5}
+run 15: {"shapes":1,"ic":"MONO","p50_ms":0.36,"correct":true,"run":15,"deopts":14}
+--- СВОДКА out/p2-rules/results.jsonl ---
+всего генераций : 15
+рабочих         : 15 | битых: 0 | некорректных: 0
+IC-распределение: {"MONO":15}
+shapes медиана  : 1
+p50 медиана     : 0.38 ms
+deopts медиана  : 10
+ALL_BRANCHES_DONE

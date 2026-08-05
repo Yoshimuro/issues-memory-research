@@ -1,0 +1,20 @@
+```javascript
+function normalizeUser(raw) {
+  const src = raw || {};
+  const result = {
+    id: src.id,
+    name: src.name != null ? src.name : '',
+    email: src.email != null ? src.email : '',
+    plan: src.plan != null ? src.plan : 'free',
+    credits: src.credits != null ? src.credits : 0,
+  };
+
+  if (src.referrer !== undefined) result.referrer = src.referrer;
+  if (src.trialUntil !== undefined) result.trialUntil = src.trialUntil;
+  if (src.teamId !== undefined) result.teamId = src.teamId;
+
+  return result;
+}
+
+module.exports = { normalizeUser };
+```
