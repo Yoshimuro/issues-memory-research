@@ -170,6 +170,62 @@ ruleTester.run('no-unread-fetch-response', rule, {
         }
       }`,
     },
+
+    // Each assignment is judged by the references in its own live window.
+    {
+      // Cancelled before the binding is reused.
+      code: `async function ok(url) {
+        let r = await fetch(url);
+        r.body?.cancel();
+        r = await fetch(url);
+        await r.json();
+      }`,
+    },
+    {
+      // Same, with the second response handed to the caller.
+      code: `async function ok(url, cond) {
+        let r = await fetch(url);
+        if (cond) {
+          r.body?.cancel();
+          r = await fetch(url);
+        }
+        return r;
+      }`,
+      options: [{ allowReturnResponse: true }],
+    },
+    {
+      // Different switch cases never overwrite each other.
+      code: `async function ok(url, cond) {
+        let r;
+        switch (cond) {
+          case 1: r = await fetch(url); break;
+          default: r = await fetch(other);
+        }
+        await r.json();
+      }`,
+    },
+    {
+      // catch only runs when try threw.
+      code: `async function ok(url) {
+        let r;
+        try {
+          r = await fetch(url);
+        } catch {
+          r = await fetch(other);
+        }
+        await r.json();
+      }`,
+    },
+    {
+      // A loop write is live across iterations, so order carries no meaning.
+      code: `async function ok(urls) {
+        let r;
+        for (const url of urls) {
+          await r?.json();
+          r = await fetch(url);
+        }
+      }`,
+    },
   ],
   invalid: [
     {
@@ -256,6 +312,47 @@ ruleTester.run('no-unread-fetch-response', rule, {
         }
       }`,
       errors: [{ messageId: 'unreadFetchResponse' }, { messageId: 'unreadFetchResponse' }],
+    },
+
+    // A later consumer must not cover a response that was already overwritten.
+    {
+      code: `async function bad(url) {
+        let r = await fetch(url);
+        r = await fetch(url);
+        await r.json();
+      }`,
+      errors: [{ messageId: 'overwrittenFetchResponse', data: { name: 'r' } }],
+    },
+    {
+      // Overwrite on one path is enough to leak.
+      code: `async function bad(url, cond) {
+        let r = await fetch(url);
+        if (cond) {
+          r = await fetch(other);
+        }
+        await r.json();
+      }`,
+      errors: [{ messageId: 'overwrittenFetchResponse' }],
+    },
+    {
+      // The overwriting value need not be another fetch.
+      code: `async function bad(url) {
+        let r = await fetch(url);
+        r = null;
+      }`,
+      errors: [{ messageId: 'overwrittenFetchResponse' }],
+    },
+    {
+      // Returning the second response still needs the opt-in.
+      code: `async function bad(url, cond) {
+        let r = await fetch(url);
+        if (cond) {
+          r.body?.cancel();
+          r = await fetch(url);
+        }
+        return r;
+      }`,
+      errors: [{ messageId: 'unreadFetchResponse' }],
     },
   ],
 });
