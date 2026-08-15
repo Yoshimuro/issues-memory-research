@@ -1,6 +1,6 @@
 import type { Reference, Scope } from '@typescript-eslint/scope-manager';
 import type { TSESTree } from '@typescript-eslint/utils';
-import { ESLintUtils } from '@typescript-eslint/utils';
+import { ASTUtils, ESLintUtils } from '@typescript-eslint/utils';
 import { isFetchCall, unwrapAwait } from '../utils/ast.js';
 
 const createRule = ESLintUtils.RuleCreator((name) => `https://github.com/nodejs/node/issues?q=${name}`);
@@ -141,7 +141,7 @@ export default createRule<Options, MessageIds>({
     const fetchNames = options.fetchNames ?? ['fetch'];
     const allowReturnResponse = options.allowReturnResponse ?? false;
     const consumeMethods = getConsumeMethods(options);
-    const pending: { node: TSESTree.Node; bindingName: string | null }[] = [];
+    const pending: { node: TSESTree.Node; binding: TSESTree.Identifier | null }[] = [];
 
     return {
       AwaitExpression(node) {
@@ -153,21 +153,21 @@ export default createRule<Options, MessageIds>({
           return;
         }
         if (parent.type === 'VariableDeclarator' && parent.id.type === 'Identifier') {
-          pending.push({ node, bindingName: parent.id.name });
+          pending.push({ node, binding: parent.id });
           return;
         }
         if (parent.type === 'AssignmentExpression' && parent.operator === '=' && parent.left.type === 'Identifier') {
-          pending.push({ node, bindingName: parent.left.name });
+          pending.push({ node, binding: parent.left });
           return;
         }
         if (parent.type === 'ReturnStatement') {
           if (!allowReturnResponse) {
-            pending.push({ node, bindingName: null });
+            pending.push({ node, binding: null });
           }
           return;
         }
         if (parent.type === 'ExpressionStatement') {
-          pending.push({ node, bindingName: null });
+          pending.push({ node, binding: null });
         }
       },
 
@@ -188,19 +188,16 @@ export default createRule<Options, MessageIds>({
       },
 
       'Program:exit'() {
-        for (const item of [...pending]) {
-          if (item.bindingName === null) {
+        for (const item of pending) {
+          if (item.binding === null) {
             context.report({ node: item.node, messageId: 'unreadFetchResponse' });
             continue;
           }
-          const scope = context.sourceCode.getScope(item.node);
-          const variable = scope.variables.find((v) => v.name === item.bindingName) ?? scope.set.get(item.bindingName);
-          if (!variable) {
-            context.report({ node: item.node, messageId: 'unreadFetchResponse' });
-            continue;
-          }
-          const consumed = isBodyConsumed(variable.references, consumeMethods, allowReturnResponse);
-          if (!consumed) {
+          // Resolve through the scope chain: the assignment may sit in a nested
+          // block while the binding itself is declared in an outer scope.
+          const variable = ASTUtils.findVariable(context.sourceCode.getScope(item.binding), item.binding);
+          // Unresolvable binding — assume the body is leaked rather than stay silent.
+          if (!variable || !isBodyConsumed(variable.references, consumeMethods, allowReturnResponse)) {
             context.report({ node: item.node, messageId: 'unreadFetchResponse' });
           }
         }

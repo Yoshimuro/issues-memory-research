@@ -127,6 +127,61 @@ ruleTester.run('no-unread-fetch-response', rule, {
         return await fetch();
       }`,
     },
+
+    // Binding declared in an outer scope, assigned inside a nested block:
+    // the rule must resolve it through the scope chain, not only in the
+    // innermost scope of the fetch call.
+    {
+      code: `async function ok(url, cond) {
+        let r;
+        if (cond) {
+          r = await fetch(url);
+          await r.json();
+        }
+      }`,
+    },
+    {
+      // Consumed after the block that assigns it.
+      code: `async function ok(url, cond) {
+        let r;
+        if (cond) {
+          r = await fetch(url);
+        }
+        await r?.json();
+      }`,
+    },
+    {
+      // Both branches assign, one consumer covers either one.
+      code: `async function ok(url, cond) {
+        let r;
+        if (cond) {
+          r = await fetch(url);
+        } else {
+          r = await fetch(other);
+        }
+        await r.json();
+      }`,
+    },
+    {
+      // Assignment inside a loop body.
+      code: `async function ok(urls) {
+        let r;
+        for (const url of urls) {
+          r = await fetch(url);
+          await r.json();
+        }
+      }`,
+    },
+    {
+      // Assignment inside try, consumed in the same block.
+      code: `async function ok(url) {
+        let r;
+        try {
+          r = await fetch(url);
+          await r.text();
+        } catch {}
+      }`,
+    },
   ],
   invalid: [
     {
@@ -189,6 +244,31 @@ ruleTester.run('no-unread-fetch-response', rule, {
         return await fetch(url);
       }`,
       errors: [{ messageId: 'unreadFetchResponse' }],
+    },
+
+    // Resolving the outer binding must not make every nested assignment valid —
+    // an unconsumed response is still reported.
+    {
+      code: `async function bad(url, cond) {
+        let r;
+        if (cond) {
+          r = await fetch(url);
+        }
+        console.log(r?.status);
+      }`,
+      errors: [{ messageId: 'unreadFetchResponse' }],
+    },
+    {
+      // One report per unconsumed fetch, not one per binding.
+      code: `async function bad(url, cond) {
+        let r;
+        if (cond) {
+          r = await fetch(url);
+        } else {
+          r = await fetch(other);
+        }
+      }`,
+      errors: [{ messageId: 'unreadFetchResponse' }, { messageId: 'unreadFetchResponse' }],
     },
   ],
 });
