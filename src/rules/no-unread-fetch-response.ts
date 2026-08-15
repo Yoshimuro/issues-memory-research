@@ -193,10 +193,9 @@ export default createRule<Options, MessageIds>({
             context.report({ node: item.node, messageId: 'unreadFetchResponse' });
             continue;
           }
-          // Resolve through the scope chain: the assignment may sit in a nested
-          // block while the binding itself is declared in an outer scope.
+          // The assignment may sit in a nested block — walk up to the declaring scope.
           const variable = ASTUtils.findVariable(context.sourceCode.getScope(item.binding), item.binding);
-          // Unresolvable binding — assume the body is leaked rather than stay silent.
+          // Unresolvable binding: assume a leak rather than stay silent.
           if (!variable || !isBodyConsumed(variable.references, consumeMethods, allowReturnResponse)) {
             context.report({ node: item.node, messageId: 'unreadFetchResponse' });
           }
