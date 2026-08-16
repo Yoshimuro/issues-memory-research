@@ -1,30 +1,5 @@
 import type { TSESTree } from '@typescript-eslint/utils';
 
-const LOOP_TYPES = new Set([
-  'ForStatement',
-  'WhileStatement',
-  'DoWhileStatement',
-  'ForOfStatement',
-  'ForInStatement',
-]);
-
-const FUNCTION_TYPES = new Set(['FunctionDeclaration', 'FunctionExpression', 'ArrowFunctionExpression']);
-
-/** Nearest enclosing loop within the same function, if any. */
-export function getEnclosingLoop(node: TSESTree.Node): TSESTree.Node | null {
-  let current = node.parent;
-  while (current) {
-    if (FUNCTION_TYPES.has(current.type)) {
-      return null;
-    }
-    if (LOOP_TYPES.has(current.type)) {
-      return current;
-    }
-    current = current.parent;
-  }
-  return null;
-}
-
 function ancestorChain(node: TSESTree.Node): TSESTree.Node[] {
   const chain: TSESTree.Node[] = [];
   let current: TSESTree.Node | undefined = node;

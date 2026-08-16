@@ -2,7 +2,7 @@ import type { Reference, Scope } from '@typescript-eslint/scope-manager';
 import type { TSESTree } from '@typescript-eslint/utils';
 import { ASTUtils, ESLintUtils } from '@typescript-eslint/utils';
 import { isFetchCall, unwrapAwait } from '../utils/ast.js';
-import { areMutuallyExclusive, getEnclosingLoop } from '../utils/flow.js';
+import { areMutuallyExclusive } from '../utils/flow.js';
 
 const createRule = ESLintUtils.RuleCreator((name) => `https://github.com/nodejs/node/issues?q=${name}`);
 
@@ -138,18 +138,15 @@ function findOverwrite(references: Reference[], self: Reference, from: number): 
  * References that can consume the response produced by `self`: those between
  * this write and the next overwrite of the same binding.
  *
- * A write inside a loop stays live across iterations, so source order says
- * nothing about which response a reference belongs to — fall back to every
- * reference rather than risk a false positive.
+ * Known gap: a write inside a loop produces one response per iteration, but a
+ * single consumer after the loop covers only the last one. Source order cannot
+ * express that; catching it needs a real control-flow graph.
  */
 function getLiveReferences(
   references: Reference[],
   self: Reference,
   awaitNode: TSESTree.Node,
 ): { live: Reference[]; overwrittenBy: Reference | null } {
-  if (getEnclosingLoop(self.identifier)) {
-    return { live: references, overwrittenBy: null };
-  }
   const from = awaitNode.range[1];
   const overwrittenBy = findOverwrite(references, self, from);
   const until = overwrittenBy ? overwrittenBy.identifier.range[0] : Number.POSITIVE_INFINITY;

@@ -217,13 +217,14 @@ ruleTester.run('no-unread-fetch-response', rule, {
       }`,
     },
     {
-      // A loop write is live across iterations, so order carries no meaning.
+      // Each iteration consumes the previous response, the trailing call the last.
       code: `async function ok(urls) {
         let r;
         for (const url of urls) {
           await r?.json();
           r = await fetch(url);
         }
+        await r?.json();
       }`,
     },
   ],
@@ -351,6 +352,17 @@ ruleTester.run('no-unread-fetch-response', rule, {
           r = await fetch(url);
         }
         return r;
+      }`,
+      errors: [{ messageId: 'unreadFetchResponse' }],
+    },
+    {
+      // Same loop without the trailing call: the last response is never consumed.
+      code: `async function bad(urls) {
+        let r;
+        for (const url of urls) {
+          await r?.json();
+          r = await fetch(url);
+        }
       }`,
       errors: [{ messageId: 'unreadFetchResponse' }],
     },
