@@ -1,7 +1,8 @@
 import type { Reference, Scope } from '@typescript-eslint/scope-manager';
 import type { TSESTree } from '@typescript-eslint/utils';
-import { ESLintUtils } from '@typescript-eslint/utils';
+import { ASTUtils, ESLintUtils } from '@typescript-eslint/utils';
 import { isFetchCall, unwrapAwait } from '../utils/ast.js';
+import { areMutuallyExclusive } from '../utils/flow.js';
 
 const createRule = ESLintUtils.RuleCreator((name) => `https://github.com/nodejs/node/issues?q=${name}`);
 
@@ -15,7 +16,7 @@ type Options = [
   },
 ];
 
-type MessageIds = 'unreadFetchResponse';
+type MessageIds = 'unreadFetchResponse' | 'overwrittenFetchResponse';
 
 function getConsumeMethods(options: Options[0]): Set<string> {
   return new Set([...DEFAULT_CONSUME, ...(options.additionalConsumeMethods ?? [])]);
@@ -113,6 +114,46 @@ function isBodyConsumed(references: Reference[], consumeMethods: Set<string>, al
   return false;
 }
 
+/**
+ * The next write that overwrites this response, dropping the reference to it.
+ * Writes on a sibling branch are skipped: they never run on the same path.
+ */
+function findOverwrite(references: Reference[], self: Reference, from: number): Reference | null {
+  let nearest: Reference | null = null;
+  for (const ref of references) {
+    if (ref === self || !ref.isWrite() || ref.identifier.range[0] < from) {
+      continue;
+    }
+    if (areMutuallyExclusive(ref.identifier, self.identifier)) {
+      continue;
+    }
+    if (!nearest || ref.identifier.range[0] < nearest.identifier.range[0]) {
+      nearest = ref;
+    }
+  }
+  return nearest;
+}
+
+/**
+ * References that can consume the response produced by `self`: those between
+ * this write and the next overwrite of the same binding.
+ *
+ * Known gap: a write inside a loop produces one response per iteration, but a
+ * single consumer after the loop covers only the last one. Source order cannot
+ * express that; catching it needs a real control-flow graph.
+ */
+function getLiveReferences(
+  references: Reference[],
+  self: Reference,
+  awaitNode: TSESTree.Node,
+): { live: Reference[]; overwrittenBy: Reference | null } {
+  const from = awaitNode.range[1];
+  const overwrittenBy = findOverwrite(references, self, from);
+  const until = overwrittenBy ? overwrittenBy.identifier.range[0] : Number.POSITIVE_INFINITY;
+  const live = references.filter((ref) => ref.identifier.range[0] >= from && ref.identifier.range[0] < until);
+  return { live, overwrittenBy };
+}
+
 export default createRule<Options, MessageIds>({
   name: 'no-unread-fetch-response',
   meta: {
@@ -134,6 +175,8 @@ export default createRule<Options, MessageIds>({
     messages: {
       unreadFetchResponse:
         'fetch() response body was not consumed. Call .text(), .json(), .arrayBuffer(), .blob(), .formData(), or .body.cancel().',
+      overwrittenFetchResponse:
+        'fetch() response body was not consumed before `{{name}}` was reassigned. Consume it or call .body.cancel() before the reassignment.',
     },
   },
   defaultOptions: [{}],
@@ -141,7 +184,7 @@ export default createRule<Options, MessageIds>({
     const fetchNames = options.fetchNames ?? ['fetch'];
     const allowReturnResponse = options.allowReturnResponse ?? false;
     const consumeMethods = getConsumeMethods(options);
-    const pending: { node: TSESTree.Node; bindingName: string | null }[] = [];
+    const pending: { node: TSESTree.Node; binding: TSESTree.Identifier | null }[] = [];
 
     return {
       AwaitExpression(node) {
@@ -153,21 +196,21 @@ export default createRule<Options, MessageIds>({
           return;
         }
         if (parent.type === 'VariableDeclarator' && parent.id.type === 'Identifier') {
-          pending.push({ node, bindingName: parent.id.name });
+          pending.push({ node, binding: parent.id });
           return;
         }
         if (parent.type === 'AssignmentExpression' && parent.operator === '=' && parent.left.type === 'Identifier') {
-          pending.push({ node, bindingName: parent.left.name });
+          pending.push({ node, binding: parent.left });
           return;
         }
         if (parent.type === 'ReturnStatement') {
           if (!allowReturnResponse) {
-            pending.push({ node, bindingName: null });
+            pending.push({ node, binding: null });
           }
           return;
         }
         if (parent.type === 'ExpressionStatement') {
-          pending.push({ node, bindingName: null });
+          pending.push({ node, binding: null });
         }
       },
 
@@ -188,21 +231,32 @@ export default createRule<Options, MessageIds>({
       },
 
       'Program:exit'() {
-        for (const item of [...pending]) {
-          if (item.bindingName === null) {
+        for (const item of pending) {
+          if (item.binding === null) {
             context.report({ node: item.node, messageId: 'unreadFetchResponse' });
             continue;
           }
-          const scope = context.sourceCode.getScope(item.node);
-          const variable = scope.variables.find((v) => v.name === item.bindingName) ?? scope.set.get(item.bindingName);
-          if (!variable) {
+          // The assignment may sit in a nested block — walk up to the declaring scope.
+          const variable = ASTUtils.findVariable(context.sourceCode.getScope(item.binding), item.binding);
+          const self = variable?.references.find((ref) => ref.identifier === item.binding);
+          // Unresolvable binding: assume a leak rather than stay silent.
+          if (!variable || !self) {
             context.report({ node: item.node, messageId: 'unreadFetchResponse' });
             continue;
           }
-          const consumed = isBodyConsumed(variable.references, consumeMethods, allowReturnResponse);
-          if (!consumed) {
-            context.report({ node: item.node, messageId: 'unreadFetchResponse' });
+          const { live, overwrittenBy } = getLiveReferences(variable.references, self, item.node);
+          if (isBodyConsumed(live, consumeMethods, allowReturnResponse)) {
+            continue;
           }
+          context.report(
+            overwrittenBy
+              ? {
+                  node: item.node,
+                  messageId: 'overwrittenFetchResponse',
+                  data: { name: item.binding.name },
+                }
+              : { node: item.node, messageId: 'unreadFetchResponse' },
+          );
         }
       },
     };
