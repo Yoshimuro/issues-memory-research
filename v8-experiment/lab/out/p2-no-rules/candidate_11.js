@@ -1,0 +1,27 @@
+function normalizeUser(raw) {
+  const src = raw && typeof raw === 'object' ? raw : {};
+
+  const result = {
+    id: src.id != null ? String(src.id) : '',
+    name: typeof src.name === 'string' && src.name.trim() !== '' ? src.name.trim() : 'Anonymous',
+    email: typeof src.email === 'string' ? src.email.trim().toLowerCase() : '',
+    plan: typeof src.plan === 'string' && src.plan.trim() !== '' ? src.plan.trim() : 'free',
+    credits: Number.isFinite(Number(src.credits)) ? Number(src.credits) : 0,
+  };
+
+  if (src.referrer != null) {
+    result.referrer = String(src.referrer);
+  }
+
+  if (src.trialUntil != null) {
+    result.trialUntil = src.trialUntil;
+  }
+
+  if (src.teamId != null) {
+    result.teamId = String(src.teamId);
+  }
+
+  return result;
+}
+
+module.exports = { normalizeUser };

@@ -1,0 +1,19 @@
+function normalizeUser(raw) {
+  const src = raw || {};
+
+  const result = {
+    id: src.id,
+    name: src.name != null ? src.name : '',
+    email: src.email != null ? src.email : '',
+    plan: src.plan != null ? src.plan : 'free',
+    credits: src.credits != null ? src.credits : 0,
+  };
+
+  if (src.referrer != null) result.referrer = src.referrer;
+  if (src.trialUntil != null) result.trialUntil = src.trialUntil;
+  if (src.teamId != null) result.teamId = src.teamId;
+
+  return result;
+}
+
+module.exports = { normalizeUser };

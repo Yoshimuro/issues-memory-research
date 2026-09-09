@@ -1,0 +1,38 @@
+```javascript
+function normalizeUser(raw) {
+  const src = raw && typeof raw === 'object' ? raw : {};
+
+  const toStr = (v, fallback) =>
+    v === undefined || v === null ? fallback : String(v);
+
+  const toNum = (v, fallback) => {
+    const n = Number(v);
+    return Number.isFinite(n) ? n : fallback;
+  };
+
+  const result = {
+    id: toStr(src.id, ''),
+    name: toStr(src.name, 'Anonymous').trim() || 'Anonymous',
+    email: toStr(src.email, '').trim().toLowerCase(),
+    plan: toStr(src.plan, 'free').trim().toLowerCase() || 'free',
+    credits: Math.max(0, Math.trunc(toNum(src.credits, 0)))
+  };
+
+  if (src.referrer !== undefined && src.referrer !== null) {
+    result.referrer = toStr(src.referrer, '');
+  }
+
+  if (src.trialUntil !== undefined && src.trialUntil !== null) {
+    const d = new Date(src.trialUntil);
+    result.trialUntil = Number.isNaN(d.getTime()) ? null : d.toISOString();
+  }
+
+  if (src.teamId !== undefined && src.teamId !== null) {
+    result.teamId = toStr(src.teamId, '');
+  }
+
+  return result;
+}
+
+module.exports = { normalizeUser };
+```

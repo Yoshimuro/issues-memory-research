@@ -1,0 +1,11 @@
+# Слайд-артефакт: заражение кейсов через общую функцию bench
+# Порядок кейсов: delete -> fast -> undefined, ОДИН процесс (node 24, v24.18.0)
+# fast и undefined должны быть ~3 мс, но после dict-mode кейса деградируют в ~30 раз:
+{"case":"delete","ms":108.2}
+{"case":"fast","ms":92.7}
+{"case":"undefined","ms":91.2}
+#
+# Те же кейсы в изолированных процессах (по одному на процесс):
+{"bench":"delete","case":"fast","ms":4.4}
+{"bench":"delete","case":"delete","ms":106.6}
+{"bench":"delete","case":"undefined","ms":3.5}
