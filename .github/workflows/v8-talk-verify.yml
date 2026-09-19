@@ -45,3 +45,26 @@ jobs:
         with:
           name: numbers-node${{ matrix.node }}-run${{ matrix.run }}
           path: v8-experiment/docker/out/gha-node${{ matrix.node }}-run${{ matrix.run }}
+  collect:
+    # Складывает NUMBERS.md всех прогонов в ветку v8-talk-results (коммит от GITHUB_TOKEN новых запусков не вызывает)
+    needs: verify
+    if: always()
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+      - name: Коммит результатов
+        run: |
+          set -e
+          git clone --quiet "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" repo
+          cd repo
+          git checkout v8-talk-results 2>/dev/null || git checkout --orphan v8-talk-results
+          git rm -rq --cached . 2>/dev/null || true
+          D=gha/${{ github.run_id }}; mkdir -p $D
+          for a in ../artifacts/*; do n=$(basename $a); mkdir -p $D/$n; cp $a/NUMBERS.md $a/env.txt $D/$n/ 2>/dev/null || true; cp $a/*.jsonl $a/wrongmap.txt $a/reader-status.txt $a/samemap.txt $D/$n/ 2>/dev/null || true; done
+          git add gha
+          git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" commit -qm "results: run ${{ github.run_id }}"
+          git push --quiet origin v8-talk-results

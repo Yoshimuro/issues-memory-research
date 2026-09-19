@@ -30,12 +30,13 @@ for (const [b, rs] of Object.entries(br)) {
 }
 const nr = cand.filter(c => /no-rules/.test(c.branch) && !c.r.error).map(c => c.r.p50_ms), wr = cand.filter(c => /-rules/.test(c.branch) && !/no-rules/.test(c.branch) && !c.r.error).map(c => c.r.p50_ms);
 P(`- без правил / с правилами: **${x(med(nr), med(wr), 1)}**\n`);
+const ctl = jl('candidates-control.jsonl'); if (ctl.length) P(`- контроль ref-b до/после серии: ${ctl.map(c => c.r.p50_ms).join(' · ')}` + (fs.existsSync(path.join(dir, 'candidates-disturbed.jsonl')) ? ' · первая серия забракована (помеха на старте прогона), сохранена в candidates-disturbed.jsonl' : '') + '\n');
 
 // лестница и пороги
 P('## Лестница ярусов (tier-bench, одна функция), мс');
 const tiers = jl('tiers.jsonl'), t = n => tiers.filter(r => r.maxopt === n && r.r && r.r.ms).map(r => r.r.ms);
 P(`- Ignition **${med(t(0))}** → Sparkplug **${med(t(1))}** → Maglev **${med(t(2))}** → TurboFan **${med(t(3))}** · Ignition/TurboFan **${x(med(t(0)), med(t(3)), 1)}**`);
-const th = jl('tier-threshold.jsonl');
+const th = rd('tier-threshold.jsonl').split('\n').map(l => { const m = l.match(/^\{.*?\}/); try { return m ? JSON.parse(m[0]) : null; } catch { return null; } }).filter(Boolean);
 P(`- на каком вызове ярус (5 прогонов): Sparkplug ${rng(th.map(r => r.baseline).filter(Boolean))} · Maglev ${th.some(r => r.maglev) ? rng(th.map(r => r.maglev).filter(Boolean)) : '—'} · TurboFan ${th.some(r => r.turbofan) ? rng(th.map(r => r.turbofan).filter(Boolean)) : '—'}\n`);
 
 // turbolev
