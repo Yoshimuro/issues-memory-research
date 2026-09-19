@@ -1,0 +1,44 @@
+# Перепроверка чисел доклада на настоящем linux/x64: тот же образ и тот же verify.sh, что локально.
+# Запуск руками: Actions → v8-talk-verify → Run workflow. Результат — артефакт NUMBERS.md + сырые логи.
+name: v8-talk-verify
+on:
+  push:
+    branches: [v8-talk-verify]
+  workflow_dispatch:
+    inputs:
+      runs:
+        description: 'Сколько независимых прогонов (оценка шума раннера)'
+        default: '3'
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.m.outputs.matrix }}
+    steps:
+      - id: m
+        run: echo "matrix=$(seq 1 ${{ inputs.runs || '3' }} | jq -cs '{run: ., node: ["24", "22"]}')" >> "$GITHUB_OUTPUT"
+  verify:
+    needs: plan
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJson(needs.plan.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Железо раннера
+        run: lscpu | grep -E 'Model name|^CPU\(s\)|Architecture'; nproc
+      - name: Образ
+        working-directory: v8-experiment
+        run: |
+          case "${{ matrix.node }}" in 24) TAG=24.21.0-alpine;; 22) TAG=22.23.2-alpine;; esac
+          docker build --build-arg NODE_TAG=$TAG -t v8-talk-lab:${{ matrix.node }} docker
+      - name: Прогон (строго последовательно, 2 CPU — как локально)
+        working-directory: v8-experiment
+        run: |
+          docker run --rm --cpus 2 -v "$PWD":/work v8-talk-lab:${{ matrix.node }} bash docker/verify.sh gha-node${{ matrix.node }}-run${{ matrix.run }}
+          docker run --rm -v "$PWD":/work v8-talk-lab:${{ matrix.node }} node docker/report.js docker/out/gha-node${{ matrix.node }}-run${{ matrix.run }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: numbers-node${{ matrix.node }}-run${{ matrix.run }}
+          path: v8-experiment/docker/out/gha-node${{ matrix.node }}-run${{ matrix.run }}
