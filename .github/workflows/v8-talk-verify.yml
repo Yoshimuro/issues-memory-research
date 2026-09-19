@@ -16,7 +16,8 @@ jobs:
       matrix: ${{ steps.m.outputs.matrix }}
     steps:
       - id: m
-        run: echo "matrix=$(seq 1 ${{ inputs.runs || '3' }} | jq -cs '{run: ., node: ["24", "22"]}')" >> "$GITHUB_OUTPUT"
+        run: |
+          echo "matrix=$(seq 1 ${{ inputs.runs || '3' }} | jq -cs '{run: ., node: ["24", "22"]}')" >> "$GITHUB_OUTPUT"
   verify:
     needs: plan
     runs-on: ubuntu-latest
@@ -27,7 +28,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Железо раннера
-        run: lscpu | grep -E 'Model name|^CPU\(s\)|Architecture'; nproc
+        run: |
+          lscpu | grep -E 'Model name|^CPU\(s\)|Architecture'
+          nproc
       - name: Образ
         working-directory: v8-experiment
         run: |
