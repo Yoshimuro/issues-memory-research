@@ -1,0 +1,3 @@
+A: true
+B: false
+форм у B: 8

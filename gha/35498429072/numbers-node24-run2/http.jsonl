@@ -1,0 +1,3 @@
+{"variant":"mono-llm","rps_avg":865.15,"lat_p50_ms":55,"lat_p99_ms":109,"errors":0,"non2xx":0}
+{"variant":"guard-llm","rps_avg":505.95,"lat_p50_ms":96,"lat_p99_ms":191,"errors":0,"non2xx":0}
+{"variant":"mixed-mono","rps_avg":819.35,"lat_p50_ms":59,"lat_p99_ms":116,"errors":0,"non2xx":0}
