@@ -440,7 +440,7 @@ for i, (t, _) in enumerate(QA):
     card(s, 'shadow', 0.47 + (i % 4) * 3.13, 1.4 + (i // 4) * 2.55, 2.98, 2.35, t, size=18, align='c', pad=0.2)
 s.notes_slide.notes_text_frame.text = '\n\n'.join(f'{t}: {a}' for t, a in QA)
 ann('Q&A', 'Q&A-резерв', '—', 'Восемь плашек-тем: compile hints · Sparkplug не спекулирует · сколько деоптов? · а на x64? · дырявые массивы · delete · порядок полей · билдер.',
-    'Слайд для сессии вопросов. Готовые ответы:\n\n' + '\n\n'.join(f'- **{t.strip("`")}.** {a}' for t, a in QA), kind='резерв')
+    'Слайд для сессии вопросов. Готовые ответы:\n\n' + '\n\n'.join('- **%s** %s' % (t.strip('`') if t.endswith('?') else t.strip('`') + '.', a) for t, a in QA), kind='резерв')
 
 # ---------- выкинуть слайды шаблона, сохранить
 lst = prs.slides._sldIdLst
