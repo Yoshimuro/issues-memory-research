@@ -4,6 +4,11 @@ name: v8-talk-verify
 on:
   push:
     branches: [v8-talk-verify]
+    paths:
+      - 'v8-experiment/docker/**'
+      - 'v8-experiment/lab/**'
+      - 'v8-experiment/demos/**'
+      - '.github/workflows/v8-talk-verify.yml'
   workflow_dispatch:
     inputs:
       runs:

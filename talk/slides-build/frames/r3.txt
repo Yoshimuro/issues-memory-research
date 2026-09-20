@@ -1,0 +1,4 @@
+$ node --allow-natives-syntax demo-samemap.js
+A: true
+B: false
+форм у B: 8

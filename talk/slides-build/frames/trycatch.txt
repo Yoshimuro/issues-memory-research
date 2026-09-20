@@ -1,0 +1,7 @@
+$ CASE=naive-pair node trycatch-myth.js
+{"bench":"trycatch","case":"naive-plain","ms":21}
+{"bench":"trycatch","case":"naive-try","ms":65}
+$ CASE=honest-plain node trycatch-myth.js
+{"bench":"trycatch","case":"honest-plain","ms":13}
+$ CASE=honest-try node trycatch-myth.js
+{"bench":"trycatch","case":"honest-try","ms":13}
