@@ -133,7 +133,7 @@ STEPS = [  # (название, когда, A, B, чем увидеть)
     ('две функции', 'хук', '0.12 мс', '0.79 мс', 'shape-analyzer'),
     ('форма объекта', 'вызов 1', '1 форма', '8 форм', '%HaveSameMap'),
     ('место чтения', 'первые вызовы', 'MONO', 'MEGA', '--log-ic'),
-    ('ярусы', '~700 → ~13 000', 'одна лестница', 'одна лестница', '--max-opt'),
+    ('ярусы', 'первые миллисекунды', 'одна лестница', 'одна лестница', '--max-opt'),
     ('ставка', 'после компиляции', 'сыграла', 'wrong map → общий путь', '--trace-deopt'),
     ('сервис', 'прод', '2302 rps', '1180 rps', 'autocannon'),
     ('агент', 'до первого вызова', 'автор: ?', 'без правил · 30/30', 'claude -p + прибор'),
@@ -263,7 +263,7 @@ def schema_tiers(s, x, y, w, h, top_label=None, numbers=True):
     scale = (h - 1.75) / 2.75
     seg(s, x, base, x + w, base, INK, 1.75)
     text(s, x + w - 2.6, base + 0.4, 2.6, 0.25, 'количество вызовов функции →', size=11, color=MUTED, align='r')
-    ticks = ('вызов 1', '~700', '~1000', '~13 000')
+    ticks = ('вызов 1', 'десятки', 'сотни', 'тысячи')
     for i, (nm, role, note, ms) in enumerate(TIERS):
         bx = x + 0.1 + i * sw; bh = hs[i] * scale
         spec = i >= 2
@@ -281,7 +281,7 @@ def schema_tiers(s, x, y, w, h, top_label=None, numbers=True):
         x0 = x + 0.1 + i0 * sw; x1 = x + 0.1 + (i1 + 1) * sw - 0.06
         seg(s, x0, by + 0.42, x1, by + 0.42, col, 1.25); seg(s, x0, by + 0.42, x0, by + 0.52, col, 1.25); seg(s, x1, by + 0.42, x1, by + 0.52, col, 1.25)
         text(s, x0, by - 0.05, x1 - x0, 0.45, lab, size=11.5, color=col, align='c', anchor='m')
-    text(s, x + 0.1, base + 0.4, w - 3.0, 0.25, '8-й вызов — движок заводит записи мест чтения · номиналы флагов: Maglev 400, TurboFan 3000 · считается бюджет байткода, не вызовы', size=9.5, color=MUTED)
+    text(s, x + 0.1, base + 0.4, w - 3.0, 0.25, 'движок считает не вызовы, а исполненный байткод: функция с циклом внутри — TurboFan к ~1500-му вызову, крошечная без циклов — к ~10–15 тыс. · по времени — первые 2–5 мс работы', size=9.5, color=MUTED)
 
 
 def chips(s, x, y, labels, h=0.5, fill='FFFFFF', line=INK, color=INK, size=12.5, gap=0.3, mark=None):
