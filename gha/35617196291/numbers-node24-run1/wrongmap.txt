@@ -1,0 +1,17 @@
+ref-a normalizeUser TURBOFAN_JS
+ref-b normalizeUser TURBOFAN_JS
+ref-b score TURBOFAN_JS
+ref-a normalizeUser TURBOFAN_JS
+ref-b normalizeUser TURBOFAN_JS
+ref-b score TURBOFAN_JS
+ref-a normalizeUser TURBOFAN_JS
+ref-b normalizeUser TURBOFAN_JS
+ref-b score TURBOFAN_JS
+ref-a normalizeUser TURBOFAN_JS
+ref-b normalizeUser TURBOFAN_JS
+ref-b score TURBOFAN_JS
+ref-a normalizeUser TURBOFAN_JS
+ref-b normalizeUser TURBOFAN_JS
+ref-b score TURBOFAN_JS
+analyzer-ref-a (sfi
+analyzer-ref-b (sfi
