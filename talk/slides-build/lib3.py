@@ -281,7 +281,7 @@ def schema_tiers(s, x, y, w, h, top_label=None, numbers=True):
         x0 = x + 0.1 + i0 * sw; x1 = x + 0.1 + (i1 + 1) * sw - 0.06
         seg(s, x0, by + 0.42, x1, by + 0.42, col, 1.25); seg(s, x0, by + 0.42, x0, by + 0.52, col, 1.25); seg(s, x1, by + 0.42, x1, by + 0.52, col, 1.25)
         text(s, x0, by - 0.05, x1 - x0, 0.45, lab, size=11.5, color=col, align='c', anchor='m')
-    text(s, x + 0.1, base + 0.4, w - 3.0, 0.25, 'считаются вызовы и витки циклов внутри, размер функции ни при чём: без циклов — TurboFan к ~10–15 тыс. вызовов, с циклом по 200 объектам — к ~1500 · по времени — первые 2–5 мс работы', size=9.5, color=MUTED)
+    text(s, x + 0.1, base + 0.4, w - 3.0, 0.25, 'чем чаще вызывают функцию, тем серьёзнее компилятор · функция, которую зовут на каждый запрос, окажется наверху в первые миллисекунды работы', size=9.5, color=MUTED)
 
 
 def chips(s, x, y, labels, h=0.5, fill='FFFFFF', line=INK, color=INK, size=12.5, gap=0.3, mark=None):
