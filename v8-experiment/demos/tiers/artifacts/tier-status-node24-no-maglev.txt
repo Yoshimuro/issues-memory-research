@@ -1,4 +1,4 @@
-node v24.21.0 / V8 13.6.233.17-node.53 / flags: --allow-natives-syntax --no-maglev
+node v24.21.0 / V8 13.6.233.17-node.53 / flags: --allow-natives-syntax --no-maglev / v8_enable_maglev=1
 natives через: a:cmdline --allow-natives-syntax
 
 == hot(o): статус после N-го вызова (без пауз между вызовами)
@@ -21,10 +21,10 @@ natives через: a:cmdline --allow-natives-syntax
     2999       129  interpreted          -            0b000000000000000010000001  IsFunction|Interpreted
     3000       129  interpreted          -            0b000000000000000010000001  IsFunction|Interpreted
     3001     32769  baseline             -            0b000000001000000000000001  IsFunction|Baseline
-    4000     33793  pending              -            0b000000001000010000000001  IsFunction|OptimizingConcurrently|Baseline
-    6000     33793  pending              -            0b000000001000010000000001  IsFunction|OptimizingConcurrently|Baseline
-   10000     33793  pending              -            0b000000001000010000000001  IsFunction|OptimizingConcurrently|Baseline
-   20000     33793  pending              -            0b000000001000010000000001  IsFunction|OptimizingConcurrently|Baseline
+    4000     33793  baseline+pending     -            0b000000001000010000000001  IsFunction|OptimizingConcurrently|Baseline
+    6000     33793  baseline+pending     -            0b000000001000010000000001  IsFunction|OptimizingConcurrently|Baseline
+   10000     33793  baseline+pending     -            0b000000001000010000000001  IsFunction|OptimizingConcurrently|Baseline
+   20000     33793  baseline+pending     -            0b000000001000010000000001  IsFunction|OptimizingConcurrently|Baseline
   after 5x setImmediate, no calls:
    20000        81  turbofan             -            0b000000000000000001010001  IsFunction|Optimized|TurboFanned
   after 5x setImmediate + 100 calls:
@@ -44,10 +44,10 @@ natives через: a:cmdline --allow-natives-syntax
 == loopy(o): OSR — статус изнутри цикла (i -> tier -> bits)
   i=       0     67713  interpreted          interpreted  0b000000010000100010000001  IsFunction|Interpreted|IsExecuting|TopmostFrameIsInterpreted
   i=     100     67713  interpreted          interpreted  0b000000010000100010000001  IsFunction|Interpreted|IsExecuting|TopmostFrameIsInterpreted
-  i=   10000    133633  pending              baseline     0b000000100000101000000001  IsFunction|MarkedForConcurrentOptimization|IsExecuting|TopmostFrameIsBaseline
-  i=  100000    133121  baseline             baseline     0b000000100000100000000001  IsFunction|IsExecuting|TopmostFrameIsBaseline
-  i=  500000      6145  turbofan             turbofan     0b000000000001100000000001  IsFunction|IsExecuting|TopmostFrameIsTurboFanned
-  i= 1000000      6145  turbofan             turbofan     0b000000000001100000000001  IsFunction|IsExecuting|TopmostFrameIsTurboFanned
-  i= 2000000      6145  turbofan             turbofan     0b000000000001100000000001  IsFunction|IsExecuting|TopmostFrameIsTurboFanned
-  i= 2999999      6145  turbofan             turbofan     0b000000000001100000000001  IsFunction|IsExecuting|TopmostFrameIsTurboFanned
+  i=   10000    133633  frame:baseline+pending baseline     0b000000100000101000000001  IsFunction|MarkedForConcurrentOptimization|IsExecuting|TopmostFrameIsBaseline
+  i=  100000    133121  frame:baseline       baseline     0b000000100000100000000001  IsFunction|IsExecuting|TopmostFrameIsBaseline
+  i=  500000      6145  frame:turbofan       turbofan     0b000000000001100000000001  IsFunction|IsExecuting|TopmostFrameIsTurboFanned
+  i= 1000000      6145  frame:turbofan       turbofan     0b000000000001100000000001  IsFunction|IsExecuting|TopmostFrameIsTurboFanned
+  i= 2000000      6145  frame:turbofan       turbofan     0b000000000001100000000001  IsFunction|IsExecuting|TopmostFrameIsTurboFanned
+  i= 2999999      6145  frame:turbofan       turbofan     0b000000000001100000000001  IsFunction|IsExecuting|TopmostFrameIsTurboFanned
 == loopy(o): после выхода            1  unknown(1)           -            0b000000000000000000000001  IsFunction

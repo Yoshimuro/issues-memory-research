@@ -1,35 +1,40 @@
 # Тиры V8: как узнать, в каком компиляторе живёт функция, и почему не «всегда TurboFan»
 
-**Дата:** 2026-09-25. **Вопросы доклада:** (Q1) как убедиться, что вызван тот или иной компилятор; (Q2) почему бы не компилировать всё сразу TurboFan'ом — «потратить мс на старте, получить буст потом».
+**Дата:** 2026-09-25 (ревизия 2 после трёх ревью: харнесс hot-фазы переписан, матрица прогнана заново, добавлены источники). **Вопросы доклада:** (Q1) как убедиться, что вызван тот или иной компилятор; (Q2) почему бы не компилировать всё сразу TurboFan'ом — «потратить мс на старте, получить буст потом».
+
+Коротко:
+- **Q1.** Точно — `%GetOptimizationStatus` (бит-маска, раскладка одинакова для Node 20/22/24, декодер `tier-status.js`); по событиям — `--trace-opt/--trace-deopt/--trace-baseline`, `--log-function-events`; по профилю — `--prof` (префиксы `~ ^ + *`). `--cpu-prof`/DevTools-профиль тира не содержат.
+- **Q2.** Там, где флаг `--always-turbofan` действительно компилирует всё TurboFan'ом на первом вызове (node20/V8 11.3; на node22/24 — только с `--minimum-invocations-before-optimization=0`), старт дороже в ~50 раз, а горячий код становится в 14–17 раз **медленнее** обычного: TurboFan без feedback генерирует неспекулятивный generic-код, который никогда не деоптимизируется и никогда не переоптимизируется. «Буста потом» нет, потому что буст даёт не компилятор, а feedback, собранный в Ignition/Sparkplug.
 
 ## Рантаймы
 
-| runtime | версия | V8 | примечание |
-|---|---|---|---|
-| node20 | v20.20.2 | 11.3.244.8 | Maglev нет (флаг `--maglev` принимается, но Maglev-компиляций не наблюдается) |
-| node21 | v21.7.3 | 11.8.172.17 | только для tier-status (прогрессия тиров) |
-| node22 | v22.22.2 | 12.4.254.21 | Maglev есть, по умолчанию выключен; с `--maglev` Maglev-компиляций в матрице **не наблюдалось** (0 строк `target MAGLEV`) |
-| node24 | v24.21.0 | 13.6.233.17 | Maglev включён по умолчанию; есть экспериментальный `--turbolev` |
+| runtime | версия | V8 | Maglev в сборке | примечание |
+|---|---|---|---|---|
+| node20 | v20.20.2 | 11.3.244.8 | **нет** (`process.config.variables.v8_enable_maglev = 0`): флаг `--maglev` принимается (`--v8-options`: `default: --no-maglev`), но `%OptimizeMaglevOnNextCall` печатает `Maglev is not enabled.` и функция остаётся `Interpreted` | tier-up по тикам (`--interrupt-budget=66KB`, `--ticks-before-optimization=3`, путь «small function»); `--always-turbofan` компилирует синхронно на первом вызове |
+| node21 | v21.7.3 | 11.8.172.17 | нет (`v8_enable_maglev = 0`, `Maglev is not enabled.`) | только tier-status и trace-demo |
+| node22 | v22.22.2 | 12.4.254.21 | **нет** (`v8_enable_maglev = 0`, `Maglev is not enabled.`) — вариант `--maglev` в матрице ≡ default | tier-up по бюджету `invocation_count_for_*`; `--always-turbofan` сам по себе не компилирует (см. Q2) |
+| node24 | v24.21.0 | 13.6.233.17 | **да** (`v8_enable_maglev = 1`, `default: --maglev`; `%OptimizeMaglevOnNextCall` → `Optimized\|MaglevOptimized`) | concurrent Sparkplug включён по умолчанию; есть экспериментальный `--turbolev` |
 
-Машина: 4 vCPU Intel Xeon 2.10 GHz, 16 GB. Все процессы строго последовательно. Точные версии — `artifacts/versions.txt`; какие флаги какая версия принимает — `artifacts/flag-support.txt`.
+Машина: 4 vCPU Intel Xeon 2.10 GHz, 16 GB, без pinning (`taskset` не применялся — см. «Аномалии»). Все процессы строго последовательно. Точные версии — `artifacts/versions.txt`; какие флаги какая версия принимает — `artifacts/flag-support.txt`; сборка Maglev — `artifacts/maglev-build.txt`.
 
 ## Методология
 
-- **Q1 (детекция тира).** `tier-status.js` — библиотека `decodeOptimizationStatus(status)` / `tierOf(status)` / `frameTierOf(status)` по битам enum `OptimizationStatus` из `src/runtime/runtime.h` (биты 0..23) + CLI. CLI берёт горячую функцию `hot(o) { return o.a * o.b + o.c - o.d + o.e; }` (одна форма объекта), вызывает её в цикле и печатает декодированный `%GetOptimizationStatus` после вызовов №1, 2, 7, 8, 9, 50, 100, 200, 399, 400, 401, 600, 1000, 2000, 2999, 3000, 3001, 4000, 6000, 10000, 20000, затем после 5 и 20 тиков `setImmediate` и после `setTimeout` 20/100/300 мс (чтобы фоновая компиляция успела установиться). Плюс функция, вызванная один раз, и функция с длинным циклом (OSR), статус которой запрашивается изнутри цикла. Прогнано на 7 конфигурациях: node20, node21, node22, node22 `--maglev`, node24, node24 `--no-maglev`, node24 `--always-sparkplug` (`run-tier-status.sh` → `artifacts/tier-status-<runtime>.txt`).
-- Два способа включить natives: (a) `--allow-natives-syntax` в командной строке; (b) в рантайме `require('v8').setFlagsFromString('--allow-natives-syntax')` и затем `new Function('f', 'return %GetOptimizationStatus(f)')`. **Способ (b) проверен и работает на node20, node21, node22, node24** (`artifacts/natives-runtime-method.txt`: во всех четырёх «natives через: b:runtime v8.setFlagsFromString + new Function», таблица тиров печатается). Важно: флаг действует только на код, распарсенный после его установки, поэтому `%`-вызов нужно создавать через `new Function`/`eval`.
-- `trace-demo.js` — что печатают `--trace-opt --trace-deopt --trace-baseline` (node22, node24), включая деопт по смене формы (`artifacts/trace-opt-<runtime>.txt`).
-- «Продакшн»-детекция без natives (`run-detect-methods.sh`, node24, нагрузка `detect-workload.js`: 8 функций `tierProbe0..7` через мегаморфный call-site, чтобы не заинлайнились): `--prof` + `--prof-process`, `--log-function-events` (+ `--log-code`), `--trace-event-categories`, `--cpu-prof`. Результаты — `artifacts/detect-*.txt`.
+- **Q1 (детекция тира).** `tier-status.js` — библиотека `decodeOptimizationStatus(status)` / `tierOf(status)` / `frameTierOf(status)` по битам enum `OptimizationStatus` из `src/runtime/runtime.h` + CLI. Раскладка битов проверена по исходникам для V8 11.3 / 12.4 / 13.6 (Node 20 / 22 / 24): биты 0..20 одинаковы, биты 21..23 добавлены в 13.6. В V8 main (2026) бит `kAlwaysOptimize` удалён вместе с флагом `--always-turbofan`, и все биты ≥ 2 сдвинуты на один вниз (TurboFanned = 1<<5, Maglevved = 1<<4, Interpreted = 1<<6, Baseline = 1<<14), поэтому декодер нужно привязывать к версии V8 (`process.versions.v8`). `tierOf()` возвращает активный тир и, если параллельно запрошена/идёт компиляция следующего (`MarkedFor*`/`OptimizingConcurrently`), добавляет суффикс `+pending` (в ревизии 1 такие статусы печатались просто как `pending`, и активный тир терялся). CLI берёт горячую функцию `hot(o) { return o.a * o.b + o.c - o.d + o.e; }` (одна форма объекта), вызывает её в цикле и печатает декодированный статус после вызовов №1, 2, 7, 8, 9, 50, 100, 200, 399, 400, 401, 600, 1000, 2000, 2999, 3000, 3001, 4000, 6000, 10000, 20000, затем после 5 и 20 тиков `setImmediate` и после `setTimeout` 20/100/300 мс (чтобы фоновая компиляция успела установиться). Плюс функция, вызванная один раз, и функция с длинным циклом (OSR), статус которой запрашивается изнутри цикла. Прогнано на 7 конфигурациях: node20, node21, node22, node22 `--maglev`, node24, node24 `--no-maglev`, node24 `--always-sparkplug` (`run-tier-status.sh` → `artifacts/tier-status-<runtime>.txt`). Точки смены тира зависят от времени (фоновый поток), поэтому в таблице ниже — значения из текущих артефактов, а там, где предыдущий прогон отличался, это указано.
+- Два способа включить natives: (a) `--allow-natives-syntax` в командной строке; (b) в рантайме `require('v8').setFlagsFromString('--allow-natives-syntax')` и затем `new Function('f', 'return %GetOptimizationStatus(f)')`. Способ (b) проверен и работает на node20, node21, node22, node24 (полные выводы — `artifacts/tier-status-<runtime>-runtime-flag.txt`, сводка — `artifacts/natives-runtime-method.txt`). Флаг действует только на код, распарсенный после его установки (V8 копирует `v8_flags.allow_natives_syntax` в флаги компиляции при парсинге), поэтому `%`-вызов нужно создавать через `new Function`/`eval`.
+- `trace-demo.js` — что печатают `--trace-opt --trace-deopt --trace-baseline` на node20, node21, node22, node24, включая деопт по смене формы (`artifacts/trace-opt-<runtime>.txt`).
+- «Продакшн»-детекция без natives (`run-detect-methods.sh`, node24, нагрузка `detect-workload.js`: 8 функций `tierProbe0..7` через мегаморфный call-site, чтобы не заинлайнились): `--prof` + `--prof-process`, `--log-function-events` (+ `--log-code`), `--trace-event-categories`, `--cpu-prof`. Результаты — `artifacts/detect-*.txt` (не перепрогонялись в ревизии 2; в документе цитируются только строки, которые в них есть).
 - **Q2 (матрица).** `always-turbofan-bench.js`: один процесс = один вариант флагов, три фазы, у каждой своя функция-цикл (общий `bench(fn)` не используется — см. заражение харнесса в `demos/myths`):
   - *cold* — N_COLD=2000 разных функций через `new Function` (индекс вшит в тело → отдельные SharedFunctionInfo), каждая вызвана ровно 3 раза; отдельно время создания и время вызовов;
-  - *hot* — 3 моно-функции (`hotA/hotB/hotC`) в цикле HOT_MS=1500 мс, пропускная способность по окнам 25 мс: пик = медиана 5 лучших окон, «время до 90% пика» = конец первого окна с ≥0.9·пик, первое окно;
-  - *unstable* — одна функция `unstable(o)` (цикл на 6 итераций по трём полям): 20000 вызовов с формой A `{p,q,r}`, 20000 с формой B `{p,q,r,extra}`, 20000 вперемешку; UNSTABLE_N=20000 (как в задании; это 1–5 мс на фазу, поэтому цифры unstable сравниваются только грубо);
+  - *hot* — 3 моно-функции (`hotA/hotB/hotC`), вызываемые из функции `chunk(objs, s, 2000)` в течение HOT_MS=1500 мс; входы **меняются каждую итерацию** (4 объекта одной формы, индекс от `k`), аккумулятор — **Smi** (`(s + …) & 0x3fffffff`), окна по 25 мс считаются снаружи `chunk`. Метрика **steady** = медиана окон последней трети фазы; также записываются первое окно, «пик» по старой методике (медиана 5 лучших окон), вся серия окон и число GC-событий за фазу (`PerformanceObserver('gc')`). `hotA/B/C` инлайнятся в `chunk` — «hot» измеряет `chunk`+`hotA/B/C` в том тире, до которого дошёл `chunk`;
+  - *unstable* — одна функция `unstable(o)` (цикл на 6 итераций по трём полям): UNSTABLE_N=200000 вызовов с формой A `{p,q,r}`, 200000 с формой B `{p,q,r,extra}`, 200000 вперемешку; каждая подфаза записывается двумя половинами (переходный процесс / установившийся режим);
   - в конце `process.memoryUsage().rss`, `heapUsed`, `v8.getHeapCodeStatistics().code_and_metadata_size`.
-  - Варианты: `default`, `--always-turbofan`, `--always-sparkplug`, `--no-sparkplug`, `no-opt` (`--no-turbofan`, на node22/24 плюс `--no-maglev`), `--maglev` (node22), `--no-maglev` (node24), `--jitless`, `--lite-mode`, `eager` (node20: `--interrupt-budget=1000`; node22/24: `--invocation-count-for-turbofan=100 --invocation-count-for-maglev=20` — `--interrupt-budget` на node22/24 отвергается, `--invocation-count-for-turbofan` на node20 отвергается), `--turbolev` (node24). `--jitless`/`--lite-mode` на node20/22 печатают `Warning: disabling flag --expose_wasm due to conflicting flags`, но работают.
-  - 3 рантайма × 8–10 вариантов × 5 повторов = 135 процессов, медианы → `results.jsonl`, сырые → `raw-runs.jsonl`. Плюс один trace-прогон на ячейку (`--trace-opt --trace-deopt` в файл) → счётчики `completed compiling (target MAGLEV/TURBOFAN)` и `bailout` → `traces.jsonl`, выжимки в `artifacts/trace-counts/`. Полная матрица: **274 с**.
-  - Первый полный прогон показал, что сам цикл hot-фазы деоптимизировался (переполнение Smi у аккумулятора + первое `push` в массив окон); харнесс поправлен (аккумулятор сразу double, массив окон прогрет), матрица прогнана заново — в документе только второй прогон.
-- **Механизм (Q2).** `feedback-matters.js`: одна и та же функция `target(o, arr, i)` компилируется оптимизирующим компилятором (a) сразу, с пустым feedback (`%PrepareFunctionForOptimization` + `%OptimizeFunctionOnNextCall`, 0 прогревочных вызовов) и (b) после 200 прогревочных вызовов на стабильной форме. Потом 2000 и 1e6 вызовов; статус-биты, строки `--trace-deopt` (дочерний процесс), пропускная способность. TurboFan на node22/node24, Maglev на node24 (`%OptimizeMaglevOnNextCall` есть и работает).
+  - **Почему харнесс переписан (блокеры ревью).** В ревизии 1 аккумулятор hot-фазы был double в OSR-коде и боксился в HeapNumber на каждой итерации (~2200–2700 scavenge за 1.5 с, ~10 % времени в GC), а входы `hotA/B/C` были loop-invariant, и Turbolev выносил вызовы из цикла — отсюда «×3.3». В ревизии 2: GC-событий в hot-фазе 2–3 на процесс во всех вариантах (проверено `--trace-gc` и счётчиком в JSON), а `--turbolev` = default (см. ниже).
+  - Варианты: `default`, `--always-turbofan`, `always-turbofan-min0` (= `--always-turbofan --minimum-invocations-before-optimization=0`, только node22/24: единственный способ получить на V8 12.4/13.6 то же поведение, что `--always-turbofan` на 11.3 — см. Q2), `--always-sparkplug`, `--no-sparkplug`, `no-opt` (`--no-turbofan`, на node22/24 плюс `--no-maglev`), `--maglev` (node22; ≡ default, Maglev не собран), `--no-maglev` (node24), `--jitless`, `--lite-mode`, `eager` (node20: `--interrupt-budget=1000`; node22/24: `--invocation-count-for-turbofan=100 --invocation-count-for-maglev=20`), `--turbolev` (node24). `--jitless`/`--lite-mode` на node20/22 печатают `Warning: disabling flag --expose_wasm due to conflicting flags`, но работают.
+  - 3 рантайма × 8–11 вариантов × **10 повторов** = 290 процессов; каждый повтор идёт с `--trace-deopt`, и по его выводу считаются деопты за прогон (все и отдельно функций харнесса `chunk/hotPhase`). В `results.jsonl` — медиана, min, max и все значения hot steady по повторам (чтобы бимодальность была видна). Плюс один trace-прогон на ячейку (`--trace-opt --trace-deopt`) → счётчики `completed compiling (target MAGLEV/TURBOFAN)`, `marking … hotA/B/C`, `bailout` → `traces.jsonl`; выжимки — `artifacts/trace-counts/`, **полные логи** — `artifacts/trace-full/` (в ревизии 1 они удалялись, и часть утверждений нельзя было проверить).
+  - Порог интерпретации: отличия hot steady между JIT-вариантами **меньше ×1.4 не интерпретируются** (ревизия 1 ставила ×1.3 — недостаточно при наблюдаемом разбросе; см. «Аномалии»).
+- **Механизм (Q2).** `feedback-matters.js`: одна и та же функция `target(o, arr, i)` компилируется оптимизирующим компилятором (a) `empty` — сразу, с пустым feedback (`%PrepareFunctionForOptimization` + `%OptimizeFunctionOnNextCall`, 0 прогревочных вызовов); (b) `warm` — после 200 прогревочных вызовов на стабильной форме; (c) `empty-always` — как (a), но дочерний процесс запущен с `--always-turbofan`. Потом 2000 и 1e6 вызовов; статус-биты, строки `--trace-deopt`, пропускная способность. TurboFan на node20/22/24, Maglev на node24 (на node20/22 `%OptimizeMaglevOnNextCall` печатает `Maglev is not enabled.` — это тоже в артефактах).
 
-Команды: `./run-tier-status.sh`, `node22 --trace-opt --trace-deopt --trace-baseline trace-demo.js`, `./run-detect-methods.sh`, `./run-matrix.sh` (→ `collect.js` → `results.jsonl`), `node report-tiers.js` (→ таблицы ниже, копия в `artifacts/report-tiers.md`), `node22 feedback-matters.js turbofan`, `node24 feedback-matters.js`. Все скрипты — CommonJS (`package.json` с `"type":"commonjs"` в этой папке, потому что корень репозитория — ESM).
+Команды: `./run-tier-status.sh`, `node22 --trace-opt --trace-deopt --trace-baseline trace-demo.js`, `./run-detect-methods.sh`, `./run-matrix.sh` (→ `collect.js` → `results.jsonl`), `node report-tiers.js` (→ таблицы ниже, копия в `artifacts/report-tiers.md`), `node24 feedback-matters.js`. Все скрипты — CommonJS (`package.json` с `"type":"commonjs"` в этой папке, потому что корень репозитория — ESM).
 
 ## Q1. Как узнать, какой тир выполняет функцию
 
@@ -37,240 +42,321 @@
 
 | способ | работает на | что печатает (реальная строка из артефактов) | тир виден? |
 |---|---|---|---|
-| natives: `%GetOptimizationStatus(f)` (флаг с командной строки или `v8.setFlagsFromString` + `new Function`) | node20/21/22/24 (оба способа) | `49 → IsFunction\|Optimized\|MaglevOptimized`; `81 → IsFunction\|Optimized\|TurboFanned`; `32769 → IsFunction\|Baseline`; `129 → IsFunction\|Interpreted`; `262145 → IsFunction\|IsLazy`; изнутри цикла `6145 → IsFunction\|IsExecuting\|TopmostFrameIsTurboFanned` | да, точно, включая «помечена / компилируется в фоне» и тир верхнего кадра (OSR) |
-| `--trace-opt` | node20/22/24 | `[marking 0x… <JSFunction hotMono …> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]`, `[completed compiling 0x… <JSFunction hotMono …> (target TURBOFAN_JS) - took 0.012, 0.954, 0.045 ms]` (node22: `target TURBOFAN`; с `--always-turbofan`: `[optimizing … (target TURBOFAN) because --always-turbofan]`) | да, только события компиляции (не «текущее состояние») |
-| `--trace-deopt` | node20/22/24 | `[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing 0x… <JSFunction willDeopt …>, 0x… <Code MAGLEV>, opt id 5, bytecode offset 0, …]` | да, в деопте виден тир кода (`<Code MAGLEV>` / `<Code TURBOFAN>`) |
-| `--trace-baseline` | node20/21: `[compiling method 0x… <SharedFunctionInfo hotMono> (target BASELINE)]`, `[completed compiling … (target BASELINE) - took 0.005 ms]`; node22/24: только `[Baseline batch compilation] Enqueued SFI hotMono with estimated size 259 (current budget: 259/4096)` | см. слева | частично: на node22/24 видна только постановка в batch-очередь |
-| `--prof` + `--prof-process` | node24 (проверено) | `JS: *tierProbe7 …:13:20` (TurboFan), `JS: +driver …:16:16` (Maglev), `JS: ~tierProbe4 …:10:20` (Ignition), `JS: ^tierProbe7 …` (Sparkplug; в контрольном прогоне `--no-maglev --no-turbofan`) | да, по префиксу: `~` Ignition, `^` Sparkplug, `+` Maglev, `*` TurboFan; отдельная строка на каждый тир одной и той же функции |
-| `--log-function-events --logfile=… --no-logfile-per-isolate` | node24 (проверено) | `function,interpreter,…,tierProbe0` → `function,first-execution,…` → `function,baseline,…` → `function,first-execution-BASELINE,…` → `function,maglev,…` → `function,first-execution-MAGLEV,…` → `function,turbofan,88,360,443,0.752,25288,tierProbe0` → `function,first-execution-TURBOFAN_JS,…` | да, события компиляции и первого выполнения на каждом тире |
-| то же + `--log-code` | node24 | `code-creation,JS,9,…,56,tierProbe0 …:6:20,0x…,~` / `…,452,…,^` / `…,760,…,+'` / `…,700,…,*'` | да: маркер тира последним полем (`~ ^ + *`; у Maglev/TurboFan наблюдается суффикс `'`) + размер кода |
+| natives: `%GetOptimizationStatus(f)` (флаг с командной строки или `v8.setFlagsFromString` + `new Function`) | node20/21/22/24 (оба способа) | `49 → IsFunction\|Optimized\|MaglevOptimized`; `81 → IsFunction\|Optimized\|TurboFanned`; `32769 → IsFunction\|Baseline`; `33793 → IsFunction\|OptimizingConcurrently\|Baseline` (`baseline+pending`); `129 → IsFunction\|Interpreted`; `262145 → IsFunction\|IsLazy`; изнутри цикла `6145 → IsFunction\|IsExecuting\|TopmostFrameIsTurboFanned` | да, точно, включая «помечена / компилируется в фоне» и тир верхнего кадра (OSR). Бит `MaybeDeopted` (1<<3) историю деоптов **не** отражает: в `runtime-test.cc` он выставляется только при флаге `--deopt-every-n-times`, в наших прогонах всегда 0 |
+| `--trace-opt` | node20/21/22/24 | `[marking 0x… <JSFunction hotMono …> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]`, `[compiling method … (target TURBOFAN_JS), mode: ConcurrencyMode::kConcurrent]`, `[completed compiling 0x… <JSFunction hotMono …> (target TURBOFAN_JS) - took 0.012, 0.954, 0.045 ms]` (node20/21/22: `target TURBOFAN`; node20 ещё печатает `reason: small function`; OSR-компиляции помечены суффиксом ` OSR`: `(target TURBOFAN) OSR, mode: …` в `trace-opt-node20.txt`; с `--always-turbofan`: `[optimizing … (target TURBOFAN) because --always-turbofan]`) | да, только события компиляции (не «текущее состояние») |
+| `--trace-deopt` | node20/21/22/24 | `[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing 0x… <JSFunction willDeopt …>, 0x… <Code MAGLEV>, opt id 5, bytecode offset 0, …]` | да, в деопте виден тир кода (`<Code MAGLEV>` / `<Code TURBOFAN>` / `<Code TURBOFAN_JS>`) |
+| `--trace-baseline` | node20/21 (`trace-opt-node20.txt`, `-node21.txt`, Sparkplug на главном потоке, без batch-строк): `[compiling method 0x… <SharedFunctionInfo hotMono> (target BASELINE)]` + `[completed compiling … (target BASELINE) - took 0.003 ms]`; node22 (`trace-opt-node22.txt`, batch на главном потоке): `[Baseline batch compilation] Enqueued SFI hotMono with estimated size 259 (current budget: 1547/4096)` + те же `compiling method`/`completed compiling … (target BASELINE) - took 0.005 ms`; node24 (`trace-opt-node24.txt`, `--concurrent-sparkplug` по умолчанию): `Enqueued SFI hotMono … (current budget: 259/4096)` + `[Concurrent Sparkplug Off Thread] Function 0x… <SharedFunctionInfo hotMono> installed` | см. слева | да: на всех версиях видно, что функция скомпилирована Sparkplug'ом (строка `completed compiling … BASELINE` или `… installed`) |
+| `--prof` + `--prof-process` | node24 (проверено) | `JS: *tierProbe7 …:13:20` (TurboFan), `JS: +tierProbe0 …:6:20` (Maglev, 1 тик), `JS: ~<anonymous> …/detect-workload.js:1:1` (Ignition — скрипт верхнего уровня; ни одна `tierProbe` в Ignition в тики не попала), `JS: ^tierProbe7 …` (Sparkplug; в контрольном прогоне `--no-maglev --no-turbofan`); `driver` виден как `*driver` и `^driver` | да, по префиксу: `~` Ignition, `^` Sparkplug, `+` Maglev, `*` TurboFan; отдельная строка на каждый тир одной и той же функции |
+| `--log-function-events --logfile=… --no-logfile-per-isolate` | node24 (проверено) | `function,interpreter,…,tierProbe0` → `function,first-execution,…` → `function,baseline,…` → `function,first-execution-BASELINE,…` → `function,maglev,…` → `function,first-execution-MAGLEV,…` → `function,turbofan,88,360,443,1.346,65495,tierProbe0` → `function,first-execution-TURBOFAN_JS,…` | да, события компиляции и первого выполнения на каждом тире |
+| то же + `--log-code` | node24 | `code-creation,JS,9,…,56,tierProbe0 …:6:20,0x…,~` / `…,452,…,^` / `…,760,…,+'` / `…,700,…,*'` | да: маркер тира последним полем — `~` Ignition, `^` Sparkplug, `+` Maglev, `*` TurboFan; апостроф (`+'`, `*'`, только V8 ≥ 13.x) означает context-specialized код (`CodeKindToMarker`), `--prof-process` печатает оба варианта как `+`/`*`; плюс размер кода |
 | `--trace-event-categories v8,v8.compile` | node24 | только `V8.DeoptimizeCode`, `MinorGC`, `V8.GCScavenger`… | нет |
-| `--trace-event-categories disabled-by-default-v8.compile,…` | node24 | `{"name":"V8.MaglevTask","dur":346,"args":{}}`, `V8.OptimizeCode`, `V8.CompileCode`, `V8.FinalizeBaselineConcurrentCompilation`, `V8.MarkCandidatesForOptimization` — `args` пустые | только факт/длительность компиляций, **без имён функций** |
+| `--trace-event-categories disabled-by-default-v8.compile,…` | node24 | `{"name":"V8.MaglevTask","dur":318,"args":{}}`, `V8.OptimizeCode` (`dur:175`), `V8.CompileCode`, `V8.FinalizeBaselineConcurrentCompilation` (установка batch'а concurrent Sparkplug), `V8.MarkCandidatesForOptimization` — `args` пустые | только факт/длительность компиляций, **без имён функций** |
 | `--cpu-prof` (.cpuprofile) | node24 | ключи узла: `id, callFrame, hitCount, children`; `callFrame`: `functionName, scriptId, url, lineNumber, columnNumber`; вхождений `optimiz/maglev/turbofan/baseline/sparkplug/interpret` в файле: 0 | **нет** |
-| DevTools Performance/Profiler | не проверялось (нет браузера в этом окружении); формат тот же `.cpuprofile` | — | по формату — нет |
+| DevTools Performance/Profiler | не проверялось (нет браузера в этом окружении); формат тот же `.cpuprofile`; по исходникам devtools-frontend Performance показывает `V8.OptimizeCode` как «Optimize code» без имени компилятора | — | по формату — нет |
 
 Файл с полными выводами: `artifacts/detect-prof.txt` (+ `detect-prof-full.txt`), `detect-log-function-events.txt`, `detect-log-code.txt`, `detect-trace-events.txt`, `detect-cpu-prof.txt`, `detect-trace-opt-node22.txt`, `detect-trace-opt-node24.txt`.
 
 ### Наблюдаемая прогрессия тиров: `hot(o)` (одна форма, ~20 байткодов), статус после N-го вызова
 
-Первый N в таблице, при котором наблюдался тир (из `artifacts/tier-status-*.txt`; `pending` = `OptimizingConcurrently` / `MarkedFor…`, т.е. компиляция идёт в фоне; «+20 мс» — после `setTimeout(20)` и ещё 100 вызовов):
+Первый N в таблице, при котором наблюдался тир (из текущих `artifacts/tier-status-*.txt`; `+pending` = `OptimizingConcurrently` / `MarkedFor…`, т.е. компиляция следующего тира идёт в фоне; «5×sI» = после 5 тиков `setImmediate` без вызовов; «+20 мс» = после `setTimeout(20)` и ещё 100 вызовов). В скобках — значения из прогона ревизии 1 там, где они отличались: точки зависят от того, успел ли фоновый поток.
 
-| конфигурация | N=0 | interpreted | baseline | pending (в фоне) | maglev | turbofan | после +20 мс |
-|---|---|---|---|---|---|---|---|
-| node20 | lazy | 1 | 100 (в прогоне способом (b) — 399) | 2000 (`Baseline\|OptimizingConcurrently`) | — | 20000 | turbofan |
-| node21 | lazy | 1 | 600 | 4000 | — | не установился и после 20 000 вызовов + 20×setImmediate | turbofan |
-| node22 | lazy | 1 | 600 | 4000 | — | то же | turbofan |
-| node22 `--maglev` | lazy | 1 | 600 | 4000 | **нет** (Maglev-бита не появилось) | после 20×setImmediate | turbofan |
-| node24 | lazy | 1 | 2999 (Baseline-бит появился уже вместе с `OptimizingConcurrently`) | 600 (`Interpreted\|OptimizingConcurrently` — Maglev компилируется раньше, чем поставился Sparkplug) | 6000 | после +20 мс (20300) | turbofan |
-| node24 `--no-maglev` | lazy | 1 | 3001 | 4000 | — | 20000 | turbofan |
-| node24 `--always-sparkplug` | lazy | — (вызов №1 уже `Baseline`) | 1 | 600 | 4000 | после +20 мс | turbofan |
+| конфигурация | N=0 | interpreted | baseline | первый `+pending` | maglev | turbofan |
+|---|---|---|---|---|---|---|
+| node20 | lazy | 1 | 100 | 2000 (`baseline+pending`) | — | после 5×sI (рев. 1: на 20000-м вызове, внутри цикла) |
+| node21 | lazy | 1 | 600 | 4000 (`baseline+pending`) | — | после 5×sI |
+| node22 | lazy | 1 | 600 | 4000 (`baseline+pending`) | — | после 20×sI (рев. 1: после 5×sI; в повторном прогоне ревьюера — на 20000-м вызове) |
+| node22 `--maglev` | lazy | 1 | 600 | 4000 (`baseline+pending`) | **нет** (Maglev не собран) | после 5×sI |
+| node24 | lazy | 1 | в этом прогоне бит `Baseline` не наблюдался (рев. 1: 2999, вместе с `OptimizingConcurrently`) | 600 (`interpreted+pending` — Maglev компилируется раньше, чем поставился Sparkplug) | 3001 (рев. 1: 6000) | после +20 мс (20300); на 20000 — `maglev+pending` |
+| node24 `--no-maglev` | lazy | 1 | 3001 | 4000 (`baseline+pending`) | — | после 5×sI |
+| node24 `--always-sparkplug` | lazy | — (вызов №1 уже `Baseline`) | 1 | 600 (`baseline+pending`) | 10000 (рев. 1: 4000) | после +20 мс |
 
 Что видно по цифрам:
-- Ни в одной конфигурации тир не сменился на «магических» 8/400/3000 вызовах — порог зависит от бюджета прерываний (размер байткода) и от того, успел ли фоновый поток; точка Sparkplug на node20 в двух прогонах была 100 и 399 (batch-компиляция).
-- В плотном цикле без пауз фоновая TurboFan-компиляция может не установиться и за 20 000 вызовов (node21/node22); стоило дать 20 мс — везде `turbofan`.
+- Ни в одной конфигурации тир не сменился на «магических» 8/400/3000 вызовах — порог задаётся бюджетом прерываний (`invocation_count_* × длина байткода`, см. «Источники») и тем, успел ли фоновый поток. Sparkplug на node20 приходит на 100-м вызове (метод (a) и метод (b), `tier-status-node20-runtime-flag.txt`); на node21/22 — на 600-м; на node24 без Maglev — на 3001-м, а с Maglev его часто вообще не видно по статусу, потому что Maglev-код успевает раньше.
+- В плотном цикле без пауз фоновая TurboFan-компиляция может установиться на 20000-м вызове, а может и нет: в трёх прогонах node22 TurboFan появился на 20000-м вызове, после 5×setImmediate и после 20×setImmediate. Одного тика макрозадач обычно достаточно; на node24 с Maglev нужна пауза ~20 мс (TurboFan идёт вторым, после Maglev).
 - Функция, вызванная один раз: до вызова `IsLazy`, после — `Interpreted`; с `--always-sparkplug` — сразу `Baseline`.
-- OSR (статус изнутри цикла `loopy`, 3e6 итераций): node24 — `i=0: TopmostFrameIsInterpreted` → `i=10000: TopmostFrameIsBaseline|MarkedForConcurrentMaglevOptimization` → `i=500000: TopmostFrameIsTurboFanned` (кадр стал TurboFan, минуя установку Maglev для самой функции); node22 — `Interpreted` → `Baseline` → `TopmostFrameIsTurboFanned` при том, что функция всё ещё `MarkedForConcurrentOptimization`. После выхода из цикла на node24 статус = только `IsFunction` (1), на node22 — `Baseline|MarkedForConcurrentOptimization`. Биты `TopmostFrameIs*` — единственный способ увидеть OSR-тир.
+- OSR (статус изнутри цикла `loopy`, 3e6 итераций): по статусу *функции* OSR-тир виден только через биты `TopmostFrameIs*` (у функции `loopy` при этом остаются биты её собственного кода: node20 — `Baseline|MarkedForConcurrentOptimization` весь цикл; node21/22 — `Baseline`; node24 — только `IsFunction`). Кадр проходит `TopmostFrameIsInterpreted` (i=0) → `TopmostFrameIsBaseline` (i=10000, с `MarkedForConcurrentOptimization` на node20/21/22 и `MarkedForConcurrentMaglevOptimization` на node24) → `TopmostFrameIsTurboFanned` (i=500000 на всех конфигурациях, кроме node24 `--always-sparkplug`, где на i=500000 кадр `TopmostFrameIsMaglev`, а TurboFan — с i=1000000). На node24 OSR-кадр может пройти через Maglev или миновать его — зависит от времени (в повторном прогоне ревьюера `TopmostFrameIsMaglev` был и в default); инвариант только один: биты `TopmostFrameIs*`. События OSR-компиляции печатают и `--trace-opt` (суффикс ` OSR` в строке `compiling method`, см. `trace-opt-node20.txt`/`-node21.txt`), и отдельный флаг `--trace-osr` (принимается всеми четырьмя версиями). После выхода из цикла на node24 статус функции = `1` (только `IsFunction`), на node21/22 — `Baseline`, на node20 — `Baseline|MarkedForConcurrentOptimization`.
 
 ### Что печатает `--trace-opt --trace-deopt --trace-baseline` (`trace-demo.js`)
 
-node24 (`artifacts/trace-opt-node24.txt`): `hotMono` → `Enqueued SFI hotMono` (Sparkplug batch) → `marking … to MAGLEV … reason: hot and stable` → `completed compiling … (target MAGLEV) - took 0.001, 0.157, 0.011 ms` → `marking … to TURBOFAN_JS` → `completed compiling … (target TURBOFAN_JS) - took 0.012, 0.954, 0.045 ms`. Для `willDeopt` после смены формы: `[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing … <Code MAGLEV>` и затем повторная пометка `for optimization to MAGLEV`.
-node22 (`artifacts/trace-opt-node22.txt`): те же события с `target TURBOFAN` (без Maglev), деопт `<Code TURBOFAN>`, `reason: wrong map`.
+- node24 (`artifacts/trace-opt-node24.txt`): `hotMono` → `Enqueued SFI hotMono` (Sparkplug batch) → `marking … to MAGLEV … reason: hot and stable` → `completed compiling … (target MAGLEV) - took 0.001, 0.157, 0.011 ms` → `[Concurrent Sparkplug Off Thread] Function … <SharedFunctionInfo hotMono> installed` → `marking … to TURBOFAN_JS` → `completed compiling … (target TURBOFAN_JS) - took 0.012, 0.954, 0.045 ms`. Для `willDeopt` после смены формы: `[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing … <Code MAGLEV>` и затем повторная пометка `for optimization to MAGLEV`.
+- node22 (`artifacts/trace-opt-node22.txt`): `Enqueued SFI hotMono` → `compiling method … (target BASELINE)` / `completed compiling … (target BASELINE) - took 0.005 ms` → `marking … to TURBOFAN … hot and stable` → `completed compiling … (target TURBOFAN) - took 0.018, 1.106, 0.035 ms`; деопт `<Code TURBOFAN>`, `reason: wrong map`.
+- node20 (`artifacts/trace-opt-node20.txt`): без batch-строк, `compiling method … <SharedFunctionInfo hotMono> (target BASELINE)` / `completed … took 0.003 ms` → `marking … to TURBOFAN, … reason: small function` (путь 11.3 «маленькая функция без изменений IC оптимизируется на первом тике») → `completed compiling … took 0.015, 0.774, 0.019 ms`; для скрипта верхнего уровня — `compiling method … (target TURBOFAN) OSR`. node21 (`trace-opt-node21.txt`): то же, но `reason: hot and stable`.
+- «took a, b, c ms» — три фазы (TurboFan: create-graph / optimize / codegen; Maglev: prepare / execute / finalize).
 
-## Q2. Почему не «всегда TurboFan»: матрица (медианы 5 процессов; × — ratio к default того же рантайма)
+## Q2. Почему не «всегда TurboFan»: матрица (медианы 10 процессов; в скобках min–max по повторам; × — ratio к default того же рантайма)
 
+Таблицы сгенерированы `node report-tiers.js` из `results.jsonl` (копия — `artifacts/report-tiers.md`). `hot steady` = медиана окон последней трети hot-фазы; `1st window` = первое окно 25 мс; `unstable ms` = 600 000 вызовов с двумя формами; `compiles M/TF` = число строк `completed compiling … (target MAGLEV)` / `(target TURBOFAN*)` в trace-прогоне; `deopts (trace)` = число строк `bailout (kind` во всём trace-процессе; `harness deopts/rep` = медиана по повторам числа деоптов функций `chunk`/`hotPhase` (по `--trace-deopt` каждого повтора); `gc hot` = медиана числа GC-событий за hot-фазу.
 
-### node20 (N_COLD=2000, HOT_MS=1500, UNSTABLE_N=20000; медианы 5 процессов)
+### node20 (N_COLD=2000, HOT_MS=1500, UNSTABLE_N=200000; медианы 10 процессов, в скобках min–max по повторам)
 
-| variant | cold ms | × | hot peak it/ms | × | 1st window it/ms | t90 ms | unstable ms | × | rss MB | code KB | compiles M/TF | deopts |
-|---|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|
-| default | 36.4 | ×1.00 | 107960 | ×1.00 | 82417 | 150 | 3.21 | ×1.00 | 54.6 | 2901 | 0/11 | 3 |
-| always-turbofan | 1839.4 | ×50.49 | 9893 | ×0.09 | 7121 | 50 | 8.87 | ×2.76 | 59.9 | 7491 | 0/4309 | 0 |
-| always-sparkplug | 40.2 | ×1.10 | 134135 | ×1.24 | 81111 | 75 | 3.22 | ×1.00 | 55.7 | 3546 | 0/10 | 3 |
-| no-sparkplug | 29.3 | ×0.80 | 108767 | ×1.01 | 73411 | 75 | 3.85 | ×1.20 | 52.9 | 1749 | 0/11 | 3 |
-| no-opt | 34.9 | ×0.96 | 6446 | ×0.06 | 5669 | 25 | 10.58 | ×3.30 | 49.6 | 2881 | 0/0 | 0 |
-| jitless | 28.7 | ×0.79 | 4385 | ×0.04 | 4088 | 25 | 14.90 | ×4.64 | 47.3 | 1727 | 0/0 | 0 |
-| lite-mode | 28.0 | ×0.77 | 4387 | ×0.04 | 4157 | 25 | 14.80 | ×4.61 | 45.3 | 1727 | 0/0 | 0 |
-| eager | 35.6 | ×0.98 | 108829 | ×1.01 | 82327 | 75 | 3.33 | ×1.04 | 54.8 | 2917 | 0/20 | 4 |
+| variant | cold ms | × | hot steady it/ms | × | 1st window | unstable ms | × | rss MB | code KB | compiles M/TF | deopts (trace) | harness deopts/rep | gc hot |
+|---|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|
+| default | 36.2 (28–38) | ×1.00 | 123k (121k–157k) | ×1.00 | 108k | 12.1 | ×1.00 | 53.2 | 2924 | 0/18 | 6 | 1 | 2 |
+| always-turbofan | 1833.7 (1568–1900) | ×50.61 | 7k (7k–9k) | ×0.06 | 7k | 80.1 | ×6.60 | 58.3 | 7574 | 0/4348 | 0 | 0 | 2 |
+| always-sparkplug | 43.3 (34–62) | ×1.19 | 121k (114k–152k) | ×0.99 | 108k | 11.9 | ×0.98 | 55.2 | 3608 | 0/18 | 6 | 1 | 2 |
+| no-sparkplug | 30.6 (27–39) | ×0.85 | 122k (118k–138k) | ×0.99 | 106k | 14.4 | ×1.19 | 51.5 | 1764 | 0/18 | 8 | 1 | 2 |
+| no-opt | 37.2 (34–56) | ×1.03 | 6k (5k–6k) | ×0.05 | 5k | 109.3 | ×9.01 | 47.9 | 2888 | 0/0 | 0 | 0 | 2 |
+| jitless | 28.7 (23–44) | ×0.79 | 4k (4k–5k) | ×0.03 | 4k | 158.0 | ×13.02 | 45.5 | 1727 | 0/0 | 0 | 0 | 2 |
+| lite-mode | 28.3 (23–31) | ×0.78 | 4k (4k–5k) | ×0.03 | 4k | 151.1 | ×12.45 | 45.4 | 1727 | 0/0 | 0 | 0 | 2 |
+| eager | 37.6 (36–42) | ×1.04 | 122k (117k–155k) | ×0.99 | 107k | 11.9 | ×0.98 | 53.2 | 2943 | 0/26 | 8 | 2 | 2 |
 
-детали cold (create / call) и unstable (A / B / mix), node20:
+детали cold (create / call) и unstable (первая / вторая половина каждой подфазы), node20:
 
-| variant | cold create ms | cold call ms | unstable A ms | B ms | mix ms | heapUsed MB | bytecode KB | hot iters |
-|---|--:|--:|--:|--:|--:|--:|--:|--:|
-| default | 24.9 | 11.3 | 1.45 | 1.33 | 0.41 | 8.6 | 893 | 153562500 |
-| always-turbofan | 240.8 | 1622.6 | 3.46 | 2.60 | 2.85 | 14.5 | 894 | 11646000 |
-| always-sparkplug | 36.3 | 3.8 | 1.41 | 1.29 | 0.40 | 9.8 | 893 | 156658000 |
-| no-sparkplug | 24.5 | 4.9 | 1.60 | 1.57 | 0.69 | 6.3 | 893 | 151025500 |
-| no-opt | 24.3 | 10.3 | 3.48 | 3.42 | 3.69 | 8.4 | 893 | 9079000 |
-| jitless | 24.2 | 4.3 | 4.78 | 4.87 | 5.23 | 6.9 | 893 | 6044500 |
-| lite-mode | 23.7 | 4.2 | 4.75 | 4.92 | 5.18 | 6.6 | 893 | 6153500 |
-| eager | 24.6 | 11.0 | 1.35 | 1.57 | 0.40 | 8.0 | 893 | 152693500 |
+| variant | cold create ms | cold call ms | unst A h1/h2 ms | B h1/h2 | mix h1/h2 | heapUsed MB | bytecode KB | hot iters | hot steady по повторам, k it/ms |
+|---|--:|--:|--:|--:|--:|--:|--:|--:|---|
+| default | 25.2 | 11.0 | 2.8/1.7 | 2.4/1.6 | 1.8/1.8 | 8.6 | 908 | 180022000 | 121 122 122 122 123 123 123 123 124 157 |
+| always-turbofan | 238.9 | 1588.4 | 12.9/11.8 | 13.0/13.2 | 14.4/14.3 | 14.0 | 908 | 10914000 | 7 7 7 7 7 7 7 7 9 9 |
+| always-sparkplug | 38.4 | 3.9 | 2.7/1.6 | 2.3/1.7 | 1.8/1.8 | 8.7 | 908 | 178628000 | 114 119 119 120 120 121 123 123 124 152 |
+| no-sparkplug | 25.7 | 5.0 | 3.4/2.1 | 2.8/2.1 | 2.0/2.0 | 7.2 | 908 | 181410000 | 118 119 120 121 121 122 122 122 122 138 |
+| no-opt | 26.6 | 10.5 | 17.6/17.1 | 17.9/18.0 | 19.6/19.4 | 7.9 | 908 | 8112000 | 5 5 5 5 6 6 6 6 6 6 |
+| jitless | 24.4 | 4.2 | 24.4/24.4 | 25.6/24.9 | 26.2/26.2 | 6.1 | 908 | 5824000 | 4 4 4 4 4 4 4 4 4 5 |
+| lite-mode | 24.1 | 4.3 | 23.9/23.9 | 25.2/25.1 | 26.2/26.3 | 6.1 | 908 | 5764000 | 4 4 4 4 4 4 4 4 4 5 |
+| eager | 26.3 | 11.3 | 2.5/1.6 | 2.4/1.7 | 1.8/1.9 | 8.3 | 908 | 179278000 | 117 119 119 120 122 122 123 123 123 155 |
 
-### node22 (N_COLD=2000, HOT_MS=1500, UNSTABLE_N=20000; медианы 5 процессов)
+### node22 (N_COLD=2000, HOT_MS=1500, UNSTABLE_N=200000; медианы 10 процессов, в скобках min–max по повторам)
 
-| variant | cold ms | × | hot peak it/ms | × | 1st window it/ms | t90 ms | unstable ms | × | rss MB | code KB | compiles M/TF | deopts |
-|---|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|
-| default | 35.1 | ×1.00 | 97285 | ×1.00 | 69930 | 75 | 3.49 | ×1.00 | 60.2 | 3261 | 0/9 | 3 |
-| always-turbofan | 28.3 | ×0.81 | 121656 | ×1.25 | 69008 | 175 | 3.46 | ×0.99 | 58.6 | 2040 | 0/8 | 1 |
-| always-sparkplug | 40.8 | ×1.16 | 116683 | ×1.20 | 71499 | 128 | 3.14 | ×0.90 | 61.2 | 3729 | 0/9 | 3 |
-| no-sparkplug | 28.2 | ×0.80 | 99615 | ×1.02 | 64989 | 75 | 3.84 | ×1.10 | 58.4 | 2026 | 0/9 | 3 |
-| no-opt | 34.9 | ×0.99 | 8727 | ×0.09 | 6656 | 551 | 10.37 | ×2.97 | 53.0 | 3244 | 0/0 | 0 |
-| maglev | 34.0 | ×0.97 | 100976 | ×1.04 | 71999 | 75 | 3.32 | ×0.95 | 60.2 | 3261 | 0/9 | 3 |
-| jitless | 27.4 | ×0.78 | 4974 | ×0.05 | 3716 | 150 | 16.19 | ×4.64 | 51.2 | 2009 | 0/0 | 0 |
-| lite-mode | 28.5 | ×0.81 | 4438 | ×0.05 | 3828 | 25 | 15.76 | ×4.52 | 49.2 | 2009 | 0/0 | 0 |
-| eager | 37.3 | ×1.06 | 111184 | ×1.14 | 73216 | 325 | 3.14 | ×0.90 | 60.6 | 3268 | 0/15 | 3 |
+| variant | cold ms | × | hot steady it/ms | × | 1st window | unstable ms | × | rss MB | code KB | compiles M/TF | deopts (trace) | harness deopts/rep | gc hot |
+|---|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|
+| default | 37.5 (35–47) | ×1.00 | 107k (101k–137k) | ×1.00 | 91k | 12.3 | ×1.00 | 59.1 | 3284 | 0/16 | 4 | 1 | 2 |
+| always-turbofan | 28.6 (23–32) | ×0.76 | 107k (100k–138k) | ×1.00 | 96k | 12.0 | ×0.98 | 59.0 | 2097 | 0/18 | 2 | 0 | 3 |
+| always-turbofan-min0 | 1900.0 (1826–2022) | ×50.64 | 8k (8k–8k) | ×0.07 | 7k | 79.5 | ×6.48 | 64.7 | 7962 | 0/4371 | 0 | 0 | 2 |
+| always-sparkplug | 41.8 (33–47) | ×1.11 | 108k (91k–138k) | ×1.01 | 94k | 11.4 | ×0.93 | 60.9 | 3775 | 0/17 | 2 | 1 | 2 |
+| no-sparkplug | 28.9 (28–39) | ×0.77 | 108k (98k–135k) | ×1.01 | 92k | 14.4 | ×1.18 | 57.4 | 2039 | 0/17 | 7 | 1 | 2 |
+| no-opt | 35.0 (29–41) | ×0.93 | 6k (6k–6k) | ×0.06 | 6k | 109.8 | ×8.94 | 51.3 | 3253 | 0/0 | 0 | 0 | 2 |
+| maglev | 35.8 (30–47) | ×0.95 | 108k (106k–109k) | ×1.01 | 95k | 11.7 | ×0.95 | 59.1 | 3285 | 0/17 | 6 | 1 | 2 |
+| jitless | 28.6 (28–35) | ×0.76 | 4k (3k–4k) | ×0.03 | 4k | 164.7 | ×13.41 | 49.3 | 2009 | 0/0 | 0 | 0 | 2 |
+| lite-mode | 29.6 (27–34) | ×0.79 | 4k (3k–4k) | ×0.03 | 4k | 166.4 | ×13.55 | 49.3 | 2009 | 0/0 | 0 | 0 | 2 |
+| eager | 36.4 (35–50) | ×0.97 | 108k (106k–135k) | ×1.01 | 95k | 10.9 | ×0.89 | 59.1 | 3290 | 0/21 | 5 | 1 | 2 |
 
-детали cold (create / call) и unstable (A / B / mix), node22:
+детали cold (create / call) и unstable (первая / вторая половина каждой подфазы), node22:
 
-| variant | cold create ms | cold call ms | unstable A ms | B ms | mix ms | heapUsed MB | bytecode KB | hot iters |
-|---|--:|--:|--:|--:|--:|--:|--:|--:|
-| default | 24.1 | 10.7 | 1.58 | 1.33 | 0.49 | 9.5 | 1173 | 138126000 |
-| always-turbofan | 24.9 | 3.4 | 1.71 | 1.38 | 0.37 | 7.0 | 1173 | 143256500 |
-| always-sparkplug | 37.6 | 3.2 | 1.46 | 1.31 | 0.36 | 9.7 | 1173 | 143898500 |
-| no-sparkplug | 23.8 | 4.4 | 1.73 | 1.50 | 0.60 | 7.8 | 1173 | 140046000 |
-| no-opt | 24.0 | 10.6 | 3.27 | 3.63 | 3.51 | 9.2 | 1173 | 10653000 |
-| maglev | 23.4 | 10.6 | 1.60 | 1.35 | 0.38 | 9.0 | 1173 | 139223000 |
-| jitless | 23.2 | 4.0 | 5.06 | 5.38 | 5.63 | 7.8 | 1173 | 5896000 |
-| lite-mode | 24.1 | 4.1 | 4.96 | 5.40 | 5.41 | 7.2 | 1173 | 5911500 |
-| eager | 25.4 | 10.9 | 1.38 | 1.17 | 0.38 | 9.7 | 1173 | 140477000 |
+| variant | cold create ms | cold call ms | unst A h1/h2 ms | B h1/h2 | mix h1/h2 | heapUsed MB | bytecode KB | hot iters | hot steady по повторам, k it/ms |
+|---|--:|--:|--:|--:|--:|--:|--:|--:|---|
+| default | 26.5 | 11.3 | 3.1/1.6 | 2.7/1.7 | 1.6/1.8 | 9.5 | 1181 | 150120000 | 101 105 105 106 106 107 107 108 109 137 |
+| always-turbofan | 25.2 | 3.4 | 2.7/1.4 | 2.5/1.5 | 2.0/1.9 | 7.5 | 1181 | 158700000 | 100 101 105 105 105 107 108 108 110 138 |
+| always-turbofan-min0 | 323.1 | 1594.3 | 12.3/11.2 | 13.6/13.5 | 14.2/14.3 | 15.2 | 1181 | 11824000 | 8 8 8 8 8 8 8 8 8 8 |
+| always-sparkplug | 38.5 | 3.3 | 2.7/1.5 | 2.5/1.5 | 1.6/1.7 | 9.6 | 1181 | 155598000 | 91 101 106 107 107 108 108 108 110 138 |
+| no-sparkplug | 24.6 | 4.3 | 3.9/2.3 | 2.7/1.8 | 1.8/2.1 | 8.0 | 1181 | 158094000 | 98 103 106 107 108 108 108 108 108 135 |
+| no-opt | 24.5 | 10.7 | 17.4/16.7 | 19.8/18.5 | 18.7/18.7 | 8.9 | 1181 | 9246000 | 6 6 6 6 6 6 6 6 6 6 |
+| maglev | 24.7 | 11.0 | 2.9/1.5 | 2.5/1.5 | 1.7/1.6 | 9.6 | 1181 | 162112000 | 106 107 107 107 108 108 108 108 109 109 |
+| jitless | 24.3 | 4.2 | 25.5/25.6 | 27.4/27.5 | 28.5/28.6 | 7.1 | 1181 | 5354000 | 3 4 4 4 4 4 4 4 4 4 |
+| lite-mode | 25.6 | 4.2 | 26.1/26.0 | 28.2/27.8 | 28.7/28.9 | 7.1 | 1181 | 5354000 | 3 4 4 4 4 4 4 4 4 4 |
+| eager | 25.3 | 11.0 | 2.4/1.6 | 2.2/1.5 | 1.7/1.6 | 9.1 | 1181 | 157318000 | 106 106 107 107 107 108 108 108 108 135 |
 
-### node24 (N_COLD=2000, HOT_MS=1500, UNSTABLE_N=20000; медианы 5 процессов)
+### node24 (N_COLD=2000, HOT_MS=1500, UNSTABLE_N=200000; медианы 10 процессов, в скобках min–max по повторам)
 
-| variant | cold ms | × | hot peak it/ms | × | 1st window it/ms | t90 ms | unstable ms | × | rss MB | code KB | compiles M/TF | deopts |
-|---|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|
-| default | 30.4 | ×1.00 | 140112 | ×1.00 | 78878 | 175 | 2.95 | ×1.00 | 64.5 | 3470 | 14/9 | 7 |
-| always-turbofan | 29.2 | ×0.96 | 114315 | ×0.82 | 102675 | 50 | 2.59 | ×0.88 | 64.4 | 3456 | 14/6 | 4 |
-| always-sparkplug | 40.2 | ×1.32 | 138627 | ×0.99 | 94287 | 75 | 2.55 | ×0.86 | 64.7 | 3936 | 14/9 | 7 |
-| no-sparkplug | 29.0 | ×0.95 | 115015 | ×0.82 | 98952 | 50 | 2.97 | ×1.01 | 62.0 | 2226 | 14/9 | 7 |
-| no-opt | 28.0 | ×0.92 | 7434 | ×0.05 | 6532 | 50 | 9.71 | ×3.29 | 54.7 | 3409 | 0/0 | 0 |
-| no-maglev | 29.5 | ×0.97 | 114689 | ×0.82 | 84351 | 150 | 3.82 | ×1.29 | 62.4 | 3428 | 0/8 | 3 |
-| jitless | 27.2 | ×0.90 | 4523 | ×0.03 | 4108 | 25 | 14.57 | ×4.94 | 51.6 | 2169 | 0/0 | 0 |
-| lite-mode | 27.9 | ×0.92 | 5331 | ×0.04 | 4139 | 75 | 14.76 | ×5.00 | 49.5 | 2169 | 0/0 | 0 |
-| eager | 37.5 | ×1.23 | 117071 | ×0.84 | 90988 | 75 | 2.54 | ×0.86 | 64.6 | 3466 | 21/15 | 9 |
-| turbolev | 31.2 | ×1.03 | 462390 | ×3.30 | 300646 | 100 | 2.61 | ×0.88 | 63.1 | 3484 | 15/10 | 8 |
+| variant | cold ms | × | hot steady it/ms | × | 1st window | unstable ms | × | rss MB | code KB | compiles M/TF | deopts (trace) | harness deopts/rep | gc hot |
+|---|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|
+| default | 31.2 (26–34) | ×1.00 | 125k (115k–159k) | ×1.00 | 113k | 11.3 | ×1.00 | 63.6 | 3507 | 20/12 | 10 | 2 | 2 |
+| always-turbofan | 31.9 (29–42) | ×1.02 | 125k (112k–148k) | ×1.00 | 112k | 11.1 | ×0.98 | 64.5 | 3522 | 17/11 | 5 | 1 | 2 |
+| always-turbofan-min0 | 1994.8 (1819–2129) | ×63.98 | 8k (6k–10k) | ×0.06 | 7k | 79.5 | ×7.03 | 65.6 | 8171 | 0/4386 | 0 | 0 | 2 |
+| always-sparkplug | 43.6 (40–52) | ×1.40 | 125k (123k–159k) | ×1.00 | 114k | 11.1 | ×0.98 | 63.5 | 4007 | 19/13 | 9 | 2 | 2 |
+| no-sparkplug | 29.0 (26–33) | ×0.93 | 125k (116k–126k) | ×1.00 | 111k | 11.8 | ×1.04 | 60.8 | 2259 | 19/10 | 10 | 2 | 2 |
+| no-opt | 30.4 (29–41) | ×0.97 | 6k (6k–8k) | ×0.05 | 6k | 97.4 | ×8.61 | 52.9 | 3416 | 0/0 | 0 | 0 | 2 |
+| no-maglev | 29.9 (29–39) | ×0.96 | 125k (115k–153k) | ×1.00 | 106k | 12.2 | ×1.08 | 61.7 | 3456 | 0/17 | 3 | 1 | 2 |
+| jitless | 28.2 (27–30) | ×0.90 | 4k (3k–4k) | ×0.03 | 4k | 145.0 | ×12.81 | 49.6 | 2169 | 0/0 | 0 | 0 | 2 |
+| lite-mode | 27.8 (22–43) | ×0.89 | 4k (4k–4k) | ×0.03 | 4k | 147.2 | ×13.00 | 49.6 | 2169 | 0/0 | 0 | 0 | 2 |
+| eager | 31.7 (29–34) | ×1.02 | 125k (123k–127k) | ×1.00 | 94k | 10.8 | ×0.96 | 63.8 | 3542 | 27/22 | 12 | 4 | 2 |
+| turbolev | 31.0 (25–54) | ×1.00 | 114k (110k–148k) | ×0.91 | 102k | 10.7 | ×0.95 | 64.7 | 3535 | 20/14 | 9 | 2 | 2 |
 
-детали cold (create / call) и unstable (A / B / mix), node24:
+детали cold (create / call) и unstable (первая / вторая половина каждой подфазы), node24:
 
-| variant | cold create ms | cold call ms | unstable A ms | B ms | mix ms | heapUsed MB | bytecode KB | hot iters |
-|---|--:|--:|--:|--:|--:|--:|--:|--:|
-| default | 25.3 | 5.1 | 0.94 | 1.58 | 0.76 | 9.8 | 1248 | 163725500 |
-| always-turbofan | 25.2 | 4.1 | 1.04 | 0.70 | 0.82 | 9.4 | 1248 | 163585000 |
-| always-sparkplug | 36.9 | 3.3 | 1.01 | 0.72 | 0.76 | 10.2 | 1248 | 163757500 |
-| no-sparkplug | 24.7 | 4.2 | 1.24 | 0.88 | 0.90 | 8.2 | 1248 | 163445500 |
-| no-opt | 23.2 | 5.0 | 3.25 | 3.10 | 3.37 | 9.7 | 1248 | 10607500 |
-| no-maglev | 24.3 | 6.8 | 1.98 | 1.37 | 0.42 | 9.1 | 1248 | 162211500 |
-| jitless | 23.2 | 4.0 | 4.71 | 4.74 | 5.16 | 8.2 | 1248 | 6386500 |
-| lite-mode | 23.8 | 4.0 | 4.74 | 4.92 | 5.05 | 7.2 | 1248 | 6252000 |
-| eager | 30.6 | 5.3 | 0.91 | 0.69 | 0.53 | 10.4 | 1248 | 165746000 |
-| turbolev | 25.1 | 5.5 | 1.10 | 0.93 | 0.47 | 10.2 | 1248 | 542448500 |
+| variant | cold create ms | cold call ms | unst A h1/h2 ms | B h1/h2 | mix h1/h2 | heapUsed MB | bytecode KB | hot iters | hot steady по повторам, k it/ms |
+|---|--:|--:|--:|--:|--:|--:|--:|--:|---|
+| default | 25.2 | 5.3 | 2.2/1.4 | 2.1/1.6 | 1.9/1.9 | 10.0 | 1256 | 183920000 | 115 116 124 125 125 125 125 157 158 159 |
+| always-turbofan | 27.9 | 4.1 | 2.2/1.5 | 2.1/1.6 | 1.8/1.8 | 10.3 | 1256 | 180516000 | 112 116 123 124 124 125 125 125 127 148 |
+| always-turbofan-min0 | 341.8 | 1650.2 | 12.5/11.4 | 13.0/13.2 | 14.4/14.3 | 16.3 | 1256 | 11522000 | 6 7 8 8 8 8 8 8 10 10 |
+| always-sparkplug | 40.3 | 3.4 | 2.1/1.5 | 2.0/1.6 | 1.9/1.9 | 11.0 | 1256 | 185442000 | 123 124 124 125 125 125 131 131 159 159 |
+| no-sparkplug | 24.8 | 4.2 | 2.3/1.7 | 2.1/1.6 | 2.0/2.0 | 8.5 | 1256 | 181620000 | 116 123 123 123 124 125 125 125 125 126 |
+| no-opt | 24.9 | 5.3 | 14.8/14.8 | 15.8/15.4 | 17.6/17.3 | 9.8 | 1256 | 9746000 | 6 6 6 6 6 6 6 7 8 8 |
+| no-maglev | 24.8 | 5.2 | 2.9/1.5 | 2.6/1.5 | 1.9/1.8 | 8.9 | 1256 | 179742000 | 115 121 122 123 123 125 125 125 125 153 |
+| jitless | 24.1 | 4.1 | 23.5/23.3 | 23.8/23.9 | 25.4/25.3 | 8.0 | 1256 | 5866000 | 3 4 4 4 4 4 4 4 4 4 |
+| lite-mode | 23.8 | 4.1 | 23.5/23.5 | 24.0/24.4 | 25.3/25.4 | 7.5 | 1256 | 5850000 | 4 4 4 4 4 4 4 4 4 4 |
+| eager | 26.5 | 5.3 | 1.9/1.5 | 2.0/1.5 | 1.9/2.0 | 9.7 | 1256 | 180906000 | 123 123 123 124 124 125 126 126 126 127 |
+| turbolev | 24.8 | 5.2 | 2.3/1.5 | 1.8/1.3 | 2.2/1.9 | 9.3 | 1256 | 166984000 | 110 111 113 114 114 114 115 115 115 148 |
 
-### СВОДНАЯ: ratio к default (cold ms / hot peak / unstable ms)
+### СВОДНАЯ: ratio к default (cold ms / hot steady / unstable ms)
 
 | variant | node20 cold | node20 hot | node20 unst | node22 cold | node22 hot | node22 unst | node24 cold | node24 hot | node24 unst |
 |---|--:|--:|--:|--:|--:|--:|--:|--:|--:|
-| always-turbofan | ×50.49 | ×0.09 | ×2.76 | ×0.81 | ×1.25 | ×0.99 | ×0.96 | ×0.82 | ×0.88 |
-| always-sparkplug | ×1.10 | ×1.24 | ×1.00 | ×1.16 | ×1.20 | ×0.90 | ×1.32 | ×0.99 | ×0.86 |
-| no-sparkplug | ×0.80 | ×1.01 | ×1.20 | ×0.80 | ×1.02 | ×1.10 | ×0.95 | ×0.82 | ×1.01 |
-| no-opt | ×0.96 | ×0.06 | ×3.30 | ×0.99 | ×0.09 | ×2.97 | ×0.92 | ×0.05 | ×3.29 |
-| jitless | ×0.79 | ×0.04 | ×4.64 | ×0.78 | ×0.05 | ×4.64 | ×0.90 | ×0.03 | ×4.94 |
-| lite-mode | ×0.77 | ×0.04 | ×4.61 | ×0.81 | ×0.05 | ×4.52 | ×0.92 | ×0.04 | ×5.00 |
-| eager | ×0.98 | ×1.01 | ×1.04 | ×1.06 | ×1.14 | ×0.90 | ×1.23 | ×0.84 | ×0.86 |
-| maglev | n/a | n/a | n/a | ×0.97 | ×1.04 | ×0.95 | n/a | n/a | n/a |
-| no-maglev | n/a | n/a | n/a | n/a | n/a | n/a | ×0.97 | ×0.82 | ×1.29 |
-| turbolev | n/a | n/a | n/a | n/a | n/a | n/a | ×1.03 | ×3.30 | ×0.88 |
+| always-turbofan | ×50.61 | ×0.06 | ×6.60 | ×0.76 | ×1.00 | ×0.98 | ×1.02 | ×1.00 | ×0.98 |
+| always-sparkplug | ×1.19 | ×0.99 | ×0.98 | ×1.11 | ×1.01 | ×0.93 | ×1.40 | ×1.00 | ×0.98 |
+| no-sparkplug | ×0.85 | ×0.99 | ×1.19 | ×0.77 | ×1.01 | ×1.18 | ×0.93 | ×1.00 | ×1.04 |
+| no-opt | ×1.03 | ×0.05 | ×9.01 | ×0.93 | ×0.06 | ×8.94 | ×0.97 | ×0.05 | ×8.61 |
+| jitless | ×0.79 | ×0.03 | ×13.02 | ×0.76 | ×0.03 | ×13.41 | ×0.90 | ×0.03 | ×12.81 |
+| lite-mode | ×0.78 | ×0.03 | ×12.45 | ×0.79 | ×0.03 | ×13.55 | ×0.89 | ×0.03 | ×13.00 |
+| eager | ×1.04 | ×0.99 | ×0.98 | ×0.97 | ×1.01 | ×0.89 | ×1.02 | ×1.00 | ×0.96 |
+| always-turbofan-min0 | n/a | n/a | n/a | ×50.64 | ×0.07 | ×6.48 | ×63.98 | ×0.06 | ×7.03 |
+| maglev | n/a | n/a | n/a | ×0.95 | ×1.01 | ×0.95 | n/a | n/a | n/a |
+| no-maglev | n/a | n/a | n/a | n/a | n/a | n/a | ×0.96 | ×1.00 | ×1.08 |
+| turbolev | n/a | n/a | n/a | n/a | n/a | n/a | ×1.00 | ×0.91 | ×0.95 |
 
 ### разброс повторов — контроль шума
 
-ячеек с разбросом >20% медианы (cold или hot peak): 22 из 27
-  node20/default: cold 36.43±12.3, hotPeak 107959.6±30479
-  node20/always-sparkplug: cold 40.17±11.1, hotPeak 134135.4±29405
-  node20/no-sparkplug: cold 29.32±3.9, hotPeak 108766.5±29959
-  node20/no-opt: cold 34.87±16, hotPeak 6446.4±1926
-  node20/lite-mode: cold 27.96±7.1, hotPeak 4386.8±1192
-  node20/eager: cold 35.64±13.2, hotPeak 108829.3±4430
-  node22/always-turbofan: cold 28.31±1.1, hotPeak 121656.3±25118
-  node22/always-sparkplug: cold 40.75±4.2, hotPeak 116682.9±23499
-  node22/no-sparkplug: cold 28.19±15.3, hotPeak 99614.5±24631
-  node22/no-opt: cold 34.9±2.4, hotPeak 8727.2±1913
-  node22/maglev: cold 34.02±3.2, hotPeak 100976.4±23602
-  node22/jitless: cold 27.37±6.3, hotPeak 4973.9±1070
-  node22/lite-mode: cold 28.5±2.3, hotPeak 4438.1±1144
-  node22/eager: cold 37.32±7.4, hotPeak 111183.5±25138
-  node24/default: cold 30.37±13.2, hotPeak 140111.5±29425
-  node24/always-sparkplug: cold 40.21±8.8, hotPeak 138627.2±27571
-  node24/no-sparkplug: cold 28.98±3.3, hotPeak 115014.6±31078
-  node24/no-maglev: cold 29.46±14.9, hotPeak 114688.7±30016
-  node24/jitless: cold 27.2±30.9, hotPeak 4523.2±770
-  node24/lite-mode: cold 27.87±1, hotPeak 5330.5±1196
-  node24/eager: cold 37.46±11.9, hotPeak 117070.5±26073
-  node24/turbolev: cold 31.22±9.7, hotPeak 462390.3±100008
-
-### Как читать таблицы
-
-`cold ms` = создание 2000 функций + 3 вызова каждой; `hot peak` = итераций тройки функций на мс (медиана 5 лучших окон по 25 мс); `1st window` = пропускная способность первого окна 25 мс; `t90` = конец первого окна с ≥90% пика (квантовано по 25 мс, шумно); `unstable ms` = 60 000 вызовов с двумя формами; `compiles M/TF` = число строк `completed compiling … (target MAGLEV)` / `(target TURBOFAN*)` в trace-прогоне; `deopts` = число строк `bailout (kind` во всём процессе (включая функции-циклы харнесса: в `default` это 2 деопта `hotPhase` «Insufficient type feedback for generic named access», 1 деопт `unstablePhase` «Insufficient type feedback for call» и 1–2 деопта `unstable` «wrong map» — см. `artifacts/trace-counts/*.txt`).
+ячеек с разбросом (max−min) >20% медианы (cold или hot steady): 27 из 29
+  node20/default: cold 36.23 (28.27–38.23), hot steady 122733.3 (121248.4–157131.8); hot по повторам: 121 122 122 122 123 123 123 123 124 157
+  node20/always-turbofan: cold 1833.72 (1568.33–1900.37), hot steady 7385.8 (7222.1–9265); hot по повторам: 7 7 7 7 7 7 7 7 9 9
+  node20/always-sparkplug: cold 43.28 (33.75–62.24), hot steady 120945.9 (113703.4–151712.3); hot по повторам: 114 119 119 120 120 121 123 123 124 152
+  node20/no-sparkplug: cold 30.62 (27.08–39.13), hot steady 121675.5 (118180.7–138398.3); hot по повторам: 118 119 120 121 121 122 122 122 122 138
+  node20/no-opt: cold 37.19 (33.79–55.97), hot steady 5526.3 (5186.2–5617.9); hot по повторам: 5 5 5 5 6 6 6 6 6 6
+  node20/jitless: cold 28.71 (22.65–43.56), hot steady 3934.9 (3787.4–5107.6); hot по повторам: 4 4 4 4 4 4 4 4 4 5
+  node20/lite-mode: cold 28.34 (22.58–31.48), hot steady 3943.2 (3781–4980.7); hot по повторам: 4 4 4 4 4 4 4 4 4 5
+  node20/eager: cold 37.64 (36.16–42.13), hot steady 121834.9 (117426.8–154509.5); hot по повторам: 117 119 119 120 122 122 123 123 123 155
+  node22/default: cold 37.52 (34.94–47.4), hot steady 106978.1 (101316.3–137265.3); hot по повторам: 101 105 105 106 106 107 107 108 109 137
+  node22/always-turbofan: cold 28.6 (22.86–32.19), hot steady 106867 (99638.7–138111.3); hot по повторам: 100 101 105 105 105 107 108 108 110 138
+  node22/always-sparkplug: cold 41.81 (33.24–47.22), hot steady 107789.7 (91175.4–138274.6); hot по повторам: 91 101 106 107 107 108 108 108 110 138
+  node22/no-sparkplug: cold 28.86 (27.68–39.47), hot steady 107609.1 (97872.3–135315); hot по повторам: 98 103 106 107 108 108 108 108 108 135
+  node22/no-opt: cold 35.01 (29.06–41.05), hot steady 6223 (5907.6–6338.7); hot по повторам: 6 6 6 6 6 6 6 6 6 6
+  node22/maglev: cold 35.81 (30.05–46.66), hot steady 108234.6 (106226.2–108821.8); hot по повторам: 106 107 107 107 108 108 108 108 109 109
+  node22/jitless: cold 28.55 (27.68–34.86), hot steady 3650.7 (3295.2–3670.4); hot по повторам: 3 4 4 4 4 4 4 4 4 4
+  node22/lite-mode: cold 29.59 (27.31–34.23), hot steady 3623.3 (3469–4459.3); hot по повторам: 3 4 4 4 4 4 4 4 4 4
+  node22/eager: cold 36.4 (35.29–50.01), hot steady 107528.2 (105901.9–134844.9); hot по повторам: 106 106 107 107 107 108 108 108 108 135
+  node24/default: cold 31.18 (26.07–34.29), hot steady 124714.1 (115262.9–159076.9); hot по повторам: 115 116 124 125 125 125 125 157 158 159
+  node24/always-turbofan: cold 31.94 (29.17–42.01), hot steady 124849.2 (112214.7–147568.3); hot по повторам: 112 116 123 124 124 125 125 125 127 148
+  node24/always-turbofan-min0: cold 1994.83 (1818.58–2128.92), hot steady 7756.3 (5963.6–9665); hot по повторам: 6 7 8 8 8 8 8 8 10 10
+  node24/always-sparkplug: cold 43.62 (39.56–51.58), hot steady 125199.6 (122782.9–159166.3); hot по повторам: 123 124 124 125 125 125 131 131 159 159
+  node24/no-sparkplug: cold 29.01 (25.56–33.01), hot steady 124839.2 (116449–125566); hot по повторам: 116 123 123 123 124 125 125 125 125 126
+  node24/no-opt: cold 30.4 (28.57–40.53), hot steady 6337.2 (6047.6–8051.5); hot по повторам: 6 6 6 6 6 6 6 7 8 8
+  node24/no-maglev: cold 29.91 (28.57–38.57), hot steady 124648.4 (114998–152990.2); hot по повторам: 115 121 122 123 123 125 125 125 125 153
+  node24/jitless: cold 28.19 (27.04–29.62), hot steady 3936.9 (3283.3–4073.2); hot по повторам: 3 4 4 4 4 4 4 4 4 4
+  node24/lite-mode: cold 27.77 (22.48–42.69), hot steady 3941 (3743.8–3986); hot по повторам: 4 4 4 4 4 4 4 4 4 4
+  node24/turbolev: cold 31.04 (24.86–53.98), hot steady 113833.5 (110419.5–148099.8); hot по повторам: 110 111 113 114 114 114 115 115 115 148
 
 ### Что показывает матрица
 
-1. **`--always-turbofan` на node20 (V8 11.3) — это и есть «потратить мс на старте»: cold ×50 (36 → 1839 мс), 4309 синхронных TurboFan-компиляций (`ConcurrencyMode::kSynchronous`, `because --always-turbofan`), код 7.5 MB против 2.9 MB.** Обещанного «буста потом» нет: hot-пик ×0.09 (108k → 9.9k it/ms), первое окно 7.1k против 82k, unstable ×2.76, при **нуле** деоптов в trace-прогоне. То есть код, скомпилированный TurboFan'ом без feedback, не деоптимизируется — он просто медленный на порядок и остаётся таким на всю hot-фазу (пере-оптимизации «hot and stable» в логе нет).
-2. **На node22/node24 флаг `--always-turbofan` ведёт себя иначе:** в логе 4330/4346 строк `[optimizing … because --always-turbofan]`, но `completed compiling … TURBOFAN` всего 8/6 (default: 9/9), а cold-фаза даже быстрее default (28.3 vs 35.1 мс; 29.2 vs 30.4) — при этом время cold-вызовов 3.4 мс против 10.7 мс совпадает с вариантами `--no-sparkplug` (4.4) и `--always-sparkplug` (3.2), т.е. в этих трёх вариантах во время cold-фазы нет фоновой Sparkplug-batch-компиляции 2000 функций, которая есть в default (утверждение только по цифрам, механизм здесь не исследовался). Hot-пик: node22 ×1.25, node24 ×0.82 — обе цифры внутри разброса повторов (±25k it/ms при пике 97–140k), т.е. **не отличимы от default**.
-3. **Отключение оптимизирующих тиров стоит ×11–33 в горячем коде:** `no-opt` (Ignition+Sparkplug) hot ×0.05–0.09, `--jitless` и `--lite-mode` ×0.03–0.05; unstable ×3–5. Cold при этом *не* становится медленнее (×0.77–0.99): для кода, который выполняется 3 раза, оптимизирующие компиляторы ничего не дают и ничего не стоят — они и не запускаются (0 компиляций).
-4. **`--always-sparkplug` — единственный вариант, где cold стабильно дороже default на всех трёх рантаймах: ×1.10 / ×1.16 / ×1.32** (создание 2000 функций 36–38 мс против 24–25, код +0.45–0.65 MB); hot внутри шума (×1.24 / ×1.20 / ×0.99 при разбросе ±25–30%).
-5. **`eager` (порог TurboFan 100 вызовов, Maglev 20 / бюджет прерываний 1000):** компиляций больше (node24: 21/15 против 14/9; node20: 20 против 11), но hot-пик внутри шума (×1.01 / ×1.14 / ×0.84), cold ×0.98–1.23. Более ранняя оптимизация не дала измеримого выигрыша ни в одной фазе.
-6. **node24 `--no-maglev`:** hot ×0.82 (внутри шума), unstable ×1.29, TurboFan-компиляций 8 против 9+14 Maglev. **node22 `--maglev`:** Maglev-компиляций 0 — на этой сборке флаг не приводит к Maglev-коду (совпадает с tier-status: Maglev-бита не появилось).
-7. **`--turbolev` на node24 не упал** и дал hot-пик ×3.30 (462k против 140k it/ms, первое окно 300k против 79k), cold и unstable как default, 15/10 компиляций. Столь большой разрыв на трёх крошечных функциях скорее говорит о том, что новый бэкенд иначе скомпилировал сам цикл `hotPhase` (например, что-то вынес/удалил), чем о ×3.3 на реальном коде — это аномалия для отдельной проверки, а не результат.
-8. Память: `--jitless`/`--lite-mode` экономят 7–15 MB RSS (45–52 против 55–65) и ~1.2 MB кода; `--always-turbofan` на node20 +5 MB RSS и +4.6 MB кода; остальные варианты — в пределах 2–3 MB.
+1. **Там, где `--always-turbofan` действительно компилирует всё синхронно на первом вызове — node20 (V8 11.3) и node22/24 с `--minimum-invocations-before-optimization=0` (`always-turbofan-min0`), — это и есть «потратить мс на старте»: cold ×50.6 / ×50.6 / ×64.0 (36 → 1834 мс; 38 → 1900; 31 → 1995), 4348 / 4371 / 4386 синхронных TurboFan-компиляций (`ConcurrencyMode::kSynchronous`, `because --always-turbofan`), код 7.6–8.2 MB против 2.9–3.5 MB.** «Буста потом» нет: hot steady ×0.06 / ×0.07 / ×0.06 (123k → 7k, 107k → 8k, 125k → 8k it/ms; во всех 10 повторах 6–10k), первое окно 7k против 91–113k, unstable ×6.6 / ×6.5 / ×7.0 — при **нуле** деоптов и нуле строк `marking … hotA/B/C` в `artifacts/trace-full/*-always-turbofan*.txt` (единственные `[marking` там — 2038–2051 строк `for optimized recompilation because --always-turbofan`, это создание замыканий, а не «hot and stable»). Механизм: при `--always-turbofan` `pipeline.cc` не включает `bailout_on_uninitialized`, поэтому TurboFan не спекулирует по пустому feedback, а генерирует общий код без deopt-точек «Insufficient type feedback»; а `TieringManager::ShouldOptimize` никогда не переоптимизирует функцию, у которой текущий код уже TURBOFAN. Отсюда 0 деоптов и код, который медленнее обычного в 14–17 раз и остаётся таким навсегда. На всех трёх рантаймах числа совпадают — это свойство компилятора, а не версии.
+2. **`--always-turbofan` сам по себе на node22/node24 (V8 12.4/13.6) ничего не компилирует.** В trace-прогоне 4374 / 4398 строк `[optimizing … because --always-turbofan]`, но `completed compiling … TURBOFAN` всего 18 / 11 (default 16 / 12), а `hotA` после строки `optimizing … because --always-turbofan` получает обычную `[marking … for optimization to TURBOFAN (node22) / MAGLEV (node24), … reason: hot and stable]`. Причина — в `GetOrCompileOptimized`: он сбрасывает tiering state и отказывает, пока `invocation_count < --minimum-invocations-before-optimization` (по умолчанию 2, у свежего feedback vector 0), повторного запроса нет, и функция идёт обычным путём (см. «Источники», п. 2). Поэтому hot steady ×1.00 / ×1.00 и unstable ×0.98 — это default. Единственный побочный эффект на node22: флаг создаёт feedback vector сразу, и функция не попадает в Sparkplug-очередь через тик lazy-feedback-allocation — cold-вызовы 3.4 мс против 11.3 (cold ×0.76, code KB 2097 против 3284). На node24 (concurrent Sparkplug) разница в cold-вызовах меньше (4.1 против 5.3).
+3. **Отключение оптимизирующих тиров стоит ×16–33 в горячем коде и ×9–13.5 в unstable:** `no-opt` (Ignition+Sparkplug) hot ×0.05–0.06, `--jitless`/`--lite-mode` ×0.03; unstable ×8.6–9.0 и ×12.5–13.6 (при UNSTABLE_N=200000 обе половины каждой подфазы одинаковы, т.е. это установившийся режим, а не переходный процесс; в ревизии 1 при N=20000 отношение было ×3–5 — измерялся переход). Cold при этом *не* становится медленнее (×0.76–1.03): для кода, который выполняется 3 раза, оптимизирующие компиляторы ничего не дают и ничего не стоят — они и не запускаются (0 компиляций).
+4. **Все остальные JIT-варианты на прогретом коде равны default:** hot steady `always-sparkplug` ×0.99 / ×1.01 / ×1.00, `no-sparkplug` ×0.99 / ×1.01 / ×1.00, `eager` ×0.99 / ×1.01 / ×1.00, `maglev` (node22) ×1.01, `no-maglev` (node24) ×1.00, `turbolev` ×0.91. В ревизии 1 здесь стояли ×0.82–×1.25 и `turbolev ×3.30` — всё это были артефакты харнесса (аллокация в цикле + loop-invariant входы + медиана 5 бимодальных повторов), см. «Аномалии».
+5. **`--always-sparkplug` — единственный вариант, где cold стабильно дороже default на всех трёх рантаймах: ×1.19 / ×1.11 / ×1.40** (создание 2000 функций 38–40 мс против 25–27, код +0.5–0.7 MB): Sparkplug-компиляция каждой функции при первом вызове стоит дороже, чем интерпретация трёх вызовов.
+6. **`eager` (порог TurboFan 100 вызовов, Maglev 20 / бюджет прерываний 1000):** компиляций больше (node24: 27/22 против 20/12; node22: 21 против 16; node20: 26 против 18), hot steady тот же (×0.99–1.01), первое окно на node24 даже ниже (94k против 113k — компиляции идут внутри первого окна), cold ×0.97–1.04. Более ранняя оптимизация не дала измеримого выигрыша ни в одной фазе.
+7. **`--turbolev` на node24 не упал**, hot steady ×0.91 (114k против 125k, ниже порога интерпретации), cold и unstable как default, 20/14 компиляций. «×3.30» из ревизии 1 было свёрткой loop-invariant вызовов `hotA(oA)+hotB(oB)+hotC(oC)` в вырожденном цикле; с меняющимися входами эффекта нет.
+8. **node24 `--no-maglev`:** hot ×1.00, unstable ×1.08, cold ×0.96, TurboFan-компиляций 17 против 12+20 Maglev — на этой нагрузке промежуточный тир не виден ни в плюс, ни в минус. **node22 `--maglev`** ≡ default (0 Maglev-компиляций, Maglev не собран).
+9. Память: `--jitless`/`--lite-mode` экономят 8–14 MB RSS (45–50 против 53–64) и ~1.2 MB кода; синхронный «всегда TurboFan» — +5 MB RSS и +4.7 MB кода; остальные варианты — в пределах 2–3 MB.
 
-## Механизм: `feedback-matters.js` (почему код без feedback не «бустится»)
+### Что цифры показывают и чего не показывают
+
+Показывают:
+- Тир функции можно проверить точно (natives, бит-маска), по событиям (`--trace-opt/--trace-deopt/--trace-baseline`, `--log-function-events`) и по профилю (`--prof`: `~ ^ + *`); `--cpu-prof`/trace-events тир не содержат.
+- Порог tier-up — не фиксированное число вызовов: он задаётся бюджетом «число вызовов × длина байткода» и фоновым потоком; в трёх прогонах node22 TurboFan для одной и той же функции установился на 20000-м вызове, после 5 и после 20 тиков `setImmediate`.
+- «Всегда TurboFan» в буквальном смысле (там, где флаг действительно компилирует всё синхронно): старт в 50–64 раза дороже, горячий код в 14–17 раз медленнее, unstable в 6.5–7 раз медленнее, код в 2.3–2.6 раза больше, деоптов нет и переоптимизации нет — буста нет.
+- Причина — feedback, а не компилятор: тот же TurboFan с пустым feedback либо ставит безусловный деопт (`Insufficient type feedback`, режим natives) и выбрасывает код на первом вызове, либо (`--always-turbofan`) генерирует generic-код, который в 2–9 раз медленнее прогретого и никогда не улучшится. Именно поэтому V8 сначала собирает feedback в Ignition/Sparkplug.
+- Cold-код (3 вызова × 2000 функций) одинаково быстр с JIT и без него (×0.76–1.03): оптимизирующие тиры для него не запускаются.
+- Более ранняя оптимизация (`eager`), `--always-sparkplug`, `--no-sparkplug`, `--no-maglev`, `--turbolev` на прогретом коде не отличимы от default (×0.91–1.01).
+
+Не показывают:
+- Какой выигрыш даёт TurboFan vs Maglev vs Sparkplug **по отдельности** на реальном коде: hot-фаза — три крошечные функции, заинлайненные в `chunk`, и любой оптимизирующий тир на них упирается в один и тот же код.
+- Что именно переключает «верхнюю моду» hot steady (×1.28 в 1–3 повторах из 10) — см. «Аномалии», п. 1.
+- Стоимость самого перехода между формами в unstable-фазе: при N=200000 первая половина подфазы A на JIT-вариантах в 1.5–2 раза дольше второй (2.2–3.1 мс против 1.4–1.7), но это 1–2 мс на 100 000 вызовов — на уровне разрешения.
+- Поведение в браузере/DevTools — не проверялось.
+
+### Механизм: `feedback-matters.js` (что делает оптимизирующий компилятор без feedback)
+
+Два разных режима, которые в ревизии 1 были смешаны:
+
+- **(a) спекулятивная компиляция без feedback (natives, без флага).** TurboFan/Maglev, вызванные через `%OptimizeFunctionOnNextCall`/`%OptimizeMaglevOnNextCall` на функции с пустым feedback, компилируют с `bailout_on_uninitialized`: на каждый неинициализированный IC-слот ставится безусловный `Deoptimize(Insufficient type feedback for …)`. Код выбрасывается на первом же выполнении, функция возвращается в интерпретатор и потом проходит обычный tier-up.
+- **(b) `--always-turbofan`.** Тот же TurboFan с тем же пустым feedback, но `pipeline.cc` **не** включает `bailout_on_uninitialized` — компилятор не спекулирует, а генерирует общий код (вызовы рантайма / мегаморфные пути). Такой код не деоптимизируется (0 bailout) и не переоптимизируется (TieringManager не переоптимизирует функцию, у которой текущий код уже TURBOFAN), поэтому он **живёт вечно и медленнее** прогретого в 2–9 раз. Именно (b) — ответ на «потратить мс на старте и получить буст».
 
 node24 (`artifacts/feedback-matters-node24.txt`), TurboFan:
 
 | вариант | статус после 1-го вызова (синхронная компиляция) | `--trace-deopt` по `target` | первые 2000 вызовов | статус после 1e6 | 1e6 вызовов |
 |---|---|---|---|---|---|
-| empty (0 прогревочных) | **`Interpreted`** — TurboFan-код деоптимизировался на первом же вызове (компиляция 0.984 мс) | 1 строка: `reason: Insufficient type feedback for generic named access … <Code TURBOFAN_JS>` | 0.222 мс, после них `Interpreted\|OptimizingConcurrently` (компилируется заново, уже с feedback) | `TurboFanned`, MaybeDeopted=false | 3.27 мс (306k calls/ms) |
-| warm (200 прогревочных) | `Optimized\|TurboFanned` (компиляция 0.776 мс) | 0 строк | 0.17 мс, всё ещё `TurboFanned` | `TurboFanned` | 3.30 мс (303k calls/ms) |
+| empty (0 прогревочных) | **`Interpreted`** — TurboFan-код деоптимизировался на первом же вызове (компиляция 0.92 мс) | 1 строка: `reason: Insufficient type feedback for generic named access … <Code TURBOFAN_JS>` | 0.215 мс, после них `interpreted+pending` (компилируется заново, уже с feedback) | `TurboFanned` | 3.20 мс (312k calls/ms) |
+| warm (200 прогревочных) | `Optimized\|TurboFanned` (компиляция 0.915 мс) | 0 строк | 0.138 мс, всё ещё `TurboFanned` | `TurboFanned` | 3.22 мс (311k calls/ms) |
+| empty-always (0 прогревочных, `--always-turbofan`) | `AlwaysOptimize\|Optimized\|TurboFanned` (компиляция 1.77 мс) | **0 строк** | 0.131 мс, `TurboFanned` | `AlwaysOptimize\|TurboFanned` — тот же код | **6.63 мс (151k calls/ms) — ×2.1 медленнее warm** |
 
-Maglev на node24: то же самое — `empty`: после 1-го вызова `Interpreted`, `reason: Insufficient type feedback for generic named access … <Code MAGLEV>` (компиляция 0.191 мс); `warm`: `Optimized|MaglevOptimized` без деоптов; через 1e6 вызовов оба — `TurboFanned` (естественный tier-up), 3.34 vs 3.19 мс.
+Maglev на node24: `empty` — после 1-го вызова `Interpreted`, `reason: Insufficient type feedback for generic named access … <Code MAGLEV>` (компиляция 0.198 мс), 1e6 вызовов 4.04 мс; `warm` — `Optimized|MaglevOptimized` без деоптов (0.161 мс), 1e6 вызовов 3.47 мс; через 1e6 вызовов оба — `TurboFanned` (естественный tier-up).
 
-node22 (`artifacts/feedback-matters-node22.txt`), TurboFan: `empty` → после 1-го вызова `Interpreted`, 1 деопт `Insufficient type feedback for generic named access … <Code TURBOFAN>`, первые 2000 вызовов 0.289 мс в интерпретаторе; `warm` → сразу `TurboFanned`, 0 деоптов, первые 2000 вызовов 0.152 мс. Через 1e6 вызовов оба `TurboFanned`: 7.28 vs 5.71 мс.
+node22 (`artifacts/feedback-matters-node22.txt`), TurboFan: `empty` → `Interpreted`, 1 деопт `… <Code TURBOFAN>`, первые 2000 вызовов 0.221 мс в интерпретаторе, 1e6 — 6.8 мс; `warm` → сразу `TurboFanned`, 0 деоптов, 1e6 — 6.6 мс; `empty-always` → сразу `AlwaysOptimize|Optimized|TurboFanned`, 0 деоптов, 1e6 — **38.6 мс (×5.9 медленнее warm)**. `%OptimizeMaglevOnNextCall` печатает `Maglev is not enabled.`, статус остаётся `Interpreted`.
 
-Итог механизма: оптимизирующий компилятор, запущенный без feedback, тратит ~1 мс (TurboFan) / ~0.2 мс (Maglev) на код, который выбрасывается на первом же вызове с причиной «Insufficient type feedback», после чего функция снова в интерпретаторе и ждёт обычного tier-up. С прогревом тот же компилятор за то же время выдаёт код, который живёт без деоптов. Бит `MaybeDeopted` к концу 1e6 вызовов не установлен в обоих вариантах: функция была пере-оптимизирована, по конечному статусу деопт уже не виден — его видно только по `--trace-deopt` или по статусу сразу после первого вызова.
+node20 (`artifacts/feedback-matters-node20.txt`), TurboFan: `empty` → `Interpreted`, 1 деопт, 1e6 — 5.11 мс; `warm` → `TurboFanned`, 0 деоптов, 1e6 — 4.03 мс; `empty-always` → функция была TurboFan-кодом **уже до** `%OptimizeFunctionOnNextCall` (статус `AlwaysOptimize|Optimized|TurboFanned` сразу после `%PrepareFunctionForOptimization` — на 11.3 ленивая компиляция под флагом сразу компилирует TurboFan'ом), 0 деоптов, 1e6 — **36.4 мс (×9 медленнее warm)**. Maglev — `Maglev is not enabled.`.
+
+Итог механизма: (a) без флага компилятор с пустым feedback тратит ~1 мс (TurboFan) / ~0.2 мс (Maglev) на код, который выбрасывается на первом вызове с причиной «Insufficient type feedback», — поэтому V8 не запускает оптимизацию раньше, чем есть feedback; (b) с `--always-turbofan` тот же компилятор выдаёт generic-код без деопт-точек, и функция застревает в нём навсегда — это и есть «hot ×0.06–0.09 при нуле деоптов» из матрицы. Бит `MaybeDeopted` в обоих режимах 0 и ни о чём не говорит (см. Q1); прошедший деопт виден только по `--trace-deopt` или по статусу сразу после первого вызова (`Interpreted` вместо `TurboFanned`).
 
 ## Аномалии — явно
 
-1. **`--always-turbofan` на node22/24 не компилирует cold-функции TurboFan'ом** (тысячи строк `optimizing … because --always-turbofan`, но `completed compiling` — единицы, и cold-вызовы быстрее default). Семантика флага на V8 12.4/13.6 явно другая, чем на 11.3; здесь только зафиксировано.
-2. **node20 `--always-turbofan`: hot ×0.09 при 0 деоптов** — медленный TurboFan-код без feedback не переоптимизируется (нет строк `marking … hot and stable` для `hotA/B/C`).
-3. **`--turbolev` hot ×3.30** — см. п. 7 выше; на первом (забракованном) прогоне матрицы было ×2.93, т.е. эффект воспроизводится, но природа не установлена.
-4. **node22 `--maglev`: 0 Maglev-компиляций** и в матрице, и в tier-status.
-5. **Шум hot-фазы велик:** разброс пика по 5 повторам ±20–30% медианы у 22 из 27 ячеек (окна 25 мс, 4 vCPU с соседними процессами, фоновые компиляции внутри окна). Отличия hot-пика < ×1.3 между JIT-вариантами **не интерпретируются**. Надёжно отличимы только: no-opt/jitless/lite-mode (×0.03–0.09), node20 always-turbofan (×0.09), turbolev (×3.3).
-6. `t90` (время до 90% пика) квантован окнами 25 мс и по медианам скачет (node22 `no-opt` 551 мс, `eager` 325 мс при default 75) — использовать только как «в первом окне / не в первом».
-7. Cold-фаза node24 `--jitless`: разброс 30.9 мс при медиане 27.2 (один выброс); медиана держится.
-8. В tier-status на node24 после выхода из OSR-цикла статус функции = `1` (только `IsFunction`, ни `Interpreted`, ни `Baseline`); на node22 — `Baseline|MarkedForConcurrentOptimization`. Не интерпретируется здесь.
-9. В первом прогоне матрицы цикл hot-фазы сам деоптимизировался (`overflow` аккумулятора Smi→double, `wrong map` при первом `push` окна) — по 11 деоптов на процесс на node24. После правки харнесса осталось 2 деопта `hotPhase` («Insufficient type feedback for generic named access» — ветка записи окна не имела feedback к моменту OSR-компиляции). Это цена харнесса, одинаковая для всех вариантов.
-
-## Что цифры показывают и чего не показывают
-
-Показывают:
-- Тир функции можно проверить точно (natives, бит-маска), по событиям (`--trace-opt/--trace-deopt`, `--log-function-events`) и по профилю (`--prof`: `~ ^ + *`); `--cpu-prof`/trace-events тир не содержат.
-- Порог tier-up — не фиксированное число вызовов: Sparkplug на node20 в двух прогонах пришёл на 100 и на 399 вызове, Maglev на node24 начал компилироваться на ~600, TurboFan установился только после паузы.
-- «Всегда TurboFan» в буквальном смысле (node20, где флаг действительно компилирует всё синхронно): старт ×50 дороже, горячий код ×11 медленнее, код ×2.6 больше, буста нет.
-- Оптимизирующий компилятор без feedback производит код, который выбрасывается на первом вызове (`Insufficient type feedback`), — это и есть причина, почему нужен прогрев в Ignition/Sparkplug до Maglev/TurboFan.
-- Cold-код (3 вызова × 2000 функций) одинаково быстр с JIT и без него (×0.77–1.0): оптимизирующие тиры для него не запускаются.
-- Более ранняя оптимизация (`eager`) не даёт измеримого выигрыша на этом workload.
-
-Не показывают:
-- Какой выигрыш даёт TurboFan vs Maglev vs Sparkplug **по отдельности** на реальном коде — hot-фаза слишком шумна и слишком мала (3 функции по 5 полей), а различия JIT-вариантов внутри ±30%.
-- Почему `--always-turbofan` на V8 12.4/13.6 не компилирует cold-функции и почему `--turbolev` даёт ×3.3 — нужны исходники/дополнительные эксперименты.
-- Стоимость деоптов в unstable-фазе в абсолюте: 1–5 мс на 60 000 вызовов — на уровне разрешения; видно только грубое ×3–5 у вариантов без оптимизации и ×2.8 у node20 always-turbofan.
-- Поведение в браузере/DevTools — не проверялось.
-
-## Артефакты
-
-- `tier-status.js` (библиотека + CLI), `run-tier-status.sh` → `artifacts/tier-status-{node20,node21,node22,node22-maglev,node24,node24-no-maglev,node24-always-sparkplug}.txt`, `artifacts/natives-runtime-method.txt`.
-- `trace-demo.js` → `artifacts/trace-opt-node22.txt`, `artifacts/trace-opt-node24.txt`.
-- `detect-workload.js`, `run-detect-methods.sh` → `artifacts/detect-prof.txt`, `detect-prof-full.txt`, `detect-log-function-events.txt`, `detect-log-code.txt`, `detect-trace-events.txt`, `detect-cpu-prof.txt`, `detect-trace-opt-node2{2,4}.txt`.
-- `always-turbofan-bench.js`, `run-matrix.sh`, `collect.js`, `report-tiers.js` → `raw-runs.jsonl` (135 прогонов), `traces.jsonl` (27 trace-прогонов), `results.jsonl` (27 ячеек), `matrix.log`, `artifacts/report-tiers.md`, `artifacts/trace-counts/<runtime>-<variant>.txt`.
-- `feedback-matters.js` → `artifacts/feedback-matters-node22.txt`, `artifacts/feedback-matters-node24.txt`.
-- `artifacts/versions.txt`, `artifacts/flag-support.txt`.
+1. **Hot steady бимодален.** Почти в каждой JIT-ячейке 1–3 повтора из 10 дают «верхнюю моду» в ~×1.28 раза выше остальных (node20 default: 121…124 и 157k; node22: 101…109 и 137k; node24: 115…125 и 157–159k; см. колонку «hot steady по повторам»). Переключение происходит внутри процесса посреди фазы (серии окон в `raw-runs.jsonl`: `hotSeries`), GC-счётчик (везде 2–3) и деопты харнесса (одинаковые во всех повторах) его не объясняют; причина не установлена (уровень CPU/планировщика VM или code layout). Поэтому: медиана 10 повторов, min–max в таблицах, **и отличия hot steady между JIT-вариантами меньше ×1.4 не интерпретируются**. `taskset`/pinning не применялся (pinning всего процесса на одно ядро сериализует фоновые компиляции с главным потоком и меняет само поведение tier-up; на 2 ядра — не пробовалось). В ревизии 1 медиана 5 повторов попадала то в одну моду, то в другую — отсюда были `×0.82` у node24 `always-turbofan`/`no-sparkplug`/`no-maglev`, `×1.25` у node22 `always-turbofan`, `×1.24/×1.20` у `always-sparkplug`, `×1.14` у `eager`; все они исчезли.
+2. **Харнесс ревизии 1 измерял себя** (два блокера ревью, воспроизведены и исправлены): (a) double-аккумулятор hot-фазы в OSR-коде боксился в HeapNumber на каждой итерации — ~2200–2700 scavenge за 1.5 с и ~10 % времени в GC-паузах, у всех JIT-вариантов одинаково; теперь аккумулятор Smi, GC-событий за hot-фазу — 2 в каждом из 290 процессов; (b) входы `hotA/B/C` были loop-invariant, и Turbolev выносил/сворачивал вызовы — «`--turbolev` ×3.30» (и ×2.93 в ещё более раннем прогоне, артефакта от которого нет); с ротацией входов по 4 объектам одной формы Turbolev ×0.91. Сравнения ревизии 1 между JIT-вариантами не воспроизводятся и здесь не приводятся.
+3. **Деопты функций харнесса.** В каждом повторе default на node20/22 — 1 деопт `hotPhase` (`Insufficient type feedback for generic named access` — ветка записи окна не имела feedback к моменту OSR-компиляции внешнего цикла), на node24 — 2 (`prepare for on stack replacement (OSR)` @ `hotPhase`/`chunk` при переходе Maglev→TurboFan плюс тот же `Insufficient…`), у `eager` на node24 — 4 (см. `artifacts/trace-counts/*.txt`, «bailout reasons»; регэксп теперь захватывает и причины со скобками `(OSR)`). Это цена харнесса, одинаковая для всех повторов внутри ячейки; повторов с «churn» (десятки деоптов `exit from OSR'd inner loop`, которые ревьюер видел на старом OSR-цикле) в ревизии 2 нет — `deoptsHotHarnessRep` по повторам одинаков (см. `deoptsHotHarnessAll` в `results.jsonl`). В `unstablePhase` — 2–5 деоптов `Insufficient type feedback for call` и 1 `wrong map` у `unstable` (ожидаемо: смена формы).
+4. **`--always-turbofan` на node22/24 не компилирует ничего** (не только cold-функции, как было сформулировано в ревизии 1): объяснение — гейт `minimum_invocations_before_optimization` в `GetOrCompileOptimized` (см. Q2 п. 2 и «Источники»). Это больше не открытый вопрос; ячейки `always-turbofan` на node22/24 — это default с подавленной Sparkplug-очередью, а «всегда TurboFan» на этих версиях — ячейки `always-turbofan-min0`.
+5. **node22 `--maglev`: 0 Maglev-компиляций** — не аномалия: Maglev в этой сборке не собран (`v8_enable_maglev=0`, `Maglev is not enabled.`), как и на node20/21. Ячейка ≡ default и оставлена только как контроль.
+6. **Cold-вызовы node22: 11.3 мс в default против 3.3–4.3 мс у `always-turbofan`/`always-sparkplug`/`no-sparkplug`.** По ревью: это синхронная (главный поток; `--concurrent-sparkplug` в 12.4 выключен) Sparkplug-компиляция ~2000 функций, инициируемая тиком lazy-feedback-allocation; `--no-baseline-batch-compilation` разрыв не убирает, `--no-lazy-feedback-allocation` убирает (2.5–3.4 мс). Здесь не перепроверялось отдельными флагами — зафиксировано по цифрам матрицы и `--trace-baseline` ревьюера (2033 `Enqueued SFI` в default против 13 при `--always-turbofan`). На node24 (concurrent Sparkplug) разрыв меньше: 5.3 против 3.4–4.2.
+7. **`t90`** («время до 90 % пика») из таблиц убран: при шуме окон ±20 % определение «первое окно ≥ 0.9·пик» выбирало случайное окно (в ревизии 1 внутри одной ячейки 25…1428 мс). В `raw-runs.jsonl` поле `hotTimeTo90Ms` осталось (теперь относительно steady), в отчёт не выносится.
+8. **Точки смены тира в tier-status плавают между прогонами** (TurboFan для `hot` на node22: 20000-й вызов / после 5×setImmediate / после 20×setImmediate; Maglev на node24: 3001 / 6000; OSR-кадр на node24: через Maglev или мимо него) — это свойство фоновой компиляции, а не ошибка измерения; в документе приведены значения текущих артефактов с указанием отличий.
+9. В tier-status на node24 после выхода из OSR-цикла статус функции = `1` (только `IsFunction`, ни `Interpreted`, ни `Baseline`); на node21/22 — `Baseline`, на node20 — `Baseline|MarkedForConcurrentOptimization`. Не интерпретируется здесь.
+10. Cold-фаза: у 27 из 29 ячеек разброс min–max больше 20 % медианы (в основном за счёт 1–2 выбросов cold, например node24 `turbolev` 25–54 мс, `lite-mode` 22–43); медианы держатся (cold ×0.76–1.04 у всех JIT-вариантов, кроме `always-sparkplug`).
+11. `--jitless`/`--lite-mode` на node20/22 печатают `Warning: disabling flag --expose_wasm due to conflicting flags` (в `flag-support.txt` помечено как FAIL, но процесс работает и результаты есть).
+12. Первый прогон `run-matrix.sh` ревизии 2 упал на этапе `collect.js`: раннер писал строки `raw-runs.jsonl` без закрывающей скобки; файл починен, `run-matrix.sh` исправлен, `collect.js`/`report-tiers.js` перезапущены вручную (отмечено в `matrix.log`). Сами измерения от этого не зависят.
 
 ## Источники
 
-заполняется на этапе синтеза
+Все ссылки на исходники — теги V8 `11.3.244.8` (Node 20), `12.4.254.21` (Node 22), `13.6.233.17` (Node 24) на github.com/v8/v8; посты — исходники сайта v8.dev (`github.com/v8/v8.dev`, сам сайт из этого окружения закрыт). Что не удалось проверить по первоисточнику, помечено «не проверено».
+
+### 1. Биты `%GetOptimizationStatus`
+
+- Раскладка `enum class OptimizationStatus` побайтно одинакова в 11.3 (`src/runtime/runtime.h` L969–991) и 12.4 (L1004–1026): `kIsFunction=1<<0, kNeverOptimize=1<<1, kAlwaysOptimize=1<<2, kMaybeDeopted=1<<3, kOptimized=1<<4, kMaglevved=1<<5, kTurboFanned=1<<6, kInterpreted=1<<7, kMarkedForOptimization=1<<8, kMarkedForConcurrentOptimization=1<<9, kOptimizingConcurrently=1<<10, kIsExecuting=1<<11, kTopmostFrameIsTurboFanned=1<<12, kLiteMode=1<<13, kMarkedForDeoptimization=1<<14, kBaseline=1<<15, kTopmostFrameIsInterpreted=1<<16, kTopmostFrameIsBaseline=1<<17, kIsLazy=1<<18, kTopmostFrameIsMaglev=1<<19, kOptimizeOnNextCallOptimizesToMaglev=1<<20` (https://github.com/v8/v8/blob/12.4.254.21/src/runtime/runtime.h#L1004-L1026).
+- 13.6 сохраняет биты 0..20 и добавляет `kOptimizeMaglevOptimizesToTurbofan=1<<21, kMarkedForMaglevOptimization=1<<22, kMarkedForConcurrentMaglevOptimization=1<<23` (https://github.com/v8/v8/blob/13.6.233.17/src/runtime/runtime.h#L1075-L1100).
+- В V8 main (2026-09-25) `kAlwaysOptimize` нет, и биты ≥2 сдвинуты: `kMaybeDeopted=1<<2, kOptimized=1<<3, kMaglevved=1<<4, kTurboFanned=1<<5, kInterpreted=1<<6, … kBaseline=1<<14, … kTopmostFrameIsMaglev=1<<18` (https://github.com/v8/v8/blob/main/src/runtime/runtime.h) — раскладка этого отчёта к будущим Node не применима.
+- Как биты выставляются (`Runtime_GetOptimizationStatus`, 12.4 `src/runtime/runtime-test.cc` L877–948): `kAlwaysOptimize` — если `v8_flags.always_turbofan || prepare_always_turbofan`; `kMarkedFor(Concurrent)Optimization`/`kOptimizingConcurrently` — из `tiering_state()` (Maglev-запросы в 12.4 игнорируются, `TODO(v8:7700)`); `kOptimized`/`kMaglevved`/`kTurboFanned` — по присоединённому коду (`code->is_maglevved()` / `is_turbofanned()`); `kBaseline` — `HasAttachedCodeKind(BASELINE)`; `kInterpreted` — `ActiveTierIsIgnition`; `kIsLazy` — `!is_compiled`. В 13.6 (L900–960) Maglev-запросы уже видны как биты 22/23. Биты `TopmostFrameIs*` берутся из типа верхнего кадра (`frame->is_turbofan()/is_interpreted()/is_baseline()/is_maglev()`).
+- `kMaybeDeopted` выставляется только при `v8_flags.deopt_every_n_times` (единственный setter в файле: 11.3 L765–766, 12.4 L893–894, 13.6 L916–917); `was_once_deoptimized()` из 13.6 через этот native не экспортируется.
+- Прочие natives (12.4 L499–591, 13.6 L529–628): `%ActiveTierIsIgnition/Sparkplug/Maglev/Turbofan(f)`, `%PrepareFunctionForOptimization` (компилирует байткод, создаёт feedback vector, при `--allow-natives-syntax` регистрирует функцию в `ManualOptimizationTable`), `%OptimizeFunctionOnNextCall` / `%OptimizeMaglevOnNextCall` (ставят запрос `MarkForOptimization`/`RequestOptimization` с `ConcurrencyMode::kSynchronous`, компиляция происходит на **следующем** вызове), `%CompileBaseline` (синхронный Sparkplug), `%NeverOptimizeFunction`, `%OptimizeOsr`. `%BaselineFunctionOnNextCall` не существует ни в одной из трёх версий. В 12.4 `%OptimizeMaglevOnNextCall` есть только под `#ifdef V8_ENABLE_MAGLEV` — отсюда `Maglev is not enabled.` на node20/22.
+- `v8.setFlagsFromString('--allow-natives-syntax')` действует на код, распарсенный после: `parse-info.cc` копирует `v8_flags.allow_natives_syntax` в `UnoptimizedCompileFlags` (13.6 L35), а `parser-base.h` распознаёт `%` только при этом флаге (13.6 ~L2265). Node-документация даёт лишь общее предупреждение «use with care», но сама вызывает `setFlagsFromString('--allow_natives_syntax')` в примере к `cachedDataVersionTag` (https://nodejs.org/api/v8.html).
+
+### 2. Что на самом деле делает `--always-turbofan`
+
+- Флаг определён как «always try to optimize functions», подразумевает `--turbofan` (12.4 `flag-definitions.h` L2172–2175). В ленивой компиляции `Compiler::Compile(JSFunction)` при `always_turbofan` сначала создаётся feedback vector (`JSFunction::InitializeFeedbackCell`; `needs_feedback_vector = !lazy_feedback_allocation || always_turbofan || log_function_events || …`, 12.4 `js-function.cc` L636–650), затем `GetOrCompileOptimized(isolate, function, ConcurrencyMode::kSynchronous, CodeKindForTopTier())` и печать `[optimizing … because --always-turbofan]` (12.4 `compiler.cc` L2675–2745; 13.6 L3037–3060 с `TURBOFAN_JS`). Каждое новое замыкание от уже скомпилированного SFI тоже получает синхронный TurboFan-запрос (`Compiler::PostInstantiation`, 12.4 L4223–4230, `TraceMarkForAlwaysOpt`).
+- **Почему на 12.4/13.6 это ничего не компилирует.** `GetOrCompileOptimized` сначала делает `ResetTieringState`, а потом отказывает, пока `feedback_vector()->invocation_count() < v8_flags.minimum_invocations_before_optimization` (по умолчанию 2; у свежего вектора счётчик 0), если функция не в `ManualOptimizationTable` (12.4 `compiler.cc` L1319–1343; 13.6 L1364–1378; флаг 12.4 L878 / 13.6 L998). Повторного запроса нет (единственные места запроса — `Compiler::Compile` один раз и `PostInstantiation`), поэтому функция дальше идёт обычным путём (Sparkplug → Maglev на 13.6 → TurboFan «hot and stable»). **Проверено здесь:** с `--always-turbofan --minimum-invocations-before-optimization=0` node22/24 ставят TurboFan-код после 1-го вызова и ведут себя как node20 (ячейка `always-turbofan-min0`); в V8 11.3 этого флага/проверки нет (`flag-support.txt`: `bad option`), поэтому node20 компилирует синхронно на первом вызове (`mode: ConcurrencyMode::kSynchronous`, 4309 `completed compiling`). Формулировка исследования «синхронная компиляция произойдёт на последующем вызове, когда счётчик дойдёт до 2» эмпирически **не подтвердилась** — функция остаётся `Interpreted` тысячи вызовов (ревьюер: node22 TurboFan только на ~5300-м вызове, node24 Maglev на ~690-м).
+- **Почему такой код медленный и никогда не улучшается.** `PipelineCompilationJob::PrepareJobImpl` вызывает `set_bailout_on_uninitialized()` только при `!v8_flags.always_turbofan` (12.4 `pipeline.cc` L659–667; 13.6 L699–707); этот флаг включает `BytecodeGraphBuilderFlag::kBailoutOnUninitialized`, `JSCallReducer::kBailoutOnUninitialized`, `JSNativeContextSpecialization::kBailoutOnUninitialized`. Без него по пустому feedback генерируется общий код вместо спекуляции. А `TieringManager::ShouldOptimize` возвращает `DoNotOptimize`, если `current_code_kind == CodeKind::TURBOFAN` («Already in the top tier», 11.3 `tiering-manager.cc` L319–321; 12.4 L360–399), поэтому переоптимизации «hot and stable» для такой функции не бывает — что и видно в `trace-full/node20-always-turbofan.txt` (0 строк `marking … hotA/B/C`).
+- В V8 main (2026-09-25) флага `--always-turbofan` нет вовсе (`flag-definitions.h`: только `always_sparkplug`, `always_osr`, `always_osr_from_maglev`); в какой версии он удалён — не проверено по исходникам этого отчёта (`REVIEW-TALK-TIERS.md` называет 14.0.365.1).
+
+### 3. Как V8 решает, когда компилировать (tier-up)
+
+- **12.4/13.6: бюджет прерываний, а не счётчик вызовов.** `TieringManager::InterruptBudgetFor` (12.4 `tiering-manager.cc` L185–236; 13.6 L180–252): до появления feedback vector бюджет = `bytecode_length × invocation_count_for_feedback_allocation` (8); функции длиннее `max_optimized_bytecode_size` (60 KB) — `INT_MAX/2` (никогда); при ожидающем TurboFan-запросе — `invocation_count_for_osr` (500) × длина; при ожидающем Maglev-запросе и Maglev-OSR — `invocation_count_for_maglev_osr` (100) × длина; неоптимизированный тир с Maglev — `invocation_count_for_maglev` (400; 1000 на Android в 13.6) × длина; иначе `invocation_count_for_turbofan` (3000) × длина. Флаги: 12.4 `flag-definitions.h` L852–911, 13.6 L968–1034 (https://github.com/v8/v8/blob/12.4.254.21/src/flags/flag-definitions.h#L852-L911).
+- **Lazy feedback allocation.** `TieringManager::OnInterruptTick` (12.4 L472–546): при первом исчерпании бюджета создаётся feedback vector, функция отправляется в Sparkplug (`baseline_batch_compiler()->EnqueueFunction` при `--baseline-batch-compilation`, иначе `Compiler::CompileBaseline` синхронно), `invocation_count` = 1, и тик завершается — «We only tier up beyond sparkplug if we already had a feedback vector». Отсюда порядок Ignition → Sparkplug → (Maglev) → TurboFan.
+- **Решение оптимизировать.** `MaybeOptimizeFrame` (12.4 L279–358): ничего не делает, пока идёт компиляция (`IsInProgress`) или `optimization_disabled()`; если запрос уже есть, а мы всё ещё в нижнем кадре — только поднимает OSR-urgency («OSR kicks in only once we've previously decided to tier up, but we are still in a lower-tier frame»). `ShouldOptimize` (12.4 L360–399): не оптимизировать, если уже TURBOFAN; неоптимизированный тир + Maglev включён + проходит `--maglev-filter` → `OptimizationDecision::Maglev()` (или сразу TurboFan при PGO `kEarlyTurbofan`); иначе отказ при `--no-turbofan`/`--turbo-filter`/efficiency mode/battery saver/слишком длинный байткод; иначе `TurbofanHotAndStable()`. Причины в 12.4/13.6 только `kDoNotOptimize` и `kHotAndStable`; все эвристические компиляции `ConcurrencyMode::kConcurrent` (`--concurrent-recompilation` по умолчанию true).
+- **«Stable».** `NotifyICChanged` (12.4 L401–465): при смене IC, если функция уже готова к оптимизации, бюджет поднимается (никогда не опускается) до `minimum_invocations_after_ic_update` (500) × длина байткода, с трассировкой `[delaying optimization of %s, IC changed]` под `--trace-opt-verbose`. Tier-up ждёт, пока feedback перестанет меняться.
+- **Деопты ограничивают повтор через бюджет, а не через счётчик.** Лимита «N деоптов и стоп» нет: `DeoptimizedTooManyTimes`/`max_deopt_count` в 12.4/13.6 не найдены (`deoptimizer.cc`, `compiler.cc`, `js-function.cc`, `shared-function-info.cc`, `feedback-vector.cc`, `flag-definitions.h`, `bailout-reason.h` — другие файлы не проверялись). После eager-деопта `Deoptimizer::DoComputeOutputFrames` сбрасывает tiering state и бюджет как у свежеинтерпретируемой функции (12.4 `deoptimizer.cc` L909–925); в 13.6 дополнительно `set_was_once_deoptimized()` и, если Maglev-код деоптимизировался «рано», кэшированное решение `kDelayMaglev` — следующая попытка Maglev через `(max(invocation_count_for_maglev, minimum_invocations_after_ic_update) + invocation_count_for_maglev_with_delay(600)) × длина` (13.6 L1466–1483, L1694–1713). `SharedFunctionInfo::DisableOptimization` (`[disabled optimization for …, reason: …]`) в этих файлах вызывается только из `%NeverOptimizeFunction`.
+- **11.3 (node20): другая, тиковая эвристика.** `--interrupt-budget=66KB`, `--ticks-before-optimization=3`, `--bytecode-size-allowance-per-tick=150`, `--max-bytecode-size-for-early-opt=81` (`ShouldOptimizeAsSmallFunction`: нет изменений IC и байткод < 81 → `TurbofanSmallFunction` на первом тике — это `reason: small function` в `trace-opt-node20.txt`), `--invocation-count-for-maglev=100`, feedback vector по `--interrupt-budget-for-feedback-allocation=940` / `--interrupt-budget-factor-for-feedback-allocation=8` (11.3 `flag-definitions.h` L653–693, `tiering-manager.cc` L232–235, L332–343). В 12.4/13.6 этих флагов нет.
+- **Пустой feedback → безусловный деопт (режим без `--always-turbofan`).** `JSTypeHintLowering::BuildDeoptIfFeedbackIsInsufficient` при `kBailoutOnUninitialized` и `broker()->FeedbackIsInsufficient(source)` (= `FeedbackNexus::IsUninitialized()`) создаёт узел `Deoptimize(reason)` (12.4 `js-type-hint-lowering.cc` L633–648); то же в `JSCallReducer::ReduceForInsufficientFeedback` и `JSNativeContextSpecialization::ReduceEagerDeoptimize`. Причины `kInsufficientTypeFeedbackFor{Call, Construct, ForIn, BinaryOperation, CompareOperation, GenericNamedAccess, GenericKeyedAccess, UnaryOperation}` (11.3) + `GenericGlobalAccess, ArrayLiteral, ObjectLiteral, InstanceOf` (12.4) + `TypeOf` (13.6) (12.4 `deoptimize-reason.h` L25–46). Отдельного «soft deopt» больше нет: `DeoptimizeKind` = `{kEager, kLazy}` (12.4 `globals.h` L755–758), в `--trace-deopt` это `kind: deopt-eager, reason: Insufficient type feedback for …`.
+- Maglev в сборке: 12.4 `DEFINE_BOOL(maglev, ENABLE_MAGLEV_BY_DEFAULT, …)`, где `ENABLE_MAGLEV_BY_DEFAULT` = true только под `#if V8_ENABLE_MAGLEV && !defined(ANDROID)` (L128–133); официальные бинарники Node 22 собраны с `v8_enable_maglev=0` (`process.config`), поэтому `--v8-options` показывает `default: --no-maglev`, а `%OptimizeMaglevOnNextCall` — `Maglev is not enabled.`. 13.6: `DEFINE_BOOL(maglev, true, …)` (L544), Node 24 собран с `v8_enable_maglev=1`.
+- `--jitless` тянет `NEG_IMPLICATION` на `turbofan`, `turboshaft`, `maglev`, `sparkplug`, `always_sparkplug` и `regexp_interpret_all`; `--lite-mode` подразумевает `--jitless` и `--optimize-for-size` (V8 main `flag-definitions.h`; в матрице это видно как 0 компиляций и `code KB` ×0.6). `--always-sparkplug` = «directly tier up to Sparkplug code».
+
+### 4. Официальная мотивация ярусов (посты v8.dev)
+
+- **Ignition** (https://v8.dev/blog/ignition-interpreter, 2016; https://v8.dev/blog/launching-ignition-and-turbofan, 2017): машинный код Full-codegen занимал «almost one third of the overall JavaScript heap», «even if the code is only executed once»; байткод — «between 50% to 25% the size of the equivalent baseline machine code», −9× памяти на baseline-код на ARM64, ~5 % памяти на вкладку; байткод напрямую питает TurboFan («rather than having to re-compile from source code as Crankshaft did»), упрощает деопт и ускоряет старт; Speedometer +5–10 %, AcmeAir (Node) >10 %, память V8 −5–10 %.
+- **Sparkplug** (https://v8.dev/blog/sparkplug, 2021) — прямой ответ на «почему не раньше TurboFan»: «we can’t really start optimising earlier, because we won’t have stable object shape feedback yet»; «Particularly for short-lived sessions … there’s a lot of work that happens before the optimising compiler even has a chance to start optimising». Sparkplug компилирует байткод «in a single linear pass … no IR», «“just” a serialization of interpreter execution, calling the same builtins and maintaining the same stack frame» — не спекулирует, убирает только decode/dispatch. Speedometer +5–10 %, реальные сайты +5–15 %.
+- **Maglev** (https://v8.dev/blog/maglev, 2023): TurboFan даёт 4.35× на JetStream, но лишь >1.5× на Speedometer, потому что бенчмарк «spending a lot of time in functions that don’t get hot enough to be optimized by TurboFan»; Sparkplug +45 % к Ignition (JetStream), +41 % (Speedometer); Maglev «roughly 10x slower than Sparkplug, and 10x faster than TurboFan», что позволяет оптимизировать раньше («If the feedback it relied upon ended up not being very stable yet, there’s no huge cost to deoptimizing and recompiling later») и откладывать TurboFan; энергия −3.5 % JetStream, −10 % Speedometer. Код Maglev/TurboFan «often speculative» и «needs to be able to deoptimize».
+- **V8 Lite / feedback vectors** (https://v8.dev/blog/v8-lite, 2019): «a significant portion of V8’s heap was dedicated to … optimized code; type feedback …; bytecode for functions that are only executed a few times»; lite mode −22 % кучи за счёт отключения оптимизации и feedback vectors; **полное** отключение feedback vectors (нет и IC в интерпретаторе) стоило +120 % CPU и −12 % page-load — отсюда lazy allocation после ~1 KB исполненного байткода, «Since most functions aren’t executed very often»; TurboFan «performs speculative optimizations, it might need to fall back to the interpreter (deoptimize)». Байткод ~15 % кучи, flushing по возрасту (https://v8.dev/blog/v8-release-74: −5–15 % кучи без потери производительности).
+- **JIT-less** (https://v8.dev/blog/jitless, 2019): Speedometer 2.0 −40 % (половина — от отсутствия оптимизирующего компилятора), Web Tooling −80 %, YouTube living-room −6 % — «peak optimized code performance is not always correlated to real-world performance»; память −1.7 %. `--no-opt` отключает TurboFan, `--jitless` — всё исполняемое выделение.
+- **Спекуляция и деопт** (https://v8.dev/blog/wasm-speculative-optimizations, 2025): «JIT-compilers make assumptions when generating machine code based on feedback that was collected during earlier executions … Without making such assumptions, the compiler would have to emit generic code that handles the full behavior of the + operator in JavaScript, which is complex and thus much slower. If the program later behaves differently … V8 performs a deoptimization … continuing execution in unoptimized code (and collecting more feedback to possibly tier-up again later)». Это ровно оба режима из `feedback-matters.js`: generic-код (`--always-turbofan`) vs спекулятивный код с деоптом.
+- **Liftoff** (https://v8.dev/blog/liftoff, 2018): для JS «Each function is first executed in Ignition, and if the function becomes hot, TurboFan compiles it»; для Wasm выбран eager tier-up, но «Just recompiling all functions with TurboFan easily doubles the memory needed to hold all code». Ленивый парсинг (https://v8.dev/blog/preparser): «Over-eagerly compilation is bad for performance: V8 without lazy compilation significantly regresses load time».
+- Статья Б. Мойрера «An Introduction to Speculative Optimization in V8» (ponyfoo.com / benediktmeurer.de) из этого окружения недоступна — **не проверено**; v8.dev/docs/turbofan ссылается на неё как на официальный материал.
+
+### 5. Что сохраняется между запусками
+
+- **Code cache = байткод.** «Code caching (also known as bytecode caching) … caching the result of parsing + compilation … the compiled bytecode is stored in a hashtable … serialized, and is attached to the cached script file as metadata» (https://v8.dev/blog/code-caching-for-devs). В кэш попадают только функции, скомпилированные к моменту окончания скрипта (lazy-функции, вызванные позже, — нет); минимальный размер 1 KiB; in-memory кэш изолята — ~80 % попаданий. Кэш после top-level execution возможен потому, что «The context-dependent data is stored in feedback vectors and is separate from the generated code» (https://v8.dev/blog/improved-code-caching): −20–40 % времени компиляции, ~86 % попаданий. Оптимизированный (TurboFan/Maglev) код и feedback не сериализуются — по постам это следует из того, что кэшируется байткод; явного утверждения «machine code never persisted» в документации нет (**не проверено** формулировкой, только по содержанию).
+- **Node compile cache** (`NODE_COMPILE_CACHE`, `module.enableCompileCache()`, https://nodejs.org/api/module.html#module-compile-cache): «use on-disk V8 code cache persisted in the specified directory to speed up the compilation … written to disk when the Node.js instance is about to exit», привязан к версии Node. **Снапшот** (`--build-snapshot`/`--snapshot-blob`, https://nodejs.org/api/cli.html#--build-snapshot): блоб состояния кучи + опционально code cache (`withoutCodeCache`); требует той же версии/архитектуры/платформы и совместимых V8-флагов. Ни там, ни там оптимизированный код не упоминается.
+- **Контраст — Wasm:** там TurboFan-код кэшируется как есть («caching the native code produced by the compiler», модули ≥128 kB, после завершения TurboFan; компиляция больших модулей — «30 seconds to a minute or more»; код в 5–7 раз больше `.wasm`) (https://v8.dev/blog/wasm-code-caching). Для JS это невозможно из-за спекуляции на feedback конкретного запуска.
+
+### 6. Строки трассировки и маркеры (для Q1)
+
+- `--trace-opt`: префикс `[%s <fn> (target %s)` + `]` (`PrintTracePrefix`/`CodeKindToString`; TURBOFAN в 12.4, TURBOFAN_JS в 13.6); `[marking … for optimization to <KIND>, ConcurrencyMode::k…, reason: …]` печатает `TieringManager::TraceRecompile`; `[compiling method … (target …)[ OSR], mode: …]`, `[completed compiling … - took a, b, c ms]`, `[completed optimizing …]`, `[aborted optimizing … because: …]`, `[found optimized code for …]` — `compiler.cc`. Строк «using TurboFan/Maglev» нет; единственное `because` про компилятор — `because --always-turbofan`.
+- `--trace-deopt`: `[bailout (kind: deopt-eager|deopt-lazy, reason: <R>): begin. deoptimizing <fn>, <Code KIND>, opt id N, bytecode offset N, …]` (13.6 `deoptimizer.cc` L805–843; 12.4 не сверялся построчно).
+- `--trace-baseline`: `[compiling method <sfi> (target BASELINE)]`, `[completed compiling … (target BASELINE) - took N ms]` — главный поток (`compiler.cc`); `[Concurrent Sparkplug] compiling N functions`, `[Concurrent Sparkplug Off Thread] Function <sfi> installed` — `baseline-batch-compiler.cc`; `[Baseline batch compilation] Enqueued SFI …` — `--trace-baseline-batch-compilation` (в 13.6 слабая импликация от `--trace-baseline`). `--concurrent-sparkplug` по умолчанию включён в 13.6 (`node24 --v8-options`), выключен в 11.3/12.4.
+- `--prof`: маркер из `CodeKindToMarker`: `~` INTERPRETED_FUNCTION, `^` BASELINE, `+` MAGLEV, `*` TURBOFAN(_JS), пусто — builtins; 13.6 добавляет `+'`/`*'` для context-specialized кода (`src/objects/code-kind.cc`); `log.cc ComputeMarker` пишет его перед именем (пустой маркер для интерпретируемой функции с отключённой оптимизацией); `tools/profile.mjs` парсит в `Unopt/Sparkplug/Maglev/Opt` и печатает `STATE_PREFIX = ["", "~", "^", "-", "+", "*"]`; Node `--prof-process` запускает тот же tickprocessor (`lib/internal/v8_prof_processor.js`).
+- `--log-function-events`: `function,<reason>,<script_id>,<start>,<end>,<ms>,<timestamp>,<name>` (`log.cc AppendFunctionMessage`); reason `interpreter|baseline|maglev|turbofan` из `CodeKind` (`Compiler::LogFunctionCompilation`), `first-execution[-BASELINE|-MAGLEV|-TURBOFAN_JS]` (`runtime-compiler.cc`), парсерные `parse-script|parse-eval|parse-function|preparse-no-resolution|preparse-resolution|full-parse`.
+- Trace events: категория `disabled-by-default-v8.compile` — `V8.OptimizeCode`, `V8.OptimizeNonConcurrent`, `V8.OptimizeConcurrentPrepare/Background/Finalize/Dispose`, `V8.TurbofanTask` (13.6), `V8.Maglev(Concurrent)Prepare`, `V8.MaglevTask/Background/ConcurrentFinalize`, `V8.Maglev.<Phase>`; без имён функций. Sparkplug: в `src/baseline/*` TRACE_EVENT нет, но установка concurrent-batch'а трассируется как `V8.FinalizeBaselineConcurrentCompilation` из `src/execution/stack-guard.cc` (13.6 L366–372) — именно она и видна в `detect-trace-events.txt`. Node документирует только категорию `v8` («GC, compiling, and execution related»); проброс `disabled-by-default-*` работает, но не документирован. DevTools Performance показывает `V8.CompileCode`/`V8.OptimizeCode` как «Compile code»/«Optimize code» (devtools-frontend `Styles.ts`), CPU-профиль несёт только `deoptReason` из `disabled_optimization_reason` — тира нигде нет.
+
+### 7. Флаги, использованные в матрице (V8 main, 2026-09-25, если не сказано иное)
+
+`invocation_count_for_feedback_allocation=8`, `invocation_count_for_maglev=400` (1000 Android), `invocation_count_for_maglev_osr=100`, `invocation_count_for_turbofan=3000`, `invocation_count_for_osr=500`, `minimum_invocations_after_ic_update=500`, `minimum_invocations_before_optimization=2`; `sparkplug`/`always_sparkplug` («directly tier up to Sparkplug code»), `maglev=true`, `turbofan=true` (alias `--opt`), `efficiency_mode_disable_turbofan` / `efficiency_mode_delay_turbofan_multiply=3`; `turbolev` (13.6 L1564: «use Turbolev (≈ Maglev + Turboshaft combined) as the 4th tier compiler instead of Turbofan», default false).
+
+## Артефакты
+
+- `tier-status.js` (библиотека + CLI), `run-tier-status.sh` → `artifacts/tier-status-{node20,node21,node22,node22-maglev,node24,node24-no-maglev,node24-always-sparkplug}.txt`, `artifacts/tier-status-<runtime>-runtime-flag.txt` (способ (b), полный вывод), `artifacts/natives-runtime-method.txt` (сводка), `artifacts/maglev-build.txt` (`v8_enable_maglev`, `--v8-options`, `%OptimizeMaglevOnNextCall`).
+- `trace-demo.js` → `artifacts/trace-opt-{node20,node21,node22,node24}.txt`.
+- `detect-workload.js`, `run-detect-methods.sh` → `artifacts/detect-prof.txt`, `detect-prof-full.txt`, `detect-log-function-events.txt`, `detect-log-code.txt`, `detect-trace-events.txt`, `detect-cpu-prof.txt`, `detect-trace-opt-node2{2,4}.txt` (ревизия 1, не перепрогонялись).
+- `always-turbofan-bench.js` (v2), `run-matrix.sh`, `collect.js`, `report-tiers.js` → `raw-runs.jsonl` (290 прогонов, с сериями окон и счётчиками деоптов/GC), `traces.jsonl` (29 trace-прогонов), `results.jsonl` (29 ячеек: медианы, min/max, все значения hot steady), `matrix.log`, `artifacts/report-tiers.md`, `artifacts/trace-counts/<runtime>-<variant>.txt` (выжимки), `artifacts/trace-full/<runtime>-<variant>.txt` (полные `--trace-opt --trace-deopt` логи).
+- `feedback-matters.js` → `artifacts/feedback-matters-{node20,node22,node24}.txt`.
+- `artifacts/versions.txt`, `artifacts/flag-support.txt`.
+- `REVIEW-TALK-TIERS.md` — сверка доклада (отдельный документ).

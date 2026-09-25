@@ -1,4 +1,4 @@
-node v21.7.3 / V8 11.8.172.17-node.20 / flags: --allow-natives-syntax
+node v21.7.3 / V8 11.8.172.17-node.20 / flags: --allow-natives-syntax / v8_enable_maglev=0
 natives через: a:cmdline --allow-natives-syntax
 
 == hot(o): статус после N-го вызова (без пауз между вызовами)
@@ -21,10 +21,10 @@ natives через: a:cmdline --allow-natives-syntax
     2999     32769  baseline             -            0b000000001000000000000001  IsFunction|Baseline
     3000     32769  baseline             -            0b000000001000000000000001  IsFunction|Baseline
     3001     32769  baseline             -            0b000000001000000000000001  IsFunction|Baseline
-    4000     33793  pending              -            0b000000001000010000000001  IsFunction|OptimizingConcurrently|Baseline
-    6000     33793  pending              -            0b000000001000010000000001  IsFunction|OptimizingConcurrently|Baseline
-   10000     33793  pending              -            0b000000001000010000000001  IsFunction|OptimizingConcurrently|Baseline
-   20000     33793  pending              -            0b000000001000010000000001  IsFunction|OptimizingConcurrently|Baseline
+    4000     33793  baseline+pending     -            0b000000001000010000000001  IsFunction|OptimizingConcurrently|Baseline
+    6000     33793  baseline+pending     -            0b000000001000010000000001  IsFunction|OptimizingConcurrently|Baseline
+   10000     33793  baseline+pending     -            0b000000001000010000000001  IsFunction|OptimizingConcurrently|Baseline
+   20000     33793  baseline+pending     -            0b000000001000010000000001  IsFunction|OptimizingConcurrently|Baseline
   after 5x setImmediate, no calls:
    20000        81  turbofan             -            0b000000000000000001010001  IsFunction|Optimized|TurboFanned
   after 5x setImmediate + 100 calls:
@@ -44,10 +44,10 @@ natives через: a:cmdline --allow-natives-syntax
 == loopy(o): OSR — статус изнутри цикла (i -> tier -> bits)
   i=       0     67713  interpreted          interpreted  0b000000010000100010000001  IsFunction|Interpreted|IsExecuting|TopmostFrameIsInterpreted
   i=     100     67713  interpreted          interpreted  0b000000010000100010000001  IsFunction|Interpreted|IsExecuting|TopmostFrameIsInterpreted
-  i=   10000    166401  pending              baseline     0b000000101000101000000001  IsFunction|MarkedForConcurrentOptimization|IsExecuting|Baseline|TopmostFrameIsBaseline
+  i=   10000    166401  baseline+pending     baseline     0b000000101000101000000001  IsFunction|MarkedForConcurrentOptimization|IsExecuting|Baseline|TopmostFrameIsBaseline
   i=  100000    165889  baseline             baseline     0b000000101000100000000001  IsFunction|IsExecuting|Baseline|TopmostFrameIsBaseline
-  i=  500000     39425  pending              turbofan     0b000000001001101000000001  IsFunction|MarkedForConcurrentOptimization|IsExecuting|TopmostFrameIsTurboFanned|Baseline
-  i= 1000000     39425  pending              turbofan     0b000000001001101000000001  IsFunction|MarkedForConcurrentOptimization|IsExecuting|TopmostFrameIsTurboFanned|Baseline
-  i= 2000000     39425  pending              turbofan     0b000000001001101000000001  IsFunction|MarkedForConcurrentOptimization|IsExecuting|TopmostFrameIsTurboFanned|Baseline
-  i= 2999999     39425  pending              turbofan     0b000000001001101000000001  IsFunction|MarkedForConcurrentOptimization|IsExecuting|TopmostFrameIsTurboFanned|Baseline
-== loopy(o): после выхода        33281  pending              -            0b000000001000001000000001  IsFunction|MarkedForConcurrentOptimization|Baseline
+  i=  500000     38913  baseline             turbofan     0b000000001001100000000001  IsFunction|IsExecuting|TopmostFrameIsTurboFanned|Baseline
+  i= 1000000     38913  baseline             turbofan     0b000000001001100000000001  IsFunction|IsExecuting|TopmostFrameIsTurboFanned|Baseline
+  i= 2000000     38913  baseline             turbofan     0b000000001001100000000001  IsFunction|IsExecuting|TopmostFrameIsTurboFanned|Baseline
+  i= 2999999     38913  baseline             turbofan     0b000000001001100000000001  IsFunction|IsExecuting|TopmostFrameIsTurboFanned|Baseline
+== loopy(o): после выхода        32769  baseline             -            0b000000001000000000000001  IsFunction|Baseline

@@ -6,6 +6,10 @@
 // CLI:         node [--allow-natives-syntax] [v8-flags] tier-status.js
 //   Без --allow-natives-syntax CLI сам включит флаг через v8.setFlagsFromString (способ (b)).
 
+// Раскладка проверена по runtime.h для V8 11.3 / 12.4 / 13.6 (Node 20 / 22 / 24): биты 0..20 одинаковы,
+// биты 21..23 добавлены в 13.6. В V8 main (2026) бит AlwaysOptimize удалён вместе с --always-turbofan и все
+// биты >= 2 сдвинуты на один вниз (TurboFanned = 1<<5, Maglevved = 1<<4, Interpreted = 1<<6, Baseline = 1<<14),
+// поэтому для будущих Node декодер надо привязывать к process.versions.v8.
 const BITS = [
   'IsFunction',                              // 0
   'NeverOptimize',                           // 1
@@ -39,19 +43,22 @@ function decodeOptimizationStatus(status) {
   return out;
 }
 
+// Активный тир функции. Если одновременно идёт/запрошена компиляция следующего тира
+// (MarkedFor* / OptimizingConcurrently), добавляется суффикс '+pending' — активный тир не скрывается
+// (33793 = Baseline|OptimizingConcurrently -> 'baseline+pending', а не просто 'pending').
 function tierOf(status) {
   const has = i => (status & (1 << i)) !== 0;
   if (!has(0)) return 'not-a-function';
   if (has(18)) return 'lazy(not compiled)';
-  if (has(6)) return 'turbofan';
-  if (has(5)) return 'maglev';
-  if (has(4)) return 'turbofan'; // Optimized без уточнения (старые V8) — считаем TurboFan
-  if (has(8) || has(9) || has(10) || has(22) || has(23)) return 'pending';
-  if (has(15)) return 'baseline';
-  if (has(7)) return 'interpreted';
+  const pending = (has(8) || has(9) || has(10) || has(22) || has(23)) ? '+pending' : '';
+  if (has(6)) return 'turbofan' + pending;
+  if (has(5)) return 'maglev' + pending;
+  if (has(4)) return 'turbofan' + pending; // Optimized без уточнения (старые V8) — считаем TurboFan
+  if (has(15)) return 'baseline' + pending;
+  if (has(7)) return 'interpreted' + pending;
   // Внутри выполняющейся функции код-объект мог быть уже заменён; смотрим на верхний кадр.
   const f = frameTierOf(status);
-  return f === '-' ? 'unknown(' + status + ')' : f;
+  return (f === '-' ? 'unknown(' + status + ')' : 'frame:' + f) + pending;
 }
 
 // Тир ВЕРХНЕГО КАДРА (имеет смысл только когда IsExecuting, т.е. статус запрошен
@@ -84,7 +91,7 @@ if (require.main === module) (async () => {
   const { fn: status, how } = getStatusFn();
   const nat = src => new Function(src); // после включения флага любой new Function видит %-синтаксис
   const v8flags = process.execArgv.filter(a => a.startsWith('--')).join(' ') || '(default)';
-  console.log(`node ${process.version} / V8 ${process.versions.v8} / flags: ${v8flags}`);
+  console.log(`node ${process.version} / V8 ${process.versions.v8} / flags: ${v8flags} / v8_enable_maglev=${process.config.variables.v8_enable_maglev}`);
   console.log(`natives через: ${how}`);
 
   // Горячая функция: загрузки свойств одной формы + арифметика (~20 байткодов).

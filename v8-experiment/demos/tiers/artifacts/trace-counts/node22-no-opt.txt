@@ -1,6 +1,6 @@
-# node22 no-opt flags='--no-turbofan --no-maglev' exit=0  lines=1
-# completed MAGLEV=0 TURBOFAN=0 marking=0 because-always-turbofan=0 bailouts=0
-# bailout reasons:
-# первые 12 строк с hot/unstable/anonymous:
-{"variant":"no-opt","node":"v22.22.2","v8":"12.4.254.21-node.39","params":{"N_COLD":2000,"HOT_MS":1500,"UNSTABLE_N":20000},"coldCreateMs":30.83,"coldCallMs":10.94,"coldMs":41.77,"coldAcc":1403325,"hotIters":9960500,"hotW
+# node22 no-opt flags='--no-turbofan --no-maglev' exit=0  lines=1  (полный лог: artifacts/trace-full/node22-no-opt.txt)
+# completed MAGLEV=0 TURBOFAN=0 marking=0 marking-hotABC=0 because-always-turbofan=0 bailouts=0
+# bailout reasons (reason @ function):
+# первые 12 строк с hot/unstable/chunk/anonymous:
+{"variant":"no-opt","node":"v22.22.2","v8":"12.4.254.21-node.39","params":{"N_COLD":2000,"HOT_MS":1500,"UNSTABLE_N":200000,"CHUNK":2000},"coldCreateMs":24.33,"coldCallMs":10.54,"coldMs":34.86,"coldAcc":1403325,"hotIters"
 # bailout-строки (первые 8):

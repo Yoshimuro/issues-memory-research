@@ -1,19 +1,21 @@
-# node22 always-turbofan flags='--always-turbofan' exit=0  lines=4364
-# completed MAGLEV=0 TURBOFAN=8 marking=4045 because-always-turbofan=4330 bailouts=1
-# bailout reasons:
+# node22 always-turbofan flags='--always-turbofan' exit=0  lines=4439  (полный лог: artifacts/trace-full/node22-always-turbofan.txt)
+# completed MAGLEV=0 TURBOFAN=18 marking=4054 marking-hotABC=3 because-always-turbofan=4374 bailouts=2
+# bailout reasons (reason @ function):
         1 reason: wrong map @ JSFunction unstable
-# первые 12 строк с hot/unstable/anonymous:
-[optimizing 0x0b18e306b3f1 <JSFunction hotA (sfi = 0x1ee4c3c64f51)> (target TURBOFAN) because --always-turbofan]
-[optimizing 0x0b18e306b431 <JSFunction hotB (sfi = 0x1ee4c3c64fa9)> (target TURBOFAN) because --always-turbofan]
-[optimizing 0x0b18e306b471 <JSFunction hotC (sfi = 0x1ee4c3c65001)> (target TURBOFAN) because --always-turbofan]
-[marking 0x0b18e306b431 <JSFunction hotB (sfi = 0x1ee4c3c64fa9)> for optimization to TURBOFAN, ConcurrencyMode::kConcurrent, reason: hot and stable]
-[compiling method 0x0b18e306b431 <JSFunction hotB (sfi = 0x1ee4c3c64fa9)> (target TURBOFAN), mode: ConcurrencyMode::kConcurrent]
-[marking 0x0b18e306b3f1 <JSFunction hotA (sfi = 0x1ee4c3c64f51)> for optimization to TURBOFAN, ConcurrencyMode::kConcurrent, reason: hot and stable]
-[marking 0x0b18e306b471 <JSFunction hotC (sfi = 0x1ee4c3c65001)> for optimization to TURBOFAN, ConcurrencyMode::kConcurrent, reason: hot and stable]
-[compiling method 0x0b18e306b3f1 <JSFunction hotA (sfi = 0x1ee4c3c64f51)> (target TURBOFAN), mode: ConcurrencyMode::kConcurrent]
-[compiling method 0x0b18e306b471 <JSFunction hotC (sfi = 0x1ee4c3c65001)> (target TURBOFAN), mode: ConcurrencyMode::kConcurrent]
-[completed compiling 0x0b18e306b431 <JSFunction hotB (sfi = 0x1ee4c3c64fa9)> (target TURBOFAN) - took 0.016, 1.157, 0.023 ms]
-[completed optimizing 0x0b18e306b431 <JSFunction hotB (sfi = 0x1ee4c3c64fa9)> (target TURBOFAN)]
-[completed compiling 0x0b18e306b3f1 <JSFunction hotA (sfi = 0x1ee4c3c64f51)> (target TURBOFAN) - took 0.012, 0.681, 0.007 ms]
+        1 reason: wrong map @ JSFunction (sfi
+# первые 12 строк с hot/unstable/chunk/anonymous:
+[optimizing 0x2f1cea02c159 <JSFunction chunk (sfi = 0x2bd3098654a9)> (target TURBOFAN) because --always-turbofan]
+[optimizing 0x2f1cea02c099 <JSFunction hotA (sfi = 0x2bd3098653a1)> (target TURBOFAN) because --always-turbofan]
+[optimizing 0x2f1cea02c0d9 <JSFunction hotB (sfi = 0x2bd3098653f9)> (target TURBOFAN) because --always-turbofan]
+[optimizing 0x2f1cea02c119 <JSFunction hotC (sfi = 0x2bd309865451)> (target TURBOFAN) because --always-turbofan]
+[marking 0x2f1cea02c0d9 <JSFunction hotB (sfi = 0x2bd3098653f9)> for optimization to TURBOFAN, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x2f1cea02c0d9 <JSFunction hotB (sfi = 0x2bd3098653f9)> (target TURBOFAN), mode: ConcurrencyMode::kConcurrent]
+[marking 0x2f1cea02c099 <JSFunction hotA (sfi = 0x2bd3098653a1)> for optimization to TURBOFAN, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[marking 0x2f1cea02c119 <JSFunction hotC (sfi = 0x2bd309865451)> for optimization to TURBOFAN, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x2f1cea02c099 <JSFunction hotA (sfi = 0x2bd3098653a1)> (target TURBOFAN), mode: ConcurrencyMode::kConcurrent]
+[compiling method 0x2f1cea02c119 <JSFunction hotC (sfi = 0x2bd309865451)> (target TURBOFAN), mode: ConcurrencyMode::kConcurrent]
+[marking 0x2f1cea02c159 <JSFunction chunk (sfi = 0x2bd3098654a9)> for optimization to TURBOFAN, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x2f1cea02c159 <JSFunction chunk (sfi = 0x2bd3098654a9)> (target TURBOFAN), mode: ConcurrencyMode::kConcurrent]
 # bailout-строки (первые 8):
-[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing 0x0b18e306b4b1 <JSFunction unstable (sfi = 0x1ee4c3c650b1)>, 0x16e43c307429 <Code TURBOFAN>, opt id 5, bytecode offset 6, deopt exit 1, FP to SP delta 
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing 0x1a42f84d0009 <JSFunction (sfi = 0xa068dabf0e9)>, 0x1fad4e206169 <Code TURBOFAN>, opt id 0, bytecode offset 48, deopt exit 0, FP to SP delta 64, calle
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing 0x2f1cea02c211 <JSFunction unstable (sfi = 0x2bd309865559)>, 0x1fad4e20b219 <Code TURBOFAN>, opt id 13, bytecode offset 6, deopt exit 1, FP to SP delta

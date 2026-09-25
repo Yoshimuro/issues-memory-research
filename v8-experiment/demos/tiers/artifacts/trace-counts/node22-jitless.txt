@@ -1,6 +1,6 @@
-# node22 jitless flags='--jitless' exit=0  lines=2
-# completed MAGLEV=0 TURBOFAN=0 marking=0 because-always-turbofan=0 bailouts=0
-# bailout reasons:
-# первые 12 строк с hot/unstable/anonymous:
-{"variant":"jitless","node":"v22.22.2","v8":"12.4.254.21-node.39","params":{"N_COLD":2000,"HOT_MS":1500,"UNSTABLE_N":20000},"coldCreateMs":25.1,"coldCallMs":3.89,"coldMs":28.99,"coldAcc":1403325,"hotIters":6643000,"hotWi
+# node22 jitless flags='--jitless' exit=0  lines=2  (полный лог: artifacts/trace-full/node22-jitless.txt)
+# completed MAGLEV=0 TURBOFAN=0 marking=0 marking-hotABC=0 because-always-turbofan=0 bailouts=0
+# bailout reasons (reason @ function):
+# первые 12 строк с hot/unstable/chunk/anonymous:
+{"variant":"jitless","node":"v22.22.2","v8":"12.4.254.21-node.39","params":{"N_COLD":2000,"HOT_MS":1500,"UNSTABLE_N":200000,"CHUNK":2000},"coldCreateMs":24.33,"coldCallMs":4.05,"coldMs":28.38,"coldAcc":1403325,"hotIters"
 # bailout-строки (первые 8):

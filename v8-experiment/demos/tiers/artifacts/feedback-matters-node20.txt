@@ -1,0 +1,44 @@
+node v20.20.2 / V8 11.3.244.8-node.38
+
+== tier=turbofan variant=empty (child flags: --allow-natives-syntax --trace-deopt; exit 0)
+  warm-up calls: 0  | status before opt: IsFunction|Interpreted
+  after 1st call: interpreted  IsFunction|Interpreted  (sync compile 0.942 ms)
+  after 2000 more calls: interpreted+pending IsFunction|Interpreted|OptimizingConcurrently  (first 2000 calls took 0.425 ms)
+  after 1e6 calls: turbofan    IsFunction|Optimized|TurboFanned  MaybeDeopted=false
+  1e6 calls: 5.11 ms  (195638 calls/ms)
+  --trace-deopt bailout lines for target: 1; reason lines:
+    [bailout (kind: deopt-eager, reason: Insufficient type feedback for generic named access): begin. deoptimizing 0x3bafeece9939 <JSFunction target (sfi = 0x2a2f9ec63c31)>, 0x29fe5b829759 <Code TURBOFAN>
+
+== tier=turbofan variant=warm (child flags: --allow-natives-syntax --trace-deopt; exit 0)
+  warm-up calls: 200  | status before opt: IsFunction|Interpreted
+  after 1st call: turbofan     IsFunction|Optimized|TurboFanned  (sync compile 1.18 ms)
+  after 2000 more calls: turbofan    IsFunction|Optimized|TurboFanned  (first 2000 calls took 0.211 ms)
+  after 1e6 calls: turbofan    IsFunction|Optimized|TurboFanned  MaybeDeopted=false
+  1e6 calls: 4.03 ms  (247986 calls/ms)
+  --trace-deopt bailout lines for target: 0; reason lines:
+
+== tier=turbofan variant=empty-always (child flags: --allow-natives-syntax --trace-deopt --always-turbofan; exit 0)
+  warm-up calls: 0  | status before opt: IsFunction|AlwaysOptimize|Optimized|TurboFanned
+  after 1st call: turbofan     IsFunction|AlwaysOptimize|Optimized|TurboFanned  (sync compile 0.017 ms)
+  after 2000 more calls: turbofan    IsFunction|AlwaysOptimize|Optimized|TurboFanned  (first 2000 calls took 0.07 ms)
+  after 1e6 calls: turbofan    IsFunction|AlwaysOptimize|Optimized|TurboFanned  MaybeDeopted=false
+  1e6 calls: 36.38 ms  (27486 calls/ms)
+  --trace-deopt bailout lines for target: 0; reason lines:
+
+== tier=maglev variant=empty (child flags: --allow-natives-syntax --trace-deopt; exit 0)
+  V8 сообщил: Maglev is not enabled.
+  warm-up calls: 0  | status before opt: IsFunction|Interpreted
+  after 1st call: interpreted  IsFunction|Interpreted  (sync compile 0.014 ms)
+  after 2000 more calls: interpreted+pending IsFunction|Interpreted|OptimizingConcurrently  (first 2000 calls took 0.502 ms)
+  after 1e6 calls: turbofan    IsFunction|Optimized|TurboFanned  MaybeDeopted=false
+  1e6 calls: 4.47 ms  (223803 calls/ms)
+  --trace-deopt bailout lines for target: 0; reason lines:
+
+== tier=maglev variant=warm (child flags: --allow-natives-syntax --trace-deopt; exit 0)
+  V8 сообщил: Maglev is not enabled.
+  warm-up calls: 200  | status before opt: IsFunction|Interpreted
+  after 1st call: interpreted  IsFunction|Interpreted  (sync compile 0.005 ms)
+  after 2000 more calls: interpreted+pending IsFunction|Interpreted|OptimizingConcurrently  (first 2000 calls took 0.476 ms)
+  after 1e6 calls: turbofan    IsFunction|Optimized|TurboFanned  MaybeDeopted=false
+  1e6 calls: 4.45 ms  (224901 calls/ms)
+  --trace-deopt bailout lines for target: 0; reason lines:

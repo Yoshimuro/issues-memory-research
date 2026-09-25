@@ -1,0 +1,11 @@
+== node20: v8_enable_maglev=0; --v8-options:  --maglev (enable the maglev optimizing compiler) type: bool default: --no-maglev 
+   Maglev is not enabled.
+      after %OptimizeMaglevOnNextCall + call: status 129 IsFunction|Interpreted
+== node21: v8_enable_maglev=0; --v8-options:  --maglev (enable the maglev optimizing compiler) type: bool default: --no-maglev 
+   Maglev is not enabled.
+      after %OptimizeMaglevOnNextCall + call: status 129 IsFunction|Interpreted
+== node22: v8_enable_maglev=0; --v8-options:  --maglev (enable the maglev optimizing compiler) type: bool default: --no-maglev 
+   Maglev is not enabled.
+      after %OptimizeMaglevOnNextCall + call: status 129 IsFunction|Interpreted
+== node24: v8_enable_maglev=1; --v8-options:  --maglev (enable the maglev optimizing compiler) type: bool default: --maglev 
+      after %OptimizeMaglevOnNextCall + call: status 49 IsFunction|Optimized|MaglevOptimized

@@ -1,23 +1,27 @@
-# node24 always-turbofan flags='--always-turbofan' exit=0  lines=4414
-# completed MAGLEV=14 TURBOFAN=6 marking=4063 because-always-turbofan=4346 bailouts=4
-# bailout reasons:
-        2 reason: wrong map @ JSFunction unstable
+# node24 always-turbofan flags='--always-turbofan' exit=0  lines=4487  (полный лог: artifacts/trace-full/node24-always-turbofan.txt)
+# completed MAGLEV=17 TURBOFAN=11 marking=4072 marking-hotABC=4 because-always-turbofan=4398 bailouts=5
+# bailout reasons (reason @ function):
+        1 reason: wrong map @ JSFunction unstable
+        1 reason: wrong map @ JSFunction (sfi
+        1 reason: prepare for on stack replacement (OSR) @ JSFunction hotPhase
+        1 reason: Insufficient type feedback for generic named access @ JSFunction unstablePhase
         1 reason: Insufficient type feedback for call @ JSFunction unstablePhase
-# первые 12 строк с hot/unstable/anonymous:
-[optimizing 0x352751f28499 <JSFunction hotA (sfi = 0x236945cf1919)> (target TURBOFAN_JS) because --always-turbofan]
-[optimizing 0x352751f284d9 <JSFunction hotB (sfi = 0x236945cf1961)> (target TURBOFAN_JS) because --always-turbofan]
-[optimizing 0x352751f28519 <JSFunction hotC (sfi = 0x236945cf19a9)> (target TURBOFAN_JS) because --always-turbofan]
-[marking 0x352751f284d9 <JSFunction hotB (sfi = 0x236945cf1961)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
-[compiling method 0x352751f284d9 <JSFunction hotB (sfi = 0x236945cf1961)> (target MAGLEV), mode: ConcurrencyMode::kConcurrent]
-[marking 0x352751f28499 <JSFunction hotA (sfi = 0x236945cf1919)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
-[marking 0x352751f28519 <JSFunction hotC (sfi = 0x236945cf19a9)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
-[compiling method 0x352751f28499 <JSFunction hotA (sfi = 0x236945cf1919)> (target MAGLEV), mode: ConcurrencyMode::kConcurrent]
-[compiling method 0x352751f28519 <JSFunction hotC (sfi = 0x236945cf19a9)> (target MAGLEV), mode: ConcurrencyMode::kConcurrent]
-[completed compiling 0x352751f284d9 <JSFunction hotB (sfi = 0x236945cf1961)> (target MAGLEV) - took 0.000, 0.417, 0.007 ms]
-[completed compiling 0x352751f28519 <JSFunction hotC (sfi = 0x236945cf19a9)> (target MAGLEV) - took 0.000, 0.066, 0.004 ms]
-[completed compiling 0x352751f28499 <JSFunction hotA (sfi = 0x236945cf1919)> (target MAGLEV) - took 0.000, 0.371, 0.007 ms]
+# первые 12 строк с hot/unstable/chunk/anonymous:
+[optimizing 0x2efad25ea181 <JSFunction chunk (sfi = 0x20af2a8b1df1)> (target TURBOFAN_JS) because --always-turbofan]
+[optimizing 0x2efad25ea0c1 <JSFunction hotA (sfi = 0x20af2a8b1d19)> (target TURBOFAN_JS) because --always-turbofan]
+[optimizing 0x2efad25ea101 <JSFunction hotB (sfi = 0x20af2a8b1d61)> (target TURBOFAN_JS) because --always-turbofan]
+[optimizing 0x2efad25ea141 <JSFunction hotC (sfi = 0x20af2a8b1da9)> (target TURBOFAN_JS) because --always-turbofan]
+[marking 0x2efad25ea101 <JSFunction hotB (sfi = 0x20af2a8b1d61)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x2efad25ea101 <JSFunction hotB (sfi = 0x20af2a8b1d61)> (target MAGLEV), mode: ConcurrencyMode::kConcurrent]
+[marking 0x2efad25ea0c1 <JSFunction hotA (sfi = 0x20af2a8b1d19)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[marking 0x2efad25ea141 <JSFunction hotC (sfi = 0x20af2a8b1da9)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x2efad25ea0c1 <JSFunction hotA (sfi = 0x20af2a8b1d19)> (target MAGLEV), mode: ConcurrencyMode::kConcurrent]
+[compiling method 0x2efad25ea141 <JSFunction hotC (sfi = 0x20af2a8b1da9)> (target MAGLEV), mode: ConcurrencyMode::kConcurrent]
+[marking 0x2efad25ea181 <JSFunction chunk (sfi = 0x20af2a8b1df1)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x2efad25ea181 <JSFunction chunk (sfi = 0x20af2a8b1df1)> (target MAGLEV) OSR, mode: ConcurrencyMode::kConcurrent]
 # bailout-строки (первые 8):
-[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. deoptimizing 0x1c24c4a7dbf1 <JSFunction hotPhase (sfi = 0x236945cf19f1)>, 0x27c69c4e3531 <Code MAGLEV>, opt id 6, bytecode offset 221, 
-[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing 0x352751f28559 <JSFunction unstable (sfi = 0x236945cf1a39)>, 0x27c69c4e49e9 <Code MAGLEV>, opt id 12, bytecode offset 11, deopt exit 0, FP to SP delta 
-[bailout (kind: deopt-eager, reason: Insufficient type feedback for call): begin. deoptimizing 0x1c24c4a7dbb1 <JSFunction unstablePhase (sfi = 0x236945cf1a81)>, 0x27c69c4e64b9 <Code MAGLEV>, opt id 17, bytecode offset 10
-[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing 0x352751f28559 <JSFunction unstable (sfi = 0x236945cf1a39)>, 0x05e4c11cad59 <Code TURBOFAN_JS>, opt id 13, bytecode offset 6, deopt exit 0, FP to SP de
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing 0x332f3810dd39 <JSFunction (sfi = 0xc232cddb9)>, 0x2a9261c487d1 <Code TURBOFAN_JS>, opt id 2, bytecode offset 48, deopt exit 0, FP to SP delta 64, call
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. deoptimizing 0x2efad25ea1f9 <JSFunction hotPhase (sfi = 0x20af2a8b1e39)>, 0x23e5fe769c39 <Code MAGLEV>, opt id 14, bytecode offset 173,
+[bailout (kind: deopt-eager, reason: Insufficient type feedback for generic named access): begin. deoptimizing 0x2efad25ea279 <JSFunction unstablePhase (sfi = 0x20af2a8b1ec9)>, 0x23e5fe76b199 <Code MAGLEV>, opt id 21, by
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing 0x2efad25ea239 <JSFunction unstable (sfi = 0x20af2a8b1e81)>, 0x2a9261c4fb01 <Code TURBOFAN_JS>, opt id 20, bytecode offset 6, deopt exit 0, FP to SP de
+[bailout (kind: deopt-eager, reason: Insufficient type feedback for call): begin. deoptimizing 0x2efad25ea279 <JSFunction unstablePhase (sfi = 0x20af2a8b1ec9)>, 0x23e5fe76cf79 <Code MAGLEV>, opt id 26, bytecode offset 34

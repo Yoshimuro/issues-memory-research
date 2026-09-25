@@ -1,0 +1,53 @@
+node v24.21.0 / V8 13.6.233.17-node.53 / flags: (default) / v8_enable_maglev=1
+natives через: b:runtime v8.setFlagsFromString + new Function
+
+== hot(o): статус после N-го вызова (без пауз между вызовами)
+       N       raw  tier                 frame        bits
+       0    262145  lazy(not compiled)   -            0b000001000000000000000001  IsFunction|IsLazy
+       1       129  interpreted          -            0b000000000000000010000001  IsFunction|Interpreted
+       2       129  interpreted          -            0b000000000000000010000001  IsFunction|Interpreted
+       7       129  interpreted          -            0b000000000000000010000001  IsFunction|Interpreted
+       8       129  interpreted          -            0b000000000000000010000001  IsFunction|Interpreted
+       9       129  interpreted          -            0b000000000000000010000001  IsFunction|Interpreted
+      50       129  interpreted          -            0b000000000000000010000001  IsFunction|Interpreted
+     100       129  interpreted          -            0b000000000000000010000001  IsFunction|Interpreted
+     200       129  interpreted          -            0b000000000000000010000001  IsFunction|Interpreted
+     399       129  interpreted          -            0b000000000000000010000001  IsFunction|Interpreted
+     400       129  interpreted          -            0b000000000000000010000001  IsFunction|Interpreted
+     401       129  interpreted          -            0b000000000000000010000001  IsFunction|Interpreted
+     600      1153  interpreted+pending  -            0b000000000000010010000001  IsFunction|Interpreted|OptimizingConcurrently
+    1000      1153  interpreted+pending  -            0b000000000000010010000001  IsFunction|Interpreted|OptimizingConcurrently
+    2000      1153  interpreted+pending  -            0b000000000000010010000001  IsFunction|Interpreted|OptimizingConcurrently
+    2999     33793  baseline+pending     -            0b000000001000010000000001  IsFunction|OptimizingConcurrently|Baseline
+    3000        49  maglev               -            0b000000000000000000110001  IsFunction|Optimized|MaglevOptimized
+    3001        49  maglev               -            0b000000000000000000110001  IsFunction|Optimized|MaglevOptimized
+    4000        49  maglev               -            0b000000000000000000110001  IsFunction|Optimized|MaglevOptimized
+    6000        49  maglev               -            0b000000000000000000110001  IsFunction|Optimized|MaglevOptimized
+   10000        49  maglev               -            0b000000000000000000110001  IsFunction|Optimized|MaglevOptimized
+   20000      1073  maglev+pending       -            0b000000000000010000110001  IsFunction|Optimized|MaglevOptimized|OptimizingConcurrently
+  after 5x setImmediate, no calls:
+   20000      1073  maglev+pending       -            0b000000000000010000110001  IsFunction|Optimized|MaglevOptimized|OptimizingConcurrently
+  after 5x setImmediate + 100 calls:
+   20100      1073  maglev+pending       -            0b000000000000010000110001  IsFunction|Optimized|MaglevOptimized|OptimizingConcurrently
+  after 20x setImmediate + 100 calls:
+   20200      1073  maglev+pending       -            0b000000000000010000110001  IsFunction|Optimized|MaglevOptimized|OptimizingConcurrently
+  after setTimeout(20) + 100 calls:
+   20300        81  turbofan             -            0b000000000000000001010001  IsFunction|Optimized|TurboFanned
+  after setTimeout(100) + 100 calls:
+   20400        81  turbofan             -            0b000000000000000001010001  IsFunction|Optimized|TurboFanned
+  after setTimeout(300) + 100 calls:
+   20500        81  turbofan             -            0b000000000000000001010001  IsFunction|Optimized|TurboFanned
+
+== once(o): до вызова     262145  lazy(not compiled)   -            0b000001000000000000000001  IsFunction|IsLazy
+== once(o): после 1 вызова      129  interpreted          -            0b000000000000000010000001  IsFunction|Interpreted
+
+== loopy(o): OSR — статус изнутри цикла (i -> tier -> bits)
+  i=       0     67713  interpreted          interpreted  0b000000010000100010000001  IsFunction|Interpreted|IsExecuting|TopmostFrameIsInterpreted
+  i=     100     67713  interpreted          interpreted  0b000000010000100010000001  IsFunction|Interpreted|IsExecuting|TopmostFrameIsInterpreted
+  i=   10000   8521729  frame:baseline+pending baseline     0b100000100000100000000001  IsFunction|IsExecuting|TopmostFrameIsBaseline|MarkedForConcurrentMaglevOptimization
+  i=  100000   8914945  frame:maglev+pending maglev       0b100010000000100000000001  IsFunction|IsExecuting|TopmostFrameIsMaglev|MarkedForConcurrentMaglevOptimization
+  i=  500000   8914945  frame:maglev+pending maglev       0b100010000000100000000001  IsFunction|IsExecuting|TopmostFrameIsMaglev|MarkedForConcurrentMaglevOptimization
+  i= 1000000      6145  frame:turbofan       turbofan     0b000000000001100000000001  IsFunction|IsExecuting|TopmostFrameIsTurboFanned
+  i= 2000000      6145  frame:turbofan       turbofan     0b000000000001100000000001  IsFunction|IsExecuting|TopmostFrameIsTurboFanned
+  i= 2999999      6145  frame:turbofan       turbofan     0b000000000001100000000001  IsFunction|IsExecuting|TopmostFrameIsTurboFanned
+== loopy(o): после выхода            1  unknown(1)           -            0b000000000000000000000001  IsFunction

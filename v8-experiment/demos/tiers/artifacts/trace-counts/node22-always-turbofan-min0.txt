@@ -1,0 +1,17 @@
+# node22 always-turbofan-min0 flags='--always-turbofan --minimum-invocations-before-optimization=0' exit=0  lines=13114  (полный лог: artifacts/trace-full/node22-always-turbofan-min0.txt)
+# completed MAGLEV=0 TURBOFAN=4371 marking=2037 marking-hotABC=0 because-always-turbofan=4371 bailouts=0
+# bailout reasons (reason @ function):
+# первые 12 строк с hot/unstable/chunk/anonymous:
+[optimizing 0x385084736179 <JSFunction chunk (sfi = 0x3c31dedc4c21)> (target TURBOFAN) because --always-turbofan]
+[compiling method 0x385084736179 <JSFunction chunk (sfi = 0x3c31dedc4c21)> (target TURBOFAN), mode: ConcurrencyMode::kSynchronous]
+[completed compiling 0x385084736179 <JSFunction chunk (sfi = 0x3c31dedc4c21)> (target TURBOFAN) - took 0.007, 1.345, 0.028 ms]
+[optimizing 0x3850847360b9 <JSFunction hotA (sfi = 0x3c31dedc4b19)> (target TURBOFAN) because --always-turbofan]
+[compiling method 0x3850847360b9 <JSFunction hotA (sfi = 0x3c31dedc4b19)> (target TURBOFAN), mode: ConcurrencyMode::kSynchronous]
+[completed compiling 0x3850847360b9 <JSFunction hotA (sfi = 0x3c31dedc4b19)> (target TURBOFAN) - took 0.007, 0.495, 0.064 ms]
+[optimizing 0x3850847360f9 <JSFunction hotB (sfi = 0x3c31dedc4b71)> (target TURBOFAN) because --always-turbofan]
+[compiling method 0x3850847360f9 <JSFunction hotB (sfi = 0x3c31dedc4b71)> (target TURBOFAN), mode: ConcurrencyMode::kSynchronous]
+[completed compiling 0x3850847360f9 <JSFunction hotB (sfi = 0x3c31dedc4b71)> (target TURBOFAN) - took 0.007, 0.888, 0.020 ms]
+[optimizing 0x385084736139 <JSFunction hotC (sfi = 0x3c31dedc4bc9)> (target TURBOFAN) because --always-turbofan]
+[compiling method 0x385084736139 <JSFunction hotC (sfi = 0x3c31dedc4bc9)> (target TURBOFAN), mode: ConcurrencyMode::kSynchronous]
+[completed compiling 0x385084736139 <JSFunction hotC (sfi = 0x3c31dedc4bc9)> (target TURBOFAN) - took 0.006, 0.460, 0.016 ms]
+# bailout-строки (первые 8):

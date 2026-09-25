@@ -1,6 +1,6 @@
-# node22 lite-mode flags='--lite-mode' exit=0  lines=2
-# completed MAGLEV=0 TURBOFAN=0 marking=0 because-always-turbofan=0 bailouts=0
-# bailout reasons:
-# первые 12 строк с hot/unstable/anonymous:
-{"variant":"lite-mode","node":"v22.22.2","v8":"12.4.254.21-node.39","params":{"N_COLD":2000,"HOT_MS":1500,"UNSTABLE_N":20000},"coldCreateMs":27,"coldCallMs":4.72,"coldMs":31.72,"coldAcc":1403325,"hotIters":5573000,"hotWi
+# node22 lite-mode flags='--lite-mode' exit=0  lines=2  (полный лог: artifacts/trace-full/node22-lite-mode.txt)
+# completed MAGLEV=0 TURBOFAN=0 marking=0 marking-hotABC=0 because-always-turbofan=0 bailouts=0
+# bailout reasons (reason @ function):
+# первые 12 строк с hot/unstable/chunk/anonymous:
+{"variant":"lite-mode","node":"v22.22.2","v8":"12.4.254.21-node.39","params":{"N_COLD":2000,"HOT_MS":1500,"UNSTABLE_N":200000,"CHUNK":2000},"coldCreateMs":21.95,"coldCallMs":3.25,"coldMs":25.2,"coldAcc":1403325,"hotIters
 # bailout-строки (первые 8):

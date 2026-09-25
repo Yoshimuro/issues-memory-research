@@ -2,8 +2,10 @@
 // feedback-matters.js — механизм за Q2: оптимизирующий компилятор без feedback vs с feedback.
 // Родитель запускает детей: node --allow-natives-syntax --trace-deopt feedback-matters.js child <tier> <variant>
 //   tier:    turbofan | maglev
-//   variant: empty (0 прогревочных вызовов, %PrepareFunctionForOptimization + %OptimizeXOnNextCall)
-//            warm  (200 прогревочных вызовов на стабильной форме, потом то же)
+//   variant: empty        (0 прогревочных вызовов, %PrepareFunctionForOptimization + %OptimizeXOnNextCall)
+//            warm         (200 прогревочных вызовов на стабильной форме, потом то же)
+//            empty-always (как empty, но ребёнок запущен с --always-turbofan: TurboFan компилирует пустой
+//                          feedback БЕЗ bailout_on_uninitialized -> generic-код без деопта; только tier=turbofan)
 // Ребёнок печатает JSON-строку + (в stdout же) строки --trace-deopt; родитель считает 'reason:'.
 const { spawnSync } = require('child_process');
 const { decodeOptimizationStatus, tierOf } = require('./tier-status');
@@ -55,14 +57,17 @@ if (process.argv[2] === 'child') {
 const tiers = process.argv[2] ? [process.argv[2]] : ['turbofan', 'maglev'];
 console.log(`node ${process.version} / V8 ${process.versions.v8}`);
 for (const tier of tiers) {
-  for (const variant of ['empty', 'warm']) {
-    const r = spawnSync(process.execPath, ['--allow-natives-syntax', '--trace-deopt', __filename, 'child', tier, variant], { encoding: 'utf8' });
+  for (const variant of (tier === 'turbofan' ? ['empty', 'warm', 'empty-always'] : ['empty', 'warm'])) {
+    const extra = variant === 'empty-always' ? ['--always-turbofan'] : [];
+    const r = spawnSync(process.execPath, ['--allow-natives-syntax', '--trace-deopt', ...extra, __filename, 'child', tier, variant], { encoding: 'utf8' });
     const out = (r.stdout || '') + (r.stderr || '');
     const json = out.split('\n').find(l => l.startsWith('{'));
     const reasons = out.split('\n').filter(l => /reason:/.test(l) && /JSFunction target/.test(l));
     const deoptLines = out.split('\n').filter(l => /bailout \(kind/.test(l) && /JSFunction target/.test(l));
-    console.log(`\n== tier=${tier} variant=${variant} (exit ${r.status})`);
-    if (!json) { console.log('  no JSON output; stderr head:', out.slice(0, 500)); continue; }
+    console.log(`\n== tier=${tier} variant=${variant} (child flags: --allow-natives-syntax --trace-deopt${extra.map(f => ' ' + f).join('')}; exit ${r.status})`);
+    if (!json) { console.log('  no JSON output; output head:', out.slice(0, 500).trim()); continue; }
+    const notEnabled = out.split('\n').filter(l => /not enabled|not supported|bad option/i.test(l));
+    for (const l of notEnabled.slice(0, 3)) console.log('  V8 сообщил: ' + l.trim().slice(0, 160));
     const j = JSON.parse(json);
     console.log(`  warm-up calls: ${j.warm}  | status before opt: ${j.statusBefore.join('|')}`);
     console.log(`  after 1st call: ${j.tierAfterFirst.padEnd(12)} ${j.statusAfterFirst.join('|')}  (sync compile ${j.optCompileMs} ms)`);

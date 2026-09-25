@@ -1,35 +1,43 @@
 node v24.21.0 / V8 13.6.233.17-node.53
 
-== tier=turbofan variant=empty (exit 0)
+== tier=turbofan variant=empty (child flags: --allow-natives-syntax --trace-deopt; exit 0)
   warm-up calls: 0  | status before opt: IsFunction|Interpreted
-  after 1st call: interpreted  IsFunction|Interpreted  (sync compile 0.984 ms)
-  after 2000 more calls: pending     IsFunction|Interpreted|OptimizingConcurrently  (first 2000 calls took 0.222 ms)
+  after 1st call: interpreted  IsFunction|Interpreted  (sync compile 0.92 ms)
+  after 2000 more calls: interpreted+pending IsFunction|Interpreted|OptimizingConcurrently  (first 2000 calls took 0.215 ms)
   after 1e6 calls: turbofan    IsFunction|Optimized|TurboFanned  MaybeDeopted=false
-  1e6 calls: 3.27 ms  (305904 calls/ms)
+  1e6 calls: 3.2 ms  (312240 calls/ms)
   --trace-deopt bailout lines for target: 1; reason lines:
-    [bailout (kind: deopt-eager, reason: Insufficient type feedback for generic named access): begin. deoptimizing 0x1412d4d37431 <JSFunction target (sfi = 0x873f2ea8bb1)>, 0x2c26a01185a1 <Code TURBOFAN_J
+    [bailout (kind: deopt-eager, reason: Insufficient type feedback for generic named access): begin. deoptimizing 0x01b2d2bb7ff9 <JSFunction target (sfi = 0x347f5e268d19)>, 0x1b2f24398921 <Code TURBOFAN_
 
-== tier=turbofan variant=warm (exit 0)
+== tier=turbofan variant=warm (child flags: --allow-natives-syntax --trace-deopt; exit 0)
   warm-up calls: 200  | status before opt: IsFunction|Interpreted
-  after 1st call: turbofan     IsFunction|Optimized|TurboFanned  (sync compile 0.776 ms)
-  after 2000 more calls: turbofan    IsFunction|Optimized|TurboFanned  (first 2000 calls took 0.17 ms)
+  after 1st call: turbofan     IsFunction|Optimized|TurboFanned  (sync compile 0.915 ms)
+  after 2000 more calls: turbofan    IsFunction|Optimized|TurboFanned  (first 2000 calls took 0.138 ms)
   after 1e6 calls: turbofan    IsFunction|Optimized|TurboFanned  MaybeDeopted=false
-  1e6 calls: 3.3 ms  (303341 calls/ms)
+  1e6 calls: 3.22 ms  (310647 calls/ms)
   --trace-deopt bailout lines for target: 0; reason lines:
 
-== tier=maglev variant=empty (exit 0)
-  warm-up calls: 0  | status before opt: IsFunction|Interpreted
-  after 1st call: interpreted  IsFunction|Interpreted  (sync compile 0.191 ms)
-  after 2000 more calls: pending     IsFunction|Interpreted|OptimizingConcurrently  (first 2000 calls took 0.199 ms)
-  after 1e6 calls: turbofan    IsFunction|Optimized|TurboFanned  MaybeDeopted=false
-  1e6 calls: 3.34 ms  (299690 calls/ms)
-  --trace-deopt bailout lines for target: 1; reason lines:
-    [bailout (kind: deopt-eager, reason: Insufficient type feedback for generic named access): begin. deoptimizing 0x1cbb41c37431 <JSFunction target (sfi = 0x3bd271e28bb1)>, 0x17971a8185b9 <Code MAGLEV>, 
+== tier=turbofan variant=empty-always (child flags: --allow-natives-syntax --trace-deopt --always-turbofan; exit 0)
+  warm-up calls: 0  | status before opt: IsFunction|AlwaysOptimize|Interpreted
+  after 1st call: turbofan     IsFunction|AlwaysOptimize|Optimized|TurboFanned  (sync compile 1.769 ms)
+  after 2000 more calls: turbofan    IsFunction|AlwaysOptimize|Optimized|TurboFanned  (first 2000 calls took 0.131 ms)
+  after 1e6 calls: turbofan    IsFunction|AlwaysOptimize|Optimized|TurboFanned  MaybeDeopted=false
+  1e6 calls: 6.63 ms  (150917 calls/ms)
+  --trace-deopt bailout lines for target: 0; reason lines:
 
-== tier=maglev variant=warm (exit 0)
-  warm-up calls: 200  | status before opt: IsFunction|Interpreted
-  after 1st call: maglev       IsFunction|Optimized|MaglevOptimized  (sync compile 0.159 ms)
-  after 2000 more calls: maglev      IsFunction|Optimized|MaglevOptimized|OptimizingConcurrently  (first 2000 calls took 0.32 ms)
+== tier=maglev variant=empty (child flags: --allow-natives-syntax --trace-deopt; exit 0)
+  warm-up calls: 0  | status before opt: IsFunction|Interpreted
+  after 1st call: interpreted  IsFunction|Interpreted  (sync compile 0.198 ms)
+  after 2000 more calls: interpreted+pending IsFunction|Interpreted|OptimizingConcurrently  (first 2000 calls took 0.205 ms)
   after 1e6 calls: turbofan    IsFunction|Optimized|TurboFanned  MaybeDeopted=false
-  1e6 calls: 3.19 ms  (313613 calls/ms)
+  1e6 calls: 4.04 ms  (247443 calls/ms)
+  --trace-deopt bailout lines for target: 1; reason lines:
+    [bailout (kind: deopt-eager, reason: Insufficient type feedback for generic named access): begin. deoptimizing 0x37754f9f7ff9 <JSFunction target (sfi = 0x27936d1a8d19)>, 0x269dac858939 <Code MAGLEV>, 
+
+== tier=maglev variant=warm (child flags: --allow-natives-syntax --trace-deopt; exit 0)
+  warm-up calls: 200  | status before opt: IsFunction|Interpreted
+  after 1st call: maglev       IsFunction|Optimized|MaglevOptimized  (sync compile 0.161 ms)
+  after 2000 more calls: maglev+pending IsFunction|Optimized|MaglevOptimized|OptimizingConcurrently  (first 2000 calls took 0.434 ms)
+  after 1e6 calls: turbofan    IsFunction|Optimized|TurboFanned  MaybeDeopted=false
+  1e6 calls: 3.47 ms  (288557 calls/ms)
   --trace-deopt bailout lines for target: 0; reason lines:
