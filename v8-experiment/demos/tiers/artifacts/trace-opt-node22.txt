@@ -1,0 +1,27 @@
+[Baseline batch compilation] Enqueued SFI hotMono with estimated size 259 (current budget: 1547/4096)
+[compiling method 0x288e5925b519 <SharedFunctionInfo hotMono> (target BASELINE)]
+[completed compiling 0x288e5925b519 <SharedFunctionInfo hotMono> (target BASELINE) - took 0.005 ms]
+[marking 0x0b495c425d81 <JSFunction hotMono (sfi = 0x288e5925b519)> for optimization to TURBOFAN, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x0b495c425d81 <JSFunction hotMono (sfi = 0x288e5925b519)> (target TURBOFAN), mode: ConcurrencyMode::kConcurrent]
+[completed compiling 0x0b495c425d81 <JSFunction hotMono (sfi = 0x288e5925b519)> (target TURBOFAN) - took 0.018, 1.106, 0.035 ms]
+[completed optimizing 0x0b495c425d81 <JSFunction hotMono (sfi = 0x288e5925b519)> (target TURBOFAN)]
+[Baseline batch compilation] Enqueued SFI willDeopt with estimated size 91 (current budget: 91/4096)
+[Baseline batch compilation] Enqueued SFI willDeopt with estimated size 91 (current budget: 182/4096)
+[marking 0x0b495c425dc1 <JSFunction willDeopt (sfi = 0x288e5925b571)> for optimization to TURBOFAN, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x0b495c425dc1 <JSFunction willDeopt (sfi = 0x288e5925b571)> (target TURBOFAN), mode: ConcurrencyMode::kConcurrent]
+[Baseline batch compilation] Enqueued SFI willDeopt with estimated size 91 (current budget: 273/4096)
+[Baseline batch compilation] Enqueued SFI willDeopt with estimated size 91 (current budget: 364/4096)
+[Baseline batch compilation] Enqueued SFI willDeopt with estimated size 91 (current budget: 455/4096)
+[Baseline batch compilation] Enqueued SFI willDeopt with estimated size 91 (current budget: 546/4096)
+[Baseline batch compilation] Enqueued SFI willDeopt with estimated size 91 (current budget: 637/4096)
+[Baseline batch compilation] Enqueued SFI willDeopt with estimated size 91 (current budget: 728/4096)
+[Baseline batch compilation] Enqueued SFI willDeopt with estimated size 91 (current budget: 819/4096)
+[Baseline batch compilation] Enqueued SFI willDeopt with estimated size 91 (current budget: 910/4096)
+[Baseline batch compilation] Enqueued SFI willDeopt with estimated size 91 (current budget: 1001/4096)
+[completed compiling 0x0b495c425dc1 <JSFunction willDeopt (sfi = 0x288e5925b571)> (target TURBOFAN) - took 0.030, 0.546, 0.011 ms]
+[completed optimizing 0x0b495c425dc1 <JSFunction willDeopt (sfi = 0x288e5925b571)> (target TURBOFAN)]
+[compiling method 0x288e5925b571 <SharedFunctionInfo willDeopt> (target BASELINE)]
+[completed compiling 0x288e5925b571 <SharedFunctionInfo willDeopt> (target BASELINE) - took 0.002 ms]
+--- now calling willDeopt with a NEW shape {x,y,z} ---
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing 0x0b495c425dc1 <JSFunction willDeopt (sfi = 0x288e5925b571)>, 0x1029ea742901 <Code TURBOFAN>, opt id 1, bytecode offset 0, deopt exit 1, FP to SP delta 32, caller SP 0x7fffc43a2388, pc 0x7f28ca7c72bf]
+acc = 282003

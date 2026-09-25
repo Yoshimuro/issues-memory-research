@@ -1,0 +1,6 @@
+# node24 --cpu-prof --cpu-prof-name=cpu.cpuprofile
+# top-level keys: nodes, startTime, endTime, samples, timeDeltas
+# node keys: id, callFrame, hitCount, children
+# callFrame keys: functionName, scriptId, url, lineNumber, columnNumber
+# sample node: {"id":4,"callFrame":{"functionName":"prepareMainThreadExecution","scriptId":"85","url":"node:internal/process/pre_execution","lineNumber":44,"columnNumber":35},"hitCount":0,"children":[5]}
+# упоминания tier-слов в файле: optimiz= 0  maglev= 0  turbofan= 0  baseline= 0  sparkplug= 0  interpret= 0

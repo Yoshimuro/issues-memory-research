@@ -1,0 +1,17 @@
+# node20 always-turbofan flags='--always-turbofan' exit=0  lines=12928
+# completed MAGLEV=0 TURBOFAN=4309 marking=2038 because-always-turbofan=4309 bailouts=0
+# bailout reasons:
+# первые 12 строк с hot/unstable/anonymous:
+[optimizing 0x2a97824b4a41 <JSFunction hotA (sfi = 0x3a8ea84def89)> (target TURBOFAN) because --always-turbofan]
+[compiling method 0x2a97824b4a41 <JSFunction hotA (sfi = 0x3a8ea84def89)> (target TURBOFAN), mode: ConcurrencyMode::kSynchronous]
+[completed compiling 0x2a97824b4a41 <JSFunction hotA (sfi = 0x3a8ea84def89)> (target TURBOFAN) - took 0.006, 0.321, 0.009 ms]
+[optimizing 0x2a97824b4a81 <JSFunction hotB (sfi = 0x3a8ea84defd9)> (target TURBOFAN) because --always-turbofan]
+[compiling method 0x2a97824b4a81 <JSFunction hotB (sfi = 0x3a8ea84defd9)> (target TURBOFAN), mode: ConcurrencyMode::kSynchronous]
+[completed compiling 0x2a97824b4a81 <JSFunction hotB (sfi = 0x3a8ea84defd9)> (target TURBOFAN) - took 0.003, 0.643, 0.010 ms]
+[optimizing 0x2a97824b4ac1 <JSFunction hotC (sfi = 0x3a8ea84df029)> (target TURBOFAN) because --always-turbofan]
+[compiling method 0x2a97824b4ac1 <JSFunction hotC (sfi = 0x3a8ea84df029)> (target TURBOFAN), mode: ConcurrencyMode::kSynchronous]
+[completed compiling 0x2a97824b4ac1 <JSFunction hotC (sfi = 0x3a8ea84df029)> (target TURBOFAN) - took 0.004, 0.278, 0.004 ms]
+[optimizing 0x2a9782482b51 <JSFunction unstablePhase (sfi = 0x3a8ea84df119)> (target TURBOFAN) because --always-turbofan]
+[compiling method 0x2a9782482b51 <JSFunction unstablePhase (sfi = 0x3a8ea84df119)> (target TURBOFAN), mode: ConcurrencyMode::kSynchronous]
+[completed compiling 0x2a9782482b51 <JSFunction unstablePhase (sfi = 0x3a8ea84df119)> (target TURBOFAN) - took 0.007, 2.708, 0.028 ms]
+# bailout-строки (первые 8):

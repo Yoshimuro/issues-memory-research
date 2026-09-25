@@ -1,0 +1,18 @@
+node v22.22.2 / V8 12.4.254.21-node.39
+
+== tier=turbofan variant=empty (exit 0)
+  warm-up calls: 0  | status before opt: IsFunction|Interpreted
+  after 1st call: interpreted  IsFunction|Interpreted  (sync compile 1.072 ms)
+  after 2000 more calls: interpreted IsFunction|Interpreted  (first 2000 calls took 0.289 ms)
+  after 1e6 calls: turbofan    IsFunction|Optimized|TurboFanned  MaybeDeopted=false
+  1e6 calls: 7.28 ms  (137452 calls/ms)
+  --trace-deopt bailout lines for target: 1; reason lines:
+    [bailout (kind: deopt-eager, reason: Insufficient type feedback for generic named access): begin. deoptimizing 0x26809b1f4211 <JSFunction target (sfi = 0x366c0059bd79)>, 0x39e3cd354279 <Code TURBOFAN>
+
+== tier=turbofan variant=warm (exit 0)
+  warm-up calls: 200  | status before opt: IsFunction|Interpreted
+  after 1st call: turbofan     IsFunction|Optimized|TurboFanned  (sync compile 0.837 ms)
+  after 2000 more calls: turbofan    IsFunction|Optimized|TurboFanned  (first 2000 calls took 0.152 ms)
+  after 1e6 calls: turbofan    IsFunction|Optimized|TurboFanned  MaybeDeopted=false
+  1e6 calls: 5.71 ms  (175119 calls/ms)
+  --trace-deopt bailout lines for target: 0; reason lines:

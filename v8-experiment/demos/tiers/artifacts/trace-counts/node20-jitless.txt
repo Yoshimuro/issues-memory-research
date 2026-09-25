@@ -1,0 +1,6 @@
+# node20 jitless flags='--jitless' exit=0  lines=2
+# completed MAGLEV=0 TURBOFAN=0 marking=0 because-always-turbofan=0 bailouts=0
+# bailout reasons:
+# первые 12 строк с hot/unstable/anonymous:
+{"variant":"jitless","node":"v20.20.2","v8":"11.3.244.8-node.38","params":{"N_COLD":2000,"HOT_MS":1500,"UNSTABLE_N":20000},"coldCreateMs":24.33,"coldCallMs":4.33,"coldMs":28.66,"coldAcc":1403325,"hotIters":6375000,"hotWi
+# bailout-строки (первые 8):

@@ -1,0 +1,5 @@
+node20: v20.20.2 / V8 11.3.244.8-node.38 (/opt/node20/bin/node)
+node21: v21.7.3 / V8 11.8.172.17-node.20 (/opt/node21/bin/node)
+node22: v22.22.2 / V8 12.4.254.21-node.39 (/opt/node22/bin/node)
+node24: v24.21.0 / V8 13.6.233.17-node.53 (/opt/nvm/versions/node/v24.21.0/bin/node)
+cpu: 4 cores,  Intel(R) Xeon(R) Processor @ 2.10GHz

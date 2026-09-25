@@ -1,0 +1,22 @@
+# node20 no-sparkplug flags='--no-sparkplug' exit=0  lines=46
+# completed MAGLEV=0 TURBOFAN=11 marking=9 because-always-turbofan=0 bailouts=3
+# bailout reasons:
+        2 reason: Insufficient type feedback for generic named access @ JSFunction hotPhase
+        1 reason: wrong map @ JSFunction unstable
+# первые 12 строк с hot/unstable/anonymous:
+[marking 0x38492bbd0ec9 <JSFunction hotB (sfi = 0xb4c275e3249)> for optimization to TURBOFAN, ConcurrencyMode::kConcurrent, reason: small function]
+[compiling method 0x38492bbd0ec9 <JSFunction hotB (sfi = 0xb4c275e3249)> (target TURBOFAN), mode: ConcurrencyMode::kConcurrent]
+[marking 0x38492bbd0e89 <JSFunction hotA (sfi = 0xb4c275e31f9)> for optimization to TURBOFAN, ConcurrencyMode::kConcurrent, reason: small function]
+[marking 0x38492bbd0f09 <JSFunction hotC (sfi = 0xb4c275e3299)> for optimization to TURBOFAN, ConcurrencyMode::kConcurrent, reason: small function]
+[compiling method 0x38492bbd0e89 <JSFunction hotA (sfi = 0xb4c275e31f9)> (target TURBOFAN), mode: ConcurrencyMode::kConcurrent]
+[compiling method 0x38492bbd0f09 <JSFunction hotC (sfi = 0xb4c275e3299)> (target TURBOFAN), mode: ConcurrencyMode::kConcurrent]
+[completed compiling 0x38492bbd0ec9 <JSFunction hotB (sfi = 0xb4c275e3249)> (target TURBOFAN) - took 0.009, 0.657, 0.019 ms]
+[completed optimizing 0x38492bbd0ec9 <JSFunction hotB (sfi = 0xb4c275e3249)> (target TURBOFAN)]
+[completed compiling 0x38492bbd0e89 <JSFunction hotA (sfi = 0xb4c275e31f9)> (target TURBOFAN) - took 0.014, 0.432, 0.008 ms]
+[completed optimizing 0x38492bbd0e89 <JSFunction hotA (sfi = 0xb4c275e31f9)> (target TURBOFAN)]
+[completed compiling 0x38492bbd0f09 <JSFunction hotC (sfi = 0xb4c275e3299)> (target TURBOFAN) - took 0.016, 0.448, 0.007 ms]
+[completed optimizing 0x38492bbd0f09 <JSFunction hotC (sfi = 0xb4c275e3299)> (target TURBOFAN)]
+# bailout-строки (первые 8):
+[bailout (kind: deopt-eager, reason: Insufficient type feedback for generic named access): begin. deoptimizing 0x223051202b69 <JSFunction hotPhase (sfi = 0xb4c275e32e9)>, 0x3016b6021881 <Code TURBOFAN>, opt id 4, bytecod
+[bailout (kind: deopt-eager, reason: Insufficient type feedback for generic named access): begin. deoptimizing 0x223051202b69 <JSFunction hotPhase (sfi = 0xb4c275e32e9)>, 0x3016b6022e29 <Code TURBOFAN>, opt id 5, bytecod
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing 0x38492bbd0f49 <JSFunction unstable (sfi = 0xb4c275e3339)>, 0x3016b6024971 <Code TURBOFAN>, opt id 7, bytecode offset 6, deopt exit 1, FP to SP delta 7

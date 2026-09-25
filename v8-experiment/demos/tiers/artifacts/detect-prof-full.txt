@@ -1,0 +1,168 @@
+Statistical profiling result from isolate-0x109e4000-8477-v8.log, (1359 ticks, 41 unaccounted, 0 excluded).
+
+ [Shared libraries]:
+   ticks  total  nonlib   name
+
+ [JavaScript]:
+   ticks  total  nonlib   name
+    370   27.2%   27.2%  JS: *driver /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:16:16
+    111    8.2%    8.2%  JS: *tierProbe0 /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:6:20
+    109    8.0%    8.0%  JS: *tierProbe7 /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:13:20
+    102    7.5%    7.5%  JS: *tierProbe4 /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:10:20
+    100    7.4%    7.4%  JS: *tierProbe1 /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:7:20
+     94    6.9%    6.9%  JS: *tierProbe5 /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:11:20
+     93    6.8%    6.8%  JS: *tierProbe3 /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:9:20
+     93    6.8%    6.8%  JS: *tierProbe2 /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:8:20
+     84    6.2%    6.2%  JS: *tierProbe6 /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:12:20
+     73    5.4%    5.4%  Builtin: Call_ReceiverIsNotNullOrUndefined
+     64    4.7%    4.7%  Builtin: CallFunction_ReceiverIsNotNullOrUndefined
+      1    0.1%    0.1%  JS: +tierProbe0 /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:6:20
+      1    0.1%    0.1%  Builtin: LoadIC_NoFeedback
+      1    0.1%    0.1%  Builtin: LoadIC
+      1    0.1%    0.1%  Builtin: CallFunction_ReceiverIsAny
+      1    0.1%    0.1%  Builtin: Add_Baseline
+
+ [C++]:
+   ticks  total  nonlib   name
+      7    0.5%    0.5%  fputc@@GLIBC_2.2.5
+      5    0.4%    0.4%  __write@@GLIBC_2.2.5
+      2    0.1%    0.1%  clock_nanosleep@GLIBC_2.2.5
+      2    0.1%    0.1%  _IO_fwrite@@GLIBC_2.2.5
+      1    0.1%    0.1%  std::ostream::sentry::sentry(std::ostream&)@@GLIBCXX_3.4
+      1    0.1%    0.1%  std::ostream::put(char)@@GLIBCXX_3.4
+      1    0.1%    0.1%  __libc_free@@GLIBC_2.2.5
+      1    0.1%    0.1%  __GI___futex_abstimed_wait_cancelable64
+
+ [Summary]:
+   ticks  total  nonlib   name
+   1298   95.5%   95.5%  JavaScript
+     20    1.5%    1.5%  C++
+      0    0.0%    0.0%  GC
+      0    0.0%          Shared libraries
+     41    3.0%          Unaccounted
+
+ [C++ entry points]:
+   ticks    cpp   total   name
+      7   53.8%    0.5%  fputc@@GLIBC_2.2.5
+      2   15.4%    0.1%  _IO_fwrite@@GLIBC_2.2.5
+      1    7.7%    0.1%  std::ostream::sentry::sentry(std::ostream&)@@GLIBCXX_3.4
+      1    7.7%    0.1%  std::ostream::put(char)@@GLIBCXX_3.4
+      1    7.7%    0.1%  __write@@GLIBC_2.2.5
+      1    7.7%    0.1%  __libc_free@@GLIBC_2.2.5
+
+ [Bottom up (heavy) profile]:
+  Note: percentage shows a share of a particular caller in the total
+  amount of its parent calls.
+  Callers occupying less than 1.0% are not shown.
+
+   ticks parent  name
+    370   27.2%  JS: *driver /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:16:16
+    370  100.0%    JS: ~<anonymous> /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:1:1
+    370  100.0%      JS: ~<anonymous> node:internal/main/run_main_module:1:1
+
+    111    8.2%  JS: *tierProbe0 /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:6:20
+    108   97.3%    JS: *driver /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:16:16
+    108  100.0%      JS: ~<anonymous> /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:1:1
+    108  100.0%        JS: ~<anonymous> node:internal/main/run_main_module:1:1
+      3    2.7%    JS: ~<anonymous> /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:1:1
+      3  100.0%      JS: ~<anonymous> node:internal/main/run_main_module:1:1
+
+    109    8.0%  JS: *tierProbe7 /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:13:20
+    101   92.7%    JS: *driver /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:16:16
+    101  100.0%      JS: ~<anonymous> /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:1:1
+    101  100.0%        JS: ~<anonymous> node:internal/main/run_main_module:1:1
+      8    7.3%    JS: ~<anonymous> /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:1:1
+      8  100.0%      JS: ~<anonymous> node:internal/main/run_main_module:1:1
+
+    102    7.5%  JS: *tierProbe4 /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:10:20
+    100   98.0%    JS: *driver /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:16:16
+    100  100.0%      JS: ~<anonymous> /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:1:1
+    100  100.0%        JS: ~<anonymous> node:internal/main/run_main_module:1:1
+      2    2.0%    JS: ~<anonymous> /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:1:1
+      2  100.0%      JS: ~<anonymous> node:internal/main/run_main_module:1:1
+
+    100    7.4%  JS: *tierProbe1 /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:7:20
+     96   96.0%    JS: *driver /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:16:16
+     96  100.0%      JS: ~<anonymous> /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:1:1
+     96  100.0%        JS: ~<anonymous> node:internal/main/run_main_module:1:1
+      4    4.0%    JS: ~<anonymous> /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:1:1
+      4  100.0%      JS: ~<anonymous> node:internal/main/run_main_module:1:1
+
+     94    6.9%  JS: *tierProbe5 /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:11:20
+     86   91.5%    JS: *driver /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:16:16
+     86  100.0%      JS: ~<anonymous> /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:1:1
+     86  100.0%        JS: ~<anonymous> node:internal/main/run_main_module:1:1
+      7    7.4%    JS: ~<anonymous> /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:1:1
+      7  100.0%      JS: ~<anonymous> node:internal/main/run_main_module:1:1
+      1    1.1%    JS: +driver /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:16:16
+      1  100.0%      JS: ~<anonymous> /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:1:1
+      1  100.0%        JS: ~<anonymous> node:internal/main/run_main_module:1:1
+
+     93    6.8%  JS: *tierProbe3 /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:9:20
+     86   92.5%    JS: *driver /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:16:16
+     86  100.0%      JS: ~<anonymous> /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:1:1
+     86  100.0%        JS: ~<anonymous> node:internal/main/run_main_module:1:1
+      6    6.5%    JS: ~<anonymous> /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:1:1
+      6  100.0%      JS: ~<anonymous> node:internal/main/run_main_module:1:1
+
+     93    6.8%  JS: *tierProbe2 /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:8:20
+     85   91.4%    JS: *driver /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:16:16
+     85  100.0%      JS: ~<anonymous> /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:1:1
+     85  100.0%        JS: ~<anonymous> node:internal/main/run_main_module:1:1
+      8    8.6%    JS: ~<anonymous> /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:1:1
+      8  100.0%      JS: ~<anonymous> node:internal/main/run_main_module:1:1
+
+     84    6.2%  JS: *tierProbe6 /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:12:20
+     80   95.2%    JS: *driver /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:16:16
+     80  100.0%      JS: ~<anonymous> /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:1:1
+     80  100.0%        JS: ~<anonymous> node:internal/main/run_main_module:1:1
+      4    4.8%    JS: ~<anonymous> /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:1:1
+      4  100.0%      JS: ~<anonymous> node:internal/main/run_main_module:1:1
+
+     73    5.4%  Builtin: Call_ReceiverIsNotNullOrUndefined
+     73  100.0%    JS: ~<anonymous> /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:1:1
+     73  100.0%      JS: ~<anonymous> node:internal/main/run_main_module:1:1
+
+     64    4.7%  Builtin: CallFunction_ReceiverIsNotNullOrUndefined
+     64  100.0%    JS: ~<anonymous> /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:1:1
+     64  100.0%      JS: ~<anonymous> node:internal/main/run_main_module:1:1
+
+     41    3.0%  UNKNOWN
+      9   22.0%    JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      9  100.0%      JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      3   33.3%        JS: ~<anonymous> node:internal/streams/duplex:1:1
+      3  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      3  100.0%            JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      2   22.2%        JS: ~<anonymous> node:stream:1:1
+      2  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      2  100.0%            JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      1   11.1%        JS: ~<anonymous> node:internal/streams/readable:1:1
+      1  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      1  100.0%            JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      1   11.1%        JS: ~<anonymous> node:internal/streams/pipeline:1:1
+      1  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      1  100.0%            JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      1   11.1%        JS: ~<anonymous> node:internal/streams/operators:1:1
+      1  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      1  100.0%            JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      1   11.1%        Builtin: CallApiCallbackGeneric
+      1  100.0%          JS: ~<anonymous> /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:1:1
+      1  100.0%            JS: ~<anonymous> node:internal/main/run_main_module:1:1
+      5   12.2%    JS: *driver /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:16:16
+      5  100.0%      JS: ~<anonymous> /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:1:1
+      5  100.0%        JS: ~<anonymous> node:internal/main/run_main_module:1:1
+      1    2.4%    JS: ~WritableState.onwrite node:internal/streams/writable:351:18
+      1  100.0%      JS: ~SyncWriteStream._write node:internal/fs/sync_write_stream:25:44
+      1  100.0%        JS: ~writeOrBuffer node:internal/streams/writable:550:23
+      1  100.0%          JS: ~_write node:internal/streams/writable:452:16
+      1  100.0%            JS: ~Writable.write node:internal/streams/writable:506:36
+      1    2.4%    JS: ~<anonymous> node:internal/main/run_main_module:1:1
+      1    2.4%    JS: ~<anonymous> node:internal/abort_controller:1:1
+      1  100.0%      JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      1  100.0%        JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      1  100.0%          JS: ~<anonymous> node:internal/streams/operators:1:1
+      1  100.0%            JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      1    2.4%    JS: ^driver /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:16:16
+      1  100.0%      JS: ~<anonymous> /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:1:1
+      1  100.0%        JS: ~<anonymous> node:internal/main/run_main_module:1:1
+

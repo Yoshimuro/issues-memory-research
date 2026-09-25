@@ -1,0 +1,24 @@
+== node20 runtime-flag method (b):
+natives через: b:runtime v8.setFlagsFromString + new Function
+      50       129  interpreted          -            0b000000000000000010000001  IsFunction|Interpreted
+     100       129  interpreted          -            0b000000000000000010000001  IsFunction|Interpreted
+     200       129  interpreted          -            0b000000000000000010000001  IsFunction|Interpreted
+    3001     33793  pending              -            0b000000001000010000000001  IsFunction|OptimizingConcurrently|Baseline
+== node21 runtime-flag method (b):
+natives через: b:runtime v8.setFlagsFromString + new Function
+      50       129  interpreted          -            0b000000000000000010000001  IsFunction|Interpreted
+     100       129  interpreted          -            0b000000000000000010000001  IsFunction|Interpreted
+     200       129  interpreted          -            0b000000000000000010000001  IsFunction|Interpreted
+    3001     32769  baseline             -            0b000000001000000000000001  IsFunction|Baseline
+== node22 runtime-flag method (b):
+natives через: b:runtime v8.setFlagsFromString + new Function
+      50       129  interpreted          -            0b000000000000000010000001  IsFunction|Interpreted
+     100       129  interpreted          -            0b000000000000000010000001  IsFunction|Interpreted
+     200       129  interpreted          -            0b000000000000000010000001  IsFunction|Interpreted
+    3001     32769  baseline             -            0b000000001000000000000001  IsFunction|Baseline
+== node24 runtime-flag method (b):
+natives через: b:runtime v8.setFlagsFromString + new Function
+      50       129  interpreted          -            0b000000000000000010000001  IsFunction|Interpreted
+     100       129  interpreted          -            0b000000000000000010000001  IsFunction|Interpreted
+     200       129  interpreted          -            0b000000000000000010000001  IsFunction|Interpreted
+    3001     33793  pending              -            0b000000001000010000000001  IsFunction|OptimizingConcurrently|Baseline

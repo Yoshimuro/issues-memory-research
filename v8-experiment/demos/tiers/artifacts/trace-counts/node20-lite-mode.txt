@@ -1,0 +1,6 @@
+# node20 lite-mode flags='--lite-mode' exit=0  lines=2
+# completed MAGLEV=0 TURBOFAN=0 marking=0 because-always-turbofan=0 bailouts=0
+# bailout reasons:
+# первые 12 строк с hot/unstable/anonymous:
+{"variant":"lite-mode","node":"v20.20.2","v8":"11.3.244.8-node.38","params":{"N_COLD":2000,"HOT_MS":1500,"UNSTABLE_N":20000},"coldCreateMs":27.02,"coldCallMs":4.6,"coldMs":31.62,"coldAcc":1403325,"hotIters":6039000,"hotW
+# bailout-строки (первые 8):

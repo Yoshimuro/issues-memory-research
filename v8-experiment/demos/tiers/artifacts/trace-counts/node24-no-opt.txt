@@ -1,0 +1,6 @@
+# node24 no-opt flags='--no-turbofan --no-maglev' exit=0  lines=1
+# completed MAGLEV=0 TURBOFAN=0 marking=0 because-always-turbofan=0 bailouts=0
+# bailout reasons:
+# первые 12 строк с hot/unstable/anonymous:
+{"variant":"no-opt","node":"v24.21.0","v8":"13.6.233.17-node.53","params":{"N_COLD":2000,"HOT_MS":1500,"UNSTABLE_N":20000},"coldCreateMs":22.4,"coldCallMs":3.89,"coldMs":26.28,"coldAcc":1403325,"hotIters":10968000,"hotWi
+# bailout-строки (первые 8):

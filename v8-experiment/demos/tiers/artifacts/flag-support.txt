@@ -1,0 +1,116 @@
+== node20
+  OK   --always-turbofan
+  OK   --always-sparkplug
+  OK   --no-sparkplug
+  OK   --no-turbofan
+  OK   --no-maglev
+  OK   --maglev
+  FAIL --jitless :: Warning: disabling flag --expose_wasm due to conflicting flags
+  FAIL --lite-mode :: Warning: disabling flag --expose_wasm due to conflicting flags
+  FAIL --invocation-count-for-turbofan=100 :: /opt/node20/bin/node: bad option: --invocation-count-for-turbofan=100
+  OK   --invocation-count-for-maglev=20
+  OK   --interrupt-budget=1000
+  FAIL --turbolev :: /opt/node20/bin/node: bad option: --turbolev
+  FAIL --trace-baseline :: [compiling method 0x18dce29ca831 <SharedFunctionInfo defineLazyProperties> (target BASELINE)]
+  OK   --optimize-on-next-call-optimizes-to-maglev
+  OK   --always-osr
+  FAIL --minimum-invocations-before-optimization=1 :: /opt/node20/bin/node: bad option: --minimum-invocations-before-optimization=1
+  FAIL --interrupt-budget-for-maglev=1000 :: /opt/node20/bin/node: bad option: --interrupt-budget-for-maglev=1000
+  OK   --invocation-count-for-osr=1
+  OK   --trace-opt
+  OK   --trace-deopt
+  OK   --log-function-events
+  OK   --interrupt-budget-for-feedback-allocation=100
+  FAIL --budget-for-feedback-vector-allocation=100 :: /opt/node20/bin/node: bad option: --budget-for-feedback-vector-allocation=100
+  OK   --interrupt-budget-factor-for-feedback-allocation=1
+  OK   --concurrent-recompilation
+  OK   --no-concurrent-recompilation
+  OK   --no-lazy-feedback-allocation
+  OK   --stress-maglev
+== node21
+  OK   --always-turbofan
+  OK   --always-sparkplug
+  OK   --no-sparkplug
+  OK   --no-turbofan
+  OK   --no-maglev
+  OK   --maglev
+  FAIL --jitless :: Warning: disabling flag --expose_wasm due to conflicting flags
+  FAIL --lite-mode :: Warning: disabling flag --expose_wasm due to conflicting flags
+  OK   --invocation-count-for-turbofan=100
+  OK   --invocation-count-for-maglev=20
+  FAIL --interrupt-budget=1000 :: /opt/node21/bin/node: bad option: --interrupt-budget=1000
+  FAIL --turbolev :: /opt/node21/bin/node: bad option: --turbolev
+  FAIL --trace-baseline :: [compiling method 0x34d6ad245fb9 <SharedFunctionInfo defineLazyProperties> (target BASELINE)]
+  OK   --optimize-on-next-call-optimizes-to-maglev
+  OK   --always-osr
+  OK   --minimum-invocations-before-optimization=1
+  FAIL --interrupt-budget-for-maglev=1000 :: /opt/node21/bin/node: bad option: --interrupt-budget-for-maglev=1000
+  OK   --invocation-count-for-osr=1
+  OK   --trace-opt
+  OK   --trace-deopt
+  OK   --log-function-events
+  FAIL --interrupt-budget-for-feedback-allocation=100 :: /opt/node21/bin/node: bad option: --interrupt-budget-for-feedback-allocation=100
+  FAIL --budget-for-feedback-vector-allocation=100 :: /opt/node21/bin/node: bad option: --budget-for-feedback-vector-allocation=100
+  FAIL --interrupt-budget-factor-for-feedback-allocation=1 :: /opt/node21/bin/node: bad option: --interrupt-budget-factor-for-feedback-allocation=1
+  OK   --concurrent-recompilation
+  OK   --no-concurrent-recompilation
+  OK   --no-lazy-feedback-allocation
+  OK   --stress-maglev
+== node22
+  OK   --always-turbofan
+  OK   --always-sparkplug
+  OK   --no-sparkplug
+  OK   --no-turbofan
+  OK   --no-maglev
+  OK   --maglev
+  FAIL --jitless :: Warning: disabling flag --expose_wasm due to conflicting flags
+  FAIL --lite-mode :: Warning: disabling flag --expose_wasm due to conflicting flags
+  OK   --invocation-count-for-turbofan=100
+  OK   --invocation-count-for-maglev=20
+  FAIL --interrupt-budget=1000 :: /opt/node22/bin/node: bad option: --interrupt-budget=1000
+  FAIL --turbolev :: /opt/node22/bin/node: bad option: --turbolev
+  FAIL --trace-baseline :: [Baseline batch compilation] Enqueued SFI requireBuiltin with estimated size 532 (current budget: 532/4096)
+  OK   --optimize-on-next-call-optimizes-to-maglev
+  OK   --always-osr
+  OK   --minimum-invocations-before-optimization=1
+  FAIL --interrupt-budget-for-maglev=1000 :: /opt/node22/bin/node: bad option: --interrupt-budget-for-maglev=1000
+  OK   --invocation-count-for-osr=1
+  OK   --trace-opt
+  OK   --trace-deopt
+  OK   --log-function-events
+  FAIL --interrupt-budget-for-feedback-allocation=100 :: /opt/node22/bin/node: bad option: --interrupt-budget-for-feedback-allocation=100
+  FAIL --budget-for-feedback-vector-allocation=100 :: /opt/node22/bin/node: bad option: --budget-for-feedback-vector-allocation=100
+  FAIL --interrupt-budget-factor-for-feedback-allocation=1 :: /opt/node22/bin/node: bad option: --interrupt-budget-factor-for-feedback-allocation=1
+  OK   --concurrent-recompilation
+  OK   --no-concurrent-recompilation
+  OK   --no-lazy-feedback-allocation
+  OK   --stress-maglev
+== node24
+  OK   --always-turbofan
+  OK   --always-sparkplug
+  OK   --no-sparkplug
+  OK   --no-turbofan
+  OK   --no-maglev
+  OK   --maglev
+  OK   --jitless
+  OK   --lite-mode
+  OK   --invocation-count-for-turbofan=100
+  OK   --invocation-count-for-maglev=20
+  FAIL --interrupt-budget=1000 :: /opt/nvm/versions/node/v24.21.0/bin/node: bad option: --interrupt-budget=1000
+  OK   --turbolev
+  FAIL --trace-baseline :: [Baseline batch compilation] Enqueued SFI requireBuiltin with estimated size 532 (current budget: 532/4096)
+  OK   --optimize-on-next-call-optimizes-to-maglev
+  OK   --always-osr
+  OK   --minimum-invocations-before-optimization=1
+  FAIL --interrupt-budget-for-maglev=1000 :: /opt/nvm/versions/node/v24.21.0/bin/node: bad option: --interrupt-budget-for-maglev=1000
+  OK   --invocation-count-for-osr=1
+  OK   --trace-opt
+  OK   --trace-deopt
+  OK   --log-function-events
+  FAIL --interrupt-budget-for-feedback-allocation=100 :: /opt/nvm/versions/node/v24.21.0/bin/node: bad option: --interrupt-budget-for-feedback-allocation=100
+  FAIL --budget-for-feedback-vector-allocation=100 :: /opt/nvm/versions/node/v24.21.0/bin/node: bad option: --budget-for-feedback-vector-allocation=100
+  FAIL --interrupt-budget-factor-for-feedback-allocation=1 :: /opt/nvm/versions/node/v24.21.0/bin/node: bad option: --interrupt-budget-factor-for-feedback-allocation=1
+  OK   --concurrent-recompilation
+  OK   --no-concurrent-recompilation
+  OK   --no-lazy-feedback-allocation
+  OK   --stress-maglev

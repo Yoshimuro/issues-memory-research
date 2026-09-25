@@ -1,0 +1,36 @@
+# node24 --log-function-events --no-logfile-per-isolate --logfile=fe.log ; grep tierProbe fe.log
+# уникальные (event-type) в логе:
+      350 preparse-resolution
+       93 first-execution
+       84 parse
+       57 interpreter
+       54 full-parse
+       36 baseline
+       32 parse-function
+       23 parse-eval
+       23 interpreter-eval
+       17 first-execution-BASELINE
+       11 maglev
+       10 turbofan
+        9 first-execution-MAGLEV
+        8 first-execution-TURBOFAN_JS
+        2 first-execution-BUILTIN
+# все строки про tierProbeAlpha/Beta:
+# все строки про tierProbe0 (первое поле = событие, второе = тип):
+  function,preparse-resolution,88,360,443,0.017,17247,tierProbe0
+  function,full-parse,88,360,443,0.004,17500,tierProbe0
+  function,parse-function,88,360,443,0.009,17504,tierProbe0
+  function,interpreter,88,360,443,0.004,17513,tierProbe0
+  function,first-execution,88,360,443,0,17687,tierProbe0
+  function,baseline,88,360,443,0.041,21056,tierProbe0
+  function,first-execution-BASELINE,88,360,443,0,21196,tierProbe0
+  function,maglev,88,360,443,0,21414,tierProbe0
+  function,first-execution-MAGLEV,88,360,443,0,21419,tierProbe0
+  function,turbofan,88,360,443,0.752,25288,tierProbe0
+  function,first-execution-TURBOFAN_JS,88,360,443,0,25294,tierProbe0
+# первые 5 строк лога (формат):
+  v8-version,13,6,233,17,-node.53,0
+  v8-platform,linux,linux
+  new,CodeRange,0x7f21e2ff0000,0
+  new,MemoryChunk,0x2a409d00000,262144
+  new,MemoryChunk,0x6c15f280000,262144

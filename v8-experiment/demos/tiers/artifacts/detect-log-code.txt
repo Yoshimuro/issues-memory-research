@@ -1,0 +1,48 @@
+# node24 --log-function-events --log-code --no-logfile-per-isolate --logfile=fc.log ; grep tierProbe
+  script-source,88,/home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js,'use strict';\n// detect-workload.js \u2014 \u043d\u0430\u0433\u0440\u0443\u0437\u043a\u0430 \u0434\u043
+  function,preparse-resolution,88,360,443,0.018,56038,tierProbe0
+  function,full-parse,88,360,443,0.004,56260,tierProbe0
+  function,parse-function,88,360,443,0.007,56263,tierProbe0
+  code-creation,JS,9,56271,0x247532fc1c80,56,tierProbe0 /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:6:20,0x1761033c7200,~
+  function,interpreter,88,360,443,0.003,56277,tierProbe0
+  function,first-execution,88,360,443,0,56418,tierProbe0
+  code-creation,JS,10,59555,0x7f0e4e803e80,452,tierProbe0 /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:6:20,0x1761033c7200,^
+  function,baseline,88,360,443,0.041,59569,tierProbe0
+  function,first-execution-BASELINE,88,360,443,0,59735,tierProbe0
+  code-creation,JS,11,63172,0x7f0e4e840040,760,tierProbe0 /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:6:20,0x1761033c7200,+'
+  function,maglev,88,360,443,0,63187,tierProbe0
+  function,first-execution-MAGLEV,88,360,443,0,63541,tierProbe0
+  code-creation,JS,12,65486,0x7f0e4e841180,700,tierProbe0 /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:6:20,0x1761033c7200,*'
+  function,turbofan,88,360,443,1.346,65495,tierProbe0
+  function,first-execution-TURBOFAN_JS,88,360,443,0,65506,tierProbe0
+# уникальные типы событий / code kinds:
+     1873 code-creation,Builtin
+      511 code-creation,BytecodeHandler
+      350 function,preparse-resolution
+      114 code-creation,JS
+       93 function,first-execution
+       84 function,parse
+       82 script,deserialize
+       57 function,interpreter
+       54 function,full-parse
+       36 function,baseline
+       33 new,MemoryChunk
+       32 function,parse-function
+       32 delete,MemoryChunk
+       23 script,reserve-id
+       23 script,create
+       23 function,parse-eval
+       23 function,interpreter-eval
+       23 compilation-cache,put
+       23 code-creation,Eval
+       17 function,first-execution-BASELINE
+       11 function,maglev
+       10 function,turbofan
+        9 function,first-execution-MAGLEV
+        8 function,first-execution-TURBOFAN_JS
+        2 function,first-execution-BUILTIN
+        1 v8-version,13
+        1 v8-platform,linux
+        1 script-source,99
+        1 script-source,98
+        1 script-source,97

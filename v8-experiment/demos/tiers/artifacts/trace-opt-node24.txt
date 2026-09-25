@@ -1,0 +1,22 @@
+[Baseline batch compilation] Enqueued SFI hotMono with estimated size 259 (current budget: 259/4096)
+[Baseline batch compilation] Enqueued SFI hotMono with estimated size 259 (current budget: 3416/4096)
+[marking 0x3e64eb466011 <JSFunction hotMono (sfi = 0x29e19dfe8331)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x3e64eb466011 <JSFunction hotMono (sfi = 0x29e19dfe8331)> (target MAGLEV), mode: ConcurrencyMode::kConcurrent]
+[completed compiling 0x3e64eb466011 <JSFunction hotMono (sfi = 0x29e19dfe8331)> (target MAGLEV) - took 0.001, 0.157, 0.011 ms]
+[Concurrent Sparkplug Off Thread] Function 0x29e19dfe8331 <SharedFunctionInfo hotMono> installed
+[marking 0x3e64eb466011 <JSFunction hotMono (sfi = 0x29e19dfe8331)> for optimization to TURBOFAN_JS, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x3e64eb466011 <JSFunction hotMono (sfi = 0x29e19dfe8331)> (target TURBOFAN_JS), mode: ConcurrencyMode::kConcurrent]
+[completed compiling 0x3e64eb466011 <JSFunction hotMono (sfi = 0x29e19dfe8331)> (target TURBOFAN_JS) - took 0.012, 0.954, 0.045 ms]
+[completed optimizing 0x3e64eb466011 <JSFunction hotMono (sfi = 0x29e19dfe8331)> (target TURBOFAN_JS)]
+[Baseline batch compilation] Enqueued SFI willDeopt with estimated size 91 (current budget: 91/4096)
+[Baseline batch compilation] Enqueued SFI willDeopt with estimated size 91 (current budget: 182/4096)
+[marking 0x3e64eb466051 <JSFunction willDeopt (sfi = 0x29e19dfe8379)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x3e64eb466051 <JSFunction willDeopt (sfi = 0x29e19dfe8379)> (target MAGLEV), mode: ConcurrencyMode::kConcurrent]
+[completed compiling 0x3e64eb466051 <JSFunction willDeopt (sfi = 0x29e19dfe8379)> (target MAGLEV) - took 0.001, 0.244, 0.005 ms]
+--- now calling willDeopt with a NEW shape {x,y,z} ---
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing 0x3e64eb466051 <JSFunction willDeopt (sfi = 0x29e19dfe8379)>, 0x30481d602519 <Code MAGLEV>, opt id 5, bytecode offset 0, deopt exit 0, FP to SP delta 24, caller SP 0x7ffe784f94d0, pc 0x7f7bf6040144]
+[Baseline batch compilation] Enqueued SFI willDeopt with estimated size 91 (current budget: 3815/4096)
+[marking 0x3e64eb466051 <JSFunction willDeopt (sfi = 0x29e19dfe8379)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x3e64eb466051 <JSFunction willDeopt (sfi = 0x29e19dfe8379)> (target MAGLEV), mode: ConcurrencyMode::kConcurrent]
+[completed compiling 0x3e64eb466051 <JSFunction willDeopt (sfi = 0x29e19dfe8379)> (target MAGLEV) - took 0.000, 0.257, 0.016 ms]
+acc = 282003

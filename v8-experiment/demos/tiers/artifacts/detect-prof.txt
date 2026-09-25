@@ -1,0 +1,47 @@
+# node24 --prof ; node --prof-process isolate*.log  (полный вывод: detect-prof-full.txt)
+# строки с нашими функциями (префикс перед именем = тир):
+   [JavaScript]:
+     ticks  total  nonlib   name
+      370   27.2%   27.2%  JS: *driver /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:16:16
+      111    8.2%    8.2%  JS: *tierProbe0 /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:6:20
+      109    8.0%    8.0%  JS: *tierProbe7 /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:13:20
+      102    7.5%    7.5%  JS: *tierProbe4 /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:10:20
+      100    7.4%    7.4%  JS: *tierProbe1 /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:7:20
+       94    6.9%    6.9%  JS: *tierProbe5 /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:11:20
+       93    6.8%    6.8%  JS: *tierProbe3 /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:9:20
+       93    6.8%    6.8%  JS: *tierProbe2 /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:8:20
+       84    6.2%    6.2%  JS: *tierProbe6 /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:12:20
+       73    5.4%    5.4%  Builtin: Call_ReceiverIsNotNullOrUndefined
+       64    4.7%    4.7%  Builtin: CallFunction_ReceiverIsNotNullOrUndefined
+        1    0.1%    0.1%  JS: +tierProbe0 /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:6:20
+        1    0.1%    0.1%  Builtin: LoadIC_NoFeedback
+        1    0.1%    0.1%  Builtin: LoadIC
+        1    0.1%    0.1%  Builtin: CallFunction_ReceiverIsAny
+        1    0.1%    0.1%  Builtin: Add_Baseline
+  
+
+# легенда из самого prof-process (если печатает):
+  23:      1    0.1%    0.1%  Builtin: Add_Baseline
+
+# контроль: node24 --prof --no-maglev --no-turbofan (только Ignition+Sparkplug):
+   [JavaScript]:
+     ticks  total  nonlib   name
+      424   31.2%   31.2%  Builtin: LoadIC
+      124    9.1%    9.1%  Builtin: Add_Baseline
+      118    8.7%    8.7%  Builtin: LessThan_Baseline
+      113    8.3%    8.3%  Builtin: Multiply_Baseline
+      103    7.6%    7.6%  Builtin: Increment_Baseline
+       87    6.4%    6.4%  Builtin: Subtract_Baseline
+       78    5.7%    5.7%  Builtin: LoadICBaseline
+       33    2.4%    2.4%  JS: ^tierProbe7 /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:13:20
+       32    2.4%    2.4%  JS: ^tierProbe4 /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:10:20
+       26    1.9%    1.9%  JS: ^tierProbe1 /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:7:20
+       22    1.6%    1.6%  JS: ^tierProbe2 /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:8:20
+       22    1.6%    1.6%  JS: ^driver /home/user/issues-memory-research/v8-experiment/demos/tiers/detect-workload.js:16:16
+# все префиксы имён в секции [JavaScript]:
+# сырой isolate*.log: code-creation,JS,... для tierProbe0 (поле после адреса/размера — имя с префиксом тира):
+  code-creation,JS,9,31297,0xb3cd2541c80,56
+  code-creation,JS,10,31719,0x7facf2e03e80,452
+  code-creation,JS,11,31955,0x7facf2e05240,760
+  code-creation,JS,12,34085,0x7facf2e06ac0,700
+# code-creation с --log-code, все kinds для tierProbe0:

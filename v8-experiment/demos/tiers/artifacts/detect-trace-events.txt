@@ -1,0 +1,66 @@
+# node24 --trace-event-categories v8,v8.compile --trace-event-file-pattern=te.json
+# уникальные имена событий:
+       90 "name":"V8.DeoptimizeCode"
+       12 "name":"thread_name"
+        8 "name":"PlatformWorkerThread"
+        4 "name":"node"
+        2 "name":"version"
+        2 "name":"process_name"
+        2 "name":"WorkerThreadsTaskRunner::DelayedTaskScheduler"
+        2 "name":"MinorGC"
+        2 "name":"JavaScriptMainThread"
+        2 "name":"/opt/nvm/versions/node/v24.21.0/bin/node"
+        1 "name":"V8.GCScavenger"
+        1 "name":"V8.DeserializeIsolate"
+        1 "name":"V8.DeserializeContext"
+# события с Optimize/Maglev/Turbofan/Baseline/Sparkplug в имени или аргументах:
+# события, где упомянуты наши функции:
+# node24 --trace-event-categories disabled-by-default-v8.compile,v8.compile,disabled-by-default-v8.runtime_stats
+# уникальные имена событий:
+      163 "name":"V8.MarkCandidatesForOptimization"
+       57 "name":"FlushInstructionCache"
+       34 "name":"V8.CompileIgnitionFinalization"
+       34 "name":"V8.CompileIgnition"
+       33 "name":"V8.CompileCode"
+       32 "name":"V8.ParseFunction"
+       22 "name":"V8.FinalizeDeserialization"
+       22 "name":"V8.CompileDeserialize"
+       12 "name":"thread_name"
+       11 "name":"V8.MaglevDestructBackground"
+       11 "name":"V8.MaglevConcurrentPrepare"
+       11 "name":"V8.MaglevConcurrentFinalize"
+       11 "name":"V8.MaglevBackground"
+       11 "name":"V8.Maglev.RegisterAllocation"
+       11 "name":"V8.Maglev.PhiUntagging"
+       11 "name":"V8.Maglev.NodeProcessing"
+       11 "name":"V8.Maglev.GraphBuilding"
+       11 "name":"V8.Maglev.DeadCodeMarking"
+       11 "name":"V8.Maglev.CommittingDependencies"
+       11 "name":"V8.Maglev.CodeGeneration"
+       11 "name":"V8.Maglev.CodeAssembly"
+       10 "name":"V8.OptimizeConcurrentPrepare"
+       10 "name":"V8.OptimizeConcurrentFinalize"
+       10 "name":"V8.OptimizeCode"
+       10 "name":"V8.OptimizeBackground"
+       10 "name":"V8.FinalizeMaglevConcurrentCompilation"
+        9 "name":"V8.PreParse"
+        8 "name":"V8.InstallOptimizedFunctions"
+        8 "name":"PlatformWorkerThread"
+        7 "name":"V8.MaglevTask"
+        5 "name":"V8.TurbofanTask"
+        4 "name":"node"
+        3 "name":"V8.FinalizeBaselineConcurrentCompilation"
+        2 "name":"version"
+        2 "name":"process_name"
+        2 "name":"WorkerThreadsTaskRunner::DelayedTaskScheduler"
+        2 "name":"JavaScriptMainThread"
+        2 "name":"/opt/nvm/versions/node/v24.21.0/bin/node"
+        1 "name":"V8.ParseProgram"
+        1 "name":"V8.CompileEval"
+# события с tierProbe:
+# примеры событий (что в args): V8.OptimizeCode / V8.MaglevTask / V8.CompileCode / V8.FinalizeBaselineConcurrentCompilation:
+  {"pid":8844,"tid":8844,"ts":1358597848,"tts":23872,"ph":"X","cat":"disabled-by-default-v8.compile","name":"V8.OptimizeCode","dur":175,"tdur":174,"args":{}}
+  {"pid":8844,"tid":8849,"ts":1358595335,"tts":130,"ph":"X","cat":"disabled-by-default-v8.compile","name":"V8.MaglevTask","dur":318,"tdur":317,"args":{}}
+  {"pid":8844,"tid":8844,"ts":1358595715,"tts":21792,"ph":"X","cat":"disabled-by-default-v8.compile","name":"V8.CompileCode","dur":194,"tdur":194,"args":{}}
+  {"pid":8844,"tid":8844,"ts":1358594808,"tts":20886,"ph":"X","cat":"disabled-by-default-v8.compile","name":"V8.FinalizeBaselineConcurrentCompilation","dur":4,"tdur":3,"args":{}}
+  {"pid":8844,"tid":8844,"ts":1358595183,"tts":21261,"ph":"X","cat":"disabled-by-default-v8.compile","name":"V8.MarkCandidatesForOptimization","dur":2,"tdur":2,"args":{}}

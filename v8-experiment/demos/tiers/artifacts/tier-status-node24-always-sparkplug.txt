@@ -1,0 +1,53 @@
+node v24.21.0 / V8 13.6.233.17-node.53 / flags: --allow-natives-syntax --always-sparkplug
+natives через: a:cmdline --allow-natives-syntax
+
+== hot(o): статус после N-го вызова (без пауз между вызовами)
+       N       raw  tier                 frame        bits
+       0    262145  lazy(not compiled)   -            0b000001000000000000000001  IsFunction|IsLazy
+       1     32769  baseline             -            0b000000001000000000000001  IsFunction|Baseline
+       2     32769  baseline             -            0b000000001000000000000001  IsFunction|Baseline
+       7     32769  baseline             -            0b000000001000000000000001  IsFunction|Baseline
+       8     32769  baseline             -            0b000000001000000000000001  IsFunction|Baseline
+       9     32769  baseline             -            0b000000001000000000000001  IsFunction|Baseline
+      50     32769  baseline             -            0b000000001000000000000001  IsFunction|Baseline
+     100     32769  baseline             -            0b000000001000000000000001  IsFunction|Baseline
+     200     32769  baseline             -            0b000000001000000000000001  IsFunction|Baseline
+     399     32769  baseline             -            0b000000001000000000000001  IsFunction|Baseline
+     400     32769  baseline             -            0b000000001000000000000001  IsFunction|Baseline
+     401     32769  baseline             -            0b000000001000000000000001  IsFunction|Baseline
+     600     33793  pending              -            0b000000001000010000000001  IsFunction|OptimizingConcurrently|Baseline
+    1000     33793  pending              -            0b000000001000010000000001  IsFunction|OptimizingConcurrently|Baseline
+    2000     33793  pending              -            0b000000001000010000000001  IsFunction|OptimizingConcurrently|Baseline
+    2999     33793  pending              -            0b000000001000010000000001  IsFunction|OptimizingConcurrently|Baseline
+    3000     33793  pending              -            0b000000001000010000000001  IsFunction|OptimizingConcurrently|Baseline
+    3001     33793  pending              -            0b000000001000010000000001  IsFunction|OptimizingConcurrently|Baseline
+    4000        49  maglev               -            0b000000000000000000110001  IsFunction|Optimized|MaglevOptimized
+    6000        49  maglev               -            0b000000000000000000110001  IsFunction|Optimized|MaglevOptimized
+   10000        49  maglev               -            0b000000000000000000110001  IsFunction|Optimized|MaglevOptimized
+   20000      1073  maglev               -            0b000000000000010000110001  IsFunction|Optimized|MaglevOptimized|OptimizingConcurrently
+  after 5x setImmediate, no calls:
+   20000      1073  maglev               -            0b000000000000010000110001  IsFunction|Optimized|MaglevOptimized|OptimizingConcurrently
+  after 5x setImmediate + 100 calls:
+   20100      1073  maglev               -            0b000000000000010000110001  IsFunction|Optimized|MaglevOptimized|OptimizingConcurrently
+  after 20x setImmediate + 100 calls:
+   20200      1073  maglev               -            0b000000000000010000110001  IsFunction|Optimized|MaglevOptimized|OptimizingConcurrently
+  after setTimeout(20) + 100 calls:
+   20300        81  turbofan             -            0b000000000000000001010001  IsFunction|Optimized|TurboFanned
+  after setTimeout(100) + 100 calls:
+   20400        81  turbofan             -            0b000000000000000001010001  IsFunction|Optimized|TurboFanned
+  after setTimeout(300) + 100 calls:
+   20500        81  turbofan             -            0b000000000000000001010001  IsFunction|Optimized|TurboFanned
+
+== once(o): до вызова     262145  lazy(not compiled)   -            0b000001000000000000000001  IsFunction|IsLazy
+== once(o): после 1 вызова    32769  baseline             -            0b000000001000000000000001  IsFunction|Baseline
+
+== loopy(o): OSR — статус изнутри цикла (i -> tier -> bits)
+  i=       0    165889  baseline             baseline     0b000000101000100000000001  IsFunction|IsExecuting|Baseline|TopmostFrameIsBaseline
+  i=     100    165889  baseline             baseline     0b000000101000100000000001  IsFunction|IsExecuting|Baseline|TopmostFrameIsBaseline
+  i=   10000   8554497  pending              baseline     0b100000101000100000000001  IsFunction|IsExecuting|Baseline|TopmostFrameIsBaseline|MarkedForConcurrentMaglevOptimization
+  i=  100000    165889  baseline             baseline     0b000000101000100000000001  IsFunction|IsExecuting|Baseline|TopmostFrameIsBaseline
+  i=  500000   8947713  pending              maglev       0b100010001000100000000001  IsFunction|IsExecuting|Baseline|TopmostFrameIsMaglev|MarkedForConcurrentMaglevOptimization
+  i= 1000000   8947713  pending              maglev       0b100010001000100000000001  IsFunction|IsExecuting|Baseline|TopmostFrameIsMaglev|MarkedForConcurrentMaglevOptimization
+  i= 2000000     38913  baseline             turbofan     0b000000001001100000000001  IsFunction|IsExecuting|TopmostFrameIsTurboFanned|Baseline
+  i= 2999999     38913  baseline             turbofan     0b000000001001100000000001  IsFunction|IsExecuting|TopmostFrameIsTurboFanned|Baseline
+== loopy(o): после выхода        32769  baseline             -            0b000000001000000000000001  IsFunction|Baseline
