@@ -1,0 +1,392 @@
+<title>Путь функции в V8</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    --bg: #f3f5f7;
+    --paper: #ffffff;
+    --ink: #17212b;
+    --muted: #5c6873;
+    --line: #cfd6dc;
+    --soft: #e7ebef;
+    --ign: #7b8794;
+    --spk: #2f8f4e;
+    --mag: #1f6fd0;
+    --tf: #d9530f;
+    --warn-bg: #fff1e8;
+    --ok-bg: #e9f5ee;
+    --font-body: "IBM Plex Sans", "Segoe UI", Roboto, Arial, sans-serif;
+    --font-display: "IBM Plex Sans Condensed", "Arial Narrow", "IBM Plex Sans", sans-serif;
+    --font-mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --bg: #0f1418;
+      --paper: #161c22;
+      --ink: #e4e9ee;
+      --muted: #9aa6b1;
+      --line: #2e3841;
+      --soft: #1f272f;
+      --ign: #98a4b0;
+      --spk: #5cc57e;
+      --mag: #5aa0f2;
+      --tf: #ff8a4c;
+      --warn-bg: #2b1d14;
+      --ok-bg: #14261b;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --bg: #0f1418;
+    --paper: #161c22;
+    --ink: #e4e9ee;
+    --muted: #9aa6b1;
+    --line: #2e3841;
+    --soft: #1f272f;
+    --ign: #98a4b0;
+    --spk: #5cc57e;
+    --mag: #5aa0f2;
+    --tf: #ff8a4c;
+    --warn-bg: #2b1d14;
+    --ok-bg: #14261b;
+  }
+  body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 16px; line-height: 1.55; margin: 0; }
+  .wrap { max-width: 78ch; margin: 0 auto; padding-block: 32px 64px; padding-inline: 20px; }
+  h1 { font-family: var(--font-display); font-weight: 600; font-size: 2.1rem; line-height: 1.1; margin: 0 0 8px; text-wrap: balance; }
+  h2 { font-family: var(--font-display); font-weight: 600; font-size: 1.45rem; line-height: 1.2; margin: 48px 0 12px; text-wrap: balance; }
+  h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.1rem; margin: 24px 0 8px; }
+  p { margin: 0 0 14px; max-width: 70ch; }
+  .lede { font-size: 1.08rem; color: var(--muted); max-width: 66ch; }
+  .eyebrow { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+  .q { border-left: 3px solid var(--line); padding: 6px 16px; color: var(--muted); font-style: italic; margin: 18px 0 24px; max-width: 66ch; }
+  code, .mono { font-family: var(--font-mono); font-size: 0.9em; }
+  code { background: var(--soft); padding: 1px 5px; border-radius: 3px; }
+  figure { margin: 22px 0 26px; }
+  .fig { overflow-x: auto; background: var(--paper); border: 1px solid var(--line); border-radius: 6px; padding: 12px; }
+  .fig svg { display: block; width: 100%; min-width: 640px; height: auto; color: var(--ink); font-family: var(--font-body); }
+  figcaption { font-size: 0.9rem; color: var(--muted); margin-top: 8px; max-width: 70ch; }
+  svg text { font-size: 12px; fill: currentColor; }
+  svg .mono { font-family: var(--font-mono); font-size: 11.5px; }
+  svg .small { font-size: 10.5px; fill: var(--muted); }
+  svg .ttl { font-family: var(--font-display); font-weight: 600; font-size: 13px; }
+  svg .box { fill: var(--paper); stroke: currentColor; stroke-width: 1.2; }
+  svg .soft { fill: var(--soft); stroke: var(--line); stroke-width: 1; }
+  svg .ign { fill: var(--ign); } svg .spk { fill: var(--spk); } svg .mag { fill: var(--mag); } svg .tf { fill: var(--tf); }
+  svg .ign-s { stroke: var(--ign); } svg .spk-s { stroke: var(--spk); } svg .mag-s { stroke: var(--mag); } svg .tf-s { stroke: var(--tf); }
+  svg .white { fill: #ffffff; }
+  svg .arrow { stroke: currentColor; stroke-width: 1.3; fill: none; }
+  svg .dashed { stroke-dasharray: 5 4; }
+  svg .bad { fill: var(--tf); } svg .good { fill: var(--spk); }
+  table { border-collapse: collapse; width: 100%; font-size: 0.93rem; margin: 12px 0 20px; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-family: var(--font-mono); font-size: 0.74rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .tbl { overflow-x: auto; }
+  .chip { display: inline-block; font-family: var(--font-mono); font-size: 0.72rem; padding: 1px 7px; border-radius: 3px; color: #fff; vertical-align: middle; }
+  .chip.ign { background: var(--ign); } .chip.spk { background: var(--spk); } .chip.mag { background: var(--mag); } .chip.tf { background: var(--tf); }
+  ol.path { padding-left: 0; list-style: none; counter-reset: step; margin: 0 0 20px; display: grid; gap: 10px; }
+  ol.path li { counter-increment: step; display: grid; grid-template-columns: 34px 1fr; gap: 12px; align-items: start; }
+  ol.path li::before { content: counter(step); font-family: var(--font-display); font-weight: 600; font-size: 1.1rem; color: var(--muted); border: 1px solid var(--line); border-radius: 50%; width: 30px; height: 30px; display: grid; place-items: center; }
+  ol.path li p { margin: 0; }
+  ol.path li .when { font-family: var(--font-mono); font-size: 0.78rem; color: var(--muted); display: block; margin-top: 2px; }
+  .callout { background: var(--paper); border: 1px solid var(--line); border-radius: 6px; padding: 14px 18px; margin: 18px 0 22px; max-width: 70ch; }
+  .callout.warn { background: var(--warn-bg); border-color: transparent; }
+  .callout.ok { background: var(--ok-bg); border-color: transparent; }
+  .callout p:last-child { margin-bottom: 0; }
+  .src { font-size: 0.85rem; color: var(--muted); margin-top: 40px; border-top: 1px solid var(--line); padding-top: 14px; }
+  ul { padding-left: 20px; max-width: 70ch; } li { margin-bottom: 6px; }
+  @media (max-width: 480px) { h1 { font-size: 1.7rem; } .wrap { padding-block: 20px 48px; padding-inline: 16px; } }
+</style>
+
+<div class="wrap">
+  <div class="eyebrow">V8 · Node 20 / 22 / 24 · проверено по исходникам и замерам, 2026-09-26</div>
+  <h1>Путь функции в V8</h1>
+  <p class="lede">Почему нельзя на старте сказать движку «считай, что всё уже вызвано десять тысяч раз», и почему лестница ярусов не является жизненным циклом функции.</p>
+
+  <div class="q">«Почему мы не можем сразу представить, что весь код использован уже 10 тысяч раз, прогреть его на старте до безумия и дальше работать быстро? Почему не везде последняя стадия компиляции?»</div>
+
+  <p>Короткий ответ: счётчик вызовов можно подделать за секунду, и это уже сделано флагами. Но счётчик ничего не значит. Он только сигнал «пора компилировать». Сама компиляция берёт на вход не число, а содержимое записей: какие формы объектов приходили, какие типы видели операторы, куда попадали вызовы. Эти записи нельзя выдумать, их можно только заработать, выполнив функцию на настоящих данных. Дальше по порядку: что именно нужно компилятору, как на самом деле устроен путь функции, какие структуры за этим стоят, и где деньги.</p>
+
+  <h2>1. Счётчик и прогрев это разные вещи</h2>
+  <p>У каждого замыкания есть вектор записей (feedback vector). В нём по слоту на каждое место, где код что-то делает с данными: чтение поля, оператор, вызов. Интерпретатор и Sparkplug при каждом выполнении дописывают в слот, что видели. TurboFan и Maglev читают именно слоты. Счётчик вызовов в том же векторе лежит рядом, но компилятору он не нужен.</p>
+
+  <figure>
+    <div class="fig">
+      <svg viewBox="0 0 820 340" role="img" aria-label="Слева: десять тысяч вызовов на бумаге, слоты записей пустые, TurboFan выдаёт либо деопт, либо общий код. Справа: четыреста настоящих вызовов, слоты заполнены картой и типами, TurboFan выдаёт специализированный код.">
+        <defs>
+          <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="currentColor"/></marker>
+        </defs>
+        <!-- left panel -->
+        <text x="20" y="24" class="ttl">«вызвано 10 000 раз» на бумаге</text>
+        <text x="20" y="40" class="small">счётчик подкручен флагом, функция ни разу не выполнялась на данных</text>
+        <rect x="20" y="52" width="230" height="150" rx="4" class="box"/>
+        <text x="30" y="70" class="mono">FeedbackVector</text>
+        <line x1="20" y1="78" x2="250" y2="78" stroke="currentColor" stroke-width="0.8"/>
+        <text x="30" y="98" class="mono">o.plan</text><text x="240" y="98" class="mono bad" text-anchor="end">пусто</text>
+        <text x="30" y="122" class="mono">credits * 2</text><text x="240" y="122" class="mono bad" text-anchor="end">пусто</text>
+        <text x="30" y="146" class="mono">score(u)</text><text x="240" y="146" class="mono bad" text-anchor="end">пусто</text>
+        <text x="30" y="170" class="mono">o.teamId</text><text x="240" y="170" class="mono bad" text-anchor="end">пусто</text>
+        <text x="30" y="194" class="mono small">invocation_count = 10000</text>
+        <path d="M250 127 L285 127" class="arrow" marker-end="url(#ar)"/>
+        <rect x="288" y="105" width="90" height="44" rx="4" class="tf"/>
+        <text x="333" y="132" text-anchor="middle" class="white" style="font-weight:600">TurboFan</text>
+        <path d="M333 149 L333 214" class="arrow" marker-end="url(#ar)"/>
+        <rect x="20" y="218" width="370" height="104" rx="4" class="soft"/>
+        <text x="30" y="238" class="ttl">на выходе, измерено:</text>
+        <text x="30" y="258">обычный режим: безусловный деопт</text>
+        <text x="30" y="274" class="mono small">Insufficient type feedback, код выброшен на 1-м вызове</text>
+        <text x="30" y="296">--always-turbofan: общий код без ставок,</text>
+        <text x="30" y="312" class="small">в 2–9 раз медленнее прогретого, 0 деоптов, не улучшается никогда</text>
+        <!-- right panel -->
+        <text x="430" y="24" class="ttl">400 настоящих вызовов</text>
+        <text x="430" y="40" class="small">интерпретатор и Sparkplug заполнили слоты тем, что видели</text>
+        <rect x="430" y="52" width="230" height="150" rx="4" class="box"/>
+        <text x="440" y="70" class="mono">FeedbackVector</text>
+        <line x1="430" y1="78" x2="660" y2="78" stroke="currentColor" stroke-width="0.8"/>
+        <text x="440" y="98" class="mono">o.plan</text><text x="650" y="98" class="mono good" text-anchor="end">Map A · +24</text>
+        <text x="440" y="122" class="mono">credits * 2</text><text x="650" y="122" class="mono good" text-anchor="end">SignedSmall</text>
+        <text x="440" y="146" class="mono">score(u)</text><text x="650" y="146" class="mono good" text-anchor="end">→ score, mono</text>
+        <text x="440" y="170" class="mono">o.teamId</text><text x="650" y="170" class="mono good" text-anchor="end">Map A · +40</text>
+        <text x="440" y="194" class="mono small">invocation_count = 400</text>
+        <path d="M660 127 L695 127" class="arrow" marker-end="url(#ar)"/>
+        <rect x="698" y="105" width="90" height="44" rx="4" class="tf"/>
+        <text x="743" y="132" text-anchor="middle" class="white" style="font-weight:600">TurboFan</text>
+        <path d="M743 149 L743 214" class="arrow" marker-end="url(#ar)"/>
+        <rect x="430" y="218" width="370" height="104" rx="4" class="soft"/>
+        <text x="440" y="238" class="ttl">на выходе:</text>
+        <text x="440" y="258">ставка «сюда приходит Map A»: одно сравнение,</text>
+        <text x="440" y="274">чтение по смещению, целочисленная арифметика,</text>
+        <text x="440" y="290">score заинлайнен. Это и есть «быстрее».</text>
+        <text x="440" y="312" class="small">если ставка не сыграет (Map B): деопт, записи обновлены</text>
+      </svg>
+    </div>
+    <figcaption>Одна и та же функция, один и тот же TurboFan. Разница только в содержимом слотов. Левая колонка воспроизведена скриптом <code>feedback-matters.js</code> на Node 22 и 24: с пустым feedback компиляция стоит около миллисекунды и выбрасывается на первом вызове; под <code>--always-turbofan</code> получается код в 2–9 раз медленнее прогретого.</figcaption>
+  </figure>
+
+  <p>Отсюда и ответ про «прогреть до безумия». Прогреть можно, но только настоящими данными: движок ровно это и делает в первые миллисекунды жизни каждой горячей функции. Если прогреть синтетикой, слоты заполнятся профилем синтетики, компилятор поставит на неё, и первый настоящий вход с другой формой даст тот самый <code>wrong map</code>. Сжать время прогрева тоже нельзя: функцию нужно выполнить N раз на реальных входах, быстрее записи не появятся. Опустить порог можно (вариант <code>eager</code> в матрице), но это даёт больше компиляций на незрелых записях и ту же установившуюся скорость.</p>
+
+  <h2>2. Это не лестница, а состояния и два потока</h2>
+  <p>Лестница правильно показывает порядок цены: каждый следующий ярус дороже компилировать и быстрее исполнять. Но как картина жизни функции она вводит в заблуждение в трёх местах. Функция никогда не «стоит на ступени» и не ждёт: она всё время исполняется в главном потоке. Компиляция верхних ярусов идёт в фоновом потоке, а «переход» это подмена указателя на код при следующем вызове. И движение не только вверх: деопт возвращает в байткод, а долгий простой стирает байткод вовсе.</p>
+
+  <figure>
+    <div class="fig">
+      <svg viewBox="0 0 940 420" role="img" aria-label="Три дорожки: главный поток, где функция исполняется всё время; менеджер ярусов, который на тиках бюджета решает; фоновый поток, где компилируются Maglev и TurboFan. Стрелки установки идут при следующем вызове, стрелка деопта ведёт обратно в байткод.">
+        <defs>
+          <marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="currentColor"/></marker>
+        </defs>
+        <!-- lanes -->
+        <rect x="10" y="44" width="920" height="96" rx="4" class="soft"/>
+        <rect x="10" y="176" width="920" height="80" rx="4" class="soft"/>
+        <rect x="10" y="292" width="920" height="80" rx="4" class="soft"/>
+        <text x="22" y="64" class="ttl">главный поток</text>
+        <text x="22" y="80" class="small">функция исполняется</text>
+        <text x="22" y="94" class="small">всё время, без пауз</text>
+        <text x="22" y="196" class="ttl">менеджер ярусов</text>
+        <text x="22" y="212" class="small">тик бюджета:</text>
+        <text x="22" y="226" class="small">вызовы × длина байткода</text>
+        <text x="22" y="312" class="ttl">фоновый поток</text>
+        <text x="22" y="328" class="small">компиляция, пока</text>
+        <text x="22" y="342" class="small">функция работает</text>
+        <!-- time axis -->
+        <path d="M170 30 L925 30" class="arrow" marker-end="url(#ar2)"/>
+        <text x="170" y="22" class="small">вызовы функции →</text>
+        <!-- main lane segments -->
+        <rect x="170" y="100" width="150" height="34" rx="3" class="ign"/>
+        <text x="245" y="122" text-anchor="middle" class="white" style="font-weight:600">Ignition</text>
+        <rect x="320" y="100" width="150" height="34" rx="3" class="spk"/>
+        <text x="395" y="122" text-anchor="middle" class="white" style="font-weight:600">Sparkplug</text>
+        <rect x="470" y="100" width="220" height="34" rx="3" class="mag"/>
+        <text x="580" y="122" text-anchor="middle" class="white" style="font-weight:600">Maglev-код</text>
+        <rect x="690" y="100" width="235" height="34" rx="3" class="tf"/>
+        <text x="807" y="122" text-anchor="middle" class="white" style="font-weight:600">TurboFan-код</text>
+        <text x="170" y="92" class="small">вызов 1: байткод, записей ещё нет</text>
+        <!-- tiering events -->
+        <rect x="262" y="186" width="120" height="58" rx="3" class="box"/>
+        <text x="322" y="204" text-anchor="middle" class="small">бюджет 8 × len:</text>
+        <text x="322" y="218" text-anchor="middle" class="small">создать вектор записей,</text>
+        <text x="322" y="232" text-anchor="middle" class="small">Sparkplug в пакет</text>
+        <path d="M322 186 L322 138" class="arrow" marker-end="url(#ar2)"/>
+        <rect x="420" y="186" width="130" height="58" rx="3" class="box"/>
+        <text x="485" y="204" text-anchor="middle" class="small">бюджет 400 × len</text>
+        <text x="485" y="218" text-anchor="middle" class="small">и записи не менялись</text>
+        <text x="485" y="232" text-anchor="middle" class="small">500 × len: запрос Maglev</text>
+        <path d="M485 244 L485 292" class="arrow" marker-end="url(#ar2)"/>
+        <rect x="640" y="186" width="130" height="58" rx="3" class="box"/>
+        <text x="705" y="204" text-anchor="middle" class="small">бюджет 3000 × len,</text>
+        <text x="705" y="218" text-anchor="middle" class="small">записи стабильны:</text>
+        <text x="705" y="232" text-anchor="middle" class="small">запрос TurboFan</text>
+        <path d="M705 244 L705 292" class="arrow" marker-end="url(#ar2)"/>
+        <!-- background jobs -->
+        <rect x="485" y="302" width="140" height="34" rx="3" class="box mag-s" style="stroke-width:2"/>
+        <text x="555" y="318" text-anchor="middle" class="small">компиляция Maglev</text>
+        <text x="555" y="331" text-anchor="middle" class="mono small">~0.2 мс на функцию</text>
+        <path d="M625 319 L640 319 L640 150 L560 150 L560 138" class="arrow" marker-end="url(#ar2)"/>
+        <rect x="705" y="302" width="150" height="34" rx="3" class="box tf-s" style="stroke-width:2"/>
+        <text x="780" y="318" text-anchor="middle" class="small">компиляция TurboFan</text>
+        <text x="780" y="331" text-anchor="middle" class="mono small">~1 мс на функцию</text>
+        <path d="M855 319 L870 319 L870 150 L800 150 L800 138" class="arrow" marker-end="url(#ar2)"/>
+        <text x="590" y="163" class="small">установка при следующем вызове</text>
+        <text x="808" y="163" class="small">установка</text>
+        <!-- deopt arrow -->
+        <path d="M900 100 C 900 60, 260 60, 245 98" class="arrow tf-s dashed" marker-end="url(#ar2)"/>
+        <text x="560" y="72" text-anchor="middle" class="small">деопт (wrong map): код выброшен, тот же байткод с той же позиции, записи обновлены, бюджет сброшен</text>
+        <!-- footer notes -->
+        <text x="170" y="394" class="small">OSR: если функция сидит в длинном цикле, код подменяется прямо внутри работающего цикла (бюджет 500 × len).</text>
+        <text x="170" y="410" class="small">Простой: байткод и записи стираются при GC, функция снова «ленивая». Слишком большая (байткод &gt; 60 KB): наверх не пойдёт никогда.</text>
+      </svg>
+    </div>
+    <figcaption>Ярус это не место, где функция находится, а какой из привязанных к ней кодов сейчас стоит в указателе входа. В прогонах <code>tier-status.js</code> одна и та же функция на Node 22 получала TurboFan то на 20 000-м вызове, то только после пяти тиков событийного цикла: фоновый поток успевает по-разному.</figcaption>
+  </figure>
+
+  <p>Важное следствие для интуиции «газ в пол»: главный поток не ждёт компилятора. Пока TurboFan работает в фоне, функция продолжает исполняться в Maglev-коде. Единственный способ заставить главный поток ждать это синхронная компиляция на первом вызове, и это ровно то, что делает <code>--always-turbofan</code>. Результат в разделе 4.</p>
+
+  <h2>3. Какие структуры за этим стоят</h2>
+  <p>Ключевое разделение: то, что относится к тексту функции, и то, что относится к конкретному замыканию и конкретной куче.</p>
+
+  <figure>
+    <div class="fig">
+      <svg viewBox="0 0 900 430" role="img" aria-label="SharedFunctionInfo держит байткод и относится к тексту функции. JSFunction, то есть замыкание, держит контекст, указатель входа и вектор записей. Вектор записей ссылается на карты объектов. Оптимизированный код привязан к замыканию и зависит от карт: если карта изменилась, код деоптимизируется. На диск уходит только байткод.">
+        <defs>
+          <marker id="ar3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="currentColor"/></marker>
+        </defs>
+        <!-- SFI -->
+        <rect x="20" y="40" width="260" height="118" rx="4" class="box"/>
+        <text x="32" y="60" class="ttl">SharedFunctionInfo</text>
+        <text x="32" y="76" class="small">одна на функцию в исходнике</text>
+        <text x="32" y="98" class="mono">байткод Ignition</text>
+        <text x="32" y="116" class="mono">флаги: оптимизация запрещена?</text>
+        <text x="32" y="134" class="mono">возраст: не исполнялась n GC → байткод стёрт</text>
+        <text x="32" y="150" class="small">это единственное, что попадает в код-кэш на диске</text>
+        <!-- JSFunction -->
+        <rect x="330" y="40" width="250" height="118" rx="4" class="box"/>
+        <text x="342" y="60" class="ttl">JSFunction (замыкание)</text>
+        <text x="342" y="76" class="small">на одну SFI их может быть много</text>
+        <text x="342" y="98" class="mono">контекст (захваченные переменные)</text>
+        <text x="342" y="116" class="mono">код-вход: куда прыгать при вызове</text>
+        <text x="342" y="134" class="mono">feedback cell → вектор записей</text>
+        <text x="342" y="150" class="small">«ярус» функции = что сейчас в код-входе</text>
+        <path d="M330 99 L282 99" class="arrow" marker-end="url(#ar3)"/>
+        <text x="306" y="92" text-anchor="middle" class="small">shared</text>
+        <!-- FeedbackVector -->
+        <rect x="330" y="212" width="250" height="150" rx="4" class="box"/>
+        <text x="342" y="232" class="ttl">FeedbackVector</text>
+        <text x="342" y="248" class="small">на замыкание, появляется с 8-го вызова</text>
+        <text x="342" y="270" class="mono">o.plan     → Map A, +24</text>
+        <text x="342" y="288" class="mono">credits*2  → SignedSmall</text>
+        <text x="342" y="306" class="mono">score(u)   → score (mono)</text>
+        <text x="342" y="326" class="mono">счётчик вызовов, бюджет прерываний</text>
+        <text x="342" y="344" class="mono">состояние тир-апа, ссылка на опт. код</text>
+        <path d="M455 158 L455 210" class="arrow" marker-end="url(#ar3)"/>
+        <!-- code column -->
+        <rect x="640" y="40" width="240" height="46" rx="4" class="box spk-s" style="stroke-width:2"/>
+        <text x="652" y="59" class="ttl">Baseline-код (Sparkplug)</text>
+        <text x="652" y="76" class="small">на SFI, без ставок, читает те же слоты</text>
+        <rect x="640" y="104" width="240" height="46" rx="4" class="box mag-s" style="stroke-width:2"/>
+        <text x="652" y="123" class="ttl">Maglev-код</text>
+        <text x="652" y="140" class="small">на замыкание, ставки + deopt-данные</text>
+        <rect x="640" y="168" width="240" height="46" rx="4" class="box tf-s" style="stroke-width:2"/>
+        <text x="652" y="187" class="ttl">TurboFan-код</text>
+        <text x="652" y="204" class="small">на замыкание, ставки + deopt-данные</text>
+        <path d="M580 116 L600 116 L600 63 L638 63" class="arrow" marker-end="url(#ar3)"/>
+        <path d="M600 116 L600 127 L638 127" class="arrow" marker-end="url(#ar3)"/>
+        <path d="M600 127 L600 191 L638 191" class="arrow" marker-end="url(#ar3)"/>
+        <text x="604" y="106" class="small">код-вход</text>
+        <!-- maps -->
+        <rect x="640" y="300" width="100" height="40" rx="4" class="box"/>
+        <text x="690" y="324" text-anchor="middle" class="mono">Map A</text>
+        <rect x="780" y="300" width="100" height="40" rx="4" class="box"/>
+        <text x="830" y="324" text-anchor="middle" class="mono">Map B</text>
+        <text x="640" y="358" class="small">формы объектов этой кучи; адреса живут только в этом процессе</text>
+        <path d="M580 270 L690 270 L690 298" class="arrow" marker-end="url(#ar3)"/>
+        <text x="600" y="262" class="small">видел</text>
+        <path d="M760 214 L760 260 L700 260 L700 298" class="arrow tf-s dashed" marker-end="url(#ar3)"/>
+        <text x="708" y="256" class="small">зависимость: Map A изменилась → деопт</text>
+        <!-- bottom note -->
+        <text x="20" y="400" class="small">Поэтому оптимизированный код не переживает перезапуск: он привязан к замыканию, к записям и к адресам карт этой кучи.</text>
+        <text x="20" y="416" class="small">Код-кэш V8 и compile cache Node сохраняют байткод; snapshot Node сохраняет кучу. Ни то, ни другое не содержит TurboFan-кода.</text>
+      </svg>
+    </div>
+    <figcaption>Байткод относится к тексту и переживает перезапуск. Записи, карты и оптимизированный код относятся к процессу. Это структурная причина, по которой «прогретый» код нельзя положить на диск, в отличие от WebAssembly, где TurboFan-код не зависит от форм объектов и кэшируется.</figcaption>
+  </figure>
+
+  <h2>4. Экономика: почему движку самому невыгодно</h2>
+  <p>Компиляция стоит одинаково для функции, которую вызовут три раза, и для функции, которую вызовут миллион раз. Выигрыш пропорционален числу будущих вызовов, цена нет. Движок будущего не знает и использует единственный доступный прокси: сколько функция уже отработала. Это логика кеша: быстрый путь строится только для того, что уже встречалось много раз. В реальной программе большинство функций так и не набирают бюджет: при <code>npm --version</code> из 707 функций с байткодом до Maglev дошли 13, до TurboFan одна.</p>
+
+  <figure>
+    <div class="fig">
+      <svg viewBox="0 0 820 310" role="img" aria-label="Два набора столбцов. Холодный код, 2000 функций по 3 вызова: интерпретатор со Sparkplug 37 мс, лестница 36 мс, всё сразу в TurboFan 1834 мс. Горячий цикл, тысяч итераций в миллисекунду: интерпретатор со Sparkplug 5.5, лестница 122.7, всё сразу в TurboFan 7.4.">
+        <text x="20" y="24" class="ttl">холодный код: 2000 функций × 3 вызова, мс</text>
+        <text x="20" y="40" class="small">Node 20, где --always-turbofan действительно компилирует всё на первом вызове</text>
+        <text x="20" y="80">интерпретатор + Sparkplug</text>
+        <rect x="200" y="66" width="4.1" height="20" class="ign"/>
+        <text x="212" y="80" class="mono">37</text>
+        <text x="20" y="120">лестница (default)</text>
+        <rect x="200" y="106" width="3.9" height="20" class="mag"/>
+        <text x="212" y="120" class="mono">36</text>
+        <text x="20" y="160">всё сразу в TurboFan</text>
+        <rect x="200" y="146" width="200" height="20" class="tf"/>
+        <text x="200" y="185" class="mono">1834 (×51), 4348 синхронных компиляций, код 7.6 MB вместо 2.9</text>
+        <line x1="200" y1="60" x2="200" y2="170" stroke="currentColor" stroke-width="0.8"/>
+
+        <text x="430" y="24" class="ttl">горячий цикл: тысяч итераций в мс</text>
+        <text x="430" y="40" class="small">та же машина, установившийся режим, медиана 10 процессов</text>
+        <text x="430" y="80">интерпретатор + Sparkplug</text>
+        <rect x="610" y="66" width="9" height="20" class="ign"/>
+        <text x="626" y="80" class="mono">5.5</text>
+        <text x="430" y="120">лестница (default)</text>
+        <rect x="610" y="106" width="200" height="20" class="mag"/>
+        <text x="610" y="145" class="mono">122.7</text>
+        <text x="430" y="185">всё сразу в TurboFan</text>
+        <rect x="610" y="171" width="12" height="20" class="tf"/>
+        <text x="630" y="185" class="mono">7.4 (×0.06), 0 деоптов, переоптимизации нет</text>
+        <line x1="610" y1="60" x2="610" y2="200" stroke="currentColor" stroke-width="0.8"/>
+
+        <text x="20" y="236" class="ttl">итого по двум концам</text>
+        <text x="20" y="256">на холодном коде оптимизирующие ярусы ничего не стоят, потому что не запускаются: лестница равна интерпретатору;</text>
+        <text x="20" y="274">на горячем коде «всё сразу» проигрывает лестнице в 16 раз, потому что компилировал до того, как появились записи;</text>
+        <text x="20" y="292">ни на одном конце «всё через TurboFan» не выигрывает. Лестница стоит в оптимуме с обеих сторон.</text>
+      </svg>
+    </div>
+    <figcaption>Замеры <code>always-turbofan-bench.js</code>, ревизия 2 (10 повторов на ячейку). На Node 22 и 24 флаг сам по себе почти ничего не компилирует из-за гейта на два вызова; с <code>--minimum-invocations-before-optimization=0</code> картина та же: старт ×51–64, горячий код ×0.06.</figcaption>
+  </figure>
+
+  <div class="callout ok">
+    <p><strong>Почему это выгодно самому JavaScript, а не только пользователю.</strong> Цель движка не «максимум TurboFan-кода», а минимум суммарного времени и памяти на всю программу. Оптимизированный код и векторы записей занимают заметную долю кучи (lite mode V8 экономит 22% кучи именно отключением оптимизации). Фоновые компиляции жгут CPU и батарею: V8 сообщал, что Maglev, позволив откладывать TurboFan, снизил энергопотребление на Speedometer на 10%. И каждая ранняя ставка это риск деопта, после которого функция возвращается в интерпретатор и заново копит бюджет. Лестница это хеджирование: платить за каждую функцию немного (байткод), платить много только после доказательств.</p>
+  </div>
+
+  <h2>5. Путь одной функции, по шагам</h2>
+  <p>Порядок здесь настоящий, поэтому шаги пронумерованы. Пороги указаны как бюджет «вызовы × длина байткода», отсюда разница между крошечной функцией и функцией с циклом внутри. В скобках наблюдение на Node 24 для функции в 20 байткодов из <code>tier-status.js</code>.</p>
+  <ol class="path">
+    <li><p><span class="chip ign">lazy</span> Функция распарсена предварительно, байткода нет. Так живёт большинство кода, который никогда не вызовут.</p></li>
+    <li><p><span class="chip ign">Ignition</span> Первый вызов: байткод скомпилирован, исполняется интерпретатором. Записей ещё нет, есть только их заготовка. <span class="when">наблюдение: вызов 1 → Interpreted</span></p></li>
+    <li><p><span class="chip spk">Sparkplug</span> Бюджет 8 × длина байткода исчерпан: создан вектор записей, слоты начинают заполняться, функция поставлена в пакет Sparkplug. Sparkplug читает те же слоты, но ставок не делает, он только снимает накладные расходы интерпретатора. <span class="when">наблюдение: 9-й вызов без пакетной компиляции, до 3000-го с ней (пакет в 4 KB одной крошечной функцией не набирается)</span></p></li>
+    <li><p><span class="chip mag">Maglev</span> Бюджет 400 × длина и записи не менялись последние 500 × длина («hot and stable»): запрос, компиляция в фоне, установка при следующем вызове. Первые ставки. <span class="when">наблюдение: запрос на ~600-м вызове, установка к 3000–6000-му</span></p></li>
+    <li><p><span class="chip tf">TurboFan</span> Бюджет 3000 × длина при стабильных записях: запрос, компиляция в фоне, установка. Те же ставки, дороже проверенные и глубже заинлайненные. <span class="when">наблюдение: установился только после паузы событийного цикла, ~14 000-й вызов при плотном цикле; с циклом внутри функции к ~1500-му</span></p></li>
+  </ol>
+  <h3>Боковые выходы, в любой момент</h3>
+  <ul>
+    <li><strong>Деопт.</strong> Ставка не сыграла (<code>wrong map</code>, неожиданный тип, недостаток записей): оптимизированный код выброшен, исполнение продолжается в байткоде с той же позиции, записи дополнены, бюджет сброшен. На V8 13.6 ранний деопт Maglev дополнительно откладывает следующую попытку на 600 × длина.</li>
+    <li><strong>OSR.</strong> Длинный цикл: код подменяется внутри работающего цикла, не дожидаясь следующего вызова.</li>
+    <li><strong>Сброс.</strong> Функция давно не исполнялась: байткод стирается при GC, записи на следующем GC. Функция снова «lazy».</li>
+    <li><strong>Никогда.</strong> Байткод больше 60 KB, оптимизация запрещена, режим экономии энергии, <code>--jitless</code>.</li>
+  </ul>
+
+  <h2>6. Что реально можно крутить и что это даёт</h2>
+  <div class="tbl">
+  <table>
+    <tr><th>что</th><th>как</th><th>что получили в матрице</th></tr>
+    <tr><td>опустить пороги</td><td><code>--invocation-count-for-turbofan=100 --invocation-count-for-maglev=20</code></td><td>компиляций больше (27/22 против 20/12), установившаяся скорость та же, первое окно ниже</td></tr>
+    <tr><td>форсировать верхний ярус</td><td><code>--always-turbofan</code> (есть до V8 13.9, удалён в 14.0)</td><td>старт ×51–64, горячий код ×0.06, код ×2.6 по памяти</td></tr>
+    <tr><td>Sparkplug сразу</td><td><code>--always-sparkplug</code></td><td>холодный код дороже на 11–40%, горячий тот же</td></tr>
+    <tr><td>сохранить оптимизированный код</td><td>код-кэш, compile cache, snapshot</td><td>невозможно: сохраняется байткод или куча, код привязан к картам и записям процесса</td></tr>
+    <tr><td>прогреть перед трафиком</td><td>прогнать репрезентативные запросы</td><td>работает, это и есть заполнение слотов; синтетика даст профиль синтетики</td></tr>
+    <tr><td>дать компилятору стабильные формы</td><td>одна форма на входе горячей функции</td><td>единственное, что делает верхний ярус реально быстрым: тема доклада, ×5–6 на чтении</td></tr>
+  </table>
+  </div>
+
+  <div class="callout">
+    <p><strong>Если оставить лестницу на слайде.</strong> Она верна как порядок цены и как порядок появления ставок. Достаточно двух оговорок, чтобы она не читалась как жизненный цикл: компиляция идёт сбоку, а функция всё это время работает; и ступень это не «сколько раз вызвали», а «сколько записей набралось и перестали ли они меняться». Тогда вопрос «почему не сразу TurboFan» отвечается одной фразой: на первом вызове компилятору нечего вшивать, а всё, что он мог бы вшить, появляется только от исполнения на настоящих данных.</p>
+  </div>
+
+  <p class="src">Источники: <code>src/execution/tiering-manager.cc</code>, <code>src/codegen/compiler.cc</code>, <code>src/runtime/runtime.h</code> (теги 11.3, 12.4, 13.6), посты v8.dev о Sparkplug, Maglev, V8 Lite и code caching; замеры и артефакты в <code>v8-experiment/demos/tiers/</code> (RESULTS-TIERS.md, REVIEW-TALK-TIERS.md).</p>
+</div>
