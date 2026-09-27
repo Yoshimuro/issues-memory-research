@@ -46,8 +46,8 @@ def wer(r, h):
 
 
 def main():
-    model = WhisperModel(sys.argv[1] if len(sys.argv) > 1 else 'medium', device='cpu', compute_type='int8',
-                         download_root=os.environ.get('WHISPER_DIR'))
+    name = sys.argv[1] if len(sys.argv) > 1 else 'medium'
+    model = WhisperModel(name, device='cpu', compute_type='int8', download_root=os.environ.get('WHISPER_DIR'))
     src = {x['n']: x for x in json.load(open(SPEECH, encoding='utf-8'))}
     rows, bad = [], 0
     for x in sorted(json.load(open(SPOKEN, encoding='utf-8')), key=lambda x: x['n']):
@@ -55,10 +55,13 @@ def main():
         hyp = []
         for t in said_txt:
             f = os.path.join(CACHE, hashlib.sha1(f'{VOICE}|{RATE}|{t}'.encode()).hexdigest()[:16] + '.mp3')
-            while not os.path.exists(f):   # можно запускать параллельно со сборкой
-                time.sleep(5)
-            segs, _ = model.transcribe(f, language='ru', beam_size=5, vad_filter=False)
-            hyp.append(' '.join(s.text.strip() for s in segs))
+            txt = f[:-4] + f'.{name}.txt'      # расшифровка кэшируется рядом с куском
+            if not os.path.exists(txt):
+                while not os.path.exists(f):   # можно запускать параллельно со сборкой
+                    time.sleep(5)
+                segs, _ = model.transcribe(f, language='ru', beam_size=5, vad_filter=False)
+                open(txt, 'w', encoding='utf-8').write(' '.join(s.text.strip() for s in segs))
+            hyp.append(open(txt, encoding='utf-8').read())
         hyp = ' '.join(hyp)
         want = collections.Counter(nums(said(src[x['n']])) + nums(src[x['n']]['title']))
         got = collections.Counter(nums(hyp))
@@ -70,7 +73,7 @@ def main():
         print(x['n'], round(w, 3), missing, flush=True)
     with open(os.path.join(HERE, 'qa-report.md'), 'w', encoding='utf-8') as f:
         f.write('# Проверка озвучки обратным распознаванием\n\n'
-                f'Whisper `{sys.argv[1] if len(sys.argv) > 1 else "medium"}` по каждому куску. «Нет в распознанном» — числа из '
+                f'Whisper `{name}` по каждому куску. «Нет в распознанном» — числа из '
                 'исходного текста, которых Whisper не услышал; WER — по кириллице против произносимого текста.\n\n'
                 '| Слайд | Узел | WER | Нет в распознанном |\n|---|---|---|---|\n')
         for n, sid, w, miss, _ in rows:
