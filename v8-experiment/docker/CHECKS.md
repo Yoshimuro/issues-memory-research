@@ -62,8 +62,17 @@
 | MEGA vs MONO ×3.6 / ×3.2 / ×4.1 / ×3.4 (20 / 22 / 24 / d8) | Node 22: ×3.4; Node 24: ×2.8; **Node 20: бимодально ×3.6 или ×14** (4 из 5 прогонов ~205 мс) | порядок да, «одинаково на всех» — нет |
 | delete ×11–×32 | Node 20 ×10, Node 22 ×28.5, Node 24 ×27.6 | подтверждено |
 | try/catch: наивный ×2.3–2.55, изолированно 65 = 65 | наивный ×2.8–3.2; изолированно 14 = 14 / 15 = 15 | подтверждено качественно |
-| Node 22 без Maglev по умолчанию | `--no-maglev` в 22.16 | подтверждено |
+| Node 22 без Maglev по умолчанию | Node 22 с 22.9 собран без Maglev (`v8_enable_maglev = 0`; в 22.9.0 откатили включение); `--maglev` ничего не включает | исправлено (см. поправки ниже) |
 | Crankshaft 2010 · TurboFan 2017 · Sparkplug 2021 · Maglev 2023 | сходится с v8.dev / Wikipedia | подтверждено |
 | формы и IC — с 2008 (design doc) | не перепроверялось сегодня | по прежнему факт-чеку |
 
-Нативно из репозитория прибор не запускается: корневой package.json `"type": "module"` → `require is not defined`. Для live-демо нужен `v8-experiment/package.json` с `"type": "commonjs"` или запуск из копии.
+Нативно из корня репозитория прибор не запускается: корневой package.json `"type": "module"` → `require is not defined`. Теперь в `v8-experiment/package.json` стоит `"type": "commonjs"` — запускать из `v8-experiment/`.
+
+### Поправки после сверки ярусов (25–27.09.2026; v8-experiment/demos/tiers/REVIEW-TALK-TIERS.md, RESULTS-TIERS.md)
+
+- Node 20 и Node 22 с 22.9 собраны без Maglev (`v8_enable_maglev = 0`), `--maglev` там ничего не включает; строка «Node 22 без Maglev по умолчанию» выше неточна.
+- «Sparkplug на ~700-м вызове (Node 22 — 2649)» — артефакт пакетной компиляции; с `--no-baseline-batch-compilation` — 9-й вызов.
+- `--always-turbofan` на Node 24 не компилирует всё (функцию берут в оптимизацию не раньше второго вызова), но старт всё равно вдвое дольше; всё сразу компилирует только Node 20; с V8 14.0 флага нет.
+- `docker/shape-analyzer-status.js`: таблица битов была неверна (1<<15 — Baseline, 1<<14 — MarkedForDeoptimization, 1<<12 — TopmostFrameIsTurboFanned); статус 81 от этого не меняется. Исправлено.
+- d8 без интринсиков оптимизирует сам; `%OptimizeFunctionOnNextCall` без `%PrepareFunctionForOptimization` падает (d8 15.6).
+- `--trace-ic` удалён в V8 9.3, не в 9.4.

@@ -20,7 +20,7 @@ if FALLBACK:
 OUT = sys.argv[1]
 
 GREEN, LIME, PALE, RED, GREY, WHITE = '1E5B28', 'AADC00', 'E0FBCC', 'C8102E', '6B7280', 'FFFFFF'
-MONO = 'Menlo'
+MONO = 'Consolas'   # есть в Windows и в Office для Mac; Menlo — только macOS
 
 # ---------- сценарий ----------
 md = open(SRC, encoding='utf-8').read()

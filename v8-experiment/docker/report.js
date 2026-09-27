@@ -61,7 +61,7 @@ P('');
 P('## Пайплайн (медианы 5 повторов), B относительно A');
 const pl = jl('pipeline.jsonl'), g = (v, b, r, k) => med(pl.filter(c => c.variant === v && c.batch === b && c.r === r).map(c => c[k]));
 const sinks = {}; pl.forEach(c => (sinks[c.batch + '/' + c.r] ||= new Set()).add(c.semanticSink));
-P(`- ячеек ${pl.length} · чексумма совпала во всех: ${Object.values(sinks).every(s => s.size === 1)}`);
+P(`- прогонов ${pl.length} · чексумма совпала во всех: ${Object.values(sinks).every(s => s.size === 1)}`);
 for (const [a, b] of [['mono-llm', 'guard-llm'], ['ref-a', 'ref-b'], ['mono-llm', 'mixed-mono']]) {
   P(`\n### ${b} / ${a}\n| batch | R | total | normalize | consume | serialize | доля parse A → B |\n|---|---|---|---|---|---|---|`);
   for (const bt of [500, 5000]) for (const r of [1, 5, 20])
@@ -75,6 +75,24 @@ const h = Object.fromEntries(jl('http.jsonl').map(r => [r.variant, r]));
 for (const v of Object.keys(h)) P(`- ${v}: **${Math.round(h[v].rps_avg)} rps** · p50 ${h[v].lat_p50_ms} мс · p99 ${h[v].lat_p99_ms} мс · errors ${h[v].errors}`);
 if (h['mono-llm'] && h['guard-llm']) P(`- mono/guard **${x(h['mono-llm'].rps_avg, h['guard-llm'].rps_avg)}** · p99 +${(100 * (h['guard-llm'].lat_p99_ms / h['mono-llm'].lat_p99_ms - 1)).toFixed(0)}% · mixed к mono ${(100 * (h['mixed-mono'].rps_avg / h['mono-llm'].rps_avg - 1)).toFixed(0)}%`);
 P('');
+
+// почему не сразу TurboFan (шаг 11 verify.sh)
+const wnt = rd('why-not-turbofan.txt');
+if (wnt) {
+  P('## Почему не сразу TurboFan');
+  const took = {};
+  for (const l of wnt.split('\n')) {
+    const m = l.match(/<JSFunction (\w+).*target (MAGLEV|TURBOFAN_JS).*took ([\d.]+), ([\d.]+), ([\d.]+) ms/);
+    if (m) (took[m[1] + ' ' + m[2]] ||= []).push(+m[3] + +m[4] + +m[5]);
+  }
+  Object.entries(took).sort().forEach(([k, v]) => P(`- компиляция ${k} (сумма трёх фаз): ${v.map(x => x.toFixed(2)).join(' · ')} мс`));
+  for (const l of wnt.split('\n')) {
+    const m = l.match(/^(обычно|--always-sparkplug|--always-turbofan)\s+([\d ]+)$/);
+    if (m) P(`- старт npm --version ${m[1]}: медиана **${med(m[2].trim().split(/\s+/).map(Number))}** мс (${m[2].trim()})`);
+    else if (/^(с байткодом|Maglev, функций|TurboFan, функций|because --always-turbofan|completed TurboFan)/.test(l)) P(`- ${l.replace(/\s+/g, ' ')}`);
+  }
+  P('');
+}
 
 // мифы
 P('## Мифы (медианы 5 повторов), мс');
