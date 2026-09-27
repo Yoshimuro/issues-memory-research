@@ -10,10 +10,11 @@ from pptx.oxml.ns import qn
 
 _HERE = globals().get('HERE') or os.path.dirname(os.path.abspath(__file__))
 SRC = os.environ.get('TALK_SRC', os.path.join(os.path.dirname(_HERE), '06-talk-final.md'))
-TPL = os.environ.get('X5_TEMPLATE', os.path.expanduser('~/Downloads/А. Зайцев.pptx'))
-# Без корпоративного шаблона: макеты берутся из уже собранной колоды, фигуры шаблона — из template/x5-fallback.json
-# (восстановлены из 10-slides.pptx сопоставлением с прогоном сборки; см. slides-build/README.md).
-FALLBACK = not os.path.exists(TPL)
+# Оформление X5 (макеты, шрифты X5 Sans) берётся из уже собранной колоды ../10-slides.pptx, фигуры шаблона
+# (карточки, плашки, шеврон, бейдж) — из template/x5-fallback.json. Внешний шаблон нужен, только если колоды ещё нет:
+# тогда укажите его в X5_TEMPLATE.
+TPL = os.environ.get('X5_TEMPLATE', '')
+FALLBACK = not (TPL and os.path.exists(TPL))
 if FALLBACK:
     TPL = os.environ.get('X5_FALLBACK_DECK', os.path.join(os.path.dirname(_HERE), '10-slides.pptx'))
 OUT = sys.argv[1]
