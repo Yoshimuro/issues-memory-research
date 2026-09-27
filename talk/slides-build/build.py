@@ -8,8 +8,14 @@ from pptx.enum.shapes import MSO_SHAPE
 from pptx.enum.dml import MSO_LINE
 from pptx.oxml.ns import qn
 
-SRC = '/Users/User/Projects/Personal/autumn26holyjs/06-talk-final.md'
+_HERE = globals().get('HERE') or os.path.dirname(os.path.abspath(__file__))
+SRC = os.environ.get('TALK_SRC', os.path.join(os.path.dirname(_HERE), '06-talk-final.md'))
 TPL = os.environ.get('X5_TEMPLATE', os.path.expanduser('~/Downloads/А. Зайцев.pptx'))
+# Без корпоративного шаблона: макеты берутся из уже собранной колоды, фигуры шаблона — из template/x5-fallback.json
+# (восстановлены из 10-slides.pptx сопоставлением с прогоном сборки; см. slides-build/README.md).
+FALLBACK = not os.path.exists(TPL)
+if FALLBACK:
+    TPL = os.environ.get('X5_FALLBACK_DECK', os.path.join(os.path.dirname(_HERE), '10-slides.pptx'))
 OUT = sys.argv[1]
 
 GREEN, LIME, PALE, RED, GREY, WHITE = '1E5B28', 'AADC00', 'E0FBCC', 'C8102E', '6B7280', 'FFFFFF'
@@ -46,7 +52,17 @@ def ab_state(sid):
 # ---------- шаблон ----------
 prs = Presentation(TPL)
 T = list(prs.slides)
+if FALLBACK:
+    import json
+    from pptx.oxml import parse_xml
+    _FB = json.load(open(os.path.join(_HERE, 'template', 'x5-fallback.json'), encoding='utf-8'))
+    _KEY = {(2, 4): 'white', (2, 13): 'blue', (10, 8): 'dark', (7, 7): 'lime', (15, 3): 'shadow', (18, 4): 'pinkcard',
+            (19, 13): 'pink', (4, 9): 'pill', (4, 14): 'darkbox', (32, 7): 'chev', (21, 32): 'badge'}
+    _FB_PROTO = {k: parse_xml(_FB['protos'][v]) for k, v in _KEY.items()}
+    _LAYOUTS = {l.part.partname: l for m in prs.slide_masters for l in m.slide_layouts}
 def proto(si, shape_id):
+    if FALLBACK:
+        return _FB_PROTO[(si, shape_id)]
     for sh in T[si - 1].shapes:
         if sh.shape_id == shape_id:
             return sh._element
@@ -54,8 +70,11 @@ def proto(si, shape_id):
 P = dict(white=proto(2, 4), blue=proto(2, 13), dark=proto(10, 8), lime=proto(7, 7), shadow=proto(15, 3),
          pinkcard=proto(18, 4), pink=proto(19, 13), pill=proto(4, 9), darkbox=proto(4, 14),
          chev=proto(32, 7), badge=proto(21, 32))
-LAY = dict(title=T[0].slide_layout, green=T[1].slide_layout, white=T[2].slide_layout,
-           grey=T[9].slide_layout, dark=T[3].slide_layout)
+if FALLBACK:
+    LAY = {k: _LAYOUTS[v] for k, v in _FB['layouts'].items()}
+else:
+    LAY = dict(title=T[0].slide_layout, green=T[1].slide_layout, white=T[2].slide_layout,
+               grey=T[9].slide_layout, dark=T[3].slide_layout)
 N_TPL = len(T)
 _id = [1000]
 
