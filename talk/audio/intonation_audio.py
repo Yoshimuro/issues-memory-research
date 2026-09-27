@@ -2,6 +2,7 @@
 """Сплошная проверка интонации озвучки: каждый кусок и каждый вопрос.
 
   pip install praat-parselmouth faster-whisper && python3 intonation_audio.py
+  python3 intonation_audio.py report   # только пересобрать отчёт из .cache/intonation.json
 
 1. По каждому куску — медиана тона, размах (5–95 перцентиль) и СКО в полутонах:
    монотонный кусок выделяется низким СКО на фоне остальных.
@@ -66,30 +67,45 @@ def main():
                                                   peak=round(float(np.percentile(s_st, 97)), 2), end=round(float(np.mean(s_st[-15:])), 2)))
                         cur = []
             print(x['n'], len(sentences), flush=True)
+    json.dump(dict(chunks=per_chunk, sentences=sentences), open(os.path.join(CACHE, 'intonation.json'), 'w', encoding='utf-8'), ensure_ascii=False)
+    report()
+
+
+def report():
+    d = json.load(open(os.path.join(CACHE, 'intonation.json'), encoding='utf-8'))
+    per_chunk, sentences = d['chunks'], d['sentences']
     qs = [s for s in sentences if s['q']]
     ds = [s for s in sentences if not s['q']]
-    sd = np.array([c['sd_st'] for c in per_chunk])
-    lo = [c for c in per_chunk if c['sd_st'] < np.median(sd) - 2 * np.std(sd)]
+    speech = [c for c in per_chunk if c['words'] >= 20]      # заголовки слайдов (до 20 слов) — отдельно
+    heads = [c for c in per_chunk if c['words'] < 20]
+    sd = np.array([c['sd_st'] for c in speech])
+    thr = float(np.median(sd) - 2 * np.std(sd))
+    lo = [c for c in speech if c['sd_st'] < thr]
     flat = [s for s in qs if s['peak'] < FLAT_Q]
     with open(os.path.join(HERE, 'intonation-report.md'), 'w', encoding='utf-8') as fh:
         fh.write('# Интонация озвучки — сплошная проверка\n\n')
-        fh.write(f'**Куски.** {len(per_chunk)} кусков, СКО тона {np.min(sd):.2f}–{np.max(sd):.2f} полутона, медиана {np.median(sd):.2f}; '
-                 f'размах {min(c["range_st"] for c in per_chunk):.1f}–{max(c["range_st"] for c in per_chunk):.1f} полутона. '
-                 f'Кусков с СКО ниже «медиана − 2σ» ({np.median(sd) - 2 * np.std(sd):.2f}): {len(lo)}'
-                 + (' — ' + ', '.join(f'слайд {c["n"]} ({c["sd_st"]})' for c in lo) if lo else '') + '.\n\n')
-        fh.write(f'**Вопросы.** В кусках с вопросами Whisper разметил {len(qs)} вопросительных и {len(ds)} утвердительных предложений. '
-                 f'Пик тона над медианой куска: у вопросов медиана {np.median([s["peak"] for s in qs]):.1f} полутона '
-                 f'(от {min(s["peak"] for s in qs):.1f} до {max(s["peak"] for s in qs):.1f}), у утверждений — {np.median([s["peak"] for s in ds]):.1f}. '
-                 f'Конец предложения относительно медианы: вопросы {np.median([s["end"] for s in qs]):.1f}, утверждения {np.median([s["end"] for s in ds]):.1f}. '
-                 f'Вопросов с пиком ниже +{FLAT_Q:.0f} полутонов (звучат плоско): {len(flat)}.\n\n')
-        fh.write('| Слайд | Вопрос | Пик, полутоны | Конец, полутоны |\n|---|---|---|---|\n')
+        fh.write(f'**Речь.** {len(speech)} кусков речи (от 20 слов): СКО тона {sd.min():.2f}–{sd.max():.2f} полутона, медиана {np.median(sd):.2f}; '
+                 f'размах {min(c["range_st"] for c in speech):.1f}–{max(c["range_st"] for c in speech):.1f} полутона. '
+                 f'Монотонных — с СКО ниже «медиана − 2σ» ({thr:.2f}): {len(lo)}'
+                 + (' — ' + ', '.join(f'слайд {c["n"]} ({c["sd_st"]})' for c in lo) if lo else '') + '. '
+                 f'Заголовки слайдов ({len(heads)} кусков, 3–19 слов) читаются перечислением, их СКО ниже: '
+                 f'{min(c["sd_st"] for c in heads):.2f}–{max(c["sd_st"] for c in heads):.2f}, медиана {np.median([c["sd_st"] for c in heads]):.2f}.\n\n')
+        fh.write(f'**Вопросы.** В кусках с вопросами Whisper разметил {len(qs)} вопросительных и {len(ds)} утвердительных предложений '
+                 f'(в тексте 36 вопросов; часть Whisper слил с соседними предложениями). '
+                 f'Пик тона над медианой куска: у вопросов медиана {np.median([s["peak"] for s in qs]):+.1f} полутона '
+                 f'(от {min(s["peak"] for s in qs):+.1f} до {max(s["peak"] for s in qs):+.1f}), у утверждений {np.median([s["peak"] for s in ds]):+.1f}. '
+                 f'Конец предложения относительно медианы: вопросы {np.median([s["end"] for s in qs]):+.1f}, утверждения {np.median([s["end"] for s in ds]):+.1f} — '
+                 'как и положено русскому вопросу с вопросительным словом или «ли», он держится на акценте, а не на подъёме в конце. '
+                 f'Вопросов с пиком ниже +{FLAT_Q:.0f} полутонов: {len(flat)}'
+                 + (' — ' + '; '.join(f'слайд {s["n"]}: «{s["text"]}» ({s["peak"]:+.1f})' for s in flat) if flat else '') + '.\n\n')
+        fh.write('Текст вопросов — как его записал Whisper.\n\n| Слайд | Вопрос | Пик, полутоны | Конец, полутоны |\n|---|---|---|---|\n')
         for s in qs:
             fh.write(f'| {s["n"]} | {s["text"]} | {s["peak"]:+.1f} | {s["end"]:+.1f} |\n')
         fh.write('\n## Куски\n\n| Слайд | Слов | Длит., с | Медиана, Гц | Размах, полутоны | СКО, полутоны |\n|---|---|---|---|---|---|\n')
         for c in per_chunk:
             fh.write(f'| {c["n"]} | {c["words"]} | {c["dur"]} | {c["median_hz"]} | {c["range_st"]} | {c["sd_st"]} |\n')
-    print(f'{len(qs)} вопросов, плоских {len(flat)}; монотонных кусков {len(lo)} -> intonation-report.md')
+    print(f'{len(qs)} вопросов, плоских {len(flat)}; монотонных кусков речи {len(lo)} -> intonation-report.md')
 
 
 if __name__ == '__main__':
-    main()
+    report() if sys.argv[1:] == ['report'] else main()
