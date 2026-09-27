@@ -84,11 +84,12 @@ def report():
     flat = [s for s in qs if s['peak'] < FLAT_Q]
     with open(os.path.join(HERE, 'intonation-report.md'), 'w', encoding='utf-8') as fh:
         fh.write('# Интонация озвучки — сплошная проверка\n\n')
-        fh.write(f'**Речь.** {len(speech)} кусков речи (от 20 слов): СКО тона {sd.min():.2f}–{sd.max():.2f} полутона, медиана {np.median(sd):.2f}; '
+        fh.write(f'**Речь.** Кусков речи (от 20 слов): {len(speech)}. СКО тона {sd.min():.2f}–{sd.max():.2f} полутона, медиана {np.median(sd):.2f}; '
                  f'размах {min(c["range_st"] for c in speech):.1f}–{max(c["range_st"] for c in speech):.1f} полутона. '
-                 f'Монотонных — с СКО ниже «медиана − 2σ» ({thr:.2f}): {len(lo)}'
+                 f'Заметно ровнее остальных — с СКО ниже «медиана − 2σ» ({thr:.2f}): {len(lo)}'
                  + (' — ' + ', '.join(f'слайд {c["n"]} ({c["sd_st"]})' for c in lo) if lo else '') + '. '
-                 f'Заголовки слайдов ({len(heads)} кусков, 3–19 слов) читаются перечислением, их СКО ниже: '
+                 'Для сравнения: у самых плоских голосов из сравнения (Piper dmitri, Silero eugene) СКО 1.9–2.8, так что монотонных кусков речи нет. '
+                 f'Заголовки слайдов (кусков: {len(heads)}, по 3–19 слов) читаются перечислением, СКО у них '
                  f'{min(c["sd_st"] for c in heads):.2f}–{max(c["sd_st"] for c in heads):.2f}, медиана {np.median([c["sd_st"] for c in heads]):.2f}.\n\n')
         fh.write(f'**Вопросы.** В кусках с вопросами Whisper разметил {len(qs)} вопросительных и {len(ds)} утвердительных предложений '
                  f'(в тексте 36 вопросов; часть Whisper слил с соседними предложениями). '
@@ -104,7 +105,7 @@ def report():
         fh.write('\n## Куски\n\n| Слайд | Слов | Длит., с | Медиана, Гц | Размах, полутоны | СКО, полутоны |\n|---|---|---|---|---|---|\n')
         for c in per_chunk:
             fh.write(f'| {c["n"]} | {c["words"]} | {c["dur"]} | {c["median_hz"]} | {c["range_st"]} | {c["sd_st"]} |\n')
-    print(f'{len(qs)} вопросов, плоских {len(flat)}; монотонных кусков речи {len(lo)} -> intonation-report.md')
+    print(f'вопросов {len(qs)}, плоских {len(flat)}; кусков речи ровнее медиана−2σ: {len(lo)} -> intonation-report.md')
 
 
 if __name__ == '__main__':
