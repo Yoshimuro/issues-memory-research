@@ -23,6 +23,9 @@ LAT = {'turbofan': 'турбофан', 'maglev': 'маглев', 'sparkplug': '�
 def nums(s):
     s = STAGE.sub('', s)
     s = re.sub(r'(?<=\d)[  ](?=\d{3}\b)', '', s)          # 13 000 -> 13000
+    # версии звучат по частям: «Node 24.21.0» -> 24 21 0, «V8 13.6» -> 13 6
+    s = re.sub(r'\b(V8|Node|node|Chrome) (\d+(?:\.\d+)+)', lambda m: m.group(1) + ' ' + m.group(2).replace('.', ' '), s)
+    s = re.sub(r'\b\d+\.\d+\.\d+\b', lambda m: m.group(0).replace('.', ' '), s)
     out = []
     for m in re.findall(r'\d+(?:[.,]\d+)?', s):
         m = m.replace(',', '.')
