@@ -101,15 +101,24 @@ def header(x):
     return f'Слайд {words(x["n"])}. {x["title"]}.'
 
 
+def duration(mp3):
+    return float(subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', mp3],
+                                check=True, capture_output=True, text=True).stdout)
+
+
+MAX_WPM = 220   # голос читает ~130 слов/мин; быстрее 220 — значит, поток оборвался на середине
+
+
 async def tts(text, out):
     import edge_tts
     for k in range(8):
         try:
             await edge_tts.Communicate(text, VOICE, rate=RATE).save(out + '.part')
-            if os.path.getsize(out + '.part') > 1000:
+            # сервис изредка отвечает пустым или оборванным потоком без ошибки — проверяем длительность
+            if os.path.getsize(out + '.part') > 1000 and len(text.split()) / duration(out + '.part') * 60 <= MAX_WPM:
                 os.replace(out + '.part', out); return
         except edge_tts.exceptions.NoAudioReceived:
-            pass                  # сервис изредка отвечает пустым потоком — повторяем
+            pass
         await asyncio.sleep(min(2 ** k, 20))
     raise RuntimeError(f'edge-tts не озвучил: {text[:60]}…')
 
@@ -147,6 +156,9 @@ def build():
                 plan.append((x, kind, val, os.path.join(CACHE, h + '.mp3')))
             else:
                 plan.append((x, kind, val, None))
+    for _, k, v, f in plan:
+        if k == 'say' and os.path.exists(f) and len(v.split()) / duration(f) * 60 > MAX_WPM:
+            print(f'оборванный кусок в кэше, переозвучиваю: {v[:50]}…'); os.remove(f)
     todo = [(v, f) for _, k, v, f in plan if k == 'say' and not os.path.exists(f)]
     print(f'{len(plan)} кусков, озвучить {len(todo)}', flush=True)
 
