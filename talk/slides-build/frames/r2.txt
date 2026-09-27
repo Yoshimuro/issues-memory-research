@@ -1,0 +1,4 @@
+$ node --allow-natives-syntax --trace-deopt demo-wrongmap.js ref-b.js | grep "JSFunction score"
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing <JSFunction score>, <Code TURBOFAN_JS>
+$ node --allow-natives-syntax --trace-deopt demo-wrongmap.js ref-a.js | grep "JSFunction score"
+(пусто)
