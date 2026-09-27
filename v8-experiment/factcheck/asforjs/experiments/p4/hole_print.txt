@@ -1,0 +1,8 @@
+ - elements: 0x15b00108967d <FixedArray[1000]> [HOLEY_ELEMENTS]
+ - All own properties (excluding elements): {
+ - elements: 0x15b00108967d <FixedArray[1000]> {
+           0: 0x15b00002fffd <the_hole_value>
+           1: 0x15b00000351d <String[1]: #x>
+       2-999: 0x15b00002fffd <the_hole_value>
+ - elements kind: HOLEY_ELEMENTS
+ - instance descriptors (own) #1: 0x15b00100d071 <DescriptorArray[1]>

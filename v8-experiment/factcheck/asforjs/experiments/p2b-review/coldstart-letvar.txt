@@ -1,0 +1,8 @@
+== node22
+var   compile median 66.3 ms  ratio_vs_var 1.000  all 77/63/62/72/64/67/66/65/67  srcKB 2862
+let   compile median 67.4 ms  ratio_vs_var 1.017  all 61/63/76/84/64/69/65/67/74  srcKB 2862
+const compile median 66.3 ms  ratio_vs_var 1.000  all 59/86/98/64/65/66/91/65/69  srcKB 2980
+== node24
+var   compile median 66.4 ms  ratio_vs_var 1.000  all 73/61/74/66/67/62/69/66/66  srcKB 2862
+let   compile median 70.2 ms  ratio_vs_var 1.058  all 59/92/76/62/70/63/79/87/66  srcKB 2862
+const compile median 68.1 ms  ratio_vs_var 1.026  all 53/89/76/81/71/65/65/66/68  srcKB 2980

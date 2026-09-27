@@ -1,0 +1,35 @@
+===== node20 =====
+2^32-2 -> elements (dict elements)? true  named props count via map change: true
+2^32-1 -> elements? false  fast props? true  Object.keys order ["1","4294967294","b","4294967295","a"]
+array length after a[2^32-2] 4294967295
+array length after b[2^32-1] 0
+Reflect.ownKeys 1,2,b,a,Symbol(s)
+for-in order 3,10,z,y
+===== node22 =====
+2^32-2 -> elements (dict elements)? true  named props count via map change: true
+2^32-1 -> elements? false  fast props? true  Object.keys order ["1","4294967294","b","4294967295","a"]
+array length after a[2^32-2] 4294967295
+array length after b[2^32-1] 0
+Reflect.ownKeys 1,2,b,a,Symbol(s)
+for-in order 3,10,z,y
+===== node24 =====
+2^32-2 -> elements (dict elements)? true  named props count via map change: true
+2^32-1 -> elements? false  fast props? true  Object.keys order ["1","4294967294","b","4294967295","a"]
+array length after a[2^32-2] 4294967295
+array length after b[2^32-1] 0
+Reflect.ownKeys 1,2,b,a,Symbol(s)
+for-in order 3,10,z,y
+===== d8rel =====
+2^32-2 -> elements (dict elements)? true  named props count via map change: true
+2^32-1 -> elements? false  fast props? true  Object.keys order ["1","4294967294","b","4294967295","a"]
+array length after a[2^32-2] 4294967295
+array length after b[2^32-1] 0
+Reflect.ownKeys 1,2,b,a,Symbol(s)
+for-in order 3,10,z,y
+===== d8dbg =====
+2^32-2 -> elements (dict elements)? true  named props count via map change: true
+2^32-1 -> elements? false  fast props? true  Object.keys order ["1","4294967294","b","4294967295","a"]
+array length after a[2^32-2] 4294967295
+array length after b[2^32-1] 0
+Reflect.ownKeys 1,2,b,a,Symbol(s)
+for-in order 3,10,z,y

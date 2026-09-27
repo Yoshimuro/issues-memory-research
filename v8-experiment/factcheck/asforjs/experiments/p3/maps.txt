@@ -1,0 +1,135 @@
+===== node20 =====
+a~b true a~c false
+after a[10]=1 a~b true
+after a.z=1 a~b false
+{a:2}~{a:3} true
+{}~{} true
+after e1.x false
+after e2.x true
+C1~C1 true C1~C2 false literal~C1 false
+C3 order false
+K1~K1 true K1~C1 false K2~K2 true
+v same true
+after p string->smi true
+after q smi->double false d2 map deprecated? new {q:1} ~ d1 true
+o1['10'] true
+o1[0] true
+o1.u false
+idx 2^32-2 false idx 2^32-1 false
+keys ["0"] 2
+'01' non-canonical changes map true
+'1.0' non-canonical changes map true
+arr3~arr10000(push) true
+arr3~new Array(10000).fill(0) false true
+Map order true
+delete last: fast? true same as {a:1}+b?  false
+delete first: fast? false
+delete last (added): fast? true same map as {}+a true
+===== node22 =====
+a~b true a~c false
+after a[10]=1 a~b true
+after a.z=1 a~b false
+{a:2}~{a:3} true
+{}~{} true
+after e1.x false
+after e2.x true
+C1~C1 true C1~C2 false literal~C1 false
+C3 order false
+K1~K1 true K1~C1 false K2~K2 true
+v same true
+after p string->smi true
+after q smi->double false d2 map deprecated? new {q:1} ~ d1 true
+o1['10'] true
+o1[0] true
+o1.u false
+idx 2^32-2 false idx 2^32-1 false
+keys ["0"] 2
+'01' non-canonical changes map true
+'1.0' non-canonical changes map true
+arr3~arr10000(push) true
+arr3~new Array(10000).fill(0) false true
+Map order true
+delete last: fast? false same as {a:1}+b?  false
+delete first: fast? false
+delete last (added): fast? false same map as {}+a false
+===== node24 =====
+a~b true a~c false
+after a[10]=1 a~b true
+after a.z=1 a~b false
+{a:2}~{a:3} true
+{}~{} true
+after e1.x false
+after e2.x true
+C1~C1 true C1~C2 false literal~C1 false
+C3 order false
+K1~K1 true K1~C1 false K2~K2 true
+v same true
+after p string->smi true
+after q smi->double false d2 map deprecated? new {q:1} ~ d1 true
+o1['10'] true
+o1[0] true
+o1.u false
+idx 2^32-2 false idx 2^32-1 false
+keys ["0"] 2
+'01' non-canonical changes map true
+'1.0' non-canonical changes map true
+arr3~arr10000(push) true
+arr3~new Array(10000).fill(0) true false
+Map order true
+delete last: fast? false same as {a:1}+b?  false
+delete first: fast? false
+delete last (added): fast? false same map as {}+a false
+===== d8rel =====
+a~b true a~c false
+after a[10]=1 a~b true
+after a.z=1 a~b false
+{a:2}~{a:3} true
+{}~{} true
+after e1.x false
+after e2.x true
+C1~C1 true C1~C2 false literal~C1 false
+C3 order false
+K1~K1 true K1~C1 false K2~K2 true
+v same true
+after p string->smi true
+after q smi->double false d2 map deprecated? new {q:1} ~ d1 true
+o1['10'] true
+o1[0] true
+o1.u false
+idx 2^32-2 false idx 2^32-1 false
+keys ["0"] 2
+'01' non-canonical changes map true
+'1.0' non-canonical changes map true
+arr3~arr10000(push) true
+arr3~new Array(10000).fill(0) true false
+Map order true
+delete last: fast? false same as {a:1}+b?  false
+delete first: fast? false
+delete last (added): fast? false same map as {}+a false
+===== d8dbg =====
+a~b true a~c false
+after a[10]=1 a~b true
+after a.z=1 a~b false
+{a:2}~{a:3} true
+{}~{} true
+after e1.x false
+after e2.x true
+C1~C1 true C1~C2 false literal~C1 false
+C3 order false
+K1~K1 true K1~C1 false K2~K2 true
+v same true
+after p string->smi true
+after q smi->double false d2 map deprecated? new {q:1} ~ d1 true
+o1['10'] true
+o1[0] true
+o1.u false
+idx 2^32-2 false idx 2^32-1 false
+keys ["0"] 2
+'01' non-canonical changes map true
+'1.0' non-canonical changes map true
+arr3~arr10000(push) true
+arr3~new Array(10000).fill(0) true false
+Map order true
+delete last: fast? false same as {a:1}+b?  false
+delete first: fast? false
+delete last (added): fast? false same map as {}+a false

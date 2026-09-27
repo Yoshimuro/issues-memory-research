@@ -1,0 +1,12 @@
+## /opt/node22/bin/node
+smi 192 ms   double 122 ms   ratio smi/double 1.57
+smi 226 ms   double 122 ms   ratio smi/double 1.85
+smi 217 ms   double 129 ms   ratio smi/double 1.68
+## /opt/nvm/versions/node/v24.21.0/bin/node
+smi 217 ms   double 108 ms   ratio smi/double 2.01
+smi 157 ms   double 96 ms   ratio smi/double 1.64
+smi 176 ms   double 148 ms   ratio smi/double 1.19
+## /tmp/claude-0/-home-user-issues-memory-research/dacf359b-9898-588d-b8f1-20fd1e3f2945/scratchpad/d8/rel/d8
+smi 12 ms   double 24 ms   ratio smi/double 0.50
+smi 12 ms   double 23 ms   ratio smi/double 0.52
+smi 12 ms   double 24 ms   ratio smi/double 0.50

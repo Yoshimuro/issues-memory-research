@@ -1,0 +1,4 @@
+Considering 0x25fdae88 {0x2236f4868401 <SharedFunctionInfo inner>} for inlining with 0x25fdb058 {0x2236f4868951 <FeedbackVector[2]>}
+Inlining small function(s) at call site #18:JSCall
+Inlining 0x25fdae88 {0x2236f4868401 <SharedFunctionInfo inner>} into 0x25fdab40 {0x2236f4868449 <SharedFunctionInfo outer>}
+innerFirst: outer=1010001 inner=1010001

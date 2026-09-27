@@ -1,0 +1,11 @@
+D8 --max-opt=0 R=2000: sumFor 356 sumReduce 253 sumFor 469 sumReduce 251 sumFor 348 sumReduce 263 
+D8 --jitless R=2000: sumFor 355 sumReduce 246 sumFor 413 sumReduce 250 sumFor 326 sumReduce 220 
+D8 --no-opt R=2000: sumFor 29 sumReduce 126 sumFor 27 sumReduce 121 sumFor 25 sumReduce 120 
+D8 --max-opt=0 --no-lazy-feedback-allocation R=2000: sumFor 441 sumReduce 279 sumFor 363 sumReduce 259 sumFor 377 sumReduce 259 
+D8 --no-sparkplug --no-maglev --no-turbofan R=2000: sumFor 359 sumReduce 260 sumFor 382 sumReduce 256 sumFor 380 sumReduce 248 
+Warning: disabling flag --expose_wasm due to conflicting flags
+N20 --jitless R=2000: sumFor 424 sumReduce 259 sumFor 404 sumReduce 242 sumFor 409 sumReduce 237 
+N20 --no-opt R=2000: sumFor 250 sumReduce 177 sumFor 248 sumReduce 177 sumFor 253 sumReduce 178 
+N20 --max-opt=0 R=2000: sumFor 404 sumReduce 244 sumFor 434 sumReduce 280 sumFor 493 sumReduce 272 
+D8dbg --max-opt=0 R=200: sumFor 1852 sumReduce 499 sumFor 1755 sumReduce 468 sumFor 1642 sumReduce 403 
+D8dbg default R=200: sumFor 12 sumReduce 257 sumFor 2 sumReduce 221 sumFor 2 sumReduce 210 

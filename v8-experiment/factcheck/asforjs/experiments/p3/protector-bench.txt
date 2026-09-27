@@ -1,0 +1,12 @@
+node24 clean holeyRead ms 20 push ms 10
+d8 clean holeyRead ms 21 push ms 8
+node24 poison holeyRead ms 542 push ms 336
+d8 poison holeyRead ms 425 push ms 307
+node24 clean holeyRead ms 22 push ms 9
+d8 clean holeyRead ms 17 push ms 7
+node24 poison holeyRead ms 521 push ms 335
+d8 poison holeyRead ms 539 push ms 258
+node24 clean holeyRead ms 20 push ms 9
+d8 clean holeyRead ms 20 push ms 8
+node24 poison holeyRead ms 445 push ms 280
+d8 poison holeyRead ms 481 push ms 257

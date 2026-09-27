@@ -1,0 +1,112 @@
+=== 'ABC'
+DebugPrint: 0x3580101d955: [String] in OldSpace: #ABC
+ - type: INTERNALIZED_ONE_BYTE_STRING_TYPE
+=== 'АBC' (cyrillic A first)
+DebugPrint: 0x3580101d9a1: [String] in OldSpace: u#\u0410BC
+ - type: INTERNALIZED_TWO_BYTE_STRING_TYPE
+=== 'ABC' from function
+DebugPrint: 0x3580101d955: [String] in OldSpace: #ABC
+ - type: INTERNALIZED_ONE_BYTE_STRING_TYPE
+=== 'A' + 'BC' literal
+DebugPrint: 0x3580101e0bd: [String] in OldSpace: "ABC"
+ - type: SEQ_ONE_BYTE_STRING_TYPE
+=== a + bc (vars)
+DebugPrint: 0x3580108a5e5: [String]: "ABC"
+ - type: SEQ_ONE_BYTE_STRING_TYPE
+=== 'asin' + 'atan'
+DebugPrint: 0x3580101e0cd: [String] in OldSpace: "asinatan"
+ - type: SEQ_ONE_BYTE_STRING_TYPE
+=== 'мурыч' + 'хмурыч'
+DebugPrint: 0x3580101e0e1: [String] in OldSpace: u"\u043c\u0443\u0440\u044b\u0447\u0445\u043c\u0443\u0440\u044b\u0447"
+ - type: SEQ_TWO_BYTE_STRING_TYPE
+=== 'мурыч' + ' ' + 'мурыч'
+DebugPrint: 0x3580101e105: [String] in OldSpace: u"\u043c\u0443\u0440\u044b\u0447 \u043c\u0443\u0440\u044b\u0447"
+ - type: SEQ_TWO_BYTE_STRING_TYPE
+=== 'murych' + 'hmurych' (13)
+DebugPrint: 0x3580101e129: [String] in OldSpace: "murychhmurych"
+ - type: SEQ_ONE_BYTE_STRING_TYPE
+=== 'murych' + 'hmurych' minus1 (12)
+DebugPrint: 0x3580108a755: [String]: "murychmurych"
+ - type: SEQ_ONE_BYTE_STRING_TYPE
+=== vars m+hm
+DebugPrint: 0x3580108a7b1: [String]: u"\u043c\u0443\u0440\u044b\u0447\u0445\u043c\u0443\u0440\u044b\u0447"
+ - type: SEQ_TWO_BYTE_STRING_TYPE
+=== vars m+sp+m
+DebugPrint: 0x3580108a81d: [String]: u"\u043c\u0443\u0440\u044b\u0447 \u043c\u0443\u0440\u044b\u0447"
+ - type: SEQ_TWO_BYTE_STRING_TYPE
+=== big.slice(5) type
+DebugPrint: 0x3580108aa0d: [String]: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+ - type: SLICED_ONE_BYTE_STRING_TYPE
+=== slice len 12
+DebugPrint: 0x3580108aa59: [String]: "abcdefghijkl"
+ - type: SEQ_ONE_BYTE_STRING_TYPE
+=== slice len 13
+DebugPrint: 0x3580108aaa1: [String]: "abcdefghijklm"
+ - type: SLICED_ONE_BYTE_STRING_TYPE
+=== slice(5) of 26 -> len 21
+DebugPrint: 0x3580108aae5: [String]: "fghijklmnopqrstuvwxyz"
+ - type: SLICED_ONE_BYTE_STRING_TYPE
+=== concat len 12
+DebugPrint: 0x3580108ab5d: [String]: "abcdefghijkl"
+ - type: SEQ_ONE_BYTE_STRING_TYPE
+=== concat len 13
+DebugPrint: 0x3580108abd1: [String]: c"abcdefghijklm"
+ - type: CONS_ONE_BYTE_STRING_TYPE
+=== 'Math'
+DebugPrint: 0x35800b5de21: [String] in ReadOnlySpace: #Math
+ - type: INTERNALIZED_ONE_BYTE_STRING_TYPE
+=== 'Math2'
+DebugPrint: 0x3580101dcd5: [String] in OldSpace: #Math2
+ - type: INTERNALIZED_ONE_BYTE_STRING_TYPE
+=== 'asin'
+DebugPrint: 0x35800b5de65: [String] in ReadOnlySpace: #asin
+ - type: INTERNALIZED_ONE_BYTE_STRING_TYPE
+=== Math.asin.name
+DebugPrint: 0x35800b5de65: [String] in ReadOnlySpace: #asin
+ - type: INTERNALIZED_ONE_BYTE_STRING_TYPE
+=== Object.keys(o)[0]
+DebugPrint: 0x35800b5de65: [String] in ReadOnlySpace: #asin
+ - type: INTERNALIZED_ONE_BYTE_STRING_TYPE
+=== ghost
+DebugPrint: 0x3580101dd4d: [String] in OldSpace: u#\ud83d\udc7b
+ - type: INTERNALIZED_TWO_BYTE_STRING_TYPE
+=== 'murych' + ghost
+DebugPrint: 0x3580108ad5d: [String]: u"murych\ud83d\udc7b"
+ - type: SEQ_TWO_BYTE_STRING_TYPE
+=== 'мурыч' + ghost
+DebugPrint: 0x3580108adad: [String]: u"\u043c\u0443\u0440\u044b\u0447\ud83d\udc7b"
+ - type: SEQ_TWO_BYTE_STRING_TYPE
+=== ghost x 10 + 'мурыч'
+DebugPrint: 0x3580108ae69: [String]: uc"\ud83d\udc7b\ud83d\udc7b\ud83d\udc7b\ud83d\udc7b\ud83d\udc7b\ud83d\udc7b\ud83d\udc7b\ud83d\udc7b\ud83d\udc7b\ud83d\udc7b\u043c\u0443\u0440\u044b\u0447"
+ - type: CONS_TWO_BYTE_STRING_TYPE
+=== 'ABC RDF DEF'.replace('RDF','')
+DebugPrint: 0x3580108aeed: [String]: "ABC  DEF"
+ - type: SEQ_ONE_BYTE_STRING_TYPE
+=== 'ABC RDF DEF'.replace('ABC','')
+DebugPrint: 0x3580108af45: [String]: " RDF DEF"
+ - type: SEQ_ONE_BYTE_STRING_TYPE
+=== 'ABC RDF DEF'.replace('DEF','')
+DebugPrint: 0x3580108af9d: [String]: "ABC RDF "
+ - type: SEQ_ONE_BYTE_STRING_TYPE
+=== x1 cons
+DebugPrint: 0x3580108b005: [String]: c"ABClonger-than-thirteen"
+ - type: CONS_ONE_BYTE_STRING_TYPE
+=== x2 cons (same expr again)
+DebugPrint: 0x3580108b029: [String]: c"ABClonger-than-thirteen"
+ - type: CONS_ONE_BYTE_STRING_TYPE
+=== 'abc'[1]
+DebugPrint: 0x358000033bd: [String] in ReadOnlySpace: #b
+ - type: INTERNALIZED_ONE_BYTE_STRING_TYPE
+=== 'b'
+DebugPrint: 0x358000033bd: [String] in ReadOnlySpace: #b
+ - type: INTERNALIZED_ONE_BYTE_STRING_TYPE
+=== new String('abc')
+DebugPrint: 0x3580108b0c1: [JSPrimitiveWrapper]
+ - value: 0x03580101df25 <String[3]: #abc>
+ - type: JS_PRIMITIVE_WRAPPER_TYPE
+=== 'abc'
+DebugPrint: 0x3580101df25: [String] in OldSpace: #abc
+ - type: INTERNALIZED_ONE_BYTE_STRING_TYPE
+=== tpl `${a}${bc}`
+DebugPrint: 0x3580108b121: [String]: "ABC"
+ - type: SEQ_ONE_BYTE_STRING_TYPE

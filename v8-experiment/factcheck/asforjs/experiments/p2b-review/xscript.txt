@@ -1,0 +1,18 @@
+== d8 15.6: a.js declares var gv/let gl/const gc; b.js (separate script) reads them
+LdaGlobal [0:"gv"], FBV[0]
+Star0
+LdaGlobal [1:"gl"], FBV[2]
+Add r0, EmbeddedFeedback[None]
+Star0
+LdaGlobal [2:"gc"], FBV[4]
+Add r0, EmbeddedFeedback[None]
+Return
+== node24 via vm.runInThisContext
+LdaGlobal [0], [0]
+Star0
+LdaGlobal [1], [2]
+Add r0, [4]
+Star0
+LdaGlobal [2], [5]
+Add r0, [7]
+Return

@@ -1,0 +1,26 @@
+=== 'café' (Latin-1 é = U+00E9)
+ - type: INTERNALIZED_ONE_BYTE_STRING_TYPE
+ - dependent code: 0x1199ccc40d19 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+=== 'ÿ' U+00FF
+ - type: INTERNALIZED_ONE_BYTE_STRING_TYPE
+ - dependent code: 0x1199ccc40d19 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+=== 'Ā' U+0100
+ - type: INTERNALIZED_TWO_BYTE_STRING_TYPE
+ - dependent code: 0x1199ccc40d19 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+=== 'CD'
+ - type: INTERNALIZED_ONE_BYTE_STRING_TYPE
+ - dependent code: 0x1199ccc40d19 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+=== 'ABCD'
+ - type: INTERNALIZED_ONE_BYTE_STRING_TYPE
+ - dependent code: 0x1199ccc40d19 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+=== Buffer 2MB .toString(latin1)
+ - type: EXTERNAL_ONE_BYTE_STRING_TYPE
+ - dependent code: 0x1199ccc40d19 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+=== s += 'x' x20 in loop
+ - type: CONS_ONE_BYTE_STRING_TYPE
+ - dependent code: 0x1199ccc40d19 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+1MB + 2MB concat: heap +0.00 MB
+third part added: heap +0.00 MB
+after first char read of the cons (flatten): heap +3.00 MB
+slice 512KB of 2MB: heap +0.00 MB
+drop parent refs but keep slice: heap change -3.00 MB (parent kept alive by SlicedString?)

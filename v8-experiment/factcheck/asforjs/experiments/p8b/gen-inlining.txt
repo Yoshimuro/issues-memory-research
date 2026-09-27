@@ -1,0 +1,13 @@
+      1   - target: 0x29fc00f42ea8 {0x3cfc0101e06d <SharedFunctionInfo sumGen>}, bytecode size: 143, existing opt code's inlined bytecode size: 93
+      1   - target: 0x29fc00f44130 {0x3cfc0101e00d <SharedFunctionInfo gen>}, bytecode size: 93
+      1   - target: 0x29fc00f47ea8 {0x3cfc0101e00d <SharedFunctionInfo gen>}, bytecode size: 93
+      1 Begin compiling method gen using Maglev
+      1 Begin compiling method sumGen using Maglev
+      1 Considering 0x29fc00f42ea8 {0x3cfc0101e06d <SharedFunctionInfo sumGen>} for inlining with 0x29fc00f43650 {0x3cfc0101e431 <FeedbackVector[22]>}
+      1 Considering 0x29fc00f44130 {0x3cfc0101e00d <SharedFunctionInfo gen>} for inlining with 0x29fc00f444e0 {0x3cfc0101e385 <FeedbackVector[2]>}
+      1 Considering 0x29fc00f47ea8 {0x3cfc0101e00d <SharedFunctionInfo gen>} for inlining with 0x29fc00f48e60 {0x3cfc0101e385 <FeedbackVector[2]>}
+      1 Finished compiling method gen using Maglev
+      1 Finished compiling method sumGen using Maglev
+      1 Inlining 0x29fc00f42ea8 {0x3cfc0101e06d <SharedFunctionInfo sumGen>} into 0x29fc00f42bf0 {0x3cfc0101df69 <SharedFunctionInfo>}
+      1 Inlining 0x29fc00f44130 {0x3cfc0101e00d <SharedFunctionInfo gen>} into 0x29fc00f42bf0 {0x3cfc0101df69 <SharedFunctionInfo>}
+      1 Inlining 0x29fc00f47ea8 {0x3cfc0101e00d <SharedFunctionInfo gen>} into 0x29fc00f47c70 {0x3cfc0101e06d <SharedFunctionInfo sumGen>}

@@ -1,0 +1,18 @@
+== /opt/node22/bin/node
+push 70000: smi= true holey= false dictionary= false
+new Array(70000): holey= true dictionary= false
+new Array(40M): dictionary= true
+[] then d[5000]=1 (gap > kMaxGap 1024): dictionary= true
+[] then e[1000]=1 (gap < 1024): dictionary= false
+== /opt/nvm/versions/node/v24.21.0/bin/node
+push 70000: smi= true holey= false dictionary= false
+new Array(70000): holey= true dictionary= false
+new Array(40M): dictionary= true
+[] then d[5000]=1 (gap > kMaxGap 1024): dictionary= true
+[] then e[1000]=1 (gap < 1024): dictionary= false
+== /tmp/claude-0/-home-user-issues-memory-research/dacf359b-9898-588d-b8f1-20fd1e3f2945/scratchpad/d8/rel/d8
+push 70000: smi= true holey= false dictionary= false
+new Array(70000): holey= true dictionary= false
+new Array(40M): dictionary= true
+[] then d[5000]=1 (gap > kMaxGap 1024): dictionary= true
+[] then e[1000]=1 (gap < 1024): dictionary= false

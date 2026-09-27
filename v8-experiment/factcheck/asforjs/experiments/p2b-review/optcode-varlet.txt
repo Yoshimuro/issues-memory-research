@@ -1,0 +1,23 @@
+== node22
+sumVar: instr_size=340  kind=kind = TURBOFAN  cmp-with-hole/root lines: 0 deopt-reasons:       3 ;; debug: deopt reason '(unknown)';      1 ;; debug: deopt reason 'not a Smi';      1 ;; debug: deopt reason 'overflow';      3 deopt reason  ((unknown;      1 deopt reason  (not a Smi;      1 deopt reason  (overflow;
+sumLet: instr_size=340  kind=kind = TURBOFAN  cmp-with-hole/root lines: 0 deopt-reasons:       3 ;; debug: deopt reason '(unknown)';      1 ;; debug: deopt reason 'not a Smi';      1 ;; debug: deopt reason 'overflow';      3 deopt reason  ((unknown;      1 deopt reason  (not a Smi;      1 deopt reason  (overflow;
+sumVarM: instr_size=468  kind=kind = TURBOFAN  cmp-with-hole/root lines: 0 deopt-reasons:       3 ;; debug: deopt reason '(unknown)';      2 ;; debug: deopt reason 'not a Smi';      4 ;; debug: deopt reason 'overflow';      3 deopt reason  ((unknown;      2 deopt reason  (not a Smi;      4 deopt reason  (overflow;
+sumLetM: instr_size=516  kind=kind = TURBOFAN  cmp-with-hole/root lines: 1 deopt-reasons:       4 ;; debug: deopt reason '(unknown)';      2 ;; debug: deopt reason 'not a Smi';      4 ;; debug: deopt reason 'overflow';      4 deopt reason  ((unknown;      2 deopt reason  (not a Smi;      4 deopt reason  (overflow;
+== node24
+sumVar: instr_size=460  kind=kind = TURBOFAN_JS  cmp-with-hole/root lines: 0 deopt-reasons:       3 ;; debug: deopt reason '(unknown)';      1 ;; debug: deopt reason 'not a Smi';      4 ;; debug: deopt reason 'overflow';      3 deopt reason  ((unknown;      1 deopt reason  (not a Smi;      4 deopt reason  (overflow;
+sumLet: instr_size=460  kind=kind = TURBOFAN_JS  cmp-with-hole/root lines: 0 deopt-reasons:       3 ;; debug: deopt reason '(unknown)';      1 ;; debug: deopt reason 'not a Smi';      4 ;; debug: deopt reason 'overflow';      3 deopt reason  ((unknown;      1 deopt reason  (not a Smi;      4 deopt reason  (overflow;
+sumVarM: instr_size=684  kind=kind = TURBOFAN_JS  cmp-with-hole/root lines: 0 deopt-reasons:       3 ;; debug: deopt reason '(unknown)';      2 ;; debug: deopt reason 'not a Smi';     13 ;; debug: deopt reason 'overflow';      3 deopt reason  ((unknown;      2 deopt reason  (not a Smi;     13 deopt reason  (overflow;
+sumLetM: instr_size=732  kind=kind = TURBOFAN_JS  cmp-with-hole/root lines: 1 deopt-reasons:       4 ;; debug: deopt reason '(unknown)';      2 ;; debug: deopt reason 'not a Smi';     13 ;; debug: deopt reason 'overflow';      4 deopt reason  ((unknown;      2 deopt reason  (not a Smi;     13 deopt reason  (overflow;
+== d8
+/bin/bash: line 27: 15360 Aborted                 $2 --allow-natives-syntax --print-opt-code --print-opt-code-filter=$f --no-maglev optcode-varlet.js > /tmp/claude-0/-home-user-issues-memory-research/dacf359b-9898-588d-b8f1-20fd1e3f2945/scratchpad/oc-$1-$f.txt 2>&1
+sumVar: instr_size=  kind=  cmp-with-hole/root lines: 0 deopt-reasons: 
+/bin/bash: line 27: 15371 Aborted                 $2 --allow-natives-syntax --print-opt-code --print-opt-code-filter=$f --no-maglev optcode-varlet.js > /tmp/claude-0/-home-user-issues-memory-research/dacf359b-9898-588d-b8f1-20fd1e3f2945/scratchpad/oc-$1-$f.txt 2>&1
+sumLet: instr_size=  kind=  cmp-with-hole/root lines: 0 deopt-reasons: 
+/bin/bash: line 27: 15382 Aborted                 $2 --allow-natives-syntax --print-opt-code --print-opt-code-filter=$f --no-maglev optcode-varlet.js > /tmp/claude-0/-home-user-issues-memory-research/dacf359b-9898-588d-b8f1-20fd1e3f2945/scratchpad/oc-$1-$f.txt 2>&1
+sumVarM: instr_size=  kind=  cmp-with-hole/root lines: 0 deopt-reasons: 
+/bin/bash: line 27: 15393 Aborted                 $2 --allow-natives-syntax --print-opt-code --print-opt-code-filter=$f --no-maglev optcode-varlet.js > /tmp/claude-0/-home-user-issues-memory-research/dacf359b-9898-588d-b8f1-20fd1e3f2945/scratchpad/oc-$1-$f.txt 2>&1
+sumLetM: instr_size=  kind=  cmp-with-hole/root lines: 0 deopt-reasons: 
+d8-debug sumVar: instr_size=1160 hole-refs: 0
+d8-debug sumLet: instr_size=1160 hole-refs: 0
+d8-debug sumVarM: instr_size=1384 hole-refs: 0
+d8-debug sumLetM: instr_size=1432 hole-refs: 0

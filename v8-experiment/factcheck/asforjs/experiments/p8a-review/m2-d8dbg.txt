@@ -1,0 +1,7 @@
+ - elements: 0x244d01089651 <FixedArray[17]> [HOLEY_ELEMENTS]
+ - properties: 0x244d000007e5 <FixedArray[0]>
+ - All own properties (excluding elements): {
+    0x244d00000e29: [String] in ReadOnlySpace: #name: 0x244d0000351d <String[1]: #x> (const data field 3, in-obj, attrs: [WEC])
+ - elements: 0x244d01089651 <FixedArray[17]> {
+ - inobject properties: 1
+ - elements kind: HOLEY_ELEMENTS

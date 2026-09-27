@@ -1,0 +1,21 @@
+== /opt/node20/bin/node
+same prototype: true
+A vs B same map: false
+A vs A same map: true
+literal o1===o2: false  same map: true
+string literals ===: true
+class typeof: function
+== /opt/nvm/versions/node/v24.21.0/bin/node
+same prototype: true
+A vs B same map: false
+A vs A same map: true
+literal o1===o2: false  same map: true
+string literals ===: true
+class typeof: function
+== d8 15.6
+same prototype: true
+A vs B same map: false
+A vs A same map: true
+literal o1===o2: false  same map: true
+string literals ===: true
+class typeof: function

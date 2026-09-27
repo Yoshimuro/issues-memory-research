@@ -1,0 +1,10 @@
+== N24
+[marking 0x108581849d49 <JSFunction isPosixPathSeparator (sfi = 0x331f7a515109)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[marking 0x108581849e71 <JSFunction normalizeString (sfi = 0x331f7a515349)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[marking 0x0fe51cda61f1 <JSFunction cb (sfi = 0x2d5187768811)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[marking 0x0fe51cda61f1 <JSFunction cb (sfi = 0x2d5187768811)> for optimization to TURBOFAN_JS, ConcurrencyMode::kConcurrent, reason: hot and stable]
+doMain status=1 callback status=1010001
+== D8
+[marking 0x27e501049831 <JSFunction cb (sfi = 0x27e50101e1e5)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[marking 0x27e501049831 <JSFunction cb (sfi = 0x27e50101e1e5)> for optimization to TURBOFAN_JS, ConcurrencyMode::kConcurrent, reason: hot and stable]
+doMain status=1 callback status=101001

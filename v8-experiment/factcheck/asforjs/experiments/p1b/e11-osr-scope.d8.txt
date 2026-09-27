@@ -1,0 +1,13 @@
+V8 is running with developer-only features enabled. Stability and security will suffer.
+[OSR - setting osr urgency. function: main, old urgency: 0, new urgency: 1]
+[OSR - compilation started. function: main, osr offset: 32, mode: ConcurrencyMode::kConcurrent]
+[OSR - unavailable (failed or in progress). function: main, osr offset: 32, mode: ConcurrencyMode::kConcurrent]
+[OSR - setting osr urgency. function: main, old urgency: 0, new urgency: 1]
+[OSR - entry. function: main, osr offset: 32]
+[OSR - compilation started. function: main, osr offset: 32, mode: ConcurrencyMode::kConcurrent]
+[OSR - unavailable (failed or in progress). function: main, osr offset: 32, mode: ConcurrencyMode::kConcurrent]
+[OSR - compilation finished. function: main, osr offset: 32]
+[OSR - setting osr urgency. function: main, old urgency: 0, new urgency: 1]
+[OSR - entry. function: main, osr offset: 32]
+s=33975 status-after-loop=10000000000110000000001
+status-now=10000000000000000000001

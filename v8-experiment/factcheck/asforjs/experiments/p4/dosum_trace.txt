@@ -1,0 +1,185 @@
+##### dosum_init_zero.js node22
+[marking 0x03e1905660d9 <JSFunction doSum (sfi = 0xf0cbde5b659)> for optimization to TURBOFAN, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[OSR - setting osr urgency. function: doSum, old urgency: 0, new urgency: 1]
+[OSR - compilation started. function: doSum, osr offset: 29, mode: ConcurrencyMode::kConcurrent]
+[compiling method 0x03e1905660d9 <JSFunction doSum (sfi = 0xf0cbde5b659)> (target TURBOFAN) OSR, mode: ConcurrencyMode::kConcurrent]
+[OSR - unavailable (failed or in progress). function: doSum, osr offset: 29, mode: ConcurrencyMode::kConcurrent]
+[completed compiling 0x03e1905660d9 <JSFunction doSum (sfi = 0xf0cbde5b659)> (target TURBOFAN) OSR - took 0.019, 1.283, 0.011 ms]
+[completed optimizing 0x03e1905660d9 <JSFunction doSum (sfi = 0xf0cbde5b659)> (target TURBOFAN) OSR]
+[OSR - compilation finished. function: doSum, osr offset: 29]
+[OSR - setting osr urgency. function: doSum, old urgency: 0, new urgency: 1]
+[OSR - entry. function: doSum, osr offset: 29]
+r1 10000000
+[OSR - entry. function: doSum, osr offset: 29]
+r2 -10000000
+[OSR - entry. function: doSum, osr offset: 29]
+[bailout (kind: deopt-eager, reason: not a Smi): begin. deoptimizing 0x03e1905660d9 <JSFunction doSum (sfi = 0xf0cbde5b659)>, 0x18b80d302369 <Code TURBOFAN>, opt id 0, bytecode offset 10, deopt exit 1
+[marking 0x03e1905660d9 <JSFunction doSum (sfi = 0xf0cbde5b659)> for optimization to TURBOFAN, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[OSR - setting osr urgency. function: doSum, old urgency: 0, new urgency: 1]
+[OSR - compilation started. function: doSum, osr offset: 29, mode: ConcurrencyMode::kConcurrent]
+[compiling method 0x03e1905660d9 <JSFunction doSum (sfi = 0xf0cbde5b659)> (target TURBOFAN) OSR, mode: ConcurrencyMode::kConcurrent]
+[OSR - unavailable (failed or in progress). function: doSum, osr offset: 29, mode: ConcurrencyMode::kConcurrent]
+##### dosum_init_zero.js node24
+[marking 0x33cf945a60b9 <JSFunction doSum (sfi = 0x313a8d928431)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[OSR - setting osr urgency. function: doSum, old urgency: 0, new urgency: 1]
+[OSR - compilation started. function: doSum, osr offset: 29, mode: ConcurrencyMode::kConcurrent]
+[compiling method 0x33cf945a60b9 <JSFunction doSum (sfi = 0x313a8d928431)> (target MAGLEV) OSR, mode: ConcurrencyMode::kConcurrent]
+[OSR - unavailable (failed or in progress). function: doSum, osr offset: 29, mode: ConcurrencyMode::kConcurrent]
+[completed compiling 0x33cf945a60b9 <JSFunction doSum (sfi = 0x313a8d928431)> (target MAGLEV) OSR - took 0.001, 0.245, 0.002 ms]
+[OSR - setting osr urgency. function: doSum, old urgency: 0, new urgency: 1]
+[OSR - entry. function: doSum, osr offset: 29]
+[OSR - compilation started. function: doSum, osr offset: 29, mode: ConcurrencyMode::kConcurrent]
+[compiling method 0x33cf945a60b9 <JSFunction doSum (sfi = 0x313a8d928431)> (target TURBOFAN_JS) OSR, mode: ConcurrencyMode::kConcurrent]
+[OSR - unavailable (failed or in progress). function: doSum, osr offset: 29, mode: ConcurrencyMode::kConcurrent]
+[completed compiling 0x33cf945a60b9 <JSFunction doSum (sfi = 0x313a8d928431)> (target TURBOFAN_JS) OSR - took 0.015, 1.465, 0.025 ms]
+[completed optimizing 0x33cf945a60b9 <JSFunction doSum (sfi = 0x313a8d928431)> (target TURBOFAN_JS) OSR]
+[OSR - compilation finished. function: doSum, osr offset: 29]
+[OSR - setting osr urgency. function: doSum, old urgency: 0, new urgency: 1]
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. deoptimizing 0x33cf945a60b9 <JSFunction doSum (sfi = 0x313a8d928431)>, 0x3c2207bc1cc1 <Code MAGLEV>, opt id 1, byte
+[OSR - entry. function: doSum, osr offset: 29]
+r1 10000000
+[OSR - entry. function: doSum, osr offset: 29]
+r2 -10000000
+##### dosum_init_zero.js d8
+[marking 0x02690101e105 <JSFunction doSum (sfi = 0x2690101e041)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[OSR - setting osr urgency. function: doSum, old urgency: 0, new urgency: 1]
+[OSR - compilation started. function: doSum, osr offset: 29, mode: ConcurrencyMode::kConcurrent]
+[compiling method 0x02690101e105 <JSFunction doSum (sfi = 0x2690101e041)> (target MAGLEV) OSR, mode: ConcurrencyMode::kConcurrent]
+[OSR - unavailable (failed or in progress). function: doSum, osr offset: 29, mode: ConcurrencyMode::kConcurrent]
+[completed compiling 0x02690101e105 <JSFunction doSum (sfi = 0x2690101e041)> (target MAGLEV) OSR - took 0.001, 0.416, 0.012 ms]
+[OSR - setting osr urgency. function: doSum, old urgency: 0, new urgency: 1]
+[OSR - entry. function: doSum, osr offset: 29]
+[OSR - compilation started. function: doSum, osr offset: 29, mode: ConcurrencyMode::kConcurrent]
+[compiling method 0x02690101e105 <JSFunction doSum (sfi = 0x2690101e041)> (target TURBOFAN_JS) OSR, mode: ConcurrencyMode::kConcurrent]
+[OSR - unavailable (failed or in progress). function: doSum, osr offset: 29, mode: ConcurrencyMode::kConcurrent]
+[completed compiling 0x02690101e105 <JSFunction doSum (sfi = 0x2690101e041)> (target TURBOFAN_JS) OSR - took 0.006, 1.358, 0.018 ms]
+[completed optimizing 0x02690101e105 <JSFunction doSum (sfi = 0x2690101e041)> (target TURBOFAN_JS) OSR]
+[OSR - compilation finished. function: doSum, osr offset: 29]
+[OSR - setting osr urgency. function: doSum, old urgency: 0, new urgency: 1]
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. deoptimizing 0x02690101e105 <JSFunction doSum (sfi = 0x2690101e041)>, 0x3f39010403d9 <Code MAGLEV>, opt id 0, bytec
+[OSR - entry. function: doSum, osr offset: 29]
+r1 10000000
+[OSR - entry. function: doSum, osr offset: 29]
+r2 -10000000
+##### dosum_init_negzero.js node22
+[marking 0x03166d5a60e1 <JSFunction doSum (sfi = 0xb836885b659)> for optimization to TURBOFAN, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[OSR - setting osr urgency. function: doSum, old urgency: 0, new urgency: 1]
+[OSR - compilation started. function: doSum, osr offset: 30, mode: ConcurrencyMode::kConcurrent]
+[compiling method 0x03166d5a60e1 <JSFunction doSum (sfi = 0xb836885b659)> (target TURBOFAN) OSR, mode: ConcurrencyMode::kConcurrent]
+[OSR - unavailable (failed or in progress). function: doSum, osr offset: 30, mode: ConcurrencyMode::kConcurrent]
+[completed compiling 0x2dd524cc36a1 <JSFunction doSum (sfi = 0xb836885b659)> (target TURBOFAN) OSR - took 0.021, 1.199, 0.018 ms]
+[completed optimizing 0x2dd524cc36a1 <JSFunction doSum (sfi = 0xb836885b659)> (target TURBOFAN) OSR]
+[OSR - compilation finished. function: doSum, osr offset: 30]
+[OSR - setting osr urgency. function: doSum, old urgency: 0, new urgency: 1]
+[OSR - entry. function: doSum, osr offset: 30]
+r1 10000000
+[OSR - entry. function: doSum, osr offset: 30]
+r2 -10000000
+[OSR - entry. function: doSum, osr offset: 30]
+r3 999999.9998389754
+ms 31
+##### dosum_init_negzero.js node24
+[marking 0x2c12849260c1 <JSFunction doSum (sfi = 0x85cfdfa8431)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[OSR - setting osr urgency. function: doSum, old urgency: 0, new urgency: 1]
+[OSR - compilation started. function: doSum, osr offset: 30, mode: ConcurrencyMode::kConcurrent]
+[compiling method 0x2c12849260c1 <JSFunction doSum (sfi = 0x85cfdfa8431)> (target MAGLEV) OSR, mode: ConcurrencyMode::kConcurrent]
+[OSR - unavailable (failed or in progress). function: doSum, osr offset: 30, mode: ConcurrencyMode::kConcurrent]
+[completed compiling 0x2c12849260c1 <JSFunction doSum (sfi = 0x85cfdfa8431)> (target MAGLEV) OSR - took 0.000, 0.252, 0.001 ms]
+[OSR - setting osr urgency. function: doSum, old urgency: 0, new urgency: 1]
+[OSR - entry. function: doSum, osr offset: 30]
+[OSR - compilation started. function: doSum, osr offset: 30, mode: ConcurrencyMode::kConcurrent]
+[compiling method 0x2c12849260c1 <JSFunction doSum (sfi = 0x85cfdfa8431)> (target TURBOFAN_JS) OSR, mode: ConcurrencyMode::kConcurrent]
+[OSR - unavailable (failed or in progress). function: doSum, osr offset: 30, mode: ConcurrencyMode::kConcurrent]
+[completed compiling 0x2c12849260c1 <JSFunction doSum (sfi = 0x85cfdfa8431)> (target TURBOFAN_JS) OSR - took 0.016, 1.164, 0.016 ms]
+[completed optimizing 0x2c12849260c1 <JSFunction doSum (sfi = 0x85cfdfa8431)> (target TURBOFAN_JS) OSR]
+[OSR - compilation finished. function: doSum, osr offset: 30]
+[OSR - setting osr urgency. function: doSum, old urgency: 0, new urgency: 1]
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. deoptimizing 0x2c12849260c1 <JSFunction doSum (sfi = 0x85cfdfa8431)>, 0x2fe8c53c1a71 <Code MAGLEV>, opt id 1, bytec
+[OSR - entry. function: doSum, osr offset: 30]
+r1 10000000
+[OSR - entry. function: doSum, osr offset: 30]
+r2 -10000000
+##### dosum_init_negzero.js d8
+[marking 0x014f0101e105 <JSFunction doSum (sfi = 0x14f0101e041)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[OSR - setting osr urgency. function: doSum, old urgency: 0, new urgency: 1]
+[OSR - compilation started. function: doSum, osr offset: 30, mode: ConcurrencyMode::kConcurrent]
+[compiling method 0x014f0101e105 <JSFunction doSum (sfi = 0x14f0101e041)> (target MAGLEV) OSR, mode: ConcurrencyMode::kConcurrent]
+[OSR - unavailable (failed or in progress). function: doSum, osr offset: 30, mode: ConcurrencyMode::kConcurrent]
+[completed compiling 0x014f0101e105 <JSFunction doSum (sfi = 0x14f0101e041)> (target MAGLEV) OSR - took 0.001, 0.331, 0.004 ms]
+[OSR - setting osr urgency. function: doSum, old urgency: 0, new urgency: 1]
+[OSR - entry. function: doSum, osr offset: 30]
+[OSR - compilation started. function: doSum, osr offset: 30, mode: ConcurrencyMode::kConcurrent]
+[compiling method 0x014f0101e105 <JSFunction doSum (sfi = 0x14f0101e041)> (target TURBOFAN_JS) OSR, mode: ConcurrencyMode::kConcurrent]
+[OSR - unavailable (failed or in progress). function: doSum, osr offset: 30, mode: ConcurrencyMode::kConcurrent]
+[completed compiling 0x014f0101e105 <JSFunction doSum (sfi = 0x14f0101e041)> (target TURBOFAN_JS) OSR - took 0.006, 1.104, 0.023 ms]
+[completed optimizing 0x014f0101e105 <JSFunction doSum (sfi = 0x14f0101e041)> (target TURBOFAN_JS) OSR]
+[OSR - compilation finished. function: doSum, osr offset: 30]
+[OSR - setting osr urgency. function: doSum, old urgency: 0, new urgency: 1]
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. deoptimizing 0x014f0101e105 <JSFunction doSum (sfi = 0x14f0101e041)>, 0x08d6010802d9 <Code MAGLEV>, opt id 0, bytec
+[OSR - entry. function: doSum, osr offset: 30]
+r1 10000000
+[OSR - entry. function: doSum, osr offset: 30]
+r2 -10000000
+##### dosum_init_zerodot.js node22
+[marking 0x0afe88ae60e1 <JSFunction doSum (sfi = 0x172a7bd1b659)> for optimization to TURBOFAN, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[OSR - setting osr urgency. function: doSum, old urgency: 0, new urgency: 1]
+[OSR - compilation started. function: doSum, osr offset: 29, mode: ConcurrencyMode::kConcurrent]
+[compiling method 0x0afe88ae60e1 <JSFunction doSum (sfi = 0x172a7bd1b659)> (target TURBOFAN) OSR, mode: ConcurrencyMode::kConcurrent]
+[OSR - unavailable (failed or in progress). function: doSum, osr offset: 29, mode: ConcurrencyMode::kConcurrent]
+[completed compiling 0x0afe88ae60e1 <JSFunction doSum (sfi = 0x172a7bd1b659)> (target TURBOFAN) OSR - took 0.021, 0.969, 0.012 ms]
+[completed optimizing 0x0afe88ae60e1 <JSFunction doSum (sfi = 0x172a7bd1b659)> (target TURBOFAN) OSR]
+[OSR - compilation finished. function: doSum, osr offset: 29]
+[OSR - setting osr urgency. function: doSum, old urgency: 0, new urgency: 1]
+[OSR - entry. function: doSum, osr offset: 29]
+r1 10000000
+[OSR - entry. function: doSum, osr offset: 29]
+r2 -10000000
+[OSR - entry. function: doSum, osr offset: 29]
+[bailout (kind: deopt-eager, reason: not a Smi): begin. deoptimizing 0x0afe88ae60e1 <JSFunction doSum (sfi = 0x172a7bd1b659)>, 0x093a58fc2369 <Code TURBOFAN>, opt id 0, bytecode offset 10, deopt exit 
+[marking 0x0afe88ae60e1 <JSFunction doSum (sfi = 0x172a7bd1b659)> for optimization to TURBOFAN, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[OSR - setting osr urgency. function: doSum, old urgency: 0, new urgency: 1]
+[OSR - compilation started. function: doSum, osr offset: 29, mode: ConcurrencyMode::kConcurrent]
+[compiling method 0x0afe88ae60e1 <JSFunction doSum (sfi = 0x172a7bd1b659)> (target TURBOFAN) OSR, mode: ConcurrencyMode::kConcurrent]
+[OSR - unavailable (failed or in progress). function: doSum, osr offset: 29, mode: ConcurrencyMode::kConcurrent]
+##### dosum_init_zerodot.js node24
+[marking 0x3eff3d8a60c1 <JSFunction doSum (sfi = 0x27b80ece8431)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[OSR - setting osr urgency. function: doSum, old urgency: 0, new urgency: 1]
+[OSR - compilation started. function: doSum, osr offset: 29, mode: ConcurrencyMode::kConcurrent]
+[compiling method 0x3eff3d8a60c1 <JSFunction doSum (sfi = 0x27b80ece8431)> (target MAGLEV) OSR, mode: ConcurrencyMode::kConcurrent]
+[OSR - unavailable (failed or in progress). function: doSum, osr offset: 29, mode: ConcurrencyMode::kConcurrent]
+[completed compiling 0x3eff3d8a60c1 <JSFunction doSum (sfi = 0x27b80ece8431)> (target MAGLEV) OSR - took 0.000, 0.215, 0.002 ms]
+[OSR - setting osr urgency. function: doSum, old urgency: 0, new urgency: 1]
+[OSR - entry. function: doSum, osr offset: 29]
+[OSR - compilation started. function: doSum, osr offset: 29, mode: ConcurrencyMode::kConcurrent]
+[compiling method 0x3eff3d8a60c1 <JSFunction doSum (sfi = 0x27b80ece8431)> (target TURBOFAN_JS) OSR, mode: ConcurrencyMode::kConcurrent]
+[OSR - unavailable (failed or in progress). function: doSum, osr offset: 29, mode: ConcurrencyMode::kConcurrent]
+[completed compiling 0x3eff3d8a60c1 <JSFunction doSum (sfi = 0x27b80ece8431)> (target TURBOFAN_JS) OSR - took 0.016, 1.163, 0.024 ms]
+[completed optimizing 0x3eff3d8a60c1 <JSFunction doSum (sfi = 0x27b80ece8431)> (target TURBOFAN_JS) OSR]
+[OSR - compilation finished. function: doSum, osr offset: 29]
+[OSR - setting osr urgency. function: doSum, old urgency: 0, new urgency: 1]
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. deoptimizing 0x3eff3d8a60c1 <JSFunction doSum (sfi = 0x27b80ece8431)>, 0x2459cc640f09 <Code MAGLEV>, opt id 1, byte
+[OSR - entry. function: doSum, osr offset: 29]
+r1 10000000
+[OSR - entry. function: doSum, osr offset: 29]
+r2 -10000000
+##### dosum_init_zerodot.js d8
+[marking 0x16240101e105 <JSFunction doSum (sfi = 0x16240101e041)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[OSR - setting osr urgency. function: doSum, old urgency: 0, new urgency: 1]
+[OSR - compilation started. function: doSum, osr offset: 29, mode: ConcurrencyMode::kConcurrent]
+[compiling method 0x16240101e105 <JSFunction doSum (sfi = 0x16240101e041)> (target MAGLEV) OSR, mode: ConcurrencyMode::kConcurrent]
+[OSR - unavailable (failed or in progress). function: doSum, osr offset: 29, mode: ConcurrencyMode::kConcurrent]
+[completed compiling 0x16240101e105 <JSFunction doSum (sfi = 0x16240101e041)> (target MAGLEV) OSR - took 0.000, 0.302, 0.002 ms]
+[OSR - setting osr urgency. function: doSum, old urgency: 0, new urgency: 1]
+[OSR - entry. function: doSum, osr offset: 29]
+[OSR - compilation started. function: doSum, osr offset: 29, mode: ConcurrencyMode::kConcurrent]
+[compiling method 0x16240101e105 <JSFunction doSum (sfi = 0x16240101e041)> (target TURBOFAN_JS) OSR, mode: ConcurrencyMode::kConcurrent]
+[OSR - unavailable (failed or in progress). function: doSum, osr offset: 29, mode: ConcurrencyMode::kConcurrent]
+[completed compiling 0x16240101e105 <JSFunction doSum (sfi = 0x16240101e041)> (target TURBOFAN_JS) OSR - took 0.005, 1.092, 0.026 ms]
+[completed optimizing 0x16240101e105 <JSFunction doSum (sfi = 0x16240101e041)> (target TURBOFAN_JS) OSR]
+[OSR - compilation finished. function: doSum, osr offset: 29]
+[OSR - setting osr urgency. function: doSum, old urgency: 0, new urgency: 1]
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. deoptimizing 0x16240101e105 <JSFunction doSum (sfi = 0x16240101e041)>, 0x1b7301040359 <Code MAGLEV>, opt id 0, byte
+[OSR - entry. function: doSum, osr offset: 29]
+r1 10000000
+[OSR - entry. function: doSum, osr offset: 29]
+r2 -10000000

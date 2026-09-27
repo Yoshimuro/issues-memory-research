@@ -1,0 +1,12 @@
+## /opt/node20/bin/node
+114 ms: Starting major concurrent marking task 1
+114 ms: Starting major concurrent marking task 3
+114 ms: Starting major concurrent marking task 4
+114 ms: Starting major concurrent marking task 2
+115 ms: Major task 1 concurrently marked 798KB in 1.23ms
+## /opt/nvm/versions/node/v24.21.0/bin/node
+[29966:0x217e7000:0]      133 ms: Starting major concurrent marking task 1
+[29966:0x217e7000:0]      133 ms: Starting major concurrent marking task 3
+[29966:0x217e7000:0]      133 ms: Starting major concurrent marking task 2
+[29966:0x217e7000:0]      133 ms: Starting major concurrent marking task 4
+[29966:0x217e7000:0]      133 ms: [IncrementalMarking] Schedule: 0KB to mark, origin: V8, elapsed: 0

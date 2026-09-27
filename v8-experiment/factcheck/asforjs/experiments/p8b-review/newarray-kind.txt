@@ -1,0 +1,30 @@
+== d8
+new Array(5): SMI/HOLEY -> after fill by index: SMI/HOLEY
+new Array(1000): SMI/HOLEY -> after fill by index: SMI/HOLEY
+new Array(100000): SMI/HOLEY -> after fill by index: SMI/HOLEY
+new Array(1000000): SMI/HOLEY -> after fill by index: SMI/HOLEY
+new Array(10000000): SMI/HOLEY -> after fill by index: SMI/HOLEY
+Array.from({length:5}): DOUBLE/HOLEY
+  after ints: DOUBLE/HOLEY
+Array.from({length:5}, fn): SMI/PACKED
+new Array(5).fill(0): SMI/PACKED
+== node22
+new Array(5): SMI/HOLEY -> after fill by index: SMI/HOLEY
+new Array(1000): SMI/HOLEY -> after fill by index: SMI/HOLEY
+new Array(100000): SMI/HOLEY -> after fill by index: SMI/HOLEY
+new Array(1000000): SMI/HOLEY -> after fill by index: SMI/HOLEY
+new Array(10000000): SMI/HOLEY -> after fill by index: SMI/HOLEY
+Array.from({length:5}): OBJECT/PACKED
+  after ints: OBJECT/PACKED
+Array.from({length:5}, fn): SMI/PACKED
+new Array(5).fill(0): SMI/HOLEY
+== node24
+new Array(5): SMI/HOLEY -> after fill by index: SMI/HOLEY
+new Array(1000): SMI/HOLEY -> after fill by index: SMI/HOLEY
+new Array(100000): SMI/HOLEY -> after fill by index: SMI/HOLEY
+new Array(1000000): SMI/HOLEY -> after fill by index: SMI/HOLEY
+new Array(10000000): SMI/HOLEY -> after fill by index: SMI/HOLEY
+Array.from({length:5}): OBJECT/PACKED
+  after ints: OBJECT/PACKED
+Array.from({length:5}, fn): SMI/PACKED
+new Array(5).fill(0): SMI/PACKED

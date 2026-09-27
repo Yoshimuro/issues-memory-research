@@ -1,0 +1,12 @@
+== /tmp/claude-0/-home-user-issues-memory-research/dacf359b-9898-588d-b8f1-20fd1e3f2945/scratchpad/d8/rel/d8
+      1 reason: not a Smi
+      1 reason: prepare for on stack replacement (OSR
+      1 sumMasked (sfi = )>,  <Code MAGLEV>, opt id 3, bytecode offset 6, deopt exit 8, FP to SP delta 96, caller SP , pc ]
+      1 sumRaw (sfi = )>,  <Code MAGLEV>, opt id 0, bytecode offset 6, deopt exit 2, FP to SP delta 96, caller SP , pc ]
+== /opt/nvm/versions/node/v24.21.0/bin/node
+      2 reason: overflow
+      1 sumRaw (sfi = )>,  <Code MAGLEV>, opt id 1, bytecode offset 6, deopt exit 5, FP to SP delta 120, caller SP , pc ]
+      1 sumRaw (sfi = )>,  <Code TURBOFAN_JS>, opt id 2, bytecode offset 6, deopt exit 9, FP to SP delta 96, caller SP , pc ]
+== /opt/node22/bin/node
+      1 reason: overflow
+      1 sumRaw (sfi = )>,  <Code TURBOFAN>, opt id 0, bytecode offset 6, deopt exit 5, FP to SP delta 96, caller SP , pc ]

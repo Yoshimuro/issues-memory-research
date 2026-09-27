@@ -1,0 +1,24 @@
+##### node20 (ms per 30 passes)
+round 0 sumSmi=23.0 sumDbl=23.1 dbl/smi=1.00
+round 1 sumSmi=23.1 sumDbl=23.9 dbl/smi=1.04
+round 2 sumSmi=23.4 sumDbl=23.2 dbl/smi=0.99
+round 3 sumSmi=23.2 sumDbl=23.1 dbl/smi=1.00
+round 4 sumSmi=23.3 sumDbl=23.4 dbl/smi=1.01
+##### node22 (ms per 30 passes)
+round 0 sumSmi=42.0 sumDbl=26.3 dbl/smi=0.62
+round 1 sumSmi=45.7 sumDbl=30.0 dbl/smi=0.66
+round 2 sumSmi=50.8 sumDbl=32.9 dbl/smi=0.65
+round 3 sumSmi=48.1 sumDbl=33.3 dbl/smi=0.69
+round 4 sumSmi=44.1 sumDbl=24.1 dbl/smi=0.55
+##### node24 (ms per 30 passes)
+round 0 sumSmi=35.7 sumDbl=25.1 dbl/smi=0.70
+round 1 sumSmi=37.5 sumDbl=26.0 dbl/smi=0.69
+round 2 sumSmi=39.1 sumDbl=25.2 dbl/smi=0.64
+round 3 sumSmi=40.9 sumDbl=22.3 dbl/smi=0.54
+round 4 sumSmi=39.1 sumDbl=22.4 dbl/smi=0.57
+##### d8 (ms per 30 passes)
+round 0 sumSmi=31.6 sumDbl=23.8 dbl/smi=0.75
+round 1 sumSmi=31.1 sumDbl=23.8 dbl/smi=0.77
+round 2 sumSmi=30.2 sumDbl=22.8 dbl/smi=0.76
+round 3 sumSmi=27.2 sumDbl=22.4 dbl/smi=0.82
+round 4 sumSmi=22.6 sumDbl=19.7 dbl/smi=0.87

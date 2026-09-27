@@ -1,0 +1,54 @@
+== node22 [--max-opt=0]
+loopR     median 198.3 ms  all 198/198/195/226/196
+loopD     median 99.2 ms  all 99/98/111/99/98
+loopMono  median 115.5 ms  all 116/115/123/116/115
+loopMega  median 122.0 ms  all 122/119/121/123/124
+reflect/direct 2.00  mega/mono 1.06
+== node22 [--max-opt=1]
+loopR     median 141.6 ms  all 131/142/138/143/152
+loopD     median 61.6 ms  all 72/58/62/57/81
+loopMono  median 69.4 ms  all 69/67/72/67/105
+loopMega  median 77.3 ms  all 77/75/79/73/80
+reflect/direct 2.30  mega/mono 1.11
+== node22 []
+loopR     median 54.6 ms  all 92/54/55/55/54
+loopD     median 1.6 ms  all 3/2/2/2/2
+loopMono  median 3.1 ms  all 4/3/3/3/4
+loopMega  median 10.1 ms  all 12/10/10/10/17
+reflect/direct 35.10  mega/mono 3.28
+== node24 [--max-opt=0]
+loopR     median 212.4 ms  all 211/212/227/211/215
+loopD     median 103.5 ms  all 108/102/104/107/99
+loopMono  median 123.4 ms  all 138/123/120/123/192
+loopMega  median 136.7 ms  all 137/142/127/142/134
+reflect/direct 2.05  mega/mono 1.11
+== node24 [--max-opt=1]
+loopR     median 131.6 ms  all 134/124/134/132/119
+loopD     median 46.0 ms  all 49/42/46/46/41
+loopMono  median 57.4 ms  all 60/57/57/58/51
+loopMega  median 58.7 ms  all 58/62/61/59/54
+reflect/direct 2.86  mega/mono 1.02
+== node24 []
+loopR     median 75.6 ms  all 76/79/75/75/78
+loopD     median 1.2 ms  all 3/1/1/1/1
+loopMono  median 3.7 ms  all 5/4/4/4/4
+loopMega  median 12.5 ms  all 13/13/13/12/12
+reflect/direct 63.49  mega/mono 3.36
+== d8 [--max-opt=0]
+loopR     median 201.1 ms  all 221/200/242/198/201
+loopD     median 106.7 ms  all 107/94/128/125/94
+loopMono  median 116.6 ms  all 125/106/117/117/103
+loopMega  median 121.2 ms  all 173/121/120/121/116
+reflect/direct 1.88  mega/mono 1.04
+== d8 [--max-opt=1]
+loopR     median 129.7 ms  all 110/142/130/130/129
+loopD     median 41.4 ms  all 42/41/42/41/41
+loopMono  median 46.2 ms  all 62/46/46/46/47
+loopMega  median 61.4 ms  all 61/61/65/61/64
+reflect/direct 3.13  mega/mono 1.33
+== d8 []
+loopR     median 76.6 ms  all 110/70/77/77/74
+loopD     median 1.2 ms  all 3/1/1/1/1
+loopMono  median 3.1 ms  all 4/3/3/3/3
+loopMega  median 10.8 ms  all 12/10/11/11/12
+reflect/direct 64.76  mega/mono 3.48

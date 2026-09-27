@@ -1,0 +1,8 @@
+## node22
+makeNoMention: big alive = false (keep() = 1)
+makeSiblingMentions: big alive = true (keep() = 1)
+makeMentions: big alive = true (keep() = 1000000)
+## node24
+makeNoMention: big alive = false (keep() = 1)
+makeSiblingMentions: big alive = true (keep() = 1)
+makeMentions: big alive = true (keep() = 1000000)

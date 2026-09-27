@@ -1,0 +1,9 @@
+Considering 0x44a50318 {0x0d2228c5b6b1 <SharedFunctionInfo sloppyAlias>} for inlining with 0x44a504d0 {0x0d2228c5bc69 <FeedbackVector[2]>}
+Inlining small function(s) at call site #43:JSCall
+Inlining 0x44a50318 {0x0d2228c5b6b1 <SharedFunctionInfo sloppyAlias>} into 0x44a4fe70 {0x0d2228c5b709 <SharedFunctionInfo caller>}
+Considering 0x44a50250 {0x0d2228c5b659 <SharedFunctionInfo sloppySum>} for inlining with 0x44a509b8 {0x0d2228c5bbf1 <FeedbackVector[8]>}
+1 candidate(s) for inlining:
+- candidate: JSCall node #37 with frequency 99.6765, 1 target(s):
+  - target: 0x44a50250 {0x0d2228c5b659 <SharedFunctionInfo sloppySum>}, bytecode size: 52
+Inlining 0x44a50250 {0x0d2228c5b659 <SharedFunctionInfo sloppySum>} into 0x44a4fe70 {0x0d2228c5b709 <SharedFunctionInfo caller>}
+caller 1010001 sloppySum 1010001 sloppyAlias 1010001 result 27

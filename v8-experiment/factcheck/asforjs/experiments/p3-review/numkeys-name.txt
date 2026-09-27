@@ -1,0 +1,31 @@
+=============== /opt/node20/bin/node
+name = doGetNameNum
+0x7f18277c72a3    23  48b8c138f0e95c240000 REX.W movq rax,0x245ce9f038c1    ;; object: 0x245ce9f038c1 <String[1]: #x>
+name = doGetNameDict
+0x7f18277c7371    31  498b8d58060000       REX.W movq rcx,[r13+0x658] (root (name_string))
+0x7f18277c737e    3e  e8fd42e81f           call 0x7f184764b680  (LoadICTrampoline)    ;; near builtin entry
+=============== /opt/node22/bin/node
+name = doGetNameNum
+0x7fce50005f63    23  48b8714dc4e044160000 REX.W movq rax,0x1644e0c44d71    ;; object: 0x1644e0c44d71 <String[1]: #x>
+0x7fce50005fb7    77  48b8714dc4e044160000 REX.W movq rax,0x1644e0c44d71    ;; object: 0x1644e0c44d71 <String[1]: #x>
+name = doGetNameDict
+0x7fce50006031    31  498b8d00070000       REX.W movq rcx,[r13+0x700] (root (name_string))
+0x7fce5000603e    3e  e83ddde41f           call 0x7fce6fe53d80  (LoadICTrampoline)    ;; near builtin entry
+0x7fce50006090    90  498b8d00070000       REX.W movq rcx,[r13+0x700] (root (name_string))
+0x7fce5000609d    9d  e8dedce41f           call 0x7fce6fe53d80  (LoadICTrampoline)    ;; near builtin entry
+=============== /opt/nvm/versions/node/v24.21.0/bin/node
+name = doGetNameNum
+0x7f1096004115    15  498b85b80f0000       REX.W movq rax,[r13+0xfb8] (root (x_string))
+0x7f1096004166    66  498b85b80f0000       REX.W movq rax,[r13+0xfb8] (root (x_string))
+name = doGetNameDict
+0x7f10960041e3    23  498b8d60070000       REX.W movq rcx,[r13+0x760] (root (name_string))
+0x7f10960041f0    30  e84b3cdd1f           call 0x7f10b5dd7e40  (LoadICTrampoline)    ;; near builtin entry
+0x7f1096004242    82  498b8d60070000       REX.W movq rcx,[r13+0x760] (root (name_string))
+0x7f109600424f    8f  e8ec3bdd1f           call 0x7f10b5dd7e40  (LoadICTrampoline)    ;; near builtin entry
+=============== /tmp/claude-0/-home-user-issues-memory-research/dacf359b-9898-588d-b8f1-20fd1e3f2945/scratchpad/d8/dbg/d8
+name = doGetNameNum
+0x7fcfc0a000bb    7b  498d861d350000       REX.W leaq rax,[r14+0x351d]
+name = doGetNameDict
+0x7fcfc0a001c9    89  bfc18e0101           movl rdi,0x1018ec1    ;; (compressed) object: 0x336b01018ec1 <Map[12](HOLEY_ELEMENTS)>
+0x7fcfc0a002a2   162  e8d982042f           call 0x7fcfefa48580  (LoadIC)    ;; near builtin entry
+0x7fcfc0a001ca  compressed embedded object  (0x336b01018ec1 <Map[c](HOLEY_ELEMENTS)> compressed)

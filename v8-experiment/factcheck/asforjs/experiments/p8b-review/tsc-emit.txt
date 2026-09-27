@@ -1,0 +1,47 @@
+tsc Version 7.0.2
+== --target ES2020 --useDefineForClassFields true
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.P = void 0;
+class P {
+    constructor(x, y) {
+        Object.defineProperty(this, "x", {
+            enumerable: true,
+            configurable: true,
+            writable: true,
+            value: 0
+        });
+        Object.defineProperty(this, "y", {
+            enumerable: true,
+            configurable: true,
+            writable: true,
+            value: 0
+        });
+        this.x = x;
+        this.y = y;
+    }
+}
+exports.P = P;
+== --target ES2022 --useDefineForClassFields true
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.P = void 0;
+class P {
+    x = 0;
+    y = 0;
+    constructor(x, y) { this.x = x; this.y = y; }
+}
+exports.P = P;
+== --target ES5
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.P = void 0;
+class P {
+    constructor(x, y) {
+        this.x = 0;
+        this.y = 0;
+        this.x = x;
+        this.y = y;
+    }
+}
+exports.P = P;

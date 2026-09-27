@@ -1,0 +1,54 @@
+## d8 15.6 run 1
+doLen: [30.0 27.8 28.0 28.3 27.9 27.0 27.2] median 27.9 ms
+doPop: [3.2 2.1 2.3 2.1 2.1 3.2 2.2] median 2.2 ms
+doLen/doPop = 12.75
+len on [1]: RangeError Invalid array length
+pop on [1] ok, length 0
+## node24 run 1
+doLen: [31.5 30.8 31.4 30.5 31.5 30.7 31.1] median 31.1 ms
+doPop: [3.4 3.4 2.2 2.3 2.3 2.2 2.3] median 2.3 ms
+doLen/doPop = 13.47
+len on [1]: RangeError Invalid array length
+pop on [1] ok, length 0
+## node24 --jitless run 1
+doLen: [49.9 50.2 51.6 50.2 45.1 45.8 44.4] median 49.9 ms
+doPop: [45.7 44.5 42.3 42.7 37.2 38.2 37.5] median 42.3 ms
+doLen/doPop = 1.18
+len on [1]: RangeError Invalid array length
+pop on [1] ok, length 0
+## d8 15.6 run 2
+doLen: [24.8 24.1 24.0 28.2 24.1 23.1 26.8] median 24.1 ms
+doPop: [2.9 1.9 2.3 1.9 1.8 2.9 2.2] median 2.2 ms
+doLen/doPop = 11.15
+len on [1]: RangeError Invalid array length
+pop on [1] ok, length 0
+## node24 run 2
+doLen: [36.4 30.8 34.6 32.0 31.6 31.2 31.5] median 31.6 ms
+doPop: [3.7 3.5 2.4 2.3 2.5 2.4 2.4] median 2.4 ms
+doLen/doPop = 13.08
+len on [1]: RangeError Invalid array length
+pop on [1] ok, length 0
+## node24 --jitless run 2
+doLen: [49.2 48.7 48.9 48.8 50.1 49.0 51.1] median 49.0 ms
+doPop: [42.2 42.3 43.2 42.4 42.8 42.4 43.9] median 42.4 ms
+doLen/doPop = 1.16
+len on [1]: RangeError Invalid array length
+pop on [1] ok, length 0
+## d8 15.6 run 3
+doLen: [28.5 27.1 25.6 26.3 26.5 27.6 26.6] median 26.6 ms
+doPop: [2.9 2.0 2.0 2.1 2.1 3.2 2.3] median 2.1 ms
+doLen/doPop = 12.78
+len on [1]: RangeError Invalid array length
+pop on [1] ok, length 0
+## node24 run 3
+doLen: [27.6 26.9 27.3 27.1 27.5 27.0 27.2] median 27.2 ms
+doPop: [3.3 3.1 2.1 2.1 2.1 2.1 2.2] median 2.1 ms
+doLen/doPop = 12.78
+len on [1]: RangeError Invalid array length
+pop on [1] ok, length 0
+## node24 --jitless run 3
+doLen: [46.0 44.4 46.6 88.4 49.4 49.4 50.2] median 49.4 ms
+doPop: [38.2 39.5 39.3 48.1 42.7 43.1 42.8] median 42.7 ms
+doLen/doPop = 1.16
+len on [1]: RangeError Invalid array length
+pop on [1] ok, length 0

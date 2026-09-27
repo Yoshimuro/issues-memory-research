@@ -1,0 +1,28 @@
+== d8 --no-turbo-inline-js-wasm-calls N=5e7
+rep0 js=35ms(8038336) wasm=276ms(8038336)
+rep1 js=31ms(8038336) wasm=216ms(8038336)
+rep2 js=25ms(8038336) wasm=214ms(8038336)
+== node20 --no-turbo-inline-js-wasm-calls
+rep0 js=36ms(8038336) wasm=210ms(8038336)
+rep1 js=31ms(8038336) wasm=206ms(8038336)
+rep2 js=31ms(8038336) wasm=193ms(8038336)
+== d8 Maglev top (--no-turbofan) N=2e7
+rep0 js=18ms(6023552) wasm=89ms(6023552)
+rep1 js=16ms(6023552) wasm=89ms(6023552)
+rep2 js=17ms(6023552) wasm=88ms(6023552)
+== node24 --no-turbofan N=2e7
+rep0 js=17ms(6023552) wasm=103ms(6023552)
+rep1 js=20ms(6023552) wasm=107ms(6023552)
+rep2 js=16ms(6023552) wasm=106ms(6023552)
+== d8 Sparkplug top (--no-turbofan --no-maglev) N=1e7
+rep0 js=120ms(15783104) wasm=93ms(15783104)
+rep1 js=113ms(15783104) wasm=92ms(15783104)
+rep2 js=137ms(15783104) wasm=94ms(15783104)
+== node20 Sparkplug top N=1e7
+rep0 js=134ms(15783104) wasm=108ms(15783104)
+rep1 js=132ms(15783104) wasm=107ms(15783104)
+rep2 js=133ms(15783104) wasm=113ms(15783104)
+== d8 Ignition only N=5e6
+rep0 js=155ms(15278688) wasm=90ms(15278688)
+rep1 js=147ms(15278688) wasm=115ms(15278688)
+rep2 js=147ms(15278688) wasm=98ms(15278688)

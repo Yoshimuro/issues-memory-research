@@ -1,0 +1,128 @@
+--- Raw source ---
+(o) { return doInc(o.x) + 0x7FFF; }
+
+
+--- Optimized code ---
+optimization_id = 1
+source_position = 51
+kind = TURBOFAN_JS
+name = doProp
+compiler = turbofan
+address = 0x360ac8741d11
+
+Instructions (size = 196)
+0x7f3aa2804100     0  55                   push rbp
+0x7f3aa2804101     1  4889e5               REX.W movq rbp,rsp
+0x7f3aa2804104     4  56                   push rsi
+0x7f3aa2804105     5  57                   push rdi
+0x7f3aa2804106     6  50                   push rax
+0x7f3aa2804107     7  4883ec08             REX.W subq rsp,0x8
+0x7f3aa280410b     b  488975e0             REX.W movq [rbp-0x20],rsi
+0x7f3aa280410f     f  493b65a0             REX.W cmpq rsp,[r13-0x60] (external value (StackGuard::address_of_jslimit()))
+0x7f3aa2804113    13  0f8667000000         jna 0x7f3aa2804180  <+0x80>
+0x7f3aa2804119    19  488b5518             REX.W movq rdx,[rbp+0x18]
+0x7f3aa280411d    1d  f6c201               testb rdx,0x1
+0x7f3aa2804120    20  0f8489000000         jz 0x7f3aa28041af  <+0xaf>
+0x7f3aa2804126    26  48b95189c2e2331c0000 REX.W movq rcx,0x1c33e2c28951    ;; object: 0x1c33e2c28951 <Map[32](HOLEY_ELEMENTS)>
+0x7f3aa2804130    30  48394aff             REX.W cmpq [rdx-0x1],rcx
+0x7f3aa2804134    34  0f8579000000         jnz 0x7f3aa28041b3  <+0xb3>
+0x7f3aa280413a    3a  488b4a17             REX.W movq rcx,[rdx+0x17]
+0x7f3aa280413e    3e  488bf9               REX.W movq rdi,rcx
+0x7f3aa2804141    41  48c1ff20             REX.W sarq rdi, 32
+0x7f3aa2804145    45  8bff                 movl rdi,rdi
+0x7f3aa2804147    47  83c701               addl rdi,0x1
+0x7f3aa280414a    4a  0f8067000000         jo 0x7f3aa28041b7  <+0xb7>
+0x7f3aa2804150    50  488bcf               REX.W movq rcx,rdi
+0x7f3aa2804153    53  81c1ff7f0000         addl rcx,0x7fff
+0x7f3aa2804159    59  0f805c000000         jo 0x7f3aa28041bb  <+0xbb>
+0x7f3aa280415f    5f  48c1e120             REX.W shlq rcx, 32
+0x7f3aa2804163    63  488bc1               REX.W movq rax,rcx
+0x7f3aa2804166    66  488b4de8             REX.W movq rcx,[rbp-0x18]
+0x7f3aa280416a    6a  488be5               REX.W movq rsp,rbp
+0x7f3aa280416d    6d  5d                   pop rbp
+0x7f3aa280416e    6e  4883f902             REX.W cmpq rcx,0x2
+0x7f3aa2804172    72  7f03                 jg 0x7f3aa2804177  <+0x77>
+0x7f3aa2804174    74  c21000               ret 0x10
+0x7f3aa2804177    77  415a                 pop r10
+0x7f3aa2804179    79  488d24cc             REX.W leaq rsp,[rsp+rcx*8]
+0x7f3aa280417d    7d  4152                 push r10
+0x7f3aa280417f    7f  c3                   retl
+0x7f3aa2804180    80  48ba0000000080000000 REX.W movq rdx,0x8000000000
+0x7f3aa280418a    8a  52                   push rdx
+0x7f3aa280418b    8b  48bb10863c0100000000 REX.W movq rbx,0x13c8610
+0x7f3aa2804195    95  b801000000           movl rax,0x1
+0x7f3aa280419a    9a  48be0901381632370000 REX.W movq rsi,0x373216380109    ;; object: 0x373216380109 <NativeContext[302]>
+0x7f3aa28041a4    a4  e8d727e31f           call 0x7f3ac2636980  (CEntry_Return1_ArgvOnStack_NoBuiltinExit)    ;; near builtin entry
+0x7f3aa28041a9    a9  e96bffffff           jmp 0x7f3aa2804119  <+0x19>
+0x7f3aa28041ae    ae  90                   nop
+0x7f3aa28041af    af  41ff55d8             call [r13-0x28]    ;; debug: deopt position, script offset '48'
+                                                             ;; debug: deopt position, inlining id 'ffffffff'
+                                                             ;; debug: deopt reason 'Smi'
+                                                             ;; debug: deopt index 0
+0x7f3aa28041b3    b3  41ff55d8             call [r13-0x28]    ;; debug: deopt position, script offset '48'
+                                                             ;; debug: deopt position, inlining id 'ffffffff'
+                                                             ;; debug: deopt reason 'wrong map'
+                                                             ;; debug: deopt index 1
+0x7f3aa28041b7    b7  41ff55d8             call [r13-0x28]    ;; debug: deopt position, script offset '1d'
+                                                             ;; debug: deopt position, inlining id '0'
+                                                             ;; debug: deopt reason 'overflow'
+                                                             ;; debug: deopt index 2
+0x7f3aa28041bb    bb  41ff55d8             call [r13-0x28]    ;; debug: deopt position, script offset '4b'
+                                                             ;; debug: deopt position, inlining id 'ffffffff'
+                                                             ;; debug: deopt reason 'overflow'
+                                                             ;; debug: deopt index 3
+0x7f3aa28041bf    bf  41ff55e0             call [r13-0x20]    ;; debug: deopt position, script offset '33'
+                                                             ;; debug: deopt position, inlining id 'ffffffff'
+                                                             ;; debug: deopt reason '(unknown)'
+                                                             ;; debug: deopt index 4
+0x7f3aa28041c3    c3  90                   nop
+
+Source positions:
+ pc offset  position
+         b        51
+        19        72
+        3e        29
+        50        75
+        5f        84
+        80        51
+
+Inlined functions (count = 1)
+ 0x1c33e2c282b9 <SharedFunctionInfo doInc>
+
+Deoptimization Input Data (deopt points = 5)
+ index  bytecode-offset    pc
+     0                3    NA 
+     1                3    NA 
+     2                2    NA 
+     3               12    NA 
+     4               -1    a9 
+
+Safepoints (stack slots = 6, entries = 1, byte size = 16)
+0x7f3aa28041a9     a9  slots (sp->fp): 100000  deopt      4 trampoline:     bf
+
+RelocInfo (size = 6f)
+0x7f3aa2804128  full embedded object  (0x1c33e2c28951 <Map[20](HOLEY_ELEMENTS)>)
+0x7f3aa280419c  full embedded object  (0x373216380109 <NativeContext[12e]>)
+0x7f3aa28041a5  near builtin entry
+0x7f3aa28041af  deopt script offset  (48)
+0x7f3aa28041af  deopt inlining id  (ffffffffffffffff)
+0x7f3aa28041af  deopt reason  (Smi)
+0x7f3aa28041af  deopt index
+0x7f3aa28041b3  deopt script offset  (48)
+0x7f3aa28041b3  deopt inlining id  (ffffffffffffffff)
+0x7f3aa28041b3  deopt reason  (wrong map)
+0x7f3aa28041b3  deopt index
+0x7f3aa28041b7  deopt script offset  (1d)
+0x7f3aa28041b7  deopt inlining id  (0)
+0x7f3aa28041b7  deopt reason  (overflow)
+0x7f3aa28041b7  deopt index
+0x7f3aa28041bb  deopt script offset  (4b)
+0x7f3aa28041bb  deopt inlining id  (ffffffffffffffff)
+0x7f3aa28041bb  deopt reason  (overflow)
+0x7f3aa28041bb  deopt index
+0x7f3aa28041bf  deopt script offset  (33)
+0x7f3aa28041bf  deopt inlining id  (ffffffffffffffff)
+0x7f3aa28041bf  deopt reason  ((unknown))
+0x7f3aa28041bf  deopt index
+
+--- End code ---

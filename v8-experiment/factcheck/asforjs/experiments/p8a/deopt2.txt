@@ -1,0 +1,33 @@
+#### node22
+--- apply(f2) after optimizing with f1
+[bailout (kind: deopt-eager, reason: wrong call target): begin. deoptimizing  <JSFunction apply >,  <Code TURBOFAN>, opt id 0, bytecode offset 0, deopt exit 0
+--- applyObj(o2) after optimizing with o1
+[bailout (kind: deopt-eager, reason: wrong call target): begin. deoptimizing  <JSFunction applyObj >,  <Code TURBOFAN>, opt id 1, bytecode offset 0, deopt exit 2
+--- viaIf(3)
+[bailout (kind: deopt-eager, reason: Insufficient type feedback for compare operation): begin. deoptimizing  <JSFunction viaIf >,  <Code TURBOFAN>, opt id 2, bytecode offset 22, deopt exit 1
+--- viaSwitch(3)
+[bailout (kind: deopt-eager, reason: Insufficient type feedback for binary operation): begin. deoptimizing  <JSFunction viaSwitch >,  <Code TURBOFAN>, opt id 3, bytecode offset 37, deopt exit 1
+--- viaIf(4) / viaSwitch(4) (fall-through default)
+--- done
+#### node24
+--- apply(f2) after optimizing with f1
+[bailout (kind: deopt-eager, reason: wrong call target): begin. deoptimizing  <JSFunction apply >,  <Code TURBOFAN_JS>, opt id 0, bytecode offset 0, deopt exit 0
+--- applyObj(o2) after optimizing with o1
+[bailout (kind: deopt-eager, reason: wrong call target): begin. deoptimizing  <JSFunction applyObj >,  <Code TURBOFAN_JS>, opt id 2, bytecode offset 0, deopt exit 2
+--- viaIf(3)
+[bailout (kind: deopt-eager, reason: Insufficient type feedback for compare operation): begin. deoptimizing  <JSFunction viaIf >,  <Code TURBOFAN_JS>, opt id 3, bytecode offset 22, deopt exit 1
+--- viaSwitch(3)
+[bailout (kind: deopt-eager, reason: Insufficient type feedback for binary operation): begin. deoptimizing  <JSFunction viaSwitch >,  <Code TURBOFAN_JS>, opt id 4, bytecode offset 37, deopt exit 1
+--- viaIf(4) / viaSwitch(4) (fall-through default)
+--- done
+#### d8
+--- apply(f2) after optimizing with f1
+[bailout (kind: deopt-eager, reason: wrong call target): begin. deoptimizing  <JSFunction apply >,  <Code TURBOFAN_JS>, opt id 0, bytecode offset 0, deopt exit 0
+--- applyObj(o2) after optimizing with o1
+[bailout (kind: deopt-eager, reason: wrong call target): begin. deoptimizing  <JSFunction applyObj >,  <Code TURBOFAN_JS>, opt id 1, bytecode offset 0, deopt exit 2
+--- viaIf(3)
+[bailout (kind: deopt-eager, reason: Insufficient type feedback for compare operation): begin. deoptimizing  <JSFunction viaIf >,  <Code TURBOFAN_JS>, opt id 2, bytecode offset 22, deopt exit 1
+--- viaSwitch(3)
+[bailout (kind: deopt-eager, reason: Insufficient type feedback for compare operation): begin. deoptimizing  <JSFunction viaSwitch >,  <Code TURBOFAN_JS>, opt id 3, bytecode offset 2, deopt exit 1
+--- viaIf(4) / viaSwitch(4) (fall-through default)
+--- done

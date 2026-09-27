@@ -1,0 +1,62 @@
+               total        used        free      shared  buff/cache   available
+Mem:              15           0          14           0           0          15
+## /opt/node20/bin/node
+heap_size_limit MB 8240  rss at start MB 41.6  heapUsed MB 3.5  pointer_compression 0
+  --incremental-marking (use incremental marking)
+        type: bool  default: --incremental-marking
+  --parallel-scavenge (parallel scavenge)
+        type: bool  default: --parallel-scavenge
+  --concurrent-marking (use concurrent marking)
+        type: bool  default: --concurrent-marking
+  --parallel-marking (use parallel marking in atomic pause)
+        type: bool  default: --parallel-marking
+  --concurrent-sweeping (use concurrent sweeping)
+        type: bool  default: --concurrent-sweeping
+  --flush-bytecode (flush of bytecode when it has not been executed recently)
+        type: bool  default: --flush-bytecode
+  --bytecode-old-age (number of gcs before we flush code)
+        type: int  default: --bytecode-old-age=5
+  --stress-flush-code (stress code flushing)
+        type: bool  default: --no-stress-flush-code
+  --expose-gc (expose gc extension)
+        type: bool  default: --no-expose-gc
+## /opt/node22/bin/node
+heap_size_limit MB 8240  rss at start MB 44.8  heapUsed MB 4.0  pointer_compression 0
+  --incremental-marking (use incremental marking)
+        type: bool  default: --incremental-marking
+  --parallel-scavenge (parallel scavenge)
+        type: bool  default: --parallel-scavenge
+  --concurrent-marking (use concurrent marking)
+        type: bool  default: --concurrent-marking
+  --parallel-marking (use parallel marking in atomic pause)
+        type: bool  default: --parallel-marking
+  --concurrent-sweeping (use concurrent sweeping)
+        type: bool  default: --concurrent-sweeping
+  --flush-bytecode (flush of bytecode when it has not been executed recently)
+        type: bool  default: --flush-bytecode
+  --bytecode-old-age (number of gcs before we flush code)
+        type: int  default: --bytecode-old-age=6
+  --stress-flush-code (stress code flushing)
+        type: bool  default: --no-stress-flush-code
+  --expose-gc (expose gc extension)
+        type: bool  default: --no-expose-gc
+## /opt/nvm/versions/node/v24.21.0/bin/node
+heap_size_limit MB 8384  rss at start MB 43.9  heapUsed MB 4.3  pointer_compression 0
+  --incremental-marking (use incremental marking)
+        type: bool  default: --incremental-marking
+  --parallel-scavenge (parallel scavenge)
+        type: bool  default: --parallel-scavenge
+  --concurrent-marking (use concurrent marking)
+        type: bool  default: --concurrent-marking
+  --parallel-marking (use parallel marking in atomic pause)
+        type: bool  default: --parallel-marking
+  --concurrent-sweeping (use concurrent sweeping)
+        type: bool  default: --concurrent-sweeping
+  --flush-bytecode (flush of bytecode when it has not been executed recently)
+        type: bool  default: --flush-bytecode
+  --bytecode-old-age (number of gcs before we flush code)
+        type: int  default: --bytecode-old-age=6
+  --stress-flush-code (stress code flushing)
+        type: bool  default: --no-stress-flush-code
+  --expose-gc (expose gc extension)
+        type: bool  default: --no-expose-gc

@@ -1,0 +1,24 @@
+##### node20
+round 0 destrArr=126ms destrObj=103ms destrIdx=98ms arr/idx=1.28
+round 1 destrArr=121ms destrObj=92ms destrIdx=91ms arr/idx=1.33
+round 2 destrArr=109ms destrObj=91ms destrIdx=88ms arr/idx=1.24
+round 3 destrArr=120ms destrObj=114ms destrIdx=167ms arr/idx=0.72
+round 4 destrArr=124ms destrObj=100ms destrIdx=101ms arr/idx=1.23
+##### node22
+round 0 destrArr=122ms destrObj=104ms destrIdx=110ms arr/idx=1.11
+round 1 destrArr=127ms destrObj=105ms destrIdx=110ms arr/idx=1.16
+round 2 destrArr=160ms destrObj=95ms destrIdx=132ms arr/idx=1.21
+round 3 destrArr=112ms destrObj=103ms destrIdx=102ms arr/idx=1.09
+round 4 destrArr=118ms destrObj=103ms destrIdx=113ms arr/idx=1.05
+##### node24
+round 0 destrArr=112ms destrObj=116ms destrIdx=126ms arr/idx=0.89
+round 1 destrArr=130ms destrObj=122ms destrIdx=109ms arr/idx=1.19
+round 2 destrArr=108ms destrObj=92ms destrIdx=97ms arr/idx=1.12
+round 3 destrArr=103ms destrObj=104ms destrIdx=115ms arr/idx=0.90
+round 4 destrArr=123ms destrObj=134ms destrIdx=119ms arr/idx=1.03
+##### d8
+round 0 destrArr=132ms destrObj=107ms destrIdx=117ms arr/idx=1.12
+round 1 destrArr=118ms destrObj=109ms destrIdx=108ms arr/idx=1.09
+round 2 destrArr=114ms destrObj=97ms destrIdx=101ms arr/idx=1.12
+round 3 destrArr=109ms destrObj=100ms destrIdx=98ms arr/idx=1.12
+round 4 destrArr=100ms destrObj=100ms destrIdx=132ms arr/idx=0.76

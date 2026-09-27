@@ -1,0 +1,8 @@
+src/codegen/riscv/macro-assembler-riscv.cc 8054
+src/codegen/riscv/assembler-riscv.cc 2295
+src/compiler/backend/riscv/code-generator-riscv.cc 5148
+src/compiler/backend/riscv/instruction-selector-riscv64.cc 2317
+src/builtins/riscv/builtins-riscv.cc 5226
+src/wasm/baseline/riscv/liftoff-assembler-riscv64-inl.h 1928
+src/regexp/riscv/regexp-macro-assembler-riscv.cc 1425
+src/maglev/riscv/maglev-ir-riscv.cc 940

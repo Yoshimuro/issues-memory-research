@@ -1,0 +1,22 @@
+== d8 default
+V8 is running with developer-only features enabled. Stability and security will suffer.
+rep0 idx-1byte=120ms code-1byte=63ms idx-2byte=49ms code-2byte=42ms
+rep1 idx-1byte=60ms code-1byte=62ms idx-2byte=48ms code-2byte=61ms
+rep2 idx-1byte=88ms code-1byte=75ms idx-2byte=47ms code-2byte=44ms
+rep3 idx-1byte=63ms code-1byte=62ms idx-2byte=44ms code-2byte=46ms
+scavenges total: 5
+== node24 default
+rep0 idx-1byte=98ms code-1byte=86ms idx-2byte=73ms code-2byte=63ms
+rep1 idx-1byte=85ms code-1byte=85ms idx-2byte=63ms code-2byte=63ms
+rep2 idx-1byte=84ms code-1byte=87ms idx-2byte=61ms code-2byte=62ms
+rep3 idx-1byte=84ms code-1byte=96ms idx-2byte=61ms code-2byte=61ms
+== node22 default
+rep0 idx-1byte=99ms code-1byte=88ms idx-2byte=93ms code-2byte=89ms
+rep1 idx-1byte=88ms code-1byte=87ms idx-2byte=163ms code-2byte=107ms
+rep2 idx-1byte=86ms code-1byte=87ms idx-2byte=80ms code-2byte=73ms
+rep3 idx-1byte=75ms code-1byte=75ms idx-2byte=74ms code-2byte=75ms
+== d8 ignition-only R=20
+rep0 idx-1byte=83ms code-1byte=66ms idx-2byte=80ms code-2byte=70ms
+rep1 idx-1byte=80ms code-1byte=72ms idx-2byte=78ms code-2byte=69ms
+rep2 idx-1byte=80ms code-1byte=70ms idx-2byte=78ms code-2byte=70ms
+rep3 idx-1byte=80ms code-1byte=71ms idx-2byte=78ms code-2byte=70ms

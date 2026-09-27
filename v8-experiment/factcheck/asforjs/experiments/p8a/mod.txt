@@ -1,0 +1,16 @@
+#### node22
+x&1 95ms | x%2 443ms
+x&1 83ms | x%2 488ms
+x&1 86ms | x%2 496ms
+#### node24
+x&1 78ms | x%2 464ms
+x&1 81ms | x%2 441ms
+x&1 79ms | x%2 503ms
+#### d8
+x&1 88ms | x%2 517ms
+x&1 88ms | x%2 510ms
+x&1 74ms | x%2 513ms
+#### node24 ignition
+x&1 1412ms | x%2 2650ms
+x&1 1126ms | x%2 2529ms
+x&1 1171ms | x%2 2690ms

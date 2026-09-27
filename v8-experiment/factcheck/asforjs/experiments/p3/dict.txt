@@ -1,0 +1,100 @@
+===== node20 =====
+keyed o["p"+i] loop: dictionary after N props = 20
+named o.pN stores: dictionary after N props = 1021
+100 keyed props fast? true
+100 numeric keys fast props? true dict elements? false
+Object.assign({},dict,lit) fast? false
+Object.assign({},lit) fast? true
+JSON roundtrip of 100-prop dict fast? true
+after delete fast? false
+JSON roundtrip after delete fast? true
+pr dict true
+pr fast after becoming prototype? false
+defineProperty default-attrs fast? true same map as {}.x=? true
+defineProperty readonly fast? true
+defineProperty getter fast? true
+redefine existing attrs fast? true
+frozen obj fast? true
+frozen array dict elements? false
+after setPrototypeOf fast? true
+fn setPrototypeOf(null) fast? true
+===== node22 =====
+keyed o["p"+i] loop: dictionary after N props = 20
+named o.pN stores: dictionary after N props = 1021
+100 keyed props fast? true
+100 numeric keys fast props? true dict elements? false
+Object.assign({},dict,lit) fast? false
+Object.assign({},lit) fast? true
+JSON roundtrip of 100-prop dict fast? true
+after delete fast? false
+JSON roundtrip after delete fast? true
+pr dict true
+pr fast after becoming prototype? false
+defineProperty default-attrs fast? true same map as {}.x=? true
+defineProperty readonly fast? true
+defineProperty getter fast? true
+redefine existing attrs fast? true
+frozen obj fast? true
+frozen array dict elements? false
+after setPrototypeOf fast? true
+fn setPrototypeOf(null) fast? true
+===== node24 =====
+keyed o["p"+i] loop: dictionary after N props = 20
+named o.pN stores: dictionary after N props = 1021
+100 keyed props fast? true
+100 numeric keys fast props? true dict elements? false
+Object.assign({},dict,lit) fast? false
+Object.assign({},lit) fast? true
+JSON roundtrip of 100-prop dict fast? true
+after delete fast? false
+JSON roundtrip after delete fast? true
+pr dict true
+pr fast after becoming prototype? false
+defineProperty default-attrs fast? true same map as {}.x=? true
+defineProperty readonly fast? true
+defineProperty getter fast? true
+redefine existing attrs fast? true
+frozen obj fast? true
+frozen array dict elements? false
+after setPrototypeOf fast? true
+fn setPrototypeOf(null) fast? true
+===== d8rel =====
+keyed o["p"+i] loop: dictionary after N props = 20
+named o.pN stores: dictionary after N props = 1021
+100 keyed props fast? true
+100 numeric keys fast props? true dict elements? false
+Object.assign({},dict,lit) fast? false
+Object.assign({},lit) fast? true
+JSON roundtrip of 100-prop dict fast? true
+after delete fast? false
+JSON roundtrip after delete fast? true
+pr dict true
+pr fast after becoming prototype? false
+defineProperty default-attrs fast? true same map as {}.x=? true
+defineProperty readonly fast? true
+defineProperty getter fast? true
+redefine existing attrs fast? true
+frozen obj fast? true
+frozen array dict elements? false
+after setPrototypeOf fast? true
+fn setPrototypeOf(null) fast? true
+===== d8dbg =====
+keyed o["p"+i] loop: dictionary after N props = 20
+named o.pN stores: dictionary after N props = 1021
+100 keyed props fast? true
+100 numeric keys fast props? true dict elements? false
+Object.assign({},dict,lit) fast? false
+Object.assign({},lit) fast? true
+JSON roundtrip of 100-prop dict fast? true
+after delete fast? false
+JSON roundtrip after delete fast? true
+pr dict true
+pr fast after becoming prototype? false
+defineProperty default-attrs fast? true same map as {}.x=? true
+defineProperty readonly fast? true
+defineProperty getter fast? true
+redefine existing attrs fast? true
+frozen obj fast? true
+frozen array dict elements? false
+after setPrototypeOf fast? true
+fn setPrototypeOf(null) fast? true

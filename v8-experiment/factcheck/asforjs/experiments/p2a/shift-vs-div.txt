@@ -1,0 +1,24 @@
+## d8 15.6 --jitless run 1
+doShift: [102 99 96 97 137] median 99 ms, vs doShift 1.00x
+doDiv: [110 113 112 113 126] median 113 ms, vs doShift 1.14x
+doShiftExtra: [110 106 107 105 133] median 107 ms, vs doShift 1.08x
+## node24 --jitless run 1
+doShift: [101 111 114 115 115] median 114 ms, vs doShift 1.00x
+doDiv: [106 126 118 129 125] median 125 ms, vs doShift 1.10x
+doShiftExtra: [112 125 131 128 128] median 128 ms, vs doShift 1.13x
+## d8 15.6 --jitless run 2
+doShift: [107 114 122 92 119] median 114 ms, vs doShift 1.00x
+doDiv: [122 121 148 106 143] median 122 ms, vs doShift 1.07x
+doShiftExtra: [119 171 154 98 140] median 140 ms, vs doShift 1.22x
+## node24 --jitless run 2
+doShift: [116 121 114 117 109] median 116 ms, vs doShift 1.00x
+doDiv: [131 133 128 128 125] median 128 ms, vs doShift 1.10x
+doShiftExtra: [132 131 129 121 129] median 129 ms, vs doShift 1.11x
+## d8 15.6 --jitless run 3
+doShift: [140 107 116 111 110] median 111 ms, vs doShift 1.00x
+doDiv: [120 127 132 124 124] median 124 ms, vs doShift 1.12x
+doShiftExtra: [119 126 121 120 121] median 121 ms, vs doShift 1.09x
+## node24 --jitless run 3
+doShift: [119 115 114 115 123] median 115 ms, vs doShift 1.00x
+doDiv: [128 126 125 130 129] median 128 ms, vs doShift 1.11x
+doShiftExtra: [126 126 130 133 124] median 126 ms, vs doShift 1.10x

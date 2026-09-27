@@ -1,0 +1,4 @@
+D8 never: sumOuter 427 sumLocal 137 sumOuter 465 sumLocal 150 sumOuter 427 sumLocal 140
+D8 default: sumOuter 169 sumLocal 13 sumOuter 179 sumLocal 15 sumOuter 198 sumLocal 13
+N24 never: sumOuter 218 sumLocal 162 sumOuter 205 sumLocal 183 sumOuter 240 sumLocal 197
+N24 default: sumOuter 144 sumLocal 14 sumOuter 139 sumLocal 12 sumOuter 154 sumLocal 13

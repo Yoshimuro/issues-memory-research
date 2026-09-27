@@ -1,0 +1,20 @@
+Considering 0x301e9318 {0x2bc06405b779 <SharedFunctionInfo sumRest>} for inlining with 0x301e94a8 {0x2bc06405c0a9 <FeedbackVector[8]>}
+1 candidate(s) for inlining:
+- candidate: JSCall node #20 with frequency 0.999667, 1 target(s):
+  - target: 0x301e9318 {0x2bc06405b779 <SharedFunctionInfo sumRest>}, bytecode size: 40
+Inlining 0x301e9318 {0x2bc06405b779 <SharedFunctionInfo sumRest>} into 0x301e8fd0 {0x2bc06405b829 <SharedFunctionInfo callDirect3>}
+Considering 0x301e9620 {0x2bc06405b829 <SharedFunctionInfo callDirect3>} for inlining with 0x301e97b8 {0x2bc06405c169 <FeedbackVector[2]>}
+Considering 0x301e9528 {0x2bc06405b7d1 <SharedFunctionInfo callSpread>} for inlining with 0x301e9f00 {0x2bc06405c121 <FeedbackVector[2]>}
+Inlining small function(s) at call site #71:JSCall
+Inlining 0x301e9528 {0x2bc06405b7d1 <SharedFunctionInfo callSpread>} into 0x301e8fc0 {0x2bc06405b711 <SharedFunctionInfo>}
+1 candidate(s) for inlining:
+- candidate: JSCall node #78 with frequency 19687, 1 target(s):
+  - target: 0x301e9620 {0x2bc06405b829 <SharedFunctionInfo callDirect3>}, bytecode size: 18, existing opt code's inlined bytecode size: 40
+Inlining 0x301e9620 {0x2bc06405b829 <SharedFunctionInfo callDirect3>} into 0x301e8fc0 {0x2bc06405b711 <SharedFunctionInfo>}
+Considering 0x301e9f90 {0x2bc06405b779 <SharedFunctionInfo sumRest>} for inlining with 0x301ea090 {0x2bc06405c0a9 <FeedbackVector[8]>}
+1 candidate(s) for inlining:
+- candidate: JSCall node #150 with frequency 19680.4, 1 target(s):
+  - target: 0x301e9f90 {0x2bc06405b779 <SharedFunctionInfo sumRest>}, bytecode size: 40
+Inlining 0x301e9f90 {0x2bc06405b779 <SharedFunctionInfo sumRest>} into 0x301e8fc0 {0x2bc06405b711 <SharedFunctionInfo>}
+[bailout (kind: deopt-eager, reason: Insufficient type feedback for binary operation): begin. deoptimizing 0x05883f0e5981 <JSFunction (sfi = 0x2bc06405b711)>, 0x1c3cf3f82ed1 <Code TURBOFAN>, opt id 3, bytecode offset 206, deopt exit 1, FP to SP delta 216, caller SP 0x7ffd5f526e58, pc 0x7ffae0007c03]
+varying: callSpread=1010001 callDirect3=1010001 sumRest=1010001 t=200260000

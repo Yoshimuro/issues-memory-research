@@ -1,0 +1,16 @@
+== node20
+Inlining {<SharedFunctionInfo f3>} into {<SharedFunctionInfo fewer>}
+Inlining {<SharedFunctionInfo f3>} into {<SharedFunctionInfo more>}
+Inlining {<SharedFunctionInfo f5>} into {<SharedFunctionInfo five>}
+== node22
+Inlining {<SharedFunctionInfo f3>} into {<SharedFunctionInfo fewer>}
+Inlining {<SharedFunctionInfo f3>} into {<SharedFunctionInfo more>}
+Inlining {<SharedFunctionInfo f5>} into {<SharedFunctionInfo five>}
+== node24
+Inlining {<SharedFunctionInfo f3>} into {<SharedFunctionInfo fewer>}
+Inlining {<SharedFunctionInfo f3>} into {<SharedFunctionInfo more>}
+Inlining {<SharedFunctionInfo f5>} into {<SharedFunctionInfo five>}
+== d8
+Inlining {<SharedFunctionInfo f3>} into {<SharedFunctionInfo fewer>}
+Inlining {<SharedFunctionInfo f3>} into {<SharedFunctionInfo more>}
+Inlining {<SharedFunctionInfo f5>} into {<SharedFunctionInfo five>}

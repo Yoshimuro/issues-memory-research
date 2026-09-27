@@ -1,0 +1,12 @@
+## node24
+rep0: present 39.9 | missing(depth 11) 37.9 | inherited(depth ~8) 37.9
+rep1: present 28.6 | missing(depth 11) 28.7 | inherited(depth ~8) 28.4
+rep2: present 16.5 | missing(depth 11) 17.0 | inherited(depth ~8) 16.5
+## node24 ignition-only
+rep0: present 528.0 | missing(depth 11) 599.1 | inherited(depth ~8) 441.3
+rep1: present 491.1 | missing(depth 11) 683.6 | inherited(depth ~8) 523.3
+rep2: present 522.0 | missing(depth 11) 606.1 | inherited(depth ~8) 517.3
+## d8
+rep0: present 14.5 | missing(depth 11) 14.3 | inherited(depth ~8) 14.2
+rep1: present 13.4 | missing(depth 11) 13.3 | inherited(depth ~8) 13.5
+rep2: present 13.4 | missing(depth 11) 13.4 | inherited(depth ~8) 15.9

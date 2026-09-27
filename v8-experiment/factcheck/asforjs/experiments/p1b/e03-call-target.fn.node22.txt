@@ -1,0 +1,71 @@
+[marking 0x0dc7660668c9 <JSFunction doConst7 (sfi = 0x4c7ee99ba99)> for optimization to TURBOFAN, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x0dc7660668c9 <JSFunction doConst7 (sfi = 0x4c7ee99ba99)> (target TURBOFAN), mode: ConcurrencyMode::kSynchronous]
+[completed compiling 0x0dc7660668c9 <JSFunction doConst7 (sfi = 0x4c7ee99ba99)> (target TURBOFAN) - took 0.064, 1.074, 0.026 ms]
+[marking 0x0dc766066949 <JSFunction doThing (sfi = 0x4c7ee99bb49)> for optimization to TURBOFAN, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x0dc766066949 <JSFunction doThing (sfi = 0x4c7ee99bb49)> (target TURBOFAN), mode: ConcurrencyMode::kSynchronous]
+Considering 0x29fb73c0 {0x04c7ee99ba99 <SharedFunctionInfo doConst7>} for inlining with 0x29fb7548 {0x04c7ee99e1a9 <FeedbackVector[0]>}
+Inlining small function(s) at call site #35:JSCall
+Inlining 0x29fb73c0 {0x04c7ee99ba99 <SharedFunctionInfo doConst7>} into 0x29fb6fe0 {0x04c7ee99bb49 <SharedFunctionInfo doThing>}
+[completed compiling 0x0dc766066949 <JSFunction doThing (sfi = 0x4c7ee99bb49)> (target TURBOFAN) - took 0.014, 1.469, 0.042 ms]
+[marking 0x0dc7660669c9 <JSFunction warm (sfi = 0x4c7ee99bbf9)> for optimization to TURBOFAN, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x0dc7660669c9 <JSFunction warm (sfi = 0x4c7ee99bbf9)> (target TURBOFAN) OSR, mode: ConcurrencyMode::kSynchronous]
+Considering 0x29fb73c0 {0x04c7ee99bb49 <SharedFunctionInfo doThing>} for inlining with 0x29fb7518 {0x04c7ee99e1e1 <FeedbackVector[6]>}
+1 candidate(s) for inlining:
+- candidate: JSCall node #40 with frequency 4562, 1 target(s):
+  - target: 0x29fb73c0 {0x04c7ee99bb49 <SharedFunctionInfo doThing>}, bytecode size: 33, existing opt code's inlined bytecode size: 3
+Inlining 0x29fb73c0 {0x04c7ee99bb49 <SharedFunctionInfo doThing>} into 0x29fb6fe0 {0x04c7ee99bbf9 <SharedFunctionInfo warm>}
+Considering 0x29fb75d8 {0x04c7ee99ba99 <SharedFunctionInfo doConst7>} for inlining with 0x29fb7af0 {0x04c7ee99e1a9 <FeedbackVector[0]>}
+Inlining small function(s) at call site #84:JSCall
+Inlining 0x29fb75d8 {0x04c7ee99ba99 <SharedFunctionInfo doConst7>} into 0x29fb6fe0 {0x04c7ee99bbf9 <SharedFunctionInfo warm>}
+[completed compiling 0x0dc7660669c9 <JSFunction warm (sfi = 0x4c7ee99bbf9)> (target TURBOFAN) OSR - took 0.014, 2.698, 0.023 ms]
+after doConst7 warmup: 1010001
+--- switching to doConst15
+[bailout (kind: deopt-eager, reason: wrong call target): begin. deoptimizing 0x0dc766066949 <JSFunction doThing (sfi = 0x4c7ee99bb49)>, 0x02210da830a9 <Code TURBOFAN>, opt id 1, bytecode offset 6, deopt exit 0, FP to SP delta 48, caller SP 0x7ffd9e15b7f0, pc 0x7f3de6fc6155]
+[bailout (kind: deopt-eager, reason: wrong call target): begin. deoptimizing 0x0dc7660669c9 <JSFunction warm (sfi = 0x4c7ee99bbf9)>, 0x02210da832a1 <Code TURBOFAN>, opt id 2, bytecode offset 6, deopt exit 3, FP to SP delta 88, caller SP 0x7ffd9e15b858, pc 0x7f3de6fc6417]
+[marking 0x0dc766066909 <JSFunction doConst15 (sfi = 0x4c7ee99baf1)> for optimization to TURBOFAN, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x0dc766066909 <JSFunction doConst15 (sfi = 0x4c7ee99baf1)> (target TURBOFAN), mode: ConcurrencyMode::kSynchronous]
+[completed compiling 0x0dc766066909 <JSFunction doConst15 (sfi = 0x4c7ee99baf1)> (target TURBOFAN) - took 0.009, 0.344, 0.015 ms]
+[marking 0x0dc766066949 <JSFunction doThing (sfi = 0x4c7ee99bb49)> for optimization to TURBOFAN, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x0dc766066949 <JSFunction doThing (sfi = 0x4c7ee99bb49)> (target TURBOFAN), mode: ConcurrencyMode::kSynchronous]
+[completed compiling 0x0dc766066949 <JSFunction doThing (sfi = 0x4c7ee99bb49)> (target TURBOFAN) - took 0.007, 1.001, 0.018 ms]
+[marking 0x0dc7660669c9 <JSFunction warm (sfi = 0x4c7ee99bbf9)> for optimization to TURBOFAN, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x0dc7660669c9 <JSFunction warm (sfi = 0x4c7ee99bbf9)> (target TURBOFAN) OSR, mode: ConcurrencyMode::kSynchronous]
+Considering 0x29fcd660 {0x04c7ee99bb49 <SharedFunctionInfo doThing>} for inlining with 0x29fcd7b8 {0x04c7ee99e1e1 <FeedbackVector[6]>}
+1 candidate(s) for inlining:
+- candidate: JSCall node #40 with frequency 3041.67, 1 target(s):
+  - target: 0x29fcd660 {0x04c7ee99bb49 <SharedFunctionInfo doThing>}, bytecode size: 33
+Inlining 0x29fcd660 {0x04c7ee99bb49 <SharedFunctionInfo doThing>} into 0x29fcd280 {0x04c7ee99bbf9 <SharedFunctionInfo warm>}
+[completed compiling 0x0dc7660669c9 <JSFunction warm (sfi = 0x4c7ee99bbf9)> (target TURBOFAN) OSR - took 0.020, 2.229, 0.026 ms]
+after doConst15: 1010001
+--- 10 different functions
+[marking 0x0dc766068519 <JSFunction (sfi = 0x4c7ee99c869)> for optimization to TURBOFAN, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x0dc766068519 <JSFunction (sfi = 0x4c7ee99c869)> (target TURBOFAN), mode: ConcurrencyMode::kSynchronous]
+[completed compiling 0x0dc766068519 <JSFunction (sfi = 0x4c7ee99c869)> (target TURBOFAN) - took 0.007, 0.259, 0.007 ms]
+[marking 0x0dc766068711 <JSFunction (sfi = 0x4c7ee99cac1)> for optimization to TURBOFAN, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x0dc766068711 <JSFunction (sfi = 0x4c7ee99cac1)> (target TURBOFAN), mode: ConcurrencyMode::kSynchronous]
+[completed compiling 0x0dc766068711 <JSFunction (sfi = 0x4c7ee99cac1)> (target TURBOFAN) - took 0.004, 0.198, 0.006 ms]
+[marking 0x0dc766068909 <JSFunction (sfi = 0x4c7ee99cd19)> for optimization to TURBOFAN, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x0dc766068909 <JSFunction (sfi = 0x4c7ee99cd19)> (target TURBOFAN), mode: ConcurrencyMode::kSynchronous]
+[completed compiling 0x0dc766068909 <JSFunction (sfi = 0x4c7ee99cd19)> (target TURBOFAN) - took 0.004, 0.161, 0.005 ms]
+[marking 0x0dc766068b01 <JSFunction (sfi = 0x4c7ee99cf71)> for optimization to TURBOFAN, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x0dc766068b01 <JSFunction (sfi = 0x4c7ee99cf71)> (target TURBOFAN), mode: ConcurrencyMode::kSynchronous]
+[completed compiling 0x0dc766068b01 <JSFunction (sfi = 0x4c7ee99cf71)> (target TURBOFAN) - took 0.003, 0.141, 0.005 ms]
+[marking 0x0dc766068cf9 <JSFunction (sfi = 0x4c7ee99d1c9)> for optimization to TURBOFAN, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x0dc766068cf9 <JSFunction (sfi = 0x4c7ee99d1c9)> (target TURBOFAN), mode: ConcurrencyMode::kSynchronous]
+[completed compiling 0x0dc766068cf9 <JSFunction (sfi = 0x4c7ee99d1c9)> (target TURBOFAN) - took 0.003, 0.131, 0.004 ms]
+[marking 0x0dc766068ef1 <JSFunction (sfi = 0x4c7ee99d421)> for optimization to TURBOFAN, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x0dc766068ef1 <JSFunction (sfi = 0x4c7ee99d421)> (target TURBOFAN), mode: ConcurrencyMode::kSynchronous]
+[completed compiling 0x0dc766068ef1 <JSFunction (sfi = 0x4c7ee99d421)> (target TURBOFAN) - took 0.003, 0.151, 0.004 ms]
+[marking 0x0dc7660690e9 <JSFunction (sfi = 0x4c7ee99d679)> for optimization to TURBOFAN, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x0dc7660690e9 <JSFunction (sfi = 0x4c7ee99d679)> (target TURBOFAN), mode: ConcurrencyMode::kSynchronous]
+[completed compiling 0x0dc7660690e9 <JSFunction (sfi = 0x4c7ee99d679)> (target TURBOFAN) - took 0.003, 0.126, 0.004 ms]
+[marking 0x0dc7660692e1 <JSFunction (sfi = 0x4c7ee99d8d1)> for optimization to TURBOFAN, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x0dc7660692e1 <JSFunction (sfi = 0x4c7ee99d8d1)> (target TURBOFAN), mode: ConcurrencyMode::kSynchronous]
+[completed compiling 0x0dc7660692e1 <JSFunction (sfi = 0x4c7ee99d8d1)> (target TURBOFAN) - took 0.003, 0.119, 0.004 ms]
+[marking 0x0dc7660694d9 <JSFunction (sfi = 0x4c7ee99db29)> for optimization to TURBOFAN, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x0dc7660694d9 <JSFunction (sfi = 0x4c7ee99db29)> (target TURBOFAN), mode: ConcurrencyMode::kSynchronous]
+[completed compiling 0x0dc7660694d9 <JSFunction (sfi = 0x4c7ee99db29)> (target TURBOFAN) - took 0.003, 0.108, 0.003 ms]
+[marking 0x0dc7660696d1 <JSFunction (sfi = 0x4c7ee99dde1)> for optimization to TURBOFAN, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x0dc7660696d1 <JSFunction (sfi = 0x4c7ee99dde1)> (target TURBOFAN), mode: ConcurrencyMode::kSynchronous]
+[completed compiling 0x0dc7660696d1 <JSFunction (sfi = 0x4c7ee99dde1)> (target TURBOFAN) - took 0.003, 0.107, 0.004 ms]
+after many: 1010001

@@ -1,0 +1,16 @@
+N20 osr-when.js [] small body : firstMaglevIter=0 firstTurbofanIter=27658
+N20 osr-when.js [--no-concurrent-osr --no-concurrent-recompilation] small body : firstMaglevIter=0 firstTurbofanIter=5238
+N20 osr-when2.js [] bigger body: firstMaglevIter=0 firstTurbofanIter=15995
+N20 osr-when2.js [--no-concurrent-osr --no-concurrent-recompilation] bigger body: firstMaglevIter=0 firstTurbofanIter=2223
+N22 osr-when.js [] small body : firstMaglevIter=0 firstTurbofanIter=21673
+N22 osr-when.js [--no-concurrent-osr --no-concurrent-recompilation] small body : firstMaglevIter=0 firstTurbofanIter=4741
+N22 osr-when2.js [] bigger body: firstMaglevIter=0 firstTurbofanIter=19433
+N22 osr-when2.js [--no-concurrent-osr --no-concurrent-recompilation] bigger body: firstMaglevIter=0 firstTurbofanIter=4457
+N24 osr-when.js [] small body : firstMaglevIter=4011 firstTurbofanIter=31549
+N24 osr-when.js [--no-concurrent-osr --no-concurrent-recompilation] small body : firstMaglevIter=12950 firstTurbofanIter=0
+N24 osr-when2.js [] bigger body: firstMaglevIter=3173 firstTurbofanIter=28822
+N24 osr-when2.js [--no-concurrent-osr --no-concurrent-recompilation] bigger body: firstMaglevIter=12173 firstTurbofanIter=0
+D8 osr-when.js [] small body : firstMaglevIter=1006 firstTurbofanIter=22373
+D8 osr-when.js [--no-concurrent-osr --no-concurrent-recompilation] small body : firstMaglevIter=20383 firstTurbofanIter=0
+D8 osr-when2.js [] bigger body: firstMaglevIter=4107 firstTurbofanIter=35615
+D8 osr-when2.js [--no-concurrent-osr --no-concurrent-recompilation] bigger body: firstMaglevIter=19174 firstTurbofanIter=0

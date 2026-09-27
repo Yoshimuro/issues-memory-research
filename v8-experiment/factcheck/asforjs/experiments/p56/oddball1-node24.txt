@@ -1,0 +1,20 @@
+DebugPrint: 0x1bdcb1c400b1: [Oddball] in ReadOnlySpace: #true
+ - map: 0x1bdcb1c407e9 <MetaMap (0x1bdcb1c40041 <null>)>
+ - back pointer: 0x1bdcb1c40011 <undefined>
+ - instance descriptors (own) #0: 0x1bdcb1c40d59 <DescriptorArray[0]>
+ - prototype: 0x1bdcb1c40041 <null>
+ - constructor: 0x1bdcb1c40041 <null>
+ - dependent code: 0x1bdcb1c40d19 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+DebugPrint: 0x1bdcb1c40081: [Oddball] in ReadOnlySpace: #false
+ - map: 0x1bdcb1c407e9 <MetaMap (0x1bdcb1c40041 <null>)>
+ - back pointer: 0x1bdcb1c40011 <undefined>
+ - instance descriptors (own) #0: 0x1bdcb1c40d59 <DescriptorArray[0]>
+ - prototype: 0x1bdcb1c40041 <null>
+ - constructor: 0x1bdcb1c40041 <null>
+ - dependent code: 0x1bdcb1c40d19 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+DebugPrint: 0x1bdcb1c40011: [Oddball] in ReadOnlySpace: #undefined
+ - map: 0x1bdcb1c407e9 <MetaMap (0x1bdcb1c40041 <null>)>
+ - back pointer: 0x1bdcb1c40011 <undefined>
+ - instance descriptors (own) #0: 0x1bdcb1c40d59 <DescriptorArray[0]>
+ - prototype: 0x1bdcb1c40041 <null>
+ - constructor: 0x1bdcb1c40041 <null>

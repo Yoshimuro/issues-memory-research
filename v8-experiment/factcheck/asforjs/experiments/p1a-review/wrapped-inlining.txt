@@ -1,0 +1,19 @@
+== d8 innerWrapped --trace-turbo-inlining --trace-opt --trace-osr
+      1 [OSR - entry. function: innerWrapped, osr offset: 41]
+      1 Inlining small function(s) at call site #46:JSCall
+      1 Inlining 0x… {0x… <SharedFunctionInfo doSum>} into 0x… {0x… <SharedFunctionInfo innerWrapped>}
+      1 Inlining small function(s) at call site #136:JSCall
+      1 Inlining 0x… {0x… <SharedFunctionInfo doInner>} into 0x… {0x… <SharedFunctionInfo innerWrapped>}
+      1 [completed compiling 0x… <JSFunction innerWrapped (sfi = 0x…)> (target TURBOFAN_JS) OSR - took 0.006, 1.818, 0.020 ms]
+      1 [completed compiling 0x… <JSFunction doInner (sfi = 0x…)> (target TURBOFAN_JS) - took 0.002, 0.412, 0.002 ms]
+      1 [OSR - entry. function: innerWrapped, osr offset: 41]
+      1 innerWrapped       mode=plain n=3000000 ms=22 r=165000000
+== d8 constArrowWrapped --trace-turbo-inlining --trace-opt --trace-osr
+      1 [OSR - entry. function: constArrowWrapped, osr offset: 30]
+      1 Inlining 0x… {0x…  (target TURBOFAN_JS)<SharedFunctionInfo doSum>}, mode: ConcurrencyMode::kConcurrent]
+      1 Inlining small function(s) at call site #135:JSCall
+      1 Inlining 0x… {0x… <SharedFunctionInfo outerArrow>} into 0x… {0x… <SharedFunctionInfo constArrowWrapped>}
+      1 [completed compiling 0x… <JSFunction outerArrow (sfi = 0x…)> (target TURBOFAN_JS) - took 0.004, 0.661, 0.017 ms]
+      1 [completed compiling 0x… <JSFunction constArrowWrapped (sfi = 0x…)> (target TURBOFAN_JS) OSR - took 0.005, 1.624, 0.017 ms]
+      1 [OSR - entry. function: constArrowWrapped, osr offset: 30]
+      1 constArrowWrapped  mode=plain n=3000000 ms=32 r=165000000

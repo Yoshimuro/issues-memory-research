@@ -1,0 +1,33 @@
+== d8
+Array.from({length:5}) -> HOLEY_DOUBLE
+  after filling with ints -> HOLEY_DOUBLE
+new Array(5) -> HOLEY_SMI
+  after filling with ints -> HOLEY_SMI
+new Array(5).fill(0) -> PACKED_SMI
+Array.from({length:5}, (_, i) => i) -> PACKED_SMI
+push -> PACKED_SMI
+sum rep0 from=1073ms new=1046ms push=1013ms
+sum rep1 from=884ms new=884ms push=913ms
+sum rep2 from=871ms new=1013ms push=1034ms
+== node22
+Array.from({length:5}) -> PACKED_ELEMENTS
+  after filling with ints -> PACKED_ELEMENTS
+new Array(5) -> HOLEY_SMI
+  after filling with ints -> HOLEY_SMI
+new Array(5).fill(0) -> HOLEY_SMI
+Array.from({length:5}, (_, i) => i) -> PACKED_SMI
+push -> PACKED_SMI
+sum rep0 from=263ms new=283ms push=1097ms
+sum rep1 from=1082ms new=1107ms push=1102ms
+sum rep2 from=959ms new=1093ms push=1078ms
+== node24
+Array.from({length:5}) -> PACKED_ELEMENTS
+  after filling with ints -> PACKED_ELEMENTS
+new Array(5) -> HOLEY_SMI
+  after filling with ints -> HOLEY_SMI
+new Array(5).fill(0) -> PACKED_SMI
+Array.from({length:5}, (_, i) => i) -> PACKED_SMI
+push -> PACKED_SMI
+sum rep0 from=590ms new=918ms push=1026ms
+sum rep1 from=908ms new=1103ms push=1035ms
+sum rep2 from=1032ms new=1037ms push=952ms

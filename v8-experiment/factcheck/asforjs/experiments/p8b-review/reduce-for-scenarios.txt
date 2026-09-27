@@ -1,0 +1,47 @@
+== d8 scen A
+OSR trace lines: 1085
+scen A rep0 viaFor=15ms viaReduce=157ms
+scen A rep1 viaFor=10ms viaReduce=166ms
+scen A rep2 viaFor=14ms viaReduce=245ms
+== node24 scen A
+scen A rep0 viaFor=15ms viaReduce=197ms
+scen A rep1 viaFor=13ms viaReduce=221ms
+scen A rep2 viaFor=13ms viaReduce=195ms
+== node22 scen A
+scen A rep0 viaFor=12ms viaReduce=171ms
+scen A rep1 viaFor=11ms viaReduce=167ms
+scen A rep2 viaFor=11ms viaReduce=168ms
+== d8 scen B
+OSR trace lines: 26
+scen B rep0 viaFor=206ms viaReduce=187ms
+scen B rep1 viaFor=168ms viaReduce=184ms
+scen B rep2 viaFor=169ms viaReduce=181ms
+== node24 scen B
+scen B rep0 viaFor=313ms viaReduce=197ms
+scen B rep1 viaFor=275ms viaReduce=198ms
+scen B rep2 viaFor=291ms viaReduce=194ms
+== node22 scen B
+scen B rep0 viaFor=269ms viaReduce=222ms
+scen B rep1 viaFor=291ms viaReduce=210ms
+scen B rep2 viaFor=219ms viaReduce=148ms
+== d8 scen C
+OSR trace lines: 26
+scen C rep0 viaFor=222ms viaReduce=119ms
+scen C rep1 viaFor=169ms viaReduce=118ms
+scen C rep2 viaFor=169ms viaReduce=122ms
+== node24 scen C
+scen C rep0 viaFor=325ms viaReduce=125ms
+scen C rep1 viaFor=277ms viaReduce=131ms
+scen C rep2 viaFor=295ms viaReduce=120ms
+== node22 scen C
+scen C rep0 viaFor=279ms viaReduce=116ms
+scen C rep1 viaFor=274ms viaReduce=116ms
+scen C rep2 viaFor=294ms viaReduce=120ms
+== d8 --max-opt=0 (чистый Ignition всё)
+scen none rep0 viaFor=399ms viaReduce=276ms
+scen none rep1 viaFor=372ms viaReduce=298ms
+scen none rep2 viaFor=332ms viaReduce=240ms
+== d8 --no-turbofan --no-maglev (Sparkplug всё)
+scen none rep0 viaFor=140ms viaReduce=165ms
+scen none rep1 viaFor=159ms viaReduce=158ms
+scen none rep2 viaFor=157ms viaReduce=184ms

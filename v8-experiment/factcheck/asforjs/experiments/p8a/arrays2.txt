@@ -1,0 +1,84 @@
+## d8
+new Array(5): holey=true smi=true dbl=false dict=false
+new Array(5).fill(0): holey=false smi=true dbl=false dict=false
+new Array(5).fill(0.5): holey=false smi=false dbl=true dict=false
+new Array(5).fill(0,1): holey=true smi=true dbl=false dict=false
+Array.from({length:5},()=>0): holey=false smi=true dbl=false dict=false
+new Array(1000): holey=true smi=true dbl=false dict=false
+new Array(1000).fill(0): holey=false smi=true dbl=false dict=false
+new Array(1000).fill(0.5): holey=false smi=false dbl=true dict=false
+new Array(1000).fill(0,1): holey=true smi=true dbl=false dict=false
+Array.from({length:1000},()=>0): holey=false smi=true dbl=false dict=false
+new Array(100000): holey=true smi=true dbl=false dict=false
+new Array(100000).fill(0): holey=false smi=true dbl=false dict=false
+new Array(100000).fill(0.5): holey=false smi=false dbl=true dict=false
+new Array(100000).fill(0,1): holey=true smi=true dbl=false dict=false
+Array.from({length:100000},()=>0): holey=false smi=true dbl=false dict=false
+new Array(1000000): holey=true smi=true dbl=false dict=false
+new Array(1000000).fill(0): holey=false smi=true dbl=false dict=false
+new Array(1000000).fill(0.5): holey=false smi=false dbl=true dict=false
+new Array(1000000).fill(0,1): holey=true smi=true dbl=false dict=false
+Array.from({length:1000000},()=>0): holey=false smi=true dbl=false dict=false
+## node20
+new Array(5): holey=true smi=true dbl=false dict=false
+new Array(5).fill(0): holey=true smi=true dbl=false dict=false
+new Array(5).fill(0.5): holey=true smi=false dbl=true dict=false
+new Array(5).fill(0,1): holey=true smi=true dbl=false dict=false
+Array.from({length:5},()=>0): holey=false smi=true dbl=false dict=false
+new Array(1000): holey=true smi=true dbl=false dict=false
+new Array(1000).fill(0): holey=true smi=true dbl=false dict=false
+new Array(1000).fill(0.5): holey=true smi=false dbl=true dict=false
+new Array(1000).fill(0,1): holey=true smi=true dbl=false dict=false
+Array.from({length:1000},()=>0): holey=false smi=true dbl=false dict=false
+new Array(100000): holey=true smi=true dbl=false dict=false
+new Array(100000).fill(0): holey=true smi=true dbl=false dict=false
+new Array(100000).fill(0.5): holey=true smi=false dbl=true dict=false
+new Array(100000).fill(0,1): holey=true smi=true dbl=false dict=false
+Array.from({length:100000},()=>0): holey=false smi=true dbl=false dict=false
+new Array(1000000): holey=true smi=true dbl=false dict=false
+new Array(1000000).fill(0): holey=true smi=true dbl=false dict=false
+new Array(1000000).fill(0.5): holey=true smi=false dbl=true dict=false
+new Array(1000000).fill(0,1): holey=true smi=true dbl=false dict=false
+Array.from({length:1000000},()=>0): holey=false smi=true dbl=false dict=false
+## node22
+new Array(5): holey=true smi=true dbl=false dict=false
+new Array(5).fill(0): holey=true smi=true dbl=false dict=false
+new Array(5).fill(0.5): holey=true smi=false dbl=true dict=false
+new Array(5).fill(0,1): holey=true smi=true dbl=false dict=false
+Array.from({length:5},()=>0): holey=false smi=true dbl=false dict=false
+new Array(1000): holey=true smi=true dbl=false dict=false
+new Array(1000).fill(0): holey=true smi=true dbl=false dict=false
+new Array(1000).fill(0.5): holey=true smi=false dbl=true dict=false
+new Array(1000).fill(0,1): holey=true smi=true dbl=false dict=false
+Array.from({length:1000},()=>0): holey=false smi=true dbl=false dict=false
+new Array(100000): holey=true smi=true dbl=false dict=false
+new Array(100000).fill(0): holey=true smi=true dbl=false dict=false
+new Array(100000).fill(0.5): holey=true smi=false dbl=true dict=false
+new Array(100000).fill(0,1): holey=true smi=true dbl=false dict=false
+Array.from({length:100000},()=>0): holey=false smi=true dbl=false dict=false
+new Array(1000000): holey=true smi=true dbl=false dict=false
+new Array(1000000).fill(0): holey=true smi=true dbl=false dict=false
+new Array(1000000).fill(0.5): holey=true smi=false dbl=true dict=false
+new Array(1000000).fill(0,1): holey=true smi=true dbl=false dict=false
+Array.from({length:1000000},()=>0): holey=false smi=true dbl=false dict=false
+## node24
+new Array(5): holey=true smi=true dbl=false dict=false
+new Array(5).fill(0): holey=false smi=true dbl=false dict=false
+new Array(5).fill(0.5): holey=false smi=false dbl=true dict=false
+new Array(5).fill(0,1): holey=true smi=true dbl=false dict=false
+Array.from({length:5},()=>0): holey=false smi=true dbl=false dict=false
+new Array(1000): holey=true smi=true dbl=false dict=false
+new Array(1000).fill(0): holey=false smi=true dbl=false dict=false
+new Array(1000).fill(0.5): holey=false smi=false dbl=true dict=false
+new Array(1000).fill(0,1): holey=true smi=true dbl=false dict=false
+Array.from({length:1000},()=>0): holey=false smi=true dbl=false dict=false
+new Array(100000): holey=true smi=true dbl=false dict=false
+new Array(100000).fill(0): holey=false smi=true dbl=false dict=false
+new Array(100000).fill(0.5): holey=false smi=false dbl=true dict=false
+new Array(100000).fill(0,1): holey=true smi=true dbl=false dict=false
+Array.from({length:100000},()=>0): holey=false smi=true dbl=false dict=false
+new Array(1000000): holey=true smi=true dbl=false dict=false
+new Array(1000000).fill(0): holey=false smi=true dbl=false dict=false
+new Array(1000000).fill(0.5): holey=false smi=false dbl=true dict=false
+new Array(1000000).fill(0,1): holey=true smi=true dbl=false dict=false
+Array.from({length:1000000},()=>0): holey=false smi=true dbl=false dict=false

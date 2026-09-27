@@ -1,0 +1,54 @@
+##### node22 rep1
+n=50 shift x49: 165 ns/shift
+n=1000 shift x999: 68 ns/shift
+n=20000 shift x2000: 2994 ns/shift
+n=100000 shift x2000: 15770 ns/shift
+n=1000000 shift x2000: 475001 ns/shift
+##### node24 rep1
+n=50 shift x49: 156 ns/shift
+n=1000 shift x999: 58 ns/shift
+n=20000 shift x2000: 2691 ns/shift
+n=100000 shift x2000: 15857 ns/shift
+n=1000000 shift x2000: 302847 ns/shift
+##### d8 rep1
+n=50 shift x49: 163 ns/shift
+n=1000 shift x999: 47 ns/shift
+n=20000 shift x2000: 40 ns/shift
+n=100000 shift x2000: 7917 ns/shift
+n=1000000 shift x2000: 146766 ns/shift
+##### node22 rep2
+n=50 shift x49: 152 ns/shift
+n=1000 shift x999: 67 ns/shift
+n=20000 shift x2000: 2992 ns/shift
+n=100000 shift x2000: 15870 ns/shift
+n=1000000 shift x2000: 492295 ns/shift
+##### node24 rep2
+n=50 shift x49: 152 ns/shift
+n=1000 shift x999: 65 ns/shift
+n=20000 shift x2000: 3099 ns/shift
+n=100000 shift x2000: 17370 ns/shift
+n=1000000 shift x2000: 329159 ns/shift
+##### d8 rep2
+n=50 shift x49: 265 ns/shift
+n=1000 shift x999: 82 ns/shift
+n=20000 shift x2000: 47 ns/shift
+n=100000 shift x2000: 7798 ns/shift
+n=1000000 shift x2000: 149278 ns/shift
+##### node22 rep3
+n=50 shift x49: 127 ns/shift
+n=1000 shift x999: 57 ns/shift
+n=20000 shift x2000: 2576 ns/shift
+n=100000 shift x2000: 15397 ns/shift
+n=1000000 shift x2000: 340915 ns/shift
+##### node24 rep3
+n=50 shift x49: 547 ns/shift
+n=1000 shift x999: 54 ns/shift
+n=20000 shift x2000: 2592 ns/shift
+n=100000 shift x2000: 14692 ns/shift
+n=1000000 shift x2000: 351898 ns/shift
+##### d8 rep3
+n=50 shift x49: 265 ns/shift
+n=1000 shift x999: 59 ns/shift
+n=20000 shift x2000: 3551 ns/shift
+n=100000 shift x2000: 7537 ns/shift
+n=1000000 shift x2000: 158808 ns/shift

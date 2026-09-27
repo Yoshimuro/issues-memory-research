@@ -1,0 +1,29 @@
+== /opt/nvm/versions/node/v24.21.0/bin/node
+DebugPrint: 0xb74319e5ec9: [JS_OBJECT_TYPE]
+ - map: 0x3eb05c7e8729 <Map[32](HOLEY_ELEMENTS)> [FastProperties]
+ - prototype: 0x31d5adf826d1 <Object map = 0x3bc71a8c0b21>
+ - elements: 0x09877c640cf9 <FixedArray[0]> [HOLEY_ELEMENTS]
+ - properties: 0x0b74319e5f61 <PropertyArray[3]>
+ - All own properties (excluding elements): {
+    0x9877c641891: [String] in ReadOnlySpace: #name: 0x09877c645729 <String[1]: #x> (const data field 0, attrs: [WEC]) @ Any, location: in-object
+    0x9877c6455a9: [String] in ReadOnlySpace: #h: 47 (const data field 1, attrs: [WEC]) @ Any, location: properties[0]
+ }
+0x3eb05c7e8729: [Map]
+ - map: 0x3bc71a8c0079 <MetaMap (0x3bc71a8c0109 <NativeContext[302]>)>
+ - type: JS_OBJECT_TYPE
+ - instance size: 32
+ - inobject properties: 1
+ - unused property fields: 2
+ - elements kind: HOLEY_ELEMENTS
+ - enum length: invalid
+ - stable_map
+ - back pointer: 0x3eb05c7e8649 <Map[32](HOLEY_ELEMENTS)>
+ - prototype_validity cell: 0x29d3e380a761 <Cell value= 0>
+ - instance descriptors (own) #2: 0x0b74319e5f19 <DescriptorArray[2]>
+ - prototype: 0x31d5adf826d1 <Object map = 0x3bc71a8c0b21>
+ - constructor: 0x3bc71a8cc4f1 <JSFunction Object (sfi = 0x9877c651a21)>
+ - dependent code: 0x09877c640d19 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 0
+
+== /tmp/claude-0/-home-user-issues-memory-research/dacf359b-9898-588d-b8f1-20fd1e3f2945/scratchpad/d8/rel/d8
+0x3d0201049639 <Object map = 0x3d020101e059>

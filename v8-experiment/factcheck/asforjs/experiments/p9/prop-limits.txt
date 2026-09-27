@@ -1,0 +1,16 @@
+== /opt/node20/bin/node
+named store: dictionary after property # 1021
+keyed store: dictionary after property # 20
+constructor with 300 props: fast = true
+== /opt/node22/bin/node
+named store: dictionary after property # 1021
+keyed store: dictionary after property # 20
+constructor with 300 props: fast = true
+== /opt/nvm/versions/node/v24.21.0/bin/node
+named store: dictionary after property # 1021
+keyed store: dictionary after property # 20
+constructor with 300 props: fast = true
+== d8 15.6 rel
+named store: dictionary after property # 1021
+keyed store: dictionary after property # 20
+constructor with 300 props: fast = true

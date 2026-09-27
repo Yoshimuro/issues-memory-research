@@ -1,0 +1,16 @@
+== start
+ - elements: 0x093001089929 <FixedArray[100]> [PACKED_SMI_ELEMENTS]
+== length 42
+ - elements: 0x093001089929 <FixedArray[100]> [PACKED_SMI_ELEMENTS]
+== length 41
+ - elements: 0x093001089929 <FixedArray[70]> [PACKED_SMI_ELEMENTS]
+== length 20
+ - elements: 0x093001089929 <FixedArray[48]> [PACKED_SMI_ELEMENTS]
+== p 17
+ - elements: 0x093001089ad1 <FixedArray[17]> [PACKED_SMI_ELEMENTS]
+== p 18
+ - elements: 0x093001089b1d <FixedArray[43]> [PACKED_SMI_ELEMENTS]
+== p 16
+ - elements: 0x093001089b1d <FixedArray[43]> [PACKED_SMI_ELEMENTS]
+== p 18 again
+ - elements: 0x093001089b1d <FixedArray[43]> [PACKED_SMI_ELEMENTS]

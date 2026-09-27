@@ -1,0 +1,18 @@
+V8 is running with developer-only features enabled. Stability and security will suffer.
+--- WebAssembly code ---
+name: wasm-function[0]
+index: 0
+kind: wasm function
+compiler: Liftoff
+Body (size = 192 = 180 + 12 padding)
+Instructions (size = 172, 0x30a6ce98aa80-0x30a6ce98ab2c)
+--- End code ---
+--- WebAssembly code ---
+name: wasm-function[0]
+index: 0
+kind: wasm function
+compiler: TurboFan
+Body (size = 256 = 200 + 56 padding)
+Instructions (size = 192, 0x30a6ce98ab40-0x30a6ce98ac00)
+--- End code ---
+70000000

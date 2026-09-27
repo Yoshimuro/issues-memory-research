@@ -1,0 +1,15 @@
+== /opt/node22/bin/node
+kinds: tuple PACKED_ELEMENTS? true smiPair PACKED_SMI? true
+rep0 tuple 45 ms, object 32 ms, smi-pair 36 ms; tuple/object=1.43x
+rep1 tuple 42 ms, object 31 ms, smi-pair 35 ms; tuple/object=1.37x
+rep2 tuple 42 ms, object 28 ms, smi-pair 37 ms; tuple/object=1.48x
+== /opt/nvm/versions/node/v24.21.0/bin/node
+kinds: tuple PACKED_ELEMENTS? true smiPair PACKED_SMI? true
+rep0 tuple 56 ms, object 34 ms, smi-pair 36 ms; tuple/object=1.64x
+rep1 tuple 48 ms, object 34 ms, smi-pair 36 ms; tuple/object=1.43x
+rep2 tuple 44 ms, object 44 ms, smi-pair 59 ms; tuple/object=1.01x
+== /tmp/claude-0/-home-user-issues-memory-research/dacf359b-9898-588d-b8f1-20fd1e3f2945/scratchpad/d8/rel/d8
+kinds: tuple PACKED_ELEMENTS? true smiPair PACKED_SMI? true
+rep0 tuple 49 ms, object 28 ms, smi-pair 28 ms; tuple/object=1.77x
+rep1 tuple 54 ms, object 25 ms, smi-pair 24 ms; tuple/object=2.17x
+rep2 tuple 43 ms, object 24 ms, smi-pair 25 ms; tuple/object=1.82x

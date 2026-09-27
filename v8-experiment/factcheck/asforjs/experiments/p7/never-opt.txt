@@ -1,0 +1,11 @@
+never doTrunc ms 1678 status doTrunc 16385 doOuter 16385 callback 41 375014880000000
+default doTrunc ms 102 status doTrunc 16385 doOuter 25 callback 41 375014880000000
+never doTrunc ms 1677 status doTrunc 16385 doOuter 16385 callback 41 375014880000000
+default doTrunc ms 131 status doTrunc 16385 doOuter 25 callback 41 375014880000000
+never doTrunc ms 1589 status doTrunc 16385 doOuter 16385 callback 41 375014880000000
+default doTrunc ms 100 status doTrunc 16385 doOuter 25 callback 41 375014880000000
+== with --max-opt=0 (default mode)
+default doTrunc ms 2268 status doTrunc 67 doOuter 67 callback 67 375014880000000
+== node24
+default doTrunc ms 117 status doTrunc 32769 doOuter 49 callback 81 375014880000000
+default doTrunc ms 119 status doTrunc 32769 doOuter 49 callback 81 375014880000000

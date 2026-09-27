@@ -1,0 +1,36 @@
+=== node20 outer_esm.mjs
+0x7f8eec005b84     4  f6433501             testb [rbx+0x35],0x1
+0x7f8eec005bc5    45  48c1f920             REX.W sarq rcx, 32
+0x7f8eec005bc9    49  f6c201               testb rdx,0x1
+0x7f8eec005bd2    52  83c10c               addl rcx,0xc
+0x7f8eec005bd5    55  0f807e000000         jo 0x7f8eec005c59  <+0xd9>
+0x7f8eec005bdb    5b  48c1e120             REX.W shlq rcx, 32
+=== node20 outer_global.js
+0x7fb928006fc4     4  f6433501             testb [rbx+0x35],0x1
+0x7fb928006ff5    35  83c20c               addl rdx,0xc
+0x7fb928006ff8    38  0f804d000000         jo 0x7fb92800704b  <+0x8b>
+0x7fb928006ffe    3e  48c1e220             REX.W shlq rdx, 32
+=== node22 outer_esm.mjs
+0x7f788afc7604     4  f6433220             testb [rbx+0x32],0x20
+0x7f788afc7645    45  f6c201               testb rdx,0x1
+0x7f788afc7651    51  48c1f920             REX.W sarq rcx, 32
+0x7f788afc7657    57  83c10c               addl rcx,0xc
+0x7f788afc765a    5a  0f8085000000         jo 0x7f788afc76e5  <+0xe5>
+0x7f788afc7663    63  48c1e220             REX.W shlq rdx, 32
+=== node22 outer_global.js
+0x7fd6467c5f44     4  f6433220             testb [rbx+0x32],0x20
+0x7fd6467c5f75    35  48c1fa20             REX.W sarq rdx, 32
+0x7fd6467c5f7b    3b  83c20c               addl rdx,0xc
+0x7fd6467c5f7e    3e  0f8050000000         jo 0x7fd6467c5fd4  <+0x94>
+0x7fd6467c5f87    47  48c1e220             REX.W shlq rdx, 32
+=== node24 outer_esm.mjs
+0x7f5728005337    37  f6c201               testb rdx,0x1
+0x7f5728005343    43  48c1f920             REX.W sarq rcx, 32
+0x7f5728005349    49  83c10c               addl rcx,0xc
+0x7f572800534c    4c  0f8082000000         jo 0x7f57280053d4  <+0xd4>
+0x7f5728005352    52  48c1e120             REX.W shlq rcx, 32
+=== node24 outer_global.js
+0x7f1fe8004127    27  48c1fa20             REX.W sarq rdx, 32
+0x7f1fe800412d    2d  83c20c               addl rdx,0xc
+0x7f1fe8004130    30  0f804d000000         jo 0x7f1fe8004183  <+0x83>
+0x7f1fe8004136    36  48c1e220             REX.W shlq rdx, 32

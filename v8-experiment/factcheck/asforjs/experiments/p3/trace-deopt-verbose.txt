@@ -1,0 +1,18 @@
+######## node20 --trace-deopt
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing 0x38aa1e762109 <JSFunction doGetAge (sfi = 0x1aef22fa4081)>, 0x1aef22fa7101 <Code TURBOFAN>, opt id 0, bytecode offset 0, deopt exi
+######## node20 --trace-deopt-verbose
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing 0x35e060de2111 <JSFunction doGetAge (sfi = 0x20ce6f124081)>, 0x20ce6f127101 <Code TURBOFAN>, opt id 0, bytecode offset 0, deopt exi
+            ;;; deoptimize at </home/user/issues-memory-research/v8-experiment/factcheck/asforjs/experiments/p3/deopt-cases.js:8:32>
+[bailout end. took 0.114 ms]
+######## node24 --trace-deopt
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing 0x22461efa7d41 <JSFunction doGetAge (sfi = 0x1407fd2a8d69)>, 0x1f6c455c2471 <Code TURBOFAN_JS>, opt id 1, bytecode offset 0, deopt 
+######## node24 --trace-deopt-verbose
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing 0x377213467d49 <JSFunction doGetAge (sfi = 0x3331c81a8d69)>, 0x0d1103d02471 <Code TURBOFAN_JS>, opt id 1, bytecode offset 0, deopt 
+            ;;; deoptimize at </home/user/issues-memory-research/v8-experiment/factcheck/asforjs/experiments/p3/deopt-cases.js:8:32>
+[bailout end. took 0.266 ms]
+######## d8 --trace-deopt
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing 0x1f1f0101f1e1 <JSFunction doGetAge (sfi = 0x1f1f0101e6f1)>, 0x273901000945 <Code TURBOFAN_JS>, opt id 0, bytecode offset 0, deopt 
+######## d8 --trace-deopt-verbose
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing 0x22f00101f1e1 <JSFunction doGetAge (sfi = 0x22f00101e6f1)>, 0x7fe501000945 <Code TURBOFAN_JS>, opt id 0, bytecode offset 0, deopt 
+            ;;; deoptimize at <deopt-cases.js:8:32>
+[bailout end. code_invalidation: invalidated, took 0.034 ms]

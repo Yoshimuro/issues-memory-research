@@ -1,0 +1,3 @@
+ - elements: 0x7dd601089af5 <FixedArray[227]> [PACKED_SMI_ELEMENTS]
+ - length: 200
+    0x7dd600000e39: [String] in ReadOnlySpace: #length: 0x7dd600b5fdcd <AccessorInfo name= 0x7dd600000e39 <String[6]: #length>, data= 0x7dd600000011 <undefined>> (const accessor descriptor, attrs: [W__])

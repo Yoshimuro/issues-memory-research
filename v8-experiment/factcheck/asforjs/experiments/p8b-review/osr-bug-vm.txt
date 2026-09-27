@@ -1,0 +1,37 @@
+== node, osr-bug.js as classic script via vm.runInThisContext
+node22/v22.22.2 literal time=27ms r=45888
+node22/v22.22.2 inner time=163ms r=45888
+node22/v22.22.2 globalFn time=25ms r=45888
+node22/v22.22.2 globalConst time=208ms r=45888
+node22/v22.22.2 literal time=26ms r=45888
+node22/v22.22.2 inner time=184ms r=45888
+node22/v22.22.2 globalFn time=21ms r=45888
+node22/v22.22.2 globalConst time=191ms r=45888
+v24.21.0/v24.21.0 literal time=24ms r=45888
+v24.21.0/v24.21.0 inner time=199ms r=45888
+v24.21.0/v24.21.0 globalFn time=23ms r=45888
+v24.21.0/v24.21.0 globalConst time=205ms r=45888
+v24.21.0/v24.21.0 literal time=24ms r=45888
+v24.21.0/v24.21.0 inner time=232ms r=45888
+v24.21.0/v24.21.0 globalFn time=22ms r=45888
+v24.21.0/v24.21.0 globalConst time=192ms r=45888
+== maglev inlining trace d8 (globalFn vs inner)
+-- globalFn
+      1 Considering 0x28e400edc4b8 {0x2c990101e0ad <SharedFunctionInfo doOuter>} for inlining with 0x28e400edc608 {0x2c990101e469 <FeedbackVector[0]>}
+      1 Inlining 0x28e400edc4b8 {0x2c990101e0ad <SharedFunctionInfo doOuter>} into 0x28e400edabf8 {0x2c990101e0dd <SharedFunctionInfo doMain>}
+      1 Inlining small function(s) at call site #141:JSCall
+      1 [OSR - available (compilation completed or cache hit). function: doMain, osr offset: 186, mode: ConcurrencyMode::kConcurrent]
+      1 [OSR - compilation finished. function: doMain, osr offset: 186]
+      2 [OSR - compilation started. function: doMain, osr offset: 186, mode: ConcurrencyMode::kConcurrent]
+      2 [OSR - entry. function: doMain, osr offset: 186]
+      2 [OSR - setting osr urgency. function: doMain, old urgency: 0, new urgency: 1]
+      1 [OSR - unavailable (failed or in progress). function: doMain, osr offset: 186, mode: ConcurrencyMode::kConcurrent]
+      1 globalFn time=32ms r=45888
+-- inner
+      1 [OSR - available (compilation completed or cache hit). function: doMain, osr offset: 124, mode: ConcurrencyMode::kConcurrent]
+      1 [OSR - compilation finished. function: doMain, osr offset: 124]
+      2 [OSR - compilation started. function: doMain, osr offset: 124, mode: ConcurrencyMode::kConcurrent]
+      2 [OSR - entry. function: doMain, osr offset: 124]
+      2 [OSR - setting osr urgency. function: doMain, old urgency: 0, new urgency: 1]
+      1 [OSR - unavailable (failed or in progress). function: doMain, osr offset: 124, mode: ConcurrencyMode::kConcurrent]
+      1 inner time=179ms r=45888

@@ -1,0 +1,10 @@
+== d8 --trace-deopt
+V8 is running with developer-only features enabled. Stability and security will suffer.
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing 0x1ab70101e125 <JSFunction sum (sfi = 0x1ab70101e021)>, 0x22e70100042d <Code TURBOFAN_JS>, opt id 0, bytecode offset 4, deopt exit 1, FP to SP delta 64, caller SP 0x7ffcc9fa9238, pc 0x564ea0b40261]
+== node24 --trace-deopt
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing 0x3daf89da60b9 <JSFunction sum (sfi = 0x342284e28409)>, 0x194597ac1d49 <Code TURBOFAN_JS>, opt id 1, bytecode offset 4, deopt exit 1, FP to SP delta 64, caller SP 0x7ffed3d12980, pc 0x7fe04680433e]
+== node22 --trace-opt --trace-deopt
+[manually marking 0x0347e7866109 <JSFunction sum (sfi = 0x23559561b631)> for optimization to TURBOFAN, ConcurrencyMode::kSynchronous]
+[compiling method 0x0347e7866109 <JSFunction sum (sfi = 0x23559561b631)> (target TURBOFAN), mode: ConcurrencyMode::kSynchronous]
+[completed compiling 0x0347e7866109 <JSFunction sum (sfi = 0x23559561b631)> (target TURBOFAN) - took 0.016, 1.099, 0.021 ms]
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing 0x0347e7866109 <JSFunction sum (sfi = 0x23559561b631)>, 0x2816e92c2141 <Code TURBOFAN>, opt id 0, bytecode offset 4, deopt exit 1, FP to SP delta 64, caller SP 0x7fffdc3b87e8, pc 0x7f0b86fc60f7]

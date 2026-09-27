@@ -1,0 +1,16 @@
+== substring length 12
+DebugPrint: 0x275e01089885: [String]: "bcdefghijklm"
+ - type: SEQ_ONE_BYTE_STRING_TYPE
+ - prototype: 0x275e0000002d <null>
+== substring length 13
+DebugPrint: 0x275e010898e9: [String]: "bcdefghijklmn"
+ - type: SLICED_ONE_BYTE_STRING_TYPE
+ - prototype: 0x275e0000002d <null>
+== concat 12
+DebugPrint: 0x275e01089969: [String]: "0.7824abcdef"
+ - type: SEQ_ONE_BYTE_STRING_TYPE
+ - prototype: 0x275e0000002d <null>
+== concat 13
+DebugPrint: 0x275e01089981: [String]: c"0.7824abcdefg"
+ - type: CONS_ONE_BYTE_STRING_TYPE
+ - prototype: 0x275e0000002d <null>

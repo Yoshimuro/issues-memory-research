@@ -1,0 +1,10 @@
+## /opt/node20/bin/node
+a_unused   10 closures retain +0.0 MB
+b_indexed  10 closures retain +76.3 MB
+c_sibling  10 closures retain +76.3 MB
+d_nulled   10 closures retain +0.0 MB
+## /opt/nvm/versions/node/v24.21.0/bin/node
+a_unused   10 closures retain +0.0 MB
+b_indexed  10 closures retain +76.3 MB
+c_sibling  10 closures retain +76.3 MB
+d_nulled   10 closures retain +0.0 MB

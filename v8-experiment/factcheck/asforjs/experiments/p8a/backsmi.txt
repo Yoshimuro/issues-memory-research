@@ -1,0 +1,28 @@
+## node22
+2**40 isSmi false
+2**40 - (2**40-5) = 5 isSmi false
+1.5+1.5 = 3 isSmi true
+addTen(2.5 - 0.5) isSmi true
+array after 1.5 replaced by 4: double elements still true
+[ignition] 2**40 isSmi false
+[ignition] 2**40 - (2**40-5) = 5 isSmi false
+[ignition] 1.5+1.5 = 3 isSmi true
+[ignition] addTen(2.5 - 0.5) isSmi true
+[ignition] array after 1.5 replaced by 4: double elements still true
+## node24
+2**40 isSmi false
+2**40 - (2**40-5) = 5 isSmi false
+1.5+1.5 = 3 isSmi true
+addTen(2.5 - 0.5) isSmi true
+array after 1.5 replaced by 4: double elements still true
+[ignition] 2**40 isSmi false
+[ignition] 2**40 - (2**40-5) = 5 isSmi false
+[ignition] 1.5+1.5 = 3 isSmi true
+[ignition] addTen(2.5 - 0.5) isSmi true
+[ignition] array after 1.5 replaced by 4: double elements still true
+## d8
+2**40 isSmi false
+2**40 - (2**40-5) = 5 isSmi false
+1.5+1.5 = 3 isSmi true
+addTen(2.5 - 0.5) isSmi true
+array after 1.5 replaced by 4: double elements still true

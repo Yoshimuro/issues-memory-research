@@ -1,0 +1,16 @@
+##### node20 (ms)
+round 1: pushSmi=27.7 pushDbl=24.3 preSmi=6.8 preDbl=14.0 idxSmi=32.2 idxDbl=17.9 idxPreSmi=34.3 idxPreDbl=18.2 sumSmi=33.9 sumDbl=20.5 | idx dbl/smi=0.56 sum dbl/smi=0.60 push dbl/smi=0.88
+round 2: pushSmi=24.8 pushDbl=20.7 preSmi=6.5 preDbl=21.0 idxSmi=36.0 idxDbl=17.0 idxPreSmi=35.3 idxPreDbl=20.3 sumSmi=38.6 sumDbl=22.8 | idx dbl/smi=0.47 sum dbl/smi=0.59 push dbl/smi=0.84
+round 3: pushSmi=25.3 pushDbl=21.6 preSmi=6.2 preDbl=13.6 idxSmi=34.8 idxDbl=20.6 idxPreSmi=37.7 idxPreDbl=19.4 sumSmi=30.7 sumDbl=21.0 | idx dbl/smi=0.59 sum dbl/smi=0.68 push dbl/smi=0.86
+##### node22 (ms)
+round 1: pushSmi=22.9 pushDbl=20.1 preSmi=12.2 preDbl=18.5 idxSmi=32.9 idxDbl=17.2 idxPreSmi=32.9 idxPreDbl=17.1 sumSmi=25.2 sumDbl=15.3 | idx dbl/smi=0.52 sum dbl/smi=0.61 push dbl/smi=0.88
+round 2: pushSmi=21.5 pushDbl=83.9 preSmi=45.6 preDbl=101.4 idxSmi=32.1 idxDbl=16.5 idxPreSmi=32.1 idxPreDbl=15.7 sumSmi=20.9 sumDbl=13.9 | idx dbl/smi=0.51 sum dbl/smi=0.67 push dbl/smi=3.91
+round 3: pushSmi=18.6 pushDbl=17.6 preSmi=6.9 preDbl=4.7 idxSmi=28.8 idxDbl=15.3 idxPreSmi=32.0 idxPreDbl=17.5 sumSmi=23.0 sumDbl=14.4 | idx dbl/smi=0.53 sum dbl/smi=0.63 push dbl/smi=0.95
+##### node24 (ms)
+round 1: pushSmi=21.9 pushDbl=19.4 preSmi=9.7 preDbl=9.0 idxSmi=36.7 idxDbl=17.2 idxPreSmi=35.4 idxPreDbl=16.6 sumSmi=22.9 sumDbl=15.9 | idx dbl/smi=0.47 sum dbl/smi=0.69 push dbl/smi=0.89
+round 2: pushSmi=19.0 pushDbl=19.9 preSmi=5.0 preDbl=4.6 idxSmi=33.8 idxDbl=17.1 idxPreSmi=33.9 idxPreDbl=16.3 sumSmi=20.1 sumDbl=14.4 | idx dbl/smi=0.51 sum dbl/smi=0.72 push dbl/smi=1.05
+round 3: pushSmi=20.2 pushDbl=16.8 preSmi=33.8 preDbl=7.9 idxSmi=33.2 idxDbl=16.5 idxPreSmi=33.0 idxPreDbl=15.4 sumSmi=20.5 sumDbl=14.1 | idx dbl/smi=0.50 sum dbl/smi=0.69 push dbl/smi=0.83
+##### d8 (ms)
+round 1: pushSmi=8.8 pushDbl=21.1 preSmi=5.6 preDbl=7.4 idxSmi=4.2 idxDbl=8.9 idxPreSmi=3.9 idxPreDbl=8.7 sumSmi=28.1 sumDbl=32.0 | idx dbl/smi=2.14 sum dbl/smi=1.14 push dbl/smi=2.38
+round 2: pushSmi=5.1 pushDbl=34.2 preSmi=1.8 preDbl=45.6 idxSmi=3.7 idxDbl=9.3 idxPreSmi=3.5 idxPreDbl=7.9 sumSmi=69.1 sumDbl=14.8 | idx dbl/smi=2.50 sum dbl/smi=0.21 push dbl/smi=6.70
+round 3: pushSmi=5.8 pushDbl=120.3 preSmi=2.4 preDbl=51.3 idxSmi=3.6 idxDbl=7.4 idxPreSmi=3.8 idxPreDbl=7.4 sumSmi=68.3 sumDbl=13.1 | idx dbl/smi=2.03 sum dbl/smi=0.19 push dbl/smi=20.87

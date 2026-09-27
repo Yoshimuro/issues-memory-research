@@ -1,0 +1,39 @@
+#### node22
+trunc&FF small 53ms | or&FF small 35ms | trunc&FF big 39ms | or&FF big 36ms | trunc big 24ms | or big 35ms | trunc small 23ms | or small 35ms
+trunc&FF small 38ms | or&FF small 34ms | trunc&FF big 39ms | or&FF big 36ms | trunc big 24ms | or big 35ms | trunc small 24ms | or small 35ms
+trunc&FF small 39ms | or&FF small 34ms | trunc&FF big 39ms | or&FF big 34ms | trunc big 17ms | or big 33ms | trunc small 20ms | or small 34ms
+#### node24
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. deoptimizing  <JSFunction sTrunc >,  <Code MAGLEV>, opt id 3, bytecode offset 33, deopt exit 15
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. deoptimizing  <JSFunction sOr >,  <Code MAGLEV>, opt id 5, bytecode offset 8, deopt exit 13
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. deoptimizing  <JSFunction sTruncNoMask >,  <Code MAGLEV>, opt id 7, bytecode offset 33, deopt exit 13
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. deoptimizing  <JSFunction sOrNoMask >,  <Code MAGLEV>, opt id 9, bytecode offset 8, deopt exit 11
+trunc&FF small 37ms | or&FF small 34ms | trunc&FF big 37ms | or&FF big 33ms | trunc big 20ms | or big 34ms | trunc small 20ms | or small 33ms
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. deoptimizing  <JSFunction sTrunc >,  <Code MAGLEV>, opt id 11, bytecode offset 33, deopt exit 15
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. deoptimizing  <JSFunction sOr >,  <Code MAGLEV>, opt id 13, bytecode offset 8, deopt exit 13
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. deoptimizing  <JSFunction sTruncNoMask >,  <Code MAGLEV>, opt id 15, bytecode offset 33, deopt exit 13
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. deoptimizing  <JSFunction sOrNoMask >,  <Code MAGLEV>, opt id 17, bytecode offset 8, deopt exit 11
+trunc&FF small 37ms | or&FF small 34ms | trunc&FF big 37ms | or&FF big 33ms | trunc big 19ms | or big 33ms | trunc small 21ms | or small 33ms
+trunc&FF small 36ms | or&FF small 33ms | trunc&FF big 39ms | or&FF big 34ms | trunc big 20ms | or big 35ms | trunc small 24ms | or small 41ms
+#### d8
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. deoptimizing  <JSFunction sTrunc >,  <Code MAGLEV>, opt id 2, bytecode offset 8, deopt exit 13
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. deoptimizing  <JSFunction sOr >,  <Code MAGLEV>, opt id 4, bytecode offset 8, deopt exit 13
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. deoptimizing  <JSFunction sTruncNoMask >,  <Code MAGLEV>, opt id 6, bytecode offset 8, deopt exit 10
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. deoptimizing  <JSFunction sOrNoMask >,  <Code MAGLEV>, opt id 8, bytecode offset 8, deopt exit 10
+trunc&FF small 39ms | or&FF small 35ms | trunc&FF big 40ms | or&FF big 36ms | trunc big 22ms | or big 36ms | trunc small 22ms | or small 37ms
+trunc&FF small 38ms | or&FF small 34ms | trunc&FF big 37ms | or&FF big 34ms | trunc big 21ms | or big 35ms | trunc small 21ms | or small 34ms
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. deoptimizing  <JSFunction sTrunc >,  <Code MAGLEV>, opt id 10, bytecode offset 4, deopt exit 9
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. deoptimizing  <JSFunction sTrunc >,  <Code MAGLEV>, opt id 10, bytecode offset 4, deopt exit 9
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. deoptimizing  <JSFunction sTrunc >,  <Code MAGLEV>, opt id 10, bytecode offset 4, deopt exit 9
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. deoptimizing  <JSFunction sOr >,  <Code MAGLEV>, opt id 12, bytecode offset 4, deopt exit 9
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. deoptimizing  <JSFunction sOr >,  <Code MAGLEV>, opt id 12, bytecode offset 4, deopt exit 9
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. deoptimizing  <JSFunction sOr >,  <Code MAGLEV>, opt id 12, bytecode offset 4, deopt exit 9
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. deoptimizing  <JSFunction sTruncNoMask >,  <Code MAGLEV>, opt id 14, bytecode offset 4, deopt exit 6
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. deoptimizing  <JSFunction sTruncNoMask >,  <Code MAGLEV>, opt id 14, bytecode offset 4, deopt exit 6
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. deoptimizing  <JSFunction sTruncNoMask >,  <Code MAGLEV>, opt id 14, bytecode offset 4, deopt exit 6
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. deoptimizing  <JSFunction sTruncNoMask >,  <Code MAGLEV>, opt id 14, bytecode offset 4, deopt exit 6
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. deoptimizing  <JSFunction sOrNoMask >,  <Code MAGLEV>, opt id 16, bytecode offset 4, deopt exit 6
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. deoptimizing  <JSFunction sOrNoMask >,  <Code MAGLEV>, opt id 16, bytecode offset 4, deopt exit 6
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. deoptimizing  <JSFunction sOrNoMask >,  <Code MAGLEV>, opt id 16, bytecode offset 4, deopt exit 6
+trunc&FF small 38ms | or&FF small 36ms | trunc&FF big 35ms | or&FF big 34ms | trunc big 22ms | or big 37ms | trunc small 17ms | or small 38ms
+#### node24 ignition only
+trunc&FF small 988ms | or&FF small 609ms | trunc&FF big 837ms | or&FF big 695ms | trunc big 1094ms | or big 749ms | trunc small 999ms | or small 622ms

@@ -1,0 +1,18 @@
+== d8 --trace-deopt
+  deopt sumZero [MAGLEV] reason: prepare for on stack replacement (OSR)
+--- sumZero(0.1)
+  deopt sumZero [TURBOFAN_JS] reason: not a Smi
+  deopt sumZero [MAGLEV] reason: prepare for on stack replacement (OSR)
+  deopt sumNegZero [MAGLEV] reason: prepare for on stack replacement (OSR)
+--- sumNegZero(0.1)
+== node24 --trace-deopt
+  deopt sumZero [MAGLEV] reason: prepare for on stack replacement (OSR)
+--- sumZero(0.1)
+  deopt sumZero [TURBOFAN_JS] reason: not a Smi
+  deopt sumZero [MAGLEV] reason: prepare for on stack replacement (OSR)
+  deopt sumNegZero [MAGLEV] reason: prepare for on stack replacement (OSR)
+--- sumNegZero(0.1)
+== node22 --trace-deopt
+--- sumZero(0.1)
+  deopt sumZero [TURBOFAN] reason: not a Smi
+--- sumNegZero(0.1)

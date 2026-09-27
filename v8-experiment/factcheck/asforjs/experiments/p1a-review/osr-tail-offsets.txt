@@ -1,0 +1,7 @@
+== d8 tail: bailout line + bytecode
+  490 E> 0x… @   45 : 98 2b 00 05       JumpLoop [43], [0], FBV[5] (0x… @ 2)
+  551 E> 0x… @   51 : 52 03 00          MulSmi [3], EmbeddedFeedback[None]
+  582 S> 0x… @   70 : ba                Return
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. deoptimizing 0x… <JSFunction tail (sfi = 0x…)>, 0x… <Code MAGLEV>, opt id 2, bytecode offset 38, deopt exit 14, FP to SP delta 104, caller SP 0x…, pc 0x…]
+[bailout (kind: deopt-eager, reason: Insufficient type feedback for binary operation): begin. deoptimizing 0x… <JSFunction tail (sfi = 0x…)>, 0x… <Code TURBOFAN_JS>, opt id 3, bytecode offset 51, deopt exit 8, FP to SP delta 152, caller SP 0x…, pc 0x�
+[bailout (kind: deopt-eager, reason: Insufficient type feedback for binary operation): begin. deoptimizing 0x… <JSFunction tail (sfi = 0x…)>, 0x… <Code TURBOFAN_JS>, opt id 3, bytecode offset 51, deopt exit 8, FP to SP delta 152, caller SP 0x…, pc 0x�

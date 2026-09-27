@@ -1,0 +1,30 @@
+=== smi literal call 1: JSArray young=true
+ - elements: 0x1f480101dda9 <FixedArray[3]> [PACKED_SMI_ELEMENTS (COW)]
+ - elements: 0x1f480101dda9 <FixedArray[3]> {
+=== smi literal call 2: JSArray young=true
+ - elements: 0x1f480101dda9 <FixedArray[3]> [PACKED_SMI_ELEMENTS (COW)]
+ - elements: 0x1f480101dda9 <FixedArray[3]> {
+=== smi literal call 3: JSArray young=true
+ - elements: 0x1f480101dda9 <FixedArray[3]> [PACKED_SMI_ELEMENTS (COW)]
+ - elements: 0x1f480101dda9 <FixedArray[3]> {
+=== double literal call 1: JSArray young=true
+ - elements: 0x1f4801089ba1 <FixedDoubleArray[3]> [PACKED_DOUBLE_ELEMENTS]
+ - elements: 0x1f4801089ba1 <FixedDoubleArray[3]> {
+=== double literal call 2: JSArray young=true
+ - elements: 0x1f4801089c71 <FixedDoubleArray[3]> [PACKED_DOUBLE_ELEMENTS]
+ - elements: 0x1f4801089c71 <FixedDoubleArray[3]> {
+=== double literal call 3: JSArray young=true
+ - elements: 0x1f4801089d41 <FixedDoubleArray[3]> [PACKED_DOUBLE_ELEMENTS]
+ - elements: 0x1f4801089d41 <FixedDoubleArray[3]> {
+=== object literal call 1: JSArray young=true
+ - elements: 0x1f4801089e65 <FixedArray[3]> [PACKED_ELEMENTS]
+ - elements: 0x1f4801089e65 <FixedArray[3]> {
+=== object literal call 2: JSArray young=true
+ - elements: 0x1f4801089f45 <FixedArray[3]> [PACKED_ELEMENTS]
+ - elements: 0x1f4801089f45 <FixedArray[3]> {
+=== object literal call 3: JSArray young=true
+ - elements: 0x1f480108a025 <FixedArray[3]> [PACKED_ELEMENTS]
+ - elements: 0x1f480108a025 <FixedArray[3]> {
+=== new Array: JSArray young=true
+ - elements: 0x1f480108a129 <FixedArray[3]> [HOLEY_SMI_ELEMENTS]
+ - elements: 0x1f480108a129 <FixedArray[3]> {

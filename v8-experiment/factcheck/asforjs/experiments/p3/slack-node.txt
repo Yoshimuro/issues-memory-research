@@ -1,0 +1,24 @@
+== /opt/node20/bin/node
+ - inobject properties: 10
+ - properties: 0x1cfd09460929 <PropertyArray[6]>
+    0x347814c3801: [String] in ReadOnlySpace: #p: 1 (const data field 2), location: properties[0]
+    0x1d2500623421: [String] in OldSpace: #p2: 2 (const data field 3), location: properties[1]
+    0x1d2500623439: [String] in OldSpace: #p3: 3 (const data field 4), location: properties[2]
+    0x1d2500623451: [String] in OldSpace: #p4: 4 (const data field 5), location: properties[3]
+ - inobject properties: 2
+== /opt/node22/bin/node
+ - inobject properties: 10
+ - properties: 0x2a34a55e6499 <PropertyArray[6]>
+    0x11ddad8c4cb1: [String] in ReadOnlySpace: #p: 1 (const data field 2), location: properties[0]
+    0x30755ef5b341: [String] in OldSpace: #p2: 2 (const data field 3), location: properties[1]
+    0x30755ef5b359: [String] in OldSpace: #p3: 3 (const data field 4), location: properties[2]
+    0x30755ef5b371: [String] in OldSpace: #p4: 4 (const data field 5), location: properties[3]
+ - inobject properties: 2
+== /opt/nvm/versions/node/v24.21.0/bin/node
+ - inobject properties: 10
+ - properties: 0x0871a3be6479 <PropertyArray[6]>
+    0xfcff1a85669: [String] in ReadOnlySpace: #p: 1 (const data field 2, attrs: [WEC]) @ Any, location: properties[0]
+    0x1d54d7a80e1: [String]: #p2: 2 (const data field 3, attrs: [WEC]) @ Any, location: properties[1]
+    0x1d54d7a80f9: [String]: #p3: 3 (const data field 4, attrs: [WEC]) @ Any, location: properties[2]
+    0x1d54d7a8111: [String]: #p4: 4 (const data field 5, attrs: [WEC]) @ Any, location: properties[3]
+ - inobject properties: 2

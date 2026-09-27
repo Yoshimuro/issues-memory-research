@@ -1,0 +1,5 @@
+name = t
+0x7f11be7c74b4    34  48c1e920             REX.W shrq rcx, 32
+name = o
+0x7f11be7c7674    34  48c1fa20             REX.W sarq rdx, 32
+name = arrsum

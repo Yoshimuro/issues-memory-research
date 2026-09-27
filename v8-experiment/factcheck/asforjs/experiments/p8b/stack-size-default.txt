@@ -1,0 +1,6 @@
+node24:
+  --stack-size (default size of stack region v8 is allowed to use (in kBytes))
+        type: int  default: --stack-size=984
+d8 15.6:
+  --stack-size (default size of stack region v8 is allowed to use (in kBytes))
+        type: int  default: --stack-size=984

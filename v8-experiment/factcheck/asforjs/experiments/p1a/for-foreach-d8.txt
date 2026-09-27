@@ -1,0 +1,12 @@
+d8 max-opt=0 for ms=861 forEach ms=883
+d8 max-opt=1 for ms=325 forEach ms=487
+d8 max-opt=2 for ms=51 forEach ms=191
+d8 max-opt=3 for ms=25 forEach ms=250
+d8 max-opt=0 for ms=728 forEach ms=743
+d8 max-opt=1 for ms=305 forEach ms=527
+d8 max-opt=2 for ms=73 forEach ms=180
+d8 max-opt=3 for ms=22 forEach ms=188
+d8 max-opt=0 for ms=725 forEach ms=847
+d8 max-opt=1 for ms=350 forEach ms=647
+d8 max-opt=2 for ms=68 forEach ms=228
+d8 max-opt=3 for ms=24 forEach ms=188

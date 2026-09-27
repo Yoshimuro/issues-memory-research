@@ -1,0 +1,15 @@
+== d8
+object with 5000 dynamic keys is dictionary: true
+rep0 withMapNoSize=102ms withObjNoKeys=112ms
+rep1 withMapNoSize=84ms withObjNoKeys=100ms
+rep2 withMapNoSize=83ms withObjNoKeys=101ms
+== node24
+object with 5000 dynamic keys is dictionary: true
+rep0 withMapNoSize=133ms withObjNoKeys=139ms
+rep1 withMapNoSize=124ms withObjNoKeys=132ms
+rep2 withMapNoSize=123ms withObjNoKeys=132ms
+== node22
+object with 5000 dynamic keys is dictionary: true
+rep0 withMapNoSize=117ms withObjNoKeys=118ms
+rep1 withMapNoSize=110ms withObjNoKeys=113ms
+rep2 withMapNoSize=111ms withObjNoKeys=114ms

@@ -1,0 +1,9 @@
+--- FUNCTION SOURCE (/home/user/issues-memory-research/v8-experiment/factcheck/asforjs/experiments/p7-review/osr-print.js:doLoop) id{2,-1} start{64} ---
+(n) { let s = 0; for (let i = 0; i < n; i++) s = (s + (i & 7)) | 0; return s; }
+--- END ---
+result 1050000000
+V8 is running with developer-only features enabled. Stability and security will suffer.
+--- FUNCTION SOURCE (osr-print.js:doLoop) id{1,-1} start{64} ---
+(n) { let s = 0; for (let i = 0; i < n; i++) s = (s + (i & 7)) | 0; return s; }
+--- END ---
+result 1050000000

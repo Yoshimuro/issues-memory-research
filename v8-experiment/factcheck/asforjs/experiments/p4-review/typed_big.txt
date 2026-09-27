@@ -1,0 +1,18 @@
+=== node22
+round 0 smiArray=64.6 Int8Array=21.3 Int32Array=51.4 smi/i8=3.03 smi/i32=1.26
+round 1 smiArray=62.8 Int8Array=22.3 Int32Array=50.5 smi/i8=2.81 smi/i32=1.24
+round 2 smiArray=64.1 Int8Array=21.6 Int32Array=52.1 smi/i8=2.97 smi/i32=1.23
+round 3 smiArray=30.3 Int8Array=21.7 Int32Array=46.9 smi/i8=1.39 smi/i32=0.65
+round 4 smiArray=29.6 Int8Array=21.5 Int32Array=46.1 smi/i8=1.37 smi/i32=0.64
+=== node24
+round 0 smiArray=55.6 Int8Array=23.0 Int32Array=52.7 smi/i8=2.42 smi/i32=1.06
+round 1 smiArray=51.5 Int8Array=21.9 Int32Array=58.6 smi/i8=2.36 smi/i32=0.88
+round 2 smiArray=83.2 Int8Array=34.7 Int32Array=57.2 smi/i8=2.39 smi/i32=1.45
+round 3 smiArray=82.5 Int8Array=35.1 Int32Array=58.5 smi/i8=2.35 smi/i32=1.41
+round 4 smiArray=78.5 Int8Array=34.3 Int32Array=60.3 smi/i8=2.29 smi/i32=1.30
+=== d8
+round 0 smiArray=52.9 Int8Array=24.7 Int32Array=55.1 smi/i8=2.14 smi/i32=0.96
+round 1 smiArray=51.9 Int8Array=22.8 Int32Array=54.9 smi/i8=2.27 smi/i32=0.95
+round 2 smiArray=101.6 Int8Array=23.0 Int32Array=55.6 smi/i8=4.42 smi/i32=1.83
+round 3 smiArray=161.1 Int8Array=26.3 Int32Array=51.8 smi/i8=6.12 smi/i32=3.11
+round 4 smiArray=155.6 Int8Array=23.1 Int32Array=50.9 smi/i8=6.75 smi/i32=3.06

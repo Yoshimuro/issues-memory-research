@@ -1,0 +1,30 @@
+=== node22 ignition only (--no-opt --no-sparkplug), R=200
+round 0 arr=30 obj=10 idx=10 arr/idx=3.15 obj/idx=1.06
+round 1 arr=31 obj=10 idx=10 arr/idx=3.17 obj/idx=1.06
+round 2 arr=30 obj=10 idx=10 arr/idx=3.01 obj/idx=1.01
+round 3 arr=30 obj=10 idx=10 arr/idx=3.01 obj/idx=1.02
+=== node22 sparkplug, no turbofan (--no-opt), R=200
+round 0 arr=20 obj=6 idx=6 arr/idx=3.62 obj/idx=1.00
+round 1 arr=22 obj=6 idx=5 arr/idx=3.99 obj/idx=1.01
+round 2 arr=20 obj=6 idx=6 arr/idx=3.65 obj/idx=0.99
+round 3 arr=22 obj=5 idx=5 arr/idx=4.09 obj/idx=1.01
+=== node22 default, R=20000
+round 0 arr=59 obj=35 idx=35 arr/idx=1.68 obj/idx=1.00
+round 1 arr=59 obj=36 idx=35 arr/idx=1.69 obj/idx=1.03
+round 2 arr=47 obj=35 idx=35 arr/idx=1.36 obj/idx=1.00
+round 3 arr=47 obj=34 idx=35 arr/idx=1.36 obj/idx=0.99
+=== node24 default, R=20000
+round 0 arr=38 obj=32 idx=32 arr/idx=1.21 obj/idx=1.00
+round 1 arr=39 obj=32 idx=32 arr/idx=1.21 obj/idx=1.01
+round 2 arr=39 obj=32 idx=32 arr/idx=1.21 obj/idx=1.00
+round 3 arr=38 obj=32 idx=32 arr/idx=1.20 obj/idx=1.01
+=== d8 ignition only, R=200
+round 0 arr=27 obj=10 idx=9 arr/idx=3.00 obj/idx=1.06
+round 1 arr=27 obj=10 idx=9 arr/idx=2.90 obj/idx=1.04
+round 2 arr=27 obj=9 idx=9 arr/idx=2.92 obj/idx=1.04
+round 3 arr=27 obj=10 idx=9 arr/idx=2.98 obj/idx=1.10
+=== d8 default, R=20000
+round 0 arr=32 obj=25 idx=26 arr/idx=1.23 obj/idx=0.98
+round 1 arr=32 obj=25 idx=25 arr/idx=1.24 obj/idx=1.00
+round 2 arr=32 obj=26 idx=25 arr/idx=1.25 obj/idx=1.01
+round 3 arr=32 obj=25 idx=25 arr/idx=1.25 obj/idx=0.99

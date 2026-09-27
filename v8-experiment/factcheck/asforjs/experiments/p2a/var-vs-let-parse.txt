@@ -1,0 +1,24 @@
+## d8 run 1
+source size: 3.28 MB
+load: var [60.6 59.1 62.7 64.9 58.5 61.2] median 61.2 ms | let [62.0 61.7 59.8 64.0 59.6 66.3] median 62.0 ms | let/var = 1.01
+call: var [109.3 109.6 111.1 146.4 105.3 113.6] median 111.1 ms | let [102.8 131.4 111.0 94.0 105.9 118.2] median 111.0 ms | let/var = 1.00
+## node24 run 1
+source size: 3.28 MB
+load: var [65.9 56.2 112.0 83.5 56.8 71.3] median 71.3 ms | let [61.8 58.6 59.7 84.3 56.6 64.5] median 61.8 ms | let/var = 0.87
+call: var [128.1 101.4 89.2 120.5 125.7 101.7] median 120.5 ms | let [100.2 105.1 130.5 129.3 99.2 109.3] median 109.3 ms | let/var = 0.91
+## d8 run 2
+source size: 3.28 MB
+load: var [60.6 81.6 62.6 62.5 59.9 62.6] median 62.6 ms | let [57.9 73.1 79.3 60.8 59.5 61.0] median 61.0 ms | let/var = 0.97
+call: var [110.5 117.9 109.8 108.4 109.5 106.8] median 109.8 ms | let [101.5 110.7 119.1 127.3 109.2 108.5] median 110.7 ms | let/var = 1.01
+## node24 run 2
+source size: 3.28 MB
+load: var [52.0 60.3 63.9 66.1 58.6 57.6] median 60.3 ms | let [66.6 74.4 63.1 75.3 81.9 59.5] median 74.4 ms | let/var = 1.23
+call: var [97.1 121.8 98.6 151.1 118.2 114.4] median 118.2 ms | let [104.1 101.4 106.0 105.2 99.3 106.2] median 105.2 ms | let/var = 0.89
+## d8 run 3
+source size: 3.28 MB
+load: var [72.5 92.2 76.8 68.5 67.8 55.0] median 72.5 ms | let [93.7 110.1 77.4 63.9 62.1 68.7] median 77.4 ms | let/var = 1.07
+call: var [138.0 162.4 134.1 143.0 102.3 115.5] median 138.0 ms | let [137.0 190.7 146.5 116.0 111.4 112.8] median 137.0 ms | let/var = 0.99
+## node24 run 3
+source size: 3.28 MB
+load: var [51.7 59.2 89.5 80.9 56.5 57.5] median 59.2 ms | let [59.3 56.5 60.4 81.7 58.1 58.2] median 59.3 ms | let/var = 1.00
+call: var [123.3 105.4 129.3 117.0 101.2 103.7] median 117.0 ms | let [100.8 105.2 114.2 123.5 103.5 103.5] median 105.2 ms | let/var = 0.90

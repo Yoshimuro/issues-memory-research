@@ -1,0 +1,225 @@
+areaC: Instructions (size = 472)
+areaC: 0x7fdd48004100     0  55                   push rbp
+areaC: 0x7fdd48004101     1  4889e5               REX.W movq rbp,rsp
+areaC: 0x7fdd48004104     4  56                   push rsi
+areaC: 0x7fdd48004105     5  57                   push rdi
+areaC: 0x7fdd48004106     6  50                   push rax
+areaC: 0x7fdd48004107     7  4883ec18             REX.W subq rsp,0x18
+areaC: 0x7fdd4800410b     b  488975d8             REX.W movq [rbp-0x28],rsi
+areaC: 0x7fdd4800410f     f  48897de0             REX.W movq [rbp-0x20],rdi
+areaC: 0x7fdd48004113    13  493b65a0             REX.W cmpq rsp,[r13-0x60] (external value (StackGuard::address_of_jslimit()))
+areaC: 0x7fdd48004117    17  0f862f010000         jna 0x7fdd4800424c  <+0x14c>
+areaC: 0x7fdd4800411d    1d  488b4dd8             REX.W movq rcx,[rbp-0x28]
+areaC: 0x7fdd48004121    21  488b791f             REX.W movq rdi,[rcx+0x1f]
+areaC: 0x7fdd48004125    25  4d8b8528020000       REX.W movq r8,[r13+0x228] (root (the_hole_value))
+areaC: 0x7fdd4800412c    2c  4c3bc7               REX.W cmpq r8,rdi
+areaC: 0x7fdd4800412f    2f  0f8462010000         jz 0x7fdd48004297  <+0x197>
+areaC: 0x7fdd48004135    35  40f6c701             testb rdi,0x1
+areaC: 0x7fdd48004139    39  0f842d000000         jz 0x7fdd4800416c  <+0x6c>
+areaC: 0x7fdd4800413f    3f  4c8b47ff             REX.W movq r8,[rdi-0x1]
+areaC: 0x7fdd48004143    43  4d3985c8020000       REX.W cmpq [r13+0x2c8] (root (heap_number_map)),r8
+areaC: 0x7fdd4800414a    4a  0f8412000000         jz 0x7fdd48004162  <+0x62>
+areaC: 0x7fdd48004150    50  450fb7400b           movzxwl r8,[r8+0xb]
+areaC: 0x7fdd48004155    55  4181f883000000       cmpl r8,0x83
+areaC: 0x7fdd4800415c    5c  0f8565010000         jnz 0x7fdd480042c7  <+0x1c7>
+areaC: 0x7fdd48004162    62  c5fb104707           vmovsd xmm0,[rdi+0x7]
+areaC: 0x7fdd48004167    67  e90f000000           jmp 0x7fdd4800417b  <+0x7b>
+areaC: 0x7fdd4800416c    6c  4c8bc7               REX.W movq r8,rdi
+areaC: 0x7fdd4800416f    6f  49c1f820             REX.W sarq r8, 32
+areaC: 0x7fdd48004173    73  458bc0               movl r8,r8
+areaC: 0x7fdd48004176    76  c4c1032ac0           vcvtlsi2sd xmm0,xmm15,r8
+areaC: 0x7fdd4800417b    7b  4c8b4518             REX.W movq r8,[rbp+0x18]
+areaC: 0x7fdd4800417f    7f  41f6c001             testb r8,0x1
+areaC: 0x7fdd48004183    83  0f842e000000         jz 0x7fdd480041b7  <+0xb7>
+areaC: 0x7fdd48004189    89  4d8b48ff             REX.W movq r9,[r8-0x1]
+areaC: 0x7fdd4800418d    8d  4d398dc8020000       REX.W cmpq [r13+0x2c8] (root (heap_number_map)),r9
+areaC: 0x7fdd48004194    94  0f8412000000         jz 0x7fdd480041ac  <+0xac>
+areaC: 0x7fdd4800419a    9a  450fb7490b           movzxwl r9,[r9+0xb]
+areaC: 0x7fdd4800419f    9f  4181f983000000       cmpl r9,0x83
+areaC: 0x7fdd480041a6    a6  0f851f010000         jnz 0x7fdd480042cb  <+0x1cb>
+areaC: 0x7fdd480041ac    ac  c4c17b104807         vmovsd xmm1,[r8+0x7]
+areaC: 0x7fdd480041b2    b2  e90b000000           jmp 0x7fdd480041c2  <+0xc2>
+areaC: 0x7fdd480041b7    b7  49c1f820             REX.W sarq r8, 32
+areaC: 0x7fdd480041bb    bb  418bc8               movl rcx,r8
+areaC: 0x7fdd480041be    be  c5832ac9             vcvtlsi2sd xmm1,xmm15,rcx
+areaC: 0x7fdd480041c2    c2  c5fb59c1             vmulsd xmm0,xmm0,xmm1
+areaC: 0x7fdd480041c6    c6  c5f359c0             vmulsd xmm0,xmm1,xmm0
+areaC: 0x7fdd480041ca    ca  c5fb2cc8             vcvttsd2si rcx,xmm0
+areaC: 0x7fdd480041ce    ce  c5832ac9             vcvtlsi2sd xmm1,xmm15,rcx
+areaC: 0x7fdd480041d2    d2  c5f92ec8             vucomisd xmm1,xmm0
+areaC: 0x7fdd480041d6    d6  0f8a1c000000         jpe 0x7fdd480041f8  <+0xf8>
+areaC: 0x7fdd480041dc    dc  0f8516000000         jnz 0x7fdd480041f8  <+0xf8>
+areaC: 0x7fdd480041e2    e2  85c9                 testl rcx,rcx
+areaC: 0x7fdd480041e4    e4  0f8559000000         jnz 0x7fdd48004243  <+0x143>
+areaC: 0x7fdd480041ea    ea  c4e37916c701         vpextrd rdi,xmm0,0x1
+areaC: 0x7fdd480041f0    f0  85ff                 testl rdi,rdi
+areaC: 0x7fdd480041f2    f2  0f8d4b000000         jge 0x7fdd48004243  <+0x143>
+areaC: 0x7fdd480041f8    f8  498b4d50             REX.W movq rcx,[r13+0x50] (external value (Heap::NewSpaceAllocationTopAddress()))
+areaC: 0x7fdd480041fc    fc  488d7910             REX.W leaq rdi,[rcx+0x10]
+areaC: 0x7fdd48004200   100  49397d58             REX.W cmpq [r13+0x58] (external value (Heap::NewSpaceAllocationLimitAddress())),rdi
+areaC: 0x7fdd48004204   104  0f8670000000         jna 0x7fdd4800427a  <+0x17a>
+areaC: 0x7fdd4800420a   10a  488d7910             REX.W leaq rdi,[rcx+0x10]
+areaC: 0x7fdd4800420e   10e  49897d50             REX.W movq [r13+0x50] (external value (Heap::NewSpaceAllocationTopAddress())),rdi
+areaC: 0x7fdd48004212   112  4883c101             REX.W addq rcx,0x1
+areaC: 0x7fdd48004216   116  498bbdc8020000       REX.W movq rdi,[r13+0x2c8] (root (heap_number_map))
+areaC: 0x7fdd4800421d   11d  488979ff             REX.W movq [rcx-0x1],rdi
+areaC: 0x7fdd48004221   121  c5fb114107           vmovsd [rcx+0x7],xmm0
+areaC: 0x7fdd48004226   126  488bc1               REX.W movq rax,rcx
+areaC: 0x7fdd48004229   129  488b4de8             REX.W movq rcx,[rbp-0x18]
+areaC: 0x7fdd4800422d   12d  488be5               REX.W movq rsp,rbp
+areaC: 0x7fdd48004230   130  5d                   pop rbp
+areaC: 0x7fdd48004231   131  4883f902             REX.W cmpq rcx,0x2
+areaC: 0x7fdd48004235   135  7f03                 jg 0x7fdd4800423a  <+0x13a>
+areaC: 0x7fdd48004237   137  c21000               ret 0x10
+areaC: 0x7fdd4800423a   13a  415a                 pop r10
+areaC: 0x7fdd4800423c   13c  488d24cc             REX.W leaq rsp,[rsp+rcx*8]
+areaC: 0x7fdd48004240   140  4152                 push r10
+areaC: 0x7fdd48004242   142  c3                   retl
+areaC: 0x7fdd48004243   143  48c1e120             REX.W shlq rcx, 32
+areaC: 0x7fdd48004247   147  488bc1               REX.W movq rax,rcx
+areaC: 0x7fdd4800424a   14a  ebdd                 jmp 0x7fdd48004229  <+0x129>
+areaC: 0x7fdd4800424c   14c  48b90000000010000000 REX.W movq rcx,0x1000000000
+areaC: 0x7fdd48004256   156  51                   push rcx
+areaC: 0x7fdd48004257   157  48bb10863c0100000000 REX.W movq rbx,0x13c8610
+areaC: 0x7fdd48004261   161  b801000000           movl rax,0x1
+areaC: 0x7fdd48004266   166  48be0901c0ad45070000 REX.W movq rsi,0x745adc00109    ;; object: 0x0745adc00109 <NativeContext[302]>
+areaC: 0x7fdd48004270   170  e80b27e71f           call 0x7fdd67e76980  (CEntry_Return1_ArgvOnStack_NoBuiltinExit)    ;; near builtin entry
+areaC: 0x7fdd48004275   175  e9a3feffff           jmp 0x7fdd4800411d  <+0x1d>
+areaC: 0x7fdd4800427a   17a  ba10000000           movl rdx,0x10
+areaC: 0x7fdd4800427f   17f  c5fb1145e0           vmovsd [rbp-0x20],xmm0
+areaC: 0x7fdd48004284   184  e8f7b2dc1f           call 0x7fdd67dcf580  (AllocateInYoungGeneration)    ;; near builtin entry
+areaC: 0x7fdd48004289   189  488d48ff             REX.W leaq rcx,[rax-0x1]
+areaC: 0x7fdd4800428d   18d  c5fb1045e0           vmovsd xmm0,[rbp-0x20]
+areaC: 0x7fdd48004292   192  e973ffffff           jmp 0x7fdd4800420a  <+0x10a>
+areaC: 0x7fdd48004297   197  49b859f2dce0590e0000 REX.W movq r8,0xe59e0dcf259    ;; object: 0x0e59e0dcf259 <String[2]: #PI>
+areaC: 0x7fdd480042a1   1a1  4150                 push r8
+areaC: 0x7fdd480042a3   1a3  48897dd0             REX.W movq [rbp-0x30],rdi
+areaC: 0x7fdd480042a7   1a7  48bb607a3c0100000000 REX.W movq rbx,0x13c7a60
+areaC: 0x7fdd480042b1   1b1  b801000000           movl rax,0x1
+areaC: 0x7fdd480042b6   1b6  48be0901c0ad45070000 REX.W movq rsi,0x745adc00109    ;; object: 0x0745adc00109 <NativeContext[302]>
+areaC: 0x7fdd480042c0   1c0  e8bb26e71f           call 0x7fdd67e76980  (CEntry_Return1_ArgvOnStack_NoBuiltinExit)    ;; near builtin entry
+areaC: 0x7fdd480042c7   1c7  41ff55d8             call [r13-0x28]    ;; debug: deopt position, script offset 'a1'
+areaC:                                                              ;; debug: deopt position, inlining id 'ffffffff'
+areaC:                                                              ;; debug: deopt reason 'not a Number or Oddball'
+areaC:                                                              ;; debug: deopt index 0
+areaC: 0x7fdd480042cb   1cb  41ff55d8             call [r13-0x28]    ;; debug: deopt position, script offset 'a1'
+areaC:                                                              ;; debug: deopt position, inlining id 'ffffffff'
+areaC:                                                              ;; debug: deopt reason 'not a Number or Oddball'
+areaC:                                                              ;; debug: deopt index 1
+areaC: 0x7fdd480042cf   1cf  41ff55e0             call [r13-0x20]    ;; debug: deopt position, script offset '91'
+areaC:                                                              ;; debug: deopt position, inlining id 'ffffffff'
+areaC:                                                              ;; debug: deopt reason '(unknown)'
+areaC:                                                              ;; debug: deopt index 2
+areaC: 0x7fdd480042d3   1d3  41ff55e0             call [r13-0x20]    ;; debug: deopt position, script offset '97'
+areaC:                                                              ;; debug: deopt position, inlining id 'ffffffff'
+areaC:                                                              ;; debug: deopt reason '(unknown)'
+areaC:                                                              ;; debug: deopt index 3
+areaC: 
+areaF: Instructions (size = 436)
+areaF: 0x7fdd48004340     0  55                   push rbp
+areaF: 0x7fdd48004341     1  4889e5               REX.W movq rbp,rsp
+areaF: 0x7fdd48004344     4  56                   push rsi
+areaF: 0x7fdd48004345     5  57                   push rdi
+areaF: 0x7fdd48004346     6  50                   push rax
+areaF: 0x7fdd48004347     7  4883ec18             REX.W subq rsp,0x18
+areaF: 0x7fdd4800434b     b  488975d8             REX.W movq [rbp-0x28],rsi
+areaF: 0x7fdd4800434f     f  48897de0             REX.W movq [rbp-0x20],rdi
+areaF: 0x7fdd48004353    13  493b65a0             REX.W cmpq rsp,[r13-0x60] (external value (StackGuard::address_of_jslimit()))
+areaF: 0x7fdd48004357    17  0f860b010000         jna 0x7fdd48004468  <+0x128>
+areaF: 0x7fdd4800435d    1d  488b4dd8             REX.W movq rcx,[rbp-0x28]
+areaF: 0x7fdd48004361    21  488b791f             REX.W movq rdi,[rcx+0x1f]
+areaF: 0x7fdd48004365    25  4d8b8528020000       REX.W movq r8,[r13+0x228] (root (the_hole_value))
+areaF: 0x7fdd4800436c    2c  4c3bc7               REX.W cmpq r8,rdi
+areaF: 0x7fdd4800436f    2f  0f843e010000         jz 0x7fdd480044b3  <+0x173>
+areaF: 0x7fdd48004375    35  49b87164c6738c0b0000 REX.W movq r8,0xb8c73c66471    ;; object: 0x0b8c73c66471 <JSFunction PI (sfi = 0x1f330efa8a31)>
+areaF: 0x7fdd4800437f    3f  4c3bc7               REX.W cmpq r8,rdi
+areaF: 0x7fdd48004382    42  0f855b010000         jnz 0x7fdd480044e3  <+0x1a3>
+areaF: 0x7fdd48004388    48  4c8b4518             REX.W movq r8,[rbp+0x18]
+areaF: 0x7fdd4800438c    4c  41f6c001             testb r8,0x1
+areaF: 0x7fdd48004390    50  0f842e000000         jz 0x7fdd480043c4  <+0x84>
+areaF: 0x7fdd48004396    56  4d8b48ff             REX.W movq r9,[r8-0x1]
+areaF: 0x7fdd4800439a    5a  4d398dc8020000       REX.W cmpq [r13+0x2c8] (root (heap_number_map)),r9
+areaF: 0x7fdd480043a1    61  0f8412000000         jz 0x7fdd480043b9  <+0x79>
+areaF: 0x7fdd480043a7    67  450fb7490b           movzxwl r9,[r9+0xb]
+areaF: 0x7fdd480043ac    6c  4181f983000000       cmpl r9,0x83
+areaF: 0x7fdd480043b3    73  0f852e010000         jnz 0x7fdd480044e7  <+0x1a7>
+areaF: 0x7fdd480043b9    79  c4c17b104007         vmovsd xmm0,[r8+0x7]
+areaF: 0x7fdd480043bf    7f  e90b000000           jmp 0x7fdd480043cf  <+0x8f>
+areaF: 0x7fdd480043c4    84  49c1f820             REX.W sarq r8, 32
+areaF: 0x7fdd480043c8    88  418bc8               movl rcx,r8
+areaF: 0x7fdd480043cb    8b  c5832ac1             vcvtlsi2sd xmm0,xmm15,rcx
+areaF: 0x7fdd480043cf    8f  49ba1f85eb51b81e0940 REX.W movq r10,0x40091eb851eb851f
+areaF: 0x7fdd480043d9    99  c4c1f96eca           vmovq xmm1,r10
+areaF: 0x7fdd480043de    9e  c5f359c8             vmulsd xmm1,xmm1,xmm0
+areaF: 0x7fdd480043e2    a2  c5fb59c1             vmulsd xmm0,xmm0,xmm1
+areaF: 0x7fdd480043e6    a6  c5fb2cc8             vcvttsd2si rcx,xmm0
+areaF: 0x7fdd480043ea    aa  c5832ac9             vcvtlsi2sd xmm1,xmm15,rcx
+areaF: 0x7fdd480043ee    ae  c5f92ec8             vucomisd xmm1,xmm0
+areaF: 0x7fdd480043f2    b2  0f8a1c000000         jpe 0x7fdd48004414  <+0xd4>
+areaF: 0x7fdd480043f8    b8  0f8516000000         jnz 0x7fdd48004414  <+0xd4>
+areaF: 0x7fdd480043fe    be  85c9                 testl rcx,rcx
+areaF: 0x7fdd48004400    c0  0f8559000000         jnz 0x7fdd4800445f  <+0x11f>
+areaF: 0x7fdd48004406    c6  c4e37916c701         vpextrd rdi,xmm0,0x1
+areaF: 0x7fdd4800440c    cc  85ff                 testl rdi,rdi
+areaF: 0x7fdd4800440e    ce  0f8d4b000000         jge 0x7fdd4800445f  <+0x11f>
+areaF: 0x7fdd48004414    d4  498b4d50             REX.W movq rcx,[r13+0x50] (external value (Heap::NewSpaceAllocationTopAddress()))
+areaF: 0x7fdd48004418    d8  488d7910             REX.W leaq rdi,[rcx+0x10]
+areaF: 0x7fdd4800441c    dc  49397d58             REX.W cmpq [r13+0x58] (external value (Heap::NewSpaceAllocationLimitAddress())),rdi
+areaF: 0x7fdd48004420    e0  0f8670000000         jna 0x7fdd48004496  <+0x156>
+areaF: 0x7fdd48004426    e6  488d7910             REX.W leaq rdi,[rcx+0x10]
+areaF: 0x7fdd4800442a    ea  49897d50             REX.W movq [r13+0x50] (external value (Heap::NewSpaceAllocationTopAddress())),rdi
+areaF: 0x7fdd4800442e    ee  4883c101             REX.W addq rcx,0x1
+areaF: 0x7fdd48004432    f2  498bbdc8020000       REX.W movq rdi,[r13+0x2c8] (root (heap_number_map))
+areaF: 0x7fdd48004439    f9  488979ff             REX.W movq [rcx-0x1],rdi
+areaF: 0x7fdd4800443d    fd  c5fb114107           vmovsd [rcx+0x7],xmm0
+areaF: 0x7fdd48004442   102  488bc1               REX.W movq rax,rcx
+areaF: 0x7fdd48004445   105  488b4de8             REX.W movq rcx,[rbp-0x18]
+areaF: 0x7fdd48004449   109  488be5               REX.W movq rsp,rbp
+areaF: 0x7fdd4800444c   10c  5d                   pop rbp
+areaF: 0x7fdd4800444d   10d  4883f902             REX.W cmpq rcx,0x2
+areaF: 0x7fdd48004451   111  7f03                 jg 0x7fdd48004456  <+0x116>
+areaF: 0x7fdd48004453   113  c21000               ret 0x10
+areaF: 0x7fdd48004456   116  415a                 pop r10
+areaF: 0x7fdd48004458   118  488d24cc             REX.W leaq rsp,[rsp+rcx*8]
+areaF: 0x7fdd4800445c   11c  4152                 push r10
+areaF: 0x7fdd4800445e   11e  c3                   retl
+areaF: 0x7fdd4800445f   11f  48c1e120             REX.W shlq rcx, 32
+areaF: 0x7fdd48004463   123  488bc1               REX.W movq rax,rcx
+areaF: 0x7fdd48004466   126  ebdd                 jmp 0x7fdd48004445  <+0x105>
+areaF: 0x7fdd48004468   128  48b90000000010000000 REX.W movq rcx,0x1000000000
+areaF: 0x7fdd48004472   132  51                   push rcx
+areaF: 0x7fdd48004473   133  48bb10863c0100000000 REX.W movq rbx,0x13c8610
+areaF: 0x7fdd4800447d   13d  b801000000           movl rax,0x1
+areaF: 0x7fdd48004482   142  48be0901c0ad45070000 REX.W movq rsi,0x745adc00109    ;; object: 0x0745adc00109 <NativeContext[302]>
+areaF: 0x7fdd4800448c   14c  e8ef24e71f           call 0x7fdd67e76980  (CEntry_Return1_ArgvOnStack_NoBuiltinExit)    ;; near builtin entry
+areaF: 0x7fdd48004491   151  e9c7feffff           jmp 0x7fdd4800435d  <+0x1d>
+areaF: 0x7fdd48004496   156  ba10000000           movl rdx,0x10
+areaF: 0x7fdd4800449b   15b  c5fb1145e0           vmovsd [rbp-0x20],xmm0
+areaF: 0x7fdd480044a0   160  e8dbb0dc1f           call 0x7fdd67dcf580  (AllocateInYoungGeneration)    ;; near builtin entry
+areaF: 0x7fdd480044a5   165  488d48ff             REX.W leaq rcx,[rax-0x1]
+areaF: 0x7fdd480044a9   169  c5fb1045e0           vmovsd xmm0,[rbp-0x20]
+areaF: 0x7fdd480044ae   16e  e973ffffff           jmp 0x7fdd48004426  <+0xe6>
+areaF: 0x7fdd480044b3   173  49b859f2dce0590e0000 REX.W movq r8,0xe59e0dcf259    ;; object: 0x0e59e0dcf259 <String[2]: #PI>
+areaF: 0x7fdd480044bd   17d  4150                 push r8
+areaF: 0x7fdd480044bf   17f  48897dd0             REX.W movq [rbp-0x30],rdi
+areaF: 0x7fdd480044c3   183  48bb607a3c0100000000 REX.W movq rbx,0x13c7a60
+areaF: 0x7fdd480044cd   18d  b801000000           movl rax,0x1
+areaF: 0x7fdd480044d2   192  48be0901c0ad45070000 REX.W movq rsi,0x745adc00109    ;; object: 0x0745adc00109 <NativeContext[302]>
+areaF: 0x7fdd480044dc   19c  e89f24e71f           call 0x7fdd67e76980  (CEntry_Return1_ArgvOnStack_NoBuiltinExit)    ;; near builtin entry
+areaF: 0x7fdd480044e3   1a3  41ff55d8             call [r13-0x28]    ;; debug: deopt position, script offset 'fb'
+areaF:                                                              ;; debug: deopt position, inlining id 'ffffffff'
+areaF:                                                              ;; debug: deopt reason 'wrong call target'
+areaF:                                                              ;; debug: deopt index 0
+areaF: 0x7fdd480044e7   1a7  41ff55d8             call [r13-0x28]    ;; debug: deopt position, script offset '100'
+areaF:                                                              ;; debug: deopt position, inlining id 'ffffffff'
+areaF:                                                              ;; debug: deopt reason 'not a Number or Oddball'
+areaF:                                                              ;; debug: deopt index 1
+areaF: 0x7fdd480044eb   1ab  41ff55e0             call [r13-0x20]    ;; debug: deopt position, script offset 'ee'
+areaF:                                                              ;; debug: deopt position, inlining id 'ffffffff'
+areaF:                                                              ;; debug: deopt reason '(unknown)'
+areaF:                                                              ;; debug: deopt index 2
+areaF: 0x7fdd480044ef   1af  41ff55e0             call [r13-0x20]    ;; debug: deopt position, script offset 'f4'
+areaF:                                                              ;; debug: deopt position, inlining id 'ffffffff'
+areaF:                                                              ;; debug: deopt reason '(unknown)'
+areaF:                                                              ;; debug: deopt index 3
+areaF: 

@@ -1,0 +1,24 @@
+== d8 K=2
+Cannot consider 0x305c00ee01d0 {0x007b0101e145 <FeedbackCell[one closure]>} for inlining (no feedback vector)
+K=2 outer status=101001
+== node22 K=2
+Cannot consider 0x370ed368 {0x0aeee535b631 <FeedbackCell[one closure]>} for inlining (no feedback vector)
+K=2 outer status=1010001
+== d8 K=5
+Cannot consider 0x3a3400ee01d0 {0x36240101e145 <FeedbackCell[one closure]>} for inlining (no feedback vector)
+K=5 outer status=101001
+== node22 K=5
+Cannot consider 0x46af3368 {0x0a2f67f1b631 <FeedbackCell[one closure]>} for inlining (no feedback vector)
+K=5 outer status=1010001
+== d8 K=20
+Inlining 0x32ac00edfeb0 {0x14330101e095 <SharedFunctionInfo inner>} into 0x32ac00edfc78 {0x14330101e0c5 <SharedFunctionInfo outer>}
+K=20 outer status=101001
+== node22 K=20
+Inlining 0xd861358 {0x31f37909b539 <SharedFunctionInfo inner>} into 0xd861010 {0x31f37909b591 <SharedFunctionInfo outer>}
+K=20 outer status=1010001
+== d8 K=200
+Inlining 0x23cc00edfeb0 {0x2a870101e095 <SharedFunctionInfo inner>} into 0x23cc00edfc78 {0x2a870101e0c5 <SharedFunctionInfo outer>}
+K=200 outer status=101001
+== node22 K=200
+Inlining 0x3b763358 {0x34f1ba31b539 <SharedFunctionInfo inner>} into 0x3b763010 {0x34f1ba31b591 <SharedFunctionInfo outer>}
+K=200 outer status=1010001

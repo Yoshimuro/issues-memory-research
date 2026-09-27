@@ -1,0 +1,102 @@
+doSum | Bytecode length: 9; Parameter count 2; Register count 1; Frame size 8
+    LdaSmi [2] ; Star0 ; Ldar a0 ; Add r0, [0] ; Return
+doAdd | Bytecode length: 6; Parameter count 3; Register count 0; Frame size 0
+    Ldar a1 ; Add a0, [0] ; Return
+doRet2 | Bytecode length: 3; Parameter count 1; Register count 0; Frame size 0
+    LdaSmi [2] ; Return
+doFold72 | Bytecode length: 3; Parameter count 1; Register count 0; Frame size 0
+    LdaSmi [9] ; Return
+doFold11 | Bytecode length: 3; Parameter count 1; Register count 0; Frame size 0
+    LdaSmi [2] ; Return
+doStmt11 | Bytecode length: 2; Parameter count 1; Register count 0; Frame size 0
+    LdaUndefined ; Return
+doDead | Bytecode length: 3; Parameter count 2; Register count 0; Frame size 0
+    Ldar a0 ; Return
+doConstC | Bytecode length: 9; Parameter count 2; Register count 1; Frame size 8
+    LdaSmi [2] ; Star0 ; Ldar r0 ; Add a0, [0] ; Return
+doAddSmi | Bytecode length: 6; Parameter count 2; Register count 0; Frame size 0
+    Ldar a0 ; AddSmi [11], [0] ; Return
+doDivSmi | Bytecode length: 6; Parameter count 2; Register count 0; Frame size 0
+    Ldar a0 ; DivSmi [11], [0] ; Return
+doModSmi | Bytecode length: 6; Parameter count 2; Register count 0; Frame size 0
+    Ldar a0 ; ModSmi [11], [0] ; Return
+doAndSmi | Bytecode length: 6; Parameter count 2; Register count 0; Frame size 0
+    Ldar a0 ; BitwiseAndSmi [11], [0] ; Return
+doShr | Bytecode length: 6; Parameter count 2; Register count 0; Frame size 0
+    Ldar a0 ; ShiftRightSmi [1], [0] ; Return
+doNegZero | Bytecode length: 4; Parameter count 1; Register count 1; Frame size 8
+    LdaConstant [0] ; Star0 ; Return
+doZero | Bytecode length: 3; Parameter count 1; Register count 1; Frame size 8
+    LdaZero ; Star0 ; Return
+doFalse | Bytecode length: 3; Parameter count 1; Register count 1; Frame size 8
+    LdaFalse ; Star0 ; Return
+doTrueUndef | Bytecode length: 40; Parameter count 1; Register count 5; Frame size 40
+    LdaTrue ; Star0 ; LdaUndefined ; Star1 ; LdaNull ; Star2 ; CreateArrayLiteral [0], [0], #37 ; Star3 ; LdaZero ; Star4 ; Ldar r0 ; StaInArrayLiteral r3, r4, [1] ; LdaSmi [1] ; Star4 ; Ldar r1 ; StaInArrayLiteral r3, r4, [1] ; LdaSmi [2] ; Star4 ; Ldar r2 ; StaInArrayLiteral r3, r4, [1] ; Ldar r3 ; Return
+doStr | Bytecode length: 3; Parameter count 1; Register count 0; Frame size 0
+    LdaConstant [0] ; Return
+doSeven | Bytecode length: 3; Parameter count 1; Register count 0; Frame size 0
+    LdaSmi [7] ; Return
+doCalls | Bytecode length: 40; Parameter count 4; Register count 4; Frame size 32
+    LdaImmutableCurrentContextSlot [2] ; Star0 ; CallUndefinedReceiver0 r0, [0] ; LdaImmutableCurrentContextSlot [3] ; Star0 ; CallUndefinedReceiver1 r0, a0, [2] ; LdaImmutableCurrentContextSlot [4] ; Star0 ; CallUndefinedReceiver2 r0, a0, a1, [4] ; LdaImmutableCurrentContextSlot [5] ; Star0 ; Mov a0, r1 ; Mov a1, r2 ; Mov a2, r3 ; CallUndefinedReceiver r0, r1-r3, [6] ; LdaUndefined ; Return
+doProps | Bytecode length: 54; Parameter count 5; Register count 5; Frame size 40
+    GetNamedProperty a0, [0], [0] ; Star0 ; CallProperty0 r0, a0, [2] ; GetNamedProperty a0, [1], [4] ; Star0 ; CallProperty1 r0, a0, a1, [6] ; GetNamedProperty a0, [2], [8] ; Star0 ; GetNamedProperty a0, [3], [12] ; Star0 ; Mov a0, r1 ; Mov a1, r2 ; Mov a2, r3 ; Mov a3, r4 ; CallProperty r0, r1-r4, [14] ; LdaUndefined ; Return
+doRest | Bytecode length: 9; Parameter count 3; Register count 1; Frame size 8
+    LdaImmutableCurrentContextSlot [6] ; Star0 ; CallUndefinedReceiver2 r0, a0, a1, [0] ; Return
+doKeyName | Bytecode length: 5; Parameter count 2; Register count 0; Frame size 0
+    GetNamedProperty a0, [0], [0] ; Return
+doKey0 | Bytecode length: 5; Parameter count 2; Register count 0; Frame size 0
+    LdaZero ; GetKeyedProperty a0, [0] ; Return
+doKeyConst | Bytecode length: 9; Parameter count 2; Register count 1; Frame size 8
+    LdaConstant [0] ; Star0 ; Ldar r0 ; GetKeyedProperty a0, [0] ; Return
+doPlusEq | Bytecode length: 13; Parameter count 2; Register count 2; Frame size 16
+    LdaSmi [1] ; Star0 ; Ldar a0 ; Add r0, [0] ; Mov r0, r1 ; Star0 ; Return
+doPlusLong | Bytecode length: 10; Parameter count 2; Register count 1; Frame size 8
+    LdaSmi [1] ; Star0 ; Ldar a0 ; Add r0, [0] ; Star0 ; Return
+doNotLess | Bytecode length: 7; Parameter count 3; Register count 0; Frame size 0
+    Ldar a1 ; TestLessThan a0, [0] ; LogicalNot ; Return
+doGe | Bytecode length: 6; Parameter count 3; Register count 0; Frame size 0
+    Ldar a1 ; TestGreaterThanOrEqual a0, [0] ; Return
+doNestedAssign | Bytecode length: 14; Parameter count 3; Register count 0; Frame size 0
+    Ldar a1 ; SetNamedProperty a0, [0], [0] ; Ldar a1 ; SetNamedProperty a0, [1], [2] ; LdaUndefined ; Return
+doSepAssign | Bytecode length: 14; Parameter count 3; Register count 0; Frame size 0
+    Ldar a1 ; SetNamedProperty a0, [0], [0] ; Ldar a1 ; SetNamedProperty a0, [1], [2] ; LdaUndefined ; Return
+doNestedLocal | Bytecode length: 12; Parameter count 2; Register count 2; Frame size 16
+    Mov a0, r1 ; Mov r1, r0 ; Ldar r0 ; Add r0, [0] ; Return
+doSepLocal | Bytecode length: 12; Parameter count 2; Register count 2; Frame size 16
+    Mov a0, r1 ; Mov r1, r0 ; Ldar r0 ; Add r0, [0] ; Return
+doTmp | Bytecode length: 7; Parameter count 3; Register count 1; Frame size 8
+    Ldar a1 ; Add a0, [0] ; Star0 ; Return
+doNoTmp | Bytecode length: 6; Parameter count 3; Register count 0; Frame size 0
+    Ldar a1 ; Add a0, [0] ; Return
+doIfStmt | Bytecode length: 15; Parameter count 2; Register count 1; Frame size 8
+    Ldar a0 ; JumpIfToBooleanFalse [7] (0x26e2a1e03909 @ 9) ; LdaSmi [1] ; Star0 ; Jump [5] (0x26e2a1e0390c @ 12) ; LdaSmi [2] ; Star0 ; Ldar r0 ; Return
+doTernary | Bytecode length: 12; Parameter count 2; Register count 1; Frame size 8
+    Ldar a0 ; JumpIfToBooleanFalse [6] (0x26e2a1e03978 @ 8) ; LdaSmi [1] ; Jump [4] (0x26e2a1e0397a @ 10) ; LdaSmi [2] ; Star0 ; Return
+doIfMulti | Bytecode length: 24; Parameter count 2; Register count 2; Frame size 16
+    Ldar a0 ; JumpIfToBooleanFalse [10] (0x26e2a1e039e4 @ 12) ; LdaSmi [1] ; Star0 ; LdaSmi [2] ; Star1 ; Jump [8] (0x26e2a1e039ea @ 18) ; LdaSmi [2] ; Star0 ; LdaSmi [3] ; Star1 ; Ldar r1 ; Add r0, [0] ; Return
+doLess | Bytecode length: 6; Parameter count 2; Register count 0; Frame size 0
+    LdaSmi [3] ; TestLessThan a0, [0] ; Return
+doIsArray | Bytecode length: 140; Parameter count 2; Register count 14; Frame size 112
+    LdaZero ; Star0 ; GetIterator a0, [0], [2] ; Star5 ; GetNamedProperty r5, [0], [4] ; Star4 ; LdaFalse ; Star6 ; LdaTheHole ; Star9 ; Mov <context>, r10 ; LdaTrue ; Star6 ; CallProperty0 r4, r5, [6] ; Star11 ; JumpIfJSReceiver [7] (0x26e2a1e03b51 @ 33) ; CallRuntime [ThrowIteratorResultNotAnObject], r11-r11 ; GetNamedProperty r11, [1], [8] ; JumpIfToBooleanTrue [40] (0x26e2a1e03b7d @ 77) ; GetNamedProperty r11, [2], [10] ; Star11 ; LdaFalse ; Star6 ; Mov r11, r1 ; Mov r1, r3 ; LdaGlobal [3], [12] ; Star12 ; GetNamedProperty r12, [4], [14] ; Star11 ; CallProperty1 r11, r12, r1, [16] ; JumpIfToBooleanFalse [7] (0x26e2a1e03b79 @ 73) ; Ldar r0 ; Inc [18] ; Star0 ; JumpLoop [54], [0], [19] (0x26e2a1e03b43 @ 19) ; LdaSmi [-1] ; Star8 ; Star7 ; Jump [8] (0x26e2a1e03b89 @ 89) ; Star8 ; LdaZero ; Star7 ; LdaTheHole ; SetPendingMessage ; Star9 ; Ldar r6 ; JumpIfToBooleanTrue [35] (0x26e2a1e03bae @ 126) ; Mov <context>, r11 ; GetNamedProperty r5, [5], [20] ; JumpIfUndefinedOrNull [26] (0x26e2a1e03bae @ 126) ; Star12 ; CallProperty0 r12, r5, [22] ; JumpIfJSReceiver [19] (0x26e2a1e03bae @ 126) ; Star13 ; CallRuntime [ThrowIteratorResultNotAnObject], r13-r13 ; Jump [11] (0x26e2a1e03bae @ 126) ; Star11 ; LdaZero ; TestReferenceEqual r7 ; JumpIfTrue [5] (0x26e2a1e03bae @ 126) ; Ldar r11 ; ReThrow ; LdaZero ; TestReferenceEqual r7 ; JumpIfFalse [8] (0x26e2a1e03bb9 @ 137) ; Ldar r9 ; SetPendingMessage ; Ldar r8 ; ReThrow ; Ldar r0 ; Return
+doIsArrayCached | Bytecode length: 139; Parameter count 2; Register count 15; Frame size 120
+    LdaGlobal [0], [0] ; Star5 ; GetNamedProperty r5, [1], [2] ; Star0 ; LdaZero ; Star1 ; GetIterator a0, [4], [6] ; Star6 ; GetNamedProperty r6, [2], [8] ; Star5 ; LdaFalse ; Star7 ; LdaTheHole ; Star10 ; Mov <context>, r11 ; LdaTrue ; Star7 ; CallProperty0 r5, r6, [10] ; Star12 ; JumpIfJSReceiver [7] (0x26e2a1e03cca @ 42) ; CallRuntime [ThrowIteratorResultNotAnObject], r12-r12 ; GetNamedProperty r12, [3], [12] ; JumpIfToBooleanTrue [30] (0x26e2a1e03cec @ 76) ; GetNamedProperty r12, [4], [14] ; Star12 ; LdaFalse ; Star7 ; Mov r12, r2 ; Mov r2, r4 ; CallUndefinedReceiver1 r0, r2, [16] ; JumpIfToBooleanFalse [7] (0x26e2a1e03ce8 @ 72) ; Ldar r1 ; Inc [18] ; Star1 ; JumpLoop [44], [0], [19] (0x26e2a1e03cbc @ 28) ; LdaSmi [-1] ; Star9 ; Star8 ; Jump [8] (0x26e2a1e03cf8 @ 88) ; Star9 ; LdaZero ; Star8 ; LdaTheHole ; SetPendingMessage ; Star10 ; Ldar r7 ; JumpIfToBooleanTrue [35] (0x26e2a1e03d1d @ 125) ; Mov <context>, r12 ; GetNamedProperty r6, [5], [20] ; JumpIfUndefinedOrNull [26] (0x26e2a1e03d1d @ 125) ; Star13 ; CallProperty0 r13, r6, [22] ; JumpIfJSReceiver [19] (0x26e2a1e03d1d @ 125) ; Star14 ; CallRuntime [ThrowIteratorResultNotAnObject], r14-r14 ; Jump [11] (0x26e2a1e03d1d @ 125) ; Star12 ; LdaZero ; TestReferenceEqual r8 ; JumpIfTrue [5] (0x26e2a1e03d1d @ 125) ; Ldar r12 ; ReThrow ; LdaZero ; TestReferenceEqual r8 ; JumpIfFalse [8] (0x26e2a1e03d28 @ 136) ; Ldar r10 ; SetPendingMessage ; Ldar r9 ; ReThrow ; Ldar r1 ; Return
+doArrI | Bytecode length: 24; Parameter count 3; Register count 1; Frame size 8
+    Ldar a1 ; GetKeyedProperty a0, [0] ; Star0 ; Ldar a1 ; GetKeyedProperty a0, [2] ; Add r0, [4] ; Star0 ; Ldar a1 ; GetKeyedProperty a0, [5] ; Add r0, [7] ; Return
+doArrIConst | Bytecode length: 16; Parameter count 3; Register count 2; Frame size 16
+    Ldar a1 ; GetKeyedProperty a0, [0] ; Star0 ; Add r0, [2] ; Star1 ; Ldar r0 ; Add r1, [3] ; Return
+doDecls | Bytecode length: 8; Parameter count 1; Register count 1; Frame size 8
+    CreateClosure [0], [0], #2 ; Star0 ; LdaSmi [3] ; Return
+doUnusedVars | Bytecode length: 7; Parameter count 1; Register count 2; Frame size 16
+    LdaUndefined ; Star0 ; LdaUndefined ; Star1 ; LdaSmi [1] ; Return
+doBlock | Bytecode length: 12; Parameter count 1; Register count 2; Frame size 16
+    LdaSmi [1] ; Star0 ; LdaSmi [2] ; Star1 ; Inc [0] ; Star1 ; Ldar r0 ; Return
+doLog | Bytecode length: 16; Parameter count 2; Register count 2; Frame size 16
+    LdaGlobal [0], [0] ; Star1 ; GetNamedProperty r1, [1], [2] ; Star0 ; CallProperty1 r0, r1, a0, [4] ; LdaUndefined ; Return
+doThisData | Bytecode length: 36; Parameter count 1; Register count 2; Frame size 16
+    GetNamedProperty <this>, [0], [0] ; Star0 ; GetNamedProperty r0, [1], [2] ; Star0 ; GetNamedProperty <this>, [0], [4] ; Star1 ; GetNamedProperty r1, [2], [6] ; Add r0, [8] ; Star0 ; GetNamedProperty <this>, [0], [9] ; Star1 ; GetNamedProperty r1, [3], [11] ; Add r0, [13] ; Return
+doThisDataLocal | Bytecode length: 26; Parameter count 1; Register count 2; Frame size 16
+    GetNamedProperty <this>, [0], [0] ; Star0 ; GetNamedProperty r0, [1], [2] ; Star1 ; GetNamedProperty r0, [2], [4] ; Add r1, [6] ; Star1 ; GetNamedProperty r0, [3], [7] ; Add r1, [9] ; Return
+doLenMinus | Bytecode length: 18; Parameter count 1; Register count 1; Frame size 8
+    GetNamedProperty <this>, [0], [0] ; Star0 ; GetNamedProperty r0, [1], [2] ; SubSmi [2], [4] ; SetNamedProperty r0, [1], [5] ; LdaUndefined ; Return
+doTwoPop | Bytecode length: 30; Parameter count 1; Register count 2; Frame size 16
+    GetNamedProperty <this>, [0], [0] ; Star1 ; GetNamedProperty r1, [1], [2] ; Star0 ; CallProperty0 r0, r1, [4] ; GetNamedProperty <this>, [0], [6] ; Star1 ; GetNamedProperty r1, [1], [8] ; Star0 ; CallProperty0 r0, r1, [10] ; LdaUndefined ; Return

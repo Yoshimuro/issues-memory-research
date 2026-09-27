@@ -1,0 +1,5 @@
+V8 is running with developer-only features enabled. Stability and security will suffer.
+Considering 0x69400edaeb0 {0x1ae80101e0f5 <SharedFunctionInfo inner>} for inlining with 0x69400edb638 {0x1ae80101e2e9 <FeedbackVector[0]>}
+Inlining small function(s) at call site #21:JSCall
+Inlining 0x69400edaeb0 {0x1ae80101e0f5 <SharedFunctionInfo inner>} into 0x69400edac78 {0x1ae80101e125 <SharedFunctionInfo outer>}
+innerFirst: outer=101001 inner=101001

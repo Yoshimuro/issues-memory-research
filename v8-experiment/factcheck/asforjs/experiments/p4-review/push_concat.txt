@@ -1,0 +1,8 @@
+=== node22
+round 0 push=2.6ms concat=6885.6ms concat/push=2658
+round 1 push=3.6ms concat=6120.6ms concat/push=1681
+round 2 push=3.1ms concat=6247.6ms concat/push=1986
+=== d8
+round 0 push=1.2ms concat=2881.4ms concat/push=2370
+round 1 push=1.2ms concat=2429.1ms concat/push=1991
+round 2 push=1.1ms concat=2719.3ms concat/push=2563

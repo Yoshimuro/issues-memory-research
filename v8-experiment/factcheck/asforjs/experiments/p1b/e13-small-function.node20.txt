@@ -1,0 +1,2 @@
+[marking <JSFunction tiny (sfi = )> for optimization to TURBOFAN, ConcurrencyMode::kConcurrent, reason: small function]
+tiny: first marked/optimized after 11274 calls, status=1000001000000001

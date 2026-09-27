@@ -1,0 +1,54 @@
+######## loop / node20
+MARK deopt now
+done 10002
+######## loop / node22
+[marking  <JSFunction doGetAge (sfi = )> for optimization to TURBOFAN, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method  <JSFunction doGetAge (sfi = )> (target TURBOFAN), mode: ConcurrencyMode::kConcurrent]
+[completed compiling  <JSFunction doGetAge (sfi = )> (target TURBOFAN) - took 0.015, 0.760, 0.024 ms]
+[completed optimizing  <JSFunction doGetAge (sfi = )> (target TURBOFAN)]
+MARK deopt now
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing  <JSFunction doGetAge (sfi = )>,  <Code TURBOFAN>, opt id 0, bytecode offset 0, deopt exit 1, FP to SP delta 32, caller SP , pc ]
+done 10002
+######## loop / node24
+[marking  <JSFunction doGetAge (sfi = )> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method  <JSFunction doGetAge (sfi = )> (target MAGLEV), mode: ConcurrencyMode::kConcurrent]
+[completed compiling  <JSFunction doGetAge (sfi = )> (target MAGLEV) - took 0.000, 0.143, 0.006 ms]
+MARK deopt now
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing  <JSFunction doGetAge (sfi = )>,  <Code MAGLEV>, opt id 1, bytecode offset 0, deopt exit 0, FP to SP delta 24, caller SP , pc ]
+done 10002
+######## loop / d8
+[marking  <JSFunction doGetAge (sfi = )> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method  <JSFunction doGetAge (sfi = )> (target MAGLEV), mode: ConcurrencyMode::kConcurrent]
+[completed compiling  <JSFunction doGetAge (sfi = )> (target MAGLEV) - took 0.001, 0.631, 0.006 ms]
+[bailout (kind: deopt-eager, reason: Insufficient type feedback for call): begin. deoptimizing  <JSFunction (sfi = )>,  <Code MAGLEV>, opt id 1, bytecode offset 131, deopt exit 9, FP to SP delta 104, 
+MARK deopt now
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing  <JSFunction doGetAge (sfi = )>,  <Code MAGLEV>, opt id 0, bytecode offset 0, deopt exit 0, FP to SP delta 24, caller SP , pc ]
+done 10002
+######## once / node20
+done 1
+######## once / node22
+done 1
+######## once / node24
+done 1
+######## once / d8
+done 1
+######## forced / node20
+[manually marking  <JSFunction doGetAge (sfi = )> for optimization to TURBOFAN, ConcurrencyMode::kSynchronous]
+[compiling method  <JSFunction doGetAge (sfi = )> (target TURBOFAN), mode: ConcurrencyMode::kSynchronous]
+[completed compiling  <JSFunction doGetAge (sfi = )> (target TURBOFAN) - took 0.051, 0.541, 0.012 ms]
+done 0
+######## forced / node22
+[manually marking  <JSFunction doGetAge (sfi = )> for optimization to TURBOFAN, ConcurrencyMode::kSynchronous]
+[compiling method  <JSFunction doGetAge (sfi = )> (target TURBOFAN), mode: ConcurrencyMode::kSynchronous]
+[completed compiling  <JSFunction doGetAge (sfi = )> (target TURBOFAN) - took 0.025, 0.612, 0.018 ms]
+done 0
+######## forced / node24
+[manually marking  <JSFunction doGetAge (sfi = )> for optimization to TURBOFAN_JS, ConcurrencyMode::kSynchronous]
+[compiling method  <JSFunction doGetAge (sfi = )> (target TURBOFAN_JS), mode: ConcurrencyMode::kSynchronous]
+[completed compiling  <JSFunction doGetAge (sfi = )> (target TURBOFAN_JS) - took 0.015, 0.638, 0.021 ms]
+done 0
+######## forced / d8
+[manually marking  <JSFunction doGetAge (sfi = )> for optimization to TURBOFAN_JS, ConcurrencyMode::kSynchronous]
+[compiling method  <JSFunction doGetAge (sfi = )> (target TURBOFAN_JS), mode: ConcurrencyMode::kSynchronous]
+[completed compiling  <JSFunction doGetAge (sfi = )> (target TURBOFAN_JS) - took 0.015, 0.637, 0.035 ms]
+done 0

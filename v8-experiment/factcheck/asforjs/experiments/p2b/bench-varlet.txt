@@ -1,0 +1,63 @@
+== node22 mode=[--max-opt=0]
+var       median 214.4 ms  ratio_vs_var 1.000   all 261/210/223/207/214
+let       median 230.5 ms  ratio_vs_var 1.075   all 293/230/265/226/229
+const     median 237.1 ms  ratio_vs_var 1.106   all 237/233/270/221/238
+letArrow  median 235.7 ms  ratio_vs_var 1.100   all 235/236/226/236/245
+local     median 210.9 ms  ratio_vs_var 0.984   all 209/211/231/203/214
+letCopy   median 206.7 ms  ratio_vs_var 0.964   all 210/202/206/207/231
+== node24 mode=[--max-opt=0]
+var       median 198.1 ms  ratio_vs_var 1.000   all 237/194/212/198/195
+let       median 219.7 ms  ratio_vs_var 1.109   all 187/220/229/267/215
+const     median 215.2 ms  ratio_vs_var 1.086   all 210/197/230/215/216
+letArrow  median 215.7 ms  ratio_vs_var 1.089   all 185/218/251/216/213
+local     median 187.0 ms  ratio_vs_var 0.944   all 158/187/203/200/187
+letCopy   median 188.7 ms  ratio_vs_var 0.952   all 171/189/187/189/214
+== d8 mode=[--max-opt=0]
+var       median 197.7 ms  ratio_vs_var 1.000   all 198/229/195/173/210
+let       median 223.2 ms  ratio_vs_var 1.129   all 212/230/223/196/232
+const     median 213.6 ms  ratio_vs_var 1.081   all 214/201/216/188/220
+letArrow  median 177.0 ms  ratio_vs_var 0.896   all 202/177/176/188/163
+local     median 181.7 ms  ratio_vs_var 0.919   all 192/182/170/194/152
+letCopy   median 185.6 ms  ratio_vs_var 0.939   all 189/193/164/186/153
+== node22 mode=[--max-opt=1]
+var       median 93.3 ms  ratio_vs_var 1.000   all 93/92/93/92/94
+let       median 109.2 ms  ratio_vs_var 1.170   all 109/105/114/109/110
+const     median 110.3 ms  ratio_vs_var 1.182   all 115/106/115/109/110
+letArrow  median 110.0 ms  ratio_vs_var 1.179   all 110/107/130/117/110
+local     median 114.7 ms  ratio_vs_var 1.229   all 111/116/118/115/111
+letCopy   median 103.0 ms  ratio_vs_var 1.104   all 103/110/103/103/102
+== node24 mode=[--max-opt=1]
+var       median 96.1 ms  ratio_vs_var 1.000   all 98/117/91/78/96
+let       median 112.4 ms  ratio_vs_var 1.170   all 112/114/114/89/111
+const     median 120.9 ms  ratio_vs_var 1.258   all 110/124/121/161/113
+letArrow  median 114.2 ms  ratio_vs_var 1.189   all 110/133/114/131/113
+local     median 104.4 ms  ratio_vs_var 1.086   all 103/104/110/104/104
+letCopy   median 116.7 ms  ratio_vs_var 1.214   all 93/123/126/108/117
+== d8 mode=[--max-opt=1]
+var       median 67.5 ms  ratio_vs_var 1.000   all 55/60/69/68/69
+let       median 77.5 ms  ratio_vs_var 1.148   all 65/68/78/78/80
+const     median 67.2 ms  ratio_vs_var 0.995   all 59/67/67/68/76
+letArrow  median 64.3 ms  ratio_vs_var 0.953   all 55/64/66/64/66
+local     median 63.7 ms  ratio_vs_var 0.943   all 53/64/65/64/63
+letCopy   median 62.3 ms  ratio_vs_var 0.922   all 53/63/63/62/62
+== node22 mode=[]
+var       median 9.4 ms  ratio_vs_var 1.000   all 13/9/9/9/9
+let       median 9.6 ms  ratio_vs_var 1.018   all 11/9/9/10/10
+const     median 10.5 ms  ratio_vs_var 1.115   all 11/10/9/12/13
+letArrow  median 11.2 ms  ratio_vs_var 1.184   all 14/9/12/10/11
+local     median 9.7 ms  ratio_vs_var 1.031   all 10/10/9/9/12
+letCopy   median 9.7 ms  ratio_vs_var 1.024   all 10/9/10/9/12
+== node24 mode=[]
+var       median 9.5 ms  ratio_vs_var 1.000   all 11/12/9/9/10
+let       median 10.7 ms  ratio_vs_var 1.121   all 11/10/12/12/10
+const     median 9.5 ms  ratio_vs_var 1.000   all 11/9/10/9/10
+letArrow  median 9.5 ms  ratio_vs_var 0.992   all 11/9/10/9/9
+local     median 9.4 ms  ratio_vs_var 0.989   all 10/9/9/9/9
+letCopy   median 9.5 ms  ratio_vs_var 0.994   all 11/9/9/10/9
+== d8 mode=[]
+var       median 9.7 ms  ratio_vs_var 1.000   all 11/10/9/9/10
+let       median 9.5 ms  ratio_vs_var 0.985   all 11/10/9/10/9
+const     median 9.4 ms  ratio_vs_var 0.975   all 11/10/9/9/9
+letArrow  median 9.5 ms  ratio_vs_var 0.982   all 10/9/9/10/9
+local     median 9.4 ms  ratio_vs_var 0.969   all 10/9/9/9/9
+letCopy   median 9.6 ms  ratio_vs_var 0.998   all 11/10/10/9/9

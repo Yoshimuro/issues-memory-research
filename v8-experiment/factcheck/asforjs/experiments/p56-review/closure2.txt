@@ -1,0 +1,10 @@
+## /opt/node20/bin/node
+meteor replaceThing x20: heap +19.1 MB (no leak: ~+1 MB, leak: ~+20 MB)
+after theThing = null: +0.3 MB
+2-level deep uses only small, 10 closures: +0.0 MB
+2-level deep uses arr[10], 10 closures:    +76.3 MB
+## /opt/nvm/versions/node/v24.21.0/bin/node
+meteor replaceThing x20: heap +19.1 MB (no leak: ~+1 MB, leak: ~+20 MB)
+after theThing = null: +0.4 MB
+2-level deep uses only small, 10 closures: +0.0 MB
+2-level deep uses arr[10], 10 closures:    +76.3 MB

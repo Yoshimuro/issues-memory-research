@@ -1,0 +1,24 @@
+## /opt/node20/bin/node
+Object.create(null) fast props: false
+{__proto__:null, a, b} fast props: false
+setPrototypeOf(o, null) fast props: true
+plain {a,b} fast props: true
+plain object with o[0],o[5],o["7"]: HasObjectElements true fast props true keys 0,5,7,name
+## /opt/node22/bin/node
+Object.create(null) fast props: false
+{__proto__:null, a, b} fast props: false
+setPrototypeOf(o, null) fast props: true
+plain {a,b} fast props: true
+plain object with o[0],o[5],o["7"]: HasObjectElements true fast props true keys 0,5,7,name
+## /opt/nvm/versions/node/v24.21.0/bin/node
+Object.create(null) fast props: false
+{__proto__:null, a, b} fast props: false
+setPrototypeOf(o, null) fast props: true
+plain {a,b} fast props: true
+plain object with o[0],o[5],o["7"]: HasObjectElements true fast props true keys 0,5,7,name
+## d8
+Object.create(null) fast props: false
+{__proto__:null, a, b} fast props: false
+setPrototypeOf(o, null) fast props: true
+plain {a,b} fast props: true
+plain object with o[0],o[5],o["7"]: HasObjectElements true fast props true keys 0,5,7,name

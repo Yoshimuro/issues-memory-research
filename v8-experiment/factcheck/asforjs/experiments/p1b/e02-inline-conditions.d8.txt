@@ -1,0 +1,85 @@
+V8 is running with developer-only features enabled. Stability and security will suffer.
+---------------------------------------------------
+Begin compiling method usesArgs using Maglev
+---------------------------------------------------
+Finished compiling method usesArgs using Maglev
+---------------------------------------------------
+Begin compiling method usesRest using Maglev
+---------------------------------------------------
+Finished compiling method usesRest using Maglev
+---------------------------------------------------
+Begin compiling method multiRet using Maglev
+---------------------------------------------------
+Finished compiling method multiRet using Maglev
+---------------------------------------------------
+Begin compiling method switchRet using Maglev
+---------------------------------------------------
+Finished compiling method switchRet using Maglev
+---------------------------------------------------
+Begin compiling method  using Maglev
+---------------------------------------------------
+Finished compiling method  using Maglev
+---------------------------------------------------
+Begin compiling method named using Maglev
+---------------------------------------------------
+Finished compiling method named using Maglev
+---------------------------------------------------
+Begin compiling method caller_multiRet using Maglev
+---------------------------------------------------
+Finished compiling method caller_multiRet using Maglev
+---------------------------------------------------
+Begin compiling method caller_switchRet using Maglev
+---------------------------------------------------
+Finished compiling method caller_switchRet using Maglev
+---------------------------------------------------
+Begin compiling method caller_sideEffect using Maglev
+---------------------------------------------------
+Finished compiling method caller_sideEffect using Maglev
+---------------------------------------------------
+Begin compiling method caller_usesArgs using Maglev
+---------------------------------------------------
+Finished compiling method caller_usesArgs using Maglev
+---------------------------------------------------
+Begin compiling method caller_usesRest using Maglev
+---------------------------------------------------
+Finished compiling method caller_usesRest using Maglev
+Considering 0x2eec00f66eb0 {0x7e750101e2dd <SharedFunctionInfo usesArgs>} for inlining with 0x2eec00f67638 {0x7e750101ee6d <FeedbackVector[6]>}
+Budget used: 0/920 -- 1 candidate(s) for inlining:
+- candidate: JSCall node #44 with frequency 98, has_heapnum_param:0, 1 target(s):
+  - target: 0x2eec00f66eb0 {0x7e750101e2dd <SharedFunctionInfo usesArgs>}, bytecode size: 39
+Inlining 0x2eec00f66eb0 {0x7e750101e2dd <SharedFunctionInfo usesArgs>} into 0x2eec00f66c78 {0x7e750101e3cd <SharedFunctionInfo caller_usesArgs>}
+Considering 0x2eec00f696b0 {0x7e750101e30d <SharedFunctionInfo usesRest>} for inlining with 0x2eec00f69e38 {0x7e750101ef5d <FeedbackVector[6]>}
+Budget used: 0/920 -- 1 candidate(s) for inlining:
+- candidate: JSCall node #44 with frequency 98, has_heapnum_param:0, 1 target(s):
+  - target: 0x2eec00f696b0 {0x7e750101e30d <SharedFunctionInfo usesRest>}, bytecode size: 40
+Inlining 0x2eec00f696b0 {0x7e750101e30d <SharedFunctionInfo usesRest>} into 0x2eec00f69478 {0x7e750101e3fd <SharedFunctionInfo caller_usesRest>}
+Considering 0x2eec00f66eb0 {0x7e750101e24d <SharedFunctionInfo multiRet>} for inlining with 0x2eec00f67638 {0x7e750101ebe5 <FeedbackVector[0]>}
+Budget used: 0/920 -- 1 candidate(s) for inlining:
+- candidate: JSCall node #42 with frequency 98, has_heapnum_param:0, 1 target(s):
+  - target: 0x2eec00f66eb0 {0x7e750101e24d <SharedFunctionInfo multiRet>}, bytecode size: 35
+Inlining 0x2eec00f66eb0 {0x7e750101e24d <SharedFunctionInfo multiRet>} into 0x2eec00f66c78 {0x7e750101e33d <SharedFunctionInfo caller_multiRet>}
+Considering 0x2eec00f696b0 {0x7e750101e27d <SharedFunctionInfo switchRet>} for inlining with 0x2eec00f69e38 {0x7e750101ecad <FeedbackVector[0]>}
+Budget used: 0/920 -- 1 candidate(s) for inlining:
+- candidate: JSCall node #42 with frequency 98, has_heapnum_param:0, 1 target(s):
+  - target: 0x2eec00f696b0 {0x7e750101e27d <SharedFunctionInfo switchRet>}, bytecode size: 40
+Inlining 0x2eec00f696b0 {0x7e750101e27d <SharedFunctionInfo switchRet>} into 0x2eec00f69478 {0x7e750101e36d <SharedFunctionInfo caller_switchRet>}
+Considering 0x2eec00f66eb0 {0x7e750101e2ad <SharedFunctionInfo sideEffect>} for inlining with 0x2eec00f67638 {0x7e750101ed85 <FeedbackVector[4]>}
+Inlining small function(s) at call site #42:JSCall
+Inlining 0x2eec00f66eb0 {0x7e750101e2ad <SharedFunctionInfo sideEffect>} into 0x2eec00f66c78 {0x7e750101e39d <SharedFunctionInfo caller_sideEffect>}
+---------------------------------------------------
+Begin compiling method caller_reduceLiteral using Maglev
+---------------------------------------------------
+Finished compiling method caller_reduceLiteral using Maglev
+---------------------------------------------------
+Begin compiling method caller_reduceNamed using Maglev
+---------------------------------------------------
+Finished compiling method caller_reduceNamed using Maglev
+caller_multiRet: status bits=101001
+caller_switchRet: status bits=101001
+caller_sideEffect: status bits=101001
+caller_usesArgs: status bits=101001
+caller_usesRest: status bits=101001
+caller_reduceLiteral: status bits=11001
+caller_reduceNamed: status bits=11001
+usesArgs: status bits=11001
+usesRest: status bits=11001

@@ -1,0 +1,18 @@
+== node22
+Inlining small function(s) at call site #18:JSCall
+Inlining 0x19f942c8 {0x11d9c0bdb4e1 <SharedFunctionInfo withDef>} into 0x19f93f80 {0x11d9c0bdb539 <SharedFunctionInfo caller>}
+Inlining small function(s) at call site #24:JSCall
+Inlining 0x19f942c8 {0x11d9c0bdb4e1 <SharedFunctionInfo withDef>} into 0x19f93f80 {0x11d9c0bdb539 <SharedFunctionInfo caller>}
+caller 1010001 withDef 1010001
+== node24
+Inlining small function(s) at call site #18:JSCall
+Inlining 0x383ed128 {0x1479446a82d9 <SharedFunctionInfo withDef>} into 0x383ecde0 {0x1479446a8321 <SharedFunctionInfo caller>}
+Inlining small function(s) at call site #24:JSCall
+Inlining 0x383ed128 {0x1479446a82d9 <SharedFunctionInfo withDef>} into 0x383ecde0 {0x1479446a8321 <SharedFunctionInfo caller>}
+caller 1010001 withDef 1010001
+== d8
+Inlining small function(s) at call site #21:JSCall
+Inlining 0x95400edfeb0 {0x35f90101e029 <SharedFunctionInfo withDef>} into 0x95400edfc78 {0x35f90101e059 <SharedFunctionInfo caller>}
+Inlining small function(s) at call site #31:JSCall
+Inlining 0x95400edfeb0 {0x35f90101e029 <SharedFunctionInfo withDef>} into 0x95400edfc78 {0x35f90101e059 <SharedFunctionInfo caller>}
+caller 101001 withDef 101001

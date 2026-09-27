@@ -1,0 +1,2 @@
+literal JSArray young=true | Array(1,2,3) young=true
+ - elements: 0x1a850101db8d <FixedArray[3]> [PACKED_SMI_ELEMENTS (COW)]

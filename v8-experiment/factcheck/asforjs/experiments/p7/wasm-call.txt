@@ -1,0 +1,20 @@
+== d8 15.6
+rep 0 wasm-call ms 243 js-call ms 46 ratio 5.3 true
+rep 1 wasm-call ms 260 js-call ms 46 ratio 5.7 true
+rep 2 wasm-call ms 256 js-call ms 46 ratio 5.6 true
+== d8 15.6 --no-turbo-inline-js-wasm-calls
+rep 0 wasm-call ms 531 js-call ms 70 ratio 7.6 true
+rep 1 wasm-call ms 543 js-call ms 52 ratio 10.4 true
+rep 2 wasm-call ms 580 js-call ms 51 ratio 11.4 true
+== node24
+rep 0 wasm-call ms 268 js-call ms 55 ratio 4.9 true
+rep 1 wasm-call ms 252 js-call ms 53 ratio 4.8 true
+rep 2 wasm-call ms 384 js-call ms 49 ratio 7.8 true
+== node22
+rep 0 wasm-call ms 293 js-call ms 82 ratio 3.6 true
+rep 1 wasm-call ms 242 js-call ms 62 ratio 3.9 true
+rep 2 wasm-call ms 242 js-call ms 63 ratio 3.8 true
+== node20
+rep 0 wasm-call ms 235 js-call ms 68 ratio 3.5 true
+rep 1 wasm-call ms 226 js-call ms 65 ratio 3.5 true
+rep 2 wasm-call ms 192 js-call ms 47 ratio 4.1 true

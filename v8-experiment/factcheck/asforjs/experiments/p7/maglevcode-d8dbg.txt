@@ -1,0 +1,706 @@
+V8 is running with developer-only features enabled. Stability and security will suffer.
+Concurrent maglev has been disabled for tracing.
+---------------------------------------------------
+Begin compiling method doProp using Maglev
+Compiling 0x047c0101db69 <JSFunction doProp (sfi = 0x47c0101da61)> with Maglev
+----- Bytecode array -----
+Parameter count 2
+Register count 2
+Frame size 16
+   57 S> 0x12d5010001e4 @    0 : 24 00 00          LdaGlobal [0:"doInc"], FBV[0]
+         0x12d5010001e7 @    3 : d6                Star0
+   72 E> 0x12d5010001e8 @    4 : 34 03 01 02       GetNamedProperty a0, [1:"x"], FBV[2]
+         0x12d5010001ec @    8 : d5                Star1
+   64 E> 0x12d5010001ed @    9 : 6e f9 f8 04       CallUndefinedReceiver1 r0, r1, FBV[4]
+   75 E> 0x12d5010001f1 @   13 : 00 50 ff 7f 01    AddSmi.Wide [32767], EmbeddedFeedback[SignedSmall]
+   84 S> 0x12d5010001f6 @   18 : ba                Return
+Constant pool (size = 2)
+0x12d5010001ad: [TrustedFixedArray]
+ - map: 0x047c00000605 <Map(TRUSTED_FIXED_ARRAY_TYPE)>
+ - length: 2
+           0: 0x047c0101d93d <String[5]: #doInc>
+           1: 0x047c0000351d <String[1]: #x>
+Handler Table (size = 0)
+Source Position Table (size = 13)
+0x12d5010001f9 <Other heap object (TRUSTED_BYTE_ARRAY_TYPE)>
+0x47c0101dc79: [FeedbackVector] in OldSpace
+ - map: 0x047c00000895 <Map(FEEDBACK_VECTOR_TYPE)>
+ - length: 6
+ - shared function info: 0x047c0101da61 <SharedFunctionInfo doProp>
+ - tiering_in_progress: 0
+ - osr_tiering_in_progress: 0
+ - invocation count: 10
+ - closure feedback cell array: 0x47c000020b9: [ClosureFeedbackCellArray] in ReadOnlySpace
+ - map: 0x047c0000086d <Map(CLOSURE_FEEDBACK_CELL_ARRAY_TYPE)>
+ - length: 0
+ - elements:
+
+ - slot #0 LoadGlobalNotInsideTypeof MONOMORPHIC
+   [weak] 0x047c0101db55 <PropertyCell name=0x047c0101d93d <String[5]: #doInc> value=0x047c0101db35 <JSFunction doInc (sfi = 0x47c0101da31)>> {
+     [0]: [weak] 0x047c0101db55 <PropertyCell name=0x047c0101d93d <String[5]: #doInc> value=0x047c0101db35 <JSFunction doInc (sfi = 0x47c0101da31)>>
+     [1]: 0x047c00000eb5 <Symbol: (uninitialized_symbol)>
+  }
+ - slot #2 LoadProperty MONOMORPHIC
+   [weak] 0x047c0101dcd5 <Map[16](HOLEY_ELEMENTS)>: LoadHandler(Smi)(kind = kField, is in object = 1, is double = 0, storage offset in words = 3, descriptor index = 0) {
+     [2]: [weak] 0x047c0101dcd5 <Map[16](HOLEY_ELEMENTS)>
+     [3]: 131269
+  }
+ - slot #4 Call MONOMORPHIC {
+     [4]: [weak] 0x047c0101db35 <JSFunction doInc (sfi = 0x47c0101da31)>
+     [5]: 80
+  }
+
+----- Inlining 0x047c0101da31 <SharedFunctionInfo doInc> with bytecode -----
+Parameter count 2
+Register count 0
+Frame size 0
+   20 S> 0x12d501000194 @    0 : 0b 03             Ldar a0
+   29 E> 0x12d501000196 @    2 : 50 01 01          AddSmi [1], EmbeddedFeedback[SignedSmall]
+   33 S> 0x12d501000199 @    5 : ba                Return
+Constant pool (size = 0)
+Handler Table (size = 0)
+Source Position Table (size = 8)
+0x12d50100019d <Other heap object (TRUSTED_BYTE_ARRAY_TYPE)>
+0x47c0101dc1d: [FeedbackVector] in OldSpace
+ - map: 0x047c00000895 <Map(FEEDBACK_VECTOR_TYPE)>
+ - length: 0 (empty)
+---------------------------------------------------
+Finished compiling method doProp using Maglev
+0x12d5010003f9: [Code]
+ - map: 0x047c00000dc5 <Map[76](CODE_TYPE)>
+ - kind: MAGLEV
+ - deoptimization_data_or_interpreter_data: 0x12d501000249 <ProtectedFixedArray[28]>
+ - position_table: 0x12d501000211 <Other heap object (TRUSTED_BYTE_ARRAY_TYPE)>
+ - parameter_count: 2
+ - instruction_stream: 0x7f326a84002d <InstructionStream MAGLEV>
+ - instruction_start: 0x7f326a840040
+ - is_disabled_builtin: 0
+ - is_turbofanned: 0
+ - stack_slots: 6
+ - marked_for_deoptimization: 0
+ - embedded_objects_cleared: 0
+ - can_have_weak_objects: 0
+ - instruction_size: 1032
+ - metadata_size: 20967
+ - inlined_bytecode_size: 6
+ - osr_offset: -1
+ - handler_table_offset: 36
+ - unwinding_info_offset: 20967
+ - code_comments_offset: 36
+ - instruction_stream.relocation_info: 0x12d50100036d <Other heap object (TRUSTED_BYTE_ARRAY_TYPE)>
+ - instruction_stream.body_size: 21999
+ - dispatch_handle: 0x0
+
+--- Disassembly: ---
+kind = MAGLEV
+name = doProp
+compiler = maglev
+address = 0x12d5010003f9
+
+Instructions (size = 1032)
+[34m                  [  - void v8::internal::MacroAssembler::DecompressProtected(Register, Operand)@../../src/codegen/x64/macro-assembler-x64.cc:456[;m
+0x7f326a840040     0  8b59f0               movl rbx,[rcx-0x10]
+0x7f326a840043     3  490b9d98020000       REX.W orq rbx,[r13+0x298] (external value (IsolateData::trusted_cage_base_))
+[34m                  ][;m
+0x7f326a84004a     a  f6432380             testb [rbx+0x23],0x80
+0x7f326a84004e     e  740d                 jz 0x7f326a84005d  <+0x1d>
+[34m                  [  - void v8::internal::MacroAssembler::Abort(AbortReason)@../../src/codegen/x64/macro-assembler-x64.cc:1338[;m
+[34m                  Abort message:[;m
+[34m                  Invoked code which is deoptimized[;m
+0x7f326a840050    10  ba26000000           movl rdx,0x26
+[34m                    [ Frame: NO_FRAME_TYPE[;m
+0x7f326a840055    15  41ff9530640000       call [r13+0x6430]
+[34m                    ][;m
+0x7f326a84005c    1c  cc                   int3l
+[34m                  ][;m
+[34m                  [  - void v8::internal::MacroAssembler::EnterFrame(StackFrame::Type)@../../src/codegen/x64/macro-assembler-x64.cc:4664[;m
+0x7f326a84005d    1d  55                   push rbp
+0x7f326a84005e    1e  488bec               REX.W movq rbp,rsp
+[34m                  ][;m
+0x7f326a840061    21  56                   push rsi
+0x7f326a840062    22  57                   push rdi
+0x7f326a840063    23  50                   push rax
+0x7f326a840064    24  4883ec08             REX.W subq rsp,0x8
+[34m                  --   4: HeapConstant(0x047c0100458d <NativeContext[308]>), 5 uses - ProcessResult v8::internal::maglev::(anonymous namespace)::MaglevCodeGeneratingNodeProcessor::Process(NodeT *, const ProcessingState &) [NodeT = v8::internal::maglev::HeapConstant]@../../src/maglev/maglev-code-generator.cc:840[;m
+0x7f326a840068    28  4c8bd5               REX.W movq r10,rbp
+0x7f326a84006b    2b  4c2bd4               REX.W subq r10,rsp
+0x7f326a84006e    2e  4983fa20             REX.W cmpq r10,0x20
+0x7f326a840072    32  740d                 jz 0x7f326a840081  <+0x41>
+[34m                  [  - void v8::internal::MacroAssembler::Abort(AbortReason)@../../src/codegen/x64/macro-assembler-x64.cc:1338[;m
+[34m                  Abort message:[;m
+[34m                  Stack access below stack pointer[;m
+0x7f326a840074    34  ba60000000           movl rdx,0x60
+[34m                    [ Frame: NO_FRAME_TYPE[;m
+0x7f326a840079    39  41ff9530640000       call [r13+0x6430]
+[34m                    ][;m
+0x7f326a840080    40  cc                   int3l
+[34m                  ][;m
+[34m                  --   17: HeapConstant(0x047c0101db15 <FeedbackCell[one closure]>), 1 uses - ProcessResult v8::internal::maglev::(anonymous namespace)::MaglevCodeGeneratingNodeProcessor::Process(NodeT *, const ProcessingState &) [NodeT = v8::internal::maglev::HeapConstant]@../../src/maglev/maglev-code-generator.cc:840[;m
+0x7f326a840081    41  4c8bd5               REX.W movq r10,rbp
+0x7f326a840084    44  4c2bd4               REX.W subq r10,rsp
+0x7f326a840087    47  4983fa20             REX.W cmpq r10,0x20
+0x7f326a84008b    4b  740d                 jz 0x7f326a84009a  <+0x5a>
+[34m                  [  - void v8::internal::MacroAssembler::Abort(AbortReason)@../../src/codegen/x64/macro-assembler-x64.cc:1338[;m
+[34m                  Abort message:[;m
+[34m                  Stack access below stack pointer[;m
+0x7f326a84008d    4d  ba60000000           movl rdx,0x60
+[34m                    [ Frame: NO_FRAME_TYPE[;m
+0x7f326a840092    52  41ff9530640000       call [r13+0x6430]
+[34m                    ][;m
+0x7f326a840099    59  cc                   int3l
+[34m                  ][;m
+[34m                  --   3: HeapConstant(0x047c0101db69 <JSFunction doProp (sfi = 0x47c0101da61)>), 4 uses - ProcessResult v8::internal::maglev::(anonymous namespace)::MaglevCodeGeneratingNodeProcessor::Process(NodeT *, const ProcessingState &) [NodeT = v8::internal::maglev::HeapConstant]@../../src/maglev/maglev-code-generator.cc:840[;m
+0x7f326a84009a    5a  4c8bd5               REX.W movq r10,rbp
+0x7f326a84009d    5d  4c2bd4               REX.W subq r10,rsp
+0x7f326a8400a0    60  4983fa20             REX.W cmpq r10,0x20
+0x7f326a8400a4    64  740d                 jz 0x7f326a8400b3  <+0x73>
+[34m                  [  - void v8::internal::MacroAssembler::Abort(AbortReason)@../../src/codegen/x64/macro-assembler-x64.cc:1338[;m
+[34m                  Abort message:[;m
+[34m                  Stack access below stack pointer[;m
+0x7f326a8400a6    66  ba60000000           movl rdx,0x60
+[34m                    [ Frame: NO_FRAME_TYPE[;m
+0x7f326a8400ab    6b  41ff9530640000       call [r13+0x6430]
+[34m                    ][;m
+0x7f326a8400b2    72  cc                   int3l
+[34m                  ][;m
+[34m                  --   8: HeapConstant(0x047c0101db35 <JSFunction doInc (sfi = 0x47c0101da31)>), 2 uses - ProcessResult v8::internal::maglev::(anonymous namespace)::MaglevCodeGeneratingNodeProcessor::Process(NodeT *, const ProcessingState &) [NodeT = v8::internal::maglev::HeapConstant]@../../src/maglev/maglev-code-generator.cc:840[;m
+0x7f326a8400b3    73  4c8bd5               REX.W movq r10,rbp
+0x7f326a8400b6    76  4c2bd4               REX.W subq r10,rsp
+0x7f326a8400b9    79  4983fa20             REX.W cmpq r10,0x20
+0x7f326a8400bd    7d  740d                 jz 0x7f326a8400cc  <+0x8c>
+[34m                  [  - void v8::internal::MacroAssembler::Abort(AbortReason)@../../src/codegen/x64/macro-assembler-x64.cc:1338[;m
+[34m                  Abort message:[;m
+[34m                  Stack access below stack pointer[;m
+0x7f326a8400bf    7f  ba60000000           movl rdx,0x60
+[34m                    [ Frame: NO_FRAME_TYPE[;m
+0x7f326a8400c4    84  41ff9530640000       call [r13+0x6430]
+[34m                    ][;m
+0x7f326a8400cb    8b  cc                   int3l
+[34m                  ][;m
+[34m                  --   11: HeapConstant(0x047c0100452d <JSGlobalProxy>), 1 uses - ProcessResult v8::internal::maglev::(anonymous namespace)::MaglevCodeGeneratingNodeProcessor::Process(NodeT *, const ProcessingState &) [NodeT = v8::internal::maglev::HeapConstant]@../../src/maglev/maglev-code-generator.cc:840[;m
+0x7f326a8400cc    8c  4c8bd5               REX.W movq r10,rbp
+0x7f326a8400cf    8f  4c2bd4               REX.W subq r10,rsp
+0x7f326a8400d2    92  4983fa20             REX.W cmpq r10,0x20
+0x7f326a8400d6    96  740d                 jz 0x7f326a8400e5  <+0xa5>
+[34m                  [  - void v8::internal::MacroAssembler::Abort(AbortReason)@../../src/codegen/x64/macro-assembler-x64.cc:1338[;m
+[34m                  Abort message:[;m
+[34m                  Stack access below stack pointer[;m
+0x7f326a8400d8    98  ba60000000           movl rdx,0x60
+[34m                    [ Frame: NO_FRAME_TYPE[;m
+0x7f326a8400dd    9d  41ff9530640000       call [r13+0x6430]
+[34m                    ][;m
+0x7f326a8400e4    a4  cc                   int3l
+[34m                  ][;m
+[34m                  --   15: Int32Constant(32767), 1 uses, cannot truncate to int32 - ProcessResult v8::internal::maglev::(anonymous namespace)::MaglevCodeGeneratingNodeProcessor::Process(NodeT *, const ProcessingState &) [NodeT = v8::internal::maglev::Int32Constant]@../../src/maglev/maglev-code-generator.cc:840[;m
+0x7f326a8400e5    a5  4c8bd5               REX.W movq r10,rbp
+0x7f326a8400e8    a8  4c2bd4               REX.W subq r10,rsp
+0x7f326a8400eb    ab  4983fa20             REX.W cmpq r10,0x20
+0x7f326a8400ef    af  740d                 jz 0x7f326a8400fe  <+0xbe>
+[34m                  [  - void v8::internal::MacroAssembler::Abort(AbortReason)@../../src/codegen/x64/macro-assembler-x64.cc:1338[;m
+[34m                  Abort message:[;m
+[34m                  Stack access below stack pointer[;m
+0x7f326a8400f1    b1  ba60000000           movl rdx,0x60
+[34m                    [ Frame: NO_FRAME_TYPE[;m
+0x7f326a8400f6    b6  41ff9530640000       call [r13+0x6430]
+[34m                    ][;m
+0x7f326a8400fd    bd  cc                   int3l
+[34m                  ][;m
+[34m                  -- Block b0 - BlockProcessResult v8::internal::maglev::(anonymous namespace)::MaglevCodeGeneratingNodeProcessor::PreProcessBasicBlock(BasicBlock *)@../../src/maglev/maglev-code-generator.cc:822[;m
+[34m                  --   1: InitialValue(<this>), 4 uses - ProcessResult v8::internal::maglev::(anonymous namespace)::MaglevCodeGeneratingNodeProcessor::Process(NodeT *, const ProcessingState &) [NodeT = v8::internal::maglev::InitialValue]@../../src/maglev/maglev-code-generator.cc:840[;m
+0x7f326a8400fe    be  4c8bd5               REX.W movq r10,rbp
+0x7f326a840101    c1  4c2bd4               REX.W subq r10,rsp
+0x7f326a840104    c4  4983fa20             REX.W cmpq r10,0x20
+0x7f326a840108    c8  740d                 jz 0x7f326a840117  <+0xd7>
+[34m                  [  - void v8::internal::MacroAssembler::Abort(AbortReason)@../../src/codegen/x64/macro-assembler-x64.cc:1338[;m
+[34m                  Abort message:[;m
+[34m                  Stack access below stack pointer[;m
+0x7f326a84010a    ca  ba60000000           movl rdx,0x60
+[34m                    [ Frame: NO_FRAME_TYPE[;m
+0x7f326a84010f    cf  41ff9530640000       call [r13+0x6430]
+[34m                    ][;m
+0x7f326a840116    d6  cc                   int3l
+[34m                  ][;m
+[34m                  --   2: InitialValue(a0), 6 uses - ProcessResult v8::internal::maglev::(anonymous namespace)::MaglevCodeGeneratingNodeProcessor::Process(NodeT *, const ProcessingState &) [NodeT = v8::internal::maglev::InitialValue]@../../src/maglev/maglev-code-generator.cc:840[;m
+0x7f326a840117    d7  4c8bd5               REX.W movq r10,rbp
+0x7f326a84011a    da  4c2bd4               REX.W subq r10,rsp
+0x7f326a84011d    dd  4983fa20             REX.W cmpq r10,0x20
+0x7f326a840121    e1  740d                 jz 0x7f326a840130  <+0xf0>
+[34m                  [  - void v8::internal::MacroAssembler::Abort(AbortReason)@../../src/codegen/x64/macro-assembler-x64.cc:1338[;m
+[34m                  Abort message:[;m
+[34m                  Stack access below stack pointer[;m
+0x7f326a840123    e3  ba60000000           movl rdx,0x60
+[34m                    [ Frame: NO_FRAME_TYPE[;m
+0x7f326a840128    e8  41ff9530640000       call [r13+0x6430]
+[34m                    ][;m
+0x7f326a84012f    ef  cc                   int3l
+[34m                  ][;m
+[34m                  --   6: FunctionEntryStackCheck - ProcessResult v8::internal::maglev::(anonymous namespace)::MaglevCodeGeneratingNodeProcessor::Process(NodeT *, const ProcessingState &) [NodeT = v8::internal::maglev::FunctionEntryStackCheck]@../../src/maglev/maglev-code-generator.cc:840[;m
+0x7f326a840130    f0  4c8bd5               REX.W movq r10,rbp
+0x7f326a840133    f3  4c2bd4               REX.W subq r10,rsp
+0x7f326a840136    f6  4983fa20             REX.W cmpq r10,0x20
+0x7f326a84013a    fa  740d                 jz 0x7f326a840149  <+0x109>
+[34m                  [  - void v8::internal::MacroAssembler::Abort(AbortReason)@../../src/codegen/x64/macro-assembler-x64.cc:1338[;m
+[34m                  Abort message:[;m
+[34m                  Stack access below stack pointer[;m
+0x7f326a84013c    fc  ba60000000           movl rdx,0x60
+[34m                    [ Frame: NO_FRAME_TYPE[;m
+0x7f326a840141   101  41ff9530640000       call [r13+0x6430]
+[34m                    ][;m
+0x7f326a840148   108  cc                   int3l
+[34m                  ][;m
+0x7f326a840149   109  493b65a0             REX.W cmpq rsp,[r13-0x60] (external value (StackGuard::address_of_jslimit()))
+0x7f326a84014d   10d  730a                 jnc 0x7f326a840159  <+0x119>
+0x7f326a84014f   10f  b8b0010000           movl rax,0x1b0
+[34m                  [ Inlined  Trampoline for call to MaglevFunctionEntryStackCheck_WithoutNewTarget - void v8::internal::MacroAssembler::CallBuiltin(Builtin)@../../src/codegen/x64/macro-assembler-x64.cc:3559[;m
+0x7f326a840154   114  e8a75f0aa0           call 0x7f320a8e6100  (MaglevFunctionEntryStackCheck_WithoutNewTarget)    ;; near builtin entry
+[34m                  ][;m
+[34m                  --   7: Jump b1 - ProcessResult v8::internal::maglev::(anonymous namespace)::MaglevCodeGeneratingNodeProcessor::Process(NodeT *, const ProcessingState &) [NodeT = v8::internal::maglev::Jump]@../../src/maglev/maglev-code-generator.cc:840[;m
+0x7f326a840159   119  4c8bd5               REX.W movq r10,rbp
+0x7f326a84015c   11c  4c2bd4               REX.W subq r10,rsp
+0x7f326a84015f   11f  4983fa20             REX.W cmpq r10,0x20
+0x7f326a840163   123  740d                 jz 0x7f326a840172  <+0x132>
+[34m                  [  - void v8::internal::MacroAssembler::Abort(AbortReason)@../../src/codegen/x64/macro-assembler-x64.cc:1338[;m
+[34m                  Abort message:[;m
+[34m                  Stack access below stack pointer[;m
+0x7f326a840165   125  ba60000000           movl rdx,0x60
+[34m                    [ Frame: NO_FRAME_TYPE[;m
+0x7f326a84016a   12a  41ff9530640000       call [r13+0x6430]
+[34m                    ][;m
+0x7f326a840171   131  cc                   int3l
+[34m                  ][;m
+[34m                  --   Gap moves: - void v8::internal::maglev::(anonymous namespace)::MaglevCodeGeneratingNodeProcessor::EmitBlockEndGapMoves(UnconditionalControlNode *, const ProcessingState &)@../../src/maglev/maglev-code-generator.cc:991[;m
+[34m                  --   Double gap moves: - void v8::internal::maglev::(anonymous namespace)::MaglevCodeGeneratingNodeProcessor::EmitBlockEndGapMoves(UnconditionalControlNode *, const ProcessingState &)@../../src/maglev/maglev-code-generator.cc:1062[;m
+[34m                  -- Block b1 - BlockProcessResult v8::internal::maglev::(anonymous namespace)::MaglevCodeGeneratingNodeProcessor::PreProcessBasicBlock(BasicBlock *)@../../src/maglev/maglev-code-generator.cc:822[;m
+[34m                  --   21: GapMove([stack:-7|t] → [rax|R|t]) - ProcessResult v8::internal::maglev::(anonymous namespace)::MaglevCodeGeneratingNodeProcessor::Process(NodeT *, const ProcessingState &) [NodeT = v8::internal::maglev::GapMove]@../../src/maglev/maglev-code-generator.cc:840[;m
+0x7f326a840172   132  4c8bd5               REX.W movq r10,rbp
+0x7f326a840175   135  4c2bd4               REX.W subq r10,rsp
+0x7f326a840178   138  4983fa20             REX.W cmpq r10,0x20
+0x7f326a84017c   13c  740d                 jz 0x7f326a84018b  <+0x14b>
+[34m                  [  - void v8::internal::MacroAssembler::Abort(AbortReason)@../../src/codegen/x64/macro-assembler-x64.cc:1338[;m
+[34m                  Abort message:[;m
+[34m                  Stack access below stack pointer[;m
+0x7f326a84017e   13e  ba60000000           movl rdx,0x60
+[34m                    [ Frame: NO_FRAME_TYPE[;m
+0x7f326a840183   143  41ff9530640000       call [r13+0x6430]
+[34m                    ][;m
+0x7f326a84018a   14a  cc                   int3l
+[34m                  ][;m
+0x7f326a84018b   14b  488b4518             REX.W movq rax,[rbp+0x18]
+[34m                  --   9: CheckMaps(0x047c0101dcd5 <Map[16](HOLEY_ELEMENTS)>, check heapobj) [n2] - ProcessResult v8::internal::maglev::(anonymous namespace)::MaglevCodeGeneratingNodeProcessor::Process(NodeT *, const ProcessingState &) [NodeT = v8::internal::maglev::CheckMaps]@../../src/maglev/maglev-code-generator.cc:840[;m
+0x7f326a84018f   14f  4c8bd5               REX.W movq r10,rbp
+0x7f326a840192   152  4c2bd4               REX.W subq r10,rsp
+0x7f326a840195   155  4983fa20             REX.W cmpq r10,0x20
+0x7f326a840199   159  740d                 jz 0x7f326a8401a8  <+0x168>
+[34m                  [  - void v8::internal::MacroAssembler::Abort(AbortReason)@../../src/codegen/x64/macro-assembler-x64.cc:1338[;m
+[34m                  Abort message:[;m
+[34m                  Stack access below stack pointer[;m
+0x7f326a84019b   15b  ba60000000           movl rdx,0x60
+[34m                    [ Frame: NO_FRAME_TYPE[;m
+0x7f326a8401a0   160  41ff9530640000       call [r13+0x6430]
+[34m                    ][;m
+0x7f326a8401a7   167  cc                   int3l
+[34m                  ][;m
+[34m                  -- Jump to eager deopt - void v8::internal::maglev::MaglevAssembler::EmitEagerDeoptIfSmi(NodeT *, Register, DeoptimizeReason) [NodeT = v8::internal::maglev::CheckMaps]@../../src/maglev/maglev-assembler.h:1139[;m
+0x7f326a8401a8   168  a801                 test al,0x1
+0x7f326a8401aa   16a  0f8486020000         jz 0x7f326a840436  <+0x3f6>
+0x7f326a8401b0   170  8178ffd5dc0101       cmpl [rax-0x1],0x101dcd5    ;; (compressed) object: 0x047c0101dcd5 <Map[16](HOLEY_ELEMENTS)>
+0x7f326a8401b7   177  0f8579020000         jnz 0x7f326a840436  <+0x3f6>
+[34m                  --   10: LoadTaggedField(0xc: 0x047c0000351d <String[1]: #x>, compressed, is_const, Smi) [n2], 3 uses - ProcessResult v8::internal::maglev::(anonymous namespace)::MaglevCodeGeneratingNodeProcessor::Process(NodeT *, const ProcessingState &) [NodeT = v8::internal::maglev::LoadTaggedField]@../../src/maglev/maglev-code-generator.cc:840[;m
+0x7f326a8401bd   17d  4c8bd5               REX.W movq r10,rbp
+0x7f326a8401c0   180  4c2bd4               REX.W subq r10,rsp
+0x7f326a8401c3   183  4983fa20             REX.W cmpq r10,0x20
+0x7f326a8401c7   187  740d                 jz 0x7f326a8401d6  <+0x196>
+[34m                  [  - void v8::internal::MacroAssembler::Abort(AbortReason)@../../src/codegen/x64/macro-assembler-x64.cc:1338[;m
+[34m                  Abort message:[;m
+[34m                  Stack access below stack pointer[;m
+0x7f326a8401c9   189  ba60000000           movl rdx,0x60
+[34m                    [ Frame: NO_FRAME_TYPE[;m
+0x7f326a8401ce   18e  41ff9530640000       call [r13+0x6430]
+[34m                    ][;m
+0x7f326a8401d5   195  cc                   int3l
+[34m                  ][;m
+[34m                  [  - void v8::internal::MacroAssembler::AssertNotSmi(Register)@../../src/codegen/x64/macro-assembler-x64.cc:4171[;m
+0x7f326a8401d6   196  a801                 test al,0x1
+0x7f326a8401d8   198  750d                 jnz 0x7f326a8401e7  <+0x1a7>
+[34m                    [  - void v8::internal::MacroAssembler::Abort(AbortReason)@../../src/codegen/x64/macro-assembler-x64.cc:1338[;m
+[34m                  Abort message:[;m
+[34m                  Operand is a smi[;m
+0x7f326a8401da   19a  ba38000000           movl rdx,0x38
+[34m                      [ Frame: NO_FRAME_TYPE[;m
+0x7f326a8401df   19f  41ff9530640000       call [r13+0x6430]
+[34m                      ][;m
+0x7f326a8401e6   1a6  cc                   int3l
+[34m                    ][;m
+[34m                  ][;m
+0x7f326a8401e7   1a7  8b480b               movl rcx,[rax+0xb]
+[34m                  --   12: Jump b2 - ProcessResult v8::internal::maglev::(anonymous namespace)::MaglevCodeGeneratingNodeProcessor::Process(NodeT *, const ProcessingState &) [NodeT = v8::internal::maglev::Jump]@../../src/maglev/maglev-code-generator.cc:840[;m
+0x7f326a8401ea   1aa  4c8bd5               REX.W movq r10,rbp
+0x7f326a8401ed   1ad  4c2bd4               REX.W subq r10,rsp
+0x7f326a8401f0   1b0  4983fa20             REX.W cmpq r10,0x20
+0x7f326a8401f4   1b4  740d                 jz 0x7f326a840203  <+0x1c3>
+[34m                  [  - void v8::internal::MacroAssembler::Abort(AbortReason)@../../src/codegen/x64/macro-assembler-x64.cc:1338[;m
+[34m                  Abort message:[;m
+[34m                  Stack access below stack pointer[;m
+0x7f326a8401f6   1b6  ba60000000           movl rdx,0x60
+[34m                    [ Frame: NO_FRAME_TYPE[;m
+0x7f326a8401fb   1bb  41ff9530640000       call [r13+0x6430]
+[34m                    ][;m
+0x7f326a840202   1c2  cc                   int3l
+[34m                  ][;m
+[34m                  --   Gap moves: - void v8::internal::maglev::(anonymous namespace)::MaglevCodeGeneratingNodeProcessor::EmitBlockEndGapMoves(UnconditionalControlNode *, const ProcessingState &)@../../src/maglev/maglev-code-generator.cc:991[;m
+[34m                  --   Double gap moves: - void v8::internal::maglev::(anonymous namespace)::MaglevCodeGeneratingNodeProcessor::EmitBlockEndGapMoves(UnconditionalControlNode *, const ProcessingState &)@../../src/maglev/maglev-code-generator.cc:1062[;m
+[34m                  -- Block b2 - BlockProcessResult v8::internal::maglev::(anonymous namespace)::MaglevCodeGeneratingNodeProcessor::PreProcessBasicBlock(BasicBlock *)@../../src/maglev/maglev-code-generator.cc:822[;m
+[34m                  --   22: GapMove([rcx|R|t] → [rdx|R|t]) - ProcessResult v8::internal::maglev::(anonymous namespace)::MaglevCodeGeneratingNodeProcessor::Process(NodeT *, const ProcessingState &) [NodeT = v8::internal::maglev::GapMove]@../../src/maglev/maglev-code-generator.cc:840[;m
+0x7f326a840203   1c3  4c8bd5               REX.W movq r10,rbp
+0x7f326a840206   1c6  4c2bd4               REX.W subq r10,rsp
+0x7f326a840209   1c9  4983fa20             REX.W cmpq r10,0x20
+0x7f326a84020d   1cd  740d                 jz 0x7f326a84021c  <+0x1dc>
+[34m                  [  - void v8::internal::MacroAssembler::Abort(AbortReason)@../../src/codegen/x64/macro-assembler-x64.cc:1338[;m
+[34m                  Abort message:[;m
+[34m                  Stack access below stack pointer[;m
+0x7f326a84020f   1cf  ba60000000           movl rdx,0x60
+[34m                    [ Frame: NO_FRAME_TYPE[;m
+0x7f326a840214   1d4  41ff9530640000       call [r13+0x6430]
+[34m                    ][;m
+0x7f326a84021b   1db  cc                   int3l
+[34m                  ][;m
+0x7f326a84021c   1dc  488bd1               REX.W movq rdx,rcx
+[34m                  --   13: UnsafeSmiUntag [n10], 1 uses, cannot truncate to int32 - ProcessResult v8::internal::maglev::(anonymous namespace)::MaglevCodeGeneratingNodeProcessor::Process(NodeT *, const ProcessingState &) [NodeT = v8::internal::maglev::UnsafeSmiUntag]@../../src/maglev/maglev-code-generator.cc:840[;m
+0x7f326a84021f   1df  4c8bd5               REX.W movq r10,rbp
+0x7f326a840222   1e2  4c2bd4               REX.W subq r10,rsp
+0x7f326a840225   1e5  4983fa20             REX.W cmpq r10,0x20
+0x7f326a840229   1e9  740d                 jz 0x7f326a840238  <+0x1f8>
+[34m                  [  - void v8::internal::MacroAssembler::Abort(AbortReason)@../../src/codegen/x64/macro-assembler-x64.cc:1338[;m
+[34m                  Abort message:[;m
+[34m                  Stack access below stack pointer[;m
+0x7f326a84022b   1eb  ba60000000           movl rdx,0x60
+[34m                    [ Frame: NO_FRAME_TYPE[;m
+0x7f326a840230   1f0  41ff9530640000       call [r13+0x6430]
+[34m                    ][;m
+0x7f326a840237   1f7  cc                   int3l
+[34m                  ][;m
+[34m                  [  - void v8::internal::MacroAssembler::AssertSmi(Register)@../../src/codegen/x64/macro-assembler-x64.cc:4178[;m
+0x7f326a840238   1f8  f6c101               testb rcx,0x1
+0x7f326a84023b   1fb  740d                 jz 0x7f326a84024a  <+0x20a>
+[34m                    [  - void v8::internal::MacroAssembler::Abort(AbortReason)@../../src/codegen/x64/macro-assembler-x64.cc:1338[;m
+[34m                  Abort message:[;m
+[34m                  Operand is not a smi[;m
+0x7f326a84023d   1fd  ba54000000           movl rdx,0x54
+[34m                      [ Frame: NO_FRAME_TYPE[;m
+0x7f326a840242   202  41ff9530640000       call [r13+0x6430]
+[34m                      ][;m
+0x7f326a840249   209  cc                   int3l
+[34m                    ][;m
+[34m                    [  - void v8::internal::MacroAssembler::ClobberDecompressedSmiBits(Register)@../../src/codegen/x64/macro-assembler-x64.cc:2964[;m
+0x7f326a84024a   20a  48c1c120             REX.W rolq rcx,32
+0x7f326a84024e   20e  4881f151515100       REX.W xorq rcx,0x515151
+0x7f326a840255   215  48c1c920             REX.W rorq rcx,32
+[34m                    ][;m
+[34m                  ][;m
+[34m                  [  - void v8::internal::MacroAssembler::AssertSmi(Register)@../../src/codegen/x64/macro-assembler-x64.cc:4178[;m
+0x7f326a840259   219  f6c101               testb rcx,0x1
+0x7f326a84025c   21c  740d                 jz 0x7f326a84026b  <+0x22b>
+[34m                    [  - void v8::internal::MacroAssembler::Abort(AbortReason)@../../src/codegen/x64/macro-assembler-x64.cc:1338[;m
+[34m                  Abort message:[;m
+[34m                  Operand is not a smi[;m
+0x7f326a84025e   21e  ba54000000           movl rdx,0x54
+[34m                      [ Frame: NO_FRAME_TYPE[;m
+0x7f326a840263   223  41ff9530640000       call [r13+0x6430]
+[34m                      ][;m
+0x7f326a84026a   22a  cc                   int3l
+[34m                    ][;m
+[34m                    [  - void v8::internal::MacroAssembler::ClobberDecompressedSmiBits(Register)@../../src/codegen/x64/macro-assembler-x64.cc:2964[;m
+0x7f326a84026b   22b  48c1c120             REX.W rolq rcx,32
+0x7f326a84026f   22f  4881f151515100       REX.W xorq rcx,0x515151
+0x7f326a840276   236  48c1c920             REX.W rorq rcx,32
+[34m                    ][;m
+[34m                  ][;m
+0x7f326a84027a   23a  d1f9                 sarl rcx,1
+[34m                  --   14: Int32IncrementWithOverflow [n13], 2 uses, cannot truncate to int32 - ProcessResult v8::internal::maglev::(anonymous namespace)::MaglevCodeGeneratingNodeProcessor::Process(NodeT *, const ProcessingState &) [NodeT = v8::internal::maglev::Int32IncrementWithOverflow]@../../src/maglev/maglev-code-generator.cc:840[;m
+0x7f326a84027c   23c  4c8bd5               REX.W movq r10,rbp
+0x7f326a84027f   23f  4c2bd4               REX.W subq r10,rsp
+0x7f326a840282   242  4983fa20             REX.W cmpq r10,0x20
+0x7f326a840286   246  740d                 jz 0x7f326a840295  <+0x255>
+[34m                  [  - void v8::internal::MacroAssembler::Abort(AbortReason)@../../src/codegen/x64/macro-assembler-x64.cc:1338[;m
+[34m                  Abort message:[;m
+[34m                  Stack access below stack pointer[;m
+0x7f326a840288   248  ba60000000           movl rdx,0x60
+[34m                    [ Frame: NO_FRAME_TYPE[;m
+0x7f326a84028d   24d  41ff9530640000       call [r13+0x6430]
+[34m                    ][;m
+0x7f326a840294   254  cc                   int3l
+[34m                  ][;m
+[34m                  [  - void v8::internal::MacroAssembler::AssertZeroExtended(Register)@../../src/codegen/x64/macro-assembler-x64.cc:4195[;m
+0x7f326a840295   255  41baffffffff         movl r10,0xffffffff
+0x7f326a84029b   25b  493bca               REX.W cmpq rcx,r10
+0x7f326a84029e   25e  760d                 jna 0x7f326a8402ad  <+0x26d>
+[34m                    [  - void v8::internal::MacroAssembler::Abort(AbortReason)@../../src/codegen/x64/macro-assembler-x64.cc:1338[;m
+[34m                  Abort message:[;m
+[34m                  32 bit value in register is not zero-extended[;m
+0x7f326a8402a0   260  ba02000000           movl rdx,0x2
+[34m                      [ Frame: NO_FRAME_TYPE[;m
+0x7f326a8402a5   265  41ff9530640000       call [r13+0x6430]
+[34m                      ][;m
+0x7f326a8402ac   26c  cc                   int3l
+[34m                    ][;m
+[34m                  ][;m
+0x7f326a8402ad   26d  ffc1                 incl rcx
+[34m                  -- Jump to eager deopt - void v8::internal::maglev::MaglevAssembler::EmitEagerDeoptIf(Condition, DeoptimizeReason, NodeT *) [NodeT = v8::internal::maglev::Int32IncrementWithOverflow]@../../src/maglev/maglev-assembler.h:1132[;m
+0x7f326a8402af   26f  0f8085010000         jo 0x7f326a84043a  <+0x3fa>
+[34m                  --   Spill: - ProcessResult v8::internal::maglev::(anonymous namespace)::MaglevCodeGeneratingNodeProcessor::Process(NodeT *, const ProcessingState &) [NodeT = v8::internal::maglev::Int32IncrementWithOverflow]@../../src/maglev/maglev-code-generator.cc:938[;m
+0x7f326a8402b5   275  48894de0             REX.W movq [rbp-0x20],rcx
+[34m                  --   16: Int32AddWithOverflow [n14, n15], 1 uses, can truncate to int32 [-2147483648, 2147483647] - ProcessResult v8::internal::maglev::(anonymous namespace)::MaglevCodeGeneratingNodeProcessor::Process(NodeT *, const ProcessingState &) [NodeT = v8::internal::maglev::Int32AddWithOverflow]@../../src/maglev/maglev-code-generator.cc:840[;m
+0x7f326a8402b9   279  4c8bd5               REX.W movq r10,rbp
+0x7f326a8402bc   27c  4c2bd4               REX.W subq r10,rsp
+0x7f326a8402bf   27f  4983fa20             REX.W cmpq r10,0x20
+0x7f326a8402c3   283  740d                 jz 0x7f326a8402d2  <+0x292>
+[34m                  [  - void v8::internal::MacroAssembler::Abort(AbortReason)@../../src/codegen/x64/macro-assembler-x64.cc:1338[;m
+[34m                  Abort message:[;m
+[34m                  Stack access below stack pointer[;m
+0x7f326a8402c5   285  ba60000000           movl rdx,0x60
+[34m                    [ Frame: NO_FRAME_TYPE[;m
+0x7f326a8402ca   28a  41ff9530640000       call [r13+0x6430]
+[34m                    ][;m
+0x7f326a8402d1   291  cc                   int3l
+[34m                  ][;m
+[34m                  [  - void v8::internal::MacroAssembler::AssertZeroExtended(Register)@../../src/codegen/x64/macro-assembler-x64.cc:4195[;m
+0x7f326a8402d2   292  41baffffffff         movl r10,0xffffffff
+0x7f326a8402d8   298  493bca               REX.W cmpq rcx,r10
+0x7f326a8402db   29b  760d                 jna 0x7f326a8402ea  <+0x2aa>
+[34m                    [  - void v8::internal::MacroAssembler::Abort(AbortReason)@../../src/codegen/x64/macro-assembler-x64.cc:1338[;m
+[34m                  Abort message:[;m
+[34m                  32 bit value in register is not zero-extended[;m
+0x7f326a8402dd   29d  ba02000000           movl rdx,0x2
+[34m                      [ Frame: NO_FRAME_TYPE[;m
+0x7f326a8402e2   2a2  41ff9530640000       call [r13+0x6430]
+[34m                      ][;m
+0x7f326a8402e9   2a9  cc                   int3l
+[34m                    ][;m
+[34m                  ][;m
+0x7f326a8402ea   2aa  81c1ff7f0000         addl rcx,0x7fff
+[34m                  -- Jump to eager deopt - void v8::internal::maglev::MaglevAssembler::EmitEagerDeoptIf(Condition, DeoptimizeReason, NodeT *) [NodeT = v8::internal::maglev::Int32AddWithOverflow]@../../src/maglev/maglev-assembler.h:1132[;m
+0x7f326a8402f0   2b0  0f8048010000         jo 0x7f326a84043e  <+0x3fe>
+[34m                  --   23: ConstantGapMove(n17 → [rax|R|t]) - ProcessResult v8::internal::maglev::(anonymous namespace)::MaglevCodeGeneratingNodeProcessor::Process(NodeT *, const ProcessingState &) [NodeT = v8::internal::maglev::ConstantGapMove]@../../src/maglev/maglev-code-generator.cc:840[;m
+0x7f326a8402f6   2b6  4c8bd5               REX.W movq r10,rbp
+0x7f326a8402f9   2b9  4c2bd4               REX.W subq r10,rsp
+0x7f326a8402fc   2bc  4983fa20             REX.W cmpq r10,0x20
+0x7f326a840300   2c0  740d                 jz 0x7f326a84030f  <+0x2cf>
+[34m                  [  - void v8::internal::MacroAssembler::Abort(AbortReason)@../../src/codegen/x64/macro-assembler-x64.cc:1338[;m
+[34m                  Abort message:[;m
+[34m                  Stack access below stack pointer[;m
+0x7f326a840302   2c2  ba60000000           movl rdx,0x60
+[34m                    [ Frame: NO_FRAME_TYPE[;m
+0x7f326a840307   2c7  41ff9530640000       call [r13+0x6430]
+[34m                    ][;m
+0x7f326a84030e   2ce  cc                   int3l
+[34m                  ][;m
+0x7f326a84030f   2cf  48b815db01017c040000 REX.W movq rax,0x47c0101db15    ;; object: 0x047c0101db15 <FeedbackCell[one closure]>
+[34m                  --   18: ReduceInterruptBudgetForReturn(18) [n17] - ProcessResult v8::internal::maglev::(anonymous namespace)::MaglevCodeGeneratingNodeProcessor::Process(NodeT *, const ProcessingState &) [NodeT = v8::internal::maglev::ReduceInterruptBudgetForReturn]@../../src/maglev/maglev-code-generator.cc:840[;m
+0x7f326a840319   2d9  4c8bd5               REX.W movq r10,rbp
+0x7f326a84031c   2dc  4c2bd4               REX.W subq r10,rsp
+0x7f326a84031f   2df  4983fa20             REX.W cmpq r10,0x20
+0x7f326a840323   2e3  740d                 jz 0x7f326a840332  <+0x2f2>
+[34m                  [  - void v8::internal::MacroAssembler::Abort(AbortReason)@../../src/codegen/x64/macro-assembler-x64.cc:1338[;m
+[34m                  Abort message:[;m
+[34m                  Stack access below stack pointer[;m
+0x7f326a840325   2e5  ba60000000           movl rdx,0x60
+[34m                    [ Frame: NO_FRAME_TYPE[;m
+0x7f326a84032a   2ea  41ff9530640000       call [r13+0x6430]
+[34m                    ][;m
+0x7f326a840331   2f1  cc                   int3l
+[34m                  ][;m
+0x7f326a840332   2f2  83680b12             subl [rax+0xb],0x12
+[34m                  -- Jump to deferred code - void v8::internal::maglev::MaglevAssembler::JumpToDeferredIf(Condition, Function &&, Args &&...) [Function = void (&)(v8::internal::maglev::MaglevAssembler *, v8::internal::maglev::ZoneLabelRef, v8::internal::maglev::Node *, v8::internal::maglev::(anonymous namespace)::ReduceInterruptBudgetType), Args = <v8::internal::maglev::ZoneLabelRef &, v8::internal::maglev::Node *&, v8::internal::maglev::(anonymous namespace)::ReduceInterruptBudgetType &>]@../../src/maglev/maglev-assembler-inl.h:261[;m
+0x7f326a840336   2f6  0f8c73000000         jl 0x7f326a8403af  <+0x36f>
+[34m                  --   19: Int32ToNumber[kCanonicalizeSmi] [n16], 1 uses - ProcessResult v8::internal::maglev::(anonymous namespace)::MaglevCodeGeneratingNodeProcessor::Process(NodeT *, const ProcessingState &) [NodeT = v8::internal::maglev::Int32ToNumber]@../../src/maglev/maglev-code-generator.cc:840[;m
+0x7f326a84033c   2fc  4c8bd5               REX.W movq r10,rbp
+0x7f326a84033f   2ff  4c2bd4               REX.W subq r10,rsp
+0x7f326a840342   302  4983fa20             REX.W cmpq r10,0x20
+0x7f326a840346   306  740d                 jz 0x7f326a840355  <+0x315>
+[34m                  [  - void v8::internal::MacroAssembler::Abort(AbortReason)@../../src/codegen/x64/macro-assembler-x64.cc:1338[;m
+[34m                  Abort message:[;m
+[34m                  Stack access below stack pointer[;m
+0x7f326a840348   308  ba60000000           movl rdx,0x60
+[34m                    [ Frame: NO_FRAME_TYPE[;m
+0x7f326a84034d   30d  41ff9530640000       call [r13+0x6430]
+[34m                    ][;m
+0x7f326a840354   314  cc                   int3l
+[34m                  ][;m
+[34m                  [  - void v8::internal::MacroAssembler::AssertZeroExtended(Register)@../../src/codegen/x64/macro-assembler-x64.cc:4195[;m
+0x7f326a840355   315  41baffffffff         movl r10,0xffffffff
+0x7f326a84035b   31b  493bca               REX.W cmpq rcx,r10
+0x7f326a84035e   31e  760d                 jna 0x7f326a84036d  <+0x32d>
+[34m                    [  - void v8::internal::MacroAssembler::Abort(AbortReason)@../../src/codegen/x64/macro-assembler-x64.cc:1338[;m
+[34m                  Abort message:[;m
+[34m                  32 bit value in register is not zero-extended[;m
+0x7f326a840360   320  ba02000000           movl rdx,0x2
+[34m                      [ Frame: NO_FRAME_TYPE[;m
+0x7f326a840365   325  41ff9530640000       call [r13+0x6430]
+[34m                      ][;m
+0x7f326a84036c   32c  cc                   int3l
+[34m                    ][;m
+[34m                  ][;m
+0x7f326a84036d   32d  488bc1               REX.W movq rax,rcx
+0x7f326a840370   330  03c0                 addl rax,rax
+0x7f326a840372   332  0f8068000000         jo 0x7f326a8403e0  <+0x3a0>
+[34m                  --   20: Return [n19] - ProcessResult v8::internal::maglev::(anonymous namespace)::MaglevCodeGeneratingNodeProcessor::Process(NodeT *, const ProcessingState &) [NodeT = v8::internal::maglev::Return]@../../src/maglev/maglev-code-generator.cc:840[;m
+0x7f326a840378   338  4c8bd5               REX.W movq r10,rbp
+0x7f326a84037b   33b  4c2bd4               REX.W subq r10,rsp
+0x7f326a84037e   33e  4983fa20             REX.W cmpq r10,0x20
+0x7f326a840382   342  740d                 jz 0x7f326a840391  <+0x351>
+[34m                  [  - void v8::internal::MacroAssembler::Abort(AbortReason)@../../src/codegen/x64/macro-assembler-x64.cc:1338[;m
+[34m                  Abort message:[;m
+[34m                  Stack access below stack pointer[;m
+0x7f326a840384   344  ba60000000           movl rdx,0x60
+[34m                    [ Frame: NO_FRAME_TYPE[;m
+0x7f326a840389   349  41ff9530640000       call [r13+0x6430]
+[34m                    ][;m
+0x7f326a840390   350  cc                   int3l
+[34m                  ][;m
+0x7f326a840391   351  4c8b45e8             REX.W movq r8,[rbp-0x18]
+[34m                  [  - void v8::internal::MacroAssembler::LeaveFrame(StackFrame::Type)@../../src/codegen/x64/macro-assembler-x64.cc:4678[;m
+0x7f326a840395   355  488be5               REX.W movq rsp,rbp
+0x7f326a840398   358  5d                   pop rbp
+[34m                  ][;m
+0x7f326a840399   359  4983f802             REX.W cmpq r8,0x2
+0x7f326a84039d   35d  0f8f03000000         jg 0x7f326a8403a6  <+0x366>
+0x7f326a8403a3   363  c21000               ret 0x10
+0x7f326a8403a6   366  4159                 pop r9
+0x7f326a8403a8   368  4a8d24c4             REX.W leaq rsp,[rsp+r8*8]
+0x7f326a8403ac   36c  4151                 push r9
+0x7f326a8403ae   36e  c3                   retl
+[34m                  -- Deferred block - void v8::internal::maglev::MaglevCodeGenerator::EmitDeferredCode()@../../src/maglev/maglev-code-generator.cc:1924[;m
+0x7f326a8403af   36f  49c7457800000000     REX.W movq [r13+0x78] (external value (last_young_allocation_address)),0x0
+0x7f326a8403b7   377  51                   push rcx
+0x7f326a8403b8   378  ff75f0               push [rbp-0x10]
+0x7f326a8403bb   37b  48be8d4500017c040000 REX.W movq rsi,0x47c0100458d    ;; object: 0x047c0100458d <NativeContext[308]>
+[34m                  [  - void v8::internal::MacroAssembler::CallRuntime(const Runtime::Function *, int)@../../src/codegen/x64/macro-assembler-x64.cc:1383[;m
+0x7f326a8403c5   385  b801000000           movl rax,0x1
+0x7f326a8403ca   38a  48bbc0af7f0d327f0000 REX.W movq rbx,0x7f320d7fafc0    ;; external reference (Runtime::BytecodeBudgetInterrupt_Maglev)
+[34m                    [ Inlined  Trampoline for call to CEntry_Return1_ArgvOnStack_NoBuiltinExit - void v8::internal::MacroAssembler::CallBuiltin(Builtin)@../../src/codegen/x64/macro-assembler-x64.cc:3559[;m
+0x7f326a8403d4   394  e8e716a1a0           call 0x7f320b251ac0  (CEntry_Return1_ArgvOnStack_NoBuiltinExit)    ;; near builtin entry
+[34m                    ][;m
+[34m                  ][;m
+0x7f326a8403d9   399  59                   pop rcx
+0x7f326a8403da   39a  e95dffffff           jmp 0x7f326a84033c  <+0x2fc>
+0x7f326a8403df   39f  cc                   int3l
+[34m                  -- Deferred block - void v8::internal::maglev::MaglevCodeGenerator::EmitDeferredCode()@../../src/maglev/maglev-code-generator.cc:1924[;m
+0x7f326a8403e0   3a0  c5032af9             vcvtlsi2sd xmm15,xmm15,rcx
+0x7f326a8403e4   3a4  498b4550             REX.W movq rax,[r13+0x50] (external value (IsolateData::new_allocation_info_top_address()))
+0x7f326a8403e8   3a8  4c8d500c             REX.W leaq r10,[rax+0xc]
+0x7f326a8403ec   3ac  4d3b5558             REX.W cmpq r10,[r13+0x58] (external value (IsolateData::new_allocation_info_limit_address()))
+[34m                  -- Jump to deferred code - void v8::internal::maglev::MaglevAssembler::JumpToDeferredIf(Condition, Function &&, Args &&...) [Function = void (&)(v8::internal::maglev::MaglevAssembler *, v8::internal::maglev::RegisterSnapshot, v8::internal::Register, v8::internal::Builtin, int, v8::internal::maglev::ZoneLabelRef), Args = <v8::internal::maglev::RegisterSnapshot &, v8::internal::Register &, v8::internal::Builtin, int &, v8::internal::maglev::ZoneLabelRef &>]@../../src/maglev/maglev-assembler-inl.h:261[;m
+0x7f326a8403f0   3b0  0f8321000000         jnc 0x7f326a840417  <+0x3d7>
+0x7f326a8403f6   3b6  4d895550             REX.W movq [r13+0x50] (external value (IsolateData::new_allocation_info_top_address())),r10
+0x7f326a8403fa   3ba  49894578             REX.W movq [r13+0x78] (external value (last_young_allocation_address)),rax
+0x7f326a8403fe   3be  4883c001             REX.W addq rax,0x1
+0x7f326a840402   3c2  41ba15050000         movl r10,0x515
+0x7f326a840408   3c8  448950ff             movl [rax-0x1],r10
+0x7f326a84040c   3cc  c57b117803           vmovsd [rax+0x3],xmm15
+0x7f326a840411   3d1  e962ffffff           jmp 0x7f326a840378  <+0x338>
+0x7f326a840416   3d6  cc                   int3l
+[34m                  -- Deferred block - void v8::internal::maglev::MaglevCodeGenerator::EmitDeferredCode()@../../src/maglev/maglev-code-generator.cc:1924[;m
+0x7f326a840417   3d7  4883ec08             REX.W subq rsp,0x8
+0x7f326a84041b   3db  c57b113c24           vmovsd [rsp],xmm15
+0x7f326a840420   3e0  ba0c000000           movl rdx,0xc
+[34m                  [ Inlined  Trampoline for call to AllocateInYoungGeneration - void v8::internal::MacroAssembler::CallBuiltin(Builtin)@../../src/codegen/x64/macro-assembler-x64.cc:3559[;m
+0x7f326a840425   3e5  e8d6a00aa0           call 0x7f320a8ea500  (AllocateInYoungGeneration)    ;; near builtin entry
+[34m                  ][;m
+0x7f326a84042a   3ea  c57b103c24           vmovsd xmm15,[rsp]
+0x7f326a84042f   3ef  4883c408             REX.W addq rsp,0x8
+0x7f326a840433   3f3  ebcd                 jmp 0x7f326a840402  <+0x3c2>
+0x7f326a840435   3f5  cc                   int3l
+[34m                  -- Non-lazy deopts - bool v8::internal::maglev::MaglevCodeGenerator::EmitDeopts()@../../src/maglev/maglev-code-generator.cc:1962[;m
+[34m                  [  - void v8::internal::MacroAssembler::CallForDeoptimization(Builtin, int, Label *, DeoptimizeKind, Label *, Label *)@../../src/codegen/x64/macro-assembler-x64.cc:5098[;m
+0x7f326a840436   3f6  41ff55d8             call [r13-0x28] (external value (IsolateData::builtin_tier0_entry_table_))    ;; debug: deopt position, script offset '48'
+                                                             ;; debug: deopt position, inlining id 'ffffffff'
+                                                             ;; debug: deopt reason 'wrong map'
+                                                             ;; debug: deopt index 0
+                                                             ;; debug: deopt node id 0
+[34m                  ][;m
+[34m                  [  - void v8::internal::MacroAssembler::CallForDeoptimization(Builtin, int, Label *, DeoptimizeKind, Label *, Label *)@../../src/codegen/x64/macro-assembler-x64.cc:5098[;m
+0x7f326a84043a   3fa  41ff55d8             call [r13-0x28] (external value (IsolateData::builtin_tier0_entry_table_))    ;; debug: deopt position, script offset '1d'
+                                                             ;; debug: deopt position, inlining id '0'
+                                                             ;; debug: deopt reason 'overflow'
+                                                             ;; debug: deopt index 1
+                                                             ;; debug: deopt node id 0
+[34m                  ][;m
+[34m                  [  - void v8::internal::MacroAssembler::CallForDeoptimization(Builtin, int, Label *, DeoptimizeKind, Label *, Label *)@../../src/codegen/x64/macro-assembler-x64.cc:5098[;m
+0x7f326a84043e   3fe  41ff55d8             call [r13-0x28] (external value (IsolateData::builtin_tier0_entry_table_))    ;; debug: deopt position, script offset '4b'
+                                                             ;; debug: deopt position, inlining id 'ffffffff'
+                                                             ;; debug: deopt reason 'overflow'
+                                                             ;; debug: deopt index 2
+                                                             ;; debug: deopt node id 0
+[34m                  ][;m
+[34m                  -- Lazy deopts - bool v8::internal::maglev::MaglevCodeGenerator::EmitDeopts()@../../src/maglev/maglev-code-generator.cc:1987[;m
+[34m                  [  - void v8::internal::MacroAssembler::CallForDeoptimization(Builtin, int, Label *, DeoptimizeKind, Label *, Label *)@../../src/codegen/x64/macro-assembler-x64.cc:5098[;m
+0x7f326a840442   402  41ff55e0             call [r13-0x20]    ;; debug: deopt position, script offset '33'
+                                                             ;; debug: deopt position, inlining id 'ffffffff'
+                                                             ;; debug: deopt reason '(unknown)'
+                                                             ;; debug: deopt index 3
+                                                             ;; debug: deopt node id 0
+[34m                  ][;m
+0x7f326a840446   406  6690                 nop
+                  ;;; Maglev safepoint table. - void v8::internal::MaglevSafepointTableBuilder::Emit(Assembler *, int)@../../src/codegen/maglev-safepoint-table.cc:178
+                  ;;; Exception handler table. - static int v8::internal::HandlerTable::EmitReturnTableStart(Assembler *)@../../src/codegen/handler-table.cc:167
+
+Source positions:
+ pc offset  position
+        be        51
+        d7        51
+        f0        51
+       119        51
+       14f        72
+       17d        72
+       1aa        14
+       1df        29
+       23c        29
+       279        75
+       2d9        84
+       2fc        84
+       338        84
+
+Inlined functions (count = 1)
+ 0x047c0101da31 <SharedFunctionInfo doInc>
+
+Deoptimization Input Data (deopt points = 4)
+ index  bytecode-offset  node-id    pc
+     0                4        0   3f6 
+     1                2        1   3fa 
+     2               13        2   3fe 
+     3               -1        3   402 
+
+Safepoints (stack slots = 6, entries = 3, byte size = 34, tagged slots = 0)
+0x7f326a840159    119  num extra spill slots: 0  deopt      3 trampoline:    402
+0x7f326a8403d9    399  num extra spill slots: 1
+0x7f326a84042a    3ea  num extra spill slots: 1
+
+RelocInfo (size = 130)
+0x7f326a840155  near builtin entry
+0x7f326a8401b3  compressed embedded object  (0x047c0101dcd5 <Map[16](HOLEY_ELEMENTS)> compressed)
+0x7f326a840311  full embedded object  (0x047c0101db15 <FeedbackCell[one closure]>)
+0x7f326a8403bd  full embedded object  (0x047c0100458d <NativeContext[308]>)
+0x7f326a8403cc  external reference (Runtime::BytecodeBudgetInterrupt_Maglev)  (0x7f320d7fafc0)
+0x7f326a8403d5  near builtin entry
+0x7f326a840426  near builtin entry
+0x7f326a84043a  deopt script offset  (72)
+0x7f326a84043a  deopt inlining id  (-1)
+0x7f326a84043a  deopt reason  (wrong map)
+0x7f326a84043a  deopt index
+0x7f326a84043a  deopt node id
+0x7f326a84043e  deopt script offset  (29)
+0x7f326a84043e  deopt inlining id  (0)
+0x7f326a84043e  deopt reason  (overflow)
+0x7f326a84043e  deopt index
+0x7f326a84043e  deopt node id
+0x7f326a840442  deopt script offset  (75)
+0x7f326a840442  deopt inlining id  (-1)
+0x7f326a840442  deopt reason  (overflow)
+0x7f326a840442  deopt index
+0x7f326a840442  deopt node id
+0x7f326a840446  deopt script offset  (51)
+0x7f326a840446  deopt inlining id  (-1)
+0x7f326a840446  deopt reason  ((unknown))
+0x7f326a840446  deopt index
+0x7f326a840446  deopt node id
+

@@ -1,0 +1,20 @@
+== d8 default
+rep0 sumArray=1.02ns/iter objFields=1.63ns/iter truncDiv=6.17ns/iter
+rep1 sumArray=0.65ns/iter objFields=1.00ns/iter truncDiv=1.90ns/iter
+rep2 sumArray=0.65ns/iter objFields=1.60ns/iter truncDiv=2.52ns/iter
+== d8 ignition-only
+rep0 sumArray=20.00ns/iter objFields=32.00ns/iter truncDiv=33.00ns/iter
+rep1 sumArray=19.00ns/iter objFields=32.00ns/iter truncDiv=31.00ns/iter
+rep2 sumArray=19.00ns/iter objFields=31.00ns/iter truncDiv=27.00ns/iter
+== d8 sparkplug-max
+rep0 sumArray=9.00ns/iter objFields=16.00ns/iter truncDiv=18.00ns/iter
+rep1 sumArray=8.00ns/iter objFields=15.00ns/iter truncDiv=15.00ns/iter
+rep2 sumArray=8.00ns/iter objFields=15.00ns/iter truncDiv=16.00ns/iter
+== node24 default
+rep0 sumArray=0.78ns/iter objFields=1.45ns/iter truncDiv=4.15ns/iter
+rep1 sumArray=0.65ns/iter objFields=1.15ns/iter truncDiv=2.30ns/iter
+rep2 sumArray=0.68ns/iter objFields=1.18ns/iter truncDiv=1.90ns/iter
+== node24 ignition-only
+rep0 sumArray=21.00ns/iter objFields=39.00ns/iter truncDiv=35.00ns/iter
+rep1 sumArray=20.00ns/iter objFields=39.00ns/iter truncDiv=33.00ns/iter
+rep2 sumArray=21.00ns/iter objFields=38.00ns/iter truncDiv=31.00ns/iter

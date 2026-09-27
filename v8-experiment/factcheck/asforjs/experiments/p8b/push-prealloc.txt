@@ -1,0 +1,24 @@
+== d8 default n=10000 R=3000
+rep0 viaPush=89ms viaNewArray=30ms viaFrom=1220ms viaFill=26ms
+rep1 viaPush=73ms viaNewArray=20ms viaFrom=1013ms viaFill=29ms
+rep2 viaPush=61ms viaNewArray=19ms viaFrom=1146ms viaFill=32ms
+== node24 default
+rep0 viaPush=130ms viaNewArray=45ms viaFrom=922ms viaFill=63ms
+rep1 viaPush=101ms viaNewArray=35ms viaFrom=956ms viaFill=64ms
+rep2 viaPush=125ms viaNewArray=39ms viaFrom=965ms viaFill=77ms
+== node22 default
+rep0 viaPush=114ms viaNewArray=56ms viaFrom=968ms viaFill=67ms
+rep1 viaPush=95ms viaNewArray=43ms viaFrom=997ms viaFill=68ms
+rep2 viaPush=108ms viaNewArray=41ms viaFrom=950ms viaFill=69ms
+== d8 ignition-only n=10000 R=100
+rep0 viaPush=32ms viaNewArray=18ms viaFrom=69ms viaFill=18ms
+rep1 viaPush=26ms viaNewArray=21ms viaFrom=60ms viaFill=18ms
+rep2 viaPush=23ms viaNewArray=18ms viaFrom=55ms viaFill=18ms
+== node24 ignition-only
+rep0 viaPush=28ms viaNewArray=19ms viaFrom=47ms viaFill=19ms
+rep1 viaPush=27ms viaNewArray=19ms viaFrom=47ms viaFill=19ms
+rep2 viaPush=25ms viaNewArray=19ms viaFrom=46ms viaFill=21ms
+== d8 default n=1e6 R=30
+rep0 viaPush=215ms viaNewArray=83ms viaFrom=1258ms viaFill=89ms
+rep1 viaPush=182ms viaNewArray=65ms viaFrom=1072ms viaFill=68ms
+rep2 viaPush=196ms viaNewArray=69ms viaFrom=1319ms viaFill=75ms

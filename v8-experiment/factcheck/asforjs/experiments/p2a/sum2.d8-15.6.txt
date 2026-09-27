@@ -1,0 +1,48 @@
+doLoopPlusEq | Bytecode length: 37; Parameter count 2; Register count 3; Frame size 24
+    LdaZero ; Star0 ; LdaZero ; Star1 ; GetNamedProperty a0, [0:"length"], FBV[0] ; TestLessThan r1, EmbeddedFeedback[None] ; JumpIfFalse [23] (0x19ab01000686 @ 34) ; Ldar r1 ; GetKeyedProperty a0, FBV[2] ; Add r0, EmbeddedFeedback[None] ; Mov r0, r2 ; Star0 ; Ldar r1 ; Inc EmbeddedFeedback[None] ; Star1 ; JumpLoop [26], [0], FBV[4] (0x19ab01000668 @ 4) ; Ldar r0 ; Return
+doLoopPlusLong | Bytecode length: 34; Parameter count 2; Register count 2; Frame size 16
+    LdaZero ; Star0 ; LdaZero ; Star1 ; GetNamedProperty a0, [0:"length"], FBV[0] ; TestLessThan r1, EmbeddedFeedback[None] ; JumpIfFalse [20] (0x19ab010006df @ 31) ; Ldar r1 ; GetKeyedProperty a0, FBV[2] ; Add r0, EmbeddedFeedback[None] ; Star0 ; Ldar r1 ; Inc EmbeddedFeedback[None] ; Star1 ; JumpLoop [23], [0], FBV[4] (0x19ab010006c4 @ 4) ; Ldar r0 ; Return
+doPlusEqParam | Bytecode length: 11; Parameter count 3; Register count 1; Frame size 8
+    Ldar a1 ; Add a0, EmbeddedFeedback[None] ; Mov a0, r0 ; Star a0 ; Return
+doPlusLongParam | Bytecode length: 8; Parameter count 3; Register count 0; Frame size 0
+    Ldar a1 ; Add a0, EmbeddedFeedback[None] ; Star a0 ; Return
+doNestGlobal | Bytecode length: 12; Parameter count 2; Register count 0; Frame size 0
+    Ldar a0 ; StaGlobal [0:"g2"], FBV[0] ; Ldar a0 ; StaGlobal [1:"g1"], FBV[2] ; LdaUndefined ; Return
+doSepGlobal | Bytecode length: 13; Parameter count 2; Register count 0; Frame size 0
+    Ldar a0 ; StaGlobal [0:"g2"], FBV[0] ; LdaGlobal [0:"g2"], FBV[2] ; StaGlobal [1:"g1"], FBV[4] ; LdaUndefined ; Return
+doNestLocal2 | Bytecode length: 36; Parameter count 2; Register count 4; Frame size 32
+    LdaUndefined ; Star0 ; LdaUndefined ; Star1 ; Ldar a0 ; AddSmi [1], EmbeddedFeedback[None] ; Star1 ; Star0 ; CreateArrayLiteral [0:0x3abb0101f235 <ArrayBoilerplateDescription PACKED_SMI_ELEMENTS, 0x3abb0101f225 <FixedArray[2]>>], FBV[0], #25 ; Star2 ; LdaZero ; Star3 ; Ldar r1 ; StaInArrayLiteral r2, r3, FBV[1] ; LdaSmi [1] ; Star3 ; Ldar r0 ; StaInArrayLiteral r2, r3, FBV[1] ; Ldar r2 ; Return
+doSepLocal2 | Bytecode length: 36; Parameter count 2; Register count 4; Frame size 32
+    LdaUndefined ; Star0 ; LdaUndefined ; Star1 ; Ldar a0 ; AddSmi [1], EmbeddedFeedback[None] ; Star1 ; Star0 ; CreateArrayLiteral [0:0x3abb0101f291 <ArrayBoilerplateDescription PACKED_SMI_ELEMENTS, 0x3abb0101f281 <FixedArray[2]>>], FBV[0], #25 ; Star2 ; LdaZero ; Star3 ; Ldar r1 ; StaInArrayLiteral r2, r3, FBV[1] ; LdaSmi [1] ; Star3 ; Ldar r0 ; StaInArrayLiteral r2, r3, FBV[1] ; Ldar r2 ; Return
+doTmpLet | Bytecode length: 7; Parameter count 3; Register count 1; Frame size 8
+    Ldar a1 ; Add a0, EmbeddedFeedback[None] ; Star0 ; Return
+doIfRet | Bytecode length: 10; Parameter count 2; Register count 0; Frame size 0
+    Ldar a0 ; JumpIfToBooleanFalse [5] (0x19ab010008e3 @ 7) ; LdaSmi [1] ; Return ; LdaSmi [2] ; Return
+doTernRet | Bytecode length: 11; Parameter count 2; Register count 0; Frame size 0
+    Ldar a0 ; JumpIfToBooleanFalse [6] (0x19ab01000918 @ 8) ; LdaSmi [1] ; Jump [4] (0x19ab0100091a @ 10) ; LdaSmi [2] ; Return
+doDeclRef | Bytecode length: 15; Parameter count 2; Register count 1; Frame size 8
+    CreateClosure [0:0x3abb0101f36d <SharedFunctionInfo inner>], FBV[0], #2 ; Star0 ; Ldar a0 ; JumpIfToBooleanFalse [6] (0x19ab01000971 @ 13) ; CallUndefinedReceiver0 r0, FBV[0] ; Return ; LdaZero ; Return
+doDeclUnref | Bytecode length: 2; Parameter count 1; Register count 0; Frame size 0
+    LdaZero ; Return
+doExprRef | Bytecode length: 15; Parameter count 2; Register count 1; Frame size 8
+    Ldar a0 ; JumpIfToBooleanFalse [11] (0x19ab01000a21 @ 13) ; CreateClosure [0:0x3abb0101f451 <SharedFunctionInfo e>], FBV[0], #2 ; Star0 ; CallUndefinedReceiver0 r0, FBV[0] ; Return ; LdaZero ; Return
+doSubSmiX | Bytecode length: 6; Parameter count 2; Register count 0; Frame size 0
+    Ldar a0 ; SubSmi [1], EmbeddedFeedback[None] ; Return
+doMulSmi | Bytecode length: 6; Parameter count 2; Register count 0; Frame size 0
+    Ldar a0 ; MulSmi [3], EmbeddedFeedback[None] ; Return
+doBig | Bytecode length: 6; Parameter count 2; Register count 0; Frame size 0
+    LdaConstant [0:0x3abb0101f565 <HeapNumber 1073741824.0>] ; Add a0, EmbeddedFeedback[None] ; Return
+doBigInt32 | Bytecode length: 6; Parameter count 2; Register count 0; Frame size 0
+    LdaConstant [0:0x3abb0101f5a1 <HeapNumber 2147483647.0>] ; Add a0, EmbeddedFeedback[None] ; Return
+doNestProp | Bytecode length: 14; Parameter count 3; Register count 0; Frame size 0
+    Ldar a1 ; SetNamedProperty a0, [0:"b"], FBV[0] ; Ldar a1 ; SetNamedProperty a0, [1:"a"], FBV[2] ; LdaUndefined ; Return
+doSepProp | Bytecode length: 16; Parameter count 3; Register count 0; Frame size 0
+    Ldar a1 ; SetNamedProperty a0, [0:"b"], FBV[0] ; GetNamedProperty a0, [0:"b"], FBV[2] ; SetNamedProperty a0, [1:"a"], FBV[4] ; LdaUndefined ; Return
+doIfCall | Bytecode length: 9; Parameter count 3; Register count 0; Frame size 0
+    Ldar a0 ; JumpIfToBooleanFalse [5] (0x19ab01000be7 @ 7) ; CallUndefinedReceiver0 a1, FBV[0] ; LdaUndefined ; Return
+doAndCall | Bytecode length: 9; Parameter count 3; Register count 0; Frame size 0
+    Ldar a0 ; JumpIfToBooleanFalse [5] (0x19ab01000c47 @ 7) ; CallUndefinedReceiver0 a1, FBV[0] ; LdaUndefined ; Return
+doIfCall2 | Bytecode length: 12; Parameter count 3; Register count 0; Frame size 0
+    Ldar a0 ; JumpIfToBooleanFalse [8] (0x19ab01000c7e @ 10) ; CallUndefinedReceiver0 a1, FBV[0] ; CallUndefinedReceiver0 a1, FBV[2] ; LdaUndefined ; Return
+doAndCall2 | Bytecode length: 12; Parameter count 3; Register count 0; Frame size 0
+    Ldar a0 ; JumpIfToBooleanFalse [8] (0x19ab01000cb2 @ 10) ; CallUndefinedReceiver0 a1, FBV[0] ; CallUndefinedReceiver0 a1, FBV[2] ; LdaUndefined ; Return

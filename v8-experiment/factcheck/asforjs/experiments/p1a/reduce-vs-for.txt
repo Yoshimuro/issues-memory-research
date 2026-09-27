@@ -1,0 +1,12 @@
+D8 max-opt=0: sumFor 433 sumReduce 397 sumFor 387 sumReduce 271 sumFor 365 sumReduce 280
+D8 max-opt=1: sumFor 160 sumReduce 170 sumFor 152 sumReduce 169 sumFor 159 sumReduce 172
+D8 max-opt=99: sumFor 13 sumReduce 126 sumFor 9 sumReduce 130 sumFor 11 sumReduce 130
+N24 max-opt=0: sumFor 414 sumReduce 257 sumFor 431 sumReduce 252 sumFor 402 sumReduce 280
+N24 max-opt=1: sumFor 303 sumReduce 184 sumFor 265 sumReduce 174 sumFor 307 sumReduce 178
+N24 max-opt=99: sumFor 15 sumReduce 127 sumFor 11 sumReduce 119 sumFor 11 sumReduce 119
+N20 max-opt=0 R=2000: sumFor 394 sumReduce 236 sumFor 428 sumReduce 300 sumFor 467 sumReduce 247
+N20 max-opt=99 R=2000: sumFor 24 sumReduce 200 sumFor 13 sumReduce 98 sumFor 13 sumReduce 9
+N22 max-opt=0 R=2000: sumFor 470 sumReduce 252 sumFor 410 sumReduce 254 sumFor 463 sumReduce 255
+N22 max-opt=99 R=2000: sumFor 14 sumReduce 119 sumFor 12 sumReduce 67 sumFor 13 sumReduce 10
+D8 default R=30000: sumFor 228 sumReduce 1053 sumFor 155 sumReduce 172 sumFor 164 sumReduce 146
+N24 default R=30000: sumFor 220 sumReduce 673 sumFor 161 sumReduce 155 sumFor 162 sumReduce 175

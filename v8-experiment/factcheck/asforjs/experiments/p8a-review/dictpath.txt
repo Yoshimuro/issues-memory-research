@@ -1,0 +1,13 @@
+## /opt/node22/bin/node
+      1 deopt : Insufficient type feedback for compare operation
+      1 done
+      1 final object fast props: false total 100000
+## /opt/nvm/versions/node/v24.21.0/bin/node
+      1 deopt : Insufficient type feedback for call
+      2 deopt : Insufficient type feedback for compare operation
+      1 done
+      1 final object fast props: false total 100000
+## d8
+      2 deopt : Insufficient type feedback for compare operation
+      1 done
+      1 final object fast props: false total 100000

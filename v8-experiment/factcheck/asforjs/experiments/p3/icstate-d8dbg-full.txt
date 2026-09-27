@@ -1,0 +1,314 @@
+dictObj fast? false
+### feedback getP (dictionary receiver)
+DebugPrint: 0x1cc50101dcb1: [Function] in OldSpace
+ - map: 0x1cc501004c89 <Map[32](HOLEY_ELEMENTS)> [FastProperties]
+ - prototype: 0x1cc501004db1 <JSFunction (sfi = 0x1cc5010014c9)>
+ - elements: 0x1cc5000007e5 <FixedArray[0]> [HOLEY_ELEMENTS]
+ - function prototype: 
+ - initial_map: 
+ - shared_info: 0x1cc50101db01 <SharedFunctionInfo getP>
+ - name: 0x1cc50101d965 <String[4]: #getP>
+ - builtin: InterpreterEntryTrampoline
+ - formal_parameter_count: 2
+ - kind: NormalFunction
+ - context: 0x1cc50101dc91 <ScriptContext[6]>
+ - code: 0x1cc500b61a7d <Code BUILTIN InterpreterEntryTrampoline>
+ - dispatch_handle: 0x135700
+ - interpreted
+ - bytecode: 0x03aa01000285 <BytecodeArray[5]>
+ - source code: (o){ return o.p5; }
+ - properties: 0x1cc5000007e5 <FixedArray[0]>
+ - All own properties (excluding elements): {
+    0x1cc500000e39: [String] in ReadOnlySpace: #length: 0x1cc500b5fe2d <AccessorInfo name= 0x1cc500000e39 <String[6]: #length>, data= 0x1cc500000011 <undefined>> (const accessor descriptor, attrs: [__C])
+    0x1cc500000e29: [String] in ReadOnlySpace: #name: 0x1cc500b5fe15 <AccessorInfo name= 0x1cc500000e29 <String[4]: #name>, data= 0x1cc500000011 <undefined>> (const accessor descriptor, attrs: [__C])
+    0x1cc500000e11: [String] in ReadOnlySpace: #prototype: 0x1cc500b5fe45 <AccessorInfo name= 0x1cc500000e11 <String[9]: #prototype>, data= 0x1cc500000011 <undefined>> (const accessor descriptor, attrs: [W__])
+ }
+ - feedback vector: 0x1cc50101e901: [FeedbackVector] in OldSpace
+ - map: 0x1cc500000895 <Map(FEEDBACK_VECTOR_TYPE)>
+ - length: 2
+ - shared function info: 0x1cc50101db01 <SharedFunctionInfo getP>
+ - tiering_in_progress: 0
+ - osr_tiering_in_progress: 0
+ - invocation count: 2
+ - closure feedback cell array: 0x1cc5000020b9: [ClosureFeedbackCellArray] in ReadOnlySpace
+ - map: 0x1cc50000086d <Map(CLOSURE_FEEDBACK_CELL_ARRAY_TYPE)>
+ - length: 0
+ - elements:
+
+ - slot #0 LoadProperty MONOMORPHIC
+   [weak] 0x1cc501018ec1 <Map[12](HOLEY_ELEMENTS)>: LoadHandler(Smi)(kind = kNormal) {
+     [0]: [weak] 0x1cc501018ec1 <Map[12](HOLEY_ELEMENTS)>
+     [1]: 15171
+  }
+0x1cc501004c89: [Map] in OldSpace
+ - map: 0x1cc50100453d <MetaMap (0x1cc50100458d <NativeContext[308]>)>
+ - type: JS_FUNCTION_WITH_PROTOTYPE_TYPE
+ - instance size: 32
+ - inobject properties: 0
+ - unused property fields: 0
+ - elements kind: HOLEY_ELEMENTS
+ - enum length: invalid
+ - stable_map
+ - callable
+ - constructor
+ - back pointer: 0x1cc500000011 <undefined>
+ - prototype_validity_cell: 0x1cc500000b15 <Cell value= [cleared]>
+ - instance descriptors (own) #3: 0x1cc501004cb1 <DescriptorArray[3]>
+ - prototype: 0x1cc501004db1 <JSFunction (sfi = 0x1cc5010014c9)>
+ - constructor: 0x1cc501004c55 <JSFunction Function (sfi = 0x1cc500b9468d)>
+ - dependent code: 0x1cc5000007f5 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 0
+
+### dict object map
+DebugPrint: 0x1cc501089915: [JS_OBJECT_TYPE]
+ - map: 0x1cc501018ec1 <Map[12](HOLEY_ELEMENTS)> [DictionaryProperties]
+ - prototype: 0x1cc501005721 <Object map = 0x1cc501004ab9>
+ - elements: 0x1cc5000007e5 <FixedArray[0]> [HOLEY_ELEMENTS]
+ - properties: 0x1cc50108b079 <NameDictionary[774]>
+ - All own properties (excluding elements): {
+   p26: 26 (data, dict_index: 27, attrs: [WEC])
+   p36: 36 (data, dict_index: 37, attrs: [WEC])
+   p19: 19 (data, dict_index: 20, attrs: [WEC])
+   p32: 32 (data, dict_index: 33, attrs: [WEC])
+   p30: 30 (data, dict_index: 31, attrs: [WEC])
+   p22: 22 (data, dict_index: 23, attrs: [WEC])
+   p40: 40 (data, dict_index: 41, attrs: [WEC])
+   p86: 86 (data, dict_index: 87, attrs: [WEC])
+   p27: 27 (data, dict_index: 28, attrs: [WEC])
+   p46: 46 (data, dict_index: 47, attrs: [WEC])
+   p89: 89 (data, dict_index: 90, attrs: [WEC])
+   p60: 60 (data, dict_index: 61, attrs: [WEC])
+   p42: 42 (data, dict_index: 43, attrs: [WEC])
+   p44: 44 (data, dict_index: 45, attrs: [WEC])
+   p92: 92 (data, dict_index: 93, attrs: [WEC])
+   p94: 94 (data, dict_index: 95, attrs: [WEC])
+   p13: 13 (data, dict_index: 14, attrs: [WEC])
+   p17: 17 (data, dict_index: 18, attrs: [WEC])
+   p74: 74 (data, dict_index: 75, attrs: [WEC])
+   p37: 37 (data, dict_index: 38, attrs: [WEC])
+   p91: 91 (data, dict_index: 92, attrs: [WEC])
+   p90: 90 (data, dict_index: 91, attrs: [WEC])
+   p2: 2 (data, dict_index: 3, attrs: [WEC])
+   p3: 3 (data, dict_index: 4, attrs: [WEC])
+   p16: 16 (data, dict_index: 17, attrs: [WEC])
+   p73: 73 (data, dict_index: 74, attrs: [WEC])
+   p11: 11 (data, dict_index: 12, attrs: [WEC])
+   p21: 21 (data, dict_index: 22, attrs: [WEC])
+   p41: 41 (data, dict_index: 42, attrs: [WEC])
+   p61: 61 (data, dict_index: 62, attrs: [WEC])
+   p93: 93 (data, dict_index: 94, attrs: [WEC])
+   p88: 88 (data, dict_index: 89, attrs: [WEC])
+   p58: 58 (data, dict_index: 59, attrs: [WEC])
+   p51: 51 (data, dict_index: 52, attrs: [WEC])
+   p84: 84 (data, dict_index: 85, attrs: [WEC])
+   p20: 20 (data, dict_index: 21, attrs: [WEC])
+   p63: 63 (data, dict_index: 64, attrs: [WEC])
+   p67: 67 (data, dict_index: 68, attrs: [WEC])
+   p85: 85 (data, dict_index: 86, attrs: [WEC])
+   p56: 56 (data, dict_index: 57, attrs: [WEC])
+   p10: 10 (data, dict_index: 11, attrs: [WEC])
+   p31: 31 (data, dict_index: 32, attrs: [WEC])
+   p24: 24 (data, dict_index: 25, attrs: [WEC])
+   p97: 97 (data, dict_index: 98, attrs: [WEC])
+   p25: 25 (data, dict_index: 26, attrs: [WEC])
+   p14: 14 (data, dict_index: 15, attrs: [WEC])
+   p48: 48 (data, dict_index: 49, attrs: [WEC])
+   p4: 4 (data, dict_index: 5, attrs: [WEC])
+   p23: 23 (data, dict_index: 24, attrs: [WEC])
+   p76: 76 (data, dict_index: 77, attrs: [WEC])
+   p70: 70 (data, dict_index: 71, attrs: [WEC])
+   p34: 34 (data, dict_index: 35, attrs: [WEC])
+   p49: 49 (data, dict_index: 50, attrs: [WEC])
+   p5: 5 (data, dict_index: 6, attrs: [WEC])
+   p66: 66 (data, dict_index: 67, attrs: [WEC])
+   p18: 18 (data, dict_index: 19, attrs: [WEC])
+   p99: 99 (data, dict_index: 100, attrs: [WEC])
+   p52: 52 (data, dict_index: 53, attrs: [WEC])
+   p55: 55 (data, dict_index: 56, attrs: [WEC])
+   p7: 7 (data, dict_index: 8, attrs: [WEC])
+   p35: 35 (data, dict_index: 36, attrs: [WEC])
+   p8: 8 (data, dict_index: 9, attrs: [WEC])
+   p65: 65 (data, dict_index: 66, attrs: [WEC])
+   p98: 98 (data, dict_index: 99, attrs: [WEC])
+   p59: 59 (data, dict_index: 60, attrs: [WEC])
+   p96: 96 (data, dict_index: 97, attrs: [WEC])
+   p9: 9 (data, dict_index: 10, attrs: [WEC])
+   p12: 12 (data, dict_index: 13, attrs: [WEC])
+   p57: 57 (data, dict_index: 58, attrs: [WEC])
+   p6: 6 (data, dict_index: 7, attrs: [WEC])
+   p33: 33 (data, dict_index: 34, attrs: [WEC])
+   p80: 80 (data, dict_index: 81, attrs: [WEC])
+   p75: 75 (data, dict_index: 76, attrs: [WEC])
+   p53: 53 (data, dict_index: 54, attrs: [WEC])
+   p29: 29 (data, dict_index: 30, attrs: [WEC])
+   p28: 28 (data, dict_index: 29, attrs: [WEC])
+   p71: 71 (data, dict_index: 72, attrs: [WEC])
+   p78: 78 (data, dict_index: 79, attrs: [WEC])
+   p68: 68 (data, dict_index: 69, attrs: [WEC])
+   p95: 95 (data, dict_index: 96, attrs: [WEC])
+   p39: 39 (data, dict_index: 40, attrs: [WEC])
+   p81: 81 (data, dict_index: 82, attrs: [WEC])
+   p45: 45 (data, dict_index: 46, attrs: [WEC])
+   p38: 38 (data, dict_index: 39, attrs: [WEC])
+   p87: 87 (data, dict_index: 88, attrs: [WEC])
+   p62: 62 (data, dict_index: 63, attrs: [WEC])
+   p79: 79 (data, dict_index: 80, attrs: [WEC])
+   p54: 54 (data, dict_index: 55, attrs: [WEC])
+   p77: 77 (data, dict_index: 78, attrs: [WEC])
+   p72: 72 (data, dict_index: 73, attrs: [WEC])
+   p82: 82 (data, dict_index: 83, attrs: [WEC])
+   p15: 15 (data, dict_index: 16, attrs: [WEC])
+   p0: 0 (data, dict_index: 1, attrs: [WEC])
+   p1: 1 (data, dict_index: 2, attrs: [WEC])
+   p83: 83 (data, dict_index: 84, attrs: [WEC])
+   p47: 47 (data, dict_index: 48, attrs: [WEC])
+   p69: 69 (data, dict_index: 70, attrs: [WEC])
+   p64: 64 (data, dict_index: 65, attrs: [WEC])
+   p50: 50 (data, dict_index: 51, attrs: [WEC])
+   p43: 43 (data, dict_index: 44, attrs: [WEC])
+ }
+0x1cc501018ec1: [Map] in OldSpace
+ - map: 0x1cc50100453d <MetaMap (0x1cc50100458d <NativeContext[308]>)>
+ - type: JS_OBJECT_TYPE
+ - instance size: 12
+ - inobject properties: 0
+ - unused property fields: 0
+ - elements kind: HOLEY_ELEMENTS
+ - enum length: invalid
+ - dictionary_map
+ - may_have_interesting_properties
+ - back pointer: 0x1cc500000011 <undefined>
+ - prototype_validity_cell: 0x1cc500000b15 <Cell value= [cleared]>
+ - instance descriptors (own) #0: 0x1cc50000080d <DescriptorArray[0]>
+ - prototype: 0x1cc501005721 <Object map = 0x1cc501004ab9>
+ - constructor: 0x1cc501004fc1 <JSFunction Object (sfi = 0x1cc500b93d5d)>
+ - dependent code: 0x1cc5000007f5 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 0
+
+### feedback getQ after value null/undefined
+DebugPrint: 0x1cc50101dce5: [Function] in OldSpace
+ - map: 0x1cc501004c89 <Map[32](HOLEY_ELEMENTS)> [FastProperties]
+ - prototype: 0x1cc501004db1 <JSFunction (sfi = 0x1cc5010014c9)>
+ - elements: 0x1cc5000007e5 <FixedArray[0]> [HOLEY_ELEMENTS]
+ - function prototype: 
+ - initial_map: 
+ - shared_info: 0x1cc50101db31 <SharedFunctionInfo getQ>
+ - name: 0x1cc50101d9e1 <String[4]: #getQ>
+ - builtin: InterpreterEntryTrampoline
+ - formal_parameter_count: 2
+ - kind: NormalFunction
+ - context: 0x1cc50101dc91 <ScriptContext[6]>
+ - code: 0x1cc500b61a7d <Code BUILTIN InterpreterEntryTrampoline>
+ - dispatch_handle: 0x135800
+ - tiering request in_progress 
+ - interpreted
+ - bytecode: 0x03aa010002c1 <BytecodeArray[5]>
+ - source code: (o){ return o.q; }
+ - properties: 0x1cc5000007e5 <FixedArray[0]>
+ - All own properties (excluding elements): {
+    0x1cc500000e39: [String] in ReadOnlySpace: #length: 0x1cc500b5fe2d <AccessorInfo name= 0x1cc500000e39 <String[6]: #length>, data= 0x1cc500000011 <undefined>> (const accessor descriptor, attrs: [__C])
+    0x1cc500000e29: [String] in ReadOnlySpace: #name: 0x1cc500b5fe15 <AccessorInfo name= 0x1cc500000e29 <String[4]: #name>, data= 0x1cc500000011 <undefined>> (const accessor descriptor, attrs: [__C])
+    0x1cc500000e11: [String] in ReadOnlySpace: #prototype: 0x1cc500b5fe45 <AccessorInfo name= 0x1cc500000e11 <String[9]: #prototype>, data= 0x1cc500000011 <undefined>> (const accessor descriptor, attrs: [W__])
+ }
+ - feedback vector: 0x1cc50101ea05: [FeedbackVector] in OldSpace
+ - map: 0x1cc500000895 <Map(FEEDBACK_VECTOR_TYPE)>
+ - length: 2
+ - shared function info: 0x1cc50101db31 <SharedFunctionInfo getQ>
+ - tiering_in_progress: 1
+ - osr_tiering_in_progress: 0
+ - invocation count: 994
+ - closure feedback cell array: 0x1cc5000020b9: [ClosureFeedbackCellArray] in ReadOnlySpace
+ - map: 0x1cc50000086d <Map(CLOSURE_FEEDBACK_CELL_ARRAY_TYPE)>
+ - length: 0
+ - elements:
+
+ - slot #0 LoadProperty MONOMORPHIC
+   [weak] 0x1cc50101e975 <Map[16](HOLEY_ELEMENTS)>: LoadHandler(Smi)(kind = kField, is in object = 1, is double = 0, storage offset in words = 3, descriptor index = 0) {
+     [0]: [weak] 0x1cc50101e975 <Map[16](HOLEY_ELEMENTS)>
+     [1]: 131269
+  }
+0x1cc501004c89: [Map] in OldSpace
+ - map: 0x1cc50100453d <MetaMap (0x1cc50100458d <NativeContext[308]>)>
+ - type: JS_FUNCTION_WITH_PROTOTYPE_TYPE
+ - instance size: 32
+ - inobject properties: 0
+ - unused property fields: 0
+ - elements kind: HOLEY_ELEMENTS
+ - enum length: invalid
+ - stable_map
+ - callable
+ - constructor
+ - back pointer: 0x1cc500000011 <undefined>
+ - prototype_validity_cell: 0x1cc500000b15 <Cell value= [cleared]>
+ - instance descriptors (own) #3: 0x1cc501004cb1 <DescriptorArray[3]>
+ - prototype: 0x1cc501004db1 <JSFunction (sfi = 0x1cc5010014c9)>
+ - constructor: 0x1cc501004c55 <JSFunction Function (sfi = 0x1cc500b9468d)>
+ - dependent code: 0x1cc5000007f5 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 0
+
+### feedback useQ
+DebugPrint: 0x1cc50101dd19: [Function] in OldSpace
+ - map: 0x1cc501004c89 <Map[32](HOLEY_ELEMENTS)> [FastProperties]
+ - prototype: 0x1cc501004db1 <JSFunction (sfi = 0x1cc5010014c9)>
+ - elements: 0x1cc5000007e5 <FixedArray[0]> [HOLEY_ELEMENTS]
+ - function prototype: 
+ - initial_map: 
+ - shared_info: 0x1cc50101db61 <SharedFunctionInfo useQ>
+ - name: 0x1cc50101da29 <String[4]: #useQ>
+ - builtin: InterpreterEntryTrampoline
+ - formal_parameter_count: 2
+ - kind: NormalFunction
+ - context: 0x1cc50101dc91 <ScriptContext[6]>
+ - code: 0x1cc500b61a7d <Code BUILTIN InterpreterEntryTrampoline>
+ - dispatch_handle: 0x135900
+ - tiering request in_progress 
+ - interpreted
+ - bytecode: 0x03aa01000301 <BytecodeArray[16]>
+ - source code: (o){ const v = o.q; return v == null ? 0 : v.x; }
+ - properties: 0x1cc5000007e5 <FixedArray[0]>
+ - All own properties (excluding elements): {
+    0x1cc500000e39: [String] in ReadOnlySpace: #length: 0x1cc500b5fe2d <AccessorInfo name= 0x1cc500000e39 <String[6]: #length>, data= 0x1cc500000011 <undefined>> (const accessor descriptor, attrs: [__C])
+    0x1cc500000e29: [String] in ReadOnlySpace: #name: 0x1cc500b5fe15 <AccessorInfo name= 0x1cc500000e29 <String[4]: #name>, data= 0x1cc500000011 <undefined>> (const accessor descriptor, attrs: [__C])
+    0x1cc500000e11: [String] in ReadOnlySpace: #prototype: 0x1cc500b5fe45 <AccessorInfo name= 0x1cc500000e11 <String[9]: #prototype>, data= 0x1cc500000011 <undefined>> (const accessor descriptor, attrs: [W__])
+ }
+ - feedback vector: 0x1cc50101ea6d: [FeedbackVector] in OldSpace
+ - map: 0x1cc500000895 <Map(FEEDBACK_VECTOR_TYPE)>
+ - length: 4
+ - shared function info: 0x1cc50101db61 <SharedFunctionInfo useQ>
+ - tiering_in_progress: 1
+ - osr_tiering_in_progress: 0
+ - invocation count: 994
+ - closure feedback cell array: 0x1cc5000020b9: [ClosureFeedbackCellArray] in ReadOnlySpace
+ - map: 0x1cc50000086d <Map(CLOSURE_FEEDBACK_CELL_ARRAY_TYPE)>
+ - length: 0
+ - elements:
+
+ - slot #0 LoadProperty MONOMORPHIC
+   [weak] 0x1cc50101e975 <Map[16](HOLEY_ELEMENTS)>: LoadHandler(Smi)(kind = kField, is in object = 1, is double = 0, storage offset in words = 3, descriptor index = 0) {
+     [0]: [weak] 0x1cc50101e975 <Map[16](HOLEY_ELEMENTS)>
+     [1]: 131269
+  }
+ - slot #2 LoadProperty MONOMORPHIC
+   [weak] 0x1cc50101e94d <Map[16](HOLEY_ELEMENTS)>: LoadHandler(Smi)(kind = kField, is in object = 1, is double = 0, storage offset in words = 3, descriptor index = 0) {
+     [2]: [weak] 0x1cc50101e94d <Map[16](HOLEY_ELEMENTS)>
+     [3]: 131269
+  }
+0x1cc501004c89: [Map] in OldSpace
+ - map: 0x1cc50100453d <MetaMap (0x1cc50100458d <NativeContext[308]>)>
+ - type: JS_FUNCTION_WITH_PROTOTYPE_TYPE
+ - instance size: 32
+ - inobject properties: 0
+ - unused property fields: 0
+ - elements kind: HOLEY_ELEMENTS
+ - enum length: invalid
+ - stable_map
+ - callable
+ - constructor
+ - back pointer: 0x1cc500000011 <undefined>
+ - prototype_validity_cell: 0x1cc500000b15 <Cell value= [cleared]>
+ - instance descriptors (own) #3: 0x1cc501004cb1 <DescriptorArray[3]>
+ - prototype: 0x1cc501004db1 <JSFunction (sfi = 0x1cc5010014c9)>
+ - constructor: 0x1cc501004c55 <JSFunction Function (sfi = 0x1cc500b9468d)>
+ - dependent code: 0x1cc5000007f5 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 0
+

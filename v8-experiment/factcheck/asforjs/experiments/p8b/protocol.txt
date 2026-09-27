@@ -1,0 +1,13 @@
+== /tmp/claude-0/-home-user-issues-memory-research/dacf359b-9898-588d-b8f1-20fd1e3f2945/scratchpad/d8/rel/d8
+Cannot consider  { <FeedbackCell[one closure]>} for inlining (no feedback vector)
+Error: Function  <JSFunction outerB (sfi = )> should be prepared for optimization with %PrepareFunctionForOptimization before  %OptimizeFunctionOnNextCall / %OptimizeMaglevOnNextCall
+== /opt/nvm/versions/node/v24.21.0/bin/node
+Cannot consider  { <FeedbackCell[one closure]>} for inlining (no feedback vector)
+outerA status 1010001
+outerB status 10000001
+lone status 10000001
+== /opt/node22/bin/node
+Cannot consider  { <FeedbackCell[one closure]>} for inlining (no feedback vector)
+outerA status 1010001
+outerB status 10000001
+lone status 10000001

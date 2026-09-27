@@ -1,0 +1,4 @@
+[marking <JSFunction tiny (sfi = )> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method <JSFunction tiny (sfi = )> (target MAGLEV), mode: ConcurrencyMode::kConcurrent]
+[completed compiling <JSFunction tiny (sfi = )> (target MAGLEV) - took 0.000, 0.135, 0.002 ms]
+tiny: first marked/optimized after 411 calls, status=10010000001

@@ -1,0 +1,108 @@
+===== literal
+V8 is running with developer-only features enabled. Stability and security will suffer.
+Concurrent maglev has been disabled for tracing.
+[marking 0x7dc30104a6b9 <JSFunction (sfi = 0x7dc30101ea81)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x7dc30104a6d5 <JSFunction (sfi = 0x7dc30101ea81)> (target MAGLEV), mode: ConcurrencyMode::kSynchronous]
+---------------------------------------------------
+Begin compiling method  using Maglev
+---------------------------------------------------
+Finished compiling method  using Maglev
+[completed compiling 0x7dc30104a6d5 <JSFunction (sfi = 0x7dc30101ea81)> (target MAGLEV) - took 0.001, 0.320, 0.016 ms]
+[marking 0x7dc30104a145 <JSFunction literal (sfi = 0x7dc30101e3f5)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[OSR - setting osr urgency. function: literal, old urgency: 0, new urgency: 1]
+[OSR - compilation started. function: literal, osr offset: 43, mode: ConcurrencyMode::kConcurrent]
+[compiling method 0x7dc30104a145 <JSFunction literal (sfi = 0x7dc30101e3f5)> (target MAGLEV) OSR, mode: ConcurrencyMode::kSynchronous]
+---------------------------------------------------
+Begin compiling method literal using Maglev
+---------------------------------------------------
+Finished compiling method literal using Maglev
+[completed compiling 0x7dc30104a145 <JSFunction literal (sfi = 0x7dc30101e3f5)> (target MAGLEV) OSR - took 0.000, 0.284, 0.018 ms]
+[OSR - available (compilation completed or cache hit). function: literal, osr offset: 43, mode: ConcurrencyMode::kConcurrent]
+[OSR - entry. function: literal, osr offset: 43]
+[OSR - setting osr urgency. function: literal, old urgency: 0, new urgency: 1]
+[OSR - compilation started. function: literal, osr offset: 43, mode: ConcurrencyMode::kConcurrent]
+[compiling method 0x7dc30104a145 <JSFunction literal (sfi = 0x7dc30101e3f5)> (target TURBOFAN_JS) OSR, mode: ConcurrencyMode::kConcurrent]
+[OSR - unavailable (failed or in progress). function: literal, osr offset: 43, mode: ConcurrencyMode::kConcurrent]
+[marking 0x7dc301057915 <JSFunction (sfi = 0x7dc30101ea81)> for optimization to TURBOFAN_JS, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x7dc301057915 <JSFunction (sfi = 0x7dc30101ea81)> (target TURBOFAN_JS), mode: ConcurrencyMode::kConcurrent]
+Considering 0x10b400ef1608 {0x7dc30101ea81 <SharedFunctionInfo>} for inlining with 0x10b400ef2c08 {0x7dc30101eb15 <FeedbackVector[0]>}
+Inlining small function(s) at call site #115:JSCall
+Inlining 0x10b400ef1608 {0x7dc30101ea81 <SharedFunctionInfo>} into 0x10b400ef13f8 {0x7dc30101e3f5 <SharedFunctionInfo literal>}
+[completed compiling 0x7dc301057915 <JSFunction (sfi = 0x7dc30101ea81)> (target TURBOFAN_JS) - took 0.002, 0.625, 0.009 ms]
+[completed optimizing 0x7dc301057915 <JSFunction (sfi = 0x7dc30101ea81)> (target TURBOFAN_JS)]
+[completed compiling 0x7dc30104a145 <JSFunction literal (sfi = 0x7dc30101e3f5)> (target TURBOFAN_JS) OSR - took 0.006, 1.608, 0.022 ms]
+[completed optimizing 0x7dc30104a145 <JSFunction literal (sfi = 0x7dc30101e3f5)> (target TURBOFAN_JS) OSR]
+[OSR - compilation finished. function: literal, osr offset: 43]
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. deoptimizing 0x7dc30104a145 <JSFunction literal (sfi = 0x7dc30101e3f5)>, 0x3cb501000c25 <Code MAGLEV>, opt id 1, by
+[OSR - entry. function: literal, osr offset: 43]
+literal            mode=plain n=3000000 ms=29 r=165000000
+===== inner
+V8 is running with developer-only features enabled. Stability and security will suffer.
+Concurrent maglev has been disabled for tracing.
+[marking 0x3a410104a259 <JSFunction doInner (sfi = 0x3a410101ea81)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x3a410104a259 <JSFunction doInner (sfi = 0x3a410101ea81)> (target MAGLEV), mode: ConcurrencyMode::kSynchronous]
+---------------------------------------------------
+Begin compiling method doInner using Maglev
+---------------------------------------------------
+Finished compiling method doInner using Maglev
+[completed compiling 0x3a410104a259 <JSFunction doInner (sfi = 0x3a410101ea81)> (target MAGLEV) - took 0.001, 0.176, 0.018 ms]
+[marking 0x3a410104a161 <JSFunction inner (sfi = 0x3a410101e425)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[OSR - setting osr urgency. function: inner, old urgency: 0, new urgency: 1]
+[OSR - compilation started. function: inner, osr offset: 43, mode: ConcurrencyMode::kConcurrent]
+[compiling method 0x3a410104a161 <JSFunction inner (sfi = 0x3a410101e425)> (target MAGLEV) OSR, mode: ConcurrencyMode::kSynchronous]
+---------------------------------------------------
+Begin compiling method inner using Maglev
+---------------------------------------------------
+Finished compiling method inner using Maglev
+[completed compiling 0x3a410104a161 <JSFunction inner (sfi = 0x3a410101e425)> (target MAGLEV) OSR - took 0.000, 0.289, 0.018 ms]
+[OSR - available (compilation completed or cache hit). function: inner, osr offset: 43, mode: ConcurrencyMode::kConcurrent]
+[OSR - entry. function: inner, osr offset: 43]
+[OSR - setting osr urgency. function: inner, old urgency: 0, new urgency: 1]
+[OSR - compilation started. function: inner, osr offset: 43, mode: ConcurrencyMode::kConcurrent]
+[compiling method 0x3a410104a161 <JSFunction inner (sfi = 0x3a410101e425)> (target TURBOFAN_JS) OSR, mode: ConcurrencyMode::kConcurrent]
+[OSR - unavailable (failed or in progress). function: inner, osr offset: 43, mode: ConcurrencyMode::kConcurrent]
+[completed compiling 0x3a410104a161 <JSFunction inner (sfi = 0x3a410101e425)> (target TURBOFAN_JS) OSR - took 0.004, 1.418, 0.019 ms]
+[completed optimizing 0x3a410104a161 <JSFunction inner (sfi = 0x3a410101e425)> (target TURBOFAN_JS) OSR]
+[OSR - compilation finished. function: inner, osr offset: 43]
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. deoptimizing 0x3a410104a161 <JSFunction inner (sfi = 0x3a410101e425)>, 0x0fe901000bad <Code MAGLEV>, opt id 1, byte
+[OSR - entry. function: inner, osr offset: 43]
+[marking 0x3a410104a259 <JSFunction doInner (sfi = 0x3a410101ea81)> for optimization to TURBOFAN_JS, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x3a410104a259 <JSFunction doInner (sfi = 0x3a410101ea81)> (target TURBOFAN_JS), mode: ConcurrencyMode::kConcurrent]
+[completed compiling 0x3a410104a259 <JSFunction doInner (sfi = 0x3a410101ea81)> (target TURBOFAN_JS) - took 0.005, 0.403, 0.020 ms]
+[completed optimizing 0x3a410104a259 <JSFunction doInner (sfi = 0x3a410101ea81)> (target TURBOFAN_JS)]
+inner              mode=plain n=3000000 ms=179 r=165000000
+===== globalConst
+V8 is running with developer-only features enabled. Stability and security will suffer.
+Concurrent maglev has been disabled for tracing.
+[marking 0x189001049e25 <JSFunction doOuterConst (sfi = 0x18900101e395)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x189001049e25 <JSFunction doOuterConst (sfi = 0x18900101e395)> (target MAGLEV), mode: ConcurrencyMode::kSynchronous]
+---------------------------------------------------
+Begin compiling method doOuterConst using Maglev
+---------------------------------------------------
+Finished compiling method doOuterConst using Maglev
+[completed compiling 0x189001049e25 <JSFunction doOuterConst (sfi = 0x18900101e395)> (target MAGLEV) - took 0.001, 0.198, 0.013 ms]
+[marking 0x18900104a1d5 <JSFunction globalConst (sfi = 0x18900101e4fd)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[OSR - setting osr urgency. function: globalConst, old urgency: 0, new urgency: 1]
+[OSR - compilation started. function: globalConst, osr offset: 41, mode: ConcurrencyMode::kConcurrent]
+[compiling method 0x18900104a1d5 <JSFunction globalConst (sfi = 0x18900101e4fd)> (target MAGLEV) OSR, mode: ConcurrencyMode::kSynchronous]
+---------------------------------------------------
+Begin compiling method globalConst using Maglev
+---------------------------------------------------
+Finished compiling method globalConst using Maglev
+[completed compiling 0x18900104a1d5 <JSFunction globalConst (sfi = 0x18900101e4fd)> (target MAGLEV) OSR - took 0.000, 0.243, 0.020 ms]
+[OSR - available (compilation completed or cache hit). function: globalConst, osr offset: 41, mode: ConcurrencyMode::kConcurrent]
+[OSR - entry. function: globalConst, osr offset: 41]
+[OSR - setting osr urgency. function: globalConst, old urgency: 0, new urgency: 1]
+[OSR - compilation started. function: globalConst, osr offset: 41, mode: ConcurrencyMode::kConcurrent]
+[compiling method 0x18900104a1d5 <JSFunction globalConst (sfi = 0x18900101e4fd)> (target TURBOFAN_JS) OSR, mode: ConcurrencyMode::kConcurrent]
+[OSR - unavailable (failed or in progress). function: globalConst, osr offset: 41, mode: ConcurrencyMode::kConcurrent]
+[marking 0x189001049e25 <JSFunction doOuterConst (sfi = 0x18900101e395)> for optimization to TURBOFAN_JS, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x189001049e25 <JSFunction doOuterConst (sfi = 0x18900101e395)> (target TURBOFAN_JS), mode: ConcurrencyMode::kConcurrent]
+[completed compiling 0x189001049e25 <JSFunction doOuterConst (sfi = 0x18900101e395)> (target TURBOFAN_JS) - took 0.002, 0.785, 0.011 ms]
+[completed optimizing 0x189001049e25 <JSFunction doOuterConst (sfi = 0x18900101e395)> (target TURBOFAN_JS)]
+[completed compiling 0x18900104a1d5 <JSFunction globalConst (sfi = 0x18900101e4fd)> (target TURBOFAN_JS) OSR - took 0.005, 1.499, 0.012 ms]
+[completed optimizing 0x18900104a1d5 <JSFunction globalConst (sfi = 0x18900101e4fd)> (target TURBOFAN_JS) OSR]
+[OSR - compilation finished. function: globalConst, osr offset: 41]
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. deoptimizing 0x18900104a1d5 <JSFunction globalConst (sfi = 0x18900101e4fd)>, 0x2da601000b81 <Code MAGLEV>, opt id 1
+[OSR - entry. function: globalConst, osr offset: 41]
+globalConst        mode=plain n=3000000 ms=165 r=165000000

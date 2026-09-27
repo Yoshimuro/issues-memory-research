@@ -1,0 +1,15 @@
+## node22 zero
+[bailout (kind: deopt-eager, reason: not a Smi): begin. deoptimizing  <JSFunction sumZero >,  <Code TURBOFAN>, opt id 0, bytecode offset 6, deopt exit 1
+zero: ints 19 ms, doubles 15 ms, total 34 ms
+## node22 neg
+neg: ints 17 ms, doubles 13 ms, total 30 ms
+## node24 zero
+[bailout (kind: deopt-eager, reason: not a Smi): begin. deoptimizing  <JSFunction sumZero >,  <Code TURBOFAN_JS>, opt id 4, bytecode offset 6, deopt exit 1
+zero: ints 12 ms, doubles 15 ms, total 27 ms
+## node24 neg
+neg: ints 15 ms, doubles 20 ms, total 35 ms
+## d8 zero
+[bailout (kind: deopt-eager, reason: not a Smi): begin. deoptimizing  <JSFunction sumZero >,  <Code TURBOFAN_JS>, opt id 2, bytecode offset 4, deopt exit 1
+zero: ints 14 ms, doubles 14 ms, total 28 ms
+## d8 neg
+neg: ints 19 ms, doubles 13 ms, total 32 ms

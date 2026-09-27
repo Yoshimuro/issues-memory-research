@@ -1,0 +1,12 @@
+## node22
+rep0 forSum=12.2 redInline=15.9 redExtArrow=15.2 redExtFn=15.7 chain=123.7 oneReduce=16.4 forChain=14.3 fePlainArrow=17.4 feThisArg=14.6 fnArrowOuter=39.5
+rep1 forSum=11.4 redInline=9.6 redExtArrow=9.4 redExtFn=9.3 chain=66.3 oneReduce=10.8 forChain=16.1 fePlainArrow=11.7 feThisArg=10.6 fnArrowOuter=38.5
+rep2 forSum=13.5 redInline=11.2 redExtArrow=10.5 redExtFn=10.6 chain=124.0 oneReduce=19.8 forChain=23.8 fePlainArrow=22.1 feThisArg=18.5 fnArrowOuter=40.3
+## node24
+rep0 forSum=12.4 redInline=66.2 redExtArrow=67.2 redExtFn=106.6 chain=400.9 oneReduce=63.1 forChain=13.6 fePlainArrow=27.1 feThisArg=22.3 fnArrowOuter=39.4
+rep1 forSum=11.1 redInline=10.5 redExtArrow=10.8 redExtFn=10.9 chain=70.7 oneReduce=11.4 forChain=12.2 fePlainArrow=9.6 feThisArg=9.3 fnArrowOuter=30.3
+rep2 forSum=10.0 redInline=9.4 redExtArrow=9.6 redExtFn=9.9 chain=70.6 oneReduce=11.5 forChain=12.3 fePlainArrow=9.7 feThisArg=9.5 fnArrowOuter=29.8
+## d8
+rep0 forSum=13.5 redInline=104.6 redExtArrow=105.6 redExtFn=108.5 chain=388.8 oneReduce=88.9 forChain=8.9 fePlainArrow=27.2 feThisArg=27.4 fnArrowOuter=40.5
+rep1 forSum=10.4 redInline=9.7 redExtArrow=9.7 redExtFn=9.6 chain=243.3 oneReduce=8.2 forChain=9.0 fePlainArrow=20.8 feThisArg=21.3 fnArrowOuter=37.9
+rep2 forSum=10.4 redInline=9.7 redExtArrow=13.0 redExtFn=12.5 chain=156.2 oneReduce=8.2 forChain=9.0 fePlainArrow=20.9 feThisArg=21.3 fnArrowOuter=37.8

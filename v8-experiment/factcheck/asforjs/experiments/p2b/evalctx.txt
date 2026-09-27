@@ -1,0 +1,76 @@
+=============== node22 :: withEval
+  0 : 88 00 06          CreateFunctionContext [0], [6]
+  3 : 1a f8             PushContext r1
+  5 : 0b 02             Ldar <this>
+  7 : 25 03             StaCurrentContextSlot [3]
+  9 : 0b 03             Ldar a0
+  11 : 25 04             StaCurrentContextSlot [4]
+  13 : 8b                CreateMappedArguments
+  14 : 25 07             StaCurrentContextSlot [7]
+  16 : 0b f9             Ldar r0
+  18 : 25 05             StaCurrentContextSlot [5]
+  20 : 0d 01             LdaSmi [1]
+  22 : 25 06             StaCurrentContextSlot [6]
+  24 : 2a 01 00 01       LdaLookupGlobalSlot [1], [0], [1]
+  28 : c7                Star2
+  29 : 16 04             LdaCurrentContextSlot [4]
+  31 : c6                Star3
+  32 : 0c                LdaZero
+  33 : c2                Star7
+  34 : 0d 11             LdaSmi [17]
+  36 : c1                Star8
+  37 : 0d 21             LdaSmi [33]
+  39 : c0                Star9
+  40 : 19 f7 f5          Mov r2, r4
+  43 : 19 f6 f4          Mov r3, r5
+  46 : 19 fe f3          Mov <closure>, r6
+  49 : 68 4d 00 f5 06    CallRuntime [ResolvePossiblyDirectEval], r4-r9
+  54 : c7                Star2
+  55 : 65 f7 f6 02       CallUndefinedReceiver1 r2, r3, [2]
+  59 : 16 06             LdaCurrentContextSlot [6]
+  61 : ae                Return
+=============== node22 :: withWith
+  0 : 0b 03             Ldar a0
+  2 : 7a f9             ToObject r0
+  4 : 8a f9 00          CreateWithContext r0, [0]
+  7 : 1a f9             PushContext r0
+  9 : 28 01             LdaLookupSlot [1]
+  11 : ae                Return
+=============== d8 :: withEval
+  0 : 91 00 06          CreateFunctionContext [0:0x1fba0101e161 <ScopeInfo FUNCTION_SCOPE>], [6]
+  3 : 1d f8             PushContext r1
+  5 : 0b 02             Ldar <this>
+  7 : 28 03             StaCurrentContextSlotNoCell [3]
+  9 : 0b 03             Ldar a0
+  11 : 28 04             StaCurrentContextSlotNoCell [4]
+  13 : 95                CreateMappedArguments
+  14 : 28 07             StaCurrentContextSlotNoCell [7]
+  16 : 0b f9             Ldar r0
+  18 : 28 05             StaCurrentContextSlotNoCell [5]
+  20 : 0d 01             LdaSmi [1]
+  22 : 28 06             StaCurrentContextSlotNoCell [6]
+  24 : 2e 01 00 01       LdaLookupGlobalSlot [1:"eval"], FBV[0], [1]
+  28 : d4                Star2
+  29 : 18 04             LdaCurrentContextSlotNoCell [4]
+  31 : d3                Star3
+  32 : 0c                LdaZero
+  33 : cf                Star7
+  34 : 0d 02             LdaSmi [2]
+  36 : ce                Star8
+  37 : 0d 21             LdaSmi [33]
+  39 : cd                Star9
+  40 : 1c f7 f5          Mov r2, r4
+  43 : 1c f6 f4          Mov r3, r5
+  46 : 1c fe f3          Mov <closure>, r6
+  49 : 71 47 00 f5 06    CallRuntime [ResolvePossiblyDirectEval], r4-r9
+  54 : d4                Star2
+  55 : 6e f7 f6 02       CallUndefinedReceiver1 r2, r3, FBV[2]
+  59 : 18 06             LdaCurrentContextSlotNoCell [6]
+  61 : ba                Return
+=============== d8 :: withWith
+  0 : 0b 03             Ldar a0
+  2 : 83 f9             ToObject r0
+  4 : 94 f9 00          CreateWithContext r0, [0:0x05a40101e33d <ScopeInfo WITH_SCOPE>]
+  7 : 1d f9             PushContext r0
+  9 : 2b 01             LdaLookupSlot [1:"y"]
+  11 : ba                Return

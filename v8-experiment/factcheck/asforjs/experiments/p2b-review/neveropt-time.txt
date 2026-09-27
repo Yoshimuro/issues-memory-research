@@ -1,0 +1,18 @@
+== node22 NeverOptimize + []
+median ms 67.5 all 61/66/67/68/69/71/73 status 1000000000000001
+== node22 NeverOptimize + [--no-sparkplug]
+median ms 150.3 all 141/146/149/150/156/156/181 status 10000001
+== node22 NeverOptimize + [--max-opt=0]
+median ms 149.0 all 144/147/148/149/150/152/191 status 10000011
+== node24 NeverOptimize + []
+median ms 70.1 all 69/69/70/70/71/71/72 status 1000000000000001
+== node24 NeverOptimize + [--no-sparkplug]
+median ms 142.1 all 134/136/141/142/143/143/146 status 10000001
+== node24 NeverOptimize + [--max-opt=0]
+median ms 139.1 all 138/138/138/139/147/149/150 status 10000011
+== d8 NeverOptimize + []
+median ms 99.8 all 97/99/99/100/102/104/117 status 100000000000001
+== d8 NeverOptimize + [--no-sparkplug]
+median ms 168.1 all 136/147/166/168/168/170/172 status 1000001
+== d8 NeverOptimize + [--max-opt=0]
+median ms 147.8 all 139/141/146/148/161/161/164 status 1000011

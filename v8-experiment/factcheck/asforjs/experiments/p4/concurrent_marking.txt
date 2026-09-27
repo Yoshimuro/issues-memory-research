@@ -1,0 +1,15 @@
+##### /opt/node20/bin/node
+22
+[25661:0x26471880]       98 ms: Starting major concurrent marking task 1
+[25661:0x26471880]       98 ms: Starting major concurrent marking task 2
+[25661:0x26471880]       98 ms: [25661:0x26471880]       98 ms: Starting major concurrent marking task 4
+##### /opt/node22/bin/node
+32
+[25677:0x847f000]      110 ms: Starting major concurrent marking task 2
+[25677:0x847f000]      110 ms: Starting major concurrent marking task 3
+[25677:0x847f000]      110 ms: Starting major concurrent marking task 1
+##### /opt/nvm/versions/node/v24.21.0/bin/node
+10
+[25693:0x41ed9000:0]      154 ms: Starting major concurrent marking task 1
+[25693:0x41ed9000:0]      154 ms: Starting major concurrent marking task 4
+[25693:0x41ed9000:0]      154 ms: Starting major concurrent marking task 2

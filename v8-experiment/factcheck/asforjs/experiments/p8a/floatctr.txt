@@ -1,0 +1,8 @@
+## node24 [] int: scavenges=0
+int: 19 ms r=30000000
+## node24 [] float: scavenges=0
+float: 22 ms r=30000000
+## node24 [--no-opt --no-maglev --no-sparkplug] int: scavenges=0
+int: 384 ms r=30000000
+## node24 [--no-opt --no-maglev --no-sparkplug] float: scavenges=458
+float: 348 ms r=30000000

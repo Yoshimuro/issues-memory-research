@@ -1,0 +1,32 @@
+== /opt/node20/bin/node
+plain object, 100 dense numeric keys: sameMap true getName still opt after call true
+plain object, sparse index 5e6: sameMap false dictionary elements true
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing  <JSFunction getName (sfi = )>,  <Code TURBOFAN>, opt id 0, bytecode offset 0, deopt exit 1
+  getName still opt after call false
+array [1,2,3] after x[1]=1.5: sameMap(x,y) false
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing  <JSFunction first (sfi = )>,  <Code TURBOFAN>, opt id 1, bytecode offset 1, deopt exit 1, 
+  first() still opt after call false
+== /opt/node22/bin/node
+plain object, 100 dense numeric keys: sameMap true getName still opt after call true
+plain object, sparse index 5e6: sameMap false dictionary elements true
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing  <JSFunction getName (sfi = )>,  <Code TURBOFAN>, opt id 0, bytecode offset 0, deopt exit 1
+  getName still opt after call false
+array [1,2,3] after x[1]=1.5: sameMap(x,y) false
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing  <JSFunction first (sfi = )>,  <Code TURBOFAN>, opt id 1, bytecode offset 1, deopt exit 1, 
+  first() still opt after call false
+== /opt/nvm/versions/node/v24.21.0/bin/node
+plain object, 100 dense numeric keys: sameMap true getName still opt after call true
+plain object, sparse index 5e6: sameMap false dictionary elements true
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing  <JSFunction getName (sfi = )>,  <Code TURBOFAN_JS>, opt id 1, bytecode offset 0, deopt exi
+  getName still opt after call false
+array [1,2,3] after x[1]=1.5: sameMap(x,y) false
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing  <JSFunction first (sfi = )>,  <Code TURBOFAN_JS>, opt id 2, bytecode offset 1, deopt exit 
+  first() still opt after call false
+== /tmp/claude-0/-home-user-issues-memory-research/dacf359b-9898-588d-b8f1-20fd1e3f2945/scratchpad/d8/rel/d8
+plain object, 100 dense numeric keys: sameMap true getName still opt after call true
+plain object, sparse index 5e6: sameMap false dictionary elements true
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing  <JSFunction getName (sfi = )>,  <Code TURBOFAN_JS>, opt id 0, bytecode offset 0, deopt exi
+  getName still opt after call false
+array [1,2,3] after x[1]=1.5: sameMap(x,y) false
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing  <JSFunction first (sfi = )>,  <Code TURBOFAN_JS>, opt id 1, bytecode offset 1, deopt exit 
+  first() still opt after call false

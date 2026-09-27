@@ -1,0 +1,25 @@
+##### node20
+[bailout (kind: deopt-eager, reason: not a Smi): fn=sumPlain
+plain 40000000000
+plain2 40000000000
+mask 36864
+##### node22
+[bailout (kind: deopt-eager, reason: not a Smi): fn=sumPlain
+plain 40000000000
+plain2 40000000000
+mask 36864
+##### node24
+[bailout (kind: deopt-eager, reason: overflow): fn=sumPlain
+[bailout (kind: deopt-eager, reason: not a Smi): fn=sumPlain
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): fn=sumPlain
+plain 40000000000
+plain2 40000000000
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): fn=sumMask
+mask 36864
+##### d8
+[bailout (kind: deopt-eager, reason: not a Smi): fn=sumPlain
+plain 40000000000
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): fn=sumPlain
+plain2 40000000000
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): fn=sumMask
+mask 36864

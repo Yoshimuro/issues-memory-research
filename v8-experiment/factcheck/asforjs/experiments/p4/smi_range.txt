@@ -1,0 +1,156 @@
+##### node20
+== 2**30-1
+DebugPrint: Smi: 0x3fffffff (1073741823)
+== 2**30
+DebugPrint: Smi: 0x40000000 (1073741824)
+== -2**30
+DebugPrint: Smi: 0xc0000000 (-1073741824)
+== -2**30-1
+DebugPrint: Smi: 0xbfffffff (-1073741825)
+== 2**31-1
+DebugPrint: Smi: 0x7fffffff (2147483647)
+== 2**31
+DebugPrint: 2147483648.0
+== -2**31
+DebugPrint: Smi: 0x80000000 (-2147483648)
+== -2**31-1
+DebugPrint: -2147483649.0
+== 0
+DebugPrint: Smi: 0x0 (0)
+== -0
+DebugPrint: -0.0
+== 0.0
+DebugPrint: Smi: 0x0 (0)
+== 1.0
+DebugPrint: Smi: 0x1 (1)
+== NaN
+DebugPrint: nan
+== Infinity
+DebugPrint: inf
+== 0x40000000|0
+DebugPrint: Smi: 0x40000000 (1073741824)
+== 0x7fffffff|0
+DebugPrint: Smi: 0x7fffffff (2147483647)
+== 0xffffffff>>>0
+DebugPrint: 4294967295.0
+== 0xffffffff|0
+DebugPrint: Smi: 0xffffffff (-1)
+== 3*4
+DebugPrint: Smi: 0xc (12)
+##### node22
+== 2**30-1
+DebugPrint: Smi: 0x3fffffff (1073741823)
+== 2**30
+DebugPrint: Smi: 0x40000000 (1073741824)
+== -2**30
+DebugPrint: Smi: 0xc0000000 (-1073741824)
+== -2**30-1
+DebugPrint: Smi: 0xbfffffff (-1073741825)
+== 2**31-1
+DebugPrint: Smi: 0x7fffffff (2147483647)
+== 2**31
+DebugPrint: 0x2f93fb9db629: [HeapNumber] in OldSpace
+== -2**31
+DebugPrint: Smi: 0x80000000 (-2147483648)
+== -2**31-1
+DebugPrint: 0x2f93fb9db639: [HeapNumber] in OldSpace
+== 0
+DebugPrint: Smi: 0x0 (0)
+== -0
+DebugPrint: 0x2f93fb9db649: [HeapNumber] in OldSpace
+== 0.0
+DebugPrint: Smi: 0x0 (0)
+== 1.0
+DebugPrint: Smi: 0x1 (1)
+== NaN
+DebugPrint: 0x99dc2c41a09: [HeapNumber] in ReadOnlySpace
+== Infinity
+DebugPrint: 0x99dc2c41a29: [HeapNumber] in ReadOnlySpace
+== 0x40000000|0
+DebugPrint: Smi: 0x40000000 (1073741824)
+== 0x7fffffff|0
+DebugPrint: Smi: 0x7fffffff (2147483647)
+== 0xffffffff>>>0
+DebugPrint: 0x202d29326111: [HeapNumber]
+== 0xffffffff|0
+DebugPrint: Smi: 0xffffffff (-1)
+== 3*4
+DebugPrint: Smi: 0xc (12)
+##### node24
+== 2**30-1
+DebugPrint: Smi: 0x3fffffff (1073741823)
+== 2**30
+DebugPrint: Smi: 0x40000000 (1073741824)
+== -2**30
+DebugPrint: Smi: 0xc0000000 (-1073741824)
+== -2**30-1
+DebugPrint: Smi: 0xbfffffff (-1073741825)
+== 2**31-1
+DebugPrint: Smi: 0x7fffffff (2147483647)
+== 2**31
+DebugPrint: 0xdc030f68411: [HeapNumber]
+== -2**31
+DebugPrint: Smi: 0x80000000 (-2147483648)
+== -2**31-1
+DebugPrint: 0xdc030f68421: [HeapNumber]
+== 0
+DebugPrint: Smi: 0x0 (0)
+== -0
+DebugPrint: 0xdc030f68431: [HeapNumber]
+== 0.0
+DebugPrint: Smi: 0x0 (0)
+== 1.0
+DebugPrint: Smi: 0x1 (1)
+== NaN
+DebugPrint: 0x2629cfc1a79: [HeapNumber] in ReadOnlySpace
+== Infinity
+DebugPrint: 0x2629cfc1a99: [HeapNumber] in ReadOnlySpace
+== 0x40000000|0
+DebugPrint: Smi: 0x40000000 (1073741824)
+== 0x7fffffff|0
+DebugPrint: Smi: 0x7fffffff (2147483647)
+== 0xffffffff>>>0
+DebugPrint: 0xd250a9675f1: [HeapNumber]
+== 0xffffffff|0
+DebugPrint: Smi: 0xffffffff (-1)
+== 3*4
+DebugPrint: Smi: 0xc (12)
+##### d8 15.6 (release, short form: plain number = Smi)
+== 2**30-1
+1073741823
+== 2**30
+0x3f260101e145 <HeapNumber 1073741824.0>
+== -2**30
+-1073741824
+== -2**30-1
+0x3f260101e151 <HeapNumber -1073741825.0>
+== 2**31-1
+0x3f260101e15d <HeapNumber 2147483647.0>
+== 2**31
+0x3f260101e169 <HeapNumber 2147483648.0>
+== -2**31
+0x3f260101e175 <HeapNumber -2147483648.0>
+== -2**31-1
+0x3f260101e181 <HeapNumber -2147483649.0>
+== 0
+0
+== -0
+0x3f260101e18d <HeapNumber -0.0>
+== 0.0
+0
+== 1.0
+1
+== NaN
+0x3f2600000f6d <HeapNumber nan (0x7ff8000000000000)>
+== Infinity
+0x3f2600000f91 <HeapNumber inf>
+== 0x40000000|0
+0x3f2601049a1d <HeapNumber 1073741824.0>
+== 0x7fffffff|0
+0x3f2601049a71 <HeapNumber 2147483647.0>
+== 0xffffffff>>>0
+0x3f2601049ac5 <HeapNumber 4294967295.0>
+== 0xffffffff|0
+-1
+== 3*4
+12

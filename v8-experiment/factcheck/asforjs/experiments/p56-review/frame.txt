@@ -1,0 +1,6 @@
+## d8 15.6 release (pointer compression ON)
+Register count 5
+Frame size 40
+## node24 (pointer compression OFF)
+Register count 5
+Frame size 40

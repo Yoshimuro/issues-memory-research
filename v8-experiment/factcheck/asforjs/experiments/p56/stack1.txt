@@ -1,0 +1,31 @@
+## /opt/node20/bin/node
+max spread args ~ 125574  (RangeError above)
+320k: Maximum call stack size exceeded
+120k: ok
+recursion depth, no locals: 10467
+recursion depth, 5 locals:  245588202
+strict tail call 1e6: RangeError: Maximum call stack size exceeded
+## /opt/node22/bin/node
+max spread args ~ 125498  (RangeError above)
+320k: Maximum call stack size exceeded
+120k: ok
+recursion depth, no locals: 9657
+recursion depth, 5 locals:  218833659
+strict tail call 1e6: RangeError: Maximum call stack size exceeded
+## /opt/nvm/versions/node/v24.21.0/bin/node
+max spread args ~ 125421  (RangeError above)
+320k: Maximum call stack size exceeded
+120k: ok
+recursion depth, no locals: 9649
+recursion depth, 5 locals:  218519956
+strict tail call 1e6: RangeError: Maximum call stack size exceeded
+## /tmp/claude-0/-home-user-issues-memory-research/dacf359b-9898-588d-b8f1-20fd1e3f2945/scratchpad/d8/rel/d8
+max spread args ~ 125421  (RangeError above)
+320k: Maximum call stack size exceeded
+120k: ok
+recursion depth, no locals: 9653
+recursion depth, 5 locals:  218645423
+strict tail call 1e6: RangeError: Maximum call stack size exceeded
+  --stack-size (default size of stack region v8 is allowed to use (in kBytes))
+        type: int  default: --stack-size=984
+  --max-stack-trace-source-length (maximum length of function source code printed in a stack trace.)

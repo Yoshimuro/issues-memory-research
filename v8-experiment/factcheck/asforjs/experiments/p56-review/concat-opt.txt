@@ -1,0 +1,60 @@
+## d8 debug 15.6
+--- interpreted add3 (11)
+ - type: SEQ_TWO_BYTE_STRING_TYPE
+ - prototype: 0x1af80000002d <null>
+--- interpreted add2 (11)
+ - type: SEQ_TWO_BYTE_STRING_TYPE
+ - prototype: 0x1af80000002d <null>
+--- maglev add3 status 11001
+ - type: SEQ_TWO_BYTE_STRING_TYPE
+ - prototype: 0x1af80000002d <null>
+--- maglev add2
+ - type: SEQ_TWO_BYTE_STRING_TYPE
+ - prototype: 0x1af80000002d <null>
+--- turbofan add3 status 101001
+ - type: SEQ_TWO_BYTE_STRING_TYPE
+ - prototype: 0x1af80000002d <null>
+--- turbofan add2
+ - type: SEQ_TWO_BYTE_STRING_TYPE
+ - prototype: 0x1af80000002d <null>
+--- turbofan add3 with 13-char result
+ - type: CONS_TWO_BYTE_STRING_TYPE
+ - prototype: 0x1af80000002d <null>
+## node20
+--- interpreted add3 (11)
+ - type: STRING_TYPE
+ - prototype: 0x046a33400269 <null>
+--- interpreted add2 (11)
+ - type: STRING_TYPE
+ - prototype: 0x046a33400269 <null>
+--- turbofan add3 status 1010001
+ - type: STRING_TYPE
+ - prototype: 0x046a33400269 <null>
+--- turbofan add2
+ - type: STRING_TYPE
+ - prototype: 0x046a33400269 <null>
+--- turbofan add3 with 13-char result
+ - type: CONS_STRING_TYPE
+ - prototype: 0x046a33400269 <null>
+## node24 (maglev)
+--- interpreted add3 (11)
+ - type: SEQ_TWO_BYTE_STRING_TYPE
+ - prototype: 0x08a869a80041 <null>
+--- interpreted add2 (11)
+ - type: SEQ_TWO_BYTE_STRING_TYPE
+ - prototype: 0x08a869a80041 <null>
+--- maglev add3 status 110001
+ - type: SEQ_TWO_BYTE_STRING_TYPE
+ - prototype: 0x08a869a80041 <null>
+--- maglev add2
+ - type: SEQ_TWO_BYTE_STRING_TYPE
+ - prototype: 0x08a869a80041 <null>
+--- turbofan add3 status 1010001
+ - type: SEQ_TWO_BYTE_STRING_TYPE
+ - prototype: 0x08a869a80041 <null>
+--- turbofan add2
+ - type: SEQ_TWO_BYTE_STRING_TYPE
+ - prototype: 0x08a869a80041 <null>
+--- turbofan add3 with 13-char result
+ - type: CONS_TWO_BYTE_STRING_TYPE
+ - prototype: 0x08a869a80041 <null>

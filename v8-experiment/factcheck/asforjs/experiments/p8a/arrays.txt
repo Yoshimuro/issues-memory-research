@@ -1,0 +1,45 @@
+## d8
+Array.from({length:5}, () => 0): smiEl=true dblEl=false objEl=false holey=false dict=false
+Array.from({length:5}, (_, i) => i): smiEl=true dblEl=false objEl=false holey=false dict=false
+new Array(5).fill(0): smiEl=true dblEl=false objEl=false holey=false dict=false
+Array(5).fill(0) then all set: smiEl=true dblEl=false objEl=false holey=false dict=false
+[] + push x5: smiEl=true dblEl=false objEl=false holey=false dict=false
+Array.from(new Array(5).fill(0)): smiEl=true dblEl=false objEl=false holey=false dict=false
+[...Array(5)].map(()=>0): smiEl=true dblEl=false objEl=false holey=false dict=false
+[1,2,3]: smiEl=true dblEl=false objEl=false holey=false dict=false
+push 2**40 (HeapNumber value): smiEl=false dblEl=true objEl=false holey=false dict=false
+push 1.5: smiEl=false dblEl=true objEl=false holey=false dict=false
+push "s": smiEl=false dblEl=false objEl=true holey=false dict=false
+after truncating back to ints (irreversible?): smiEl=false dblEl=false objEl=true holey=false dict=false
+[1,2,3].push(undefined): smiEl=false dblEl=true objEl=false holey=true dict=false
+[1,2,3]; a[10]=4: smiEl=true dblEl=false objEl=false holey=true dict=false
+## node22
+Array.from({length:5}, () => 0): smiEl=true dblEl=false objEl=false holey=false dict=false
+Array.from({length:5}, (_, i) => i): smiEl=true dblEl=false objEl=false holey=false dict=false
+new Array(5).fill(0): smiEl=true dblEl=false objEl=false holey=true dict=false
+Array(5).fill(0) then all set: smiEl=true dblEl=false objEl=false holey=true dict=false
+[] + push x5: smiEl=true dblEl=false objEl=false holey=false dict=false
+Array.from(new Array(5).fill(0)): smiEl=true dblEl=false objEl=false holey=true dict=false
+[...Array(5)].map(()=>0): smiEl=true dblEl=false objEl=false holey=false dict=false
+[1,2,3]: smiEl=true dblEl=false objEl=false holey=false dict=false
+push 2**40 (HeapNumber value): smiEl=false dblEl=true objEl=false holey=false dict=false
+push 1.5: smiEl=false dblEl=true objEl=false holey=false dict=false
+push "s": smiEl=false dblEl=false objEl=true holey=false dict=false
+after truncating back to ints (irreversible?): smiEl=false dblEl=false objEl=true holey=false dict=false
+[1,2,3].push(undefined): smiEl=false dblEl=false objEl=true holey=false dict=false
+[1,2,3]; a[10]=4: smiEl=true dblEl=false objEl=false holey=true dict=false
+## node24
+Array.from({length:5}, () => 0): smiEl=true dblEl=false objEl=false holey=false dict=false
+Array.from({length:5}, (_, i) => i): smiEl=true dblEl=false objEl=false holey=false dict=false
+new Array(5).fill(0): smiEl=true dblEl=false objEl=false holey=false dict=false
+Array(5).fill(0) then all set: smiEl=true dblEl=false objEl=false holey=false dict=false
+[] + push x5: smiEl=true dblEl=false objEl=false holey=false dict=false
+Array.from(new Array(5).fill(0)): smiEl=true dblEl=false objEl=false holey=false dict=false
+[...Array(5)].map(()=>0): smiEl=true dblEl=false objEl=false holey=false dict=false
+[1,2,3]: smiEl=true dblEl=false objEl=false holey=false dict=false
+push 2**40 (HeapNumber value): smiEl=false dblEl=true objEl=false holey=false dict=false
+push 1.5: smiEl=false dblEl=true objEl=false holey=false dict=false
+push "s": smiEl=false dblEl=false objEl=true holey=false dict=false
+after truncating back to ints (irreversible?): smiEl=false dblEl=false objEl=true holey=false dict=false
+[1,2,3].push(undefined): smiEl=false dblEl=false objEl=true holey=false dict=false
+[1,2,3]; a[10]=4: smiEl=true dblEl=false objEl=false holey=true dict=false

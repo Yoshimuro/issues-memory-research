@@ -1,0 +1,9 @@
+## /opt/node22/bin/node
+small  int-acc |0 vs trunc: 79/82 67/84 70/86   double-acc |0 vs trunc: 91/98 76/95 67/81
+big  int-acc |0 vs trunc: 62/79 63/79 62/79   double-acc |0 vs trunc: 72/42 71/43 71/42
+## /opt/nvm/versions/node/v24.21.0/bin/node
+small  int-acc |0 vs trunc: 62/78 64/76 59/72   double-acc |0 vs trunc: 70/88 68/81 65/77
+big  int-acc |0 vs trunc: 60/73 166/169 177/180   double-acc |0 vs trunc: 69/40 68/43 69/40
+## /tmp/claude-0/-home-user-issues-memory-research/dacf359b-9898-588d-b8f1-20fd1e3f2945/scratchpad/d8/rel/d8
+small  int-acc |0 vs trunc: 61/76 62/77 61/76   double-acc |0 vs trunc: 72/85 68/79 68/80
+big  int-acc |0 vs trunc: 61/77 62/77 61/80   double-acc |0 vs trunc: 74/35 75/39 74/35

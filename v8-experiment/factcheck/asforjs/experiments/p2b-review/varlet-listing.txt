@@ -1,0 +1,201 @@
+=============== node20 :: addA
+LdaImmutableCurrentContextSlot [2]
+Star0
+LdaImmutableCurrentContextSlot [3]
+ThrowReferenceErrorIfHole [0]
+Add r0, [0]
+Star0
+LdaImmutableCurrentContextSlot [4]
+ThrowReferenceErrorIfHole [1]
+Add r0, [1]
+Return
+=============== node20 :: addB
+LdaCurrentContextSlot [2]
+AddSmi [1], [0]
+StaCurrentContextSlot [2]
+LdaCurrentContextSlot [3]
+ThrowReferenceErrorIfHole [0]
+AddSmi [1], [1]
+Star0
+LdaCurrentContextSlot [3]
+ThrowReferenceErrorIfHole [0]
+Ldar r0
+StaCurrentContextSlot [3]
+LdaCurrentContextSlot [2]
+Star0
+LdaCurrentContextSlot [3]
+ThrowReferenceErrorIfHole [0]
+Add r0, [2]
+Star0
+LdaImmutableCurrentContextSlot [4]
+ThrowReferenceErrorIfHole [1]
+Add r0, [3]
+Return
+=============== node20 :: addC
+LdaImmutableCurrentContextSlot [2]
+Star0
+LdaImmutableCurrentContextSlot [3]
+ThrowReferenceErrorIfHole [0]
+Add r0, [0]
+Star0
+LdaImmutableCurrentContextSlot [4]
+ThrowReferenceErrorIfHole [1]
+Add r0, [1]
+Return
+=============== node20 :: addD
+LdaImmutableCurrentContextSlot [2]
+Star0
+LdaImmutableCurrentContextSlot [3]
+ThrowReferenceErrorIfHole [0]
+Add r0, [0]
+Star0
+LdaImmutableCurrentContextSlot [4]
+ThrowReferenceErrorIfHole [1]
+Add r0, [1]
+Return
+=============== node22 :: addA
+LdaImmutableCurrentContextSlot [2]
+Star0
+LdaImmutableCurrentContextSlot [3]
+ThrowReferenceErrorIfHole [0]
+Add r0, [0]
+Star0
+LdaImmutableCurrentContextSlot [4]
+ThrowReferenceErrorIfHole [1]
+Add r0, [1]
+Return
+=============== node22 :: addB
+LdaCurrentContextSlot [2]
+AddSmi [1], [0]
+StaCurrentContextSlot [2]
+LdaCurrentContextSlot [3]
+ThrowReferenceErrorIfHole [0]
+AddSmi [1], [1]
+StaCurrentContextSlot [3]
+LdaCurrentContextSlot [2]
+Star0
+LdaCurrentContextSlot [3]
+Add r0, [2]
+Star0
+LdaImmutableCurrentContextSlot [4]
+ThrowReferenceErrorIfHole [1]
+Add r0, [3]
+Return
+=============== node22 :: addC
+LdaImmutableCurrentContextSlot [2]
+Star0
+LdaImmutableCurrentContextSlot [3]
+ThrowReferenceErrorIfHole [0]
+Add r0, [0]
+Star0
+LdaImmutableCurrentContextSlot [4]
+ThrowReferenceErrorIfHole [1]
+Add r0, [1]
+Return
+=============== node22 :: addD
+LdaImmutableCurrentContextSlot [2]
+Star0
+LdaImmutableCurrentContextSlot [3]
+ThrowReferenceErrorIfHole [0]
+Add r0, [0]
+Star0
+LdaImmutableCurrentContextSlot [4]
+ThrowReferenceErrorIfHole [1]
+Add r0, [1]
+Return
+=============== node24 :: addA
+LdaImmutableCurrentContextSlot [2]
+Star0
+LdaImmutableCurrentContextSlot [3]
+ThrowReferenceErrorIfHole [0]
+Add r0, [0]
+Star0
+LdaImmutableCurrentContextSlot [4]
+ThrowReferenceErrorIfHole [1]
+Add r0, [1]
+Return
+=============== node24 :: addB
+LdaCurrentContextSlot [2]
+AddSmi [1], [0]
+StaCurrentContextSlot [2]
+LdaCurrentContextSlot [3]
+ThrowReferenceErrorIfHole [0]
+AddSmi [1], [1]
+StaCurrentContextSlot [3]
+LdaCurrentContextSlot [2]
+Star0
+LdaCurrentContextSlot [3]
+Add r0, [2]
+Star0
+LdaImmutableCurrentContextSlot [4]
+ThrowReferenceErrorIfHole [1]
+Add r0, [3]
+Return
+=============== node24 :: addC
+LdaImmutableCurrentContextSlot [2]
+Star0
+LdaImmutableCurrentContextSlot [3]
+ThrowReferenceErrorIfHole [0]
+Add r0, [0]
+Star0
+LdaImmutableCurrentContextSlot [4]
+ThrowReferenceErrorIfHole [1]
+Add r0, [1]
+Return
+=============== node24 :: addD
+LdaImmutableCurrentContextSlot [2]
+Star0
+LdaImmutableCurrentContextSlot [3]
+ThrowReferenceErrorIfHole [0]
+Add r0, [0]
+Star0
+LdaImmutableCurrentContextSlot [4]
+ThrowReferenceErrorIfHole [1]
+Add r0, [1]
+Return
+=============== d8 :: addA
+LdaImmutableCurrentContextSlot [2]
+Star0
+LdaImmutableCurrentContextSlot [3]
+ThrowReferenceErrorIfTdzHole [0:"vl"]
+Add r0, EmbeddedFeedback[None]
+Star0
+LdaImmutableCurrentContextSlot [4]
+ThrowReferenceErrorIfTdzHole [1:"vc"]
+Add r0, EmbeddedFeedback[None]
+Return
+=============== d8 :: addB
+LdaCurrentContextSlotNoCell [2]
+AddSmi [1], EmbeddedFeedback[None]
+StaCurrentContextSlotNoCell [2]
+LdaCurrentContextSlotNoCell [3]
+ThrowReferenceErrorIfTdzHole [0:"vl"]
+AddSmi [1], EmbeddedFeedback[None]
+StaCurrentContextSlotNoCell [3]
+LdaCurrentContextSlotNoCell [2]
+Star0
+LdaCurrentContextSlotNoCell [3]
+Add r0, EmbeddedFeedback[None]
+Star0
+LdaImmutableCurrentContextSlot [4]
+ThrowReferenceErrorIfTdzHole [1:"vc"]
+Add r0, EmbeddedFeedback[None]
+Return
+=============== d8 :: addC
+LdaImmutableCurrentContextSlot [2]
+Star0
+LdaImmutableCurrentContextSlot [3]
+Add r0, EmbeddedFeedback[None]
+Star0
+LdaImmutableCurrentContextSlot [4]
+Add r0, EmbeddedFeedback[None]
+Return
+=============== d8 :: addD
+LdaImmutableCurrentContextSlot [2]
+Star0
+LdaImmutableCurrentContextSlot [3]
+Add r0, EmbeddedFeedback[None]
+Star0
+LdaImmutableCurrentContextSlot [4]
+Add r0, EmbeddedFeedback[None]
+Return

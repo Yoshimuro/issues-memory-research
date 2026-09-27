@@ -1,0 +1,18 @@
+== d8 default arr 2e7: scavenges
+V8 is running with developer-only features enabled. Stability and security will suffer.
+0
+== d8 ignition arr 2e6: scavenges
+V8 is running with developer-only features enabled. Stability and security will suffer.
+122
+== d8 maglev-only arr 2e7
+V8 is running with developer-only features enabled. Stability and security will suffer.
+1221
+== d8 default obj 2e7: scavenges
+V8 is running with developer-only features enabled. Stability and security will suffer.
+0
+== d8 ignition obj 2e6: scavenges
+V8 is running with developer-only features enabled. Stability and security will suffer.
+0
+== d8 maglev-only obj 2e7
+V8 is running with developer-only features enabled. Stability and security will suffer.
+0

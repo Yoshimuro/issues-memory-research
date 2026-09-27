@@ -1,0 +1,18 @@
+== node20
+ --concurrent-marking (use concurrent marking)
+ type: bool default: --concurrent-marking
+ --concurrent-marking-max-worker-num (max worker number of concurrent marking, 0 for NumberOfWorkerThreads)
+concurrent_marking(flag via getHeapCodeStatistics n/a) cpus: 4
+concurrent marking task lines: 78
+== node22
+ --concurrent-marking (use concurrent marking)
+ type: bool default: --concurrent-marking
+ --concurrent-marking-max-worker-num (max worker number of concurrent marking, 0 for NumberOfWorkerThreads)
+concurrent_marking(flag via getHeapCodeStatistics n/a) cpus: 4
+concurrent marking task lines: 78
+== node24
+ --concurrent-marking (use concurrent marking)
+ type: bool default: --concurrent-marking
+ --concurrent-marking-max-worker-num (max worker number of concurrent marking, 0 for NumberOfWorkerThreads)
+concurrent_marking(flag via getHeapCodeStatistics n/a) cpus: 4
+concurrent marking task lines: 22

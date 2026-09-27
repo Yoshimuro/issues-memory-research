@@ -1,0 +1,2 @@
+tsc --noEmit typescript.d.ts (copy in scratch): wall=1.517957855 s; compiled=2782, optimized(Maglev|TF)=1206, TurboFan=279, share=43.350%
+prettier format copy of prettier index.cjs: wall=.315298136 s; compiled=1708, optimized(Maglev|TF)=200, TurboFan=11, share=11.709%

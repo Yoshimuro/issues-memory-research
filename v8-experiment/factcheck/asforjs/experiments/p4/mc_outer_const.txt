@@ -1,0 +1,25 @@
+##### node20
+0x7f2865fc7019    19  493b65a0             REX.W cmpq rsp,[r13-0x60] (external value (StackGuard::address_of_jslimit()))
+0x7f2865fc7023    23  48b80000000011000000 REX.W movq rax,0x1100000000
+0x7f2865fc7060    60  b801000000           movl rax,0x1
+0x7f2865fc7065    65  48baf9119c8562130000 REX.W movq rdx,0x1362859c11f9    ;; object: 0x1362859c11f9 <NativeContext[280
+##### node22
+0x7f6cd5fc5f59    19  493b65a0             REX.W cmpq rsp,[r13-0x60] (external value (StackGuard::address_of_jslimit()))
+0x7f6cd5fc5f63    23  48b80000000011000000 REX.W movq rax,0x1100000000
+0x7f6cd5fc5fa0    60  b801000000           movl rax,0x1
+0x7f6cd5fc5fa5    65  48ba31120c8509080000 REX.W movq rdx,0x809850c1231    ;; object: 0x0809850c1231 <NativeContext[287]
+0x7f6cd5fc5fb7    77  488b05a7ffffff       REX.W movq rax,[rip+0xffffffa7]
+##### node24
+0x7f69a000410b     b  493b65a0             REX.W cmpq rsp,[r13-0x60] (external value (StackGuard::address_of_jslimit()))
+0x7f69a0004115    15  48b80000000011000000 REX.W movq rax,0x1100000000
+0x7f69a0004152    52  b801000000           movl rax,0x1
+0x7f69a0004157    57  48ba0901d00549350000 REX.W movq rdx,0x354905d00109    ;; object: 0x354905d00109 <NativeContext[302
+0x7f69a0004169    69  488b05a7ffffff       REX.W movq rax,[rip+0xffffffa7]
+##### d8dbg
+0x7f4a65840063    23  c1eb08               shrl rbx,8
+0x7f4a65840066    26  c1e304               shll rbx,4
+0x7f4a658400a9    69  49c7457800000000     REX.W movq [r13+0x78] (external value (last_young_allocation_address)),0x0
+0x7f4a658400b1    71  493b65a0             REX.W cmpq rsp,[r13-0x60] (external value (StackGuard::address_of_jslimit()))
+0x7f4a658400bb    7b  b822000000           movl rax,0x22
+0x7f4a658400ee    ae  b801000000           movl rax,0x1
+0x7f4a658400f3    b3  48ba8d450001de3d0000 REX.W movq rdx,0x3dde0100458d    ;; object: 0x3dde0100458d <NativeContext[308

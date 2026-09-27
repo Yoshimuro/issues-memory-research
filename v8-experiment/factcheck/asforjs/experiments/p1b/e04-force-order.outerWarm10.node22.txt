@@ -1,0 +1,4 @@
+Considering 0x2c82d008 {0x1c4a5739b5f9 <SharedFunctionInfo inner>} for inlining with 0x2c82d1c8 {0x1c4a5739bad1 <FeedbackVector[2]>}
+Inlining small function(s) at call site #18:JSCall
+Inlining 0x2c82d008 {0x1c4a5739b5f9 <SharedFunctionInfo inner>} into 0x2c82ccc0 {0x1c4a5739b651 <SharedFunctionInfo outer>}
+outerWarm10: outer=1010001 inner=10000001

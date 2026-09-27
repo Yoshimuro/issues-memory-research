@@ -1,0 +1,8 @@
+## d8 debug 15.6, --bytecode-old-time=1, ~3.5s of gc() calls
+      1  - builtin: InterpreterEntryTrampoline
+      1  - bytecode: 0x00ed010001a1 <BytecodeArray[32]>
+   1291 [16070:0x156c0014c000] 0 flushed SharedFunctionInfo(s)
+## d8 debug 15.6 default (180 s)
+      1  - builtin: InterpreterEntryTrampoline
+      1  - bytecode: 0x2e13010001a1 <BytecodeArray[32]>
+   1305 [16083:0x3d4c0014c000] 0 flushed SharedFunctionInfo(s)

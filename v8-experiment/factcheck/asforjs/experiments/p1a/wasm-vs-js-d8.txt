@@ -1,0 +1,15 @@
+d8 max-opt=0: wasm time_ms=43.5 r=105000000 js   time_ms=482.3 r=105000000 
+d8 max-opt=1: wasm time_ms=46.0 r=105000000 js   time_ms=121.8 r=105000000 
+d8 max-opt=2: wasm time_ms=37.0 r=105000000 js   time_ms=34.5 r=105000000 
+d8 max-opt=3: wasm time_ms=30.7 r=105000000 js   time_ms=14.8 r=105000000 
+d8 liftoff-only max-opt=2: wasm time_ms=21.1 r=105000000 js   time_ms=31.8 r=105000000 
+d8 max-opt=0: wasm time_ms=38.8 r=105000000 js   time_ms=420.6 r=105000000 
+d8 max-opt=1: wasm time_ms=41.6 r=105000000 js   time_ms=121.5 r=105000000 
+d8 max-opt=2: wasm time_ms=44.5 r=105000000 js   time_ms=34.9 r=105000000 
+d8 max-opt=3: wasm time_ms=43.0 r=105000000 js   time_ms=16.9 r=105000000 
+d8 liftoff-only max-opt=2: wasm time_ms=24.0 r=105000000 js   time_ms=31.5 r=105000000 
+d8 max-opt=0: wasm time_ms=30.3 r=105000000 js   time_ms=421.5 r=105000000 
+d8 max-opt=1: wasm time_ms=42.2 r=105000000 js   time_ms=121.0 r=105000000 
+d8 max-opt=2: wasm time_ms=50.6 r=105000000 js   time_ms=64.3 r=105000000 
+d8 max-opt=3: wasm time_ms=54.2 r=105000000 js   time_ms=20.2 r=105000000 
+d8 liftoff-only max-opt=2: wasm time_ms=22.7 r=105000000 js   time_ms=32.4 r=105000000 

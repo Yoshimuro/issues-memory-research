@@ -1,0 +1,80 @@
+## node20 --max-opt=0
+round0 reduce=249ms for=429ms ratio=0.58 | push=549ms index=486ms push/index=1.13
+round1 reduce=249ms for=428ms ratio=0.58 | push=558ms index=408ms push/index=1.37
+round2 reduce=280ms for=431ms ratio=0.65 | push=534ms index=377ms push/index=1.42
+## node20 --max-opt=1
+round0 reduce=191ms for=249ms ratio=0.77 | push=397ms index=345ms push/index=1.15
+round1 reduce=177ms for=236ms ratio=0.75 | push=376ms index=308ms push/index=1.22
+round2 reduce=207ms for=234ms ratio=0.89 | push=358ms index=359ms push/index=1.00
+## node20 --max-opt=2
+round0 reduce=223ms for=234ms ratio=0.95 | push=381ms index=293ms push/index=1.30
+round1 reduce=175ms for=231ms ratio=0.76 | push=448ms index=291ms push/index=1.54
+round2 reduce=176ms for=202ms ratio=0.87 | push=338ms index=264ms push/index=1.28
+## node20 --max-opt=3
+round0 reduce=33ms for=15ms ratio=2.14 | push=112ms index=88ms push/index=1.28
+round1 reduce=10ms for=13ms ratio=0.78 | push=109ms index=88ms push/index=1.24
+round2 reduce=10ms for=13ms ratio=0.77 | push=106ms index=83ms push/index=1.28
+## node20 
+round0 reduce=58ms for=24ms ratio=2.44 | push=129ms index=91ms push/index=1.42
+round1 reduce=10ms for=13ms ratio=0.75 | push=110ms index=85ms push/index=1.29
+round2 reduce=10ms for=13ms ratio=0.79 | push=111ms index=84ms push/index=1.32
+## node22 --max-opt=0
+round0 reduce=268ms for=421ms ratio=0.64 | push=541ms index=478ms push/index=1.13
+round1 reduce=286ms for=438ms ratio=0.65 | push=555ms index=513ms push/index=1.08
+round2 reduce=256ms for=425ms ratio=0.60 | push=481ms index=522ms push/index=0.92
+## node22 --max-opt=1
+round0 reduce=192ms for=255ms ratio=0.76 | push=403ms index=336ms push/index=1.20
+round1 reduce=145ms for=227ms ratio=0.64 | push=341ms index=332ms push/index=1.03
+round2 reduce=143ms for=236ms ratio=0.61 | push=403ms index=310ms push/index=1.30
+## node22 --max-opt=2
+round0 reduce=177ms for=258ms ratio=0.69 | push=449ms index=314ms push/index=1.43
+round1 reduce=169ms for=300ms ratio=0.56 | push=395ms index=309ms push/index=1.28
+round2 reduce=173ms for=262ms ratio=0.66 | push=408ms index=274ms push/index=1.49
+## node22 --max-opt=3
+round0 reduce=26ms for=12ms ratio=2.10 | push=87ms index=97ms push/index=0.90
+round1 reduce=11ms for=19ms ratio=0.60 | push=107ms index=108ms push/index=0.99
+round2 reduce=14ms for=13ms ratio=1.08 | push=84ms index=92ms push/index=0.91
+## node22 
+round0 reduce=46ms for=22ms ratio=2.14 | push=120ms index=94ms push/index=1.28
+round1 reduce=11ms for=13ms ratio=0.84 | push=82ms index=83ms push/index=0.99
+round2 reduce=11ms for=13ms ratio=0.82 | push=79ms index=82ms push/index=0.96
+## node24 --max-opt=0
+round0 reduce=246ms for=420ms ratio=0.58 | push=550ms index=448ms push/index=1.23
+round1 reduce=206ms for=317ms ratio=0.65 | push=458ms index=473ms push/index=0.97
+round2 reduce=254ms for=351ms ratio=0.72 | push=488ms index=404ms push/index=1.21
+## node24 --max-opt=1
+round0 reduce=179ms for=263ms ratio=0.68 | push=404ms index=349ms push/index=1.16
+round1 reduce=207ms for=270ms ratio=0.77 | push=483ms index=342ms push/index=1.41
+round2 reduce=203ms for=299ms ratio=0.68 | push=444ms index=359ms push/index=1.24
+## node24 --max-opt=2
+round0 reduce=136ms for=23ms ratio=5.91 | push=129ms index=152ms push/index=0.85
+round1 reduce=132ms for=21ms ratio=6.28 | push=118ms index=120ms push/index=0.98
+round2 reduce=130ms for=23ms ratio=5.64 | push=108ms index=124ms push/index=0.88
+## node24 --max-opt=3
+round0 reduce=31ms for=13ms ratio=2.34 | push=116ms index=106ms push/index=1.10
+round1 reduce=63ms for=11ms ratio=5.84 | push=94ms index=90ms push/index=1.04
+round2 reduce=11ms for=11ms ratio=0.98 | push=85ms index=90ms push/index=0.94
+## node24 
+round0 reduce=27ms for=12ms ratio=2.17 | push=98ms index=121ms push/index=0.80
+round1 reduce=119ms for=18ms ratio=6.55 | push=90ms index=87ms push/index=1.05
+round2 reduce=11ms for=11ms ratio=0.99 | push=84ms index=101ms push/index=0.83
+## d8 --max-opt=0
+round0 reduce=327ms for=423ms ratio=0.77 | push=553ms index=402ms push/index=1.37
+round1 reduce=275ms for=358ms ratio=0.77 | push=491ms index=436ms push/index=1.13
+round2 reduce=279ms for=364ms ratio=0.77 | push=496ms index=415ms push/index=1.20
+## d8 --max-opt=1
+round0 reduce=174ms for=128ms ratio=1.36 | push=245ms index=209ms push/index=1.17
+round1 reduce=138ms for=122ms ratio=1.13 | push=350ms index=250ms push/index=1.40
+round2 reduce=169ms for=145ms ratio=1.17 | push=285ms index=241ms push/index=1.19
+## d8 --max-opt=2
+round0 reduce=122ms for=27ms ratio=4.53 | push=74ms index=118ms push/index=0.63
+round1 reduce=140ms for=22ms ratio=6.43 | push=59ms index=69ms push/index=0.86
+round2 reduce=107ms for=23ms ratio=4.55 | push=59ms index=63ms push/index=0.94
+## d8 --max-opt=3
+round0 reduce=26ms for=10ms ratio=2.60 | push=59ms index=55ms push/index=1.08
+round1 reduce=86ms for=9ms ratio=10.02 | push=54ms index=56ms push/index=0.96
+round2 reduce=8ms for=8ms ratio=0.96 | push=53ms index=53ms push/index=1.00
+## d8 
+round0 reduce=30ms for=10ms ratio=3.04 | push=57ms index=56ms push/index=1.03
+round1 reduce=84ms for=9ms ratio=9.76 | push=54ms index=58ms push/index=0.92
+round2 reduce=8ms for=9ms ratio=0.93 | push=54ms index=55ms push/index=0.98

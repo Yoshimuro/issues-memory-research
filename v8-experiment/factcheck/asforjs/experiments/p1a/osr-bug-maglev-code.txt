@@ -1,0 +1,3 @@
+== d8 literal
+== d8 inner
+== d8 globalFn

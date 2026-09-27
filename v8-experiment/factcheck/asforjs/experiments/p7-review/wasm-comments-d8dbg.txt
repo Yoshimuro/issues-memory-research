@@ -1,0 +1,149 @@
+V8 is running with developer-only features enabled. Stability and security will suffer.
+Concurrent maglev has been disabled for tracing.
+--- WebAssembly code ---
+name: wasm-function[0]
+index: 0
+kind: wasm function
+compiler: Liftoff
+Body (size = 2112 = 2084 + 28 padding)
+Instructions (size = 264)
+[34m                  frame setup[;m
+0x20a0b25f0a80     0  4533e4               xorl r12,r12
+0x20a0b25f0a83     3  e828f7ffff           call 0x20a0b25f01b0  (jump table)
+0x20a0b25f0a88     8  4881ec18000000       REX.W subq rsp,0x18
+[34m                  process parameters[;m
+0x20a0b25f0a8f     f  8bc0                 movl rax,rax
+[34m                  init locals[;m
+[34m                  [ Check instance data parameter type[;m
+[34m                    [  - void v8::internal::MacroAssembler::DecompressTagged(Register, Operand)@../../src/codegen/x64/macro-assembler-x64.cc:435[;m
+0x20a0b25f0a91    11  8b4eff               movl rcx,[rsi-0x1]
+0x20a0b25f0a94    14  490bce               REX.W orq rcx,r14
+[34m                    ][;m
+0x20a0b25f0a97    17  0fb74907             movzxwl rcx,[rcx+0x7]
+0x20a0b25f0a9b    1b  81f9bf000000         cmpl rcx,0xbf
+0x20a0b25f0aa1    21  0f8420000000         jz 0x20a0b25f0ac7  <+0x47>
+[34m                    [  - void v8::internal::MacroAssembler::Abort(AbortReason)@../../src/codegen/x64/macro-assembler-x64.cc:1338[;m
+[34m                  Abort message:[;m
+[34m                  Unexpected instance type encountered[;m
+[34m                      [ Frame: NO_FRAME_TYPE[;m
+0x20a0b25f0aa7    27  bf4d000000           movl rdi,0x4d
+[34m                        [  - void v8::internal::MacroAssembler::PrepareCallCFunction(int)@../../src/codegen/x64/macro-assembler-x64.cc:4862[;m
+0x20a0b25f0aac    2c  4c8bd4               REX.W movq r10,rsp
+0x20a0b25f0aaf    2f  4883ec08             REX.W subq rsp,0x8
+0x20a0b25f0ab3    33  4883e4f0             REX.W andq rsp,0xf0
+0x20a0b25f0ab7    37  4c891424             REX.W movq [rsp],r10
+[34m                        ][;m
+0x20a0b25f0abb    3b  48b8b007ee0f167f0000 REX.W movq rax,0x7f160fee07b0
+0x20a0b25f0ac5    45  ffd0                 call rax
+[34m                      ][;m
+[34m                    ][;m
+[34m                  ][;m
+[34m                  stack check[;m
+0x20a0b25f0ac7    47  493b65a0             REX.W cmpq rsp,[r13-0x60]
+0x20a0b25f0acb    4b  0f8688000000         jna 0x20a0b25f0b59  <+0xd9>
+[34m                  block[;m
+[34m                  loop[;m
+0x20a0b25f0ad1    51  8945dc               movl [rbp-0x24],rax
+0x20a0b25f0ad4    54  c745d800000000       movl [rbp-0x28],0x0
+0x20a0b25f0adb    5b  c745d400000000       movl [rbp-0x2c],0x0
+[34m                  local.get[;m
+0x20a0b25f0ae2    62  8b45d8               movl rax,[rbp-0x28]
+[34m                  local.get[;m
+0x20a0b25f0ae5    65  8b4ddc               movl rcx,[rbp-0x24]
+[34m                  i32.ge_s[;m
+[34m                  br_if[;m
+0x20a0b25f0ae8    68  3bc1                 cmpl rax,rcx
+0x20a0b25f0aea    6a  0f8c05000000         jl 0x20a0b25f0af5  <+0x75>
+0x20a0b25f0af0    70  e927000000           jmp 0x20a0b25f0b1c  <+0x9c>
+[34m                  local.get[;m
+0x20a0b25f0af5    75  8b45d4               movl rax,[rbp-0x2c]
+[34m                  local.get[;m
+0x20a0b25f0af8    78  8b4dd8               movl rcx,[rbp-0x28]
+[34m                  i32.const[;m
+[34m                  i32.and[;m
+0x20a0b25f0afb    7b  83e107               andl rcx,0x7
+[34m                  i32.add[;m
+0x20a0b25f0afe    7e  03c1                 addl rax,rcx
+[34m                  local.set[;m
+[34m                  local.get[;m
+0x20a0b25f0b00    80  8b4dd8               movl rcx,[rbp-0x28]
+[34m                  i32.const[;m
+[34m                  i32.add[;m
+0x20a0b25f0b03    83  83c101               addl rcx,0x1
+[34m                  local.set[;m
+[34m                  br[;m
+[34m                  [ tierup check[;m
+0x20a0b25f0b06    86  4c8b5637             REX.W movq r10,[rsi+0x37]
+0x20a0b25f0b0a    8a  41832a38             subl [r10],0x38
+0x20a0b25f0b0e    8e  0f8857000000         js 0x20a0b25f0b6b  <+0xeb>
+[34m                  ][;m
+0x20a0b25f0b14    94  894dd8               movl [rbp-0x28],rcx
+0x20a0b25f0b17    97  8945d4               movl [rbp-0x2c],rax
+0x20a0b25f0b1a    9a  ebc6                 jmp 0x20a0b25f0ae2  <+0x62>
+[34m                  local.get[;m
+0x20a0b25f0b1c    9c  8b45d4               movl rax,[rbp-0x2c]
+[34m                  end[;m
+[34m                  [ tierup check[;m
+0x20a0b25f0b1f    9f  4c8b5637             REX.W movq r10,[rsi+0x37]
+0x20a0b25f0b23    a3  41812adb000000       subl [r10],0xdb
+0x20a0b25f0b2a    aa  0f884a000000         js 0x20a0b25f0b7a  <+0xfa>
+[34m                  ][;m
+[34m                  [  - void v8::internal::MacroAssembler::LeaveFrame(StackFrame::Type)@../../src/codegen/x64/macro-assembler-x64.cc:4678[;m
+0x20a0b25f0b30    b0  48837df830           REX.W cmpq [rbp-0x8],0x30
+0x20a0b25f0b35    b5  741d                 jz 0x20a0b25f0b54  <+0xd4>
+[34m                    [  - void v8::internal::MacroAssembler::Abort(AbortReason)@../../src/codegen/x64/macro-assembler-x64.cc:1338[;m
+[34m                  Abort message:[;m
+[34m                  Stack frame types must match[;m
+[34m                      [ Frame: NO_FRAME_TYPE[;m
+0x20a0b25f0b37    b7  bf32000000           movl rdi,0x32
+[34m                        [  - void v8::internal::MacroAssembler::PrepareCallCFunction(int)@../../src/codegen/x64/macro-assembler-x64.cc:4862[;m
+0x20a0b25f0b3c    bc  4c8bd4               REX.W movq r10,rsp
+0x20a0b25f0b3f    bf  4883ec08             REX.W subq rsp,0x8
+0x20a0b25f0b43    c3  4883e4f0             REX.W andq rsp,0xf0
+0x20a0b25f0b47    c7  4c891424             REX.W movq [rsp],r10
+[34m                        ][;m
+0x20a0b25f0b4b    cb  488b056bffffff       REX.W movq rax,[rip+0xffffff6b]
+0x20a0b25f0b52    d2  ffd0                 call rax
+[34m                      ][;m
+[34m                    ][;m
+0x20a0b25f0b54    d4  488be5               REX.W movq rsp,rbp
+0x20a0b25f0b57    d7  5d                   pop rbp
+[34m                  ][;m
+0x20a0b25f0b58    d8  c3                   retl
+[34m                  OOL: WasmStackGuard[;m
+0x20a0b25f0b59    d9  50                   push rax
+0x20a0b25f0b5a    da  33c0                 xorl rax,rax
+0x20a0b25f0b5c    dc  e80ff8ffff           call 0x20a0b25f0370  (jump table)
+0x20a0b25f0b61    e1  58                   pop rax
+0x20a0b25f0b62    e2  488b75f0             REX.W movq rsi,[rbp-0x10]
+0x20a0b25f0b66    e6  e966ffffff           jmp 0x20a0b25f0ad1  <+0x51>
+[34m                  OOL: WasmTriggerTierUp[;m
+0x20a0b25f0b6b    eb  50                   push rax
+0x20a0b25f0b6c    ec  51                   push rcx
+0x20a0b25f0b6d    ed  e82ef6ffff           call 0x20a0b25f01a0  (jump table)
+0x20a0b25f0b72    f2  59                   pop rcx
+0x20a0b25f0b73    f3  58                   pop rax
+0x20a0b25f0b74    f4  488b75f0             REX.W movq rsi,[rbp-0x10]
+0x20a0b25f0b78    f8  eb9a                 jmp 0x20a0b25f0b14  <+0x94>
+[34m                  OOL: WasmTriggerTierUp[;m
+0x20a0b25f0b7a    fa  50                   push rax
+0x20a0b25f0b7b    fb  e820f6ffff           call 0x20a0b25f01a0  (jump table)
+0x20a0b25f0b80   100  58                   pop rax
+0x20a0b25f0b81   101  488b75f0             REX.W movq rsi,[rbp-0x10]
+0x20a0b25f0b85   105  eba9                 jmp 0x20a0b25f0b30  <+0xb0>
+0x20a0b25f0b87   107  90                   nop
+                  ;;; Safepoint table. - void v8::internal::SafepointTableBuilder::Emit(Assembler *, int)@../../src/codegen/safepoint-table.cc:488
+
+Source positions:
+ pc offset  position
+        dc         0  statement
+        ed        31  statement
+        fb        38  statement
+
+Safepoints (stack slots = 10, byte size = 8)
+All bits in all entries are zero, no data was stored.
+
+RelocInfo (size = 0)
+
+--- End code ---
+3500

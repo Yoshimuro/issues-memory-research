@@ -1,0 +1,23 @@
+rel: ms 60 10000350000000
+dbg: ms 82 10000350000000
+rel: ms 70 10000350000000
+dbg: ms 97 10000350000000
+rel: ms 57 10000350000000
+dbg: ms 75 10000350000000
+--- interpreter only (--max-opt=0), dbgrel.js
+rel: ms 1739 10000350000000
+dbg: ms 54337 10000350000000
+rel: ms 1976 10000350000000
+dbg: ms 55054 10000350000000
+rel: ms 1735 10000350000000
+dbg: ms 53727 10000350000000
+--- runtime/alloc-heavy dbgrel2.js
+rel: ms 200 1000000
+dbg: ms 2836 1000000
+rel: ms 189 1000000
+dbg: ms 2895 1000000
+rel: ms 182 1000000
+dbg: ms 2866 1000000
+--- empty script startup x10
+rel: 17 ms/run
+dbg: 117 ms/run

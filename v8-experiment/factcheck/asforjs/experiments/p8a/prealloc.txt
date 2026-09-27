@@ -1,0 +1,12 @@
+## node22
+rep0 n=10000000: preSmi 61ms | pushSmi 269ms | preDbl 740ms | pushDbl 1550ms
+rep1 n=10000000: preSmi 568ms | pushSmi 1198ms | preDbl 911ms | pushDbl 461ms
+rep2 n=10000000: preSmi 59ms | pushSmi 271ms | preDbl 188ms | pushDbl 208ms
+## node24
+rep0 n=10000000: preSmi 58ms | pushSmi 244ms | preDbl 217ms | pushDbl 193ms
+rep1 n=10000000: preSmi 57ms | pushSmi 386ms | preDbl 150ms | pushDbl 419ms
+rep2 n=10000000: preSmi 59ms | pushSmi 293ms | preDbl 152ms | pushDbl 224ms
+## node24 ignition only (n=2e6)
+rep0 n=2000000: preSmi 46ms | pushSmi 104ms | preDbl 86ms | pushDbl 106ms
+rep1 n=2000000: preSmi 48ms | pushSmi 105ms | preDbl 73ms | pushDbl 131ms
+rep2 n=2000000: preSmi 76ms | pushSmi 97ms | preDbl 57ms | pushDbl 104ms

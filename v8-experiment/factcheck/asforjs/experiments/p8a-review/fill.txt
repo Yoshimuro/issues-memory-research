@@ -1,0 +1,24 @@
+## /opt/node20/bin/node
+n=5 fill(0) holey=true smi=true | fill(1.5) holey=true dbl=true | fill('x') holey=true
+n=1000 fill(0) holey=true smi=true | fill(1.5) holey=true dbl=true | fill('x') holey=true
+n=100000 fill(0) holey=true smi=true | fill(1.5) holey=true dbl=true | fill('x') holey=true
+n=1000000 fill(0) holey=true smi=true | fill(1.5) holey=true dbl=true | fill('x') holey=true
+fill(0,0,9) of 10 holey=true
+## /opt/node22/bin/node
+n=5 fill(0) holey=true smi=true | fill(1.5) holey=true dbl=true | fill('x') holey=true
+n=1000 fill(0) holey=true smi=true | fill(1.5) holey=true dbl=true | fill('x') holey=true
+n=100000 fill(0) holey=true smi=true | fill(1.5) holey=true dbl=true | fill('x') holey=true
+n=1000000 fill(0) holey=true smi=true | fill(1.5) holey=true dbl=true | fill('x') holey=true
+fill(0,0,9) of 10 holey=true
+## /opt/nvm/versions/node/v24.21.0/bin/node
+n=5 fill(0) holey=false smi=true | fill(1.5) holey=false dbl=true | fill('x') holey=false
+n=1000 fill(0) holey=false smi=true | fill(1.5) holey=false dbl=true | fill('x') holey=false
+n=100000 fill(0) holey=false smi=true | fill(1.5) holey=false dbl=true | fill('x') holey=false
+n=1000000 fill(0) holey=false smi=true | fill(1.5) holey=false dbl=true | fill('x') holey=false
+fill(0,0,9) of 10 holey=true
+## d8
+n=5 fill(0) holey=false smi=true | fill(1.5) holey=false dbl=true | fill('x') holey=false
+n=1000 fill(0) holey=false smi=true | fill(1.5) holey=false dbl=true | fill('x') holey=false
+n=100000 fill(0) holey=false smi=true | fill(1.5) holey=false dbl=true | fill('x') holey=false
+n=1000000 fill(0) holey=false smi=true | fill(1.5) holey=false dbl=true | fill('x') holey=false
+fill(0,0,9) of 10 holey=true

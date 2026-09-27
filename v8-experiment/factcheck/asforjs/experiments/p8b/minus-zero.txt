@@ -1,0 +1,8 @@
+--- {sum: 0}
+    0x33540101d915: [String] in OldSpace: #sum: 0 (const data field 3, in-obj, attrs: [WEC])
+--- {sum: -0}
+    0x33540101d915: [String] in OldSpace: #sum: 0x3354010897d9 <HeapNumber -0.0> (const data field 3, in-obj, attrs: [WEC])
+--- {sum:0} after += 0.5: old map deprecated? same map as fresh {sum:0}: true
+is -0 a Smi: false, is 0 a Smi: true
+V8 is running with developer-only features enabled. Stability and security will suffer.
+[generalizing]sum:s{Any;const}->d{Any;mutable} (+1 maps) [~+19 at unnamed:1]

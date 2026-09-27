@@ -1,0 +1,25 @@
+## /opt/node20/bin/node
+typeof gc = undefined
+30 ms: Mark-Compact 3.5 (4.2) -> 2.8 (5.2) MB, 2.73 / 0.00 ms  (average mu = 1.000, current mu = 1.000) runtim
+after %CollectGarbage
+## /opt/nvm/versions/node/v24.21.0/bin/node
+typeof gc = undefined
+27 ms: Mark-Compact 4.4 (6.0) -> 4.0 (6.8) MB, pooled: 0 MB, 3.67 / 0.00 ms  (average mu = 0.847, current mu =
+after %CollectGarbage
+## /tmp/claude-0/-home-user-issues-memory-research/dacf359b-9898-588d-b8f1-20fd1e3f2945/scratchpad/d8/rel/d8
+typeof gc = undefined
+4 ms: Mark-Compact 0.2 (0.8) -> 0.1 (0.8) MB, pooled: 0.0 MB, 0.72 / 0.00 ms (average mu = 0.731, current mu =
+after %CollectGarbage
+  --max-old-space-size (max size of the old space (in Mbytes))
+        type: size_t  default: --max-old-space-size=8192
+  --max-heap-size (max size of the heap (in Mbytes) both max_semi_space_size and max_old_space_size take precedence. All three flags cannot be specified at the same time.)
+        type: size_t  default: --max-heap-size=0
+--
+  --gc-interval (garbage collect after <n> allocations)
+        type: int  default: --gc-interval=-1
+--
+  --expose-gc (expose gc extension)
+        type: bool  default: --no-expose-gc
+--
+  --single-threaded-gc (disable the use of background gc tasks)
+        type: bool  default: --no-single-threaded-gc

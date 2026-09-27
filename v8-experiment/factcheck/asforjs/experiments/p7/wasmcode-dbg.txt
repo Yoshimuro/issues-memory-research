@@ -1,0 +1,483 @@
+V8 is running with developer-only features enabled. Stability and security will suffer.
+Concurrent maglev has been disabled for tracing.
+--- WebAssembly code ---
+name: wasm-function[0]
+index: 0
+kind: wasm function
+compiler: Liftoff
+Body (size = 2112 = 2084 + 28 padding)
+Instructions (size = 264)
+[34m                  frame setup[;m
+0x1dc181af7a80     0  4533e4               xorl r12,r12
+0x1dc181af7a83     3  e828f7ffff           call 0x1dc181af71b0  (jump table)
+0x1dc181af7a88     8  4881ec18000000       REX.W subq rsp,0x18
+[34m                  process parameters[;m
+0x1dc181af7a8f     f  8bc0                 movl rax,rax
+[34m                  init locals[;m
+[34m                  [ Check instance data parameter type[;m
+[34m                    [  - void v8::internal::MacroAssembler::DecompressTagged(Register, Operand)@../../src/codegen/x64/macro-assembler-x64.cc:435[;m
+0x1dc181af7a91    11  8b4eff               movl rcx,[rsi-0x1]
+0x1dc181af7a94    14  490bce               REX.W orq rcx,r14
+[34m                    ][;m
+0x1dc181af7a97    17  0fb74907             movzxwl rcx,[rcx+0x7]
+0x1dc181af7a9b    1b  81f9bf000000         cmpl rcx,0xbf
+0x1dc181af7aa1    21  0f8420000000         jz 0x1dc181af7ac7  <+0x47>
+[34m                    [  - void v8::internal::MacroAssembler::Abort(AbortReason)@../../src/codegen/x64/macro-assembler-x64.cc:1338[;m
+[34m                  Abort message:[;m
+[34m                  Unexpected instance type encountered[;m
+[34m                      [ Frame: NO_FRAME_TYPE[;m
+0x1dc181af7aa7    27  bf4d000000           movl rdi,0x4d
+[34m                        [  - void v8::internal::MacroAssembler::PrepareCallCFunction(int)@../../src/codegen/x64/macro-assembler-x64.cc:4862[;m
+0x1dc181af7aac    2c  4c8bd4               REX.W movq r10,rsp
+0x1dc181af7aaf    2f  4883ec08             REX.W subq rsp,0x8
+0x1dc181af7ab3    33  4883e4f0             REX.W andq rsp,0xf0
+0x1dc181af7ab7    37  4c891424             REX.W movq [rsp],r10
+[34m                        ][;m
+0x1dc181af7abb    3b  48b8b0076ecfc27f0000 REX.W movq rax,0x7fc2cf6e07b0
+0x1dc181af7ac5    45  ffd0                 call rax
+[34m                      ][;m
+[34m                    ][;m
+[34m                  ][;m
+[34m                  stack check[;m
+0x1dc181af7ac7    47  493b65a0             REX.W cmpq rsp,[r13-0x60]
+0x1dc181af7acb    4b  0f8688000000         jna 0x1dc181af7b59  <+0xd9>
+[34m                  block[;m
+[34m                  loop[;m
+0x1dc181af7ad1    51  8945dc               movl [rbp-0x24],rax
+0x1dc181af7ad4    54  c745d800000000       movl [rbp-0x28],0x0
+0x1dc181af7adb    5b  c745d400000000       movl [rbp-0x2c],0x0
+[34m                  local.get[;m
+0x1dc181af7ae2    62  8b45d8               movl rax,[rbp-0x28]
+[34m                  local.get[;m
+0x1dc181af7ae5    65  8b4ddc               movl rcx,[rbp-0x24]
+[34m                  i32.ge_s[;m
+[34m                  br_if[;m
+0x1dc181af7ae8    68  3bc1                 cmpl rax,rcx
+0x1dc181af7aea    6a  0f8c05000000         jl 0x1dc181af7af5  <+0x75>
+0x1dc181af7af0    70  e927000000           jmp 0x1dc181af7b1c  <+0x9c>
+[34m                  local.get[;m
+0x1dc181af7af5    75  8b45d4               movl rax,[rbp-0x2c]
+[34m                  local.get[;m
+0x1dc181af7af8    78  8b4dd8               movl rcx,[rbp-0x28]
+[34m                  i32.const[;m
+[34m                  i32.and[;m
+0x1dc181af7afb    7b  83e107               andl rcx,0x7
+[34m                  i32.add[;m
+0x1dc181af7afe    7e  03c1                 addl rax,rcx
+[34m                  local.set[;m
+[34m                  local.get[;m
+0x1dc181af7b00    80  8b4dd8               movl rcx,[rbp-0x28]
+[34m                  i32.const[;m
+[34m                  i32.add[;m
+0x1dc181af7b03    83  83c101               addl rcx,0x1
+[34m                  local.set[;m
+[34m                  br[;m
+[34m                  [ tierup check[;m
+0x1dc181af7b06    86  4c8b5637             REX.W movq r10,[rsi+0x37]
+0x1dc181af7b0a    8a  41832a38             subl [r10],0x38
+0x1dc181af7b0e    8e  0f8857000000         js 0x1dc181af7b6b  <+0xeb>
+[34m                  ][;m
+0x1dc181af7b14    94  894dd8               movl [rbp-0x28],rcx
+0x1dc181af7b17    97  8945d4               movl [rbp-0x2c],rax
+0x1dc181af7b1a    9a  ebc6                 jmp 0x1dc181af7ae2  <+0x62>
+[34m                  local.get[;m
+0x1dc181af7b1c    9c  8b45d4               movl rax,[rbp-0x2c]
+[34m                  end[;m
+[34m                  [ tierup check[;m
+0x1dc181af7b1f    9f  4c8b5637             REX.W movq r10,[rsi+0x37]
+0x1dc181af7b23    a3  41812adb000000       subl [r10],0xdb
+0x1dc181af7b2a    aa  0f884a000000         js 0x1dc181af7b7a  <+0xfa>
+[34m                  ][;m
+[34m                  [  - void v8::internal::MacroAssembler::LeaveFrame(StackFrame::Type)@../../src/codegen/x64/macro-assembler-x64.cc:4678[;m
+0x1dc181af7b30    b0  48837df830           REX.W cmpq [rbp-0x8],0x30
+0x1dc181af7b35    b5  741d                 jz 0x1dc181af7b54  <+0xd4>
+[34m                    [  - void v8::internal::MacroAssembler::Abort(AbortReason)@../../src/codegen/x64/macro-assembler-x64.cc:1338[;m
+[34m                  Abort message:[;m
+[34m                  Stack frame types must match[;m
+[34m                      [ Frame: NO_FRAME_TYPE[;m
+0x1dc181af7b37    b7  bf32000000           movl rdi,0x32
+[34m                        [  - void v8::internal::MacroAssembler::PrepareCallCFunction(int)@../../src/codegen/x64/macro-assembler-x64.cc:4862[;m
+0x1dc181af7b3c    bc  4c8bd4               REX.W movq r10,rsp
+0x1dc181af7b3f    bf  4883ec08             REX.W subq rsp,0x8
+0x1dc181af7b43    c3  4883e4f0             REX.W andq rsp,0xf0
+0x1dc181af7b47    c7  4c891424             REX.W movq [rsp],r10
+[34m                        ][;m
+0x1dc181af7b4b    cb  488b056bffffff       REX.W movq rax,[rip+0xffffff6b]
+0x1dc181af7b52    d2  ffd0                 call rax
+[34m                      ][;m
+[34m                    ][;m
+0x1dc181af7b54    d4  488be5               REX.W movq rsp,rbp
+0x1dc181af7b57    d7  5d                   pop rbp
+[34m                  ][;m
+0x1dc181af7b58    d8  c3                   retl
+[34m                  OOL: WasmStackGuard[;m
+0x1dc181af7b59    d9  50                   push rax
+0x1dc181af7b5a    da  33c0                 xorl rax,rax
+0x1dc181af7b5c    dc  e80ff8ffff           call 0x1dc181af7370  (jump table)
+0x1dc181af7b61    e1  58                   pop rax
+0x1dc181af7b62    e2  488b75f0             REX.W movq rsi,[rbp-0x10]
+0x1dc181af7b66    e6  e966ffffff           jmp 0x1dc181af7ad1  <+0x51>
+[34m                  OOL: WasmTriggerTierUp[;m
+0x1dc181af7b6b    eb  50                   push rax
+0x1dc181af7b6c    ec  51                   push rcx
+0x1dc181af7b6d    ed  e82ef6ffff           call 0x1dc181af71a0  (jump table)
+0x1dc181af7b72    f2  59                   pop rcx
+0x1dc181af7b73    f3  58                   pop rax
+0x1dc181af7b74    f4  488b75f0             REX.W movq rsi,[rbp-0x10]
+0x1dc181af7b78    f8  eb9a                 jmp 0x1dc181af7b14  <+0x94>
+[34m                  OOL: WasmTriggerTierUp[;m
+0x1dc181af7b7a    fa  50                   push rax
+0x1dc181af7b7b    fb  e820f6ffff           call 0x1dc181af71a0  (jump table)
+0x1dc181af7b80   100  58                   pop rax
+0x1dc181af7b81   101  488b75f0             REX.W movq rsi,[rbp-0x10]
+0x1dc181af7b85   105  eba9                 jmp 0x1dc181af7b30  <+0xb0>
+0x1dc181af7b87   107  90                   nop
+                  ;;; Safepoint table. - void v8::internal::SafepointTableBuilder::Emit(Assembler *, int)@../../src/codegen/safepoint-table.cc:488
+
+Source positions:
+ pc offset  position
+        dc         0  statement
+        ed        31  statement
+        fb        38  statement
+
+Safepoints (stack slots = 10, byte size = 8)
+All bits in all entries are zero, no data was stored.
+
+RelocInfo (size = 0)
+
+--- End code ---
+--- WebAssembly code ---
+name: wasm-function[0]
+index: 0
+kind: wasm function
+compiler: TurboFan
+Body (size = 7488 = 7444 + 44 padding)
+Instructions (size = 728)
+[34m                  [ Frame: MANUAL[;m
+[34m                  -- B0 start (construct frame) --[;m
+[34m                    [  - void v8::internal::MacroAssembler::StubPrologue(StackFrame::Type)@../../src/codegen/x64/macro-assembler-x64.cc:4648[;m
+0x1dc181af82c0     0  55                   push rbp
+0x1dc181af82c1     1  488bec               REX.W movq rbp,rsp
+0x1dc181af82c4     4  6a30                 push 0x30
+[34m                    ][;m
+0x1dc181af82c6     6  56                   push rsi
+0x1dc181af82c7     7  4883ec18             REX.W subq rsp,0x18
+0x1dc181af82cb     b  8b56ff               movl rdx,[rsi-0x1]
+[34m                    [  - void v8::internal::MacroAssembler::AssertZeroExtended(Register)@../../src/codegen/x64/macro-assembler-x64.cc:4195[;m
+0x1dc181af82ce     e  41baffffffff         movl r10,0xffffffff
+0x1dc181af82d4    14  493bd2               REX.W cmpq rdx,r10
+0x1dc181af82d7    17  7620                 jna 0x1dc181af82f9  <+0x39>
+[34m                      [  - void v8::internal::MacroAssembler::Abort(AbortReason)@../../src/codegen/x64/macro-assembler-x64.cc:1338[;m
+[34m                  Abort message:[;m
+[34m                  32 bit value in register is not zero-extended[;m
+[34m                        [ Frame: NO_FRAME_TYPE[;m
+0x1dc181af82d9    19  bf01000000           movl rdi,0x1
+[34m                          [  - void v8::internal::MacroAssembler::PrepareCallCFunction(int)@../../src/codegen/x64/macro-assembler-x64.cc:4862[;m
+0x1dc181af82de    1e  4c8bd4               REX.W movq r10,rsp
+0x1dc181af82e1    21  4883ec08             REX.W subq rsp,0x8
+0x1dc181af82e5    25  4883e4f0             REX.W andq rsp,0xf0
+0x1dc181af82e9    29  4c891424             REX.W movq [rsp],r10
+[34m                          ][;m
+0x1dc181af82ed    2d  48b8b0076ecfc27f0000 REX.W movq rax,0x7fc2cf6e07b0
+0x1dc181af82f7    37  ffd0                 call rax
+[34m                        ][;m
+[34m                      ][;m
+[34m                    ][;m
+0x1dc181af82f9    39  410fb7541607         movzxwl rdx,[r14+rdx*1+0x7]
+[34m                    [  - void v8::internal::MacroAssembler::AssertZeroExtended(Register)@../../src/codegen/x64/macro-assembler-x64.cc:4195[;m
+0x1dc181af82ff    3f  41baffffffff         movl r10,0xffffffff
+0x1dc181af8305    45  493bd2               REX.W cmpq rdx,r10
+0x1dc181af8308    48  761d                 jna 0x1dc181af8327  <+0x67>
+[34m                      [  - void v8::internal::MacroAssembler::Abort(AbortReason)@../../src/codegen/x64/macro-assembler-x64.cc:1338[;m
+[34m                  Abort message:[;m
+[34m                  32 bit value in register is not zero-extended[;m
+[34m                        [ Frame: NO_FRAME_TYPE[;m
+0x1dc181af830a    4a  bf01000000           movl rdi,0x1
+[34m                          [  - void v8::internal::MacroAssembler::PrepareCallCFunction(int)@../../src/codegen/x64/macro-assembler-x64.cc:4862[;m
+0x1dc181af830f    4f  4c8bd4               REX.W movq r10,rsp
+0x1dc181af8312    52  4883ec08             REX.W subq rsp,0x8
+0x1dc181af8316    56  4883e4f0             REX.W andq rsp,0xf0
+0x1dc181af831a    5a  4c891424             REX.W movq [rsp],r10
+[34m                          ][;m
+0x1dc181af831e    5e  488b05caffffff       REX.W movq rax,[rip+0xffffffca]
+0x1dc181af8325    65  ffd0                 call rax
+[34m                        ][;m
+[34m                      ][;m
+[34m                    ][;m
+0x1dc181af8327    67  81fabf000000         cmpl rdx,0xbf
+0x1dc181af832d    6d  0f85f3010000         jnz 0x1dc181af8526  <+0x266>
+[34m                  -- B2 start --[;m
+0x1dc181af8333    73  493b65a0             REX.W cmpq rsp,[r13-0x60]
+0x1dc181af8337    77  0f861b020000         jna 0x1dc181af8558  <+0x298>
+[34m                  -- B5 start --[;m
+0x1dc181af833d    7d  33d2                 xorl rdx,rdx
+0x1dc181af833f    7f  488bca               REX.W movq rcx,rdx
+0x1dc181af8342    82  e993000000           jmp 0x1dc181af83da  <+0x11a>
+0x1dc181af8347    87  660f1f840000000000   nop
+0x1dc181af8350    90  660f1f840000000000   nop
+0x1dc181af8359    99  660f1f840000000000   nop
+0x1dc181af8362    a2  660f1f840000000000   nop
+0x1dc181af836b    ab  660f1f840000000000   nop
+0x1dc181af8374    b4  660f1f840000000000   nop
+0x1dc181af837d    bd  0f1f00               nop
+[34m                  -- B13 start (in loop 6) --[;m
+0x1dc181af8380    c0  8bf9                 movl rdi,rcx
+0x1dc181af8382    c2  83e707               andl rdi,0x7
+0x1dc181af8385    c5  03d7                 addl rdx,rdi
+[34m                    [  - void v8::internal::MacroAssembler::AssertZeroExtended(Register)@../../src/codegen/x64/macro-assembler-x64.cc:4195[;m
+0x1dc181af8387    c7  41baffffffff         movl r10,0xffffffff
+0x1dc181af838d    cd  493bd2               REX.W cmpq rdx,r10
+0x1dc181af8390    d0  761d                 jna 0x1dc181af83af  <+0xef>
+[34m                      [  - void v8::internal::MacroAssembler::Abort(AbortReason)@../../src/codegen/x64/macro-assembler-x64.cc:1338[;m
+[34m                  Abort message:[;m
+[34m                  32 bit value in register is not zero-extended[;m
+[34m                        [ Frame: NO_FRAME_TYPE[;m
+0x1dc181af8392    d2  bf01000000           movl rdi,0x1
+[34m                          [  - void v8::internal::MacroAssembler::PrepareCallCFunction(int)@../../src/codegen/x64/macro-assembler-x64.cc:4862[;m
+0x1dc181af8397    d7  4c8bd4               REX.W movq r10,rsp
+0x1dc181af839a    da  4883ec08             REX.W subq rsp,0x8
+0x1dc181af839e    de  4883e4f0             REX.W andq rsp,0xf0
+0x1dc181af83a2    e2  4c891424             REX.W movq [rsp],r10
+[34m                          ][;m
+0x1dc181af83a6    e6  488b0542ffffff       REX.W movq rax,[rip+0xffffff42]
+0x1dc181af83ad    ed  ffd0                 call rax
+[34m                        ][;m
+[34m                      ][;m
+[34m                    ][;m
+0x1dc181af83af    ef  83c101               addl rcx,0x1
+[34m                    [  - void v8::internal::MacroAssembler::AssertZeroExtended(Register)@../../src/codegen/x64/macro-assembler-x64.cc:4195[;m
+0x1dc181af83b2    f2  41baffffffff         movl r10,0xffffffff
+0x1dc181af83b8    f8  493bca               REX.W cmpq rcx,r10
+0x1dc181af83bb    fb  761d                 jna 0x1dc181af83da  <+0x11a>
+[34m                      [  - void v8::internal::MacroAssembler::Abort(AbortReason)@../../src/codegen/x64/macro-assembler-x64.cc:1338[;m
+[34m                  Abort message:[;m
+[34m                  32 bit value in register is not zero-extended[;m
+[34m                        [ Frame: NO_FRAME_TYPE[;m
+0x1dc181af83bd    fd  bf01000000           movl rdi,0x1
+[34m                          [  - void v8::internal::MacroAssembler::PrepareCallCFunction(int)@../../src/codegen/x64/macro-assembler-x64.cc:4862[;m
+0x1dc181af83c2   102  4c8bd4               REX.W movq r10,rsp
+0x1dc181af83c5   105  4883ec08             REX.W subq rsp,0x8
+0x1dc181af83c9   109  4883e4f0             REX.W andq rsp,0xf0
+0x1dc181af83cd   10d  4c891424             REX.W movq [rsp],r10
+[34m                          ][;m
+0x1dc181af83d1   111  488b0517ffffff       REX.W movq rax,[rip+0xffffff17]
+0x1dc181af83d8   118  ffd0                 call rax
+[34m                        ][;m
+[34m                      ][;m
+[34m                    ][;m
+[34m                  -- B6 start (loop up to 14) --[;m
+0x1dc181af83da   11a  3bc1                 cmpl rax,rcx
+0x1dc181af83dc   11c  0f8e40010000         jle 0x1dc181af8522  <+0x262>
+[34m                  -- B7 start (in loop 6) --[;m
+0x1dc181af83e2   122  8bf9                 movl rdi,rcx
+0x1dc181af83e4   124  83e707               andl rdi,0x7
+0x1dc181af83e7   127  03d7                 addl rdx,rdi
+[34m                    [  - void v8::internal::MacroAssembler::AssertZeroExtended(Register)@../../src/codegen/x64/macro-assembler-x64.cc:4195[;m
+0x1dc181af83e9   129  41baffffffff         movl r10,0xffffffff
+0x1dc181af83ef   12f  493bd2               REX.W cmpq rdx,r10
+0x1dc181af83f2   132  761d                 jna 0x1dc181af8411  <+0x151>
+[34m                      [  - void v8::internal::MacroAssembler::Abort(AbortReason)@../../src/codegen/x64/macro-assembler-x64.cc:1338[;m
+[34m                  Abort message:[;m
+[34m                  32 bit value in register is not zero-extended[;m
+[34m                        [ Frame: NO_FRAME_TYPE[;m
+0x1dc181af83f4   134  bf01000000           movl rdi,0x1
+[34m                          [  - void v8::internal::MacroAssembler::PrepareCallCFunction(int)@../../src/codegen/x64/macro-assembler-x64.cc:4862[;m
+0x1dc181af83f9   139  4c8bd4               REX.W movq r10,rsp
+0x1dc181af83fc   13c  4883ec08             REX.W subq rsp,0x8
+0x1dc181af8400   140  4883e4f0             REX.W andq rsp,0xf0
+0x1dc181af8404   144  4c891424             REX.W movq [rsp],r10
+[34m                          ][;m
+0x1dc181af8408   148  488b05e0feffff       REX.W movq rax,[rip+0xfffffee0]
+0x1dc181af840f   14f  ffd0                 call rax
+[34m                        ][;m
+[34m                      ][;m
+[34m                    ][;m
+0x1dc181af8411   151  83c101               addl rcx,0x1
+[34m                    [  - void v8::internal::MacroAssembler::AssertZeroExtended(Register)@../../src/codegen/x64/macro-assembler-x64.cc:4195[;m
+0x1dc181af8414   154  41baffffffff         movl r10,0xffffffff
+0x1dc181af841a   15a  493bca               REX.W cmpq rcx,r10
+0x1dc181af841d   15d  761d                 jna 0x1dc181af843c  <+0x17c>
+[34m                      [  - void v8::internal::MacroAssembler::Abort(AbortReason)@../../src/codegen/x64/macro-assembler-x64.cc:1338[;m
+[34m                  Abort message:[;m
+[34m                  32 bit value in register is not zero-extended[;m
+[34m                        [ Frame: NO_FRAME_TYPE[;m
+0x1dc181af841f   15f  bf01000000           movl rdi,0x1
+[34m                          [  - void v8::internal::MacroAssembler::PrepareCallCFunction(int)@../../src/codegen/x64/macro-assembler-x64.cc:4862[;m
+0x1dc181af8424   164  4c8bd4               REX.W movq r10,rsp
+0x1dc181af8427   167  4883ec08             REX.W subq rsp,0x8
+0x1dc181af842b   16b  4883e4f0             REX.W andq rsp,0xf0
+0x1dc181af842f   16f  4c891424             REX.W movq [rsp],r10
+[34m                          ][;m
+0x1dc181af8433   173  488b05b5feffff       REX.W movq rax,[rip+0xfffffeb5]
+0x1dc181af843a   17a  ffd0                 call rax
+[34m                        ][;m
+[34m                      ][;m
+[34m                    ][;m
+0x1dc181af843c   17c  3bc1                 cmpl rax,rcx
+0x1dc181af843e   17e  0f8eda000000         jle 0x1dc181af851e  <+0x25e>
+[34m                  -- B8 start (in loop 6) --[;m
+0x1dc181af8444   184  8bf9                 movl rdi,rcx
+0x1dc181af8446   186  83e707               andl rdi,0x7
+0x1dc181af8449   189  03d7                 addl rdx,rdi
+[34m                    [  - void v8::internal::MacroAssembler::AssertZeroExtended(Register)@../../src/codegen/x64/macro-assembler-x64.cc:4195[;m
+0x1dc181af844b   18b  41baffffffff         movl r10,0xffffffff
+0x1dc181af8451   191  493bd2               REX.W cmpq rdx,r10
+0x1dc181af8454   194  761d                 jna 0x1dc181af8473  <+0x1b3>
+[34m                      [  - void v8::internal::MacroAssembler::Abort(AbortReason)@../../src/codegen/x64/macro-assembler-x64.cc:1338[;m
+[34m                  Abort message:[;m
+[34m                  32 bit value in register is not zero-extended[;m
+[34m                        [ Frame: NO_FRAME_TYPE[;m
+0x1dc181af8456   196  bf01000000           movl rdi,0x1
+[34m                          [  - void v8::internal::MacroAssembler::PrepareCallCFunction(int)@../../src/codegen/x64/macro-assembler-x64.cc:4862[;m
+0x1dc181af845b   19b  4c8bd4               REX.W movq r10,rsp
+0x1dc181af845e   19e  4883ec08             REX.W subq rsp,0x8
+0x1dc181af8462   1a2  4883e4f0             REX.W andq rsp,0xf0
+0x1dc181af8466   1a6  4c891424             REX.W movq [rsp],r10
+[34m                          ][;m
+0x1dc181af846a   1aa  488b057efeffff       REX.W movq rax,[rip+0xfffffe7e]
+0x1dc181af8471   1b1  ffd0                 call rax
+[34m                        ][;m
+[34m                      ][;m
+[34m                    ][;m
+0x1dc181af8473   1b3  83c101               addl rcx,0x1
+[34m                    [  - void v8::internal::MacroAssembler::AssertZeroExtended(Register)@../../src/codegen/x64/macro-assembler-x64.cc:4195[;m
+0x1dc181af8476   1b6  41baffffffff         movl r10,0xffffffff
+0x1dc181af847c   1bc  493bca               REX.W cmpq rcx,r10
+0x1dc181af847f   1bf  761d                 jna 0x1dc181af849e  <+0x1de>
+[34m                      [  - void v8::internal::MacroAssembler::Abort(AbortReason)@../../src/codegen/x64/macro-assembler-x64.cc:1338[;m
+[34m                  Abort message:[;m
+[34m                  32 bit value in register is not zero-extended[;m
+[34m                        [ Frame: NO_FRAME_TYPE[;m
+0x1dc181af8481   1c1  bf01000000           movl rdi,0x1
+[34m                          [  - void v8::internal::MacroAssembler::PrepareCallCFunction(int)@../../src/codegen/x64/macro-assembler-x64.cc:4862[;m
+0x1dc181af8486   1c6  4c8bd4               REX.W movq r10,rsp
+0x1dc181af8489   1c9  4883ec08             REX.W subq rsp,0x8
+0x1dc181af848d   1cd  4883e4f0             REX.W andq rsp,0xf0
+0x1dc181af8491   1d1  4c891424             REX.W movq [rsp],r10
+[34m                          ][;m
+0x1dc181af8495   1d5  488b0553feffff       REX.W movq rax,[rip+0xfffffe53]
+0x1dc181af849c   1dc  ffd0                 call rax
+[34m                        ][;m
+[34m                      ][;m
+[34m                    ][;m
+0x1dc181af849e   1de  3bc1                 cmpl rax,rcx
+0x1dc181af84a0   1e0  0f8e74000000         jle 0x1dc181af851a  <+0x25a>
+[34m                  -- B9 start (in loop 6) --[;m
+0x1dc181af84a6   1e6  8bf9                 movl rdi,rcx
+0x1dc181af84a8   1e8  83e707               andl rdi,0x7
+0x1dc181af84ab   1eb  03d7                 addl rdx,rdi
+[34m                    [  - void v8::internal::MacroAssembler::AssertZeroExtended(Register)@../../src/codegen/x64/macro-assembler-x64.cc:4195[;m
+0x1dc181af84ad   1ed  41baffffffff         movl r10,0xffffffff
+0x1dc181af84b3   1f3  493bd2               REX.W cmpq rdx,r10
+0x1dc181af84b6   1f6  761d                 jna 0x1dc181af84d5  <+0x215>
+[34m                      [  - void v8::internal::MacroAssembler::Abort(AbortReason)@../../src/codegen/x64/macro-assembler-x64.cc:1338[;m
+[34m                  Abort message:[;m
+[34m                  32 bit value in register is not zero-extended[;m
+[34m                        [ Frame: NO_FRAME_TYPE[;m
+0x1dc181af84b8   1f8  bf01000000           movl rdi,0x1
+[34m                          [  - void v8::internal::MacroAssembler::PrepareCallCFunction(int)@../../src/codegen/x64/macro-assembler-x64.cc:4862[;m
+0x1dc181af84bd   1fd  4c8bd4               REX.W movq r10,rsp
+0x1dc181af84c0   200  4883ec08             REX.W subq rsp,0x8
+0x1dc181af84c4   204  4883e4f0             REX.W andq rsp,0xf0
+0x1dc181af84c8   208  4c891424             REX.W movq [rsp],r10
+[34m                          ][;m
+0x1dc181af84cc   20c  488b051cfeffff       REX.W movq rax,[rip+0xfffffe1c]
+0x1dc181af84d3   213  ffd0                 call rax
+[34m                        ][;m
+[34m                      ][;m
+[34m                    ][;m
+0x1dc181af84d5   215  83c101               addl rcx,0x1
+[34m                    [  - void v8::internal::MacroAssembler::AssertZeroExtended(Register)@../../src/codegen/x64/macro-assembler-x64.cc:4195[;m
+0x1dc181af84d8   218  41baffffffff         movl r10,0xffffffff
+0x1dc181af84de   21e  493bca               REX.W cmpq rcx,r10
+0x1dc181af84e1   221  761d                 jna 0x1dc181af8500  <+0x240>
+[34m                      [  - void v8::internal::MacroAssembler::Abort(AbortReason)@../../src/codegen/x64/macro-assembler-x64.cc:1338[;m
+[34m                  Abort message:[;m
+[34m                  32 bit value in register is not zero-extended[;m
+[34m                        [ Frame: NO_FRAME_TYPE[;m
+0x1dc181af84e3   223  bf01000000           movl rdi,0x1
+[34m                          [  - void v8::internal::MacroAssembler::PrepareCallCFunction(int)@../../src/codegen/x64/macro-assembler-x64.cc:4862[;m
+0x1dc181af84e8   228  4c8bd4               REX.W movq r10,rsp
+0x1dc181af84eb   22b  4883ec08             REX.W subq rsp,0x8
+0x1dc181af84ef   22f  4883e4f0             REX.W andq rsp,0xf0
+0x1dc181af84f3   233  4c891424             REX.W movq [rsp],r10
+[34m                          ][;m
+0x1dc181af84f7   237  488b05f1fdffff       REX.W movq rax,[rip+0xfffffdf1]
+0x1dc181af84fe   23e  ffd0                 call rax
+[34m                        ][;m
+[34m                      ][;m
+[34m                    ][;m
+0x1dc181af8500   240  41807db100           cmpb [r13-0x4f],0x0
+0x1dc181af8505   245  0f856b000000         jnz 0x1dc181af8576  <+0x2b6>
+[34m                  -- B12 start (in loop 6) --[;m
+0x1dc181af850b   24b  3bc1                 cmpl rax,rcx
+0x1dc181af850d   24d  0f8f6dfeffff         jg 0x1dc181af8380  <+0xc0>
+[34m                  -- B14 start (deconstruct frame) --[;m
+0x1dc181af8513   253  8bc2                 movl rax,rdx
+0x1dc181af8515   255  488be5               REX.W movq rsp,rbp
+0x1dc181af8518   258  5d                   pop rbp
+0x1dc181af8519   259  c3                   retl
+[34m                  -- B15 start (deconstruct frame) --[;m
+0x1dc181af851a   25a  8bc2                 movl rax,rdx
+0x1dc181af851c   25c  ebf7                 jmp 0x1dc181af8515  <+0x255>
+[34m                  -- B16 start (deconstruct frame) --[;m
+0x1dc181af851e   25e  8bc2                 movl rax,rdx
+0x1dc181af8520   260  ebf3                 jmp 0x1dc181af8515  <+0x255>
+[34m                  -- B17 start (deconstruct frame) --[;m
+0x1dc181af8522   262  8bc2                 movl rax,rdx
+0x1dc181af8524   264  ebef                 jmp 0x1dc181af8515  <+0x255>
+[34m                  -- B1 start (deferred) --[;m
+0x1dc181af8526   266  498b9538c90000       REX.W movq rdx,[r13+0xc938]
+[34m                  -- <not inlined:0> --[;m
+0x1dc181af852d   26d  b99a000000           movl rcx,0x9a
+0x1dc181af8532   272  51                   push rcx
+0x1dc181af8533   273  48bbc0db8ad0c27f0000 REX.W movq rbx,0x7fc2d08adbc0
+0x1dc181af853d   27d  b801000000           movl rax,0x1
+0x1dc181af8542   282  33f6                 xorl rsi,rsi
+[34m                    [  - void v8::internal::MacroAssembler::LoadCodeInstructionStart(Register, Register, CodeEntrypointTag)@../../src/codegen/x64/macro-assembler-x64.cc:3636[;m
+0x1dc181af8544   284  488b5217             REX.W movq rdx,[rdx+0x17]
+0x1dc181af8548   288  49ba0000000000000700 REX.W movq r10,0x7000000000000
+0x1dc181af8552   292  4933d2               REX.W xorq rdx,r10
+[34m                    ][;m
+0x1dc181af8555   295  ffd2                 call rdx
+0x1dc181af8557   297  cc                   int3l
+[34m                  -- B3 start (deferred) --[;m
+0x1dc181af8558   298  ba10000000           movl rdx,0x10
+0x1dc181af855d   29d  d1fa                 sarl rdx,1
+0x1dc181af855f   29f  4863d2               REX.W movsxlq rdx,rdx
+0x1dc181af8562   2a2  488945d8             REX.W movq [rbp-0x28],rax
+0x1dc181af8566   2a6  488bc2               REX.W movq rax,rdx
+0x1dc181af8569   2a9  e802eeffff           call 0x1dc181af7370  (jump table)
+0x1dc181af856e   2ae  8b45d8               movl rax,[rbp-0x28]
+0x1dc181af8571   2b1  e9c7fdffff           jmp 0x1dc181af833d  <+0x7d>
+[34m                  -- B10 start (deferred) (in loop 6) --[;m
+[34m                  -- <not inlined:5> --[;m
+0x1dc181af8576   2b6  488955e8             REX.W movq [rbp-0x18],rdx
+0x1dc181af857a   2ba  48894de0             REX.W movq [rbp-0x20],rcx
+0x1dc181af857e   2be  488945d8             REX.W movq [rbp-0x28],rax
+0x1dc181af8582   2c2  e8f9edffff           call 0x1dc181af7380  (jump table)
+0x1dc181af8587   2c7  8b55e8               movl rdx,[rbp-0x18]
+0x1dc181af858a   2ca  8b4de0               movl rcx,[rbp-0x20]
+0x1dc181af858d   2cd  8b45d8               movl rax,[rbp-0x28]
+0x1dc181af8590   2d0  e976ffffff           jmp 0x1dc181af850b  <+0x24b>
+0x1dc181af8595   2d5  90                   nop
+0x1dc181af8596   2d6  6690                 nop
+                  ;;; Safepoint table. - void v8::internal::SafepointTableBuilder::Emit(Assembler *, int)@../../src/codegen/safepoint-table.cc:488
+                  ]
+
+Source positions:
+ pc offset  position
+       26d         0
+       2b6         5
+
+Safepoints (stack slots = 7, byte size = 8)
+All bits in all entries are zero, no data was stored.
+
+RelocInfo (size = 8)
+0x1dc181af82ef  external reference (0x7fc2cf6e07b0)
+0x1dc181af8535  external reference (0x7fc2d08adbc0)
+0x1dc181af856a  wasm stub call  (0x1dc181af7370)
+0x1dc181af8583  wasm stub call  (0x1dc181af7380)
+
+--- End code ---
+70000000

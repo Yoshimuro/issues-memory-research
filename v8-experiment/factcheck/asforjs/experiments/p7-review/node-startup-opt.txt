@@ -1,0 +1,14 @@
+== /opt/node20/bin/node empty.js: completed optimizations (internal names)
+== /opt/node20/bin/node osr-print.js: completed optimizations (internal names)
+== /opt/node20/bin/node osr-print.js --print-opt-code (no filter): name lines
+      1 name = doLoop
+== /opt/node22/bin/node empty.js: completed optimizations (internal names)
+== /opt/node22/bin/node osr-print.js: completed optimizations (internal names)
+== /opt/node22/bin/node osr-print.js --print-opt-code (no filter): name lines
+      1 name = doLoop
+== /opt/nvm/versions/node/v24.21.0/bin/node empty.js: completed optimizations (internal names)
+      1 isPosixPathSeparator MAGLEV
+== /opt/nvm/versions/node/v24.21.0/bin/node osr-print.js: completed optimizations (internal names)
+      1 isPosixPathSeparator MAGLEV
+== /opt/nvm/versions/node/v24.21.0/bin/node osr-print.js --print-opt-code (no filter): name lines
+      1 name = doLoop

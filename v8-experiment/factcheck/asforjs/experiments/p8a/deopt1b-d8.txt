@@ -1,0 +1,5 @@
+V8 is running with developer-only features enabled. Stability and security will suffer.
+status before 101001
+1073741824 false
+status after 2^30 result 101001
+status after 5 more 101001

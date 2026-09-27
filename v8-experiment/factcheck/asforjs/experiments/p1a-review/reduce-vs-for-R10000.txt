@@ -1,0 +1,8 @@
+D8 default R=10000: sumFor 113 sumReduce 673 sumFor 51 sumReduce 503 sumFor 52 sumReduce 47 
+N24 default R=10000: sumFor 57 sumReduce 609 sumFor 57 sumReduce 113 sumFor 55 sumReduce 69 
+N24 --no-opt R=10000: sumFor 95 sumReduce 572 sumFor 96 sumReduce 491 sumFor 77 sumReduce 526 
+D8 --no-opt R=10000: sumFor 136 sumReduce 575 sumFor 111 sumReduce 677 sumFor 130 sumReduce 635 
+D8 --max-opt=2 R=10000: sumFor 129 sumReduce 619 sumFor 134 sumReduce 645 sumFor 140 sumReduce 754 
+D8 --max-opt=1 R=10000: sumFor 915 sumReduce 875 sumFor 716 sumReduce 813 sumFor 738 sumReduce 847 
+N22 --no-opt R=10000: sumFor 1432 sumReduce 814 sumFor 1139 sumReduce 712 sumFor 1390 sumReduce 985 
+D8 default R=100000: sumFor 704 sumReduce 1503 sumFor 512 sumReduce 505 sumFor 522 sumReduce 486 

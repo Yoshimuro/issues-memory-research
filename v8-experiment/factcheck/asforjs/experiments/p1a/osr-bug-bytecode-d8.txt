@@ -1,0 +1,15 @@
+== globalVar
+         0x276701000423 @   15 : 1a 08             LdaImmutableCurrentContextSlot [8]
+         0x276701000426 @   18 : 34 f6 00 01       GetNamedProperty r3, [0:"reduce"], FBV[1]
+         0x27670100042b @   23 : 24 01 03          LdaGlobal [1:"doOuterVar"], FBV[3]
+         0x276701000431 @   29 : 6b f7 f6 f5 f4 05 CallProperty2 r2, r3, r4, r5, FBV[5]
+== globalConst
+         0x2f470100041f @   15 : 1a 08             LdaImmutableCurrentContextSlot [8]
+         0x2f4701000422 @   18 : 34 f6 00 01       GetNamedProperty r3, [0:"reduce"], FBV[1]
+         0x2f4701000427 @   23 : 1a 09             LdaImmutableCurrentContextSlot [9]
+         0x2f470100042c @   28 : 6b f7 f6 f5 f4 03 CallProperty2 r2, r3, r4, r5, FBV[3]
+== globalFn
+         0x121301000423 @   15 : 1a 08             LdaImmutableCurrentContextSlot [8]
+         0x121301000426 @   18 : 34 f6 00 01       GetNamedProperty r3, [0:"reduce"], FBV[1]
+         0x12130100042b @   23 : 24 01 03          LdaGlobal [1:"doOuter"], FBV[3]
+         0x121301000431 @   29 : 6b f7 f6 f5 f4 05 CallProperty2 r2, r3, r4, r5, FBV[5]

@@ -1,0 +1,4 @@
+D8 never: sumOuterLet 192 sumOuterVar 189 sumOuterConst 129 sumLocal 122 sumOuterLet 170 sumOuterVar 170 sumOuterConst 129 sumLocal 104 sumOuterLet 192 sumOuterVar 183 sumOuterConst 130 sumLocal 78
+D8 default: sumOuterLet 61 sumOuterVar 15 sumOuterConst 15 sumLocal 15 sumOuterLet 64 sumOuterVar 13 sumOuterConst 13 sumLocal 13 sumOuterLet 95 sumOuterVar 13 sumOuterConst 13 sumLocal 14
+N24 never: sumOuterLet 163 sumOuterVar 149 sumOuterConst 163 sumLocal 148 sumOuterLet 233 sumOuterVar 162 sumOuterConst 157 sumLocal 145 sumOuterLet 144 sumOuterVar 141 sumOuterConst 182 sumLocal 188
+N24 default: sumOuterLet 14 sumOuterVar 14 sumOuterConst 14 sumLocal 14 sumOuterLet 12 sumOuterVar 12 sumOuterConst 12 sumLocal 13 sumOuterLet 13 sumOuterVar 12 sumOuterConst 13 sumLocal 12

@@ -1,0 +1,280 @@
+V8 is running with developer-only features enabled. Stability and security will suffer.
+Concurrent maglev has been disabled for tracing.
+--- Raw source ---
+(a, b) { return (a | 0) + (b | 0); }
+
+
+--- Optimized code ---
+optimization_id = 0
+source_position = 10
+kind = TURBOFAN_JS
+name = f
+compiler = turbofan
+address = 0x35d30100022d
+
+Instructions (size = 772)
+[34m                  [ Frame: MANUAL[;m
+[34m                  -- Prologue: check code start register -- - void v8::internal::compiler::CodeGenerator::AssembleCode()@../../src/compiler/backend/code-generator.cc:252[;m
+0x7f83e0000040     0  488d1df9ffffff       REX.W leaq rbx,[rip+0xfffffff9]
+0x7f83e0000047     7  483bd9               REX.W cmpq rbx,rcx
+0x7f83e000004a     a  740d                 jz 0x7f83e0000059  <+0x19>
+[34m                    [  - void v8::internal::MacroAssembler::Abort(AbortReason)@../../src/codegen/x64/macro-assembler-x64.cc:1338[;m
+[34m                  Abort message:[;m
+[34m                  Wrong value in code start register passed[;m
+0x7f83e000004c     c  ba92000000           movl rdx,0x92
+[34m                      [ Frame: NO_FRAME_TYPE[;m
+0x7f83e0000051    11  41ff9530640000       call [r13+0x6430]
+[34m                      ][;m
+0x7f83e0000058    18  cc                   int3l
+[34m                    ][;m
+[34m                  -- Prologue: check dispatch handle register -- - void v8::internal::compiler::CodeGenerator::AssembleCode()@../../src/compiler/backend/code-generator.cc:258[;m
+0x7f83e0000059    19  4d8b95d0020000       REX.W movq r10,[r13+0x2d0] (external value (IsolateData::js_dispatch_table_))
+0x7f83e0000060    20  498bdf               REX.W movq rbx,r15
+0x7f83e0000063    23  c1eb08               shrl rbx,8
+0x7f83e0000066    26  c1e304               shll rbx,4
+0x7f83e0000069    29  410fb75c1a08         movzxwl rbx,[r10+rbx*1+0x8]
+0x7f83e000006f    2f  83fb03               cmpl rbx,0x3
+0x7f83e0000072    32  740d                 jz 0x7f83e0000081  <+0x41>
+[34m                    [  - void v8::internal::MacroAssembler::Abort(AbortReason)@../../src/codegen/x64/macro-assembler-x64.cc:1338[;m
+[34m                  Abort message:[;m
+[34m                  Wrong value in dispatch handle register passed[;m
+0x7f83e0000074    34  ba96000000           movl rdx,0x96
+[34m                      [ Frame: NO_FRAME_TYPE[;m
+0x7f83e0000079    39  41ff9530640000       call [r13+0x6430]
+[34m                      ][;m
+0x7f83e0000080    40  cc                   int3l
+[34m                    ][;m
+[34m                  -- Prologue: check for deoptimization -- - void v8::internal::compiler::CodeGenerator::AssembleCode()@../../src/compiler/backend/code-generator.cc:267[;m
+[34m                    [  - void v8::internal::MacroAssembler::DecompressProtected(Register, Operand)@../../src/codegen/x64/macro-assembler-x64.cc:456[;m
+0x7f83e0000081    41  8b59f0               movl rbx,[rcx-0x10]
+0x7f83e0000084    44  490b9d98020000       REX.W orq rbx,[r13+0x298] (external value (IsolateData::trusted_cage_base_))
+[34m                    ][;m
+0x7f83e000008b    4b  f6432380             testb [rbx+0x23],0x80
+0x7f83e000008f    4f  740d                 jz 0x7f83e000009e  <+0x5e>
+[34m                    [  - void v8::internal::MacroAssembler::Abort(AbortReason)@../../src/codegen/x64/macro-assembler-x64.cc:1338[;m
+[34m                  Abort message:[;m
+[34m                  Invoked code which is deoptimized[;m
+0x7f83e0000091    51  ba26000000           movl rdx,0x26
+[34m                      [ Frame: NO_FRAME_TYPE[;m
+0x7f83e0000096    56  41ff9530640000       call [r13+0x6430]
+[34m                      ][;m
+0x7f83e000009d    5d  cc                   int3l
+[34m                    ][;m
+[34m                  -- B0 start (construct frame) --[;m
+[34m                    [  - void v8::internal::MacroAssembler::Prologue()@../../src/codegen/x64/macro-assembler-x64.cc:4655[;m
+0x7f83e000009e    5e  55                   push rbp
+0x7f83e000009f    5f  488bec               REX.W movq rbp,rsp
+0x7f83e00000a2    62  56                   push rsi
+0x7f83e00000a3    63  57                   push rdi
+0x7f83e00000a4    64  50                   push rax
+[34m                    ][;m
+0x7f83e00000a5    65  4883ec08             REX.W subq rsp,0x8
+0x7f83e00000a9    69  49c7457800000000     REX.W movq [r13+0x78] (external value (last_young_allocation_address)),0x0
+0x7f83e00000b1    71  488975e0             REX.W movq [rbp-0x20],rsi
+0x7f83e00000b5    75  493b65a0             REX.W cmpq rsp,[r13-0x60] (external value (StackGuard::address_of_jslimit()))
+0x7f83e00000b9    79  0f8658000000         jna 0x7f83e0000117  <+0xd7>
+[34m                  -- B3 start --[;m
+0x7f83e00000bf    7f  488b4d18             REX.W movq rcx,[rbp+0x18]
+0x7f83e00000c3    83  f6c101               testb rcx,0x1
+0x7f83e00000c6    86  0f8565020000         jnz 0x7f83e0000331  <+0x2f1>
+0x7f83e00000cc    8c  488bf9               REX.W movq rdi,rcx
+0x7f83e00000cf    8f  d1ff                 sarl rdi,1
+0x7f83e00000d1    91  4c8b4520             REX.W movq r8,[rbp+0x20]
+0x7f83e00000d5    95  41f6c001             testb r8,0x1
+0x7f83e00000d9    99  0f8556020000         jnz 0x7f83e0000335  <+0x2f5>
+0x7f83e00000df    9f  4d8bc8               REX.W movq r9,r8
+0x7f83e00000e2    a2  41d1f9               sarl r9,1
+0x7f83e00000e5    a5  4403cf               addl r9,rdi
+0x7f83e00000e8    a8  0f804b020000         jo 0x7f83e0000339  <+0x2f9>
+0x7f83e00000ee    ae  498bc9               REX.W movq rcx,r9
+0x7f83e00000f1    b1  4103c9               addl rcx,r9
+0x7f83e00000f4    b4  0f8043000000         jo 0x7f83e000013d  <+0xfd>
+[34m                  -- B4 start (deconstruct frame) --[;m
+0x7f83e00000fa    ba  488bc1               REX.W movq rax,rcx
+0x7f83e00000fd    bd  488b4de8             REX.W movq rcx,[rbp-0x18]
+0x7f83e0000101    c1  488be5               REX.W movq rsp,rbp
+0x7f83e0000104    c4  5d                   pop rbp
+0x7f83e0000105    c5  4883f903             REX.W cmpq rcx,0x3
+0x7f83e0000109    c9  7f03                 jg 0x7f83e000010e  <+0xce>
+0x7f83e000010b    cb  c21800               ret 0x18
+0x7f83e000010e    ce  415a                 pop r10
+0x7f83e0000110    d0  488d24cc             REX.W leaq rsp,[rsp+rcx*8]
+0x7f83e0000114    d4  4152                 push r10
+0x7f83e0000116    d6  c3                   retl
+[34m                  -- B1 start (deferred) --[;m
+0x7f83e0000117    d7  b940000000           movl rcx,0x40
+0x7f83e000011c    dc  51                   push rcx
+0x7f83e000011d    dd  48bb10a67f99837f0000 REX.W movq rbx,0x7f83997fa610    ;; external reference (Runtime::StackGuardWithGap)
+0x7f83e0000127    e7  b801000000           movl rax,0x1
+0x7f83e000012c    ec  48be8d450001da170000 REX.W movq rsi,0x17da0100458d    ;; object: 0x17da0100458d <NativeContext[308]>
+[34m                    [ Inlined  Trampoline for call to CEntry_Return1_ArgvOnStack_NoBuiltinExit - void v8::internal::MacroAssembler::CallBuiltin(Builtin)@../../src/codegen/x64/macro-assembler-x64.cc:3559[;m
+0x7f83e0000136    f6  e8851925b7           call 0x7f8397251ac0  (CEntry_Return1_ArgvOnStack_NoBuiltinExit)    ;; near builtin entry
+[34m                    ][;m
+0x7f83e000013b    fb  eb82                 jmp 0x7f83e00000bf  <+0x7f>
+[34m                  -- B5 start (deferred) --[;m
+0x7f83e000013d    fd  c4c1032ac1           vcvtlsi2sd xmm0,xmm15,r9
+0x7f83e0000142   102  498b4d50             REX.W movq rcx,[r13+0x50] (external value (IsolateData::new_allocation_info_top_address()))
+0x7f83e0000146   106  c5fb1145e0           vmovsd [rbp-0x20],xmm0
+[34m                  -- B6 start (deferred) --[;m
+0x7f83e000014b   10b  488d790c             REX.W leaq rdi,[rcx+0xc]
+0x7f83e000014f   10f  49397d58             REX.W cmpq [r13+0x58] (external value (IsolateData::new_allocation_info_limit_address())),rdi
+0x7f83e0000153   113  0f8713000000         ja 0x7f83e000016c  <+0x12c>
+[34m                  -- B7 start (deferred) --[;m
+0x7f83e0000159   119  ba0c000000           movl rdx,0xc
+[34m                    [ Inlined  Trampoline for call to AllocateInYoungGeneration - void v8::internal::MacroAssembler::CallBuiltin(Builtin)@../../src/codegen/x64/macro-assembler-x64.cc:3559[;m
+0x7f83e000015e   11e  e89da38eb6           call 0x7f83968ea500  (AllocateInYoungGeneration)    ;; near builtin entry
+[34m                    ][;m
+0x7f83e0000163   123  488d48ff             REX.W leaq rcx,[rax-0x1]
+0x7f83e0000167   127  c5fb1045e0           vmovsd xmm0,[rbp-0x20]
+[34m                  -- B9 start (deferred) (deconstruct frame) --[;m
+0x7f83e000016c   12c  49894d78             REX.W movq [r13+0x78] (external value (last_young_allocation_address)),rcx
+0x7f83e0000170   130  488d790c             REX.W leaq rdi,[rcx+0xc]
+0x7f83e0000174   134  49897d50             REX.W movq [r13+0x50] (external value (IsolateData::new_allocation_info_top_address())),rdi
+0x7f83e0000178   138  4883c101             REX.W addq rcx,0x1
+0x7f83e000017c   13c  bf15050000           movl rdi,0x515
+0x7f83e0000181   141  81ff00000001         cmpl rdi,0x1000000
+0x7f83e0000187   147  0f820a000000         jc 0x7f83e0000197  <+0x157>
+0x7f83e000018d   14d  40f6c701             testb rdi,0x1
+0x7f83e0000191   151  0f8510000000         jnz 0x7f83e00001a7  <+0x167>
+0x7f83e0000197   157  8979ff               movl [rcx-0x1],rdi
+0x7f83e000019a   15a  c5fb114103           vmovsd [rcx+0x3],xmm0
+0x7f83e000019f   15f  488bc1               REX.W movq rax,rcx
+0x7f83e00001a2   162  e956ffffff           jmp 0x7f83e00000fd  <+0xbd>
+[34m                  -- Out of line code -- - void v8::internal::compiler::CodeGenerator::AssembleCode()@../../src/compiler/backend/code-generator.cc:361[;m
+[34m                    [  - void v8::internal::MacroAssembler::DecompressTagged(Register, Register)@../../src/codegen/x64/macro-assembler-x64.cc:441[;m
+0x7f83e00001a7   167  8bff                 movl rdi,rdi
+0x7f83e00001a9   169  490bfe               REX.W orq rdi,r14
+[34m                    ][;m
+[34m                    [  - void v8::internal::MacroAssembler::PreCheckSkippedWriteBarrier(Register, Register, Register, Label *)@../../src/codegen/x64/macro-assembler-x64.cc:4985[;m
+0x7f83e00001ac   16c  4c8d41ff             REX.W leaq r8,[rcx-0x1]
+0x7f83e00001b0   170  4d3b4578             REX.W cmpq r8,[r13+0x78] (external value (last_young_allocation_address))
+0x7f83e00001b4   174  74e1                 jz 0x7f83e0000197  <+0x157>
+0x7f83e00001b6   176  81ff00000001         cmpl rdi,0x1000000
+0x7f83e00001bc   17c  72d9                 jc 0x7f83e0000197  <+0x157>
+0x7f83e00001be   17e  4d8b4578             REX.W movq r8,[r13+0x78] (external value (last_young_allocation_address))
+0x7f83e00001c2   182  4d3b4548             REX.W cmpq r8,[r13+0x48] (external value (IsolateData::new_allocation_info_))
+0x7f83e00001c6   186  0f820f000000         jc 0x7f83e00001db  <+0x19b>
+0x7f83e00001cc   18c  4c3bc1               REX.W cmpq r8,rcx
+0x7f83e00001cf   18f  0f8306000000         jnc 0x7f83e00001db  <+0x19b>
+0x7f83e00001d5   195  493b4d50             REX.W cmpq rcx,[r13+0x50] (external value (IsolateData::new_allocation_info_top_address()))
+0x7f83e00001d9   199  72bc                 jc 0x7f83e0000197  <+0x157>
+[34m                    ][;m
+[34m                    [  - void v8::internal::MacroAssembler::CallVerifySkippedWriteBarrierStubSaveRegisters(Register, Register, SaveFPRegsMode)@../../src/codegen/x64/macro-assembler-x64.cc:1083[;m
+[34m                      [  - int v8::internal::MacroAssembler::PushCallerSaved(SaveFPRegsMode, Register)@../../src/codegen/x64/macro-assembler-x64.cc:1506[;m
+0x7f83e00001db   19b  50                   push rax
+0x7f83e00001dc   19c  51                   push rcx
+0x7f83e00001dd   19d  52                   push rdx
+0x7f83e00001de   19e  56                   push rsi
+0x7f83e00001df   19f  57                   push rdi
+0x7f83e00001e0   1a0  4150                 push r8
+0x7f83e00001e2   1a2  4151                 push r9
+0x7f83e00001e4   1a4  4152                 push r10
+0x7f83e00001e6   1a6  4153                 push r11
+0x7f83e00001e8   1a8  4881ecf0000000       REX.W subq rsp,0xf0
+0x7f83e00001ef   1af  c5fa7f0424           vmovdqu [rsp],xmm0
+0x7f83e00001f4   1b4  c5fa7f4c2410         vmovdqu [rsp+0x10],xmm1
+0x7f83e00001fa   1ba  c5fa7f542420         vmovdqu [rsp+0x20],xmm2
+0x7f83e0000200   1c0  c5fa7f5c2430         vmovdqu [rsp+0x30],xmm3
+0x7f83e0000206   1c6  c5fa7f642440         vmovdqu [rsp+0x40],xmm4
+0x7f83e000020c   1cc  c5fa7f6c2450         vmovdqu [rsp+0x50],xmm5
+0x7f83e0000212   1d2  c5fa7f742460         vmovdqu [rsp+0x60],xmm6
+0x7f83e0000218   1d8  c5fa7f7c2470         vmovdqu [rsp+0x70],xmm7
+0x7f83e000021e   1de  c57a7f842480000000   vmovdqu [rsp+0x80],xmm8
+0x7f83e0000227   1e7  c57a7f8c2490000000   vmovdqu [rsp+0x90],xmm9
+0x7f83e0000230   1f0  c57a7f9424a0000000   vmovdqu [rsp+0xa0],xmm10
+0x7f83e0000239   1f9  c57a7f9c24b0000000   vmovdqu [rsp+0xb0],xmm11
+0x7f83e0000242   202  c57a7fa424c0000000   vmovdqu [rsp+0xc0],xmm12
+0x7f83e000024b   20b  c57a7fac24d0000000   vmovdqu [rsp+0xd0],xmm13
+0x7f83e0000254   214  c57a7fb424e0000000   vmovdqu [rsp+0xe0],xmm14
+[34m                      ][;m
+[34m                      [  - void v8::internal::MacroAssembler::CallVerifySkippedWriteBarrierStub(Register, Register)@../../src/codegen/x64/macro-assembler-x64.cc:1091[;m
+0x7f83e000025d   21d  488bf7               REX.W movq rsi,rdi
+0x7f83e0000260   220  488bf9               REX.W movq rdi,rcx
+[34m                        [  - void v8::internal::MacroAssembler::PrepareCallCFunction(int)@../../src/codegen/x64/macro-assembler-x64.cc:4862[;m
+0x7f83e0000263   223  4c8bd4               REX.W movq r10,rsp
+0x7f83e0000266   226  4883ec08             REX.W subq rsp,0x8
+0x7f83e000026a   22a  4883e4f0             REX.W andq rsp,0xf0
+0x7f83e000026e   22e  4c891424             REX.W movq [rsp],r10
+[34m                        ][;m
+0x7f83e0000272   232  48b8d0eec198837f0000 REX.W movq rax,0x7f8398c1eed0    ;; external reference (Heap::VerifySkippedWriteBarrier)
+[34m                        [  - int v8::internal::MacroAssembler::CallCFunction(Register, int, SetIsolateDataSlots, Label *, CodeSandboxingMode)@../../src/codegen/x64/macro-assembler-x64.cc:4892[;m
+[34m                          [  - void v8::internal::MacroAssembler::CheckStackAlignment()@../../src/codegen/x64/macro-assembler-x64.cc:1317[;m
+0x7f83e000027c   23c  40f6c40f             testb rsp,0xf
+0x7f83e0000280   240  7401                 jz 0x7f83e0000283  <+0x243>
+0x7f83e0000282   242  cc                   int3l
+[34m                          ][;m
+0x7f83e0000283   243  4c8d1510000000       REX.W leaq r10,[rip+0x10]
+0x7f83e000028a   24a  4d8995a8000000       REX.W movq [r13+0xa8] (external value (IsolateData::fast_c_call_caller_pc_)),r10
+0x7f83e0000291   251  4989adb0000000       REX.W movq [r13+0xb0] (external value (IsolateData::fast_c_call_caller_fp_)),rbp
+0x7f83e0000298   258  ffd0                 call rax
+0x7f83e000029a   25a  488b2424             REX.W movq rsp,[rsp]
+0x7f83e000029e   25e  49c785b000000000000000 REX.W movq [r13+0xb0] (external value (IsolateData::fast_c_call_caller_fp_)),0x0
+[34m                        ][;m
+[34m                      ][;m
+[34m                      [  - int v8::internal::MacroAssembler::PopCallerSaved(SaveFPRegsMode, Register)@../../src/codegen/x64/macro-assembler-x64.cc:1517[;m
+0x7f83e00002a9   269  c5fa6f0424           vmovdqu xmm0,[rsp]
+0x7f83e00002ae   26e  c5fa6f4c2410         vmovdqu xmm1,[rsp+0x10]
+0x7f83e00002b4   274  c5fa6f542420         vmovdqu xmm2,[rsp+0x20]
+0x7f83e00002ba   27a  c5fa6f5c2430         vmovdqu xmm3,[rsp+0x30]
+0x7f83e00002c0   280  c5fa6f642440         vmovdqu xmm4,[rsp+0x40]
+0x7f83e00002c6   286  c5fa6f6c2450         vmovdqu xmm5,[rsp+0x50]
+0x7f83e00002cc   28c  c5fa6f742460         vmovdqu xmm6,[rsp+0x60]
+0x7f83e00002d2   292  c5fa6f7c2470         vmovdqu xmm7,[rsp+0x70]
+0x7f83e00002d8   298  c57a6f842480000000   vmovdqu xmm8,[rsp+0x80]
+0x7f83e00002e1   2a1  c57a6f8c2490000000   vmovdqu xmm9,[rsp+0x90]
+0x7f83e00002ea   2aa  c57a6f9424a0000000   vmovdqu xmm10,[rsp+0xa0]
+0x7f83e00002f3   2b3  c57a6f9c24b0000000   vmovdqu xmm11,[rsp+0xb0]
+0x7f83e00002fc   2bc  c57a6fa424c0000000   vmovdqu xmm12,[rsp+0xc0]
+0x7f83e0000305   2c5  c57a6fac24d0000000   vmovdqu xmm13,[rsp+0xd0]
+0x7f83e000030e   2ce  c57a6fb424e0000000   vmovdqu xmm14,[rsp+0xe0]
+0x7f83e0000317   2d7  4881c4f0000000       REX.W addq rsp,0xf0
+0x7f83e000031e   2de  415b                 pop r11
+0x7f83e0000320   2e0  415a                 pop r10
+0x7f83e0000322   2e2  4159                 pop r9
+0x7f83e0000324   2e4  4158                 pop r8
+0x7f83e0000326   2e6  5f                   pop rdi
+0x7f83e0000327   2e7  5e                   pop rsi
+0x7f83e0000328   2e8  5a                   pop rdx
+0x7f83e0000329   2e9  59                   pop rcx
+0x7f83e000032a   2ea  58                   pop rax
+[34m                      ][;m
+[34m                    ][;m
+0x7f83e000032b   2eb  e967feffff           jmp 0x7f83e0000197  <+0x157>
+0x7f83e0000330   2f0  90                   nop
+[34m                    [  - void v8::internal::MacroAssembler::CallForDeoptimization(Builtin, int, Label *, DeoptimizeKind, Label *, Label *)@../../src/codegen/x64/macro-assembler-x64.cc:5098[;m
+0x7f83e0000331   2f1  41ff55d8             call [r13-0x28] (external value (IsolateData::builtin_tier0_entry_table_))
+[34m                    ][;m
+[34m                    [  - void v8::internal::MacroAssembler::CallForDeoptimization(Builtin, int, Label *, DeoptimizeKind, Label *, Label *)@../../src/codegen/x64/macro-assembler-x64.cc:5098[;m
+0x7f83e0000335   2f5  41ff55d8             call [r13-0x28] (external value (IsolateData::builtin_tier0_entry_table_))
+[34m                    ][;m
+[34m                    [  - void v8::internal::MacroAssembler::CallForDeoptimization(Builtin, int, Label *, DeoptimizeKind, Label *, Label *)@../../src/codegen/x64/macro-assembler-x64.cc:5098[;m
+0x7f83e0000339   2f9  41ff55d8             call [r13-0x28] (external value (IsolateData::builtin_tier0_entry_table_))
+[34m                    ][;m
+[34m                    [  - void v8::internal::MacroAssembler::CallForDeoptimization(Builtin, int, Label *, DeoptimizeKind, Label *, Label *)@../../src/codegen/x64/macro-assembler-x64.cc:5098[;m
+0x7f83e000033d   2fd  41ff55e0             call [r13-0x20]
+[34m                    ][;m
+0x7f83e0000341   301  0f1f00               nop
+                  ;;; Safepoint table. - void v8::internal::SafepointTableBuilder::Emit(Assembler *, int)@../../src/codegen/safepoint-table.cc:488
+                  ]
+
+Inlined functions (count = 0)
+
+Deoptimization Input Data (deopt points = 4)
+ index  bytecode-offset  node-id    pc
+     0                2       35    NA 
+     1                2       40    NA 
+     2                2       47    NA 
+     3               -1       23    fb 
+
+Safepoints (stack slots = 6, byte size = 17)
+0x7f83e000013b     fb  slots (sp->fp): 100000  deopt      3 trampoline:    2fd
+0x7f83e0000163    123  slots (sp->fp): 000000
+
+RelocInfo (size = 13)
+0x7f83e000011f  external reference (Runtime::StackGuardWithGap)  (0x7f83997fa610)
+0x7f83e000012e  full embedded object  (0x17da0100458d <NativeContext[308]>)
+0x7f83e0000137  near builtin entry
+0x7f83e000015f  near builtin entry
+0x7f83e0000274  external reference (Heap::VerifySkippedWriteBarrier)  (0x7f8398c1eed0)
+
+--- End code ---

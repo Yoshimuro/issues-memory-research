@@ -1,0 +1,8 @@
+ - elements: 0x3fb10101dc91 <FixedArray[3]> [PACKED_SMI_ELEMENTS (COW)]
+ - elements: 0x3fb10101dc91 <FixedArray[3]> {
+ - elements: 0x3fb1010897c5 <FixedDoubleArray[2]> [PACKED_DOUBLE_ELEMENTS]
+ - elements: 0x3fb1010897c5 <FixedDoubleArray[2]> {
+=== DebugPrintPtr 3fb10101dc91
+DebugPrint: 0x3fb10101dc91: [FixedArray] in OldSpace
+=== DebugPrintPtr 3fb1010897c5
+DebugPrint: 0x3fb1010897c5: [FixedDoubleArray]

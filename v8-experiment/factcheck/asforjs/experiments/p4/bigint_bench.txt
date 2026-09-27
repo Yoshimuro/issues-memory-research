@@ -1,0 +1,16 @@
+##### node20
+round 0 number=2.0ms bigint=14.4ms ratio=7
+round 1 number=1.9ms bigint=15.9ms ratio=9
+round 2 number=1.8ms bigint=16.7ms ratio=9
+##### node22
+round 0 number=2.1ms bigint=66.7ms ratio=32
+round 1 number=2.0ms bigint=66.2ms ratio=34
+round 2 number=1.9ms bigint=66.4ms ratio=35
+##### node24
+round 0 number=2.1ms bigint=78.8ms ratio=38
+round 1 number=2.4ms bigint=115.0ms ratio=48
+round 2 number=2.1ms bigint=72.1ms ratio=34
+##### d8
+round 0 number=1.5ms bigint=45.7ms ratio=29
+round 1 number=1.7ms bigint=47.9ms ratio=28
+round 2 number=1.7ms bigint=47.1ms ratio=28

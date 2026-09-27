@@ -1,0 +1,10 @@
+Inlining small function(s) at call site #64:JSCall
+Inlining {<SharedFunctionInfo callSpread>} into {<SharedFunctionInfo>}
+Inlining {<SharedFunctionInfo callDirect3>} into {<SharedFunctionInfo>}
+Inlining {<SharedFunctionInfo sumRest>} into {<SharedFunctionInfo>}
+fixed: callSpread=11001 callDirect3=11001 sumRest=1000011001 t=200170000
+Inlining small function(s) at call site #64:JSCall
+Inlining {<SharedFunctionInfo callSpread>} into {<SharedFunctionInfo>}
+Inlining {<SharedFunctionInfo callDirect3>} into {<SharedFunctionInfo>}
+Inlining {<SharedFunctionInfo sumRest>} into {<SharedFunctionInfo>}
+varying: callSpread=11001 callDirect3=11001 sumRest=101001 t=200260000

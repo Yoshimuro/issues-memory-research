@@ -1,0 +1,36 @@
+## early-error.js d8
+early-error.js:5: SyntaxError: Identifier 'a' has already been declared
+  let a = 2;
+      ^
+SyntaxError: Identifier 'a' has already been declared
+
+## early-error.js node24
+/home/user/issues-memory-research/v8-experiment/factcheck/asforjs/experiments/p2a/early-error.js:5
+  let a = 2;
+      ^
+
+SyntaxError: Identifier 'a' has already been declared
+    at wrapSafe (node:internal/modules/cjs/loader:1861:18)
+## early-error.js node20
+SyntaxError: Identifier 'a' has already been declared
+## early-error-var.js d8
+var redeclaration: loaded OK
+## early-error-var.js node24
+var redeclaration: loaded OK
+## early-error-var.js node20
+var redeclaration: loaded OK
+## early-error-varlet.js d8
+early-error-varlet.js:1: SyntaxError: Identifier 'a' has already been declared
+function neverCalled() { return 1; let a = 1; var a = 2; }
+                                                  ^
+SyntaxError: Identifier 'a' has already been declared
+
+## early-error-varlet.js node24
+/home/user/issues-memory-research/v8-experiment/factcheck/asforjs/experiments/p2a/early-error-varlet.js:1
+function neverCalled() { return 1; let a = 1; var a = 2; }
+                                                  ^
+
+SyntaxError: Identifier 'a' has already been declared
+    at wrapSafe (node:internal/modules/cjs/loader:1861:18)
+## early-error-varlet.js node20
+SyntaxError: Identifier 'a' has already been declared

@@ -1,0 +1,8 @@
+== node24 --print-maglev-code --maglev-print-filter=doLoop
+name = isPosixPathSeparator
+compiler = maglev
+name = doLoop
+compiler = maglev
+== node24 --print-maglev-code --print-opt-code-filter=doLoop
+name = isPosixPathSeparator
+name = doLoop

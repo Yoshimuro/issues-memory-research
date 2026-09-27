@@ -1,0 +1,24 @@
+=== node20
+status=1010001
+-- optimized dec(big)
+DebugPrint: Smi: 0x7fffffff (2147483647)
+-- optimized down(big+5) = big-5
+DebugPrint: Smi: 0x7ffffffb (2147483643)
+=== node22
+status=1010001
+-- optimized dec(big)
+DebugPrint: Smi: 0x7fffffff (2147483647)
+-- optimized down(big+5) = big-5
+DebugPrint: Smi: 0x7ffffffb (2147483643)
+=== node24
+status=1010001
+-- optimized dec(big)
+DebugPrint: Smi: 0x7fffffff (2147483647)
+-- optimized down(big+5) = big-5
+DebugPrint: Smi: 0x7ffffffb (2147483643)
+=== d8 rel
+status=101001
+-- optimized dec(big)
+1073741823
+-- optimized down(big+5) = big-5
+1073741819

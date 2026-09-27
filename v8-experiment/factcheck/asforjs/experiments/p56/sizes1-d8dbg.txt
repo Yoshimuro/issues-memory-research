@@ -1,0 +1,6 @@
+#### {a,b,c}
+ - instance size: 24
+#### {a}
+ - instance size: 16
+#### [1,2,3]
+ - instance size: 16

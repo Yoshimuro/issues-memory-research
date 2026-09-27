@@ -1,0 +1,16 @@
+== /opt/node20/bin/node
+ctor: sameMap(a,b) after a.x=1.5 false
+literal: sameMap(c,d) after c.y=1.5 false
+literal 1 prop: sameMap(e,f) after e.z=1.5 false
+== /opt/node22/bin/node
+ctor: sameMap(a,b) after a.x=1.5 false
+literal: sameMap(c,d) after c.y=1.5 false
+literal 1 prop: sameMap(e,f) after e.z=1.5 false
+== /opt/nvm/versions/node/v24.21.0/bin/node
+ctor: sameMap(a,b) after a.x=1.5 false
+literal: sameMap(c,d) after c.y=1.5 false
+literal 1 prop: sameMap(e,f) after e.z=1.5 false
+== /tmp/claude-0/-home-user-issues-memory-research/dacf359b-9898-588d-b8f1-20fd1e3f2945/scratchpad/d8/rel/d8
+ctor: sameMap(a,b) after a.x=1.5 false
+literal: sameMap(c,d) after c.y=1.5 false
+literal 1 prop: sameMap(e,f) after e.z=1.5 false

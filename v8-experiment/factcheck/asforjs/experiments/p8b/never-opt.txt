@@ -1,0 +1,16 @@
+== node24
+harness: baseline(sparkplug)
+inner (called from harness): optimized,turbofan
+callback (passed to harness): optimized,turbofan
+907606400
+0
+== node22
+harness: baseline(sparkplug)
+inner (called from harness): optimized,turbofan
+callback (passed to harness): optimized,turbofan
+907606400
+== node20
+harness: baseline(sparkplug)
+inner (called from harness): optimized,turbofan
+callback (passed to harness): optimized,turbofan
+907606400

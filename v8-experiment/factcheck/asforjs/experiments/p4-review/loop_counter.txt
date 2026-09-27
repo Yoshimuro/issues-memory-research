@@ -1,0 +1,12 @@
+node22 interp init=0 scavenges=0  r 20000000 ms 266
+node22 interp init=0.0 scavenges=0  r 20000000 ms 259
+node22 interp init=0.1 scavenges=311  r 20000000 ms 327
+node22 default init=0 scavenges=0  r 20000000 ms 12
+node22 default init=0.0 scavenges=0  r 20000000 ms 10
+node22 default init=0.1 scavenges=1  r 20000000 ms 14
+d8 interp init=0 scavenges=0  r 20000000 ms 265
+d8 interp init=0.0 scavenges=0  r 20000000 ms 266
+d8 interp init=0.1 scavenges=229  r 20000000 ms 228
+d8 default init=0 scavenges=0  r 20000000 ms 9
+d8 default init=0.0 scavenges=0  r 20000000 ms 9
+d8 default init=0.1 scavenges=0  r 20000000 ms 15

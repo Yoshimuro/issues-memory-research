@@ -1,0 +1,21 @@
+== d8
+inputs A(class) vs B(literal) same map: false
+rest(A) vs rest(B) same map (class vs literal, same keys order): true
+rest(A) vs rest(C) same map (proto differs): true
+rest(A) vs rest(D) same map (key order b,a): false
+rest(A) vs rest(E) same map (a double): true
+rest(A) vs rest(F) same map (extra key): false
+== node22
+inputs A(class) vs B(literal) same map: false
+rest(A) vs rest(B) same map (class vs literal, same keys order): true
+rest(A) vs rest(C) same map (proto differs): true
+rest(A) vs rest(D) same map (key order b,a): false
+rest(A) vs rest(E) same map (a double): false
+rest(A) vs rest(F) same map (extra key): false
+== node24
+inputs A(class) vs B(literal) same map: false
+rest(A) vs rest(B) same map (class vs literal, same keys order): true
+rest(A) vs rest(C) same map (proto differs): true
+rest(A) vs rest(D) same map (key order b,a): false
+rest(A) vs rest(E) same map (a double): false
+rest(A) vs rest(F) same map (extra key): false

@@ -1,0 +1,12 @@
+## node24
+rep0: o.name 18.7 | o[k] (k always 'name') 39.7 | o[ks[i&3]] 267.1 | 4 named via ?: 55.5
+rep1: o.name 16.5 | o[k] (k always 'name') 28.8 | o[ks[i&3]] 242.4 | 4 named via ?: 54.6
+rep2: o.name 16.6 | o[k] (k always 'name') 16.3 | o[ks[i&3]] 257.9 | 4 named via ?: 52.1
+## d8
+rep0: o.name 18.1 | o[k] (k always 'name') 17.5 | o[ks[i&3]] 280.2 | 4 named via ?: 54.5
+rep1: o.name 16.4 | o[k] (k always 'name') 16.3 | o[ks[i&3]] 285.9 | 4 named via ?: 52.7
+rep2: o.name 16.5 | o[k] (k always 'name') 16.3 | o[ks[i&3]] 293.7 | 4 named via ?: 53.3
+## node24 ignition
+rep0: o.name 519.7 | o[k] (k always 'name') 583.3 | o[ks[i&3]] 872.1 | 4 named via ?: 860.6
+rep1: o.name 514.0 | o[k] (k always 'name') 576.3 | o[ks[i&3]] 936.3 | 4 named via ?: 772.4
+rep2: o.name 496.4 | o[k] (k always 'name') 582.0 | o[ks[i&3]] 986.8 | 4 named via ?: 853.4

@@ -1,0 +1,20 @@
+== d8
+spread max args: 125476
+apply max args: 125476
+Math.max max args: 125474
+1e6 spread: RangeError: Maximum call stack size exceeded
+== node22
+spread max args: 125525
+apply max args: 125525
+Math.max max args: 125523
+1e6 spread: RangeError: Maximum call stack size exceeded
+== node24
+spread max args: 125427
+apply max args: 125427
+Math.max max args: 125425
+1e6 spread: RangeError: Maximum call stack size exceeded
+== node24 --stack-size=4000
+spread max args: 511475
+apply max args: 511475
+Math.max max args: 511473
+1e6 spread: RangeError: Maximum call stack size exceeded

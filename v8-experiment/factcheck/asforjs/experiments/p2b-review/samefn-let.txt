@@ -1,0 +1,204 @@
+=============== node20 :: capSame
+CreateFunctionContext [0], [1]
+PushContext r1
+LdaTheHole
+StaCurrentContextSlot [2]
+LdaSmi [1]
+StaCurrentContextSlot [2]
+CreateClosure [1], [0], #2
+Star0
+LdaImmutableCurrentContextSlot [2]
+AddSmi [1], [0]
+Star2
+Ldar r0
+JumpIfToBooleanFalse [5] (0x204ef6324344 @ 30)
+LdaZero
+Jump [4] (0x204ef6324346 @ 32)
+LdaSmi [1]
+Add r2, [1]
+Return
+=============== node20 :: capInnerBlock
+CreateFunctionContext [0], [1]
+PushContext r1
+LdaTheHole
+StaCurrentContextSlot [2]
+LdaSmi [1]
+StaCurrentContextSlot [2]
+CreateClosure [1], [0], #2
+Star0
+JumpIfToBooleanFalse [8] (0x2235967244d7 @ 25)
+LdaImmutableCurrentContextSlot [2]
+AddSmi [1], [0]
+Return
+LdaZero
+Return
+=============== node20 :: capVar
+CreateFunctionContext [0], [1]
+PushContext r1
+LdaSmi [1]
+StaCurrentContextSlot [2]
+CreateClosure [1], [0], #2
+Star0
+LdaImmutableCurrentContextSlot [2]
+AddSmi [1], [0]
+Star2
+Ldar r0
+JumpIfToBooleanFalse [5] (0x27b8446e4669 @ 27)
+LdaZero
+Jump [4] (0x27b8446e466b @ 29)
+LdaSmi [1]
+Add r2, [1]
+Return
+=============== node22 :: capSame
+CreateFunctionContext [0], [1]
+PushContext r1
+LdaTheHole
+StaCurrentContextSlot [2]
+LdaSmi [1]
+StaCurrentContextSlot [2]
+CreateClosure [1], [0], #2
+Star0
+LdaImmutableCurrentContextSlot [2]
+AddSmi [1], [0]
+Star2
+Ldar r0
+JumpIfToBooleanFalse [5] (0x2c6f54d81fc6 @ 30)
+LdaZero
+Jump [4] (0x2c6f54d81fc8 @ 32)
+LdaSmi [1]
+Add r2, [1]
+Return
+=============== node22 :: capInnerBlock
+CreateFunctionContext [0], [1]
+PushContext r1
+LdaTheHole
+StaCurrentContextSlot [2]
+LdaSmi [1]
+StaCurrentContextSlot [2]
+CreateClosure [1], [0], #2
+Star0
+JumpIfToBooleanFalse [8] (0xac836342071 @ 25)
+LdaImmutableCurrentContextSlot [2]
+AddSmi [1], [0]
+Return
+LdaZero
+Return
+=============== node22 :: capVar
+CreateFunctionContext [0], [1]
+PushContext r1
+LdaSmi [1]
+StaCurrentContextSlot [2]
+CreateClosure [1], [0], #2
+Star0
+LdaImmutableCurrentContextSlot [2]
+AddSmi [1], [0]
+Star2
+Ldar r0
+JumpIfToBooleanFalse [5] (0x2db4e304211b @ 27)
+LdaZero
+Jump [4] (0x2db4e304211d @ 29)
+LdaSmi [1]
+Add r2, [1]
+Return
+=============== node24 :: capSame
+CreateFunctionContext [0], [1]
+PushContext r1
+LdaTheHole
+StaCurrentContextSlot [2]
+LdaSmi [1]
+StaCurrentContextSlot [2]
+CreateClosure [1], [0], #2
+Star0
+LdaImmutableCurrentContextSlot [2]
+AddSmi [1], [0]
+Star2
+Ldar r0
+JumpIfToBooleanFalse [5] (0xf3c38f819ee @ 30)
+LdaZero
+Jump [4] (0xf3c38f819f0 @ 32)
+LdaSmi [1]
+Add r2, [1]
+Return
+=============== node24 :: capInnerBlock
+CreateFunctionContext [0], [1]
+PushContext r1
+LdaTheHole
+StaCurrentContextSlot [2]
+LdaSmi [1]
+StaCurrentContextSlot [2]
+CreateClosure [1], [0], #2
+Star0
+JumpIfToBooleanFalse [8] (0x1ea09e01ab1 @ 25)
+LdaImmutableCurrentContextSlot [2]
+AddSmi [1], [0]
+Return
+LdaZero
+Return
+=============== node24 :: capVar
+CreateFunctionContext [0], [1]
+PushContext r1
+LdaSmi [1]
+StaCurrentContextSlot [2]
+CreateClosure [1], [0], #2
+Star0
+LdaImmutableCurrentContextSlot [2]
+AddSmi [1], [0]
+Star2
+Ldar r0
+JumpIfToBooleanFalse [5] (0x12f6e8c41b73 @ 27)
+LdaZero
+Jump [4] (0x12f6e8c41b75 @ 29)
+LdaSmi [1]
+Add r2, [1]
+Return
+=============== d8 :: capSame
+CreateFunctionContextWithCells [0:0x379b0101e1f1 <ScopeInfo FUNCTION_SCOPE>], [1]
+PushContext r1
+LdaTdzHole
+StaCurrentContextSlotNoCell [2]
+LdaSmi [1]
+StaCurrentContextSlotNoCell [2]
+CreateClosure [1:0x379b0101e221 <SharedFunctionInfo g>], FBV[0], #2
+Star0
+LdaImmutableCurrentContextSlot [2]
+AddSmi [1], EmbeddedFeedback[None]
+Star2
+Ldar r0
+JumpIfToBooleanFalse [5] (0x5490100017a @ 30)
+LdaZero
+Jump [4] (0x5490100017c @ 32)
+LdaSmi [1]
+Add r2, EmbeddedFeedback[None]
+Return
+=============== d8 :: capInnerBlock
+CreateFunctionContextWithCells [0:0x2c830101e279 <ScopeInfo FUNCTION_SCOPE>], [1]
+PushContext r1
+LdaTdzHole
+StaCurrentContextSlotNoCell [2]
+LdaSmi [1]
+StaCurrentContextSlotNoCell [2]
+CreateClosure [1:0x2c830101e2a9 <SharedFunctionInfo g>], FBV[0], #2
+Star0
+JumpIfToBooleanFalse [8] (0x34b3010001e5 @ 25)
+LdaImmutableCurrentContextSlot [2]
+AddSmi [1], EmbeddedFeedback[None]
+Return
+LdaZero
+Return
+=============== d8 :: capVar
+CreateFunctionContextWithCells [0:0x0e2b0101e301 <ScopeInfo FUNCTION_SCOPE>], [1]
+PushContext r1
+LdaSmi [1]
+StaCurrentContextSlotNoCell [2]
+CreateClosure [1:0x0e2b0101e331 <SharedFunctionInfo g>], FBV[0], #2
+Star0
+LdaImmutableCurrentContextSlot [2]
+AddSmi [1], EmbeddedFeedback[None]
+Star2
+Ldar r0
+JumpIfToBooleanFalse [5] (0x15870100024f @ 27)
+LdaZero
+Jump [4] (0x158701000251 @ 29)
+LdaSmi [1]
+Add r2, EmbeddedFeedback[None]
+Return

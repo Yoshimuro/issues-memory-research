@@ -1,0 +1,12 @@
+## /opt/node22/bin/node
+rep0 inline=15.3 extConst=15.0 param=120.1 factoryInline=17.5 factoryExt=92.3
+rep1 inline=10.9 extConst=10.6 param=92.2 factoryInline=10.9 factoryExt=90.4
+rep2 inline=15.4 extConst=10.5 param=88.3 factoryInline=10.9 factoryExt=97.7
+## /opt/nvm/versions/node/v24.21.0/bin/node
+rep0 inline=26.6 extConst=61.5 param=108.0 factoryInline=62.3 factoryExt=109.6
+rep1 inline=10.6 extConst=10.7 param=96.9 factoryInline=10.7 factoryExt=97.0
+rep2 inline=10.4 extConst=10.7 param=97.0 factoryInline=10.7 factoryExt=98.1
+## d8
+rep0 inline=22.5 extConst=101.6 param=128.9 factoryInline=103.7 factoryExt=124.6
+rep1 inline=92.0 extConst=10.0 param=101.8 factoryInline=9.9 factoryExt=103.4
+rep2 inline=9.7 extConst=9.7 param=101.8 factoryInline=10.0 factoryExt=105.5

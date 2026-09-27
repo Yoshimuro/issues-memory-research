@@ -1,0 +1,29 @@
+== globalVar: IC events by type (count)
+     15 LoadGlobalIC
+      2 LoadIC
+      1 StoreGlobalIC
+      9 StoreIC
+-- global IC events mentioning doOuter*:
+     11 doOuterVar,,
+== globalFn: IC events by type (count)
+     15 LoadGlobalIC
+      2 LoadIC
+      1 StoreGlobalIC
+      9 StoreIC
+-- global IC events mentioning doOuter*:
+     10 doOuter,,
+      1 doOuterVar,,
+== globalConst: IC events by type (count)
+      5 LoadGlobalIC
+      2 LoadIC
+      1 StoreGlobalIC
+      9 StoreIC
+-- global IC events mentioning doOuter*:
+      1 doOuterVar,,
+== inner: IC events by type (count)
+      5 LoadGlobalIC
+      2 LoadIC
+      1 StoreGlobalIC
+      9 StoreIC
+-- global IC events mentioning doOuter*:
+      1 doOuterVar,,

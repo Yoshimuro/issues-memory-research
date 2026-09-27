@@ -1,0 +1,141 @@
+### V8 5.8.283.38 src/full-codegen/x64/full-codegen-x64.cc:1108-1152 (EmitVariableLoad)
+void FullCodeGenerator::EmitVariableLoad(VariableProxy* proxy,
+                                         TypeofMode typeof_mode) {
+  // Record position before possible IC call.
+  SetExpressionPosition(proxy);
+  PrepareForBailoutForId(proxy->BeforeId(), BailoutState::NO_REGISTERS);
+  Variable* var = proxy->var();
+
+  // Two cases: global variable, and all other types of variables.
+  switch (var->location()) {
+    case VariableLocation::UNALLOCATED: {
+      Comment cmnt(masm_, "[ Global variable");
+      EmitGlobalVariableLoad(proxy, typeof_mode);
+      context()->Plug(rax);
+      break;
+    }
+
+    case VariableLocation::PARAMETER:
+    case VariableLocation::LOCAL:
+    case VariableLocation::CONTEXT: {
+      DCHECK_EQ(NOT_INSIDE_TYPEOF, typeof_mode);
+      Comment cmnt(masm_, var->IsContextSlot() ? "[ Context slot"
+                                               : "[ Stack slot");
+      if (proxy->hole_check_mode() == HoleCheckMode::kRequired) {
+        // Throw a reference error when using an uninitialized let/const
+        // binding in harmony mode.
+        DCHECK(IsLexicalVariableMode(var->mode()));
+        Label done;
+        GetVar(rax, var);
+        __ CompareRoot(rax, Heap::kTheHoleValueRootIndex);
+        __ j(not_equal, &done, Label::kNear);
+        __ Push(var->name());
+        __ CallRuntime(Runtime::kThrowReferenceError);
+        __ bind(&done);
+        context()->Plug(rax);
+        break;
+      }
+      context()->Plug(var);
+      break;
+    }
+
+    case VariableLocation::LOOKUP:
+    case VariableLocation::MODULE:
+      UNREACHABLE();
+  }
+}
+
+### V8 5.8.283.38 src/crankshaft/hydrogen.cc:5318-5332 (context slot load) and 6622-6636 (arguments bailout)
+    case VariableLocation::CONTEXT: {
+      HValue* context = BuildContextChainWalk(variable);
+      HLoadContextSlot::Mode mode;
+      switch (variable->mode()) {
+        case LET:
+        case CONST:
+          mode = HLoadContextSlot::kCheckDeoptimize;
+          break;
+        default:
+          mode = HLoadContextSlot::kNoCheck;
+          break;
+      }
+      HLoadContextSlot* instr =
+          new(zone()) HLoadContextSlot(context, variable->index(), mode);
+      return ast_context()->ReturnInstruction(instr, expr->id());
+      case VariableLocation::CONTEXT: {
+        // Bail out if we try to mutate a parameter value in a function
+        // using the arguments object.  We do not (yet) correctly handle the
+        // arguments property of the function.
+        if (current_info()->scope()->arguments() != NULL) {
+          // Parameters will be allocated to context slots.  We have no
+          // direct way to detect that the variable is a parameter so we do
+          // a linear search of the parameter variables.
+          int count = current_info()->scope()->num_parameters();
+          for (int i = 0; i < count; ++i) {
+            if (var == current_info()->scope()->parameter(i)) {
+              Bailout(kAssignmentToParameterFunctionUsesArgumentsObject);
+            }
+          }
+        }
+
+### V8 13.6.233.17 src/ast/scopes.cc:2308-2341 (hole check elision)
+  // Check if the binding really needs an initialization check. The check
+  // can be skipped in the following situation: we have a VariableMode::kLet or
+  // VariableMode::kConst binding, both the Variable and the VariableProxy have
+  // the same declaration scope (i.e. they are both in global code, in the same
+  // function or in the same eval code), the VariableProxy is in the source
+  // physically located after the initializer of the variable, and that the
+  // initializer cannot be skipped due to a nonlinear scope.
+  //
+  // The condition on the closure scopes is a conservative check for
+  // nested functions that access a binding and are called before the
+  // binding is initialized:
+  //   function() { f(); let x = 1; function f() { x = 2; } }
+  //
+  // The check cannot be skipped on non-linear scopes, namely switch
+  // scopes, to ensure tests are done in cases like the following:
+  //   switch (1) { case 0: let x = 2; case 1: f(x); }
+  // The scope of the variable needs to be checked, in case the use is
+  // in a sub-block which may be linear.
+  if (var->scope()->GetClosureScope() != scope->GetClosureScope()) {
+    SetNeedsHoleCheck(var, proxy,
+                      Variable::kHasHoleCheckUseInDifferentClosureScope);
+    return;
+  }
+
+  // We should always have valid source positions.
+  DCHECK_NE(var->initializer_position(), kNoSourcePosition);
+  DCHECK_NE(proxy->position(), kNoSourcePosition);
+
+  if (var->scope()->is_nonlinear() ||
+      var->initializer_position() >= proxy->position()) {
+    SetNeedsHoleCheck(var, proxy, Variable::kHasHoleCheckUseInSameClosureScope);
+    return;
+  }
+}
+
+### V8 15.6.67 src/ast/scopes.cc:2448-2472
+  // We should always have valid source positions.
+  DCHECK_NE(var->initializer_position(), kNoSourcePosition);
+  DCHECK_NE(access_position, kNoSourcePosition);
+  bool same_closure_scope = var->scope()->IsOuterScopeUpToClosureScopeOf(scope);
+  if (var->initializer_position() >= access_position) {
+    SetNeedsHoleCheck(var, proxy,
+                      same_closure_scope
+                          ? Variable::kHasHoleCheckUseInSameClosureScope
+                          : Variable::kHasHoleCheckUseInDifferentClosureScope);
+    return true;
+  }
+
+  if (!same_closure_scope) {
+    int start_pos = var->scope()->start_position();
+    DCHECK_NE(start_pos, kNoSourcePosition);
+    if (var->initializer_position() - start_pos >=
+        ScopeInfo::kMaxVariablePositionDistance) {
+      SetNeedsHoleCheck(var, proxy,
+                        Variable::kHasHoleCheckUseInDifferentClosureScope);
+      return true;
+    }
+  }
+
+  if (var->scope()->from_scope_info()) {
+    var->set_hole_check_state(Variable::HoleCheckState::kSkip);

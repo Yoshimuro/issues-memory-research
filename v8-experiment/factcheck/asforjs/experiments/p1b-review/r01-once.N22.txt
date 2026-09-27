@@ -1,0 +1,3 @@
+Inlining 0x28f77ca0 {0x278a85a9bab1 <SharedFunctionInfo onceWrapper>} into 0x28f778a0 {0x278a85a9b5c1 <SharedFunctionInfo hot>}
+Inlining 0x28f77ca0 {0x278a85a9bab1 <SharedFunctionInfo onceWrapper>} into 0x28f778a0 {0x278a85a9b5c1 <SharedFunctionInfo hot>}
+once status 10000001 hot status 1010001 getA status 1010001

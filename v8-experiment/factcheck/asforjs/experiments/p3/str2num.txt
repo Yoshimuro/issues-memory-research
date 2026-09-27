@@ -1,0 +1,28 @@
+## node20
+MARK optimized true true
+MARK set c.name = 5 (string->number on another object, no call)
+[marking dependent code  <Code TURBOFAN> ( <SharedFunctionInfo useName>) (opt id 1) for deoptimization, reason: code dependencies]
+[marking dependent code  <Code TURBOFAN> ( <SharedFunctionInfo getName>) (opt id 0) for deoptimization, reason: code dependencies]
+MARK after modification getName opt: false  useName opt: false
+MARK after getName(c): false
+## node22
+MARK optimized true true
+MARK set c.name = 5 (string->number on another object, no call)
+[marking dependent code  <Code TURBOFAN> ( <SharedFunctionInfo useName>) (opt id 1) for deoptimization, reason: code dependencies]
+[marking dependent code  <Code TURBOFAN> ( <SharedFunctionInfo getName>) (opt id 0) for deoptimization, reason: code dependencies]
+MARK after modification getName opt: false  useName opt: false
+MARK after getName(c): false
+## node24
+MARK optimized true true
+MARK set c.name = 5 (string->number on another object, no call)
+[marking dependent code  <Code TURBOFAN_JS> ( <SharedFunctionInfo useName>) (opt id 2) for deoptimization, reason: dependent field representation changed]
+[marking dependent code  <Code TURBOFAN_JS> ( <SharedFunctionInfo getName>) (opt id 1) for deoptimization, reason: dependent field representation changed]
+MARK after modification getName opt: false  useName opt: false
+MARK after getName(c): false
+## d8
+MARK optimized true true
+MARK set c.name = 5 (string->number on another object, no call)
+[marking dependent code  <Code TURBOFAN_JS> ( <SharedFunctionInfo useName>) (opt id 1) for deoptimization, reason: dependent field representation changed]
+[marking dependent code  <Code TURBOFAN_JS> ( <SharedFunctionInfo getName>) (opt id 0) for deoptimization, reason: dependent field representation changed]
+MARK after modification getName opt: false  useName opt: false
+MARK after getName(c): false

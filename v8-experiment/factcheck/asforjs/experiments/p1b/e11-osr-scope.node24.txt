@@ -1,0 +1,12 @@
+[OSR - setting osr urgency. function: main, old urgency: 0, new urgency: 1]
+[OSR - compilation started. function: main, osr offset: 35, mode: ConcurrencyMode::kConcurrent]
+[OSR - unavailable (failed or in progress). function: main, osr offset: 35, mode: ConcurrencyMode::kConcurrent]
+[OSR - setting osr urgency. function: main, old urgency: 0, new urgency: 1]
+[OSR - entry. function: main, osr offset: 35]
+[OSR - compilation started. function: main, osr offset: 35, mode: ConcurrencyMode::kConcurrent]
+[OSR - unavailable (failed or in progress). function: main, osr offset: 35, mode: ConcurrencyMode::kConcurrent]
+[OSR - compilation finished. function: main, osr offset: 35]
+[OSR - setting osr urgency. function: main, old urgency: 0, new urgency: 1]
+[OSR - entry. function: main, osr offset: 35]
+s=33975 status-after-loop=1100000000001
+status-now=1

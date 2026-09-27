@@ -1,0 +1,66 @@
+A param: opt before true
+A param: opt right after p.b=2 (no call) true
+A param: opt after call false
+B const: opt before true
+B const: opt right after c.b=2 (no call) true
+#### feedback of getA after
+DebugPrint: 0x32820101dd3d: [Function] in OldSpace
+ - map: 0x328201004c89 <Map[32](HOLEY_ELEMENTS)> [FastProperties]
+ - prototype: 0x328201004db1 <JSFunction (sfi = 0x3282010014c9)>
+ - elements: 0x3282000007e5 <FixedArray[0]> [HOLEY_ELEMENTS]
+ - function prototype: 
+ - initial_map: 
+ - shared_info: 0x32820101db9d <SharedFunctionInfo getA>
+ - name: 0x32820101d94d <String[4]: #getA>
+ - builtin: InterpreterEntryTrampoline
+ - formal_parameter_count: 2
+ - kind: NormalFunction
+ - context: 0x32820101dce9 <ScriptContext[6]>
+ - code: 0x328200b61a7d <Code BUILTIN InterpreterEntryTrampoline>
+ - dispatch_handle: 0x135900
+ - interpreted
+ - bytecode: 0x30f601000275 <BytecodeArray[5]>
+ - source code: (o){ return o.a; }
+ - properties: 0x3282000007e5 <FixedArray[0]>
+ - All own properties (excluding elements): {
+    0x328200000e39: [String] in ReadOnlySpace: #length: 0x328200b5fe2d <AccessorInfo name= 0x328200000e39 <String[6]: #length>, data= 0x328200000011 <undefined>> (const accessor descriptor, attrs: [__C])
+    0x328200000e29: [String] in ReadOnlySpace: #name: 0x328200b5fe15 <AccessorInfo name= 0x328200000e29 <String[4]: #name>, data= 0x328200000011 <undefined>> (const accessor descriptor, attrs: [__C])
+    0x328200000e11: [String] in ReadOnlySpace: #prototype: 0x328200b5fe45 <AccessorInfo name= 0x328200000e11 <String[9]: #prototype>, data= 0x328200000011 <undefined>> (const accessor descriptor, attrs: [W__])
+ }
+ - feedback vector: 0x32820101de55: [FeedbackVector] in OldSpace
+ - map: 0x328200000895 <Map(FEEDBACK_VECTOR_TYPE)>
+ - length: 2
+ - shared function info: 0x32820101db9d <SharedFunctionInfo getA>
+ - tiering_in_progress: 0
+ - osr_tiering_in_progress: 0
+ - invocation count: 3
+ - closure feedback cell array: 0x3282000020b9: [ClosureFeedbackCellArray] in ReadOnlySpace
+ - map: 0x32820000086d <Map(CLOSURE_FEEDBACK_CELL_ARRAY_TYPE)>
+ - length: 0
+ - elements:
+
+ - slot #0 LoadProperty POLYMORPHIC
+   [weak] 0x32820101dde9 <Map[16](HOLEY_ELEMENTS)>: LoadHandler(Smi)(kind = kField, is in object = 1, is double = 0, storage offset in words = 3, descriptor index = 0)
+   [weak] 0x32820101deb5 <Map[16](HOLEY_ELEMENTS)>: LoadHandler(Smi)(kind = kField, is in object = 1, is double = 0, storage offset in words = 3, descriptor index = 0) {
+     [0]: 0x328201089af1 <WeakFixedArray[4]>
+     [1]: 0x328200000eb5 <Symbol: (uninitialized_symbol)>
+  }
+0x328201004c89: [Map] in OldSpace
+ - map: 0x32820100453d <MetaMap (0x32820100458d <NativeContext[308]>)>
+ - type: JS_FUNCTION_WITH_PROTOTYPE_TYPE
+ - instance size: 32
+ - inobject properties: 0
+ - unused property fields: 0
+ - elements kind: HOLEY_ELEMENTS
+ - enum length: invalid
+ - stable_map
+ - callable
+ - constructor
+ - back pointer: 0x328200000011 <undefined>
+ - prototype_validity_cell: 0x328200000b15 <Cell value= [cleared]>
+ - instance descriptors (own) #3: 0x328201004cb1 <DescriptorArray[3]>
+ - prototype: 0x328201004db1 <JSFunction (sfi = 0x3282010014c9)>
+ - constructor: 0x328201004c55 <JSFunction Function (sfi = 0x328200b9468d)>
+ - dependent code: 0x3282000007f5 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 0
+

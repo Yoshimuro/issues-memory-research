@@ -1,0 +1,81 @@
+== d8 debug zero: TURBOFAN code for doSum*, arithmetic instructions
+-- code TURBOFAN_JS doSumZero
+0x7f33cb040d75   135  4503df               addl r11,r15
+0x7f33cb040d78   138  0f80f1030000         jo 0x7f33cb04116f  <+0x52f>
+0x7f33cb040d83   143  83c001               addl rax,0x1
+0x7f33cb040d86   146  0f80e7030000         jo 0x7f33cb041173  <+0x533>
+0x7f33cb040dd8   198  4503cf               addl r9,r15
+0x7f33cb040ddb   19b  0f8096030000         jo 0x7f33cb041177  <+0x537>
+0x7f33cb040de4   1a4  83c301               addl rbx,0x1
+0x7f33cb040de7   1a7  0f808e030000         jo 0x7f33cb04117b  <+0x53b>
+0x7f33cb040df9   1b9  4503df               addl r11,r15
+0x7f33cb040dfc   1bc  0f807d030000         jo 0x7f33cb04117f  <+0x53f>
+0x7f33cb040e05   1c5  83c001               addl rax,0x1
+0x7f33cb040e08   1c8  0f8075030000         jo 0x7f33cb041183  <+0x543>
+0x7f33cb040e1a   1da  4503cf               addl r9,r15
+0x7f33cb040e1d   1dd  0f8064030000         jo 0x7f33cb041187  <+0x547>
+0x7f33cb040e26   1e6  83c301               addl rbx,0x1
+0x7f33cb040e29   1e9  0f805c030000         jo 0x7f33cb04118b  <+0x54b>
+0x7f33cb040e3b   1fb  4503c1               addl r8,r9
+0x7f33cb040e3e   1fe  0f804b030000         jo 0x7f33cb04118f  <+0x54f>
+0x7f33cb040e47   207  4183c301             addl r11,0x1
+0x7f33cb040e4b   20b  0f8042030000         jo 0x7f33cb041193  <+0x553>
+0x7f33cb040e77   237  4103c9               addl rcx,r9
+0x7f33cb040e7a   23a  0f80bf000000         jo 0x7f33cb040f3f  <+0x2ff>
+0x7f33cb040f3f   2ff  c4c1032ac1           vcvtlsi2sd xmm0,xmm15,r9
+0x7f33cb040f7a   33a  4883c101             REX.W addq rcx,0x1
+-- code TURBOFAN_JS doSumZero
+0x7f33cb041321   121  c4c1032ac3           vcvtlsi2sd xmm0,xmm15,r11
+0x7f33cb04138a   18a  c4c1032acc           vcvtlsi2sd xmm1,xmm15,r12
+0x7f33cb0413e5   1e5  4183c401             addl r12,0x1
+0x7f33cb0413e9   1e9  0f800f040000         jo 0x7f33cb0417fe  <+0x5fe>
+0x7f33cb0413ef   1ef  c5fb58c1             vaddsd xmm0,xmm0,xmm1
+0x7f33cb041455   255  4183c101             addl r9,0x1
+0x7f33cb041459   259  0f80a3030000         jo 0x7f33cb041802  <+0x602>
+0x7f33cb04145f   25f  c5fb58c1             vaddsd xmm0,xmm0,xmm1
+0x7f33cb04146f   26f  4183c401             addl r12,0x1
+0x7f33cb041473   273  0f808d030000         jo 0x7f33cb041806  <+0x606>
+0x7f33cb041479   279  c5fb58c1             vaddsd xmm0,xmm0,xmm1
+0x7f33cb041489   289  4183c101             addl r9,0x1
+0x7f33cb04148d   28d  0f8077030000         jo 0x7f33cb04180a  <+0x60a>
+0x7f33cb041493   293  c5fb58c1             vaddsd xmm0,xmm0,xmm1
+== d8 debug negzero: TURBOFAN code for doSum*, arithmetic instructions
+-- code TURBOFAN_JS doSumNegZero
+0x7f5a93040d21   121  c4c1032ac3           vcvtlsi2sd xmm0,xmm15,r11
+0x7f5a93040d8a   18a  c4c1032acc           vcvtlsi2sd xmm1,xmm15,r12
+0x7f5a93040de5   1e5  4183c401             addl r12,0x1
+0x7f5a93040de9   1e9  0f800f040000         jo 0x7f5a930411fe  <+0x5fe>
+0x7f5a93040def   1ef  c5fb58c1             vaddsd xmm0,xmm0,xmm1
+0x7f5a93040e55   255  4183c101             addl r9,0x1
+0x7f5a93040e59   259  0f80a3030000         jo 0x7f5a93041202  <+0x602>
+0x7f5a93040e5f   25f  c5fb58c1             vaddsd xmm0,xmm0,xmm1
+0x7f5a93040e6f   26f  4183c401             addl r12,0x1
+0x7f5a93040e73   273  0f808d030000         jo 0x7f5a93041206  <+0x606>
+0x7f5a93040e79   279  c5fb58c1             vaddsd xmm0,xmm0,xmm1
+0x7f5a93040e89   289  4183c101             addl r9,0x1
+0x7f5a93040e8d   28d  0f8077030000         jo 0x7f5a9304120a  <+0x60a>
+0x7f5a93040e93   293  c5fb58c1             vaddsd xmm0,xmm0,xmm1
+0x7f5a93040ea3   2a3  4183c001             addl r8,0x1
+0x7f5a93040ea7   2a7  0f8061030000         jo 0x7f5a9304120e  <+0x60e>
+0x7f5a93040ead   2ad  c5f358c0             vaddsd xmm0,xmm1,xmm0
+0x7f5a93040ec5   2c5  c5fb2cc8             vcvttsd2si rcx,xmm0
+0x7f5a93040ec9   2c9  c5832ac9             vcvtlsi2sd xmm1,xmm15,rcx
+0x7f5a93040ef6   2f6  03f9                 addl rdi,rcx
+0x7f5a93040ef8   2f8  0f8008000000         jo 0x7f5a93040f06  <+0x306>
+0x7f5a93040f24   324  4883c101             REX.W addq rcx,0x1
+-- code TURBOFAN_JS doSumNegZero
+0x7f5a93041311    91  c5832ac7             vcvtlsi2sd xmm0,xmm15,rdi
+0x7f5a9304136a    ea  c5f358c8             vaddsd xmm1,xmm1,xmm0
+0x7f5a930413cc   14c  83c701               addl rdi,0x1
+0x7f5a930413e7   167  c5f358c8             vaddsd xmm1,xmm1,xmm0
+0x7f5a930413f7   177  83c701               addl rdi,0x1
+0x7f5a93041412   192  c5f358c8             vaddsd xmm1,xmm1,xmm0
+0x7f5a93041422   1a2  83c701               addl rdi,0x1
+0x7f5a9304143d   1bd  c5f358c8             vaddsd xmm1,xmm1,xmm0
+0x7f5a9304144d   1cd  83c701               addl rdi,0x1
+0x7f5a93041468   1e8  c5fb58c9             vaddsd xmm1,xmm0,xmm1
+0x7f5a93041484   204  c5fb2cc9             vcvttsd2si rcx,xmm1
+0x7f5a93041488   208  c5832ac1             vcvtlsi2sd xmm0,xmm15,rcx
+0x7f5a930414b5   235  03f9                 addl rdi,rcx
+0x7f5a930414b7   237  0f801d000000         jo 0x7f5a930414da  <+0x25a>
+0x7f5a930414f8   278  4883c101             REX.W addq rcx,0x1

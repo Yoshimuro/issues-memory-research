@@ -1,0 +1,20 @@
+== /tmp/claude-0/-home-user-issues-memory-research/dacf359b-9898-588d-b8f1-20fd1e3f2945/scratchpad/d8/rel/d8
+after 10 calls: status=1000001
+after 100 calls: status=1000001
+after 400 calls: status=1000001
+after 1000 calls: status=1001000001
+== /opt/nvm/versions/node/v24.21.0/bin/node
+after 10 calls: status=10000001
+after 100 calls: status=10000001
+after 400 calls: status=10000001
+after 1000 calls: status=1000010000000001
+== /opt/node22/bin/node
+after 10 calls: status=10000001
+after 100 calls: status=1000000000000001
+after 400 calls: status=1000000000000001
+after 1000 calls: status=1000000000000001
+== /opt/node20/bin/node
+after 10 calls: status=10000001
+after 100 calls: status=1000000000000001
+after 400 calls: status=1000000000000001
+after 1000 calls: status=1000000000000001

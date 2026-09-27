@@ -1,0 +1,52 @@
+V8 is running with developer-only features enabled. Stability and security will suffer.
+Concurrent maglev has been disabled for tracing.
+---------------------------------------------------
+Begin compiling method doConstC using Maglev
+Compiling 0x3f4f0101e07d <JSFunction doConstC (sfi = 0x3f4f0101dfed)> with Maglev
+----- Bytecode array -----
+Parameter count 2
+Register count 1
+Frame size 8
+         0x1b5801000124 @    0 : 0d 02             LdaSmi [2]
+         0x1b5801000126 @    2 : d6                Star0
+         0x1b5801000127 @    3 : 0b f9             Ldar r0
+         0x1b5801000129 @    5 : 43 03 01          Add a0, EmbeddedFeedback[SignedSmall]
+         0x1b580100012c @    8 : ba                Return
+Constant pool (size = 0)
+Handler Table (size = 0)
+Source Position Table (size = 0)
+0x3f4f0101e131 <FeedbackVector[0]>
+----- Register allocation -----
+Graph
+
+[0m    [0m1/4: HeapConstant(0x3f4f01004b91 <NativeContext[308]>) → v-1, live range: [1-11]
+[0m   [0m2/12: HeapConstant(0x3f4f0101e05d <FeedbackCell[one closure]>) → v-1, live range: [2-12]
+[0m    [0m3/3: HeapConstant(0x3f4f0101e07d <JSFunction doConstC (sfi = 0x3f4f0101dfed)>) → v-1, live range: [3-11]
+[0m    [0m4/8: SmiConstant(2) → v-1, live range: [4-11]
+[0m   [0m5/10: Int32Constant(2) → v-1, live range: [5-11]
+ [0mBlock b0
+[0m[1;34m0x3f4f0101dfed <SharedFunctionInfo doConstC> (0x3f4f01048985 <String[12]: "constfold.js">:0:17)
+[m[0m[0;34m   0 : 0d 02             LdaSmi [2]
+[m[0m    [0m6/1: InitialValue(<this>) → [stack:-6|t], live range: [6-11]
+[0m    [0m7/2: InitialValue(a0) → [stack:-7|t], live range: [7-11]
+[0m    [0m8/6: FunctionEntryStackCheck
+[0m         ↳ lazy @-1 (3 live vars)
+[0m    [0m9/7: Jump b1
+[0m      ↓
+ [0mBlock b1
+[0m     [0m16: GapMove([stack:-7|t] → [rax|R|t])
+[0m[1;34m0x3f4f0101dfed <SharedFunctionInfo doConstC> (0x3f4f01048985 <String[12]: "constfold.js">:0:0)
+[m[0m[0;34m   5 : 43 03 01          Add a0, EmbeddedFeedback[SignedSmall]
+[m[0m         ↱ eager @5 (4 live vars)
+[0m   [0m10/9: CheckedSmiUntag [v7/n2:[rax|R|t]] → [rax|R|w32], live range: [10-11]
+[0m         ↱ eager @5 (4 live vars)
+[0m  [0m11/11: Int32AddWithOverflow [v10/n9:[rax|R|w32], v5/n10:[constant:v-1]] → [rax|R|w32], live range: [11-13]
+[0m     [0m17: ConstantGapMove(n12 → [rcx|R|t])
+[0m[0;34m   8 : ba                Return
+[m[0m  [0m12/13: ReduceInterruptBudgetForReturn(8) [v2/n12:[rcx|R|t]]
+[0m  [0m13/14: Int32ToNumber[kCanonicalizeSmi] [v11/n11:[rax|R|w32]] → [rcx|R|t], live range: [13-14]
+[0m     [0m18: GapMove([rcx|R|t] → [rax|R|t])
+[0m  [0m14/15: Return [v13/n14:[rax|R|t]]
+[0m
+---------------------------------------------------
+Finished compiling method doConstC using Maglev

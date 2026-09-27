@@ -1,0 +1,18 @@
+== /opt/node20/bin/node
+status=0x8001 neverOpt(bit1)= false turbofan(bit4)= false interpreted(bit7)= false baseline(bit15)= true
+[disabled optimization for  <SharedFunctionInfo work>, reason: Optimization is always disabled]
+[Baseline batch compilation] Enqueued SFI work with estimated size 245 (current budget: 4109/4096)
+== /opt/node22/bin/node
+status=0x8001 neverOpt(bit1)= false turbofan(bit4)= false interpreted(bit7)= false baseline(bit15)= true
+[disabled optimization for  <SharedFunctionInfo work>, reason: Optimization is always disabled]
+[Baseline batch compilation] Enqueued SFI work with estimated size 245 (current budget: 1533/4096)
+[Baseline batch compilation] Enqueued SFI work with estimated size 245 (current budget: 2765/4096)
+== /opt/nvm/versions/node/v24.21.0/bin/node
+status=0x8001 neverOpt(bit1)= false turbofan(bit4)= false interpreted(bit7)= false baseline(bit15)= true
+[disabled optimization for  <SharedFunctionInfo work>, reason: Optimization is always disabled]
+[Baseline batch compilation] Enqueued SFI work with estimated size 245 (current budget: 245/4096)
+[Baseline batch compilation] Enqueued SFI work with estimated size 245 (current budget: 490/4096)
+== d8 15.6
+[disabled optimization for  <SharedFunctionInfo work>, reason: Optimization is always disabled]
+[Baseline batch compilation] Enqueued SFI work with estimated size 245 (current budget: 245/4096)
+[Baseline batch compilation] Enqueued SFI work with estimated size 245 (current budget: 490/4096)

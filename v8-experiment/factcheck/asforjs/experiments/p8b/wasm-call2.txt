@@ -1,0 +1,20 @@
+== d8
+rep0 js=27ms(8038336) wasm=119ms(8038336)
+rep1 js=26ms(8038336) wasm=115ms(8038336)
+rep2 js=25ms(8038336) wasm=115ms(8038336)
+== d8 --no-turbo-inlining
+rep0 js=134ms(8038336) wasm=239ms(8038336)
+rep1 js=163ms(8038336) wasm=275ms(8038336)
+rep2 js=166ms(8038336) wasm=226ms(8038336)
+== node24
+rep0 js=28ms(8038336) wasm=100ms(8038336)
+rep1 js=25ms(8038336) wasm=106ms(8038336)
+rep2 js=27ms(8038336) wasm=99ms(8038336)
+== node22
+rep0 js=33ms(8038336) wasm=124ms(8038336)
+rep1 js=32ms(8038336) wasm=122ms(8038336)
+rep2 js=31ms(8038336) wasm=122ms(8038336)
+== node20
+rep0 js=56ms(8038336) wasm=186ms(8038336)
+rep1 js=31ms(8038336) wasm=129ms(8038336)
+rep2 js=31ms(8038336) wasm=96ms(8038336)

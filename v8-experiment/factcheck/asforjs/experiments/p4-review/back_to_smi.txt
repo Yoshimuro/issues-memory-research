@@ -1,0 +1,60 @@
+=== node20
+big=2147483648
+DebugPrint: 2147483648.0
+-- dec(big) (=big-1, fits Smi)
+DebugPrint: 2147483647.0
+-- sub(big, 1)
+DebugPrint: 2147483647.0
+-- sub(big, big) + ... ->0
+DebugPrint: 0.0
+-- addf(1.5, 1.5) =3
+DebugPrint: 3.0
+-- top-level v = v - 1
+DebugPrint: 2147483647.0
+-- top-level w = 0.5*4
+DebugPrint: 2.0
+=== node22
+big=2147483648
+DebugPrint: 0xc5f0fbdb6b1: [HeapNumber] in OldSpace
+-- dec(big) (=big-1, fits Smi)
+DebugPrint: 0x2f66c5e3959: [HeapNumber]
+-- sub(big, 1)
+DebugPrint: 0x2f66c5e3c11: [HeapNumber]
+-- sub(big, big) + ... ->0
+DebugPrint: 0x2f66c5e3ed9: [HeapNumber]
+-- addf(1.5, 1.5) =3
+DebugPrint: 0x2f66c5e41f9: [HeapNumber]
+-- top-level v = v - 1
+DebugPrint: 0x2f66c5e4209: [HeapNumber]
+-- top-level w = 0.5*4
+DebugPrint: 0x2f66c5e4529: [HeapNumber]
+=== node24
+big=2147483648
+DebugPrint: 0x2e5f527e8479: [HeapNumber]
+-- dec(big) (=big-1, fits Smi)
+DebugPrint: 0x397707a4c49: [HeapNumber]
+-- sub(big, 1)
+DebugPrint: 0x397707a4f29: [HeapNumber]
+-- sub(big, big) + ... ->0
+DebugPrint: 0x397707a5219: [HeapNumber]
+-- addf(1.5, 1.5) =3
+DebugPrint: 0x397707a5561: [HeapNumber]
+-- top-level v = v - 1
+DebugPrint: 0x397707a5571: [HeapNumber]
+-- top-level w = 0.5*4
+DebugPrint: 0x397707a58b9: [HeapNumber]
+=== d8 rel
+big=1073741824
+0x07970101e1b5 <HeapNumber 1073741824.0>
+-- dec(big) (=big-1, fits Smi)
+0x079701049a05 <HeapNumber 1073741823.0>
+-- sub(big, 1)
+0x079701049a11 <HeapNumber 1073741823.0>
+-- sub(big, big) + ... ->0
+0x079701049a1d <HeapNumber 0.0>
+-- addf(1.5, 1.5) =3
+0x079701049a29 <HeapNumber 3.0>
+-- top-level v = v - 1
+1073741823
+-- top-level w = 0.5*4
+2

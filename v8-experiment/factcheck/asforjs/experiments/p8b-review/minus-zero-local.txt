@@ -1,0 +1,19 @@
+== d8 --trace-deopt (bailout lines after switch)
+  deopt sumNegZero [MAGLEV] reason: prepare for on stack replacement (OSR
+  deopt sumNegZero [MAGLEV] reason: prepare for on stack replacement (OSR
+[bailout (kind: deopt-eager, reason: Insufficient type feedback for call): begin. deoptimizing 0x22da0101e119 <JSFunction (sfi = 0x22da0101dff1)>, 0x25ba010417bd <Code MAGLEV>, opt id 6, bytecode offset 170, deopt exit 33, FP to SP delta 120, caller SP 0x7ffee014ee28, pc 0x55c073141609]
+--- switching to doubles
+  deopt sumZero [TURBOFAN_JS] reason: wrong map
+  deopt sumNegZero [TURBOFAN_JS] reason: wrong map
+[bailout (kind: deopt-eager, reason: Insufficient type feedback for binary operation): begin. deoptimizing 0x22da0101e119 <JSFunction (sfi = 0x22da0101dff1)>, 0x25ba01042e11 <Code MAGLEV>, opt id 13, bytecode offset 240, deopt exit 23, FP to SP delta 112, caller SP 0x7ffee014ee28, pc 0x55c07314394a]
+== node24 --trace-deopt (bailout lines after switch)
+[bailout (kind: deopt-eager, reason: Insufficient type feedback for call): begin. deoptimizing 0x04c16e0a5bd1 <JSFunction (sfi = 0x31b1eb8a8411)>, 0x0a102c5437c1 <Code MAGLEV>, opt id 7, bytecode offset 140, deopt exit 23, FP to SP delta 192, caller SP 0x7ffee210e7d0, pc 0x7f7a630419b1]
+--- switching to doubles
+  deopt sumZero [TURBOFAN_JS] reason: wrong map
+  deopt sumNegZero [TURBOFAN_JS] reason: wrong map
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. deoptimizing 0x3c27bdf426d1 <JSFunction (sfi = 0x31b1eb8a8411)>, 0x0adb653818d9 <Code MAGLEV>, opt id 15, bytecode offset 179, deopt exit 21, FP to SP delta 176, caller SP 0x7ffee210e7d0, pc 0x7f7a630810f3]
+[bailout (kind: deopt-eager, reason: Insufficient type feedback for binary operation): begin. deoptimizing 0x3c27bdf426d1 <JSFunction (sfi = 0x31b1eb8a8411)>, 0x0a102c544fd9 <Code TURBOFAN_JS>, opt id 16, bytecode offset 191, deopt exit 8, FP to SP delta 208, caller SP 0x7ffee210e7d0, pc 0x7f7a630433a8]
+== node22 --trace-deopt (bailout lines after switch)
+--- switching to doubles
+  deopt sumZero [TURBOFAN] reason: wrong map
+  deopt sumNegZero [TURBOFAN] reason: wrong map

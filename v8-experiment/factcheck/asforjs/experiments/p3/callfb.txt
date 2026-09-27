@@ -1,0 +1,10 @@
+### one
+ - closure feedback cell array: 0xff5000020b9: [ClosureFeedbackCellArray] in ReadOnlySpace
+ - slot #0 Call MONOMORPHIC {
+     [0]: [weak] 0x0ff50101ddc1 <JSFunction doConst7 (sfi = 0xff50101db11)>
+### two
+ - closure feedback cell array: 0xff5000020b9: [ClosureFeedbackCellArray] in ReadOnlySpace
+ - slot #0 Call GENERIC {
+### sameSfi
+ - closure feedback cell array: 0xff5000020b9: [ClosureFeedbackCellArray] in ReadOnlySpace
+ - slot #0 Call MONOMORPHIC {

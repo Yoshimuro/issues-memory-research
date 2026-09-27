@@ -1,0 +1,12 @@
+## /opt/node22/bin/node
+      1 areaF: immediate 3.14 found
+      1 inlining line: Inlining small function(s) at call site #27:JSCall
+      1 inlining line: Inlining {<SharedFunctionInfo PI>} into {<SharedFunctionInfo areaF>}
+      1 optimized: areaC
+      1 optimized: areaF
+## /opt/nvm/versions/node/v24.21.0/bin/node
+      1 areaF: immediate 3.14 found
+      1 inlining line: Inlining small function(s) at call site #27:JSCall
+      1 inlining line: Inlining {<SharedFunctionInfo PI>} into {<SharedFunctionInfo areaF>}
+      1 optimized: areaC
+      1 optimized: areaF

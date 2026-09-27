@@ -1,0 +1,33 @@
+== d8 forced
+gen status=101001 turbofanned(bit4)=false
+sumGen status=101001 turbofanned=false
+async af status=101001 turbofanned=false
+== node22 forced
+gen status=1010001 turbofanned(bit4)=true
+sumGen status=1010001 turbofanned=true
+async af status=1010001 turbofanned=true
+== node20 forced
+gen status=1010001 turbofanned(bit4)=true
+sumGen status=1010001 turbofanned=true
+async af status=1010001 turbofanned=true
+== node24 natural --trace-opt (completed lines)
+      1 <JSFunction af (sfi = 0x4c714ea8341)> (target MAGLEV) - took 0.000
+      1 <JSFunction af (sfi = 0x4c714ea8341)> (target TURBOFAN_JS) - took 0.007
+      1 <JSFunction af (sfi = 0x4c714ea8341)> (target TURBOFAN_JS)]
+      1 <JSFunction gen (sfi = 0x4c714ea82f9)> (target MAGLEV) - took 0.000
+      1 <JSFunction gen (sfi = 0x4c714ea82f9)> (target TURBOFAN_JS) - took 0.020
+      1 <JSFunction gen (sfi = 0x4c714ea82f9)> (target TURBOFAN_JS)]
+      1 <JSFunction isPosixPathSeparator (sfi = 0x15396e355109)> (target MAGLEV) - took 0.001
+      1 <JSFunction sumGen (sfi = 0x4c714ea8389)> (target MAGLEV) - took 0.000
+      1 <JSFunction sumGen (sfi = 0x4c714ea8389)> (target TURBOFAN_JS) - took 0.007
+      1 <JSFunction sumGen (sfi = 0x4c714ea8389)> (target TURBOFAN_JS)]
+== d8 natural
+      1 <JSFunction af (sfi = 0xcdb0101e03d)> (target MAGLEV) - took 0.000
+      1 <JSFunction af (sfi = 0xcdb0101e03d)> (target TURBOFAN_JS) - took 0.005
+      1 <JSFunction af (sfi = 0xcdb0101e03d)> (target TURBOFAN_JS)]
+      1 <JSFunction gen (sfi = 0xcdb0101e00d)> (target MAGLEV) - took 0.000
+      1 <JSFunction gen (sfi = 0xcdb0101e00d)> (target TURBOFAN_JS) - took 0.007
+      1 <JSFunction gen (sfi = 0xcdb0101e00d)> (target TURBOFAN_JS)]
+      1 <JSFunction sumGen (sfi = 0xcdb0101e06d)> (target MAGLEV) - took 0.001
+      1 <JSFunction sumGen (sfi = 0xcdb0101e06d)> (target TURBOFAN_JS) - took 0.003
+      1 <JSFunction sumGen (sfi = 0xcdb0101e06d)> (target TURBOFAN_JS)]

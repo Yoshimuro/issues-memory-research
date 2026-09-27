@@ -1,0 +1,2 @@
+Cannot consider 0x28606e98 {0x1348ac6a84e1 <FeedbackCell[one closure]>} for inlining (no feedback vector)
+outerOnly: outer=1010001 inner=10000001

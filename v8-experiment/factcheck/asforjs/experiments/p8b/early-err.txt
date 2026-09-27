@@ -1,0 +1,12 @@
+== /opt/node22/bin/node early-err.js
+SyntaxError: Identifier 'z1' has already been declared
+== /opt/nvm/versions/node/v24.21.0/bin/node early-err.js
+SyntaxError: Identifier 'z1' has already been declared
+== /opt/node22/bin/node early-err-var.js
+var+var executed
+== /opt/nvm/versions/node/v24.21.0/bin/node early-err-var.js
+var+var executed
+== /opt/node22/bin/node early-err-varlet.js
+SyntaxError: Identifier 'z1' has already been declared
+== /opt/nvm/versions/node/v24.21.0/bin/node early-err-varlet.js
+SyntaxError: Identifier 'z1' has already been declared

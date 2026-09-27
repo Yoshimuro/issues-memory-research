@@ -1,0 +1,26 @@
+=== d8
+fresh (declared, not called): 131073
+after Prepare+call: 65
+after OptimizeFunctionOnNextCall+call: 41
+after OptimizeMaglevOnNextCall+call: 25
+NeverOptimize after 30 hot calls: 16385
+=== node20
+fresh (declared, not called): 262145
+after Prepare+call: 129
+after OptimizeFunctionOnNextCall+call: 81
+Maglev is not enabled.
+after OptimizeMaglevOnNextCall+call: 129
+NeverOptimize after 30 hot calls: 32769
+=== node22
+fresh (declared, not called): 262145
+after Prepare+call: 129
+after OptimizeFunctionOnNextCall+call: 81
+Maglev is not enabled.
+after OptimizeMaglevOnNextCall+call: 129
+NeverOptimize after 30 hot calls: 32769
+=== node24
+fresh (declared, not called): 262145
+after Prepare+call: 129
+after OptimizeFunctionOnNextCall+call: 81
+after OptimizeMaglevOnNextCall+call: 49
+NeverOptimize after 30 hot calls: 32769

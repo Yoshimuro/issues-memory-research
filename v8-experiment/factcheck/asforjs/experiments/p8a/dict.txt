@@ -1,0 +1,27 @@
+## node22
+keyed adds: dictionary mode after 20 properties
+defineProperty adds: dictionary mode after 1021 properties
+delete non-last property -> fast: false
+delete last-added property -> fast: false
+big object fast: false
+rep0: read dict-object 317.6 | read Map 361.5 | build object 176.8 | build Map 205.7
+rep1: read dict-object 320.0 | read Map 354.9 | build object 165.1 | build Map 194.3
+rep2: read dict-object 267.6 | read Map 391.0 | build object 179.4 | build Map 278.9
+## node24
+keyed adds: dictionary mode after 20 properties
+defineProperty adds: dictionary mode after 1021 properties
+delete non-last property -> fast: false
+delete last-added property -> fast: false
+big object fast: false
+rep0: read dict-object 337.3 | read Map 363.3 | build object 204.4 | build Map 208.2
+rep1: read dict-object 255.9 | read Map 270.3 | build object 156.1 | build Map 230.8
+rep2: read dict-object 324.5 | read Map 338.6 | build object 194.4 | build Map 185.3
+## d8
+keyed adds: dictionary mode after 20 properties
+defineProperty adds: dictionary mode after 1021 properties
+delete non-last property -> fast: false
+delete last-added property -> fast: false
+big object fast: false
+rep0: read dict-object 343.7 | read Map 347.2 | build object 182.2 | build Map 187.8
+rep1: read dict-object 353.2 | read Map 282.2 | build object 138.5 | build Map 148.4
+rep2: read dict-object 267.6 | read Map 297.8 | build object 162.4 | build Map 185.8

@@ -1,0 +1,28 @@
+== /opt/node20/bin/node
+A param: opt before true
+A param: opt right after p.b=2 (no call) true
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing 0x24d783d20961 <JSFunction getA (sfi = 0x3d1599ce3a01)>, 0x3d1599ce4ab9 <Code TURBOFAN>, opt id 0, bytecode offset 0, deopt exit 1, FP to SP delta 32, caller SP 0x7ffd62c8e640, pc 0x7efd8f7c5c1a]
+A param: opt after call false
+B const: opt before true
+B const: opt right after c.b=2 (no call) true
+== /opt/node22/bin/node
+A param: opt before true
+A param: opt right after p.b=2 (no call) true
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing 0x114acace64a9 <JSFunction getA (sfi = 0xcc4acfdb8a9)>, 0x086c20202219 <Code TURBOFAN>, opt id 0, bytecode offset 0, deopt exit 1, FP to SP delta 32, caller SP 0x7ffeef99bcb0, pc 0x7f3594005fda]
+A param: opt after call false
+B const: opt before true
+B const: opt right after c.b=2 (no call) true
+== /opt/nvm/versions/node/v24.21.0/bin/node
+A param: opt before true
+A param: opt right after p.b=2 (no call) true
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing 0x162f45426481 <JSFunction getA (sfi = 0x6f8785e8671)>, 0x0474a52c1d01 <Code TURBOFAN_JS>, opt id 1, bytecode offset 0, deopt exit 1, FP to SP delta 32, caller SP 0x7ffffc979cf8, pc 0x7fdbea80418c]
+A param: opt after call false
+B const: opt before true
+B const: opt right after c.b=2 (no call) true
+== d8rel
+A param: opt before true
+A param: opt right after p.b=2 (no call) true
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing 0x28f30101e39d <JSFunction getA (sfi = 0x28f30101e1fd)>, 0x335301000455 <Code TURBOFAN_JS>, opt id 0, bytecode offset 0, deopt exit 1, FP to SP delta 32, caller SP 0x7ffd07a87878, pc 0x559de00000c0]
+A param: opt after call false
+B const: opt before true
+B const: opt right after c.b=2 (no call) true

@@ -1,0 +1,30 @@
+## /opt/node22/bin/node 
+      1  - bytecode: 0x3c9f1a0c20a1 <BytecodeArray[32]>
+      1  - code: 0x25477c01a151 <Code BUILTIN InterpreterEntryTrampoline>
+      1  - dependent code: 0x0a1c66440c51 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+      1  - source code: (a) { let s = 0; for (let i = 0; i < a; i++) s += i; return s }
+     12 [14731:0x1c22c000] 0 flushed SharedFunctionInfo(s)
+      1 heap used MB: 3.5
+## /opt/node22/bin/node --no-flush-code-based-on-time
+      1  - bytecode: 0x2c8b92cc20a1 <BytecodeArray[32]>
+      1  - code: 0x299cbcb5a151 <Code BUILTIN InterpreterEntryTrampoline>
+      1  - dependent code: 0x386ef4040c51 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+      1  - source code: (a) { let s = 0; for (let i = 0; i < a; i++) s += i; return s }
+     12 [14742:0x2615d000] 0 flushed SharedFunctionInfo(s)
+      1 heap used MB: 3.5
+## /opt/nvm/versions/node/v24.21.0/bin/node 
+      1  - bytecode: 0x27df5a642e01 <BytecodeArray[32]>
+      1  - code: 0x3b8c6a8ed4b1 <Code BUILTIN InterpreterEntryTrampoline>
+      1  - dependent code: 0x3ce081380d19 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+      1  - source code: (a) { let s = 0; for (let i = 0; i < a; i++) s += i; return s }
+     12 [14753:0x42348000] 0 flushed SharedFunctionInfo(s)
+     12 [14753:0x42348000] code flushing: increasing time: 0 s
+      1 heap used MB: 3.9
+## /opt/nvm/versions/node/v24.21.0/bin/node --no-flush-code-based-on-time
+      1  - bytecode: 0x1cc4412c2d21 <BytecodeArray[32]>
+      1  - code: 0x1f031936d4b1 <Code BUILTIN InterpreterEntryTrampoline>
+      1  - dependent code: 0x121ae99c0d19 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+      1  - source code: (a) { let s = 0; for (let i = 0; i < a; i++) s += i; return s }
+     12 [14768:0x415ae000] 0 flushed SharedFunctionInfo(s)
+     12 [14768:0x415ae000] code flushing: increasing time: 0 s
+      1 heap used MB: 3.9

@@ -1,0 +1,12 @@
+== d8
+rep0 unused=14ms used=978ms (-1309.2)
+rep1 unused=12ms used=1010ms (-1309.2)
+rep2 unused=12ms used=1012ms (-1309.2)
+== node22
+rep0 unused=20ms used=2508ms (-1309.2)
+rep1 unused=19ms used=2521ms (-1309.2)
+rep2 unused=49ms used=2485ms (-1309.2)
+== node24
+rep0 unused=15ms used=2527ms (-1309.2)
+rep1 unused=11ms used=2479ms (-1309.2)
+rep2 unused=11ms used=2611ms (-1309.2)

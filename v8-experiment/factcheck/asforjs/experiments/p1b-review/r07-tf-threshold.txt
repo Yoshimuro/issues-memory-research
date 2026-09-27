@@ -1,0 +1,2 @@
+/opt/node22/bin/node: first Maglev call=-1 first TurboFan call=3011
+/opt/nvm/versions/node/v24.21.0/bin/node: first Maglev call=411 first TurboFan call=12412

@@ -1,0 +1,8 @@
+## /opt/node20/bin/node
+same turn, before gc: deref = object
+next task, after one gc(): deref = undefined
+WeakMap: value is reachable only via key; key dropped -> entry collectable (no API to observe size)
+## /opt/nvm/versions/node/v24.21.0/bin/node
+same turn, before gc: deref = object
+next task, after one gc(): deref = undefined
+WeakMap: value is reachable only via key; key dropped -> entry collectable (no API to observe size)

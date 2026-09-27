@@ -1,0 +1,18 @@
+[marking  <JSFunction (sfi = )> for optimization to TURBOFAN, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method  <JSFunction (sfi = )> (target TURBOFAN) OSR, mode: ConcurrencyMode::kConcurrent]
+[marking  <JSFunction doGetAge (sfi = )> for optimization to TURBOFAN, ConcurrencyMode::kConcurrent, reason: small function]
+[compiling method  <JSFunction doGetAge (sfi = )> (target TURBOFAN), mode: ConcurrencyMode::kConcurrent]
+[completed compiling  <JSFunction doGetAge (sfi = )> (target TURBOFAN) - took 0.010, 0.663, 0.027 ms]
+[completed optimizing  <JSFunction doGetAge (sfi = )> (target TURBOFAN)]
+[completed compiling  <JSFunction (sfi = )> (target TURBOFAN) OSR - took 0.057, 1.354, 0.024 ms]
+[completed optimizing  <JSFunction (sfi = )> (target TURBOFAN) OSR]
+done 100000
+[marking  <JSFunction (sfi = )> for optimization to TURBOFAN, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method  <JSFunction (sfi = )> (target TURBOFAN) OSR, mode: ConcurrencyMode::kConcurrent]
+[marking  <JSFunction doGetAge (sfi = )> for optimization to TURBOFAN, ConcurrencyMode::kConcurrent, reason: small function]
+[compiling method  <JSFunction doGetAge (sfi = )> (target TURBOFAN), mode: ConcurrencyMode::kConcurrent]
+[completed compiling  <JSFunction doGetAge (sfi = )> (target TURBOFAN) - took 0.007, 0.558, 0.018 ms]
+[completed optimizing  <JSFunction doGetAge (sfi = )> (target TURBOFAN)]
+[completed compiling  <JSFunction (sfi = )> (target TURBOFAN) OSR - took 0.026, 1.048, 0.013 ms]
+[completed optimizing  <JSFunction (sfi = )> (target TURBOFAN) OSR]
+done 100000

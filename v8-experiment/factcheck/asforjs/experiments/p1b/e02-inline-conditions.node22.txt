@@ -1,0 +1,83 @@
+[marking 0x077c14f66ac9 <JSFunction usesArgs (sfi = 0x9911d89bba9)> for optimization to TURBOFAN, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x077c14f66ac9 <JSFunction usesArgs (sfi = 0x9911d89bba9)> (target TURBOFAN), mode: ConcurrencyMode::kConcurrent]
+[marking 0x077c14f66b09 <JSFunction usesRest (sfi = 0x9911d89bc01)> for optimization to TURBOFAN, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x077c14f66b09 <JSFunction usesRest (sfi = 0x9911d89bc01)> (target TURBOFAN), mode: ConcurrencyMode::kConcurrent]
+[marking 0x077c14f66a89 <JSFunction sideEffect (sfi = 0x9911d89bb51)> for optimization to TURBOFAN, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x077c14f66a89 <JSFunction sideEffect (sfi = 0x9911d89bb51)> (target TURBOFAN), mode: ConcurrencyMode::kConcurrent]
+[marking 0x344332616a89 <JSFunction (sfi = 0x9911d89cfc9)> for optimization to TURBOFAN, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x344332616a89 <JSFunction (sfi = 0x9911d89cfc9)> (target TURBOFAN), mode: ConcurrencyMode::kConcurrent]
+[marking 0x077c14f66d59 <JSFunction named (sfi = 0x9911d89bec1)> for optimization to TURBOFAN, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x077c14f66d59 <JSFunction named (sfi = 0x9911d89bec1)> (target TURBOFAN), mode: ConcurrencyMode::kConcurrent]
+[marking 0x077c14f66a49 <JSFunction switchRet (sfi = 0x9911d89baf9)> for optimization to TURBOFAN, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x077c14f66a49 <JSFunction switchRet (sfi = 0x9911d89baf9)> (target TURBOFAN), mode: ConcurrencyMode::kConcurrent]
+[marking 0x077c14f66c09 <JSFunction caller_usesArgs (sfi = 0x9911d89bd61)> for optimization to TURBOFAN, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[marking 0x077c14f66c49 <JSFunction caller_usesRest (sfi = 0x9911d89bdb9)> for optimization to TURBOFAN, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x077c14f66c09 <JSFunction caller_usesArgs (sfi = 0x9911d89bd61)> (target TURBOFAN), mode: ConcurrencyMode::kConcurrent]
+[compiling method 0x077c14f66c49 <JSFunction caller_usesRest (sfi = 0x9911d89bdb9)> (target TURBOFAN), mode: ConcurrencyMode::kConcurrent]
+[marking 0x077c14f66b49 <JSFunction caller_multiRet (sfi = 0x9911d89bc59)> for optimization to TURBOFAN, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[marking 0x077c14f66b89 <JSFunction caller_switchRet (sfi = 0x9911d89bcb1)> for optimization to TURBOFAN, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[marking 0x077c14f66bc9 <JSFunction caller_sideEffect (sfi = 0x9911d89bd09)> for optimization to TURBOFAN, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x077c14f66b49 <JSFunction caller_multiRet (sfi = 0x9911d89bc59)> (target TURBOFAN), mode: ConcurrencyMode::kConcurrent]
+[compiling method 0x077c14f66b89 <JSFunction caller_switchRet (sfi = 0x9911d89bcb1)> (target TURBOFAN), mode: ConcurrencyMode::kConcurrent]
+[compiling method 0x077c14f66bc9 <JSFunction caller_sideEffect (sfi = 0x9911d89bd09)> (target TURBOFAN), mode: ConcurrencyMode::kConcurrent]
+[marking 0x077c14f66a09 <JSFunction multiRet (sfi = 0x9911d89baa1)> for optimization to TURBOFAN, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[completed compiling 0x077c14f66a89 <JSFunction sideEffect (sfi = 0x9911d89bb51)> (target TURBOFAN) - took 0.014, 1.171, 0.070 ms]
+[completed optimizing 0x077c14f66a89 <JSFunction sideEffect (sfi = 0x9911d89bb51)> (target TURBOFAN)]
+[completed compiling 0x077c14f66b09 <JSFunction usesRest (sfi = 0x9911d89bc01)> (target TURBOFAN) - took 0.004, 1.940, 0.005 ms]
+[completed optimizing 0x077c14f66b09 <JSFunction usesRest (sfi = 0x9911d89bc01)> (target TURBOFAN)]
+[completed compiling 0x077c14f66ac9 <JSFunction usesArgs (sfi = 0x9911d89bba9)> (target TURBOFAN) - took 0.022, 2.024, 0.005 ms]
+[completed optimizing 0x077c14f66ac9 <JSFunction usesArgs (sfi = 0x9911d89bba9)> (target TURBOFAN)]
+[completed compiling 0x344332616a89 <JSFunction (sfi = 0x9911d89cfc9)> (target TURBOFAN) - took 0.014, 0.238, 0.004 ms]
+[completed optimizing 0x344332616a89 <JSFunction (sfi = 0x9911d89cfc9)> (target TURBOFAN)]
+Considering 0x3da6db40 {0x09911d89bba9 <SharedFunctionInfo [completed compiling 0x077c14f66d59 usesArgs<JSFunction named (sfi = 0x9911d89bec1)> (target TURBOFAN) - took 0.023, 0.243, 0.004 ms]
+[completed optimizing 0x077c14f66d59 <JSFunction named (sfi = 0x9911d89bec1)> (target TURBOFAN)]
+>} for inlining with 0x3da6dcc8 {0x09911d89ccb9 <FeedbackVector[8]>}
+[completed compiling 0x077c14f66a49 Considering 0x3da7db90 {<JSFunction switchRet (sfi = 0x9911d89baf9)> (target TURBOFAN) - took 0.013, 0.473, 0.006 ms]
+[completed optimizing 0x077c14f66a49 <JSFunction switchRet (sfi = 0x9911d89baf9)> (target TURBOFAN)]
+0x09911d89bc01 <SharedFunctionInfo usesRest>} for inlining with 0x3da7dd18 {0x09911d89ce99 <FeedbackVector[8]>}
+[marking 0x077c14f66a09 <JSFunction multiRet (sfi = 0x9911d89baa1)> for optimization to TURBOFAN, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x077c14f66a09 <JSFunction multiRet (sfi = 0x9911d89baa1)> (target TURBOFAN), mode: ConcurrencyMode::kConcurrent]
+1 candidate(s) for inlining:
+- candidate: JSCall node #37 with frequency 99.8358, 1 target(s):
+  - target: 0x3da7db90 {0x09911d89bc01 <SharedFunctionInfo usesRest>}, bytecode size: 40
+Inlining 0x3da7db90 {0x09911d89bc01 <SharedFunctionInfo usesRest>} into 0x3da7d7b0 {0x09911d89bdb9 <SharedFunctionInfo caller_usesRest>}
+1 candidate(s) for inlining:
+- candidate: JSCall node #37 with frequency 99.8308, 1 target(s):
+  - target: 0x3da6db40 {0x09911d89bba9 <SharedFunctionInfo usesArgs>}, bytecode size: 39
+Inlining 0x3da6db40 {0x09911d89bba9 <SharedFunctionInfo usesArgs>} into 0x3da6d760 {0x09911d89bd61 <SharedFunctionInfo caller_usesArgs>}
+[completed compiling 0x077c14f66c49 <JSFunction caller_usesRest (sfi = 0x9911d89bdb9)> (target TURBOFAN) - took 0.012, 2.050, 0.015 ms]
+[completed optimizing 0x077c14f66c49 Considering 0x3daadc80 {0x09911d89bb51 <SharedFunctionInfo sideEffect>} for inlining with 0x3daade08 {0x09911d89cae9 <FeedbackVector[6]>}
+1 candidate(s) for inlining:
+- candidate: JSCall node #35 with frequency 99.9466, 1 target(s):
+  - target: 0x3daadc80 {0x09911d89bb51 <SharedFunctionInfo sideEffect>}, bytecode size: 30
+Inlining 0x3daadc80 {0x09911d89bb51 <SharedFunctionInfo sideEffect<JSFunction caller_usesRest (sfi = 0x9911d89bdb9)> (target TURBOFAN)]
+[completed compiling 0x077c14f66c09 <JSFunction caller_usesArgs (sfi = 0x9911d89bd61)> (target TURBOFAN) - took 0.012, 2.132, 0.008 ms]
+[completed optimizing 0x077c14f66c09 <JSFunction caller_usesArgs (sfi = 0x9911d89bd61)> (target TURBOFAN)]
+>} into 0x3daad8a0 {0x09911d89bd09 <SharedFunctionInfo caller_sideEffect>}
+Considering 0x3da8dbe0 {0x09911d89baa1 <SharedFunctionInfo multiRet>} for inlining with 0x3da8dd68 {0x09911d89c7e9 <FeedbackVector[3]>}
+Considering 0x3da9dc30 {0x09911d89baf9 <SharedFunctionInfo switchRet>} for inlining with 0x3da9ddb8 {0x09911d89c939 <FeedbackVector[2]>}
+1 candidate(s) for inlining:
+- candidate: JSCall node #35 with frequency 99.2059, 1 target(s):
+  - target: 0x3da8dbe0 {0x09911d89baa1 <SharedFunctionInfo multiRet>}, bytecode size: 35
+Inlining 0x3da8dbe0 {0x09911d89baa1 <SharedFunctionInfo multiRet>} into 0x3da8d800 {0x09911d89bc59 <SharedFunctionInfo caller_multiRet>}
+[completed compiling 0x341567704679 1 candidate(s) for inlining:
+<JSFunction multiRet (sfi = 0x9911d89baa1)> (target TURBOFAN) - took 0.006, 0.246, 0.016 ms]
+[completed optimizing 0x341567704679 <JSFunction multiRet (sfi = 0x9911d89baa1)> (target TURBOFAN)]
+- candidate: JSCall node #35 with frequency 99.8358, 1 target(s):
+  - target: 0x3da9dc30 {0x09911d89baf9 <SharedFunctionInfo switchRet>}, bytecode size: 40
+Inlining 0x3da9dc30 {0x09911d89baf9 <SharedFunctionInfo switchRet>} into 0x3da9d850 {0x09911d89bcb1 <SharedFunctionInfo caller_switchRet>}
+[completed compiling 0x341567703859 <JSFunction caller_sideEffect (sfi = 0x9911d89bd09)> (target TURBOFAN) - took 0.019, 1.928, 0.012 ms]
+[completed optimizing 0x341567703859 <JSFunction caller_sideEffect (sfi = 0x9911d89bd09)> (target TURBOFAN)]
+[completed compiling 0x3415677038d9 <JSFunction caller_multiRet (sfi = 0x9911d89bc59)> (target TURBOFAN) - took 0.013, 4.011, 0.006 ms]
+[completed optimizing 0x3415677038d9 <JSFunction caller_multiRet (sfi = 0x9911d89bc59)> (target TURBOFAN)]
+[completed compiling 0x341567703899 <JSFunction caller_switchRet (sfi = 0x9911d89bcb1)> (target TURBOFAN) - took 0.013, 4.212, 0.004 ms]
+[completed optimizing 0x341567703899 <JSFunction caller_switchRet (sfi = 0x9911d89bcb1)> (target TURBOFAN)]
+caller_multiRet: status bits=1010001
+caller_switchRet: status bits=1010001
+caller_sideEffect: status bits=1010001
+caller_usesArgs: status bits=1010001
+caller_usesRest: status bits=1010001
+caller_reduceLiteral: status bits=1
+caller_reduceNamed: status bits=1
+usesArgs: status bits=1010001
+usesRest: status bits=1010001

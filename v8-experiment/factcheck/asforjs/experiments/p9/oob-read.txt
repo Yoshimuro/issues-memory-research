@@ -1,0 +1,15 @@
+== /opt/node22/bin/node
+before: holey= false smi= true
+opt status after in-bounds opt (bit4=turbofan): 1
+[bailout (kind: deopt-eager, reason: out of bounds): begin. deoptimizing 0x24a696da61a1 <JSFunction sum (sfi = 0xf3cb801b781)>, 0x219b920913d9 <Code TURBOFAN>, opt id 0, bytecode offset 6, deopt exit 4, FP to SP delta 64, caller SP 0x7fff0dd3c6d0, pc 0x7f3f78008d9b]
+after OOB read: holey= false smi= true turbofan still= 0
+== /opt/nvm/versions/node/v24.21.0/bin/node
+before: holey= false smi= true
+opt status after in-bounds opt (bit4=turbofan): 1
+[bailout (kind: deopt-eager, reason: out of bounds): begin. deoptimizing 0x267f2c3a6181 <JSFunction sum (sfi = 0x3a2fc35a8559)>, 0x32865e493d91 <Code TURBOFAN_JS>, opt id 1, bytecode offset 6, deopt exit 8, FP to SP delta 64, caller SP 0x7fff07345758, pc 0x7fbe438068cb]
+after OOB read: holey= false smi= true turbofan still= 0
+== d8 15.6
+before: holey= false smi= true
+opt status after in-bounds opt (bit4=turbofan): 0
+[bailout (kind: deopt-eager, reason: out of bounds): begin. deoptimizing 0x2a0f0101e21d <JSFunction sum (sfi = 0x2a0f0101e149)>, 0x385201000649 <Code TURBOFAN_JS>, opt id 0, bytecode offset 6, deopt exit 8, FP to SP delta 64, caller SP 0x7ffc62240a58, pc 0x55f9bd6402f1]
+after OOB read: holey= false smi= true turbofan still= 0

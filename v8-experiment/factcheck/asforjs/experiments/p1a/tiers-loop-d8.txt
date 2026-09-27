@@ -1,0 +1,12 @@
+d8 max-opt=0: N=30000000 time_ms=554.3 r=105000000
+d8 max-opt=1: N=30000000 time_ms=150.5 r=105000000
+d8 max-opt=2: N=30000000 time_ms=41.4 r=105000000
+d8 max-opt=3: N=30000000 time_ms=16.6 r=105000000
+d8 max-opt=0: N=30000000 time_ms=365.5 r=105000000
+d8 max-opt=1: N=30000000 time_ms=102.0 r=105000000
+d8 max-opt=2: N=30000000 time_ms=27.8 r=105000000
+d8 max-opt=3: N=30000000 time_ms=16.0 r=105000000
+d8 max-opt=0: N=30000000 time_ms=401.9 r=105000000
+d8 max-opt=1: N=30000000 time_ms=118.2 r=105000000
+d8 max-opt=2: N=30000000 time_ms=32.9 r=105000000
+d8 max-opt=3: N=30000000 time_ms=17.8 r=105000000

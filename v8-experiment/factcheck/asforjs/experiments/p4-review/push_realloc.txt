@@ -1,0 +1,15 @@
+=== node22
+round 0 push=1312 append=1093 prealloc=98 push/prealloc=13.43 append/prealloc=11.19
+round 1 push=244 append=299 prealloc=77 push/prealloc=3.16 append/prealloc=3.88
+round 2 push=232 append=307 prealloc=76 push/prealloc=3.06 append/prealloc=4.04
+round 3 push=264 append=351 prealloc=187 push/prealloc=1.41 append/prealloc=1.88
+=== node24
+round 0 push=406 append=1242 prealloc=539 push/prealloc=0.75 append/prealloc=2.31
+round 1 push=230 append=237 prealloc=73 push/prealloc=3.18 append/prealloc=3.27
+round 2 push=236 append=436 prealloc=377 push/prealloc=0.63 append/prealloc=1.16
+round 3 push=279 append=257 prealloc=74 push/prealloc=3.79 append/prealloc=3.49
+=== d8
+round 0 push=112 append=153 prealloc=40 push/prealloc=2.78 append/prealloc=3.81
+round 1 push=111 append=151 prealloc=112 push/prealloc=0.99 append/prealloc=1.35
+round 2 push=139 append=150 prealloc=48 push/prealloc=2.90 append/prealloc=3.14
+round 3 push=155 append=181 prealloc=41 push/prealloc=3.82 append/prealloc=4.46

@@ -1,0 +1,408 @@
+V8 is running with developer-only features enabled. Stability and security will suffer.
+Inner function scope:
+function mk1 () { // (0xbd401acaa28) (85, 181)
+  // is hoisted in context
+  // NormalFunction
+  // local vars:
+  VAR small;  // (0xbd401acfaa8) forced context allocation, never assigned
+  VAR arr;  // (0xbd401acfa48) never assigned
+  function () { // (0xbd401acfad8) (158, 178)
+    // (local) function name: f1
+    // NormalFunction
+    // function var:
+    CONST f1;  // (0xbd401acfd48) never assigned, never used
+  }
+}
+Inner function scope:
+function mk2 () { // (0xbd401acad20) (194, 293)
+  // is hoisted in context
+  // NormalFunction
+  // local vars:
+  VAR small;  // (0xbd401acfa90) never assigned
+  VAR arr;  // (0xbd401acfa30) forced context allocation, never assigned
+  function () { // (0xbd401acfac0) (267, 290)
+    // (local) function name: f2
+    // NormalFunction
+    // function var:
+    CONST f2;  // (0xbd401acfd30) never assigned, never used
+  }
+}
+Inner function scope:
+function mk3 () { // (0xbd401acb018) (306, 487)
+  // is hoisted in context
+  // NormalFunction
+  // local vars:
+  VAR small;  // (0xbd401acfa90) forced context allocation, never assigned
+  VAR arr;  // (0xbd401acfa30) forced context allocation, never assigned
+  VAR unusedHelper;  // (0xbd401acfd30) never assigned
+  function () { // (0xbd401acfd60) (464, 484)
+    // (local) function name: f3
+    // NormalFunction
+    // function var:
+    CONST f3;  // (0xbd401acffd0) never assigned, never used
+  }
+  function () { // (0xbd401acfac0) (384, 409)
+    // is hoisted in context
+    // NormalFunction
+  }
+}
+Inner function scope:
+function mk4 () { // (0xbd401acb398) (500, 627)
+  // is hoisted in context
+  // NormalFunction
+  // local vars:
+  VAR small;  // (0xbd401acfa90) forced context allocation, never assigned
+  VAR arr;  // (0xbd401acfa30) never assigned
+  function () { // (0xbd401acfac0) (576, 624)
+    // (local) function name: mid
+    // NormalFunction
+    // function var:
+    CONST mid;  // (0xbd401acffb8) never assigned, never used
+    function () { // (0xbd401acfce8) (601, 621)
+      // (local) function name: deep
+      // NormalFunction
+      // function var:
+      CONST deep;  // (0xbd401acff58) never assigned, never used
+    }
+  }
+}
+Inner function scope:
+function mk5 () { // (0xbd401acb770) (640, 691)
+  // is hoisted in context
+  // NormalFunction
+  // local vars:
+  VAR param;  // (0xbd401acfa30) forced context allocation, never assigned
+  function () { // (0xbd401acfa60) (668, 688)
+    // (local) function name: f5
+    // NormalFunction
+    // function var:
+    CONST f5;  // (0xbd401acfcd0) never assigned, never used
+  }
+}
+Global scope:
+global { // (0xbd401aca830) (0, 989)
+  // will be compiled
+  // NormalFunction
+  // 1 stack slots
+  // temporary vars:
+  TEMPORARY .result;  // (0xbd401acc188) local[0]
+  // local vars:
+  VAR mk1;  // (0xbd401acacf0) 
+  VAR mk3;  // (0xbd401acb368) 
+  VAR mk4;  // (0xbd401acb740) 
+  VAR mk5;  // (0xbd401acba28) 
+  VAR mk2;  // (0xbd401acafe8) 
+  // dynamic vars:
+  DYNAMIC_GLOBAL print;  // (0xbd401acc458) never assigned
+  function mk5 () { // (0xbd401acb770) (640, 691)
+    // is hoisted in context
+    // lazily parsed
+    // NormalFunction
+  }
+  function mk4 () { // (0xbd401acb398) (500, 627)
+    // is hoisted in context
+    // lazily parsed
+    // NormalFunction
+  }
+  function mk3 () { // (0xbd401acb018) (306, 487)
+    // is hoisted in context
+    // lazily parsed
+    // NormalFunction
+  }
+  function mk2 () { // (0xbd401acad20) (194, 293)
+    // is hoisted in context
+    // lazily parsed
+    // NormalFunction
+  }
+  function mk1 () { // (0xbd401acaa28) (85, 181)
+    // is hoisted in context
+    // lazily parsed
+    // NormalFunction
+  }
+}
+#### f1 (uses only small)
+Global scope:
+function mk1 () { // (0xbd401acaa28) (85, 181)
+  // will be compiled
+  // NormalFunction
+  // 1 stack slots
+  // 3 heap slots
+  // local vars:
+  VAR small;  // (0xbd401acade0) context[2], forced context allocation, never assigned, init: 138
+  VAR arr;  // (0xbd401acac80) local[0], never assigned, init: 123
+  function f1 () { // (0xbd401acae70) (158, 178)
+    // lazily parsed
+    // NormalFunction
+  }
+}
+DebugPrint: 0x215c0108a9c5: [Function]
+ - map: 0x215c01004c89 <Map[32](HOLEY_ELEMENTS)> [FastProperties]
+ - prototype: 0x215c01004db1 <JSFunction (sfi = 0x215c010014c9)>
+ - elements: 0x215c000007e5 <FixedArray[0]> [HOLEY_ELEMENTS]
+ - function prototype: 
+ - initial_map: 
+ - shared_info: 0x215c0101e2d9 <SharedFunctionInfo f1>
+ - name: 0x215c0101d935 <String[2]: #f1>
+ - builtin: CompileLazy
+ - formal_parameter_count: 1
+ - kind: NormalFunction
+ - context: 0x215c010899f9 <FunctionContext[3]>
+ - code: 0x215c00b62161 <Code BUILTIN CompileLazy>
+ - dispatch_handle: 0x135c00
+ - source code: () { return small; }
+ - properties: 0x215c000007e5 <FixedArray[0]>
+ - All own properties (excluding elements): {
+    0x215c00000e39: [String] in ReadOnlySpace: #length: 0x215c00b5fe2d <AccessorInfo name= 0x215c00000e39 <String[6]: #length>, data= 0x215c00000011 <undefined>> (const accessor descriptor, attrs: [__C])
+    0x215c00000e29: [String] in ReadOnlySpace: #name: 0x215c00b5fe15 <AccessorInfo name= 0x215c00000e29 <String[4]: #name>, data= 0x215c00000011 <undefined>> (const accessor descriptor, attrs: [__C])
+    0x215c00000e11: [String] in ReadOnlySpace: #prototype: 0x215c00b5fe45 <AccessorInfo name= 0x215c00000e11 <String[9]: #prototype>, data= 0x215c00000011 <undefined>> (const accessor descriptor, attrs: [W__])
+ }
+ - feedback vector: feedback metadata is not available in SFI
+0x215c01004c89: [Map] in OldSpace
+ - map: 0x215c0100453d <MetaMap (0x215c0100458d <NativeContext[308]>)>
+ - type: JS_FUNCTION_WITH_PROTOTYPE_TYPE
+ - instance size: 32
+ - inobject properties: 0
+ - unused property fields: 0
+ - elements kind: HOLEY_ELEMENTS
+ - enum length: invalid
+ - stable_map
+ - callable
+ - constructor
+ - back pointer: 0x215c00000011 <undefined>
+ - prototype_validity_cell: 0x215c00000b15 <Cell value= [cleared]>
+ - instance descriptors (own) #3: 0x215c01004cb1 <DescriptorArray[3]>
+ - prototype: 0x215c01004db1 <JSFunction (sfi = 0x215c010014c9)>
+ - constructor: 0x215c01004c55 <JSFunction Function (sfi = 0x215c00b9468d)>
+ - dependent code: 0x215c000007f5 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 0
+#### f2 (uses arr[100])
+Global scope:
+function mk2 () { // (0xbd401acaa28) (194, 293)
+  // will be compiled
+  // NormalFunction
+  // 1 stack slots
+  // 3 heap slots
+  // local vars:
+  VAR small;  // (0xbd401acade0) local[0], never assigned, init: 247
+  VAR arr;  // (0xbd401acac80) context[2], forced context allocation, never assigned, init: 232
+  function f2 () { // (0xbd401acae70) (267, 290)
+    // lazily parsed
+    // NormalFunction
+  }
+}
+DebugPrint: 0x215c0108b9bd: [Function]
+ - map: 0x215c01004c89 <Map[32](HOLEY_ELEMENTS)> [FastProperties]
+ - prototype: 0x215c01004db1 <JSFunction (sfi = 0x215c010014c9)>
+ - elements: 0x215c000007e5 <FixedArray[0]> [HOLEY_ELEMENTS]
+ - function prototype: 
+ - initial_map: 
+ - shared_info: 0x215c0101e369 <SharedFunctionInfo f2>
+ - name: 0x215c0101d955 <String[2]: #f2>
+ - builtin: CompileLazy
+ - formal_parameter_count: 1
+ - kind: NormalFunction
+ - context: 0x215c0108a9f1 <FunctionContext[3]>
+ - code: 0x215c00b62161 <Code BUILTIN CompileLazy>
+ - dispatch_handle: 0x135d00
+ - source code: () { return arr[100]; }
+ - properties: 0x215c000007e5 <FixedArray[0]>
+ - All own properties (excluding elements): {
+    0x215c00000e39: [String] in ReadOnlySpace: #length: 0x215c00b5fe2d <AccessorInfo name= 0x215c00000e39 <String[6]: #length>, data= 0x215c00000011 <undefined>> (const accessor descriptor, attrs: [__C])
+    0x215c00000e29: [String] in ReadOnlySpace: #name: 0x215c00b5fe15 <AccessorInfo name= 0x215c00000e29 <String[4]: #name>, data= 0x215c00000011 <undefined>> (const accessor descriptor, attrs: [__C])
+    0x215c00000e11: [String] in ReadOnlySpace: #prototype: 0x215c00b5fe45 <AccessorInfo name= 0x215c00000e11 <String[9]: #prototype>, data= 0x215c00000011 <undefined>> (const accessor descriptor, attrs: [W__])
+ }
+ - feedback vector: feedback metadata is not available in SFI
+0x215c01004c89: [Map] in OldSpace
+ - map: 0x215c0100453d <MetaMap (0x215c0100458d <NativeContext[308]>)>
+ - type: JS_FUNCTION_WITH_PROTOTYPE_TYPE
+ - instance size: 32
+ - inobject properties: 0
+ - unused property fields: 0
+ - elements kind: HOLEY_ELEMENTS
+ - enum length: invalid
+ - stable_map
+ - callable
+ - constructor
+ - back pointer: 0x215c00000011 <undefined>
+ - prototype_validity_cell: 0x215c00000b15 <Cell value= [cleared]>
+ - instance descriptors (own) #3: 0x215c01004cb1 <DescriptorArray[3]>
+ - prototype: 0x215c01004db1 <JSFunction (sfi = 0x215c010014c9)>
+ - constructor: 0x215c01004c55 <JSFunction Function (sfi = 0x215c00b9468d)>
+ - dependent code: 0x215c000007f5 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 0
+#### f3 (sibling closure uses arr)
+Global scope:
+function mk3 () { // (0xbd401acaa28) (306, 487)
+  // will be compiled
+  // NormalFunction
+  // 4 heap slots
+  // local vars:
+  VAR small;  // (0xbd401acade0) context[3], forced context allocation, never assigned, init: 359
+  VAR arr;  // (0xbd401acac80) context[2], forced context allocation, never assigned, init: 344
+  function f3 () { // (0xbd401acb018) (464, 484)
+    // lazily parsed
+    // NormalFunction
+  }
+  function unusedHelper () { // (0xbd401acae70) (384, 409)
+    // is hoisted in context
+    // lazily parsed
+    // NormalFunction
+  }
+}
+DebugPrint: 0x215c0108c9b9: [Function]
+ - map: 0x215c01004c89 <Map[32](HOLEY_ELEMENTS)> [FastProperties]
+ - prototype: 0x215c01004db1 <JSFunction (sfi = 0x215c010014c9)>
+ - elements: 0x215c000007e5 <FixedArray[0]> [HOLEY_ELEMENTS]
+ - function prototype: 
+ - initial_map: 
+ - shared_info: 0x215c0101e401 <SharedFunctionInfo f3>
+ - name: 0x215c0101d98d <String[2]: #f3>
+ - builtin: CompileLazy
+ - formal_parameter_count: 1
+ - kind: NormalFunction
+ - context: 0x215c0108b9e9 <FunctionContext[4]>
+ - code: 0x215c00b62161 <Code BUILTIN CompileLazy>
+ - dispatch_handle: 0x135e00
+ - source code: () { return small; }
+ - properties: 0x215c000007e5 <FixedArray[0]>
+ - All own properties (excluding elements): {
+    0x215c00000e39: [String] in ReadOnlySpace: #length: 0x215c00b5fe2d <AccessorInfo name= 0x215c00000e39 <String[6]: #length>, data= 0x215c00000011 <undefined>> (const accessor descriptor, attrs: [__C])
+    0x215c00000e29: [String] in ReadOnlySpace: #name: 0x215c00b5fe15 <AccessorInfo name= 0x215c00000e29 <String[4]: #name>, data= 0x215c00000011 <undefined>> (const accessor descriptor, attrs: [__C])
+    0x215c00000e11: [String] in ReadOnlySpace: #prototype: 0x215c00b5fe45 <AccessorInfo name= 0x215c00000e11 <String[9]: #prototype>, data= 0x215c00000011 <undefined>> (const accessor descriptor, attrs: [W__])
+ }
+ - feedback vector: feedback metadata is not available in SFI
+0x215c01004c89: [Map] in OldSpace
+ - map: 0x215c0100453d <MetaMap (0x215c0100458d <NativeContext[308]>)>
+ - type: JS_FUNCTION_WITH_PROTOTYPE_TYPE
+ - instance size: 32
+ - inobject properties: 0
+ - unused property fields: 0
+ - elements kind: HOLEY_ELEMENTS
+ - enum length: invalid
+ - stable_map
+ - callable
+ - constructor
+ - back pointer: 0x215c00000011 <undefined>
+ - prototype_validity_cell: 0x215c00000b15 <Cell value= [cleared]>
+ - instance descriptors (own) #3: 0x215c01004cb1 <DescriptorArray[3]>
+ - prototype: 0x215c01004db1 <JSFunction (sfi = 0x215c010014c9)>
+ - constructor: 0x215c01004c55 <JSFunction Function (sfi = 0x215c00b9468d)>
+ - dependent code: 0x215c000007f5 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 0
+#### deep (two levels)
+Global scope:
+function mk4 () { // (0xbd401acaa28) (500, 627)
+  // will be compiled
+  // NormalFunction
+  // 1 stack slots
+  // 3 heap slots
+  // local vars:
+  VAR small;  // (0xbd401acade0) context[2], forced context allocation, never assigned, init: 553
+  VAR arr;  // (0xbd401acac80) local[0], never assigned, init: 538
+  function mid () { // (0xbd401acae70) (576, 624)
+    // lazily parsed
+    // NormalFunction
+  }
+}
+Global scope:
+function mid () { // (0xbd401acabd0) (576, 624)
+  // will be compiled
+  // NormalFunction
+  function deep () { // (0xbd401acadf8) (601, 621)
+    // lazily parsed
+    // NormalFunction
+  }
+}
+DebugPrint: 0x215c0108d9dd: [Function]
+ - map: 0x215c01004c89 <Map[32](HOLEY_ELEMENTS)> [FastProperties]
+ - prototype: 0x215c01004db1 <JSFunction (sfi = 0x215c010014c9)>
+ - elements: 0x215c000007e5 <FixedArray[0]> [HOLEY_ELEMENTS]
+ - function prototype: 
+ - initial_map: 
+ - shared_info: 0x215c0101e51d <SharedFunctionInfo deep>
+ - name: 0x215c0101d9bd <String[4]: #deep>
+ - builtin: CompileLazy
+ - formal_parameter_count: 1
+ - kind: NormalFunction
+ - context: 0x215c0108c9e5 <FunctionContext[3]>
+ - code: 0x215c00b62161 <Code BUILTIN CompileLazy>
+ - dispatch_handle: 0x136000
+ - source code: () { return small; }
+ - properties: 0x215c000007e5 <FixedArray[0]>
+ - All own properties (excluding elements): {
+    0x215c00000e39: [String] in ReadOnlySpace: #length: 0x215c00b5fe2d <AccessorInfo name= 0x215c00000e39 <String[6]: #length>, data= 0x215c00000011 <undefined>> (const accessor descriptor, attrs: [__C])
+    0x215c00000e29: [String] in ReadOnlySpace: #name: 0x215c00b5fe15 <AccessorInfo name= 0x215c00000e29 <String[4]: #name>, data= 0x215c00000011 <undefined>> (const accessor descriptor, attrs: [__C])
+    0x215c00000e11: [String] in ReadOnlySpace: #prototype: 0x215c00b5fe45 <AccessorInfo name= 0x215c00000e11 <String[9]: #prototype>, data= 0x215c00000011 <undefined>> (const accessor descriptor, attrs: [W__])
+ }
+ - feedback vector: feedback metadata is not available in SFI
+0x215c01004c89: [Map] in OldSpace
+ - map: 0x215c0100453d <MetaMap (0x215c0100458d <NativeContext[308]>)>
+ - type: JS_FUNCTION_WITH_PROTOTYPE_TYPE
+ - instance size: 32
+ - inobject properties: 0
+ - unused property fields: 0
+ - elements kind: HOLEY_ELEMENTS
+ - enum length: invalid
+ - stable_map
+ - callable
+ - constructor
+ - back pointer: 0x215c00000011 <undefined>
+ - prototype_validity_cell: 0x215c00000b15 <Cell value= [cleared]>
+ - instance descriptors (own) #3: 0x215c01004cb1 <DescriptorArray[3]>
+ - prototype: 0x215c01004db1 <JSFunction (sfi = 0x215c010014c9)>
+ - constructor: 0x215c01004c55 <JSFunction Function (sfi = 0x215c00b9468d)>
+ - dependent code: 0x215c000007f5 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 0
+#### f5 (captured parameter)
+Global scope:
+function mk5 (param) { // (0xbd401acaa28) (640, 691)
+  // will be compiled
+  // NormalFunction
+  // 3 heap slots
+  // local vars:
+  VAR param;  // (0xbd401acac80) context[2], forced context allocation, never assigned, init: 641
+  function f5 () { // (0xbd401acacd0) (668, 688)
+    // lazily parsed
+    // NormalFunction
+  }
+}
+DebugPrint: 0x215c0108da49: [Function]
+ - map: 0x215c01004c89 <Map[32](HOLEY_ELEMENTS)> [FastProperties]
+ - prototype: 0x215c01004db1 <JSFunction (sfi = 0x215c010014c9)>
+ - elements: 0x215c000007e5 <FixedArray[0]> [HOLEY_ELEMENTS]
+ - function prototype: 
+ - initial_map: 
+ - shared_info: 0x215c0101e5f5 <SharedFunctionInfo f5>
+ - name: 0x215c0101d9f1 <String[2]: #f5>
+ - builtin: CompileLazy
+ - formal_parameter_count: 1
+ - kind: NormalFunction
+ - context: 0x215c0108da35 <FunctionContext[3]>
+ - code: 0x215c00b62161 <Code BUILTIN CompileLazy>
+ - dispatch_handle: 0x136100
+ - source code: () { return param; }
+ - properties: 0x215c000007e5 <FixedArray[0]>
+ - All own properties (excluding elements): {
+    0x215c00000e39: [String] in ReadOnlySpace: #length: 0x215c00b5fe2d <AccessorInfo name= 0x215c00000e39 <String[6]: #length>, data= 0x215c00000011 <undefined>> (const accessor descriptor, attrs: [__C])
+    0x215c00000e29: [String] in ReadOnlySpace: #name: 0x215c00b5fe15 <AccessorInfo name= 0x215c00000e29 <String[4]: #name>, data= 0x215c00000011 <undefined>> (const accessor descriptor, attrs: [__C])
+    0x215c00000e11: [String] in ReadOnlySpace: #prototype: 0x215c00b5fe45 <AccessorInfo name= 0x215c00000e11 <String[9]: #prototype>, data= 0x215c00000011 <undefined>> (const accessor descriptor, attrs: [W__])
+ }
+ - feedback vector: feedback metadata is not available in SFI
+0x215c01004c89: [Map] in OldSpace
+ - map: 0x215c0100453d <MetaMap (0x215c0100458d <NativeContext[308]>)>
+ - type: JS_FUNCTION_WITH_PROTOTYPE_TYPE
+ - instance size: 32
+ - inobject properties: 0
+ - unused property fields: 0
+ - elements kind: HOLEY_ELEMENTS
+ - enum length: invalid
+ - stable_map
+ - callable
+ - constructor
+ - back pointer: 0x215c00000011 <undefined>
+ - prototype_validity_cell: 0x215c00000b15 <Cell value= [cleared]>
+ - instance descriptors (own) #3: 0x215c01004cb1 <DescriptorArray[3]>
+ - prototype: 0x215c01004db1 <JSFunction (sfi = 0x215c010014c9)>
+ - constructor: 0x215c01004c55 <JSFunction Function (sfi = 0x215c00b9468d)>
+ - dependent code: 0x215c000007f5 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 0

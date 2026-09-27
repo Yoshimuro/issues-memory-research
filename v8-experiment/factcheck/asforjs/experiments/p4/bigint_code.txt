@@ -1,0 +1,82 @@
+##### node20
+--- addBig
+    REX.W cmpq [r13+0x2b0] (root (bigint_map)),rcx
+    REX.W cmpq [r13+0x2b0] (root (bigint_map)),rdi
+    REX.W addq r8,rdi
+    jo 0x7fbc437c73a9  <+0x269>
+000 REX.W movq rdi,0xa6b5fba4429    ;; object: 0x0a6b5fba4429 <BigInt 100>
+--- addBigRet
+    REX.W cmpq [r13+0x2b0] (root (bigint_map)),rdi
+    REX.W cmpq [r13+0x2b0] (root (bigint_map)),r8
+    REX.W addq r9,r8
+    jo 0x7f7b7b7c7669  <+0x269>
+    REX.W addq rcx,0x1
+    REX.W movq r8,[r13+0x2b0] (root (bigint_map))
+--- constBig
+000 REX.W movq rcx,0x37475be4671    ;; object: 0x037475be4671 <BigInt 1>
+000 REX.W movq rdi,0x37475be4689    ;; object: 0x037475be4689 <BigInt 2>
+    REX.W addq r9,rcx
+    jo 0x7f198dfc78ed  <+0x22d>
+    REX.W addq rcx,0x1
+    REX.W movq r8,[r13+0x2b0] (root (bigint_map))
+##### node22
+--- addBig
+    REX.W cmpq [r13+0x328] (root (bigint_map)),rcx
+    REX.W cmpq [r13+0x328] (root (bigint_map)),rdi
+    REX.W addq r8,rdi
+    jo 0x7fe01c0061a3  <+0x263>
+000 REX.W movq rdi,0x2b95c8b9b991    ;; object: 0x2b95c8b9b991 <BigInt 100>
+--- addBigRet
+    REX.W cmpq [r13+0x328] (root (bigint_map)),rdi
+    REX.W cmpq [r13+0x328] (root (bigint_map)),r8
+    REX.W addq r9,r8
+    jo 0x7f4e90006465  <+0x265>
+    REX.W addq rcx,0x1
+    REX.W movq r8,[r13+0x328] (root (bigint_map))
+--- constBig
+000 REX.W movq rcx,0x17816e99bb21    ;; object: 0x17816e99bb21 <BigInt 1>
+000 REX.W movq rdi,0x17816e99bb39    ;; object: 0x17816e99bb39 <BigInt 2>
+    REX.W addq rdi,rcx
+    jo 0x7f867b7c66e7  <+0x227>
+    REX.W addq rcx,0x1
+    REX.W movq r9,[r13+0x328] (root (bigint_map))
+##### node24
+--- addBig
+    REX.W cmpq [r13+0x358] (root (bigint_map)),rcx
+    REX.W cmpq [r13+0x358] (root (bigint_map)),r8
+    REX.W addq r9,rcx
+    jo 0x7f72f4004346  <+0x246>
+000 REX.W movq rcx,0xe1d0f3e88c9    ;; object: 0x0e1d0f3e88c9 <BigInt 100>
+--- addBigRet
+    REX.W cmpq [r13+0x358] (root (bigint_map)),rdi
+    REX.W cmpq [r13+0x358] (root (bigint_map)),r9
+    REX.W addq r11,rdi
+    jo 0x7f3702841c0d  <+0x24d>
+    REX.W addq rcx,0x1
+    REX.W movq r8,[r13+0x358] (root (bigint_map))
+--- constBig
+000 REX.W movq rcx,0x381eec6e8a39    ;; object: 0x381eec6e8a39 <BigInt 1>
+000 REX.W movq r8,0x381eec6e8a51    ;; object: 0x381eec6e8a51 <BigInt 2>
+    REX.W addq r8,rcx
+    jo 0x7f5bbc041e8f  <+0x20f>
+    REX.W addq rcx,0x1
+    REX.W movq r9,[r13+0x358] (root (bigint_map))
+##### d8dbg
+--- addBig
+    REX.W addq r9,rcx
+    jo 0x7faba9240368  <+0x328>
+000 REX.W movq rcx,0x28b20101dcc5    ;; object: 0x28b20101dcc5 <BigInt 100>
+--- addBigRet
+    REX.W addq r11,rdi
+    jo 0x7f9de0000a4c  <+0x68c>
+    REX.W addq rdi,0x1
+    call 0x7f9dc34ea500  (AllocateInYoungGeneration)    ;; near builtin entry
+    REX.W addq rsp,0xf0
+    REX.W addq rsp,0xf0
+--- constBig
+000 REX.W movq rcx,0x100b0101dd6d    ;; object: 0x100b0101dd6d <BigInt 1>
+000 REX.W movq r8,0x100b0101dd7d    ;; object: 0x100b0101dd7d <BigInt 2>
+    REX.W addq r11,rcx
+    jo 0x7ffbcec410a3  <+0x623>
+    REX.W addq rdi,0x1
+    call 0x7ffb6ecea500  (AllocateInYoungGeneration)    ;; near builtin entry

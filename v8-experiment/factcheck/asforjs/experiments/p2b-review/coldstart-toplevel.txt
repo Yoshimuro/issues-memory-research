@@ -1,0 +1,8 @@
+== node22
+var   compile+run median 84.4 ms ratio_vs_var 1.000  all 98/84/90/72/79/102/80
+let   compile+run median 62.0 ms ratio_vs_var 0.735  all 67/62/61/55/65/67/59
+const compile+run median 59.9 ms ratio_vs_var 0.710  all 60/66/59/60/74/57/56
+== node24
+var   compile+run median 82.5 ms ratio_vs_var 1.000  all 94/83/95/90/73/74/82
+let   compile+run median 62.2 ms ratio_vs_var 0.754  all 62/65/60/62/60/74/61
+const compile+run median 65.2 ms ratio_vs_var 0.791  all 65/68/69/57/64/62/89

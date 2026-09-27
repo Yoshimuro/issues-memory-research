@@ -1,0 +1,6 @@
+--- 4 shapes, different offsets
+ - slot #0 LoadProperty POLYMORPHIC
+--- 5 shapes, different offsets
+ - slot #0 LoadProperty MEGAMORPHIC {
+--- 5 shapes, same offset
+ - slot #0 LoadProperty HOMOMORPHIC

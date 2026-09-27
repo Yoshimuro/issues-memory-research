@@ -1,0 +1,139 @@
+--- WebAssembly code ---
+name: wasm-function[0]
+index: 0
+kind: wasm function
+compiler: Liftoff
+Body (size = 192 = 176 + 16 padding)
+Instructions (size = 164)
+0x2783d060c840     0  55                   push rbp
+0x2783d060c841     1  4889e5               REX.W movq rbp,rsp
+0x2783d060c844     4  6a08                 push 0x8
+0x2783d060c846     6  56                   push rsi
+0x2783d060c847     7  4881ec20000000       REX.W subq rsp,0x20
+0x2783d060c84e     e  493b65a0             REX.W cmpq rsp,[r13-0x60]
+0x2783d060c852    12  0f8661000000         jna 0x2783d060c8b9  <+0x79>
+0x2783d060c858    18  8945dc               movl [rbp-0x24],rax
+0x2783d060c85b    1b  c745d800000000       movl [rbp-0x28],0x0
+0x2783d060c862    22  c745d400000000       movl [rbp-0x2c],0x0
+0x2783d060c869    29  8b45d8               movl rax,[rbp-0x28]
+0x2783d060c86c    2c  8b4ddc               movl rcx,[rbp-0x24]
+0x2783d060c86f    2f  3bc1                 cmpl rax,rcx
+0x2783d060c871    31  0f8c05000000         jl 0x2783d060c87c  <+0x3c>
+0x2783d060c877    37  e927000000           jmp 0x2783d060c8a3  <+0x63>
+0x2783d060c87c    3c  8b45d4               movl rax,[rbp-0x2c]
+0x2783d060c87f    3f  8b4dd8               movl rcx,[rbp-0x28]
+0x2783d060c882    42  83e107               andl rcx,0x7
+0x2783d060c885    45  03c1                 addl rax,rcx
+0x2783d060c887    47  8b4dd8               movl rcx,[rbp-0x28]
+0x2783d060c88a    4a  83c101               addl rcx,0x1
+0x2783d060c88d    4d  4c8b5677             REX.W movq r10,[rsi+0x77]
+0x2783d060c891    51  41832a25             subl [r10],0x25
+0x2783d060c895    55  0f882b000000         js 0x2783d060c8c6  <+0x86>
+0x2783d060c89b    5b  894dd8               movl [rbp-0x28],rcx
+0x2783d060c89e    5e  8945d4               movl [rbp-0x2c],rax
+0x2783d060c8a1    61  ebc6                 jmp 0x2783d060c869  <+0x29>
+0x2783d060c8a3    63  8b45d4               movl rax,[rbp-0x2c]
+0x2783d060c8a6    66  4c8b5677             REX.W movq r10,[rsi+0x77]
+0x2783d060c8aa    6a  41832a66             subl [r10],0x66
+0x2783d060c8ae    6e  0f8821000000         js 0x2783d060c8d5  <+0x95>
+0x2783d060c8b4    74  488be5               REX.W movq rsp,rbp
+0x2783d060c8b7    77  5d                   pop rbp
+0x2783d060c8b8    78  c3                   retl
+0x2783d060c8b9    79  50                   push rax
+0x2783d060c8ba    7a  e851faffff           call 0x2783d060c310  (jump table)
+0x2783d060c8bf    7f  58                   pop rax
+0x2783d060c8c0    80  488b75f0             REX.W movq rsi,[rbp-0x10]
+0x2783d060c8c4    84  eb92                 jmp 0x2783d060c858  <+0x18>
+0x2783d060c8c6    86  50                   push rax
+0x2783d060c8c7    87  51                   push rcx
+0x2783d060c8c8    88  e893f8ffff           call 0x2783d060c160  (jump table)
+0x2783d060c8cd    8d  59                   pop rcx
+0x2783d060c8ce    8e  58                   pop rax
+0x2783d060c8cf    8f  488b75f0             REX.W movq rsi,[rbp-0x10]
+0x2783d060c8d3    93  ebc6                 jmp 0x2783d060c89b  <+0x5b>
+0x2783d060c8d5    95  50                   push rax
+0x2783d060c8d6    96  e885f8ffff           call 0x2783d060c160  (jump table)
+0x2783d060c8db    9b  58                   pop rax
+0x2783d060c8dc    9c  488b75f0             REX.W movq rsi,[rbp-0x10]
+0x2783d060c8e0    a0  ebd2                 jmp 0x2783d060c8b4  <+0x74>
+0x2783d060c8e2    a2  6690                 nop
+
+Source positions:
+ pc offset  position
+        7a         0  statement
+        88        31  statement
+        96        37  statement
+
+Safepoints (entries = 1, byte size = 11)
+0x2783d060c8bf     7f  slots (sp->fp): 0000000000000000
+
+RelocInfo (size = 0)
+
+--- End code ---
+--- WebAssembly code ---
+name: wasm-function[0]
+index: 0
+kind: wasm function
+compiler: TurboFan
+Body (size = 192 = 176 + 16 padding)
+Instructions (size = 164)
+0x2783d060c900     0  55                   push rbp
+0x2783d060c901     1  4889e5               REX.W movq rbp,rsp
+0x2783d060c904     4  6a08                 push 0x8
+0x2783d060c906     6  56                   push rsi
+0x2783d060c907     7  4883ec18             REX.W subq rsp,0x18
+0x2783d060c90b     b  33db                 xorl rbx,rbx
+0x2783d060c90d     d  488bd3               REX.W movq rdx,rbx
+0x2783d060c910    10  e935000000           jmp 0x2783d060c94a  <+0x4a>
+0x2783d060c915    15  660f1f840000000000   nop
+0x2783d060c91e    1e  660f1f840000000000   nop
+0x2783d060c927    27  660f1f840000000000   nop
+0x2783d060c930    30  660f1f840000000000   nop
+0x2783d060c939    39  0f1f8000000000       nop
+0x2783d060c940    40  8bca                 movl rcx,rdx
+0x2783d060c942    42  83e107               andl rcx,0x7
+0x2783d060c945    45  03d9                 addl rbx,rcx
+0x2783d060c947    47  83c201               addl rdx,0x1
+0x2783d060c94a    4a  493b65a0             REX.W cmpq rsp,[r13-0x60]
+0x2783d060c94e    4e  0f8633000000         jna 0x2783d060c987  <+0x87>
+0x2783d060c954    54  3bc2                 cmpl rax,rdx
+0x2783d060c956    56  0f8e27000000         jle 0x2783d060c983  <+0x83>
+0x2783d060c95c    5c  8d4a01               leal rcx,[rdx+0x1]
+0x2783d060c95f    5f  83e207               andl rdx,0x7
+0x2783d060c962    62  03da                 addl rbx,rdx
+0x2783d060c964    64  3bc1                 cmpl rax,rcx
+0x2783d060c966    66  0f8e13000000         jle 0x2783d060c97f  <+0x7f>
+0x2783d060c96c    6c  8d5101               leal rdx,[rcx+0x1]
+0x2783d060c96f    6f  83e107               andl rcx,0x7
+0x2783d060c972    72  03d9                 addl rbx,rcx
+0x2783d060c974    74  3bc2                 cmpl rax,rdx
+0x2783d060c976    76  7fc8                 jg 0x2783d060c940  <+0x40>
+0x2783d060c978    78  8bc3                 movl rax,rbx
+0x2783d060c97a    7a  488be5               REX.W movq rsp,rbp
+0x2783d060c97d    7d  5d                   pop rbp
+0x2783d060c97e    7e  c3                   retl
+0x2783d060c97f    7f  8bc3                 movl rax,rbx
+0x2783d060c981    81  ebf7                 jmp 0x2783d060c97a  <+0x7a>
+0x2783d060c983    83  8bc3                 movl rax,rbx
+0x2783d060c985    85  ebf3                 jmp 0x2783d060c97a  <+0x7a>
+0x2783d060c987    87  48895de8             REX.W movq [rbp-0x18],rbx
+0x2783d060c98b    8b  488945e0             REX.W movq [rbp-0x20],rax
+0x2783d060c98f    8f  488955d8             REX.W movq [rbp-0x28],rdx
+0x2783d060c993    93  e878f9ffff           call 0x2783d060c310  (jump table)
+0x2783d060c998    98  8b5de8               movl rbx,[rbp-0x18]
+0x2783d060c99b    9b  8b45e0               movl rax,[rbp-0x20]
+0x2783d060c99e    9e  8b55d8               movl rdx,[rbp-0x28]
+0x2783d060c9a1    a1  ebb1                 jmp 0x2783d060c954  <+0x54>
+0x2783d060c9a3    a3  90                   nop
+
+Source positions:
+ pc offset  position
+        87         5
+
+Safepoints (entries = 1, byte size = 10)
+0x2783d060c998     98  slots (sp->fp): 00000000
+
+RelocInfo (size = 3)
+0x2783d060c994  wasm stub call  (0x2783d060c310)
+
+--- End code ---

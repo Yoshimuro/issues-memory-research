@@ -1,0 +1,44 @@
+[marking 0x2eaccd709d49 <JSFunction isPosixPathSeparator (sfi = 0x33d056a95109)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x2eaccd709d49 <JSFunction isPosixPathSeparator (sfi = 0x33d056a95109)> (target MAGLEV), mode: ConcurrencyMode::kSynchronous]
+[completed compiling 0x2eaccd709d49 <JSFunction isPosixPathSeparator (sfi = 0x33d056a95109)> (target MAGLEV) - took 0.007, 0.230, 0.002 ms]
+[marking 0x2eaccd709e71 <JSFunction normalizeString (sfi = 0x33d056a95349)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[marking 0x310b798e9751 <JSFunction run (sfi = 0x385ac8fa8a79)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x310b798e9751 <JSFunction run (sfi = 0x385ac8fa8a79)> (target MAGLEV), mode: ConcurrencyMode::kSynchronous]
+[completed compiling 0x310b798e9751 <JSFunction run (sfi = 0x385ac8fa8a79)> (target MAGLEV) - took 0.000, 0.065, 0.000 ms]
+[marking 0x310b798e6969 <JSFunction doThingObj (sfi = 0x385ac8fa8959)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x310b798e6969 <JSFunction doThingObj (sfi = 0x385ac8fa8959)> (target MAGLEV), mode: ConcurrencyMode::kSynchronous]
+[completed compiling 0x310b798e6969 <JSFunction doThingObj (sfi = 0x385ac8fa8959)> (target MAGLEV) - took 0.000, 0.263, 0.011 ms]
+[marking 0x310b798e6969 <JSFunction doThingObj (sfi = 0x385ac8fa8959)> for optimization to TURBOFAN_JS, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x310b798e6969 <JSFunction doThingObj (sfi = 0x385ac8fa8959)> (target TURBOFAN_JS), mode: ConcurrencyMode::kSynchronous]
+Considering 0x16d28998 {0x385ac8fa8a79 <SharedFunctionInfo run>} for inlining with 0x16d29400 {0x385ac8fab129 <FeedbackVector[0]>}
+Inlining small function(s) at call site #40:JSCall
+Inlining 0x16d28998 {0x385ac8fa8a79 <SharedFunctionInfo run>} into 0x16d28560 {0x385ac8fa8959 <SharedFunctionInfo doThingObj>}
+[completed compiling 0x310b798e6969 <JSFunction doThingObj (sfi = 0x385ac8fa8959)> (target TURBOFAN_JS) - took 0.013, 1.502, 0.020 ms]
+[marking 0x310b798e69a9 <JSFunction warm (sfi = 0x385ac8fa89a1)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x310b798e69a9 <JSFunction warm (sfi = 0x385ac8fa89a1)> (target MAGLEV) OSR, mode: ConcurrencyMode::kSynchronous]
+[completed compiling 0x310b798e69a9 <JSFunction warm (sfi = 0x385ac8fa89a1)> (target MAGLEV) OSR - took 0.001, 0.362, 0.004 ms]
+after A: 1010001
+--- switching to B (different map, method on prototype)
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing 0x310b798e6969 <JSFunction doThingObj (sfi = 0x385ac8fa8959)>, 0x394f48ec3461 <Code TURBOFAN_JS>, opt id 3, bytecode offset 6, deopt exit 1, FP to SP delta 48, caller SP 0x7fff992bbde0, pc 0x7f1eaa001bf7]
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing 0x310b798e69a9 <JSFunction warm (sfi = 0x385ac8fa89a1)>, 0x394f48ec3b51 <Code MAGLEV>, opt id 4, bytecode offset 11, deopt exit 3, FP to SP delta 104, caller SP 0x7fff992bbe48, pc 0x7f1eaa002021]
+[marking 0x310b798e98f9 <JSFunction run (sfi = 0x385ac8fa8b09)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x310b798e98f9 <JSFunction run (sfi = 0x385ac8fa8b09)> (target MAGLEV), mode: ConcurrencyMode::kSynchronous]
+[completed compiling 0x310b798e98f9 <JSFunction run (sfi = 0x385ac8fa8b09)> (target MAGLEV) - took 0.001, 0.059, 0.001 ms]
+[marking 0x310b798e6969 <JSFunction doThingObj (sfi = 0x385ac8fa8959)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x310b798e6969 <JSFunction doThingObj (sfi = 0x385ac8fa8959)> (target MAGLEV), mode: ConcurrencyMode::kSynchronous]
+[completed compiling 0x310b798e6969 <JSFunction doThingObj (sfi = 0x385ac8fa8959)> (target MAGLEV) - took 0.000, 0.330, 0.009 ms]
+[marking 0x310b798e98f9 <JSFunction run (sfi = 0x385ac8fa8b09)> for optimization to TURBOFAN_JS, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x310b798e98f9 <JSFunction run (sfi = 0x385ac8fa8b09)> (target TURBOFAN_JS), mode: ConcurrencyMode::kSynchronous]
+[completed compiling 0x310b798e98f9 <JSFunction run (sfi = 0x385ac8fa8b09)> (target TURBOFAN_JS) - took 0.004, 0.319, 0.007 ms]
+[marking 0x310b798e6969 <JSFunction doThingObj (sfi = 0x385ac8fa8959)> for optimization to TURBOFAN_JS, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x310b798e6969 <JSFunction doThingObj (sfi = 0x385ac8fa8959)> (target TURBOFAN_JS), mode: ConcurrencyMode::kSynchronous]
+Considering 0x16d44af8 {0x385ac8fa8a79 <SharedFunctionInfo run>} for inlining with 0x16d44ca8 {0x385ac8fab129 <FeedbackVector[0]>}
+Considering 0x16d44c08 {0x385ac8fa8b09 <SharedFunctionInfo run>} for inlining with 0x16d44cf8 {0x26e71a3577e9 <FeedbackVector[0]>}
+Inlining small function(s) at call site #40:JSCall
+Inlining 0x16d44af8 {0x385ac8fa8a79 <SharedFunctionInfo run>} into 0x16d439b0 {0x385ac8fa8959 <SharedFunctionInfo doThingObj>}
+Inlining 0x16d44c08 {0x385ac8fa8b09 <SharedFunctionInfo run>} into 0x16d439b0 {0x385ac8fa8959 <SharedFunctionInfo doThingObj>}
+[completed compiling 0x310b798e6969 <JSFunction doThingObj (sfi = 0x385ac8fa8959)> (target TURBOFAN_JS) - took 0.003, 0.981, 0.022 ms]
+[marking 0x310b798e69a9 <JSFunction warm (sfi = 0x385ac8fa89a1)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x310b798e69a9 <JSFunction warm (sfi = 0x385ac8fa89a1)> (target MAGLEV) OSR, mode: ConcurrencyMode::kSynchronous]
+[completed compiling 0x310b798e69a9 <JSFunction warm (sfi = 0x385ac8fa89a1)> (target MAGLEV) OSR - took 0.001, 0.321, 0.004 ms]
+after B: 1010001

@@ -1,0 +1,2 @@
+reason: Insufficient type feedback for compare operation): begin. deoptimizing 0x1b443116c2f9 <JSFunction (sfi = 0x1b4431168431)>, 0x1e31
+reason: Insufficient type feedback for compare operation): begin. deoptimizing 0x1b443116c2f9 <JSFunction (sfi = 0x1b4431168431)>, 0x1e31

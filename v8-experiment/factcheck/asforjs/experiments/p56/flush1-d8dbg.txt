@@ -1,0 +1,25 @@
+V8 is running with developer-only features enabled. Stability and security will suffer.
+[27763:0x15040014c000] code flushing: increasing time: 0 s
+[27763:0x15040014c000] 0 flushed SharedFunctionInfo(s)
+after major GC #1
+[27763:0x15040014c000] code flushing: increasing time: 0 s
+[27763:0x15040014c000] 0 flushed SharedFunctionInfo(s)
+after major GC #2
+[27763:0x15040014c000] code flushing: increasing time: 0 s
+[27763:0x15040014c000] 0 flushed SharedFunctionInfo(s)
+after major GC #3
+[27763:0x15040014c000] code flushing: increasing time: 0 s
+[27763:0x15040014c000] 0 flushed SharedFunctionInfo(s)
+after major GC #4
+[27763:0x15040014c000] code flushing: increasing time: 0 s
+[27763:0x15040014c000] 0 flushed SharedFunctionInfo(s)
+after major GC #5
+[27763:0x15040014c000] code flushing: increasing time: 0 s
+[27763:0x15040014c000] 0 flushed SharedFunctionInfo(s)
+after major GC #6
+[27763:0x15040014c000] code flushing: increasing time: 0 s
+[27763:0x15040014c000] 0 flushed SharedFunctionInfo(s)
+after major GC #7
+[27763:0x15040014c000] code flushing: increasing time: 0 s
+[27763:0x15040014c000] 0 flushed SharedFunctionInfo(s)
+after major GC #8

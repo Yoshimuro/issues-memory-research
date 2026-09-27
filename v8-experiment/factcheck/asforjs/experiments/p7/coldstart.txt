@@ -1,0 +1,16 @@
+round 1 d8/d8: 16 ms/run
+round 1 node22/node: 26 ms/run
+round 1 v24.21.0/node: 30 ms/run
+round 2 d8/d8: 15 ms/run
+round 2 node22/node: 25 ms/run
+round 2 v24.21.0/node: 26 ms/run
+round 3 d8/d8: 14 ms/run
+round 3 node22/node: 26 ms/run
+round 3 v24.21.0/node: 28 ms/run
+--- round with node20 and d8 (20 runs each, ms/run)
+round 1 /tmp/claude-0/-home-user-issues-memory-research/dacf359b-9898-588d-b8f1-20fd1e3f2945/scratchpad/d8/rel/d8: 15 ms/run
+round 1 /opt/node20/bin/node: 75 ms/run
+round 2 /tmp/claude-0/-home-user-issues-memory-research/dacf359b-9898-588d-b8f1-20fd1e3f2945/scratchpad/d8/rel/d8: 14 ms/run
+round 2 /opt/node20/bin/node: 77 ms/run
+round 3 /tmp/claude-0/-home-user-issues-memory-research/dacf359b-9898-588d-b8f1-20fd1e3f2945/scratchpad/d8/rel/d8: 15 ms/run
+round 3 /opt/node20/bin/node: 78 ms/run

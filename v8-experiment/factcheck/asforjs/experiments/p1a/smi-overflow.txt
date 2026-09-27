@@ -1,0 +1,24 @@
+== N24
+      1 ms=345 sum=3999890000
+      1 reason: overflow)
+      2 reason: prepare for on stack replacement (OSR)
+      1 ms=128 sum=31312
+      1 reason: prepare for on stack replacement (OSR)
+== D8
+      1 ms=632 sum=3999890000
+      1 reason: not a Smi)
+      1 reason: prepare for on stack replacement (OSR)
+      1 ms=108 sum=31312
+      1 reason: prepare for on stack replacement (OSR)
+N24 plain ms=361 sum=3999890000
+N24 mask ms=125 sum=31312
+D8 plain ms=702 sum=3999890000
+D8 mask ms=133 sum=31312
+N24 plain ms=357 sum=3999890000
+N24 mask ms=123 sum=31312
+D8 plain ms=608 sum=3999890000
+D8 mask ms=144 sum=31312
+N24 plain ms=355 sum=3999890000
+N24 mask ms=123 sum=31312
+D8 plain ms=544 sum=3999890000
+D8 mask ms=134 sum=31312

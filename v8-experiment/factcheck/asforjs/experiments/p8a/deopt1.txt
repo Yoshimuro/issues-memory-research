@@ -1,0 +1,31 @@
+#### node22
+[bailout (kind: deopt-eager, reason: not a Smi): begin. deoptimizing  <JSFunction add1 (sfi = )>,  <Code TURBOFAN>, opt id 0, bytecode offset 2, deopt exit 0, FP to SP delta 32, caller SP , pc ]
+string among numbers: optimized_before=true after_probe=false result=ab
+[bailout (kind: deopt-eager, reason: not a Smi): begin. deoptimizing  <JSFunction add2 (sfi = )>,  <Code TURBOFAN>, opt id 1, bytecode offset 2, deopt exit 0, FP to SP delta 32, caller SP , pc ]
+double among smi: optimized_before=true after_probe=false result=3.5
+sum = 2^30 (smi inputs): optimized_before=true after_probe=true result=1073741824
+[bailout (kind: deopt-eager, reason: overflow): begin. deoptimizing  <JSFunction add4 (sfi = )>,  <Code TURBOFAN>, opt id 3, bytecode offset 2, deopt exit 2, FP to SP delta 32, caller SP , pc ]
+sum = 2^31 (smi inputs, int32 overflow): optimized_before=true after_probe=false result=2147483648
+input 2^30 (not smi on 31-bit): optimized_before=true after_probe=true result=1073741825
+param reassigned to string (warm with it): optimized_before=true after_probe=true result=6004
+#### node24
+[bailout (kind: deopt-eager, reason: not a Smi): begin. deoptimizing  <JSFunction add1 (sfi = )>,  <Code TURBOFAN_JS>, opt id 1, bytecode offset 2, deopt exit 0, FP to SP delta 32, caller SP , pc ]
+string among numbers: optimized_before=true after_probe=false result=ab
+[bailout (kind: deopt-eager, reason: not a Smi): begin. deoptimizing  <JSFunction add2 (sfi = )>,  <Code TURBOFAN_JS>, opt id 2, bytecode offset 2, deopt exit 0, FP to SP delta 32, caller SP , pc ]
+double among smi: optimized_before=true after_probe=false result=3.5
+sum = 2^30 (smi inputs): optimized_before=true after_probe=true result=1073741824
+[bailout (kind: deopt-eager, reason: overflow): begin. deoptimizing  <JSFunction add4 (sfi = )>,  <Code TURBOFAN_JS>, opt id 4, bytecode offset 2, deopt exit 2, FP to SP delta 32, caller SP , pc ]
+sum = 2^31 (smi inputs, int32 overflow): optimized_before=true after_probe=false result=2147483648
+input 2^30 (not smi on 31-bit): optimized_before=true after_probe=true result=1073741825
+param reassigned to string (warm with it): optimized_before=true after_probe=true result=6004
+#### d8
+[bailout (kind: deopt-eager, reason: not a Smi): begin. deoptimizing  <JSFunction add1 (sfi = )>,  <Code TURBOFAN_JS>, opt id 0, bytecode offset 2, deopt exit 0, FP to SP delta 32, caller SP , pc ]
+string among numbers: optimized_before=false after_probe=false result=ab
+[bailout (kind: deopt-eager, reason: not a Smi): begin. deoptimizing  <JSFunction add2 (sfi = )>,  <Code TURBOFAN_JS>, opt id 1, bytecode offset 2, deopt exit 0, FP to SP delta 32, caller SP , pc ]
+double among smi: optimized_before=false after_probe=false result=3.5
+sum = 2^30 (smi inputs): optimized_before=false after_probe=false result=1073741824
+[bailout (kind: deopt-eager, reason: not a Smi): begin. deoptimizing  <JSFunction add4 (sfi = )>,  <Code TURBOFAN_JS>, opt id 3, bytecode offset 2, deopt exit 0, FP to SP delta 32, caller SP , pc ]
+sum = 2^31 (smi inputs, int32 overflow): optimized_before=false after_probe=false result=2147483648
+[bailout (kind: deopt-eager, reason: not a Smi): begin. deoptimizing  <JSFunction add5 (sfi = )>,  <Code TURBOFAN_JS>, opt id 4, bytecode offset 2, deopt exit 0, FP to SP delta 32, caller SP , pc ]
+input 2^30 (not smi on 31-bit): optimized_before=false after_probe=false result=1073741825
+param reassigned to string (warm with it): optimized_before=false after_probe=false result=6004

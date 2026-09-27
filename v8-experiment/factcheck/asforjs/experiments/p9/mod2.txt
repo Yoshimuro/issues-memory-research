@@ -1,0 +1,41 @@
+@    2 : 54 02 00          ModSmi [2], EmbeddedFeedback[None]
+7  483bd9               REX.W cmpq rbx,rcx
+a  740d                 jz 0x7fc1e0000059  <+0x19>
+c  ba92000000           movl rdx,0x92
+19  4d8b95d0020000       REX.W movq r10,[r13+0x2d0] (external value (IsolateData::js_dispatch_table_))
+20  498bdf               REX.W movq rbx,r15
+23  c1eb08               shrl rbx,8
+29  410fb75c1a08         movzxwl rbx,[r10+rbx*1+0x8]
+2f  83fb02               cmpl rbx,0x2
+32  740d                 jz 0x7fc1e0000081  <+0x41>
+34  ba96000000           movl rdx,0x96
+41  8b59f0               movl rbx,[rcx-0x10]
+4b  f6432380             testb [rbx+0x23],0x80
+4f  740d                 jz 0x7fc1e000009e  <+0x5e>
+51  ba26000000           movl rdx,0x26
+5f  488bec               REX.W movq rbp,rsp
+69  49c7457800000000     REX.W movq [r13+0x78] (external value (last_young_allocation_address)),0x0
+71  488975e0             REX.W movq [rbp-0x20],rsi
+75  493b65a0             REX.W cmpq rsp,[r13-0x60] (external value (StackGuard::address_of_jslimit()))
+79  0f8663000000         jna 0x7fc1e0000122  <+0xe2>
+7f  488b4d18             REX.W movq rcx,[rbp+0x18]
+83  f6c101               testb rcx,0x1
+86  0f8573020000         jnz 0x7fc1e000033f  <+0x2ff>
+8c  488bf9               REX.W movq rdi,rcx
+8f  448bc7               movl r8,rdi
+92  41d1f8               sarl r8,1
+95  85ff                 testl rdi,rdi
+97  0f8c09000000         jl 0x7fc1e00000e6  <+0xa6>
+9d  4183e001             andl r8,0x1
+a1  e913000000           jmp 0x7fc1e00000f9  <+0xb9>
+a6  41f7d8               negl r8
+a9  4183e001             andl r8,0x1
+ad  4585c0               testl r8,r8
+b0  0f844d020000         jz 0x7fc1e0000343  <+0x303>
+b6  41f7d8               negl r8
+b9  498bc8               REX.W movq rcx,r8
+bf  0f8046000000         jo 0x7fc1e000014b  <+0x10b>
+c5  488bc1               REX.W movq rax,rcx
+c8  488b4de8             REX.W movq rcx,[rbp-0x18]
+cc  488be5               REX.W movq rsp,rbp
+d0  4883f902             REX.W cmpq rcx,0x2

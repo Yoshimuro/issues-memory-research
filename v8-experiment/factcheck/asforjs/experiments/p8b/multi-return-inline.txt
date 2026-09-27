@@ -1,0 +1,33 @@
+== /tmp/claude-0/-home-user-issues-memory-research/dacf359b-9898-588d-b8f1-20fd1e3f2945/scratchpad/d8/rel/d8 TurboFan
+      2 Inlining  { <SharedFunctionInfo multiRet>
+      2 Inlining  { <SharedFunctionInfo withArguments>
+      2 Inlining  { <SharedFunctionInfo withDefault>
+      2 Inlining  { <SharedFunctionInfo withRest>
+== /opt/nvm/versions/node/v24.21.0/bin/node TurboFan
+      2 Inlining  { <SharedFunctionInfo multiRet>
+      2 Inlining  { <SharedFunctionInfo withArguments>
+      2 Inlining  { <SharedFunctionInfo withDefault>
+      2 Inlining  { <SharedFunctionInfo withRest>
+== /opt/node22/bin/node TurboFan
+      2 Inlining  { <SharedFunctionInfo multiRet>
+      2 Inlining  { <SharedFunctionInfo withArguments>
+      2 Inlining  { <SharedFunctionInfo withDefault>
+      2 Inlining  { <SharedFunctionInfo withRest>
+== /opt/node20/bin/node TurboFan
+      2 Inlining  { <SharedFunctionInfo multiRet>
+      2 Inlining  { <SharedFunctionInfo withArguments>
+      2 Inlining  { <SharedFunctionInfo withDefault>
+      2 Inlining  { <SharedFunctionInfo withRest>
+== d8 maglev
+      2 [90m[ML:33701] [0m[92m⚡ INLINE [0m[96mwithArguments                 [0m Small function, skipping max-depth[0m
+      2 [90m[ML:33701] [0m[92m⚡ INLINE [0m[96mwithDefault                   [0m Small function, skipping max-depth[0m
+      2 [90m[ML:33701] [0m[92m⚡ INLINE [0m[96mwithRest                      [0m Small function, skipping max-depth[0m
+      1 Begin compiling method multiRet using Maglev
+      1 Begin compiling method withArguments using Maglev
+      1 Begin compiling method withDefault using Maglev
+      1 Begin compiling method withRest using Maglev
+      1 Finished compiling method multiRet using Maglev
+      1 Finished compiling method withArguments using Maglev
+      1 Finished compiling method withDefault using Maglev
+      1 Begin compiling method multiRet using Maglev
+      1 Finished compiling method multiRet using Maglev

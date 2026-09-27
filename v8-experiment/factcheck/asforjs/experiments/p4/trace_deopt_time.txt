@@ -1,0 +1,16 @@
+##### node20 --trace-deopt
+##### node20 --trace-deopt-verbose
+[bailout end. took 0.107 ms]
+##### node22 --trace-deopt
+##### node22 --trace-deopt-verbose
+[bailout end. took 0.200 ms]
+##### node24 --trace-deopt
+##### node24 --trace-deopt-verbose
+[bailout end. took 0.102 ms]
+[bailout end. took 0.093 ms]
+[bailout end. took 0.076 ms]
+##### d8 --trace-deopt
+##### d8 --trace-deopt-verbose
+[bailout end. code_invalidation: unaffected, took 0.039 ms]
+[bailout end. code_invalidation: invalidated-osr, took 0.027 ms]
+[bailout end. code_invalidation: unaffected, took 0.042 ms]

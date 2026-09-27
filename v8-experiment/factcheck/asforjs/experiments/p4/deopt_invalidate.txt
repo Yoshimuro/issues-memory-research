@@ -1,0 +1,15 @@
+##### node22
+status before=1010001
+[bailout (kind: deopt-eager, reason: not a Smi): begin. 
+[bailout end. took 0.184 ms]
+status after=1
+##### node24
+status before=1010001
+[bailout (kind: deopt-eager, reason: not a Smi): begin. 
+[bailout end. took 0.122 ms]
+status after=1
+##### d8
+status before=101001
+[bailout (kind: deopt-eager, reason: not a Smi): begin. 
+[bailout end. code_invalidation: invalidated, took 0.064 ms]
+status after=1000001

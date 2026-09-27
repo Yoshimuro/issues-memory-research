@@ -1,0 +1,6 @@
+== d8 --trace-deopt-verbose
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing 0x1f650101e125 <JSFunction sum (sfi = 0x1f650101e021)>, 0x18db0100042d <Code TURBOFAN_JS>, opt id 0, bytecode offset 4, deopt exit 1, FP to SP delta 64, caller SP 0x7ffd964ac6a8, pc 0x560ea3780261]
+            ;;; deoptimize at <deopt-fmt.js:1:52>
+== node24 --trace-deopt-verbose
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing 0x2425068a60c1 <JSFunction sum (sfi = 0x289f96368409)>, 0x0ca6a93c1d49 <Code TURBOFAN_JS>, opt id 1, bytecode offset 4, deopt exit 1, FP to SP delta 64, caller SP 0x7fffd5476f20, pc 0x7f3c3200433e]
+            ;;; deoptimize at </home/user/issues-memory-research/v8-experiment/factcheck/asforjs/experiments/p8b-review/deopt-fmt.js:1:52>

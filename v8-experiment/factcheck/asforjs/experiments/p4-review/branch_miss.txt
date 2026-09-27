@@ -1,0 +1,11 @@
+round 0: random 9.17 ref-cycles/iter, sorted 0.82, penalty per mispredict ~ 16.7 ref-cycles
+round 1: random 8.84 ref-cycles/iter, sorted 0.98, penalty per mispredict ~ 15.7 ref-cycles
+round 2: random 8.99 ref-cycles/iter, sorted 0.94, penalty per mispredict ~ 16.1 ref-cycles
+    11f4:	eb 1d                	jmp    1213 <run+0x3d>
+    11fa:	48 39 f0             	cmp    %rsi,%rax
+    11fd:	74 0f                	je     120e <run+0x38>
+    1204:	78 f0                	js     11f6 <run+0x20>
+    120c:	eb e8                	jmp    11f6 <run+0x20>
+    1211:	74 09                	je     121c <run+0x46>
+    121a:	eb e3                	jmp    11ff <run+0x29>
+    122b:	48 83 f9 2a          	cmp    $0x2a,%rcx

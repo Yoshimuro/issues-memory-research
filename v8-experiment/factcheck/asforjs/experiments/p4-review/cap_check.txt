@@ -1,0 +1,18 @@
+== /opt/node20/bin/node
+ - elements: 0x1fff18da0649 <FixedArray[23]> [PACKED_SMI_ELEMENTS]
+ - elements: 0x1fff18da0649 <FixedArray[23]> {
+ - elements: 0x1fff18da0731 <FixedArray[22]> [PACKED_SMI_ELEMENTS]
+ - elements: 0x1fff18da0731 <FixedArray[22]> {
+ - elements: 0x1fff18da0811 <FixedArray[100]> [HOLEY_SMI_ELEMENTS]
+ - elements: 0x1fff18da0811 <FixedArray[100]> {
+ - elements: 0x1fff18da0b61 <FixedArray[100]> [HOLEY_SMI_ELEMENTS]
+ - elements: 0x1fff18da0b61 <FixedArray[100]> {
+== /opt/nvm/versions/node/v24.21.0/bin/node
+ - elements: 0x1cc9c2426159 <FixedArray[23]> [PACKED_SMI_ELEMENTS]
+ - elements: 0x1cc9c2426159 <FixedArray[23]> {
+ - elements: 0x1cc9c2426241 <FixedArray[22]> [PACKED_SMI_ELEMENTS]
+ - elements: 0x1cc9c2426241 <FixedArray[22]> {
+ - elements: 0x1cc9c2426321 <FixedArray[100]> [HOLEY_SMI_ELEMENTS]
+ - elements: 0x1cc9c2426321 <FixedArray[100]> {
+ - elements: 0x1cc9c2426671 <FixedArray[100]> [HOLEY_SMI_ELEMENTS]
+ - elements: 0x1cc9c2426671 <FixedArray[100]> {

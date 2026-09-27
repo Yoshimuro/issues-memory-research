@@ -1,0 +1,12 @@
+== d8
+rep0 sumI smi[]=101 sumI Int32Array=302 sum double[]=80 sum Float64Array=251 scale double[]=77 scale Float64Array=302
+rep1 sumI smi[]=242 sumI Int32Array=320 sum double[]=226 sum Float64Array=245 scale double[]=303 scale Float64Array=372
+rep2 sumI smi[]=239 sumI Int32Array=310 sum double[]=273 sum Float64Array=273 scale double[]=296 scale Float64Array=283
+== node24
+rep0 sumI smi[]=132 sumI Int32Array=288 sum double[]=83 sum Float64Array=254 scale double[]=87 scale Float64Array=303
+rep1 sumI smi[]=270 sumI Int32Array=244 sum double[]=235 sum Float64Array=270 scale double[]=289 scale Float64Array=283
+rep2 sumI smi[]=227 sumI Int32Array=212 sum double[]=209 sum Float64Array=228 scale double[]=262 scale Float64Array=273
+== node22
+rep0 sumI smi[]=105 sumI Int32Array=178 sum double[]=74 sum Float64Array=198 scale double[]=94 scale Float64Array=241
+rep1 sumI smi[]=255 sumI Int32Array=225 sum double[]=246 sum Float64Array=233 scale double[]=308 scale Float64Array=290
+rep2 sumI smi[]=238 sumI Int32Array=183 sum double[]=229 sum Float64Array=291 scale double[]=287 scale Float64Array=272

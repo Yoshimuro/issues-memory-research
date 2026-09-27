@@ -1,0 +1,58 @@
+--- divTrunc
+    testb rcx,0x1
+    jnz 0x7fdfa5440330  <+0x2f0>
+    sarl rcx,1
+    shrl rdi,31
+    addl rcx,rdi
+    REX.W cmpq rcx,r10
+    jna 0x7fdfa54400ed  <+0xad>
+    sarl rcx,1
+    addl rdi,rcx
+    jo 0x7fdfa544013d  <+0xfd>
+    REX.W cmpq rcx,0x2
+    jg 0x7fdfa544010e  <+0xce>
+--- divPlain
+    testb rcx,0x1
+    jnz 0x7fdfa5440417  <+0x97>
+    sarl rcx,1
+    vcvtlsi2sd xmm0,xmm15,rcx
+    jmp 0x7fdfa544045e  <+0xde>
+    REX.W cmpq rdi,r10
+    jna 0x7fdfa5440432  <+0xb2>
+    subl rdi,0x49d
+    REX.W cmpq rdi,r10
+    jna 0x7fdfa5440450  <+0xd0>
+    cmpl rdi,0x78
+    ja 0x7fdfa54406e1  <+0x361>
+    vmovsd xmm0,[rcx+0x3]
+    vpcmpeqd xmm1,xmm1,xmm1
+    vpsllq xmm1,xmm1,55
+    vpsrlq xmm1,xmm1,2
+    vmulsd xmm0,xmm1,xmm0
+--- mod2
+    testb rcx,0x1
+    jnz 0x7fdfa5440a3f  <+0x2ff>
+    sarl r8,1
+    testl rdi,rdi
+    jl 0x7fdfa54407e6  <+0xa6>
+    andl r8,0x1
+    jmp 0x7fdfa54407f9  <+0xb9>
+    negl r8
+    andl r8,0x1
+    testl r8,r8
+    jz 0x7fdfa5440a43  <+0x303>
+    negl r8
+    addl rcx,r8
+    jo 0x7fdfa544084b  <+0x10b>
+    REX.W cmpq rcx,0x2
+--- and1
+    testb rdx,0x1
+    jnz 0x7fdfa5440b6d  <+0xed>
+    sarl rdx,1
+    andl rdx,0x1
+    leal rax,[rdx+rdx*1]
+    REX.W cmpq rax,r10
+    jna 0x7fdfa5440b2c  <+0xac>
+    REX.W cmpq rcx,0x2
+    jg 0x7fdfa5440b3d  <+0xbd>
+    REX.W leaq rsp,[rsp+rcx*8]

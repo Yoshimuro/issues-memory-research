@@ -1,0 +1,153 @@
+--- slice len 20
+DebugPrint: 0x247c01089d85: [String]: "bcdefghijklmnopqrstu"
+0x247c000003d5: [Map] in ReadOnlySpace
+ - map: 0x247c00000475 <MetaMap (0x247c0000002d <null>)>
+ - type: SLICED_ONE_BYTE_STRING_TYPE
+ - instance size: 20
+ - elements kind: HOLEY_ELEMENTS
+ - enum length: invalid
+ - non-extensible
+ - back pointer: 0x247c00000011 <undefined>
+ - prototype_validity_cell: 0
+ - instance descriptors (own) #0: 0x247c0000080d <DescriptorArray[0]>
+ - prototype: 0x247c0000002d <null>
+ - constructor: 0x247c0000002d <null>
+ - dependent code: 0x247c000007f5 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 0
+
+--- slice len 12
+DebugPrint: 0x247c01089d99: [String]: "bcdefghijklm"
+0x247c00000105: [Map] in ReadOnlySpace
+ - map: 0x247c00000475 <MetaMap (0x247c0000002d <null>)>
+ - type: SEQ_ONE_BYTE_STRING_TYPE
+ - instance size: variable
+ - elements kind: HOLEY_ELEMENTS
+ - enum length: invalid
+ - non-extensible
+ - back pointer: 0x247c00000011 <undefined>
+ - prototype_validity_cell: 0
+ - instance descriptors (own) #0: 0x247c0000080d <DescriptorArray[0]>
+ - prototype: 0x247c0000002d <null>
+ - constructor: 0x247c0000002d <null>
+ - dependent code: 0x247c000007f5 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 0
+
+--- slice len 13
+DebugPrint: 0x247c01089db1: [String]: "bcdefghijklmn"
+0x247c000003d5: [Map] in ReadOnlySpace
+ - map: 0x247c00000475 <MetaMap (0x247c0000002d <null>)>
+ - type: SLICED_ONE_BYTE_STRING_TYPE
+ - instance size: 20
+ - elements kind: HOLEY_ELEMENTS
+ - enum length: invalid
+ - non-extensible
+ - back pointer: 0x247c00000011 <undefined>
+ - prototype_validity_cell: 0
+ - instance descriptors (own) #0: 0x247c0000080d <DescriptorArray[0]>
+ - prototype: 0x247c0000002d <null>
+ - constructor: 0x247c0000002d <null>
+ - dependent code: 0x247c000007f5 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 0
+
+--- replace (string pattern)
+DebugPrint: 0x247c01089e05: [String]: c"abcdefghijXYZnopqrstuvwxyz0123456789abcdefghijklmnopqrstuvwxyz0123456789abcdefghijklmnopqrstuvwxyz0123456789"
+0x247c00000385: [Map] in ReadOnlySpace
+ - map: 0x247c00000475 <MetaMap (0x247c0000002d <null>)>
+ - type: CONS_ONE_BYTE_STRING_TYPE
+ - instance size: 20
+ - elements kind: HOLEY_ELEMENTS
+ - enum length: invalid
+ - non-extensible
+ - back pointer: 0x247c00000011 <undefined>
+ - prototype_validity_cell: 0
+ - instance descriptors (own) #0: 0x247c0000080d <DescriptorArray[0]>
+ - prototype: 0x247c0000002d <null>
+ - constructor: 0x247c0000002d <null>
+ - dependent code: 0x247c000007f5 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 0
+
+--- replace (regexp /g)
+DebugPrint: 0x247c0108ab15: [String]: c"abcdefghijQlmnopqrstuvwxyz0123456789abcdefghijQlmnopqrstuvwxyz0123456789abcdefghijQlmnopqrstuvwxyz0123456789"
+0x247c00000385: [Map] in ReadOnlySpace
+ - map: 0x247c00000475 <MetaMap (0x247c0000002d <null>)>
+ - type: CONS_ONE_BYTE_STRING_TYPE
+ - instance size: 20
+ - elements kind: HOLEY_ELEMENTS
+ - enum length: invalid
+ - non-extensible
+ - back pointer: 0x247c00000011 <undefined>
+ - prototype_validity_cell: 0
+ - instance descriptors (own) #0: 0x247c0000080d <DescriptorArray[0]>
+ - prototype: 0x247c0000002d <null>
+ - constructor: 0x247c0000002d <null>
+ - dependent code: 0x247c000007f5 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 0
+
+--- += loop
+DebugPrint: 0x247c0108ad75: [String]: c"item0;item1;item2;item3;item4;item5;item6;item7;item8;item9;"
+0x247c00000385: [Map] in ReadOnlySpace
+ - map: 0x247c00000475 <MetaMap (0x247c0000002d <null>)>
+ - type: CONS_ONE_BYTE_STRING_TYPE
+ - instance size: 20
+ - elements kind: HOLEY_ELEMENTS
+ - enum length: invalid
+ - non-extensible
+ - back pointer: 0x247c00000011 <undefined>
+ - prototype_validity_cell: 0
+ - instance descriptors (own) #0: 0x247c0000080d <DescriptorArray[0]>
+ - prototype: 0x247c0000002d <null>
+ - constructor: 0x247c0000002d <null>
+ - dependent code: 0x247c000007f5 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 0
+
+--- one-byte cons + two-byte char
+DebugPrint: 0x247c0108ad89: [String]: uc"item0;item1;item2;item3;item4;item5;item6;item7;item8;item9;\u0416"
+0x247c0000035d: [Map] in ReadOnlySpace
+ - map: 0x247c00000475 <MetaMap (0x247c0000002d <null>)>
+ - type: CONS_TWO_BYTE_STRING_TYPE
+ - instance size: 20
+ - elements kind: HOLEY_ELEMENTS
+ - enum length: invalid
+ - non-extensible
+ - back pointer: 0x247c00000011 <undefined>
+ - prototype_validity_cell: 0
+ - instance descriptors (own) #0: 0x247c0000080d <DescriptorArray[0]>
+ - prototype: 0x247c0000002d <null>
+ - constructor: 0x247c0000002d <null>
+ - dependent code: 0x247c000007f5 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 0
+
+--- flattened
+DebugPrint: 0x247c0108ad9d: [String]: u"item0;item1;item2;item3;item4;item5;item6;item7;item8;item9;\u0416"
+0x247c000000dd: [Map] in ReadOnlySpace
+ - map: 0x247c00000475 <MetaMap (0x247c0000002d <null>)>
+ - type: SEQ_TWO_BYTE_STRING_TYPE
+ - instance size: variable
+ - elements kind: HOLEY_ELEMENTS
+ - enum length: invalid
+ - non-extensible
+ - back pointer: 0x247c00000011 <undefined>
+ - prototype_validity_cell: 0
+ - instance descriptors (own) #0: 0x247c0000080d <DescriptorArray[0]>
+ - prototype: 0x247c0000002d <null>
+ - constructor: 0x247c0000002d <null>
+ - dependent code: 0x247c000007f5 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 0
+
+--- short concat one-byte + two-byte
+DebugPrint: 0x247c0101dbfd: [String] in OldSpace: u"abc\u0416"
+0x247c000000dd: [Map] in ReadOnlySpace
+ - map: 0x247c00000475 <MetaMap (0x247c0000002d <null>)>
+ - type: SEQ_TWO_BYTE_STRING_TYPE
+ - instance size: variable
+ - elements kind: HOLEY_ELEMENTS
+ - enum length: invalid
+ - non-extensible
+ - back pointer: 0x247c00000011 <undefined>
+ - prototype_validity_cell: 0
+ - instance descriptors (own) #0: 0x247c0000080d <DescriptorArray[0]>
+ - prototype: 0x247c0000002d <null>
+ - constructor: 0x247c0000002d <null>
+ - dependent code: 0x247c000007f5 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 0
+

@@ -1,0 +1,28 @@
+d8 global var: 163 ms 350000000
+d8 global let: 157 ms 350000000
+d8 global var: 166 ms 350000000
+d8 global let: 156 ms 350000000
+d8 global var: 162 ms 350000000
+d8 global let: 188 ms 350000000
+node22 global var: 176 ms 350000000
+node22 global let: 137 ms 350000000
+node22 global var: 181 ms 350000000
+node22 global let: 159 ms 350000000
+node22 global var: 188 ms 350000000
+node22 global let: 137 ms 350000000
+node24 global var: 145 ms 350000000
+node24 global let: 285 ms 350000000
+node24 global var: 123 ms 350000000
+node24 global let: 215 ms 350000000
+node24 global var: 119 ms 350000000
+node24 global let: 268 ms 350000000
+var:          0x76c010000cf @   11 : 24 01 00          LdaGlobal [1:"Date"], FBV[0]
+var:          0x76c010000dc @   24 : 26 03 06          StaGlobal [3:"t0"], FBV[6]
+var:          0x76c010000e0 @   28 : 26 04 08          StaGlobal [4:"s"], FBV[8]
+var:          0x76c010000e4 @   32 : 26 05 0a          StaGlobal [5:"i"], FBV[10]
+var:          0x76c010000e7 @   35 : 24 05 0c          LdaGlobal [5:"i"], FBV[12]
+let:          0x11b0010000b4 @    0 : 24 00 00          LdaGlobal [0:"Date"], FBV[0]
+let:          0x11b0010000c1 @   13 : 2a 02             StaCurrentContextSlot [2]
+let:          0x11b0010000c4 @   16 : 2a 03             StaCurrentContextSlot [3]
+let:          0x11b0010000d3 @   31 : 19 03             LdaCurrentContextSlot [3]
+let:          0x11b0010000e1 @   45 : 2a 03             StaCurrentContextSlot [3]

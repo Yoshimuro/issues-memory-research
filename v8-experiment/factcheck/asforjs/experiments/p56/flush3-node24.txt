@@ -1,0 +1,31 @@
+0 flushed SharedFunctionInfo(s)
+80 ms: Mark-Compact 20.0 (47.3) -> 17.5 (50.7) MB, pooled: 0 MB, 13.49 / 0.00 ms  (+ 0.2 m
+0 flushed SharedFunctionInfo(s)
+118 ms: Mark-Compact 54.7 (85.3) -> 15.5 (49.8) MB, pooled: 20 MB, 13.39 / 0.00 ms  (avera
+0 flushed SharedFunctionInfo(s)
+139 ms: Mark-Compact 50.9 (82.8) -> 11.6 (45.9) MB, pooled: 24 MB, 8.81 / 0.00 ms  (averag
+0 flushed SharedFunctionInfo(s)
+157 ms: Mark-Compact 48.7 (80.6) -> 8.9 (43.2) MB, pooled: 26 MB, 6.75 / 0.00 ms  (average
+0 flushed SharedFunctionInfo(s)
+175 ms: Mark-Compact 36.5 (69.2) -> 8.8 (43.4) MB, pooled: 26 MB, 1.99 / 0.00 ms  (+ 0.1 m
+1942 flushed SharedFunctionInfo(s)
+210 ms: Mark-Compact 35.5 (100.2) -> 7.1 (74.4) MB, pooled: 21 MB, 17.91 / 0.00 ms  (+ 0.0
+0 flushed SharedFunctionInfo(s)
+237 ms: Mark-Compact 56.6 (121.0) -> 13.7 (81.0) MB, pooled: 21 MB, 9.64 / 0.00 ms  (+ 0.0
+0 flushed SharedFunctionInfo(s)
+263 ms: Mark-Compact 59.5 (124.0) -> 16.9 (84.2) MB, pooled: 21 MB, 11.00 / 0.00 ms  (+ 0.
+0 flushed SharedFunctionInfo(s)
+279 ms: Mark-Compact 58.7 (122.8) -> 3.4 (70.5) MB, pooled: 32 MB, 2.87 / 0.00 ms  (+ 0.0 
+0 flushed SharedFunctionInfo(s)
+340 ms: Mark-Compact 74.9 (118.9) -> 3.5 (70.3) MB, pooled: 32 MB, 3.34 / 0.00 ms  (+ 0.0 
+0 flushed SharedFunctionInfo(s)
+433 ms: Mark-Compact 74.4 (182.9) -> 16.8 (147.7) MB, pooled: 13 MB, 13.91 / 0.00 ms  (+ 0
+0 flushed SharedFunctionInfo(s)
+458 ms: Mark-Compact 58.7 (186.8) -> 3.4 (134.5) MB, pooled: 32 MB, 3.79 / 0.00 ms  (+ 0.0
+0 flushed SharedFunctionInfo(s)
+611 ms: Mark-Compact 113.5 (180.7) -> 9.5 (138.9) MB, pooled: 29 MB, 16.80 / 0.00 ms  (ave
+1 flushed SharedFunctionInfo(s)
+831 ms: Mark-Compact 120.9 (186.4) -> 16.2 (145.5) MB, pooled: 24 MB, 20.23 / 0.00 ms  (av
+done 300000
+7 flushed SharedFunctionInfo(s)
+845 ms: Mark-Compact 17.9 (145.7) -> 3.2 (133.0) MB, pooled: 34 MB, 1.43 / 0.00 ms  (+ 1.3

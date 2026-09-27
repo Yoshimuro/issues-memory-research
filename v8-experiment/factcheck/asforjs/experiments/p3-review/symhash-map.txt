@@ -1,0 +1,11 @@
+MAP size=150000 all lookups correct=true
+hash 411123103 shared by  "s74886" "s88685"
+hash 762413673 shared by  "s64842" "s145766"
+hash 918922290 shared by  "s26022" "s149265"
+hash 812182012 shared by  "s87398" "s101233"
+hash 418187614 shared by  "s138117" "s147372"
+hash 1009418425 shared by  "s120124" "s135677"
+hash 1041248660 shared by  "s10045" "s132132"
+hash 728495953 shared by  "s59790" "s64817"
+hash 109130144 shared by  "s60622" "s146473"
+max hash seen: 1073738503

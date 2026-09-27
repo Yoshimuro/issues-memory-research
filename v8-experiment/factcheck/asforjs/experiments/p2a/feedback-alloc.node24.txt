@@ -1,0 +1,36 @@
+--- after 1 calls
+ - code: 0x3d9ab2fad4b1 <Code BUILTIN InterpreterEntryTrampoline>
+ - feedback vector: No feedback vector, but we have a closure feedback cell array
+--- after 2 calls
+ - code: 0x3d9ab2fad4b1 <Code BUILTIN InterpreterEntryTrampoline>
+ - feedback vector: No feedback vector, but we have a closure feedback cell array
+--- after 4 calls
+ - code: 0x3d9ab2fad4b1 <Code BUILTIN InterpreterEntryTrampoline>
+ - feedback vector: No feedback vector, but we have a closure feedback cell array
+--- after 7 calls
+ - code: 0x3d9ab2fad4b1 <Code BUILTIN InterpreterEntryTrampoline>
+ - feedback vector: No feedback vector, but we have a closure feedback cell array
+--- after 8 calls
+ - code: 0x3d9ab2fad4b1 <Code BUILTIN InterpreterEntryTrampoline>
+ - feedback vector: No feedback vector, but we have a closure feedback cell array
+--- after 9 calls
+ - code: 0x3d9ab2fad4b1 <Code BUILTIN InterpreterEntryTrampoline>
+ - feedback vector: 0x12f350da08d9: [FeedbackVector]
+--- after 10 calls
+ - code: 0x3d9ab2fad4b1 <Code BUILTIN InterpreterEntryTrampoline>
+ - feedback vector: 0x12f350da08d9: [FeedbackVector]
+--- after 12 calls
+ - code: 0x3d9ab2fad4b1 <Code BUILTIN InterpreterEntryTrampoline>
+ - feedback vector: 0x12f350da08d9: [FeedbackVector]
+--- after 16 calls
+ - code: 0x25adec7021f1 <Code BASELINE>
+ - feedback vector: 0x12f350da08d9: [FeedbackVector]
+--- after 24 calls
+ - code: 0x25adec7021f1 <Code BASELINE>
+ - feedback vector: 0x12f350da08d9: [FeedbackVector]
+--- after 32 calls
+ - code: 0x25adec7021f1 <Code BASELINE>
+ - feedback vector: 0x12f350da08d9: [FeedbackVector]
+--- after 40 calls
+ - code: 0x25adec7021f1 <Code BASELINE>
+ - feedback vector: 0x12f350da08d9: [FeedbackVector]

@@ -1,0 +1,20 @@
+== d8
+rep0 chain=927ms(11840) single=161ms(11840) loop=29ms(11840)
+rep1 chain=504ms(11840) single=25ms(11840) loop=26ms(11840)
+rep2 chain=457ms(11840) single=25ms(11840) loop=26ms(11840)
+rep3 chain=450ms(11840) single=25ms(11840) loop=26ms(11840)
+== node24
+rep0 chain=455ms(11840) single=76ms(11840) loop=26ms(11840)
+rep1 chain=606ms(11840) single=33ms(11840) loop=33ms(11840)
+rep2 chain=328ms(11840) single=33ms(11840) loop=32ms(11840)
+rep3 chain=302ms(11840) single=28ms(11840) loop=31ms(11840)
+== node22
+rep0 chain=508ms(11840) single=62ms(11840) loop=49ms(11840)
+rep1 chain=412ms(11840) single=38ms(11840) loop=34ms(11840)
+rep2 chain=250ms(11840) single=30ms(11840) loop=34ms(11840)
+rep3 chain=249ms(11840) single=30ms(11840) loop=33ms(11840)
+== d8 ignition-only R=2000
+rep0 chain=82ms(26688) single=46ms(26688) loop=51ms(26688)
+rep1 chain=82ms(26688) single=48ms(26688) loop=53ms(26688)
+rep2 chain=118ms(26688) single=41ms(26688) loop=40ms(26688)
+rep3 chain=67ms(26688) single=38ms(26688) loop=41ms(26688)

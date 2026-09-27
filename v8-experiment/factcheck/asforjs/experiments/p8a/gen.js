@@ -1,0 +1,11 @@
+print('--- A: this.v = null, later 1.5');
+function PNull() { this.v = null; } const a1 = new PNull(); const a2 = new PNull(); a2.v = 1.5;
+print('--- A2: this.v = null, later {}');
+function PNull2() { this.v = null; } const a3 = new PNull2(); const a4 = new PNull2(); a4.v = {k:1};
+print('--- B: this.v = 0, later 1.5');
+function PNum() { this.v = 0; } const b1 = new PNum(); const b2 = new PNum(); b2.v = 1.5;
+print('--- B2: this.v = 0.5, later 1.5');
+function PDbl() { this.v = 0.5; } const c1 = new PDbl(); const c2 = new PDbl(); c2.v = 1.5;
+print('--- B3: this.v = 0.5, later "s"');
+function PDbl2() { this.v = 0.5; } const d1 = new PDbl2(); const d2 = new PDbl2(); d2.v = "s";
+print('--- end');

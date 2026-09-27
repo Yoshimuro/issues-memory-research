@@ -1,0 +1,18 @@
+pr dictionary: true
+pr fast after being used as prototype in IC lookups: true
+%ToFastProperties -> fast: true
+ctor with 300 this.x: fast true
+ - instance size: 1020
+ - inobject properties: 252
+DebugPrint: 0x126f010940a5: [JS_OBJECT_TYPE]
+ - map: 0x126f01032181 <Map[1020](HOLEY_ELEMENTS)> [FastProperties]
+ - instance size: 1020
+ - inobject properties: 252
+DebugPrint: 0x126f010a4cad: [JS_OBJECT_TYPE]
+ - map: 0x126f01015ea9 <Map[12](HOLEY_ELEMENTS)> [DictionaryProperties]
+ - instance size: 12
+ - inobject properties: 0
+DebugPrint: 0x126f010a9231: [JS_OBJECT_TYPE]
+ - map: 0x126f01033fb1 <Map[412](HOLEY_ELEMENTS)> [FastProperties]
+ - instance size: 412
+ - inobject properties: 100

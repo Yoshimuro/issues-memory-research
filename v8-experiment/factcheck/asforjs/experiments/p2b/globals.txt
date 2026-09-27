@@ -1,0 +1,81 @@
+=============== node22 :: readG
+  0 : 17 02             LdaImmutableCurrentContextSlot [2]
+  2 : c9                Star0
+  3 : 17 03             LdaImmutableCurrentContextSlot [3]
+  5 : af 00             ThrowReferenceErrorIfHole [0]
+  7 : 3b f9 00          Add r0, [0]
+  10 : c9                Star0
+  11 : 17 04             LdaImmutableCurrentContextSlot [4]
+  13 : af 01             ThrowReferenceErrorIfHole [1]
+  15 : 3b f9 01          Add r0, [1]
+  18 : ae                Return
+0x2610d8541f91: [TrustedFixedArray]
+ - map: 0x14fd004809a9 <Map(TRUSTED_FIXED_ARRAY_TYPE)>
+ - length: 2
+           0: 0x323cd961b219 <String[2]: #gl>
+           1: 0x323cd961b231 <String[2]: #gc>
+0x2610d8542009 <Other heap object (TRUSTED_BYTE_ARRAY_TYPE)>
+=============== node22 :: deep
+  0 : 15 ff 02 01       LdaImmutableContextSlot <context>, [2], [1]
+  4 : af 00             ThrowReferenceErrorIfHole [0]
+  6 : c9                Star0
+  7 : 17 02             LdaImmutableCurrentContextSlot [2]
+  9 : af 01             ThrowReferenceErrorIfHole [1]
+  11 : 3b f9 00          Add r0, [0]
+  14 : ae                Return
+0x399c757821d1: [TrustedFixedArray]
+ - map: 0x1c065ee809a9 <Map(TRUSTED_FIXED_ARRAY_TYPE)>
+ - length: 2
+           0: 0x1c065ee84b49 <String[1]: #a>
+           1: 0x1c065ee84b61 <String[1]: #b>
+0x399c75782241 <Other heap object (TRUSTED_BYTE_ARRAY_TYPE)>
+=============== node24 :: readG
+  0 : 19 02             LdaImmutableCurrentContextSlot [2]
+  2 : ce                Star0
+  3 : 19 03             LdaImmutableCurrentContextSlot [3]
+  5 : b4 00             ThrowReferenceErrorIfHole [0]
+  7 : 3f f9 00          Add r0, [0]
+  10 : ce                Star0
+  11 : 19 04             LdaImmutableCurrentContextSlot [4]
+  13 : b4 01             ThrowReferenceErrorIfHole [1]
+  15 : 3f f9 01          Add r0, [1]
+  18 : b3                Return
+0xfe276941999: [TrustedFixedArray]
+ - map: 0x214e9df809e1 <Map(TRUSTED_FIXED_ARRAY_TYPE)>
+ - length: 2
+           0: 0x2acca29e80c1 <String[2]: #gl>
+           1: 0x2acca29e80d9 <String[2]: #gc>
+0x0fe276941a11 <Other heap object (TRUSTED_BYTE_ARRAY_TYPE)>
+=============== node24 :: deep
+  0 : 16 ff 02 01       LdaImmutableContextSlot <context>, [2], [1]
+  4 : b4 00             ThrowReferenceErrorIfHole [0]
+  6 : ce                Star0
+  7 : 19 02             LdaImmutableCurrentContextSlot [2]
+  9 : b4 01             ThrowReferenceErrorIfHole [1]
+  11 : 3f f9 00          Add r0, [0]
+  14 : b3                Return
+0x1ace70301c11: [TrustedFixedArray]
+ - map: 0x3632068009e1 <Map(TRUSTED_FIXED_ARRAY_TYPE)>
+ - length: 2
+           0: 0x363206805501 <String[1]: #a>
+           1: 0x363206805519 <String[1]: #b>
+0x1ace70301c81 <Other heap object (TRUSTED_BYTE_ARRAY_TYPE)>
+=============== d8 :: readG
+V8 is running with developer-only features enabled. Stability and security will suffer.
+  0 : 24 00 00          LdaGlobal [0:"gv"], FBV[0]
+  3 : d6                Star0
+  4 : 19 02             LdaCurrentContextSlot [2]
+  6 : bb 01             ThrowReferenceErrorIfTdzHole [1:"gl"]
+  8 : 43 f9 00          Add r0, EmbeddedFeedback[None]
+  11 : d6                Star0
+  12 : 1a 03             LdaImmutableCurrentContextSlot [3]
+  14 : bb 02             ThrowReferenceErrorIfTdzHole [2:"gc"]
+  16 : 43 f9 00          Add r0, EmbeddedFeedback[None]
+  19 : ba                Return
+=============== d8 :: deep
+V8 is running with developer-only features enabled. Stability and security will suffer.
+  0 : 17 ff 02 01       LdaImmutableContextSlot <context>, [2], [1]
+  4 : d6                Star0
+  5 : 1a 02             LdaImmutableCurrentContextSlot [2]
+  7 : 43 f9 00          Add r0, EmbeddedFeedback[None]
+  10 : ba                Return

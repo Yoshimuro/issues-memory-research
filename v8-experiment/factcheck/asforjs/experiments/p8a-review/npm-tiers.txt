@@ -1,0 +1,5 @@
+node24 npm --version:
+functions first executed: 752
+functions compiled lazily/eagerly (compile events, unique sfi): 0
+Maglev compiles: 13
+TurboFan compiles: 1

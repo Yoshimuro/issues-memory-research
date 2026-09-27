@@ -1,0 +1,99 @@
+DebugPrint: 0xfd40101da71: [Function] in OldSpace
+ - map: 0x0fd401004c89 <Map[32](HOLEY_ELEMENTS)> [FastProperties]
+ - prototype: 0x0fd401004db1 <JSFunction (sfi = 0xfd4010014c9)>
+ - elements: 0x0fd4000007e5 <FixedArray[0]> [HOLEY_ELEMENTS]
+ - function prototype: 
+ - initial_map: 
+ - shared_info: 0x0fd40101d9cd <SharedFunctionInfo doAdd>
+ - name: 0x0fd40101d915 <String[5]: #doAdd>
+ - builtin: InterpreterEntryTrampoline
+ - formal_parameter_count: 3
+ - kind: NormalFunction
+ - context: 0x0fd40100458d <NativeContext[308]>
+ - code: 0x0fd400b61a7d <Code BUILTIN InterpreterEntryTrampoline>
+ - dispatch_handle: 0x135700
+ - interpreted
+ - bytecode: 0x1fd301000109 <BytecodeArray[6]>
+ - source code: (a, b) { return a + b }
+ - properties: 0x0fd4000007e5 <FixedArray[0]>
+ - All own properties (excluding elements): {
+    0xfd400000e39: [String] in ReadOnlySpace: #length: 0x0fd400b5fe2d <AccessorInfo name= 0x0fd400000e39 <String[6]: #length>, data= 0x0fd400000011 <undefined>> (const accessor descriptor, attrs: [__C])
+    0xfd400000e29: [String] in ReadOnlySpace: #name: 0x0fd400b5fe15 <AccessorInfo name= 0x0fd400000e29 <String[4]: #name>, data= 0x0fd400000011 <undefined>> (const accessor descriptor, attrs: [__C])
+    0xfd400000e11: [String] in ReadOnlySpace: #prototype: 0x0fd400b5fe45 <AccessorInfo name= 0x0fd400000e11 <String[9]: #prototype>, data= 0x0fd400000011 <undefined>> (const accessor descriptor, attrs: [W__])
+ }
+ - feedback vector: No feedback vector, but we have a closure feedback cell array
+0xfd4000020b9: [ClosureFeedbackCellArray] in ReadOnlySpace
+ - map: 0x0fd40000086d <Map(CLOSURE_FEEDBACK_CELL_ARRAY_TYPE)>
+ - length: 0
+ - elements:
+0xfd401004c89: [Map] in OldSpace
+ - map: 0x0fd40100453d <MetaMap (0x0fd40100458d <NativeContext[308]>)>
+ - type: JS_FUNCTION_WITH_PROTOTYPE_TYPE
+ - instance size: 32
+ - inobject properties: 0
+ - unused property fields: 0
+ - elements kind: HOLEY_ELEMENTS
+ - enum length: invalid
+ - stable_map
+ - callable
+ - constructor
+ - back pointer: 0x0fd400000011 <undefined>
+ - prototype_validity_cell: 0x0fd400000b15 <Cell value= [cleared]>
+ - instance descriptors (own) #3: 0x0fd401004cb1 <DescriptorArray[3]>
+ - prototype: 0x0fd401004db1 <JSFunction (sfi = 0xfd4010014c9)>
+ - constructor: 0x0fd401004c55 <JSFunction Function (sfi = 0xfd400b9468d)>
+ - dependent code: 0x0fd4000007f5 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 0
+
+DebugPrint: 0x1fd301000109: [BytecodeArray]
+ - map: 0x0fd4000009fd <Map(BYTECODE_ARRAY_TYPE)>
+Parameter count 3
+Register count 0
+Frame size 0
+         0x1fd301000130 @    0 : 0b 04             Ldar a1
+         0x1fd301000132 @    2 : 43 03 01          Add a0, EmbeddedFeedback[SignedSmall]
+         0x1fd301000135 @    5 : ba                Return
+Constant pool (size = 0)
+Handler Table (size = 0)
+Source Position Table (size = 0)
+0xfd4000009fd: [Map] in ReadOnlySpace
+ - map: 0x0fd400000475 <MetaMap (0x0fd40000002d <null>)>
+ - type: BYTECODE_ARRAY_TYPE
+ - instance size: variable
+ - elements kind: HOLEY_ELEMENTS
+ - enum length: invalid
+ - stable_map
+ - back pointer: 0x0fd400000011 <undefined>
+ - prototype_validity_cell: 0
+ - instance descriptors (own) #0: 0x0fd40000080d <DescriptorArray[0]>
+ - prototype: 0x0fd40000002d <null>
+ - constructor: 0x0fd40000002d <null>
+ - dependent code: 0x0fd4000007f5 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 0
+
+DebugPrint: 0x1fd301000109: [BytecodeArray]
+ - map: 0x0fd4000009fd <Map(BYTECODE_ARRAY_TYPE)>
+Parameter count 3
+Register count 0
+Frame size 0
+         0x1fd301000130 @    0 : 0b 04             Ldar a1
+         0x1fd301000132 @    2 : 43 03 04          Add a0, EmbeddedFeedback[Number]
+         0x1fd301000135 @    5 : ba                Return
+Constant pool (size = 0)
+Handler Table (size = 0)
+Source Position Table (size = 0)
+0xfd4000009fd: [Map] in ReadOnlySpace
+ - map: 0x0fd400000475 <MetaMap (0x0fd40000002d <null>)>
+ - type: BYTECODE_ARRAY_TYPE
+ - instance size: variable
+ - elements kind: HOLEY_ELEMENTS
+ - enum length: invalid
+ - stable_map
+ - back pointer: 0x0fd400000011 <undefined>
+ - prototype_validity_cell: 0
+ - instance descriptors (own) #0: 0x0fd40000080d <DescriptorArray[0]>
+ - prototype: 0x0fd40000002d <null>
+ - constructor: 0x0fd40000002d <null>
+ - dependent code: 0x0fd4000007f5 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 0
+

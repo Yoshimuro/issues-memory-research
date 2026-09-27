@@ -1,0 +1,3 @@
+npm --version: functions compiled to bytecode=569, functions optimized (Maglev/TurboFan)=13
+npm help: functions compiled to bytecode=631, functions optimized (Maglev/TurboFan)=15
+var-vs-let-parse.js (hot synthetic loop): functions compiled to bytecode=48069, functions optimized (Maglev/TurboFan)=3

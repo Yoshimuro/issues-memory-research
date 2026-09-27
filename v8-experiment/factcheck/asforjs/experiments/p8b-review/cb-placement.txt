@@ -1,0 +1,21 @@
+== d8
+rep0 inline=23ms viaCtx=20ms viaGlobal=20ms
+rep1 inline=16ms viaCtx=10ms viaGlobal=10ms
+rep2 inline=10ms viaCtx=10ms viaGlobal=10ms
+rep3 inline=11ms viaCtx=10ms viaGlobal=10ms
+== node24
+rep0 inline=22ms viaCtx=24ms viaGlobal=31ms
+rep1 inline=20ms viaCtx=17ms viaGlobal=16ms
+rep2 inline=16ms viaCtx=16ms viaGlobal=16ms
+rep3 inline=16ms viaCtx=16ms viaGlobal=16ms
+== node22
+rep0 inline=14ms viaCtx=14ms viaGlobal=14ms
+rep1 inline=12ms viaCtx=11ms viaGlobal=11ms
+rep2 inline=10ms viaCtx=10ms viaGlobal=11ms
+rep3 inline=10ms viaCtx=10ms viaGlobal=11ms
+== d8 inlining trace
+      1 Inlining  { <SharedFunctionInfo ctxConst>} into  { <SharedFunctionInfo viaCtx>}
+      1 Inlining  { <SharedFunctionInfo globalFn>} into  { <SharedFunctionInfo viaGlobal>}
+      1 Inlining  { <SharedFunctionInfo inline>} into  { <SharedFunctionInfo>} (inside try-block)
+      1 Inlining  { <SharedFunctionInfo>} into  { <SharedFunctionInfo inline>}
+      1 Inlining  { <SharedFunctionInfo>} into  { <SharedFunctionInfo>} (inside try-block)

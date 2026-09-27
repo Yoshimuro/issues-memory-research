@@ -1,0 +1,10 @@
+Considering 0x45942338 {0x22c9bad682d9 <SharedFunctionInfo areaFn>} for inlining with 0x45942520 {0x22c9bad689a1 <FeedbackVector[4]>}
+Inlining small function(s) at call site #63:JSCall
+Inlining 0x45942338 {0x22c9bad682d9 <SharedFunctionInfo areaFn>} into 0x45941e10 {0x22c9bad68221 <SharedFunctionInfo>}
+Considering 0x459429f8 {0x22c9bad68321 <SharedFunctionInfo PIf>} for inlining with 0x45942b10 {0x22c9bad68971 <FeedbackVector[0]>}
+Inlining small function(s) at call site #112:JSCall
+Inlining 0x459429f8 {0x22c9bad68321 <SharedFunctionInfo PIf>} into 0x45941e10 {0x22c9bad68221 <SharedFunctionInfo>}
+Considering 0x45942240 {0x22c9bad68291 <SharedFunctionInfo areaConst>} for inlining with 0x45942b80 {0x22c9bad68931 <FeedbackVector[2]>}
+Inlining small function(s) at call site #57:JSCall
+Inlining 0x45942240 {0x22c9bad68291 <SharedFunctionInfo areaConst>} into 0x45941e10 {0x22c9bad68221 <SharedFunctionInfo>}
+16746666666665513000

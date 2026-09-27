@@ -1,0 +1,4 @@
+0x7f2d32004130    30  48394aff             REX.W cmpq [rdx-0x1],rcx
+0x7f2d3200413a    3a  488b4a17             REX.W movq rcx,[rdx+0x17]
+0x7f2d32004147    47  6bff03               imull rdi,rdi,0x3
+0x7f2d32004158    58  6bc907               imull rcx,rcx,0x7

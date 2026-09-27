@@ -1,0 +1,27 @@
+Parameter count 2
+Register count 3
+Frame size 24
+  121 S>  @    0 : 0c                LdaZero
+          @    1 : c9                Star0
+  137 S>  @    2 : 0c                LdaZero
+          @    3 : c8                Star1
+  148 S>  @    4 : 2f 03 00 00       GetNamedProperty a0, [0], [0]
+  142 E>  @    8 : 71 f8 02          TestLessThan r1, [2]
+          @   11 : 9e 17             JumpIfFalse [23] ( @ 34)
+  163 S>  @   13 : 0b f8             Ldar r1
+  171 E>  @   15 : 31 03 04          GetKeyedProperty a0, [4]
+          @   18 : 3b f9 03          Add r0, [3]
+          @   21 : 19 f9 f7          Mov r0, r2
+          @   24 : c9                Star0
+  157 S>  @   25 : 0b f8             Ldar r1
+          @   27 : 53 06             Inc [6]
+          @   29 : c8                Star1
+  124 E>  @   30 : 8e 1a 00 07       JumpLoop [26], [0], [7] ( @ 4)
+  178 S>  @   34 : 0b f9             Ldar r0
+  187 S>  @   36 : ae                Return
+Constant pool (size = 1)
+: [TrustedFixedArray]
+ - map:  <Map(TRUSTED_FIXED_ARRAY_TYPE)>
+ - length: 1
+           0:  <String[6]: #length>
+Handler Table (size = 0)

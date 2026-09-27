@@ -1,0 +1,30 @@
+== d8 rel
+Error: Function 0x… <JSFunction doSum (sfi = 0x…)> should be prepared for optimization with %PrepareFunctionForOptimization before  %OptimizeFunctionOnNextCall / %OptimizeMaglevOnNextCall
+
+#
+# Fatal error
+# Check failed: CheckMarkedForManualOptimization(isolate, *function).
+#
+#
+#
+#FailureMessage Object: 0x…
+==== C stack trace ===============================
+
+    /tmp/claude-0/-home-user-issues-memory-research/dacf359b-9898-588d-b8f1-20fd1e3f2945/scratchpad/d8/rel/d8(+0x…) [0x…]
+    /tmp/claude-0/-home-user-issues-memory-research/dacf359b-9898-588d-b8f1-20fd1e3f2945/scratchpad/d8/rel/d8(+0x…) [0x…]
+    /tmp/claude-0/-home-user-issues-memory-research/dacf359b-9898-588d-b8f1-20fd1e3f2945/scratchpad/d8/rel/d8(+0x…) [0x…]
+    /tmp/claude-0/-home-user-issues-memory-research/dacf359b-9898-588d-b8f1-20fd1e3f2945/scratchpad/d8/rel/d8(+0x…) [0x…]
+    /tmp/claude-0/-home-user-issues-memory-research/dacf359b-9898-588d-b8f1-20fd1e3f2945/scratchpad/d8/rel/d8(+0x…) [0x…]
+    /tmp/claude-0/-home-user-issues-memory-research/dacf359b-9898-588d-b8f1-20fd1e3f2945/scratchpad/d8/rel/d8(+0x…) [0x…]
+== d8 dbg
+Error: Function 0x0d500101db49 <JSFunction doSum (sfi = 0xd500101da5d)> should be prepared for optimization with %PrepareFunctionForOptimization before  %OptimizeFunctionOnNextCall / %OptimizeMaglevOnNextCall
+
+#
+# Fatal error in ../../src/runtime/runtime-test.cc, line 357
+# Check failed: CheckMarkedForManualOptimization(isolate, *function).
+#
+#
+#
+== node24
+status without Prepare: 129
+status without any call before: 129

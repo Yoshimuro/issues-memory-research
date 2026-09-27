@@ -1,0 +1,50 @@
+===== N20 plain
+[OSR - compilation finished. function: plain, osr offset: 45]
+[OSR - entry. function: plain, osr offset: 45]
+result 165000000
+[OSR - entry. function: plain, osr offset: 45]
+second call 550
+===== N24 plain
+[OSR - entry. function: plain, osr offset: 45]
+[OSR - compilation finished. function: plain, osr offset: 45]
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. deoptimizing 0x3b9c132663f9 <JSFunction plain (sfi = 0x2331d8e84b9)>, 0x074b118c2631 <Code MAGLEV>, opt id 4, bytec
+[OSR - entry. function: plain, osr offset: 45]
+result 165000000
+[OSR - entry. function: plain, osr offset: 45]
+second call 550
+===== D8 plain
+[OSR - entry. function: plain, osr offset: 45]
+[OSR - compilation finished. function: plain, osr offset: 45]
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. deoptimizing 0x31c80101e1e5 <JSFunction plain (sfi = 0x31c80101e0a5)>, 0x08dc010407f9 <Code MAGLEV>, opt id 1, byte
+[OSR - entry. function: plain, osr offset: 45]
+result 165000000
+[OSR - entry. function: plain, osr offset: 45]
+second call 550
+===== N20 tail
+[OSR - compilation finished. function: tail, osr offset: 45]
+[OSR - entry. function: tail, osr offset: 45]
+[bailout (kind: deopt-eager, reason: Insufficient type feedback for binary operation): begin. deoptimizing 0x37cb7c3e0931 <JSFunction tail (sfi = 0x2cd5eb4238d9)>, 0x2cd5eb4255b1 <Code TURBOFAN>, opt 
+result 495000000!
+[OSR - entry. function: tail, osr offset: 45]
+[bailout (kind: deopt-eager, reason: Insufficient type feedback for binary operation): begin. deoptimizing 0x33763b083da9 <JSFunction tail (sfi = 0x2cd5eb4238d9)>, 0x2cd5eb4255b1 <Code TURBOFAN>, opt 
+second call 1650!
+===== N24 tail
+[OSR - entry. function: tail, osr offset: 45]
+[OSR - compilation finished. function: tail, osr offset: 45]
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. deoptimizing 0x04c2947825c1 <JSFunction tail (sfi = 0x261a8e6a8501)>, 0x2ee0c2a818a9 <Code MAGLEV>, opt id 4, bytec
+[OSR - entry. function: tail, osr offset: 45]
+[bailout (kind: deopt-eager, reason: Insufficient type feedback for binary operation): begin. deoptimizing 0x04c2947825c1 <JSFunction tail (sfi = 0x261a8e6a8501)>, 0x2105ec142389 <Code TURBOFAN_JS>, o
+result 495000000!
+[OSR - entry. function: tail, osr offset: 45]
+[bailout (kind: deopt-eager, reason: Insufficient type feedback for binary operation): begin. deoptimizing 0x04c2947825c1 <JSFunction tail (sfi = 0x261a8e6a8501)>, 0x2105ec142389 <Code TURBOFAN_JS>, o
+second call 1650!
+===== D8 tail
+[OSR - entry. function: tail, osr offset: 45]
+[OSR - compilation finished. function: tail, osr offset: 45]
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. deoptimizing 0x0aed0101e219 <JSFunction tail (sfi = 0xaed0101e0d5)>, 0x0d2b01040751 <Code MAGLEV>, opt id 1, byteco
+[OSR - entry. function: tail, osr offset: 45]
+[bailout (kind: deopt-eager, reason: Insufficient type feedback for binary operation): begin. deoptimizing 0x0aed0101e219 <JSFunction tail (sfi = 0xaed0101e0d5)>, 0x0d2b01000771 <Code TURBOFAN_JS>, op
+result 495000000!
+[OSR - entry. function: tail, osr offset: 45]
+[bailout (kind: deopt-eager, reason: Insufficient type feedback for binary operation): begin. deoptimizing 0x0aed0101e219 <JSFunction tail (sfi = 0xaed0101e0d5)>, 0x0d2b01000771 <Code TURBOFAN_JS>, op
+second call 1650!

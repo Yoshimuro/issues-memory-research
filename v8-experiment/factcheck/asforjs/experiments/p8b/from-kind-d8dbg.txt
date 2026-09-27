@@ -1,0 +1,12 @@
+ - elements: 0x35180108968d <FixedDoubleArray[3]> [HOLEY_DOUBLE_ELEMENTS]
+    0x351800000e39: [String] in ReadOnlySpace: #length: 0x351800b5fdcd <AccessorInfo name= 0x351800000e39 <String[6]: #length>, data= 0x351800000011 <undefined>> (const accessor descriptor, attrs: [W__])
+ - elements: 0x35180108968d <FixedDoubleArray[3]> {
+         0-2: undefined
+ - elements kind: HOLEY_DOUBLE_ELEMENTS
+     0x351800000ed5 <Symbol: (elements_transition_symbol)>: (transition to PACKED_ELEMENTS) -> 0x35180100d175 <Map[16](PACKED_ELEMENTS)>
+ - elements: 0x35180108968d <FixedDoubleArray[3]> [HOLEY_DOUBLE_ELEMENTS]
+    0x351800000e39: [String] in ReadOnlySpace: #length: 0x351800b5fdcd <AccessorInfo name= 0x351800000e39 <String[6]: #length>, data= 0x351800000011 <undefined>> (const accessor descriptor, attrs: [W__])
+ - elements: 0x35180108968d <FixedDoubleArray[3]> {
+           0: 1 (0x3ff0000000000000)
+         1-2: undefined
+ - elements kind: HOLEY_DOUBLE_ELEMENTS

@@ -1,0 +1,8 @@
+## node24
+rep0: Array(double) 38.2 | Float64Array 39.1 | Array(smi) 57.8 | Int32Array 48.0
+rep1: Array(double) 37.8 | Float64Array 58.1 | Array(smi) 76.3 | Int32Array 62.3
+rep2: Array(double) 41.7 | Float64Array 38.1 | Array(smi) 56.1 | Int32Array 55.5
+## d8
+rep0: Array(double) 50.0 | Float64Array 38.8 | Array(smi) 48.1 | Int32Array 47.2
+rep1: Array(double) 37.6 | Float64Array 37.9 | Array(smi) 38.2 | Int32Array 46.7
+rep2: Array(double) 34.7 | Float64Array 37.6 | Array(smi) 38.8 | Int32Array 45.7

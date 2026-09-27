@@ -1,0 +1,12 @@
+## /opt/nvm/versions/node/v24.21.0/bin/node
+19 ms: Mark-Compact 3.9 (5.8) -> 3.7 (6.5) MB, pooled: 0 MB, 3.09 / 0.00 ms  (av
+--- baseline gc done
+--
+550 ms: Mark-Compact 158.9 (223.7) -> 158.9 (223.7) MB, pooled: 0 MB, 65.69 / 0.
+--- after build gc done 1000000
+## /tmp/claude-0/-home-user-issues-memory-research/dacf359b-9898-588d-b8f1-20fd1e3f2945/scratchpad/d8/rel/d8
+4 ms: Mark-Compact 0.2 (0.8) -> 0.1 (0.8) MB, pooled: 0.0 MB, 0.88 / 0.00 ms (av
+--- baseline gc done
+--
+163 ms: Mark-Compact 85.6 (94.5) -> 77.6 (86.5) MB, pooled: 0.0 MB, 72.12 / 0.00
+--- after build gc done 1000000

@@ -1,0 +1,19 @@
+## node24 --expose-gc --trace-flush-code (12 full GCs, heap small)
+[14672:0x307c8000] code flushing: increasing time: 0 s
+[14672:0x307c8000] 0 flushed SharedFunctionInfo(s)
+[14672:0x307c8000] code flushing: increasing time: 0 s
+[14672:0x307c8000] 0 flushed SharedFunctionInfo(s)
+[14672:0x307c8000] code flushing: increasing time: 0 s
+[14672:0x307c8000] 0 flushed SharedFunctionInfo(s)
+[14672:0x307c8000] code flushing: increasing time: 0 s
+[14672:0x307c8000] 0 flushed SharedFunctionInfo(s)
+[14672:0x307c8000] code flushing: increasing time: 0 s
+[14672:0x307c8000] 0 flushed SharedFunctionInfo(s)
+## node22
+heap used MB: 3.5
+## node24 --no-flush-bytecode
+heap used MB: 3.9
+ - code: 0x3d5f8402d4b1 <Code BUILTIN InterpreterEntryTrampoline>
+ - bytecode: 0x0c34f7242e01 <BytecodeArray[32]>
+ - source code: (a) { let s = 0; for (let i = 0; i < a; i++) s += i; return s }
+ - dependent code: 0x159d55380d19 <Other heap object (WEAK_ARRAY_LIST_TYPE)>

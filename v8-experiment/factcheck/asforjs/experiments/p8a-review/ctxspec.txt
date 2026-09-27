@@ -1,0 +1,8 @@
+## /opt/node22/bin/node
+      1 areaOne: immediate 3.14 found
+## /opt/nvm/versions/node/v24.21.0/bin/node
+      1 areaOne: immediate 3.14 found
+kind = TURBOFAN_JS
+name = areaOne
+kind = TURBOFAN_JS
+name = areaMany

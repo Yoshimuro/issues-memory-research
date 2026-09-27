@@ -1,0 +1,10 @@
+== /opt/node22/bin/node static
+SyntaxError: Identifier 'z1' has already been declared
+== /opt/node22/bin/node dynamic
+dynamic-main: executed
+import() rejected later: SyntaxError: Identifier 'z1' has already been declared
+== /opt/nvm/versions/node/v24.21.0/bin/node static
+SyntaxError: Identifier 'z1' has already been declared
+== /opt/nvm/versions/node/v24.21.0/bin/node dynamic
+dynamic-main: executed
+import() rejected later: SyntaxError: Identifier 'z1' has already been declared

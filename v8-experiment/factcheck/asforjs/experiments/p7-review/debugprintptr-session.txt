@@ -1,0 +1,464 @@
+>>> %DebugPrint(doSum)
+DebugPrint: 0x3acd0101da45: [Function] in OldSpace
+ - map: 0x3acd01004c89 <Map[32](HOLEY_ELEMENTS)> [FastProperties]
+ - prototype: 0x3acd01004db1 <JSFunction (sfi = 0x3acd010014c9)>
+ - elements: 0x3acd000007e5 <FixedArray[0]> [HOLEY_ELEMENTS]
+ - function prototype: 
+ - initial_map: 
+ - shared_info: 0x3acd0101d999 <SharedFunctionInfo doSum>
+ - name: 0x3acd0101d915 <String[5]: #doSum>
+ - builtin: InterpreterEntryTrampoline
+ - formal_parameter_count: 2
+ - kind: NormalFunction
+ - context: 0x3acd0100458d <NativeContext[308]>
+ - code: 0x3acd00b61a7d <Code BUILTIN InterpreterEntryTrampoline>
+ - dispatch_handle: 0x135700
+ - interpreted
+ - bytecode: 0x3eac0100011d <BytecodeArray[131]>
+ - source code: (a) { let s = 0; for (const x of a) s += x; return s; }
+ - properties: 0x3acd000007e5 <FixedArray[0]>
+ - All own properties (excluding elements): {
+    0x3acd00000e39: [String] in ReadOnlySpace: #length: 0x3acd00b5fe2d <AccessorInfo name= 0x3acd00000e39 <String[6]: #length>, data= 0x3acd00000011 <undefined>> (const accessor descriptor, attrs: [__C])
+    0x3acd00000e29: [String] in ReadOnlySpace: #name: 0x3acd00b5fe15 <AccessorInfo name= 0x3acd00000e29 <String[4]: #name>, data= 0x3acd00000011 <undefined>> (const accessor descriptor, attrs: [__C])
+    0x3acd00000e11: [String] in ReadOnlySpace: #prototype: 0x3acd00b5fe45 <AccessorInfo name= 0x3acd00000e11 <String[9]: #prototype>, data= 0x3acd00000011 <undefined>> (const accessor descriptor, attrs: [W__])
+ }
+ - feedback vector: No feedback vector, but we have a closure feedback cell array
+0x3acd000020b9: [ClosureFeedbackCellArray] in ReadOnlySpace
+ - map: 0x3acd0000086d <Map(CLOSURE_FEEDBACK_CELL_ARRAY_TYPE)>
+ - length: 0
+ - elements:
+0x3acd01004c89: [Map] in OldSpace
+ - map: 0x3acd0100453d <MetaMap (0x3acd0100458d <NativeContext[308]>)>
+ - type: JS_FUNCTION_WITH_PROTOTYPE_TYPE
+ - instance size: 32
+ - inobject properties: 0
+ - unused property fields: 0
+ - elements kind: HOLEY_ELEMENTS
+ - enum length: invalid
+ - stable_map
+ - callable
+ - constructor
+ - back pointer: 0x3acd00000011 <undefined>
+ - prototype_validity_cell: 0x3acd00000b15 <Cell value= [cleared]>
+ - instance descriptors (own) #3: 0x3acd01004cb1 <DescriptorArray[3]>
+ - prototype: 0x3acd01004db1 <JSFunction (sfi = 0x3acd010014c9)>
+ - constructor: 0x3acd01004c55 <JSFunction Function (sfi = 0x3acd00b9468d)>
+ - dependent code: 0x3acd000007f5 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 0
+
+undefined
+d8> 
+>>> %DebugPrintPtr(0x3eac0100011d)
+DebugPrint: 0x3eac0100011d: [BytecodeArray]
+ - map: 0x3acd000009fd <Map(BYTECODE_ARRAY_TYPE)>
+Parameter count 2
+Register count 15
+Frame size 120
+         0x3eac01000144 @    0 : 0c                LdaZero
+         0x3eac01000145 @    1 : d6                Star0
+         0x3eac01000146 @    2 : c2 03 00 02       GetIterator a0, FBV[0], FBV[2]
+         0x3eac0100014a @    6 : d1                Star5
+         0x3eac0100014b @    7 : 34 f4 00 04       GetNamedProperty r5, [0:"next"], FBV[4]
+         0x3eac0100014f @   11 : d2                Star4
+         0x3eac01000150 @   12 : 13                LdaFalse
+         0x3eac01000151 @   13 : cf                Star7
+         0x3eac01000152 @   14 : 10                LdaTheHole
+         0x3eac01000153 @   15 : cc                Star10
+         0x3eac01000154 @   16 : 1c ff ee          Mov <context>, r11
+         0x3eac01000157 @   19 : 12                LdaTrue
+         0x3eac01000158 @   20 : cf                Star7
+         0x3eac01000159 @   21 : 69 f5 f4 06       CallProperty0 r4, r5, FBV[6]
+         0x3eac0100015d @   25 : d0                Star6
+         0x3eac0100015e @   26 : af 07             JumpIfJSReceiver [7] (0x3eac01000165 @ 33)
+         0x3eac01000160 @   28 : 71 ab 00 f3 01    CallRuntime [ThrowIteratorResultNotAnObject], r6-r6
+         0x3eac01000165 @   33 : 34 f3 01 08       GetNamedProperty r6, [1:"done"], FBV[8]
+         0x3eac01000169 @   37 : a6 1f             JumpIfToBooleanTrue [31] (0x3eac01000188 @ 68)
+         0x3eac0100016b @   39 : 34 f3 02 0a       GetNamedProperty r6, [2:"value"], FBV[10]
+         0x3eac0100016f @   43 : d0                Star6
+         0x3eac01000170 @   44 : 13                LdaFalse
+         0x3eac01000171 @   45 : cf                Star7
+         0x3eac01000172 @   46 : 1c f3 f8          Mov r6, r1
+         0x3eac01000175 @   49 : 1c f8 f6          Mov r1, r3
+         0x3eac01000178 @   52 : 0b f8             Ldar r1
+         0x3eac0100017a @   54 : 43 f9 01          Add r0, EmbeddedFeedback[SignedSmall]
+         0x3eac0100017d @   57 : 1c f9 ed          Mov r0, r12
+         0x3eac01000180 @   60 : d6                Star0
+         0x3eac01000181 @   61 : 1c f6 f3          Mov r3, r6
+         0x3eac01000184 @   64 : 98 2d 00 0c       JumpLoop [45], [0], FBV[12] (0x3eac01000157 @ 19)
+         0x3eac01000188 @   68 : 0d ff             LdaSmi [-1]
+         0x3eac0100018a @   70 : cd                Star9
+         0x3eac0100018b @   71 : ce                Star8
+         0x3eac0100018c @   72 : 99 08             Jump [8] (0x3eac01000194 @ 80)
+         0x3eac0100018e @   74 : cd                Star9
+         0x3eac0100018f @   75 : 0c                LdaZero
+         0x3eac01000190 @   76 : ce                Star8
+         0x3eac01000191 @   77 : 10                LdaTheHole
+         0x3eac01000192 @   78 : b7                SetPendingMessage
+         0x3eac01000193 @   79 : cc                Star10
+         0x3eac01000194 @   80 : 0b f2             Ldar r7
+         0x3eac01000196 @   82 : a6 23             JumpIfToBooleanTrue [35] (0x3eac010001b9 @ 117)
+         0x3eac01000198 @   84 : 1c ff ed          Mov <context>, r12
+         0x3eac0100019b @   87 : 34 f4 03 0e       GetNamedProperty r5, [3:"return"], FBV[14]
+         0x3eac0100019f @   91 : ae 1a             JumpIfUndefinedOrNull [26] (0x3eac010001b9 @ 117)
+         0x3eac010001a1 @   93 : c9                Star13
+         0x3eac010001a2 @   94 : 69 ec f4 10       CallProperty0 r13, r5, FBV[16]
+         0x3eac010001a6 @   98 : af 13             JumpIfJSReceiver [19] (0x3eac010001b9 @ 117)
+         0x3eac010001a8 @  100 : c8                Star14
+         0x3eac010001a9 @  101 : 71 ab 00 eb 01    CallRuntime [ThrowIteratorResultNotAnObject], r14-r14
+         0x3eac010001ae @  106 : 99 0b             Jump [11] (0x3eac010001b9 @ 117)
+         0x3eac010001b0 @  108 : ca                Star12
+         0x3eac010001b1 @  109 : 0c                LdaZero
+         0x3eac010001b2 @  110 : 1f f1             TestReferenceEqual r8
+         0x3eac010001b4 @  112 : a8 05             JumpIfTrue [5] (0x3eac010001b9 @ 117)
+         0x3eac010001b6 @  114 : 0b ed             Ldar r12
+         0x3eac010001b8 @  116 : b9                ReThrow
+         0x3eac010001b9 @  117 : 0c                LdaZero
+         0x3eac010001ba @  118 : 1f f1             TestReferenceEqual r8
+         0x3eac010001bc @  120 : a9 08             JumpIfFalse [8] (0x3eac010001c4 @ 128)
+         0x3eac010001be @  122 : 0b ef             Ldar r10
+         0x3eac010001c0 @  124 : b7                SetPendingMessage
+         0x3eac010001c1 @  125 : 0b f0             Ldar r9
+         0x3eac010001c3 @  127 : b9                ReThrow
+         0x3eac010001c4 @  128 : 0b f9             Ldar r0
+         0x3eac010001c6 @  130 : ba                Return
+Constant pool (size = 4)
+0x3eac01000105: [TrustedFixedArray]
+ - map: 0x3acd00000605 <Map(TRUSTED_FIXED_ARRAY_TYPE)>
+ - length: 4
+           0: 0x3acd00005e55 <String[4]: #next>
+           1: 0x3acd000043cd <String[4]: #done>
+           2: 0x3acd00000e7d <String[5]: #value>
+           3: 0x3acd000052e5 <String[6]: #return>
+Handler Table (size = 32)
+   from   to       hdlr (prediction,   data)
+  (  19,  68)  ->    74 (prediction=0, data=11)
+  (  87, 106)  ->   108 (prediction=0, data=12)
+Source Position Table (size = 0)
+0x3acd000009fd: [Map] in ReadOnlySpace
+ - map: 0x3acd00000475 <MetaMap (0x3acd0000002d <null>)>
+ - type: BYTECODE_ARRAY_TYPE
+ - instance size: variable
+ - elements kind: HOLEY_ELEMENTS
+ - enum length: invalid
+ - stable_map
+ - back pointer: 0x3acd00000011 <undefined>
+ - prototype_validity_cell: 0
+ - instance descriptors (own) #0: 0x3acd0000080d <DescriptorArray[0]>
+ - prototype: 0x3acd0000002d <null>
+ - constructor: 0x3acd0000002d <null>
+ - dependent code: 0x3acd000007f5 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 0
+
+68908472074525
+d8> 
+>>> %DebugPrintPtr(0x3acd0100458d)
+DebugPrint: 0x3acd0100458d: [NativeContext] in OldSpace
+ - map: 0x3acd01004565 <Map(NATIVE_CONTEXT_TYPE)>
+ - type: NATIVE_CONTEXT_TYPE
+ - scope_info: 0x3acd00005fe1 <ScopeInfo SCRIPT_SCOPE>
+ - previous: 0
+ - native_context: 0x3acd0100458d <NativeContext[308]>
+ - extension: 0x3acd01017b85 <JSGlobalObject>
+ - length: 308
+ - elements:
+           0: 0x3acd00005fe1 <ScopeInfo SCRIPT_SCOPE>
+           1: 0
+           2: 0x3acd01017b85 <JSGlobalObject>
+           3: 0x3acd0100452d <JSGlobalProxy>
+           4: 0x3acd01088965 <Other heap object (EMBEDDER_DATA_ARRAY_TYPE)>
+           5: 0x3acd00000011 <undefined>
+           6: 0x3acd01011709 <JSFunction next (sfi = 0x3acd00b93e4d)>
+           7: 0x3acd01011725 <JSFunction next (sfi = 0x3acd00b93e7d)>
+           8: 0x3acd0100fab5 <JSFunction apply (sfi = 0x3acd00b9b3ad)>
+           9: 0x3acd0100f965 <JSFunction construct (sfi = 0x3acd00b9b3dd)>
+          10: 0x3acd01011741 <JSFunction (sfi = 0x3acd00b96abd)>
+          11: 0x3acd01008bad <JSFunction then (sfi = 0x3acd00b96a8d)>
+          12: 0x3acd01008a2d <JSFunction resolve (sfi = 0x3acd00b969cd)>
+          13: 0x3acd01004ded <JSFunction apply (sfi = 0x3acd00b946bd)>
+          14: 0x3acd0100d525 <JSFunction Uint8Array (sfi = 0x3acd00b99d8d)>
+          15: 0x3acd0100c625 <JSFunction Int8Array (sfi = 0x3acd00b99dbd)>
+          16: 0x3acd0100683d <JSFunction Uint16Array (sfi = 0x3acd00b99ded)>
+          17: 0x3acd0100fb89 <JSFunction Int16Array (sfi = 0x3acd00b99e1d)>
+          18: 0x3acd0100c79d <JSFunction Uint32Array (sfi = 0x3acd00b99e4d)>
+          19: 0x3acd0100a46d <JSFunction Int32Array (sfi = 0x3acd00b99e7d)>
+          20: 0x3acd010091a1 <JSFunction BigUint64Array (sfi = 0x3acd00b99ead)>
+          21: 0x3acd0100f3cd <JSFunction BigInt64Array (sfi = 0x3acd00b99edd)>
+          22: 0x3acd0100a5f9 <JSFunction Uint8ClampedArray (sfi = 0x3acd00b99f0d)>
+          23: 0x3acd01008c6d <JSFunction Float32Array (sfi = 0x3acd00b99f3d)>
+          24: 0x3acd01007689 <JSFunction Float64Array (sfi = 0x3acd00b99f6d)>
+          25: 0x3acd01008de5 <JSFunction Float16Array (sfi = 0x3acd00b99f9d)>
+          26: 0x3acd0101175d <Map[60](RAB_GSAB_UINT8ELEMENTS)>
+          27: 0x3acd01011785 <Map[60](RAB_GSAB_INT8ELEMENTS)>
+          28: 0x3acd010117ad <Map[60](RAB_GSAB_UINT16ELEMENTS)>
+          29: 0x3acd010117d5 <Map[60](RAB_GSAB_INT16ELEMENTS)>
+          30: 0x3acd010117fd <Map[60](RAB_GSAB_UINT32ELEMENTS)>
+          31: 0x3acd01011825 <Map[60](RAB_GSAB_INT32ELEMENTS)>
+          32: 0x3acd0101184d <Map[60](RAB_GSAB_BIGUINT64ELEMENTS)>
+          33: 0x3acd01011875 <Map[60](RAB_GSAB_BIGINT64ELEMENTS)>
+          34: 0x3acd0101189d <Map[60](RAB_GSAB_UINT8_CLAMPEDELEMENTS)>
+          35: 0x3acd010118c5 <Map[60](RAB_GSAB_FLOAT32ELEMENTS)>
+          36: 0x3acd010118ed <Map[60](RAB_GSAB_FLOAT64ELEMENTS)>
+          37: 0x3acd01011915 <Map[60](RAB_GSAB_FLOAT16ELEMENTS)>
+       38-39: 0x3acd00000011 <undefined>
+          40: 0x3acd0101193d <Map[28](HOLEY_ELEMENTS)>
+          41: 0x3acd00000011 <undefined>
+          42: 0x3acd01011471 <JSFunction ArrayBuffer (sfi = 0x3acd00b9900d)>
+          43: 0x3acd010114c1 <Map[52](HOLEY_ELEMENTS)>
+          44: 0x3acd010119a5 <JSFunction arrayBufferConstructor_DoNotInitialize (sfi = 0x3acd00b990fd)>
+          45: 0x3acd0100c981 <JSFunction Array (sfi = 0x3acd00b9486d)>
+       46-47: 0x3acd00000011 <undefined>
+          48: 0x3acd010119c1 <Map[20](HOLEY_ELEMENTS)>
+          49: 0x3acd01011bcd <JSFunction AsyncFunction (sfi = 0x3acd00b9bafd)>
+          50: 0x3acd01011ce5 <Map[56](HOLEY_ELEMENTS)>
+          51: 0x3acd01011d75 <JSFunction AsyncGeneratorFunction (sfi = 0x3acd00b9ba6d)>
+          52: 0x3acd0100f191 <JSFunction BigInt (sfi = 0x3acd00b9a89d)>
+          53: 0x3acd0100fcf5 <JSFunction Boolean (sfi = 0x3acd00b9534d)>
+          54: 0x3acd01011f9d <Map[24](HOLEY_ELEMENTS)>
+          55: 0x3acd01011fed <Map[24](HOLEY_ELEMENTS)>
+          56: 0x3acd0101203d <JSFunction (sfi = 0x3acd00b9b70d)>
+          57: 0x3acd01012059 <JSFunction (sfi = 0x3acd00b9b6dd)>
+          58: 0x3acd01012075 <JSFunction CallSite (sfi = 0x3acd00b9bb2d)>
+          59: 0x3acd01012511 <JSFunction (sfi = 0x3acd0100162d)>
+          60: 0x3acd010125e1 <Map[28](HOLEY_ELEMENTS)>
+          61: 0x3acd0100e201 <JSFunction DataView (sfi = 0x3acd00b9a0ed)>
+          62: 0x3acd01009aa9 <JSFunction Date (sfi = 0x3acd00b95f4d)>
+          63: 0x3acd00000011 <undefined>
+          64: 0x3acd01004db1 <JSFunction (sfi = 0x3acd010014c9)>
+       65-66: 0x3acd00000011 <undefined>
+          67: 0
+          68: 0x3acd010126bd <Object map = 0x3acd01012649>
+          69: 0x3acd0101275d <Map[20](FAST_SLOPPY_ARGUMENTS_ELEMENTS)>
+          70: 0x3acd01012835 <FixedArray[1024]>
+          71: 0x3acd01004c55 <JSFunction Function (sfi = 0x3acd00b9468d)>
+          72: 0x3acd01004db1 <JSFunction (sfi = 0x3acd010014c9)>
+          73: 0x3acd01014201 <JSFunction GeneratorFunction (sfi = 0x3acd00b9ba3d)>
+          74: 0x3acd01014429 <Map[12](HOLEY_ELEMENTS)>
+          75: 0x3acd01014451 <Map[12](HOLEY_ELEMENTS)>
+          76: 0x3acd01014479 <Map[24](HOLEY_ELEMENTS)>
+          77: 0x3acd01014519 <Object map = 0x3acd010144a1>
+          78: 0x3acd0100ca59 <JSArray[0]>
+          79: 0x3acd01006b0d <Object map = 0x3acd01006a7d>
+          80: 0x3acd01014371 <Object map = 0x3acd010142fd>
+          81: 0x3acd01011a61 <Object map = 0x3acd01011a11>
+          82: 0x3acd01011ee5 <Object map = 0x3acd01011e71>
+          83: 0x3acd01006e29 <JSFunction Iterator (sfi = 0x3acd00b9aced)>
+          84: 0x3acd010145cd <Object map = 0x3acd01014571>
+          85: 0x3acd0100703d <Object map = 0x3acd0101d341>
+          86: 0x3acd00000011 <undefined>
+          87: 0x3acd01014699 <Object map = 0x3acd01014621>
+          88: 0x3acd01008369 <Map[28](HOLEY_ELEMENTS)>
+          89: 0x3acd01005721 <Object map = 0x3acd01004ab9>
+          90: 0x3acd01014749 <Object map = 0x3acd010146d1>
+          91: 0x3acd0100ecd1 <Object map = 0x3acd0100eb65>
+          92: 0x3acd0100eb65 <Map[28](HOLEY_ELEMENTS)>
+          93: 0x3acd01014781 <Map[20](HOLEY_ELEMENTS)>
+          94: 0x3acd01014821 <Object map = 0x3acd010147a9>
+          95: 0x3acd0100db1d <Object map = 0x3acd0100d869 value = 0x3acd00000049 <String[0]: #>>
+          96: 0x3acd010072c9 <Map[28](HOLEY_ELEMENTS)>
+          97: 0x3acd01008741 <Map[28](HOLEY_ELEMENTS)>
+          98: 0x3acd0100ada1 <JSFunction Collator (sfi = 0x3acd00b983ad)>
+          99: 0x3acd0100c3a9 <JSFunction DateTimeFormat (sfi = 0x3acd00b9810d)>
+         100: 0x3acd0100bdc5 <JSFunction DisplayNames (sfi = 0x3acd00b98d0d)>
+         101: 0x3acd0100c165 <JSFunction DurationFormat (sfi = 0x3acd00b98f1d)>
+         102: 0x3acd0100ab39 <JSFunction NumberFormat (sfi = 0x3acd00b9825d)>
+         103: 0x3acd0100b835 <JSFunction Locale (sfi = 0x3acd00b988bd)>
+         104: 0x3acd0100b635 <JSFunction ListFormat (sfi = 0x3acd00b987cd)>
+         105: 0x3acd0100b21d <JSFunction PluralRules (sfi = 0x3acd00b985ed)>
+         106: 0x3acd0100b429 <JSFunction RelativeTimeFormat (sfi = 0x3acd00b986dd)>
+         107: 0x3acd0100bf95 <JSFunction Segmenter (sfi = 0x3acd00b98dcd)>
+         108: 0x3acd01014879 <Map[24](HOLEY_ELEMENTS)>
+         109: 0x3acd0101498d <Map[24](HOLEY_ELEMENTS)>
+         110: 0x3acd010149e9 <Map[28](HOLEY_ELEMENTS)>
+         111: 0x3acd01014a51 <Map[24](HOLEY_ELEMENTS)>
+         112: 0x3acd01014b49 <Map[32](HOLEY_ELEMENTS)>
+         113: 0x3acd01014b71 <Map[32](HOLEY_ELEMENTS)>
+         114: 0x3acd01014b99 <Map[28](HOLEY_ELEMENTS)>
+         115: 0x3acd01014bc1 <Map[28](HOLEY_ELEMENTS)>
+         116: 0x3acd01014be9 <Map[40](HOLEY_ELEMENTS)>
+         117: 0x3acd0101d0fd <Map[32](HOLEY_ELEMENTS)>
+         118: 0x3acd0101d199 <Map[32](HOLEY_ELEMENTS)>
+         119: 0x3acd0101d245 <Map[36](HOLEY_ELEMENTS)>
+         120: 0x3acd01006e29 <JSFunction Iterator (sfi = 0x3acd00b9aced)>
+         121: 0x3acd01014c11 <Map[20](HOLEY_ELEMENTS)>
+         122: 0x3acd01014cdd <Map[20](HOLEY_ELEMENTS)>
+         123: 0x3acd0100ca31 <Map[16](PACKED_SMI_ELEMENTS)>
+         124: 0x3acd0100d0a9 <Map[16](HOLEY_SMI_ELEMENTS)>
+         125: 0x3acd0100d175 <Map[16](PACKED_ELEMENTS)>
+         126: 0x3acd0100d1b9 <Map[16](HOLEY_ELEMENTS)>
+         127: 0x3acd0100d0ed <Map[16](PACKED_DOUBLE_ELEMENTS)>
+         128: 0x3acd0100d131 <Map[16](HOLEY_DOUBLE_ELEMENTS)>
+         129: 0x3acd01014e19 <Map[28](PACKED_FROZEN_ELEMENTS)>
+         130: 0x3acd0100feb5 <JSFunction DisposableStack (sfi = 0x3acd00b9b73d)>
+         131: 0x3acd0100a765 <JSFunction AsyncDisposableStack (sfi = 0x3acd00b9b88d)>
+         132: 0x3acd01014e81 <Map[28](HOLEY_ELEMENTS)>
+         133: 0x3acd010082f1 <JSFunction Map (sfi = 0x3acd00b9a5cd)>
+         134: 0x3acd01008341 <Map[16](HOLEY_ELEMENTS)>
+         135: 0x3acd01014ea9 <Map[24](HOLEY_ELEMENTS)>
+         136: 0x3acd01014eed <Map[24](HOLEY_ELEMENTS)>
+         137: 0x3acd01014f31 <Map[16](HOLEY_ELEMENTS)>
+         138: 0x3acd0100eb09 <JSFunction Set (sfi = 0x3acd00b9a9bd)>
+         139: 0x3acd0100eb3d <Map[16](HOLEY_ELEMENTS)>
+         140: 0x3acd0100726d <JSFunction WeakMap (sfi = 0x3acd00b9b0dd)>
+         141: 0x3acd010086e5 <JSFunction WeakSet (sfi = 0x3acd00b9b22d)>
+         142: 0x3acd010074e9 <JSFunction WeakRef (sfi = 0x3acd00b9b64d)>
+         143: 0x3acd01007a69 <JSFunction FinalizationRegistry (sfi = 0x3acd00b9b5bd)>
+         144: 0x3acd01008195 <Object map = 0x3acd01008121>
+         145: 0x3acd01014f75 <Map[24](HOLEY_ELEMENTS)>
+         146: 0x3acd0100453d <MetaMap (0x3acd0100458d <NativeContext[308]>)>
+         147: 0x3acd01015049 <Map(FUNCTION_CONTEXT_TYPE)>
+         148: 0x3acd01015071 <Map(MODULE_CONTEXT_TYPE)>
+         149: 0x3acd01015099 <Map(EVAL_CONTEXT_TYPE)>
+         150: 0x3acd010150c1 <Map(SCRIPT_CONTEXT_TYPE)>
+         151: 0x3acd010150e9 <Map(AWAIT_CONTEXT_TYPE)>
+         152: 0x3acd01015111 <Map(BLOCK_CONTEXT_TYPE)>
+         153: 0x3acd01015139 <Map(CATCH_CONTEXT_TYPE)>
+         154: 0x3acd01015161 <Map(WITH_CONTEXT_TYPE)>
+         155: 0x3acd01015189 <Map(DEBUG_EVALUATE_CONTEXT_TYPE)>
+         156: 0x3acd010151b1 <Map[48](HOLEY_ELEMENTS)>
+         157: 0x3acd010151d9 <WeakFixedArray[128]>
+         158: 0x3acd010153e1 <Map[20](HOLEY_ELEMENTS)>
+         159: 0x3acd01015429 <Map[20](HOLEY_ELEMENTS)>
+         160: 0x3acd01015451 <Map[20](HOLEY_ELEMENTS)>
+         161: 0
+         162: 0x3acd01015479 <ByteArray[16]>
+         163: 0x3acd00000011 <undefined>
+         164: 0x3acd01015491 <WeakFixedArray[64]>
+         165: 0x3acd01005cb5 <JSFunction Number (sfi = 0x3acd00b950dd)>
+         166: 0x3acd01004fc1 <JSFunction Object (sfi = 0x3acd00b93d5d)>
+         167: 0x3acd01005721 <Object map = 0x3acd01004ab9>
+         168: 0x3acd01004ab9 <Map[28](HOLEY_ELEMENTS)>
+     169-172: 0x3acd00000011 <undefined>
+         173: 0x3acd01015599 <Map[20](JS_PROXY_TYPE)>
+         174: 0x3acd010155c1 <Map[20](JS_PROXY_TYPE)>
+         175: 0x3acd0100e7c9 <JSFunction Proxy (sfi = 0x3acd00b9b2ed)>
+         176: 0x3acd010155e9 <Map[20](JS_PROXY_TYPE)>
+         177: 0x3acd01015611 <Map[20](HOLEY_ELEMENTS)>
+         178: 0x3acd01008b61 <Object map = 0x3acd01008ac5>
+         179: 0x3acd00000011 <undefined>
+         180: 0x3acd01010bb5 <JSFunction exec (sfi = 0x3acd00b96b7d)>
+         181: 0x3acd01010779 <JSFunction RegExp (sfi = 0x3acd00b96b4d)>
+         182: 0x3acd01015661 <Other heap object (REG_EXP_MATCH_INFO_TYPE)>
+         183: 0x3acd01010b45 <JSFunction [Symbol.matchAll] (sfi = 0x3acd00b96e4d)>
+         184: 0x3acd01010b29 <JSFunction [Symbol.match] (sfi = 0x3acd00b96e1d)>
+         185: 0x3acd01010ad1 <Object map = 0x3acd010107f1>
+         186: 0x3acd010107f1 <Map[28](HOLEY_ELEMENTS)>
+         187: 0x3acd01010b61 <JSFunction [Symbol.replace] (sfi = 0x3acd00b96e7d)>
+         188: 0x3acd0101568d <Map[36](HOLEY_ELEMENTS)>
+         189: 0x3acd0101570d <Map[40](HOLEY_ELEMENTS)>
+         190: 0x3acd01015799 <Map[20](HOLEY_ELEMENTS)>
+         191: 0x3acd01010b7d <JSFunction [Symbol.search] (sfi = 0x3acd00b96ead)>
+         192: 0x3acd01010b99 <JSFunction [Symbol.split] (sfi = 0x3acd00b96edd)>
+         193: 0x3acd010157e9 <Map[24](HOLEY_ELEMENTS)>
+         194: 0x3acd010158e1 <ScriptContextTable[16]>
+     195-196: 0x3acd00000011 <undefined>
+         197: 0x3acd01017b85 <JSGlobalObject>
+         198: 0x3acd000007e5 <FixedArray[0]>
+         199: 0x3acd01015a59 <Map[20](HOLEY_ELEMENTS)>
+         200: 0x3acd01015aa1 <Map[20](HOLEY_ELEMENTS)>
+         201: 0x3acd01015b65 <JSFunction SharedArrayBuffer (sfi = 0x3acd00b9924d)>
+         202: 0x3acd010127a5 <Map[20](PACKED_ELEMENTS)>
+         203: 0x3acd01015d41 <Map[20](SLOW_SLOPPY_ARGUMENTS_ELEMENTS)>
+         204: 0x3acd01015d9d <Map[16](PACKED_ELEMENTS)>
+         205: 0x3acd01015e81 <Map[12](HOLEY_ELEMENTS)>
+         206: 0x3acd01015ea9 <Map[12](HOLEY_ELEMENTS)>
+         207: 0x3acd01015ed1 <Other heap object (EPHEMERON_HASH_TABLE_TYPE)>
+         208: 0x3acd01016ee5 <OrderedHashSet[13]>
+         209: 0x3acd01014dc9 <Map[20](HOLEY_ELEMENTS)>
+         210: 0x3acd000007e5 <FixedArray[0]>
+         211: 0x3acd010056f1 <Cell value= [weak] 0x3acd0100458d <NativeContext[308]>>
+         212: 0x3acd01004c89 <Map[32](HOLEY_ELEMENTS)>
+         213: 0x3acd01016f21 <Map[36](HOLEY_ELEMENTS)>
+         214: 0x3acd01016f7d <Map[28](HOLEY_ELEMENTS)>
+         215: 0x3acd01013a11 <Map[32](HOLEY_ELEMENTS)>
+         216: 0x3acd010058b9 <Map[32](HOLEY_ELEMENTS)>
+         217: 0x3acd01016fcd <Map[36](HOLEY_ELEMENTS)>
+         218: 0x3acd010053b9 <Map[32](HOLEY_ELEMENTS)>
+         219: 0x3acd01004bc5 <Map[28](HOLEY_ELEMENTS)>
+         220: 0x3acd01017029 <Map[32](HOLEY_ELEMENTS)>
+         221: 0x3acd01011c01 <Map[28](HOLEY_ELEMENTS)>
+         222: 0x3acd01017079 <Map[32](HOLEY_ELEMENTS)>
+         223: 0x3acd01014235 <Map[32](HOLEY_ELEMENTS)>
+         224: 0x3acd010170c9 <Map[36](HOLEY_ELEMENTS)>
+         225: 0x3acd01011da9 <Map[32](HOLEY_ELEMENTS)>
+         226: 0x3acd01017125 <Map[36](HOLEY_ELEMENTS)>
+         227: 0x3acd01017181 <Map[32](HOLEY_ELEMENTS)>
+         228: 0x3acd0100d7ad <JSFunction String (sfi = 0x3acd00b953dd)>
+         229: 0x3acd0100d869 <Map[16](FAST_STRING_WRAPPER_ELEMENTS)>
+         230: 0x3acd0100f5f9 <JSFunction Symbol (sfi = 0x3acd00b95dfd)>
+     231-232: 1
+         233: 0x3acd01017305 <WebAssembly map = 0x3acd0101d791>
+         234: 0x3acd01016f7d <Map[28](HOLEY_ELEMENTS)>
+         235: 0x3acd01013f85 <JSFunction Tag (sfi = 0x3acd01002291)>
+         236: 0x3acd01014039 <JSFunction Exception (sfi = 0x3acd01002361)>
+         237: 0x3acd01013e59 <JSFunction Global (sfi = 0x3acd0100206d)>
+         238: 0x3acd01013a89 <JSFunction Instance (sfi = 0x3acd01001a01)>
+         239: 0x3acd01017355 <Tag map = 0x3acd01013fa5>
+         240: 0x3acd01013ce5 <JSFunction Memory (sfi = 0x3acd01001dd9)>
+         241: 0x3acd01013911 <JSFunction Module (sfi = 0x3acd0100192d)>
+         242: 0x3acd01013b71 <JSFunction Table (sfi = 0x3acd01001b45)>
+         243: 0x3acd0101d489 <JSFunction Suspending (sfi = 0x3acd0101d459)>
+     244-249: 0x3acd00000011 <undefined>
+         250: 0x3acd0100606d <JSFunction TypedArray (sfi = 0x3acd00b9963d)>
+         251: 0x3acd010063f1 <Object map = 0x3acd01006101>
+         252: 0x3acd0100cd65 <JSFunction entries (sfi = 0x3acd00b94d7d)>
+         253: 0x3acd0100cd9d <JSFunction forEach (sfi = 0x3acd00b94ddd)>
+         254: 0x3acd0100cd49 <JSFunction keys (sfi = 0x3acd00b94d4d)>
+         255: 0x3acd0100cd81 <JSFunction values (sfi = 0x3acd00b94dad)>
+         256: 0x3acd010069e9 <JSFunction Error (sfi = 0x3acd00b976bd)>
+         257: 0x3acd01006b29 <JSFunction toString (sfi = 0x3acd00b9774d)>
+         258: 0x3acd01006c51 <JSFunction EvalError (sfi = 0x3acd00b977ad)>
+         259: 0x3acd0100efc1 <JSFunction AggregateError (sfi = 0x3acd00b9777d)>
+         260: 0x3acd0100fae5 <JSFunction eval (sfi = 0x3acd00b9c09d)>
+         261: 0x3acd01005d89 <JSFunction parseFloat (sfi = 0x3acd00b952ed)>
+         262: 0x3acd01005da5 <JSFunction parseInt (sfi = 0x3acd00b9531d)>
+         263: 0x3acd01017c05 <JSFunction (sfi = 0x3acd01017bd5)>
+         264: 0x3acd01008515 <JSFunction delete (sfi = 0x3acd00b9a6bd)>
+         265: 0x3acd010085f5 <JSFunction get (sfi = 0x3acd00b9a62d)>
+         266: 0x3acd010084f9 <JSFunction has (sfi = 0x3acd00b9a68d)>
+         267: 0x3acd01008611 <JSFunction set (sfi = 0x3acd00b9a65d)>
+         268: 0x3acd01004e5d <JSFunction [Symbol.hasInstance] (sfi = 0x3acd00b9477d)>
+         269: 0x3acd01004e41 <JSFunction toString (sfi = 0x3acd00b9474d)>
+         270: 0x3acd010057d9 <JSFunction toString (sfi = 0x3acd00b9459d)>
+         271: 0x3acd010057f5 <JSFunction valueOf (sfi = 0x3acd00b945cd)>
+         272: 0x3acd010089bd <JSFunction all (sfi = 0x3acd00b9690d)>
+         273: 0x3acd010089d9 <JSFunction allSettled (sfi = 0x3acd00b9693d)>
+         274: 0x3acd010089f5 <JSFunction any (sfi = 0x3acd00b9696d)>
+         275: 0x3acd01008971 <JSFunction Promise (sfi = 0x3acd00b968ad)>
+         276: 0x3acd01007881 <JSFunction RangeError (sfi = 0x3acd00b977dd)>
+         277: 0x3acd01007cb1 <JSFunction ReferenceError (sfi = 0x3acd00b9780d)>
+         278: 0x3acd0100ee9d <JSFunction add (sfi = 0x3acd00b9aa1d)>
+         279: 0x3acd0100ed31 <JSFunction delete (sfi = 0x3acd00b9aa4d)>
+         280: 0x3acd0100ee81 <JSFunction has (sfi = 0x3acd00b9a9ed)>
+         281: 0x3acd00000011 <undefined>
+         282: 0x3acd0100e91d <JSFunction SuppressedError (sfi = 0x3acd00b978cd)>
+         283: 0x3acd01008fdd <JSFunction SyntaxError (sfi = 0x3acd00b9783d)>
+         284: 0x3acd0100d349 <JSFunction TypeError (sfi = 0x3acd00b9786d)>
+         285: 0x3acd01009889 <JSFunction URIError (sfi = 0x3acd00b9789d)>
+         286: 0x3acd01017469 <JSFunction CompileError (sfi = 0x3acd00b9c63d)>
+         287: 0x3acd01017699 <JSFunction LinkError (sfi = 0x3acd00b9c66d)>
+         288: 0x3acd0101d6d1 <JSFunction SuspendError (sfi = 0x3acd0101d6a1)>
+         289: 0x3acd010178c9 <JSFunction RuntimeError (sfi = 0x3acd00b9c69d)>
+         290: 0x3acd01007451 <JSFunction set (sfi = 0x3acd00b9b16d)>
+         291: 0x3acd01007435 <JSFunction get (sfi = 0x3acd00b9b13d)>
+         292: 0x3acd01007419 <JSFunction delete (sfi = 0x3acd00b9b10d)>
+         293: 0x3acd01008845 <JSFunction add (sfi = 0x3acd00b9b2bd)>
+         294: 0x3acd00000011 <undefined>
+         295: 0x3acd000007f5 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+     296-307: 0x3acd00000011 <undefined>
+ - microtask_queue: 0x32fc02000850
+0x3acd01004565: [Map] in OldSpace
+ - map: 0x3acd0100453d <MetaMap (0x3acd0100458d <NativeContext[308]>)>
+ - type: NATIVE_CONTEXT_TYPE
+ - instance size: variable
+ - elements kind: HOLEY_ELEMENTS
+ - enum length: invalid
+ - stable_map
+ - native context: 0x3acd0100458d <NativeContext[308]>
+ - prototype_validity_cell: 0
+ - instance descriptors (own) #0: 0x3acd0000080d <DescriptorArray[0]>
+ - prototype: 0x3acd0000002d <null>
+ - dependent code: 0x3acd000007f5 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 0
+
+64652159501709
+d8> 

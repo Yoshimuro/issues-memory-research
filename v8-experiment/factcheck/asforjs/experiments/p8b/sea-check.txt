@@ -1,0 +1,21 @@
+== /opt/node22/bin/node
+  --build-snapshot            Generate a snapshot blob when the
+                              process exits.
+  --build-snapshot-config=... Generate a snapshot blob when the
+                              process exits using aJSON configuration
+--
+  --experimental-sea-config=...
+== /opt/nvm/versions/node/v24.21.0/bin/node
+  --build-snapshot            Generate a snapshot blob when the
+                              process exits.
+  --build-snapshot-config=... Generate a snapshot blob when the
+                              process exits using aJSON configuration
+--
+  --experimental-sea-config=...
+== /opt/node20/bin/node
+  --build-snapshot            Generate a snapshot blob when the
+                              process exits.
+  --build-snapshot-config=... Generate a snapshot blob when the
+                              process exits using aJSON configuration
+--
+  --experimental-sea-config=...

@@ -1,0 +1,16 @@
+##### node20
+round 0 number=1.9ms bigint(BigInt(i)|0n)=13.9ms ratio=7 pure-bigint-loop=72.9ms ratio=39
+round 1 number=1.9ms bigint(BigInt(i)|0n)=15.3ms ratio=8 pure-bigint-loop=82.2ms ratio=44
+round 2 number=1.9ms bigint(BigInt(i)|0n)=22.0ms ratio=12 pure-bigint-loop=131.6ms ratio=69
+##### node22
+round 0 number=1.9ms bigint(BigInt(i)|0n)=61.9ms ratio=32 pure-bigint-loop=71.3ms ratio=37
+round 1 number=1.7ms bigint(BigInt(i)|0n)=59.0ms ratio=35 pure-bigint-loop=67.4ms ratio=39
+round 2 number=1.5ms bigint(BigInt(i)|0n)=55.6ms ratio=36 pure-bigint-loop=65.0ms ratio=42
+##### node24
+round 0 number=1.9ms bigint(BigInt(i)|0n)=69.9ms ratio=37 pure-bigint-loop=77.2ms ratio=41
+round 1 number=1.9ms bigint(BigInt(i)|0n)=68.0ms ratio=36 pure-bigint-loop=84.9ms ratio=44
+round 2 number=2.1ms bigint(BigInt(i)|0n)=67.1ms ratio=33 pure-bigint-loop=79.1ms ratio=39
+##### d8
+round 0 number=1.9ms bigint(BigInt(i)|0n)=55.1ms ratio=29 pure-bigint-loop=73.7ms ratio=39
+round 1 number=2.0ms bigint(BigInt(i)|0n)=54.2ms ratio=28 pure-bigint-loop=73.9ms ratio=38
+round 2 number=1.9ms bigint(BigInt(i)|0n)=54.3ms ratio=29 pure-bigint-loop=50.1ms ratio=26

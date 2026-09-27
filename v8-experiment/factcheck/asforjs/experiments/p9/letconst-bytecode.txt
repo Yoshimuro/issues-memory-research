@@ -1,0 +1,51 @@
+===== /opt/node20/bin/node
+--- sameBlock
+LdaSmi [1];Star0;AddSmi [1], [0];Star0;Return;
+--- varFn
+LdaSmi [1];Star0;AddSmi [1], [0];Star0;Return;
+--- closureTDZ
+CreateFunctionContext [0], [1];PushContext r1;LdaTheHole;StaCurrentContextSlot [2];CreateClosure [1], [0], #2;Star0;LdaSmi [2];StaCurrentContextSlot [2];CallUndefinedReceiver0 r0, [0];Return;
+--- blockCapture
+CreateEmptyArrayLiteral [0];Star0;CreateBlockContext [0];PushContext r1;LdaTheHole;StaCurrentContextSlot [2];LdaSmi [3];StaCurrentContextSlot [2];GetNamedProperty r0, [1], [1];Star2;CreateClosure [2], [0], #2;Star4;CallProperty1 r2, r0, r4, [3];PopContext r1;LdaZero;GetKeyedProperty r0, [5];Star1;CallProperty0 r1, r0, [7];Return;
+--- blockNoCapture
+LdaZero;Star0;LdaSmi [3];Star1;Ldar r1;Add r0, [0];Mov r0, r2;Star0;Return;
+--- constCtx
+CreateFunctionContext [0], [2];PushContext r1;LdaTheHole;StaCurrentContextSlot [2];LdaTheHole;StaCurrentContextSlot [3];LdaSmi [5];StaCurrentContextSlot [2];LdaSmi [6];StaCurrentContextSlot [3];CreateClosure [1], [0], #2;Star0;LdaSmi [7];StaCurrentContextSlot [3];CallUndefinedReceiver0 r0, [0];Return;
+--- gInner
+LdaImmutableCurrentContextSlot [2];ThrowReferenceErrorIfHole [0];Return;
+--- fInner
+LdaImmutableCurrentContextSlot [2];ThrowReferenceErrorIfHole [0];Star0;LdaCurrentContextSlot [3];ThrowReferenceErrorIfHole [1];Add r0, [0];Return;
+===== /opt/nvm/versions/node/v24.21.0/bin/node
+--- sameBlock
+LdaSmi [1];Star0;AddSmi [1], [0];Star0;Return;
+--- varFn
+LdaSmi [1];Star0;AddSmi [1], [0];Star0;Return;
+--- closureTDZ
+CreateFunctionContext [0], [1];PushContext r1;LdaTheHole;StaCurrentContextSlot [2];CreateClosure [1], [0], #2;Star0;LdaSmi [2];StaCurrentContextSlot [2];CallUndefinedReceiver0 r0, [0];Return;
+--- blockCapture
+CreateEmptyArrayLiteral [0];Star0;CreateBlockContext [0];PushContext r1;LdaTheHole;StaCurrentContextSlot [2];LdaSmi [3];StaCurrentContextSlot [2];GetNamedProperty r0, [1], [1];Star2;CreateClosure [2], [0], #2;Star4;CallProperty1 r2, r0, r4, [3];PopContext r1;LdaZero;GetKeyedProperty r0, [5];Star1;CallProperty0 r1, r0, [7];Return;
+--- blockNoCapture
+LdaZero;Star0;LdaSmi [3];Star1;Ldar r1;Add r0, [0];Mov r0, r2;Star0;Return;
+--- constCtx
+CreateFunctionContext [0], [2];PushContext r1;LdaTheHole;StaCurrentContextSlot [2];LdaTheHole;StaCurrentContextSlot [3];LdaSmi [5];StaCurrentContextSlot [2];LdaSmi [6];StaCurrentContextSlot [3];CreateClosure [1], [0], #2;Star0;LdaSmi [7];StaCurrentContextSlot [3];CallUndefinedReceiver0 r0, [0];Return;
+--- gInner
+LdaImmutableCurrentContextSlot [2];ThrowReferenceErrorIfHole [0];Return;
+--- fInner
+LdaImmutableCurrentContextSlot [2];ThrowReferenceErrorIfHole [0];Star0;LdaCurrentContextSlot [3];ThrowReferenceErrorIfHole [1];Add r0, [0];Return;
+===== /tmp/claude-0/-home-user-issues-memory-research/dacf359b-9898-588d-b8f1-20fd1e3f2945/scratchpad/d8/rel/d8
+--- sameBlock
+LdaSmi [1];Star0;AddSmi [1], EmbeddedFeedback[None];Star0;Return;
+--- varFn
+LdaSmi [1];Star0;AddSmi [1], EmbeddedFeedback[None];Star0;Return;
+--- closureTDZ
+CreateFunctionContextWithCells [0:0x38b60101e435 <ScopeInfo FUNCTION_SCOPE>], [1];PushContext r1;LdaTdzHole;StaCurrentContextSlotNoCell [2];CreateClosure [1:0x38b60101e465 <SharedFunctionInfo g>], FBV[0], #2;Star0;LdaSmi [2];StaCurrentContextSlotNoCell [2];CallUndefinedReceiver0 r0, FBV[0];Return;
+--- blockCapture
+CreateEmptyArrayLiteral FBV[0];Star0;CreateBlockContext [0:0x176b0101e51d <ScopeInfo BLOCK_SCOPE>];PushContext r1;LdaTdzHole;StaCurrentContextSlotNoCell [2];LdaSmi [3];StaCurrentContextSlotNoCell [2];GetNamedProperty r0, [1:"push"], FBV[1];Star2;CreateClosure [2:0x176b0101e53d <SharedFunctionInfo>], FBV[0], #2;Star4;CallProperty1 r2, r0, r4, FBV[3];PopContext r1;LdaZero;GetKeyedProperty r0, FBV[5];Star1;CallProperty0 r1, r0, FBV[7];Return;
+--- blockNoCapture
+LdaZero;Star0;LdaSmi [3];Star1;Ldar r1;Add r0, EmbeddedFeedback[None];Mov r0, r2;Star0;Return;
+--- constCtx
+CreateFunctionContextWithCells [0:0x322c0101e601 <ScopeInfo FUNCTION_SCOPE>], [2];PushContext r1;LdaTdzHole;StaCurrentContextSlotNoCell [2];LdaTdzHole;StaCurrentContextSlot [3];LdaSmi [5];StaCurrentContextSlotNoCell [2];LdaSmi [6];StaCurrentContextSlot [3];CreateClosure [1:0x322c0101e639 <SharedFunctionInfo f>], FBV[0], #2;Star0;LdaSmi [7];StaCurrentContextSlot [3];CallUndefinedReceiver0 r0, FBV[0];Return;
+--- gInner
+LdaImmutableCurrentContextSlot [2];ThrowReferenceErrorIfTdzHole [0:"y"];Return;
+--- fInner
+LdaImmutableCurrentContextSlot [2];Star0;LdaCurrentContextSlot [3];Add r0, EmbeddedFeedback[None];Return;

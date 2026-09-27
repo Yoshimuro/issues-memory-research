@@ -1,0 +1,9 @@
+literal            mode=plain n=3000000 ms=25 r=165000000
+inner              mode=plain n=3000000 ms=195 r=165000000
+globalFn           mode=plain n=3000000 ms=24 r=165000000
+aliasInside        mode=plain n=3000000 ms=190 r=165000000
+globalVar          mode=plain n=3000000 ms=23 r=165000000
+globalConst        mode=plain n=3000000 ms=190 r=165000000
+globalConstArrow   mode=plain n=3000000 ms=226 r=165000000
+innerWrapped       mode=plain n=3000000 ms=36 r=165000000
+constArrowWrapped  mode=plain n=3000000 ms=27 r=165000000

@@ -1,0 +1,53 @@
+[marking 0x327dae249d49 <JSFunction isPosixPathSeparator (sfi = 0x1af6b5b15109)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x327dae249d49 <JSFunction isPosixPathSeparator (sfi = 0x1af6b5b15109)> (target MAGLEV), mode: ConcurrencyMode::kConcurrent]
+[completed compiling 0x327dae249d49 <JSFunction isPosixPathSeparator (sfi = 0x1af6b5b15109)> (target MAGLEV) - took 0.001, 0.301, 0.008 ms]
+[marking 0x327dae249e71 <JSFunction normalizeString (sfi = 0x1af6b5b15349)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+seven called once: status=10000001
+[marking 0x0849279a6599 <JSFunction add (sfi = 0xe2bd73286a9)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x0849279a6599 <JSFunction add (sfi = 0xe2bd73286a9)> (target MAGLEV), mode: ConcurrencyMode::kConcurrent]
+[marking 0x0849279a65d9 <JSFunction hot (sfi = 0xe2bd73286f1)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x0849279a65d9 <JSFunction hot (sfi = 0xe2bd73286f1)> (target MAGLEV), mode: ConcurrencyMode::kConcurrent]
+[completed compiling 0x0849279a6599 <JSFunction add (sfi = 0xe2bd73286a9)> (target MAGLEV) - took 0.000, 0.184, 0.002 ms]
+[completed compiling 0x0849279a65d9 <JSFunction hot (sfi = 0xe2bd73286f1)> (target MAGLEV) - took 0.000, 0.296, 0.002 ms]
+[marking 0x0849279a65d9 <JSFunction hot (sfi = 0xe2bd73286f1)> for optimization to TURBOFAN_JS, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x0849279a65d9 <JSFunction hot (sfi = 0xe2bd73286f1)> (target TURBOFAN_JS), mode: ConcurrencyMode::kConcurrent]
+hot: 10000110001
+--- feeding a string (eager deopt)
+[bailout (kind: deopt-eager, reason: not a Smi): begin. deoptimizing 0x0849279a6599 <JSFunction add (sfi = 0xe2bd73286a9)>, 0x313123741a19 <Code MAGLEV>, opt id 1, bytecode offset 2, deopt exit 0, FP to SP delta 24, caller SP 0x7ffe7df1ef88, pc 0x7fb1ff0041fb]
+            ;;; deoptimize at </home/user/issues-memory-research/v8-experiment/factcheck/asforjs/experiments/p1b/e06-once-deopt-cost.js:9:31>
+  reading input frame add => bytecode_offset=2, args=3, height=0, retval=0(#0); inputs:
+      0: 0x0849279a6599 ; (literal  1) 0x0849279a6599 <JSFunction add (sfi = 0xe2bd73286a9)>
+      1: 0x306fd3240059 ;  [fp +  16]  0x306fd3240059 <JSGlobalProxy>
+      2: 0x2ad3d6880071 ;  [fp +  24]  0x2ad3d6880071 <String[0]: #>
+      3: 0x2ad3d6885729 ;  [fp +  32]  0x2ad3d6885729 <String[1]: #x>
+      4: 0x0849279a6531 ; (literal  2) 0x0849279a6531 <FunctionContext[3]>
+      5: 0x2ad3d6885729 ;  [fp +  32]  0x2ad3d6885729 <String[1]: #x>
+  translating interpreted frame add => bytecode_offset=2, variable_frame_size=8, frame_size=96
+    0x7ffe7df1ef80: [top +  88] <- 0x2ad3d6885729 <String[1]: #x> ;  stack parameter (input #3)
+    0x7ffe7df1ef78: [top +  80] <- 0x2ad3d6880071 <String[0]: #> ;  stack parameter (input #2)
+    0x7ffe7df1ef70: [top +  72] <- 0x306fd3240059 <JSGlobalProxy> ;  stack parameter (input #1)
+    -------------------------
+    0x7ffe7df1ef68: [top +  64] <- 0x7fb21ed8d654 ;  bottommost caller's pc
+    0x7ffe7df1ef60: [top +  56] <- 0x7ffe7df1efe0 ;  caller's fp
+    0x7ffe7df1ef58: [top +  48] <- 0x0849279a6531 <FunctionContext[3]> ;  context (input #4)
+    0x7ffe7df1ef50: [top +  40] <- 0x0849279a6599 <JSFunction add (sfi = 0xe2bd73286a9)> ;  function (input #0)
+    0x7ffe7df1ef48: [top +  32] <- 0x000000000003 ;  actual argument count
+    0x7ffe7df1ef40: [top +  24] <- 0x04e41c50c791 <BytecodeArray[6]> ;  bytecode array
+    0x7ffe7df1ef38: [top +  16] <- 0x004100000000 <Smi 65> ;  bytecode offset
+    0x7ffe7df1ef30: [top +   8] <- 0x2ad3d6888eb1 <arguments_marker> ;  feedback vector    -------------------------
+    0x7ffe7df1ef28: [top +   0] <- 0x2ad3d6885729 <String[1]: #x> ;  accumulator (input #5)
+[bailout end. took 0.464 ms]
+[marking 0x3878b9c8a6d1 <JSFunction get (sfi = 0xe2bd7328811)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x3878b9c8a6d1 <JSFunction get (sfi = 0xe2bd7328811)> (target MAGLEV), mode: ConcurrencyMode::kConcurrent]
+[completed compiling 0x0849279a65d9 <JSFunction hot (sfi = 0xe2bd73286f1)> (target TURBOFAN_JS) - took 0.012, 1.002, 0.023 ms]
+[completed optimizing 0x0849279a65d9 <JSFunction hot (sfi = 0xe2bd73286f1)> (target TURBOFAN_JS)]
+[marking 0x0849279a6659 <JSFunction useP (sfi = 0xe2bd7328781)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x0849279a6659 <JSFunction useP (sfi = 0xe2bd7328781)> (target MAGLEV), mode: ConcurrencyMode::kConcurrent]
+[completed compiling 0x3878b9c8a6d1 <JSFunction get (sfi = 0xe2bd7328811)> (target MAGLEV) - took 0.001, 0.095, 0.001 ms]
+[completed compiling 0x0849279a6659 <JSFunction useP (sfi = 0xe2bd7328781)> (target MAGLEV) - took 0.000, 0.275, 0.007 ms]
+[marking 0x0849279a6659 <JSFunction useP (sfi = 0xe2bd7328781)> for optimization to TURBOFAN_JS, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x0849279a6659 <JSFunction useP (sfi = 0xe2bd7328781)> (target TURBOFAN_JS), mode: ConcurrencyMode::kConcurrent]
+useP: 10000110001
+--- mutating P.prototype.get (no call of useP yet)
+[marking dependent code 0x3131237428d1 <Code MAGLEV> (0x0e2bd7328781 <SharedFunctionInfo useP>) (opt id 5) for deoptimization, reason: dependent field type constness changed]
+useP right after mutation, before any call: 10010000001

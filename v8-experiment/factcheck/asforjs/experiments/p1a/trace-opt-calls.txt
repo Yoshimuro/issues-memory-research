@@ -1,0 +1,66 @@
+== N20 N=1
+N=1 sum=42
+== N20 N=1000
+N=1000 sum=42000
+== N20 N=10000
+N=10000 sum=420000
+== N20 N=500000
+[marking 0x37e689460669 <JSFunction doGetAge (sfi = 0xc28f48e3749)> for optimization to TURBOFAN, ConcurrencyMode::kConcurrent, reason: small function]
+[compiling method 0x37e689460669 <JSFunction doGetAge (sfi = 0xc28f48e3749)> (target TURBOFAN), mode: ConcurrencyMode::kConcurrent]
+[completed compiling 0x37e689460669 <JSFunction doGetAge (sfi = 0xc28f48e3749)> (target TURBOFAN) - took 0.005, 0.643, 0.017 ms]
+[completed optimizing 0x37e689460669 <JSFunction doGetAge (sfi = 0xc28f48e3749)> (target TURBOFAN)]
+N=500000 sum=21000000
+== N22 N=1
+N=1 sum=42
+== N22 N=1000
+N=1000 sum=42000
+== N22 N=10000
+[marking 0x2fe43fae61d9 <JSFunction doGetAge (sfi = 0x3504c029b4f1)> for optimization to TURBOFAN, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x2fe43fae61d9 <JSFunction doGetAge (sfi = 0x3504c029b4f1)> (target TURBOFAN), mode: ConcurrencyMode::kConcurrent]
+[completed compiling 0x2fe43fae61d9 <JSFunction doGetAge (sfi = 0x3504c029b4f1)> (target TURBOFAN) - took 0.013, 1.029, 0.021 ms]
+[completed optimizing 0x2fe43fae61d9 <JSFunction doGetAge (sfi = 0x3504c029b4f1)> (target TURBOFAN)]
+N=10000 sum=420000
+== N22 N=500000
+[marking 0x1fd8dd0a61d9 <JSFunction doGetAge (sfi = 0x3f035e8db4f1)> for optimization to TURBOFAN, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x1fd8dd0a61d9 <JSFunction doGetAge (sfi = 0x3f035e8db4f1)> (target TURBOFAN), mode: ConcurrencyMode::kConcurrent]
+[completed compiling 0x1fd8dd0a61d9 <JSFunction doGetAge (sfi = 0x3f035e8db4f1)> (target TURBOFAN) - took 0.024, 0.922, 0.022 ms]
+[completed optimizing 0x1fd8dd0a61d9 <JSFunction doGetAge (sfi = 0x3f035e8db4f1)> (target TURBOFAN)]
+N=500000 sum=21000000
+== N24 N=1
+N=1 sum=42
+== N24 N=1000
+[marking 0x31918ff261b9 <JSFunction doGetAge (sfi = 0x53a939282e9)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x31918ff261b9 <JSFunction doGetAge (sfi = 0x53a939282e9)> (target MAGLEV), mode: ConcurrencyMode::kConcurrent]
+[completed compiling 0x31918ff261b9 <JSFunction doGetAge (sfi = 0x53a939282e9)> (target MAGLEV) - took 0.000, 0.136, 0.007 ms]
+N=1000 sum=42000
+== N24 N=10000
+[marking 0x14d4fe2661b9 <JSFunction doGetAge (sfi = 0x18678bae82e9)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x14d4fe2661b9 <JSFunction doGetAge (sfi = 0x18678bae82e9)> (target MAGLEV), mode: ConcurrencyMode::kConcurrent]
+[completed compiling 0x14d4fe2661b9 <JSFunction doGetAge (sfi = 0x18678bae82e9)> (target MAGLEV) - took 0.000, 0.120, 0.017 ms]
+N=10000 sum=420000
+== N24 N=500000
+[marking 0x31155f7a61b9 <JSFunction doGetAge (sfi = 0x2b488f4a82e9)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x31155f7a61b9 <JSFunction doGetAge (sfi = 0x2b488f4a82e9)> (target MAGLEV), mode: ConcurrencyMode::kConcurrent]
+[completed compiling 0x31155f7a61b9 <JSFunction doGetAge (sfi = 0x2b488f4a82e9)> (target MAGLEV) - took 0.000, 0.131, 0.005 ms]
+[marking 0x31155f7a61b9 <JSFunction doGetAge (sfi = 0x2b488f4a82e9)> for optimization to TURBOFAN_JS, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x31155f7a61b9 <JSFunction doGetAge (sfi = 0x2b488f4a82e9)> (target TURBOFAN_JS), mode: ConcurrencyMode::kConcurrent]
+[completed compiling 0x31155f7a61b9 <JSFunction doGetAge (sfi = 0x2b488f4a82e9)> (target TURBOFAN_JS) - took 0.012, 0.930, 0.017 ms]
+[completed optimizing 0x31155f7a61b9 <JSFunction doGetAge (sfi = 0x2b488f4a82e9)> (target TURBOFAN_JS)]
+N=500000 sum=21000000
+== D8 N=1
+N=1 sum=42
+== D8 N=1000
+[marking 0x05cf0101e11d <JSFunction doGetAge (sfi = 0x5cf0101e03d)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x05cf0101e11d <JSFunction doGetAge (sfi = 0x5cf0101e03d)> (target MAGLEV), mode: ConcurrencyMode::kConcurrent]
+N=1000 sum=42000
+[completed compiling 0x05cf0101e11d <JSFunction doGetAge (sfi = 0x5cf0101e03d)> (target MAGLEV) - took 0.000, 0.284, 0.014 ms]
+== D8 N=10000
+[marking 0x0b8b0101e11d <JSFunction doGetAge (sfi = 0xb8b0101e03d)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x0b8b0101e11d <JSFunction doGetAge (sfi = 0xb8b0101e03d)> (target MAGLEV), mode: ConcurrencyMode::kConcurrent]
+N=10000 sum=420000
+[completed compiling 0x0b8b0101e11d <JSFunction doGetAge (sfi = 0xb8b0101e03d)> (target MAGLEV) - took 0.000, 0.391, 0.007 ms]
+== D8 N=500000
+[marking 0x275e0101e11d <JSFunction doGetAge (sfi = 0x275e0101e03d)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x275e0101e11d <JSFunction doGetAge (sfi = 0x275e0101e03d)> (target MAGLEV), mode: ConcurrencyMode::kConcurrent]
+[completed compiling 0x275e0101e11d <JSFunction doGetAge (sfi = 0x275e0101e03d)> (target MAGLEV) - took 0.001, 0.186, 0.003 ms]
+N=500000 sum=21000000

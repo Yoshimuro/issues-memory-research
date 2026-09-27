@@ -1,0 +1,6 @@
+== N24
+stmts=500 status=110001 maglev
+stmts=12000 status=1000000000000001 baseline
+== D8
+stmts=500 status=11001 maglev
+stmts=12000 status=100000000000001 baseline

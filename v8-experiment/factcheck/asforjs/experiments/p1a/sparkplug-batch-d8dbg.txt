@@ -1,0 +1,14 @@
+V8 is running with developer-only features enabled. Stability and security will suffer.
+call 7 status 1000011
+call 8 status 1000011
+[Baseline batch compilation] Enqueued SFI tiny with estimated size 42 (current budget: 42/4096)
+call 9 status 1000011
+[Baseline batch compilation] Enqueued SFI  with estimated size 1092 (current budget: 1134/4096)
+call 300 status 1000011
+45450
+V8 is running with developer-only features enabled. Stability and security will suffer.
+call 7 status 1000011
+call 8 status 1000011
+call 9 status 100000000000011
+call 300 status 100000000000011
+45450

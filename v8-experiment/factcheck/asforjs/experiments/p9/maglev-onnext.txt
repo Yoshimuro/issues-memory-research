@@ -1,0 +1,10 @@
+== d8 15.6 default
+[compiling method  <JSFunction f (sfi = )> (target TURBOFAN_JS), mode: ConcurrencyMode::kSynchronous]
+[completed compiling  <JSFunction f (sfi = )> (target TURBOFAN_JS) - took 0.016, 0.705, 0.033 ms]
+== d8 15.6 --optimize-on-next-call-optimizes-to-maglev
+[compiling method  <JSFunction f (sfi = )> (target MAGLEV), mode: ConcurrencyMode::kSynchronous]
+[completed compiling  <JSFunction f (sfi = )> (target MAGLEV) - took 0.000, 0.184, 0.001 ms]
+== node24 --optimize-on-next-call-optimizes-to-maglev
+[manually marking  <JSFunction f (sfi = )> for optimization to MAGLEV, ConcurrencyMode::kSynchronous]
+[compiling method  <JSFunction f (sfi = )> (target MAGLEV), mode: ConcurrencyMode::kSynchronous]
+[completed compiling  <JSFunction f (sfi = )> (target MAGLEV) - took 0.001, 0.110, 0.000 ms]

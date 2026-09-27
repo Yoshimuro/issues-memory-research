@@ -1,0 +1,23 @@
+## d8 release -e '5 + 4' --print-ast
+Flag processing error: Contradictory value for readonly flag --print-ast.
+If a test variant caused this, it might be necessary to specify additional contradictory flags in tools/testrunner/local/variants.py.
+## d8 debug
+V8 is running with developer-only features enabled. Stability and security will suffer.
+[generating bytecode for function: ]
+--- AST ---
+FUNC at 0
+. KIND 0
+. LITERAL ID 0
+. SUSPEND COUNT 0
+. NAME ""
+. INFERRED NAME ""
+. EXPRESSION STATEMENT at 0
+. . kAssign at -1
+. . . VAR PROXY local[0] (0xe7c01acaac8) (mode = TEMPORARY, assigned = true) ".result"
+. . . LITERAL 9
+. RETURN at -1
+. . VAR PROXY local[0] (0xe7c01acaac8) (mode = TEMPORARY, assigned = true) ".result"
+
+## node24 --print-ast
+## node24 --print-ast -e '5+4' -> prints nothing, exit 0, output bytes: 0
+## node20 output bytes: 0

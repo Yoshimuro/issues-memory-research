@@ -1,0 +1,4 @@
+0x174101049771 <JSArray[3]>
+0x17410101e23d <JSFunction doSum (sfi = 0x17410101e0bd)>
+HaveSameMap returns: true boolean
+Has*Elements: true true true true false

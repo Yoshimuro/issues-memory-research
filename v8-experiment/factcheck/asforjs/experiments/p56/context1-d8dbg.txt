@@ -1,0 +1,210 @@
+#### f1 (uses only small)
+DebugPrint: 0x7e640108a9c5: [Function]
+ - map: 0x7e6401004c89 <Map[32](HOLEY_ELEMENTS)> [FastProperties]
+ - prototype: 0x7e6401004db1 <JSFunction (sfi = 0x7e64010014c9)>
+ - elements: 0x7e64000007e5 <FixedArray[0]> [HOLEY_ELEMENTS]
+ - function prototype: 
+ - initial_map: 
+ - shared_info: 0x7e640101e2d9 <SharedFunctionInfo f1>
+ - name: 0x7e640101d935 <String[2]: #f1>
+ - builtin: CompileLazy
+ - formal_parameter_count: 1
+ - kind: NormalFunction
+ - context: 0x7e64010899f9 <FunctionContext[3]>
+ - code: 0x7e6400b62161 <Code BUILTIN CompileLazy>
+ - dispatch_handle: 0x135c00
+ - source code: () { return small; }
+ - properties: 0x7e64000007e5 <FixedArray[0]>
+ - All own properties (excluding elements): {
+    0x7e6400000e39: [String] in ReadOnlySpace: #length: 0x7e6400b5fe2d <AccessorInfo name= 0x7e6400000e39 <String[6]: #length>, data= 0x7e6400000011 <undefined>> (const accessor descriptor, attrs: [__C])
+    0x7e6400000e29: [String] in ReadOnlySpace: #name: 0x7e6400b5fe15 <AccessorInfo name= 0x7e6400000e29 <String[4]: #name>, data= 0x7e6400000011 <undefined>> (const accessor descriptor, attrs: [__C])
+    0x7e6400000e11: [String] in ReadOnlySpace: #prototype: 0x7e6400b5fe45 <AccessorInfo name= 0x7e6400000e11 <String[9]: #prototype>, data= 0x7e6400000011 <undefined>> (const accessor descriptor, attrs: [W__])
+ }
+ - feedback vector: feedback metadata is not available in SFI
+0x7e6401004c89: [Map] in OldSpace
+ - map: 0x7e640100453d <MetaMap (0x7e640100458d <NativeContext[308]>)>
+ - type: JS_FUNCTION_WITH_PROTOTYPE_TYPE
+ - instance size: 32
+ - inobject properties: 0
+ - unused property fields: 0
+ - elements kind: HOLEY_ELEMENTS
+ - enum length: invalid
+ - stable_map
+ - callable
+ - constructor
+ - back pointer: 0x7e6400000011 <undefined>
+ - prototype_validity_cell: 0x7e6400000b15 <Cell value= [cleared]>
+ - instance descriptors (own) #3: 0x7e6401004cb1 <DescriptorArray[3]>
+ - prototype: 0x7e6401004db1 <JSFunction (sfi = 0x7e64010014c9)>
+ - constructor: 0x7e6401004c55 <JSFunction Function (sfi = 0x7e6400b9468d)>
+ - dependent code: 0x7e64000007f5 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 0
+
+#### f2 (uses arr[100])
+DebugPrint: 0x7e640108b9bd: [Function]
+ - map: 0x7e6401004c89 <Map[32](HOLEY_ELEMENTS)> [FastProperties]
+ - prototype: 0x7e6401004db1 <JSFunction (sfi = 0x7e64010014c9)>
+ - elements: 0x7e64000007e5 <FixedArray[0]> [HOLEY_ELEMENTS]
+ - function prototype: 
+ - initial_map: 
+ - shared_info: 0x7e640101e369 <SharedFunctionInfo f2>
+ - name: 0x7e640101d955 <String[2]: #f2>
+ - builtin: CompileLazy
+ - formal_parameter_count: 1
+ - kind: NormalFunction
+ - context: 0x7e640108a9f1 <FunctionContext[3]>
+ - code: 0x7e6400b62161 <Code BUILTIN CompileLazy>
+ - dispatch_handle: 0x135d00
+ - source code: () { return arr[100]; }
+ - properties: 0x7e64000007e5 <FixedArray[0]>
+ - All own properties (excluding elements): {
+    0x7e6400000e39: [String] in ReadOnlySpace: #length: 0x7e6400b5fe2d <AccessorInfo name= 0x7e6400000e39 <String[6]: #length>, data= 0x7e6400000011 <undefined>> (const accessor descriptor, attrs: [__C])
+    0x7e6400000e29: [String] in ReadOnlySpace: #name: 0x7e6400b5fe15 <AccessorInfo name= 0x7e6400000e29 <String[4]: #name>, data= 0x7e6400000011 <undefined>> (const accessor descriptor, attrs: [__C])
+    0x7e6400000e11: [String] in ReadOnlySpace: #prototype: 0x7e6400b5fe45 <AccessorInfo name= 0x7e6400000e11 <String[9]: #prototype>, data= 0x7e6400000011 <undefined>> (const accessor descriptor, attrs: [W__])
+ }
+ - feedback vector: feedback metadata is not available in SFI
+0x7e6401004c89: [Map] in OldSpace
+ - map: 0x7e640100453d <MetaMap (0x7e640100458d <NativeContext[308]>)>
+ - type: JS_FUNCTION_WITH_PROTOTYPE_TYPE
+ - instance size: 32
+ - inobject properties: 0
+ - unused property fields: 0
+ - elements kind: HOLEY_ELEMENTS
+ - enum length: invalid
+ - stable_map
+ - callable
+ - constructor
+ - back pointer: 0x7e6400000011 <undefined>
+ - prototype_validity_cell: 0x7e6400000b15 <Cell value= [cleared]>
+ - instance descriptors (own) #3: 0x7e6401004cb1 <DescriptorArray[3]>
+ - prototype: 0x7e6401004db1 <JSFunction (sfi = 0x7e64010014c9)>
+ - constructor: 0x7e6401004c55 <JSFunction Function (sfi = 0x7e6400b9468d)>
+ - dependent code: 0x7e64000007f5 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 0
+
+#### f3 (sibling closure uses arr)
+DebugPrint: 0x7e640108c9b9: [Function]
+ - map: 0x7e6401004c89 <Map[32](HOLEY_ELEMENTS)> [FastProperties]
+ - prototype: 0x7e6401004db1 <JSFunction (sfi = 0x7e64010014c9)>
+ - elements: 0x7e64000007e5 <FixedArray[0]> [HOLEY_ELEMENTS]
+ - function prototype: 
+ - initial_map: 
+ - shared_info: 0x7e640101e401 <SharedFunctionInfo f3>
+ - name: 0x7e640101d98d <String[2]: #f3>
+ - builtin: CompileLazy
+ - formal_parameter_count: 1
+ - kind: NormalFunction
+ - context: 0x7e640108b9e9 <FunctionContext[4]>
+ - code: 0x7e6400b62161 <Code BUILTIN CompileLazy>
+ - dispatch_handle: 0x135e00
+ - source code: () { return small; }
+ - properties: 0x7e64000007e5 <FixedArray[0]>
+ - All own properties (excluding elements): {
+    0x7e6400000e39: [String] in ReadOnlySpace: #length: 0x7e6400b5fe2d <AccessorInfo name= 0x7e6400000e39 <String[6]: #length>, data= 0x7e6400000011 <undefined>> (const accessor descriptor, attrs: [__C])
+    0x7e6400000e29: [String] in ReadOnlySpace: #name: 0x7e6400b5fe15 <AccessorInfo name= 0x7e6400000e29 <String[4]: #name>, data= 0x7e6400000011 <undefined>> (const accessor descriptor, attrs: [__C])
+    0x7e6400000e11: [String] in ReadOnlySpace: #prototype: 0x7e6400b5fe45 <AccessorInfo name= 0x7e6400000e11 <String[9]: #prototype>, data= 0x7e6400000011 <undefined>> (const accessor descriptor, attrs: [W__])
+ }
+ - feedback vector: feedback metadata is not available in SFI
+0x7e6401004c89: [Map] in OldSpace
+ - map: 0x7e640100453d <MetaMap (0x7e640100458d <NativeContext[308]>)>
+ - type: JS_FUNCTION_WITH_PROTOTYPE_TYPE
+ - instance size: 32
+ - inobject properties: 0
+ - unused property fields: 0
+ - elements kind: HOLEY_ELEMENTS
+ - enum length: invalid
+ - stable_map
+ - callable
+ - constructor
+ - back pointer: 0x7e6400000011 <undefined>
+ - prototype_validity_cell: 0x7e6400000b15 <Cell value= [cleared]>
+ - instance descriptors (own) #3: 0x7e6401004cb1 <DescriptorArray[3]>
+ - prototype: 0x7e6401004db1 <JSFunction (sfi = 0x7e64010014c9)>
+ - constructor: 0x7e6401004c55 <JSFunction Function (sfi = 0x7e6400b9468d)>
+ - dependent code: 0x7e64000007f5 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 0
+
+#### deep (two levels)
+DebugPrint: 0x7e640108d9dd: [Function]
+ - map: 0x7e6401004c89 <Map[32](HOLEY_ELEMENTS)> [FastProperties]
+ - prototype: 0x7e6401004db1 <JSFunction (sfi = 0x7e64010014c9)>
+ - elements: 0x7e64000007e5 <FixedArray[0]> [HOLEY_ELEMENTS]
+ - function prototype: 
+ - initial_map: 
+ - shared_info: 0x7e640101e51d <SharedFunctionInfo deep>
+ - name: 0x7e640101d9bd <String[4]: #deep>
+ - builtin: CompileLazy
+ - formal_parameter_count: 1
+ - kind: NormalFunction
+ - context: 0x7e640108c9e5 <FunctionContext[3]>
+ - code: 0x7e6400b62161 <Code BUILTIN CompileLazy>
+ - dispatch_handle: 0x136000
+ - source code: () { return small; }
+ - properties: 0x7e64000007e5 <FixedArray[0]>
+ - All own properties (excluding elements): {
+    0x7e6400000e39: [String] in ReadOnlySpace: #length: 0x7e6400b5fe2d <AccessorInfo name= 0x7e6400000e39 <String[6]: #length>, data= 0x7e6400000011 <undefined>> (const accessor descriptor, attrs: [__C])
+    0x7e6400000e29: [String] in ReadOnlySpace: #name: 0x7e6400b5fe15 <AccessorInfo name= 0x7e6400000e29 <String[4]: #name>, data= 0x7e6400000011 <undefined>> (const accessor descriptor, attrs: [__C])
+    0x7e6400000e11: [String] in ReadOnlySpace: #prototype: 0x7e6400b5fe45 <AccessorInfo name= 0x7e6400000e11 <String[9]: #prototype>, data= 0x7e6400000011 <undefined>> (const accessor descriptor, attrs: [W__])
+ }
+ - feedback vector: feedback metadata is not available in SFI
+0x7e6401004c89: [Map] in OldSpace
+ - map: 0x7e640100453d <MetaMap (0x7e640100458d <NativeContext[308]>)>
+ - type: JS_FUNCTION_WITH_PROTOTYPE_TYPE
+ - instance size: 32
+ - inobject properties: 0
+ - unused property fields: 0
+ - elements kind: HOLEY_ELEMENTS
+ - enum length: invalid
+ - stable_map
+ - callable
+ - constructor
+ - back pointer: 0x7e6400000011 <undefined>
+ - prototype_validity_cell: 0x7e6400000b15 <Cell value= [cleared]>
+ - instance descriptors (own) #3: 0x7e6401004cb1 <DescriptorArray[3]>
+ - prototype: 0x7e6401004db1 <JSFunction (sfi = 0x7e64010014c9)>
+ - constructor: 0x7e6401004c55 <JSFunction Function (sfi = 0x7e6400b9468d)>
+ - dependent code: 0x7e64000007f5 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 0
+
+#### f5 (captured parameter)
+DebugPrint: 0x7e640108da49: [Function]
+ - map: 0x7e6401004c89 <Map[32](HOLEY_ELEMENTS)> [FastProperties]
+ - prototype: 0x7e6401004db1 <JSFunction (sfi = 0x7e64010014c9)>
+ - elements: 0x7e64000007e5 <FixedArray[0]> [HOLEY_ELEMENTS]
+ - function prototype: 
+ - initial_map: 
+ - shared_info: 0x7e640101e5f5 <SharedFunctionInfo f5>
+ - name: 0x7e640101d9f1 <String[2]: #f5>
+ - builtin: CompileLazy
+ - formal_parameter_count: 1
+ - kind: NormalFunction
+ - context: 0x7e640108da35 <FunctionContext[3]>
+ - code: 0x7e6400b62161 <Code BUILTIN CompileLazy>
+ - dispatch_handle: 0x136100
+ - source code: () { return param; }
+ - properties: 0x7e64000007e5 <FixedArray[0]>
+ - All own properties (excluding elements): {
+    0x7e6400000e39: [String] in ReadOnlySpace: #length: 0x7e6400b5fe2d <AccessorInfo name= 0x7e6400000e39 <String[6]: #length>, data= 0x7e6400000011 <undefined>> (const accessor descriptor, attrs: [__C])
+    0x7e6400000e29: [String] in ReadOnlySpace: #name: 0x7e6400b5fe15 <AccessorInfo name= 0x7e6400000e29 <String[4]: #name>, data= 0x7e6400000011 <undefined>> (const accessor descriptor, attrs: [__C])
+    0x7e6400000e11: [String] in ReadOnlySpace: #prototype: 0x7e6400b5fe45 <AccessorInfo name= 0x7e6400000e11 <String[9]: #prototype>, data= 0x7e6400000011 <undefined>> (const accessor descriptor, attrs: [W__])
+ }
+ - feedback vector: feedback metadata is not available in SFI
+0x7e6401004c89: [Map] in OldSpace
+ - map: 0x7e640100453d <MetaMap (0x7e640100458d <NativeContext[308]>)>
+ - type: JS_FUNCTION_WITH_PROTOTYPE_TYPE
+ - instance size: 32
+ - inobject properties: 0
+ - unused property fields: 0
+ - elements kind: HOLEY_ELEMENTS
+ - enum length: invalid
+ - stable_map
+ - callable
+ - constructor
+ - back pointer: 0x7e6400000011 <undefined>
+ - prototype_validity_cell: 0x7e6400000b15 <Cell value= [cleared]>
+ - instance descriptors (own) #3: 0x7e6401004cb1 <DescriptorArray[3]>
+ - prototype: 0x7e6401004db1 <JSFunction (sfi = 0x7e64010014c9)>
+ - constructor: 0x7e6401004c55 <JSFunction Function (sfi = 0x7e6400b9468d)>
+ - dependent code: 0x7e64000007f5 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 0
+

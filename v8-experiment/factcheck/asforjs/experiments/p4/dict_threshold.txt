@@ -1,0 +1,64 @@
+##### node20
+10-element array (capacity 17 after push): first dict index = 1041
+a[1030] dict=false
+a[1039] dict=false
+a[1040] dict=false
+a[1041] dict=true
+a[1045] dict=true
+a[1020] dict=false
+ then a[2580] dict=true
+literal/slice 10 elems (capacity 10): first dict index = 1034
+defineProperty default attrs dict=false
+defineProperty writable:false dict=true
+defineProperty named prop dict elements=false
+defineProperty accessor on index dict=true
+new Array(5e6) dict=false holey=true
+new Array(4e7) dict=true
+##### node22
+10-element array (capacity 17 after push): first dict index = 1041
+a[1030] dict=false
+a[1039] dict=false
+a[1040] dict=false
+a[1041] dict=true
+a[1045] dict=true
+a[1020] dict=false
+ then a[2580] dict=true
+literal/slice 10 elems (capacity 10): first dict index = 1034
+defineProperty default attrs dict=false
+defineProperty writable:false dict=true
+defineProperty named prop dict elements=false
+defineProperty accessor on index dict=true
+new Array(5e6) dict=false holey=true
+new Array(4e7) dict=true
+##### node24
+10-element array (capacity 17 after push): first dict index = 1041
+a[1030] dict=false
+a[1039] dict=false
+a[1040] dict=false
+a[1041] dict=true
+a[1045] dict=true
+a[1020] dict=false
+ then a[2580] dict=true
+literal/slice 10 elems (capacity 10): first dict index = 1034
+defineProperty default attrs dict=false
+defineProperty writable:false dict=true
+defineProperty named prop dict elements=false
+defineProperty accessor on index dict=true
+new Array(5e6) dict=false holey=true
+new Array(4e7) dict=true
+##### d8
+10-element array (capacity 17 after push): first dict index = 1041
+a[1030] dict=false
+a[1039] dict=false
+a[1040] dict=false
+a[1041] dict=true
+a[1045] dict=true
+a[1020] dict=false
+ then a[2580] dict=true
+literal/slice 10 elems (capacity 10): first dict index = 1034
+defineProperty default attrs dict=false
+defineProperty writable:false dict=true
+defineProperty named prop dict elements=false
+defineProperty accessor on index dict=true
+new Array(5e6) dict=false holey=true
+new Array(4e7) dict=true

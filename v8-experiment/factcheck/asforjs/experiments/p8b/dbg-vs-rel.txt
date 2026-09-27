@@ -1,0 +1,8 @@
+rel: time=323ms 50948360
+dbg: time=1480ms 50948360
+rel: time=282ms 50948360
+dbg: time=1592ms 50948360
+rel: time=233ms 50948360
+dbg: time=1323ms 50948360
+== is_debug in dbg build:
+V8 version 15.6.67

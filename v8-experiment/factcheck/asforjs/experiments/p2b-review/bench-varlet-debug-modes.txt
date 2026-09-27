@@ -1,0 +1,21 @@
+== d8 DEBUG 15.6 N=1e6 [--max-opt=1]
+var       median 147.4 ms  ratio_vs_var 1.000   all 147/151/124/133/154
+let       median 154.0 ms  ratio_vs_var 1.045   all 154/160/154/145/157
+const     median 158.3 ms  ratio_vs_var 1.074   all 158/160/149/158/168
+letArrow  median 161.1 ms  ratio_vs_var 1.092   all 175/171/147/152/161
+local     median 148.1 ms  ratio_vs_var 1.005   all 168/124/148/220/148
+letCopy   median 148.1 ms  ratio_vs_var 1.004   all 177/122/223/148/148
+== d8 DEBUG 15.6 N=1e6 [--no-maglev --no-turbofan]
+var       median 153.0 ms  ratio_vs_var 1.000   all 169/153/152/155/128
+let       median 159.5 ms  ratio_vs_var 1.042   all 179/142/160/160/138
+const     median 160.5 ms  ratio_vs_var 1.049   all 179/158/161/160/181
+letArrow  median 151.6 ms  ratio_vs_var 0.991   all 209/190/152/150/150
+local     median 150.1 ms  ratio_vs_var 0.981   all 181/151/149/134/150
+letCopy   median 151.2 ms  ratio_vs_var 0.988   all 242/149/151/124/152
+== d8 DEBUG 15.6 N=1e6 []
+var       median 1.0 ms  ratio_vs_var 1.000   all 9/1/1/1/1
+let       median 1.0 ms  ratio_vs_var 1.009   all 6/1/1/1/1
+const     median 1.0 ms  ratio_vs_var 1.018   all 5/1/1/1/1
+letArrow  median 1.0 ms  ratio_vs_var 1.013   all 4/1/1/1/1
+local     median 1.0 ms  ratio_vs_var 0.984   all 4/1/1/1/1
+letCopy   median 1.0 ms  ratio_vs_var 0.981   all 4/1/1/1/1

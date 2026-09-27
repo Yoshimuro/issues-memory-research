@@ -1,0 +1,27 @@
+== node22/node N=1
+Considering  { <SharedFunctionInfo doConst7>} for inlining with  { <FeedbackVector[0]>}
+Inlining small function(s) at call site #16:JSCall
+Inlining  { <SharedFunctionInfo doConst7>} into  { <SharedFunctionInfo doThing>}
+N=1 optimized=true
+== v24.21.0/node N=1
+Considering  { <SharedFunctionInfo doConst7>} for inlining with  { <FeedbackVector[0]>}
+Inlining small function(s) at call site #16:JSCall
+Inlining  { <SharedFunctionInfo doConst7>} into  { <SharedFunctionInfo doThing>}
+N=1 optimized=true
+== d8/d8 N=1
+Considering  { <SharedFunctionInfo doConst7>} for inlining with  { <FeedbackVector[0]>}
+Inlining small function(s) at call site #16:JSCall
+Inlining  { <SharedFunctionInfo doConst7>} into  { <SharedFunctionInfo doThing>}
+N=1 optimized=false
+== node22/node N=2
+N=2 optimized=true
+== v24.21.0/node N=2
+N=2 optimized=true
+== d8/d8 N=2
+N=2 optimized=false
+== node22/node N=3
+N=3 optimized=true
+== v24.21.0/node N=3
+N=3 optimized=true
+== d8/d8 N=3
+N=3 optimized=false

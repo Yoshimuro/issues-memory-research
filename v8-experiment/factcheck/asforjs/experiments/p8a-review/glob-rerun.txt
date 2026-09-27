@@ -1,0 +1,9 @@
+v20.20.2 global var: 265 ms 350000000 / global let: 101 ms 350000000
+v22.22.2 global var: 147 ms 350000000 / global let: 129 ms 350000000
+v24.21.0 global var: 149 ms 350000000 / global let: 321 ms 350000000
+v20.20.2 global var: 224 ms 350000000 / global let: 105 ms 350000000
+v22.22.2 global var: 179 ms 350000000 / global let: 138 ms 350000000
+v24.21.0 global var: 144 ms 350000000 / global let: 288 ms 350000000
+v20.20.2 global var: 283 ms 350000000 / global let: 105 ms 350000000
+v22.22.2 global var: 181 ms 350000000 / global let: 164 ms 350000000
+v24.21.0 global var: 142 ms 350000000 / global let: 267 ms 350000000

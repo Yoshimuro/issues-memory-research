@@ -1,0 +1,12 @@
+== /opt/node20/bin/node
+DebugPrint: 0x1532d746cbe9: [Function] in OldSpace
+ - map: 0x15926c7c2471 <Map[64](HOLEY_ELEMENTS)> [FastProperties]
+ - feedback vector: 0x1532d746cd09: [FeedbackVector] in OldSpace
+ - map: 0x335577a40ab9 <Map(FEEDBACK_VECTOR_TYPE)>
+ - invocation count: 2
+== /opt/node22/bin/node
+DebugPrint: 0x822e67a5959: [Function] in OldSpace
+ - map: 0x031a98e822f1 <Map[64](HOLEY_ELEMENTS)> [FastProperties]
+ - feedback vector: 0x822e67a5a39: [FeedbackVector] in OldSpace
+ - map: 0x2f8212380d81 <Map(FEEDBACK_VECTOR_TYPE)>
+ - invocation count: 2

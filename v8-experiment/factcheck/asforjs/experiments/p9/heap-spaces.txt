@@ -1,0 +1,40 @@
+== /opt/node20/bin/node
+v20.20.2 V8 11.3.244.8-node.38
+read_only_space          size 0.00 MB
+new_space                size 1.00 MB
+old_space                size 2.72 MB
+code_space               size 0.25 MB
+shared_space             size 0.00 MB
+new_large_object_space   size 0.00 MB
+large_object_space       size 0.26 MB
+code_large_object_space  size 0.00 MB
+shared_large_object_space size 0.00 MB
+[8696:0xd489510]       31 ms: Scavenge 4.1 (4.2) -> 3.4 (5.2) MB, 0.61 / 0.00 ms  (average mu = 1.000, current mu = 1.000) allocation failure; 
+[8696:0xd489510]       33 ms: Scavenge 4.1 (5.2) -> 3.4 (5.7) MB, 0.55 / 0.00 ms  (average mu = 1.000, current mu = 1.000) allocation failure; 
+done 2000000 heapUsed MB 4.0
+Scavenge lines: 3
+== /opt/nvm/versions/node/v24.21.0/bin/node
+v24.21.0 V8 13.6.233.17-node.53
+read_only_space          size 0.00 MB
+new_space                size 1.00 MB
+old_space                size 2.91 MB
+code_space               size 0.25 MB
+shared_space             size 0.00 MB
+trusted_space            size 1.37 MB
+shared_trusted_space     size 0.00 MB
+new_large_object_space   size 0.00 MB
+large_object_space       size 0.25 MB
+code_large_object_space  size 0.00 MB
+shared_large_object_space size 0.00 MB
+shared_trusted_large_object_space size 0.00 MB
+trusted_large_object_space size 0.00 MB
+[8704:0x1f171000]       34 ms: Scavenge 5.1 (6.0) -> 4.3 (7.0) MB, pooled: 0 MB, 3.79 / 0.00 ms  (average mu = 1.000, current mu = 1.000) allocation failure; 
+[8704:0x1f171000]       35 ms: Scavenge 5.1 (7.0) -> 4.4 (7.3) MB, pooled: 0 MB, 0.41 / 0.00 ms  (average mu = 1.000, current mu = 1.000) allocation failure; 
+done 2000000 heapUsed MB 5.2
+Scavenge lines: 19
+  --min-semi-space-size (min size of a semi-space (in MBytes), the new space consists of two semi-spaces)
+        type: size_t  default: --min-semi-space-size=0
+  --max-semi-space-size (max size of a semi-space (in MBytes), the new space consists of two semi-spaces)
+        type: size_t  default: --max-semi-space-size=0
+  --semi-space-growth-factor (factor by which to grow the new space)
+        type: int  default: --semi-space-growth-factor=2

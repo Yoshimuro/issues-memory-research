@@ -1,0 +1,4 @@
+with optimized reader sameMap(a,b) after a.x=1.5: false
+with optimized reader sameMap(a,b) after a.x=1.5: false
+reader only interpreted sameMap(a,b) after a.x=1.5: false
+reader only interpreted sameMap(a,b) after a.x=1.5: false

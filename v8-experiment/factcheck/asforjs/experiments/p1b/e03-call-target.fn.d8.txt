@@ -1,0 +1,155 @@
+V8 is running with developer-only features enabled. Stability and security will suffer.
+[marking 0x3deb0101e8bd <JSFunction doConst7 (sfi = 0x3deb0101e389)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x3deb0101e8bd <JSFunction doConst7 (sfi = 0x3deb0101e389)> (target MAGLEV), mode: ConcurrencyMode::kSynchronous]
+---------------------------------------------------
+Begin compiling method doConst7 using Maglev
+---------------------------------------------------
+Finished compiling method doConst7 using Maglev
+[completed compiling 0x3deb0101e8bd <JSFunction doConst7 (sfi = 0x3deb0101e389)> (target MAGLEV) - took 0.001, 0.286, 0.032 ms]
+[marking 0x3deb0101e925 <JSFunction doThing (sfi = 0x3deb0101e3e9)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x3deb0101e925 <JSFunction doThing (sfi = 0x3deb0101e3e9)> (target MAGLEV), mode: ConcurrencyMode::kSynchronous]
+---------------------------------------------------
+Begin compiling method doThing using Maglev
+---------------------------------------------------
+Finished compiling method doThing using Maglev
+[completed compiling 0x3deb0101e925 <JSFunction doThing (sfi = 0x3deb0101e3e9)> (target MAGLEV) - took 0.000, 0.316, 0.035 ms]
+[marking 0x3deb0101e925 <JSFunction doThing (sfi = 0x3deb0101e3e9)> for optimization to TURBOFAN_JS, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x3deb0101e925 <JSFunction doThing (sfi = 0x3deb0101e3e9)> (target TURBOFAN_JS), mode: ConcurrencyMode::kSynchronous]
+Considering 0x2b9400ef16a0 {0x3deb0101e389 <SharedFunctionInfo doConst7>} for inlining with 0x2b9400ef1d70 {0x3deb0101fbe1 <FeedbackVector[0]>}
+Inlining small function(s) at call site #38:JSCall
+Inlining 0x2b9400ef16a0 {0x3deb0101e389 <SharedFunctionInfo doConst7>} into 0x2b9400ef1478 {0x3deb0101e3e9 <SharedFunctionInfo doThing>}
+[completed compiling 0x3deb0101e925 <JSFunction doThing (sfi = 0x3deb0101e3e9)> (target TURBOFAN_JS) - took 0.007, 1.428, 0.015 ms]
+[marking 0x3deb0101e98d <JSFunction warm (sfi = 0x3deb0101e449)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x3deb0101e98d <JSFunction warm (sfi = 0x3deb0101e449)> (target MAGLEV) OSR, mode: ConcurrencyMode::kSynchronous]
+---------------------------------------------------
+Begin compiling method warm using Maglev
+---------------------------------------------------
+Finished compiling method warm using Maglev
+[completed compiling 0x3deb0101e98d <JSFunction warm (sfi = 0x3deb0101e449)> (target MAGLEV) OSR - took 0.004, 0.318, 0.034 ms]
+after doConst7 warmup: 101001
+--- switching to doConst15
+[bailout (kind: deopt-eager, reason: wrong call target): begin. deoptimizing 0x3deb0101e925 <JSFunction doThing (sfi = 0x3deb0101e3e9)>, 0x172701001319 <Code TURBOFAN_JS>, opt id 2, bytecode offset 4, deopt exit 0, FP to SP delta 32, caller SP 0x7fffddf79428, pc 0x55b2bbe0053f]
+[marking 0x3deb0101e8f1 <JSFunction doConst15 (sfi = 0x3deb0101e3b9)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x3deb0101e8f1 <JSFunction doConst15 (sfi = 0x3deb0101e3b9)> (target MAGLEV), mode: ConcurrencyMode::kSynchronous]
+---------------------------------------------------
+Begin compiling method doConst15 using Maglev
+---------------------------------------------------
+Finished compiling method doConst15 using Maglev
+[completed compiling 0x3deb0101e8f1 <JSFunction doConst15 (sfi = 0x3deb0101e3b9)> (target MAGLEV) - took 0.000, 0.104, 0.013 ms]
+[marking 0x3deb0101e925 <JSFunction doThing (sfi = 0x3deb0101e3e9)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x3deb0101e925 <JSFunction doThing (sfi = 0x3deb0101e3e9)> (target MAGLEV), mode: ConcurrencyMode::kSynchronous]
+---------------------------------------------------
+Begin compiling method doThing using Maglev
+---------------------------------------------------
+Finished compiling method doThing using Maglev
+[completed compiling 0x3deb0101e925 <JSFunction doThing (sfi = 0x3deb0101e3e9)> (target MAGLEV) - took 0.001, 0.140, 0.016 ms]
+[marking 0x3deb0101e8f1 <JSFunction doConst15 (sfi = 0x3deb0101e3b9)> for optimization to TURBOFAN_JS, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x3deb0101e8f1 <JSFunction doConst15 (sfi = 0x3deb0101e3b9)> (target TURBOFAN_JS), mode: ConcurrencyMode::kSynchronous]
+[completed compiling 0x3deb0101e8f1 <JSFunction doConst15 (sfi = 0x3deb0101e3b9)> (target TURBOFAN_JS) - took 0.003, 0.256, 0.010 ms]
+[marking 0x3deb0101e925 <JSFunction doThing (sfi = 0x3deb0101e3e9)> for optimization to TURBOFAN_JS, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x3deb0101e925 <JSFunction doThing (sfi = 0x3deb0101e3e9)> (target TURBOFAN_JS), mode: ConcurrencyMode::kSynchronous]
+[completed compiling 0x3deb0101e925 <JSFunction doThing (sfi = 0x3deb0101e3e9)> (target TURBOFAN_JS) - took 0.004, 0.915, 0.021 ms]
+after doConst15: 101001
+--- 10 different functions
+[marking 0x3deb0104ab9d <JSFunction (sfi = 0x3deb0101ebb9)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x3deb0104ab9d <JSFunction (sfi = 0x3deb0101ebb9)> (target MAGLEV), mode: ConcurrencyMode::kSynchronous]
+---------------------------------------------------
+Begin compiling method  using Maglev
+---------------------------------------------------
+Finished compiling method  using Maglev
+[completed compiling 0x3deb0104ab9d <JSFunction (sfi = 0x3deb0101ebb9)> (target MAGLEV) - took 0.001, 0.088, 0.021 ms]
+[marking 0x3deb0104ad01 <JSFunction (sfi = 0x3deb0101ed25)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x3deb0104ad01 <JSFunction (sfi = 0x3deb0101ed25)> (target MAGLEV), mode: ConcurrencyMode::kSynchronous]
+---------------------------------------------------
+Begin compiling method  using Maglev
+---------------------------------------------------
+Finished compiling method  using Maglev
+[completed compiling 0x3deb0104ad01 <JSFunction (sfi = 0x3deb0101ed25)> (target MAGLEV) - took 0.000, 0.059, 0.017 ms]
+[marking 0x3deb0104ae65 <JSFunction (sfi = 0x3deb0101ee91)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x3deb0104ae65 <JSFunction (sfi = 0x3deb0101ee91)> (target MAGLEV), mode: ConcurrencyMode::kSynchronous]
+---------------------------------------------------
+Begin compiling method  using Maglev
+---------------------------------------------------
+Finished compiling method  using Maglev
+[completed compiling 0x3deb0104ae65 <JSFunction (sfi = 0x3deb0101ee91)> (target MAGLEV) - took 0.000, 0.028, 0.015 ms]
+[marking 0x3deb0104afc9 <JSFunction (sfi = 0x3deb0101f031)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x3deb0104afc9 <JSFunction (sfi = 0x3deb0101f031)> (target MAGLEV), mode: ConcurrencyMode::kSynchronous]
+---------------------------------------------------
+Begin compiling method  using Maglev
+---------------------------------------------------
+Finished compiling method  using Maglev
+[completed compiling 0x3deb0104afc9 <JSFunction (sfi = 0x3deb0101f031)> (target MAGLEV) - took 0.000, 0.025, 0.011 ms]
+[marking 0x3deb0104b12d <JSFunction (sfi = 0x3deb0101f19d)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x3deb0104b12d <JSFunction (sfi = 0x3deb0101f19d)> (target MAGLEV), mode: ConcurrencyMode::kSynchronous]
+---------------------------------------------------
+Begin compiling method  using Maglev
+---------------------------------------------------
+Finished compiling method  using Maglev
+[completed compiling 0x3deb0104b12d <JSFunction (sfi = 0x3deb0101f19d)> (target MAGLEV) - took 0.000, 0.023, 0.011 ms]
+[marking 0x3deb0104b291 <JSFunction (sfi = 0x3deb0101f309)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x3deb0104b291 <JSFunction (sfi = 0x3deb0101f309)> (target MAGLEV), mode: ConcurrencyMode::kSynchronous]
+---------------------------------------------------
+Begin compiling method  using Maglev
+---------------------------------------------------
+Finished compiling method  using Maglev
+[completed compiling 0x3deb0104b291 <JSFunction (sfi = 0x3deb0101f309)> (target MAGLEV) - took 0.000, 0.040, 0.015 ms]
+[marking 0x3deb0104b3f5 <JSFunction (sfi = 0x3deb0101f475)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x3deb0104b3f5 <JSFunction (sfi = 0x3deb0101f475)> (target MAGLEV), mode: ConcurrencyMode::kSynchronous]
+---------------------------------------------------
+Begin compiling method  using Maglev
+---------------------------------------------------
+Finished compiling method  using Maglev
+[completed compiling 0x3deb0104b3f5 <JSFunction (sfi = 0x3deb0101f475)> (target MAGLEV) - took 0.000, 0.053, 0.013 ms]
+[marking 0x3deb0104b559 <JSFunction (sfi = 0x3deb0101f62d)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x3deb0104b559 <JSFunction (sfi = 0x3deb0101f62d)> (target MAGLEV), mode: ConcurrencyMode::kSynchronous]
+---------------------------------------------------
+Begin compiling method  using Maglev
+---------------------------------------------------
+Finished compiling method  using Maglev
+[completed compiling 0x3deb0104b559 <JSFunction (sfi = 0x3deb0101f62d)> (target MAGLEV) - took 0.001, 0.037, 0.017 ms]
+[marking 0x3deb0104b6bd <JSFunction (sfi = 0x3deb0101f84d)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x3deb0104b6bd <JSFunction (sfi = 0x3deb0101f84d)> (target MAGLEV), mode: ConcurrencyMode::kSynchronous]
+---------------------------------------------------
+Begin compiling method  using Maglev
+---------------------------------------------------
+Finished compiling method  using Maglev
+[completed compiling 0x3deb0104b6bd <JSFunction (sfi = 0x3deb0101f84d)> (target MAGLEV) - took 0.000, 0.028, 0.012 ms]
+[marking 0x3deb0104b821 <JSFunction (sfi = 0x3deb0101f9b9)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x3deb0104b821 <JSFunction (sfi = 0x3deb0101f9b9)> (target MAGLEV), mode: ConcurrencyMode::kSynchronous]
+---------------------------------------------------
+Begin compiling method  using Maglev
+---------------------------------------------------
+Finished compiling method  using Maglev
+[completed compiling 0x3deb0104b821 <JSFunction (sfi = 0x3deb0101f9b9)> (target MAGLEV) - took 0.000, 0.031, 0.021 ms]
+[marking 0x3deb0104ad01 <JSFunction (sfi = 0x3deb0101ed25)> for optimization to TURBOFAN_JS, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x3deb0104ad01 <JSFunction (sfi = 0x3deb0101ed25)> (target TURBOFAN_JS), mode: ConcurrencyMode::kSynchronous]
+[completed compiling 0x3deb0104ad01 <JSFunction (sfi = 0x3deb0101ed25)> (target TURBOFAN_JS) - took 0.006, 0.291, 0.016 ms]
+[marking 0x3deb0104ae65 <JSFunction (sfi = 0x3deb0101ee91)> for optimization to TURBOFAN_JS, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x3deb0104ae65 <JSFunction (sfi = 0x3deb0101ee91)> (target TURBOFAN_JS), mode: ConcurrencyMode::kSynchronous]
+[completed compiling 0x3deb0104ae65 <JSFunction (sfi = 0x3deb0101ee91)> (target TURBOFAN_JS) - took 0.003, 0.185, 0.010 ms]
+[marking 0x3deb0104afc9 <JSFunction (sfi = 0x3deb0101f031)> for optimization to TURBOFAN_JS, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x3deb0104afc9 <JSFunction (sfi = 0x3deb0101f031)> (target TURBOFAN_JS), mode: ConcurrencyMode::kSynchronous]
+[completed compiling 0x3deb0104afc9 <JSFunction (sfi = 0x3deb0101f031)> (target TURBOFAN_JS) - took 0.001, 0.119, 0.005 ms]
+[marking 0x3deb0104b12d <JSFunction (sfi = 0x3deb0101f19d)> for optimization to TURBOFAN_JS, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x3deb0104b12d <JSFunction (sfi = 0x3deb0101f19d)> (target TURBOFAN_JS), mode: ConcurrencyMode::kSynchronous]
+[completed compiling 0x3deb0104b12d <JSFunction (sfi = 0x3deb0101f19d)> (target TURBOFAN_JS) - took 0.002, 0.149, 0.007 ms]
+[marking 0x3deb0104b291 <JSFunction (sfi = 0x3deb0101f309)> for optimization to TURBOFAN_JS, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x3deb0104b291 <JSFunction (sfi = 0x3deb0101f309)> (target TURBOFAN_JS), mode: ConcurrencyMode::kSynchronous]
+[completed compiling 0x3deb0104b291 <JSFunction (sfi = 0x3deb0101f309)> (target TURBOFAN_JS) - took 0.002, 0.172, 0.007 ms]
+[marking 0x3deb0104b3f5 <JSFunction (sfi = 0x3deb0101f475)> for optimization to TURBOFAN_JS, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x3deb0104b3f5 <JSFunction (sfi = 0x3deb0101f475)> (target TURBOFAN_JS), mode: ConcurrencyMode::kSynchronous]
+[completed compiling 0x3deb0104b3f5 <JSFunction (sfi = 0x3deb0101f475)> (target TURBOFAN_JS) - took 0.002, 0.187, 0.007 ms]
+[marking 0x3deb0104b559 <JSFunction (sfi = 0x3deb0101f62d)> for optimization to TURBOFAN_JS, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x3deb0104b559 <JSFunction (sfi = 0x3deb0101f62d)> (target TURBOFAN_JS), mode: ConcurrencyMode::kSynchronous]
+[completed compiling 0x3deb0104b559 <JSFunction (sfi = 0x3deb0101f62d)> (target TURBOFAN_JS) - took 0.003, 0.205, 0.008 ms]
+[marking 0x3deb0104b6bd <JSFunction (sfi = 0x3deb0101f84d)> for optimization to TURBOFAN_JS, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x3deb0104b6bd <JSFunction (sfi = 0x3deb0101f84d)> (target TURBOFAN_JS), mode: ConcurrencyMode::kSynchronous]
+[completed compiling 0x3deb0104b6bd <JSFunction (sfi = 0x3deb0101f84d)> (target TURBOFAN_JS) - took 0.002, 0.129, 0.022 ms]
+[marking 0x3deb0104b821 <JSFunction (sfi = 0x3deb0101f9b9)> for optimization to TURBOFAN_JS, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x3deb0104b821 <JSFunction (sfi = 0x3deb0101f9b9)> (target TURBOFAN_JS), mode: ConcurrencyMode::kSynchronous]
+[completed compiling 0x3deb0104b821 <JSFunction (sfi = 0x3deb0101f9b9)> (target TURBOFAN_JS) - took 0.002, 0.092, 0.003 ms]
+[marking 0x3deb0104ab9d <JSFunction (sfi = 0x3deb0101ebb9)> for optimization to TURBOFAN_JS, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x3deb0104ab9d <JSFunction (sfi = 0x3deb0101ebb9)> (target TURBOFAN_JS), mode: ConcurrencyMode::kSynchronous]
+[completed compiling 0x3deb0104ab9d <JSFunction (sfi = 0x3deb0101ebb9)> (target TURBOFAN_JS) - took 0.004, 0.210, 0.010 ms]
+[marking 0x3deb0101e7b5 <JSFunction (sfi = 0x3deb0101e2a1)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+after many: 101001

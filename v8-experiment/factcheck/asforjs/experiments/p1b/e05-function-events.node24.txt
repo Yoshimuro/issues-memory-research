@@ -1,0 +1,21 @@
+# node24 --log-function-events e05-compile-times.js (npm semver/minimatch/diff/postcss-selector-parser hot loop, incl. Node internals)
+   1085 function,preparse-resolution
+    551 function,interpreter
+    493 function,full-parse
+    435 function,first-execution
+    352 function,parse-function
+    345 function,parse
+    323 function,first-execution-BASELINE
+    320 function,baseline
+    184 function,maglev
+    170 function,first-execution-MAGLEV
+    129 function,parse-eval
+    129 function,interpreter-eval
+     58 function,turbofan
+     54 function,first-execution-TURBOFAN_JS
+      5 function,first-execution-BUILTIN
+first-execution distinct (script:start:end): 435
+interpreter distinct (script:start:end): 551
+baseline distinct (script:start:end): 320
+maglev distinct (script:start:end): 170
+turbofan distinct (script:start:end): 46

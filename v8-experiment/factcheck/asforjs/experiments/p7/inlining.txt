@@ -1,0 +1,16 @@
+== d8 rel --trace-turbo-inlining
+Concurrent maglev has been disabled for tracing.
+Considering 0x1f8400edfeb0 {0x35e20101e011 <SharedFunctionInfo doInc>} for inlining with 0x1f8400ee0a70 {0x35e20101e1fd <FeedbackVector[0]>}
+Inlining small function(s) at call site #26:JSCall
+Inlining 0x1f8400edfeb0 {0x35e20101e011 <SharedFunctionInfo doInc>} into 0x1f8400edfbf8 {0x35e20101e041 <SharedFunctionInfo doProp>}
+== d8 rel --trace-maglev-inlining
+Concurrent maglev has been disabled for tracing.
+---------------------------------------------------
+Begin compiling method doProp using Maglev
+[90m[ML:36130] [0m[92m⚡ INLINE [0m[96mdoInc                         [0m Small function, skipping max-depth[0m
+---------------------------------------------------
+Finished compiling method doProp using Maglev
+== node24 --trace-turbo-inlining
+Considering 0x2a915138 {0x3ad8bb1682b9 <SharedFunctionInfo doInc>} for inlining with 0x2a9156f8 {0x3ad8bb168849 <FeedbackVector[1]>}
+Inlining small function(s) at call site #23:JSCall
+Inlining 0x2a915138 {0x3ad8bb1682b9 <SharedFunctionInfo doInc>} into 0x2a914de0 {0x3ad8bb168301 <SharedFunctionInfo doProp>}

@@ -1,0 +1,46 @@
+// String representations: run in d8 debug with --allow-natives-syntax
+function p(label, s) { print('=== ' + label); %DebugPrint(s); }
+p("'ABC'", 'ABC');
+p("'АBC' (cyrillic A first)", 'АBC');
+function inner() { return 'ABC'; }
+p("'ABC' from function", inner());
+p("'A' + 'BC' literal", 'A' + 'BC');
+var a = 'A', bc = 'BC';
+p("a + bc (vars)", a + bc);
+p("'asin' + 'atan'", 'asin' + 'atan');
+p("'мурыч' + 'хмурыч'", 'мурыч' + 'хмурыч');
+p("'мурыч' + ' ' + 'мурыч'", 'мурыч' + ' ' + 'мурыч');
+p("'murych' + 'hmurych' (13)", 'murych' + 'hmurych');
+p("'murych' + 'hmurych' minus1 (12)", 'murych' + 'hmurych'.slice(1));
+var m = 'мурыч', hm = 'хмурыч', sp = ' ';
+p("vars m+hm", m + hm);
+p("vars m+sp+m", m + sp + m);
+var big = 'x'.repeat(1 << 20);
+p("big.slice(5) type", big.slice(5).length > 0 ? big.slice(5) : '');
+var s20 = 'abcdefghijklmnopqrstuvwxyz';
+p("slice len 12", s20.slice(0, 12));
+p("slice len 13", s20.slice(0, 13));
+p("slice(5) of 26 -> len 21", s20.slice(5));
+p("concat len 12", s20.slice(0,6) + s20.slice(6,12));
+p("concat len 13", s20.slice(0,6) + s20.slice(6,13));
+p("'Math'", 'Math');
+p("'Math2'", 'Math2');
+p("'asin'", 'asin');
+p("Math.asin.name", Math.asin.name);
+var o = { asin: 1, atan: 2 };
+p("Object.keys(o)[0]", Object.keys(o)[0]);
+var ghost = '\u{1F47B}';
+p("ghost", ghost);
+p("'murych' + ghost", 'murych' + ghost);
+p("'мурыч' + ghost", 'мурыч' + ghost);
+p("ghost x 10 + 'мурыч'", ghost.repeat(10) + 'мурыч');
+p("'ABC RDF DEF'.replace('RDF','')", 'ABC RDF DEF'.replace('RDF', ''));
+p("'ABC RDF DEF'.replace('ABC','')", 'ABC RDF DEF'.replace('ABC', ''));
+p("'ABC RDF DEF'.replace('DEF','')", 'ABC RDF DEF'.replace('DEF', ''));
+var x1 = a + bc + 'longer-than-thirteen'; var x2 = a + bc + 'longer-than-thirteen';
+p("x1 cons", x1); p("x2 cons (same expr again)", x2);
+p("'abc'[1]", 'abc'[1]);
+p("'b'", 'b');
+p("new String('abc')", new String('abc'));
+p("'abc'", 'abc');
+p("tpl `${a}${bc}`", `${a}${bc}`);

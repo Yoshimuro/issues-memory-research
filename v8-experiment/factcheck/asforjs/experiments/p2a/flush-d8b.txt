@@ -1,0 +1,6 @@
+## d8 debug 15.6, --bytecode-old-time=1, 4 s of allocation (natural GCs)
+      1       Mark-Compact (full GC)
+      5      Mark-Compact (full GC)
+      1  - builtin: CompileLazy
+      5  0 flushed SharedFunctionInfo(s)
+      1  1 flushed SharedFunctionInfo(s)

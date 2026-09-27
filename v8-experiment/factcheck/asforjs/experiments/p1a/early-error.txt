@@ -1,0 +1,10 @@
+early-error.js:2: SyntaxError: Identifier 'a' has already been declared
+function dead() { let a = 1; let a = 2; }
+                                 ^
+SyntaxError: Identifier 'a' has already been declared
+
+early-error2.js:2: SyntaxError: Strict mode code may not include a with statement
+function dead() { "use strict"; with (x) {} }
+                                ^^^^
+SyntaxError: Strict mode code may not include a with statement
+

@@ -1,0 +1,36 @@
+== /opt/node20/bin/node
+  1073741823 IsSmi= true
+  1073741824 IsSmi= true
+ -1073741824 IsSmi= true
+ -1073741825 IsSmi= true
+  2147483647 IsSmi= true
+  2147483648 IsSmi= false
+ -2147483648 IsSmi= true
+ -2147483649 IsSmi= false
+== /opt/node22/bin/node
+  1073741823 IsSmi= true
+  1073741824 IsSmi= true
+ -1073741824 IsSmi= true
+ -1073741825 IsSmi= true
+  2147483647 IsSmi= true
+  2147483648 IsSmi= false
+ -2147483648 IsSmi= true
+ -2147483649 IsSmi= false
+== /opt/nvm/versions/node/v24.21.0/bin/node
+  1073741823 IsSmi= true
+  1073741824 IsSmi= true
+ -1073741824 IsSmi= true
+ -1073741825 IsSmi= true
+  2147483647 IsSmi= true
+  2147483648 IsSmi= false
+ -2147483648 IsSmi= true
+ -2147483649 IsSmi= false
+== d8 15.6 rel
+  1073741823 IsSmi= true
+  1073741824 IsSmi= false
+ -1073741824 IsSmi= true
+ -1073741825 IsSmi= false
+  2147483647 IsSmi= false
+  2147483648 IsSmi= false
+ -2147483648 IsSmi= false
+ -2147483649 IsSmi= false

@@ -1,0 +1,21 @@
+== d8 debug --print-opt-code (compares in doIf body)
+0x7f928d4400c3    83  f6c201               testb rdx,0x1
+0x7f928d4400c6    86  0f8564000000         jnz 0x7f928d440130  <+0xf0>
+0x7f928d4400cc    8c  83fa02               cmpl rdx,0x2
+0x7f928d4400cf    8f  0f842d000000         jz 0x7f928d440102  <+0xc2>
+0x7f928d4400d5    95  83fa04               cmpl rdx,0x4
+0x7f928d4400d8    98  0f8405000000         jz 0x7f928d4400e3  <+0xa3>
+0x7f928d4400de    9e  e951000000           jmp 0x7f928d440134  <+0xf4>
+0x7f928d4400f0    b0  4883f902             REX.W cmpq rcx,0x2
+0x7f928d4400f6    b6  c21000               ret 0x10
+0x7f928d440101    c1  c3                   retl
+0x7f928d440107    c7  ebdf                 jmp 0x7f928d4400e8  <+0xa8>
+0x7f928d44012d    ed  eb90                 jmp 0x7f928d4400bf  <+0x7f>
+== d8 release --trace-deopt
+status=101001
+[bailout (kind: deopt-eager, reason: Insufficient type feedback for compare operation): begin. deoptimizing 0x2fc30101e141 <JSFunction doIf (sfi = 0x2fc30101e08
+call(3) -> 30 status after=1000001
+== node24 --trace-deopt
+status=1010001
+[bailout (kind: deopt-eager, reason: Insufficient type feedback for compare operation): begin. deoptimizing 0x0b24e1f26471 <JSFunction doIf (sfi = 0x14493c3a84a
+call(3) -> 30 status after=1

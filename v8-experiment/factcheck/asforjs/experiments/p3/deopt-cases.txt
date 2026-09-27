@@ -1,0 +1,573 @@
+===== sameCtor / node20
+MARK optimized: true
+MARK call 2nd instance
+MARK still opt: true
+===== sameCtor / node22
+MARK optimized: true
+MARK call 2nd instance
+MARK still opt: true
+===== sameCtor / node24
+MARK optimized: true
+MARK call 2nd instance
+MARK still opt: true
+===== sameCtor / d8
+MARK optimized: true
+MARK call 2nd instance
+MARK still opt: true
+===== addProp / node20
+MARK optimized: true
+MARK add prop (no call)
+MARK still opt after modification: true
+MARK call
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing  <JSFunction doGetAge (sfi = )>,  <Code TURBOFAN>, opt id 0, bytecode offset 0, deopt exit 1, FP to SP delta 32, caller SP , pc ]
+MARK still opt: false
+===== addProp / node22
+MARK optimized: true
+MARK add prop (no call)
+MARK still opt after modification: true
+MARK call
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing  <JSFunction doGetAge (sfi = )>,  <Code TURBOFAN>, opt id 0, bytecode offset 0, deopt exit 1, FP to SP delta 32, caller SP , pc ]
+MARK still opt: false
+===== addProp / node24
+MARK optimized: true
+MARK add prop (no call)
+MARK still opt after modification: true
+MARK call
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing  <JSFunction doGetAge (sfi = )>,  <Code TURBOFAN_JS>, opt id 1, bytecode offset 0, deopt exit 1, FP to SP delta 32, caller SP , pc ]
+MARK still opt: false
+===== addProp / d8
+MARK optimized: true
+MARK add prop (no call)
+MARK still opt after modification: true
+MARK call
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing  <JSFunction doGetAge (sfi = )>,  <Code TURBOFAN_JS>, opt id 0, bytecode offset 0, deopt exit 1, FP to SP delta 32, caller SP , pc ]
+MARK still opt: false
+===== literalVsCtor / node20
+MARK optimized: true
+MARK call literal
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing  <JSFunction doGetAge (sfi = )>,  <Code TURBOFAN>, opt id 0, bytecode offset 0, deopt exit 1, FP to SP delta 32, caller SP , pc ]
+MARK still opt: false
+===== literalVsCtor / node22
+MARK optimized: true
+MARK call literal
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing  <JSFunction doGetAge (sfi = )>,  <Code TURBOFAN>, opt id 0, bytecode offset 0, deopt exit 1, FP to SP delta 32, caller SP , pc ]
+MARK still opt: false
+===== literalVsCtor / node24
+MARK optimized: true
+MARK call literal
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing  <JSFunction doGetAge (sfi = )>,  <Code TURBOFAN_JS>, opt id 1, bytecode offset 0, deopt exit 1, FP to SP delta 32, caller SP , pc ]
+MARK still opt: false
+===== literalVsCtor / d8
+MARK optimized: true
+MARK call literal
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing  <JSFunction doGetAge (sfi = )>,  <Code TURBOFAN_JS>, opt id 0, bytecode offset 0, deopt exit 1, FP to SP delta 32, caller SP , pc ]
+MARK still opt: false
+===== setProto / node20
+MARK optimized: true
+MARK setPrototypeOf (no call)
+MARK still opt after modification: true
+MARK call
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing  <JSFunction doGetAge (sfi = )>,  <Code TURBOFAN>, opt id 0, bytecode offset 0, deopt exit 1, FP to SP delta 32, caller SP , pc ]
+MARK still opt: false
+===== setProto / node22
+MARK optimized: true
+MARK setPrototypeOf (no call)
+MARK still opt after modification: true
+MARK call
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing  <JSFunction doGetAge (sfi = )>,  <Code TURBOFAN>, opt id 0, bytecode offset 0, deopt exit 1, FP to SP delta 32, caller SP , pc ]
+MARK still opt: false
+===== setProto / node24
+MARK optimized: true
+MARK setPrototypeOf (no call)
+MARK still opt after modification: true
+MARK call
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing  <JSFunction doGetAge (sfi = )>,  <Code TURBOFAN_JS>, opt id 1, bytecode offset 0, deopt exit 1, FP to SP delta 32, caller SP , pc ]
+MARK still opt: false
+===== setProto / d8
+MARK optimized: true
+MARK setPrototypeOf (no call)
+MARK still opt after modification: true
+MARK call
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing  <JSFunction doGetAge (sfi = )>,  <Code TURBOFAN_JS>, opt id 0, bytecode offset 0, deopt exit 1, FP to SP delta 32, caller SP , pc ]
+MARK still opt: false
+===== pathLiteral / node20
+MARK optimized: true
+MARK call literal {name,age,prop}
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing  <JSFunction doGetAge (sfi = )>,  <Code TURBOFAN>, opt id 0, bytecode offset 0, deopt exit 1, FP to SP delta 32, caller SP , pc ]
+MARK still opt: false
+===== pathLiteral / node22
+MARK optimized: true
+MARK call literal {name,age,prop}
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing  <JSFunction doGetAge (sfi = )>,  <Code TURBOFAN>, opt id 0, bytecode offset 0, deopt exit 1, FP to SP delta 32, caller SP , pc ]
+MARK still opt: false
+===== pathLiteral / node24
+MARK optimized: true
+MARK call literal {name,age,prop}
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing  <JSFunction doGetAge (sfi = )>,  <Code TURBOFAN_JS>, opt id 1, bytecode offset 0, deopt exit 1, FP to SP delta 32, caller SP , pc ]
+MARK still opt: false
+===== pathLiteral / d8
+MARK optimized: true
+MARK call literal {name,age,prop}
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing  <JSFunction doGetAge (sfi = )>,  <Code TURBOFAN_JS>, opt id 0, bytecode offset 0, deopt exit 1, FP to SP delta 32, caller SP , pc ]
+MARK still opt: false
+===== pathSame / node20
+MARK optimized: true
+MARK call same path
+MARK still opt: true
+===== pathSame / node22
+MARK optimized: true
+MARK call same path
+MARK still opt: true
+===== pathSame / node24
+MARK optimized: true
+MARK call same path
+MARK still opt: true
+===== pathSame / d8
+MARK optimized: true
+MARK call same path
+MARK still opt: true
+===== otherOrder / node20
+MARK optimized: true
+MARK call other order
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing  <JSFunction doGetAge (sfi = )>,  <Code TURBOFAN>, opt id 0, bytecode offset 0, deopt exit 1, FP to SP delta 32, caller SP , pc ]
+MARK still opt: false
+===== otherOrder / node22
+MARK optimized: true
+MARK call other order
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing  <JSFunction doGetAge (sfi = )>,  <Code TURBOFAN>, opt id 0, bytecode offset 0, deopt exit 1, FP to SP delta 32, caller SP , pc ]
+MARK still opt: false
+===== otherOrder / node24
+MARK optimized: true
+MARK call other order
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing  <JSFunction doGetAge (sfi = )>,  <Code TURBOFAN_JS>, opt id 1, bytecode offset 0, deopt exit 1, FP to SP delta 32, caller SP , pc ]
+MARK still opt: false
+===== otherOrder / d8
+MARK optimized: true
+MARK call other order
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing  <JSFunction doGetAge (sfi = )>,  <Code TURBOFAN_JS>, opt id 0, bytecode offset 0, deopt exit 1, FP to SP delta 32, caller SP , pc ]
+MARK still opt: false
+===== deleteProp / node20
+MARK optimized: true
+MARK call after delete
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing  <JSFunction doGetAge (sfi = )>,  <Code TURBOFAN>, opt id 0, bytecode offset 0, deopt exit 1, FP to SP delta 32, caller SP , pc ]
+MARK still opt: false
+===== deleteProp / node22
+MARK optimized: true
+MARK call after delete
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing  <JSFunction doGetAge (sfi = )>,  <Code TURBOFAN>, opt id 0, bytecode offset 0, deopt exit 1, FP to SP delta 32, caller SP , pc ]
+MARK still opt: false
+===== deleteProp / node24
+MARK optimized: true
+MARK call after delete
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing  <JSFunction doGetAge (sfi = )>,  <Code TURBOFAN_JS>, opt id 1, bytecode offset 0, deopt exit 1, FP to SP delta 32, caller SP , pc ]
+MARK still opt: false
+===== deleteProp / d8
+MARK optimized: true
+MARK call after delete
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing  <JSFunction doGetAge (sfi = )>,  <Code TURBOFAN_JS>, opt id 0, bytecode offset 0, deopt exit 1, FP to SP delta 32, caller SP , pc ]
+MARK still opt: false
+===== numericKeys / node20
+MARK optimized: true
+MARK call after 100 numeric keys
+MARK still opt: true
+===== numericKeys / node22
+MARK optimized: true
+MARK call after 100 numeric keys
+MARK still opt: true
+===== numericKeys / node24
+MARK optimized: true
+MARK call after 100 numeric keys
+MARK still opt: true
+===== numericKeys / d8
+MARK optimized: true
+MARK call after 100 numeric keys
+MARK still opt: true
+===== valueSameRepr / node20
+MARK optimized: true
+[marking dependent code  <Code TURBOFAN> ( <SharedFunctionInfo doGetAge>) (opt id 0) for deoptimization, reason: code dependencies]
+MARK call after age=42
+MARK still opt: false
+===== valueSameRepr / node22
+MARK optimized: true
+[marking dependent code  <Code TURBOFAN> ( <SharedFunctionInfo doGetAge>) (opt id 0) for deoptimization, reason: code dependencies]
+MARK call after age=42
+MARK still opt: false
+===== valueSameRepr / node24
+MARK optimized: true
+[marking dependent code  <Code TURBOFAN_JS> ( <SharedFunctionInfo doGetAge>) (opt id 1) for deoptimization, reason: dependent field type constness changed]
+MARK call after age=42
+MARK still opt: false
+===== valueSameRepr / d8
+MARK optimized: true
+[marking dependent code  <Code TURBOFAN_JS> ( <SharedFunctionInfo doGetAge>) (opt id 0) for deoptimization, reason: dependent field type constness changed]
+MARK call after age=42
+MARK still opt: false
+===== valueSmiToDouble / node20
+MARK optimized: true
+MARK set age=1.5 (no call)
+MARK still opt after modification: true
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing  <JSFunction doGetAge (sfi = )>,  <Code TURBOFAN>, opt id 0, bytecode offset 0, deopt exit 1, FP to SP delta 32, caller SP , pc ]
+MARK still opt after call: false
+===== valueSmiToDouble / node22
+MARK optimized: true
+MARK set age=1.5 (no call)
+MARK still opt after modification: true
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing  <JSFunction doGetAge (sfi = )>,  <Code TURBOFAN>, opt id 0, bytecode offset 0, deopt exit 1, FP to SP delta 32, caller SP , pc ]
+MARK still opt after call: false
+===== valueSmiToDouble / node24
+MARK optimized: true
+MARK set age=1.5 (no call)
+MARK still opt after modification: true
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing  <JSFunction doGetAge (sfi = )>,  <Code TURBOFAN_JS>, opt id 1, bytecode offset 0, deopt exit 1, FP to SP delta 32, caller SP , pc ]
+MARK still opt after call: false
+===== valueSmiToDouble / d8
+MARK optimized: true
+MARK set age=1.5 (no call)
+MARK still opt after modification: true
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing  <JSFunction doGetAge (sfi = )>,  <Code TURBOFAN_JS>, opt id 0, bytecode offset 0, deopt exit 1, FP to SP delta 32, caller SP , pc ]
+MARK still opt after call: false
+===== valueSmiToString / node20
+MARK optimized: true
+MARK set age="x" (no call)
+[marking dependent code  <Code TURBOFAN> ( <SharedFunctionInfo doGetAge>) (opt id 0) for deoptimization, reason: code dependencies]
+MARK still opt after modification: false
+MARK still opt after call: false
+===== valueSmiToString / node22
+MARK optimized: true
+MARK set age="x" (no call)
+[marking dependent code  <Code TURBOFAN> ( <SharedFunctionInfo doGetAge>) (opt id 0) for deoptimization, reason: code dependencies]
+MARK still opt after modification: false
+MARK still opt after call: false
+===== valueSmiToString / node24
+MARK optimized: true
+MARK set age="x" (no call)
+[marking dependent code  <Code TURBOFAN_JS> ( <SharedFunctionInfo doGetAge>) (opt id 1) for deoptimization, reason: dependent field type constness changed]
+MARK still opt after modification: false
+MARK still opt after call: false
+===== valueSmiToString / d8
+MARK optimized: true
+MARK set age="x" (no call)
+[marking dependent code  <Code TURBOFAN_JS> ( <SharedFunctionInfo doGetAge>) (opt id 0) for deoptimization, reason: dependent field type constness changed]
+MARK still opt after modification: false
+MARK still opt after call: false
+===== valueSmiToStringUse / node20
+MARK optimized: true
+MARK set other obj age="x" (no call)
+[marking dependent code  <Code TURBOFAN> ( <SharedFunctionInfo useAge>) (opt id 0) for deoptimization, reason: code dependencies]
+MARK still opt after modification: false
+MARK still opt after call: false
+===== valueSmiToStringUse / node22
+MARK optimized: true
+MARK set other obj age="x" (no call)
+[marking dependent code  <Code TURBOFAN> ( <SharedFunctionInfo useAge>) (opt id 0) for deoptimization, reason: code dependencies]
+MARK still opt after modification: false
+MARK still opt after call: false
+===== valueSmiToStringUse / node24
+MARK optimized: true
+MARK set other obj age="x" (no call)
+[marking dependent code  <Code TURBOFAN_JS> ( <SharedFunctionInfo useAge>) (opt id 1) for deoptimization, reason: dependent field type constness changed]
+MARK still opt after modification: false
+MARK still opt after call: false
+===== valueSmiToStringUse / d8
+MARK optimized: true
+MARK set other obj age="x" (no call)
+[marking dependent code  <Code TURBOFAN_JS> ( <SharedFunctionInfo useAge>) (opt id 0) for deoptimization, reason: dependent field type constness changed]
+MARK still opt after modification: false
+MARK still opt after call: false
+===== wrongMapProto / node20
+MARK optimized: true
+MARK call MakeObject2
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing  <JSFunction doThingObject (sfi = )>,  <Code TURBOFAN>, opt id 0, bytecode offset 0, deopt exit 1, FP to SP delta 32, caller SP , pc ]
+MARK still opt: false
+===== wrongMapProto / node22
+MARK optimized: true
+MARK call MakeObject2
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing  <JSFunction doThingObject (sfi = )>,  <Code TURBOFAN>, opt id 0, bytecode offset 0, deopt exit 1, FP to SP delta 32, caller SP , pc ]
+MARK still opt: false
+===== wrongMapProto / node24
+MARK optimized: true
+MARK call MakeObject2
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing  <JSFunction doThingObject (sfi = )>,  <Code TURBOFAN_JS>, opt id 1, bytecode offset 0, deopt exit 1, FP to SP delta 32, caller SP , pc ]
+MARK still opt: false
+===== wrongMapProto / d8
+MARK optimized: true
+MARK call MakeObject2
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing  <JSFunction doThingObject (sfi = )>,  <Code TURBOFAN_JS>, opt id 0, bytecode offset 0, deopt exit 1, FP to SP delta 32, caller SP , pc ]
+MARK still opt: false
+===== twoLiterals / node20
+MARK optimized: true
+MARK call literal same order
+MARK still opt: true
+===== twoLiterals / node22
+MARK optimized: true
+MARK call literal same order
+MARK still opt: true
+===== twoLiterals / node24
+MARK optimized: true
+MARK call literal same order
+MARK still opt: true
+===== twoLiterals / d8
+MARK optimized: true
+MARK call literal same order
+MARK still opt: true
+===== patternParam / node20
+MARK optimized: true
+MARK call literal
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing  <JSFunction f (sfi = )>,  <Code TURBOFAN>, opt id 0, bytecode offset 0, deopt exit 1, FP to SP delta 32, caller SP , pc ]
+MARK still opt: false
+===== patternParam / node22
+MARK optimized: true
+MARK call literal
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing  <JSFunction f (sfi = )>,  <Code TURBOFAN>, opt id 0, bytecode offset 0, deopt exit 1, FP to SP delta 32, caller SP , pc ]
+MARK still opt: false
+===== patternParam / node24
+MARK optimized: true
+MARK call literal
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing  <JSFunction f (sfi = )>,  <Code TURBOFAN_JS>, opt id 1, bytecode offset 0, deopt exit 1, FP to SP delta 32, caller SP , pc ]
+MARK still opt: false
+===== patternParam / d8
+MARK optimized: true
+MARK call literal
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing  <JSFunction f (sfi = )>,  <Code TURBOFAN_JS>, opt id 0, bytecode offset 0, deopt exit 1, FP to SP delta 32, caller SP , pc ]
+MARK still opt: false
+===== restParam / node20
+MARK optimized: true
+MARK call literal (other proto)
+MARK still opt: true
+MARK call other order
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing  <JSFunction f (sfi = )>,  <Code TURBOFAN>, opt id 0, bytecode offset 5, deopt exit 1, FP to SP delta 32, caller SP , pc ]
+MARK still opt: false
+===== restParam / node22
+MARK optimized: true
+MARK call literal (other proto)
+MARK still opt: true
+MARK call other order
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing  <JSFunction f (sfi = )>,  <Code TURBOFAN>, opt id 0, bytecode offset 5, deopt exit 1, FP to SP delta 32, caller SP , pc ]
+MARK still opt: false
+===== restParam / node24
+MARK optimized: true
+MARK call literal (other proto)
+MARK still opt: true
+MARK call other order
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing  <JSFunction f (sfi = )>,  <Code TURBOFAN_JS>, opt id 1, bytecode offset 5, deopt exit 1, FP to SP delta 32, caller SP , pc ]
+MARK still opt: false
+===== restParam / d8
+MARK optimized: true
+MARK call literal (other proto)
+MARK still opt: true
+MARK call other order
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing  <JSFunction f (sfi = )>,  <Code TURBOFAN_JS>, opt id 0, bytecode offset 19, deopt exit 0, FP to SP delta 40, caller SP , pc ]
+MARK still opt: false
+===== restParamSameOrderManyMaps / node20
+MARK optimized: true
+MARK input 0
+MARK still opt: true
+MARK input 1
+MARK still opt: true
+MARK input 2
+MARK still opt: true
+MARK input 3
+MARK still opt: true
+===== restParamSameOrderManyMaps / node22
+MARK optimized: true
+MARK input 0
+MARK still opt: true
+MARK input 1
+MARK still opt: true
+MARK input 2
+MARK still opt: true
+MARK input 3
+MARK still opt: true
+===== restParamSameOrderManyMaps / node24
+MARK optimized: true
+MARK input 0
+MARK still opt: true
+MARK input 1
+MARK still opt: true
+MARK input 2
+MARK still opt: true
+MARK input 3
+MARK still opt: true
+===== restParamSameOrderManyMaps / d8
+MARK optimized: true
+MARK input 0
+MARK still opt: true
+MARK input 1
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing  <JSFunction f (sfi = )>,  <Code TURBOFAN_JS>, opt id 0, bytecode offset 19, deopt exit 0, FP to SP delta 40, caller SP , pc ]
+MARK still opt: false
+MARK input 2
+MARK still opt: false
+MARK input 3
+MARK still opt: false
+===== restExcluded / node20
+MARK optimized: true
+MARK call literal
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing  <JSFunction f (sfi = )>,  <Code TURBOFAN>, opt id 0, bytecode offset 3, deopt exit 1, FP to SP delta 32, caller SP , pc ]
+MARK still opt: false
+===== restExcluded / node22
+MARK optimized: true
+MARK call literal
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing  <JSFunction f (sfi = )>,  <Code TURBOFAN>, opt id 0, bytecode offset 3, deopt exit 1, FP to SP delta 32, caller SP , pc ]
+MARK still opt: false
+===== restExcluded / node24
+MARK optimized: true
+MARK call literal
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing  <JSFunction f (sfi = )>,  <Code TURBOFAN_JS>, opt id 1, bytecode offset 3, deopt exit 1, FP to SP delta 32, caller SP , pc ]
+MARK still opt: false
+===== restExcluded / d8
+MARK optimized: true
+MARK call literal
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing  <JSFunction f (sfi = )>,  <Code TURBOFAN_JS>, opt id 0, bytecode offset 3, deopt exit 1, FP to SP delta 32, caller SP , pc ]
+MARK still opt: false
+===== protoAddOwnLoad / node20
+MARK optimized: true
+MARK Ctor.prototype.foo=1 (no call)
+MARK still opt after modification: true
+MARK still opt after call: true
+===== protoAddOwnLoad / node22
+MARK optimized: true
+MARK Ctor.prototype.foo=1 (no call)
+MARK still opt after modification: true
+MARK still opt after call: true
+===== protoAddOwnLoad / node24
+MARK optimized: true
+MARK Ctor.prototype.foo=1 (no call)
+MARK still opt after modification: true
+MARK still opt after call: true
+===== protoAddOwnLoad / d8
+MARK optimized: true
+MARK Ctor.prototype.foo=1 (no call)
+MARK still opt after modification: true
+MARK still opt after call: true
+===== protoAddMethodCall / node20
+MARK optimized: true
+MARK P.prototype.other=1 (no call)
+[marking dependent code  <Code TURBOFAN> ( <SharedFunctionInfo callM>) (opt id 0) for deoptimization, reason: code dependencies]
+MARK still opt after modification: false
+MARK still opt after call: false
+===== protoAddMethodCall / node22
+MARK optimized: true
+MARK P.prototype.other=1 (no call)
+[marking dependent code  <Code TURBOFAN> ( <SharedFunctionInfo callM>) (opt id 0) for deoptimization, reason: code dependencies]
+MARK still opt after modification: false
+MARK still opt after call: false
+===== protoAddMethodCall / node24
+MARK optimized: true
+MARK P.prototype.other=1 (no call)
+[marking dependent code  <Code TURBOFAN_JS> ( <SharedFunctionInfo callM>) (opt id 1) for deoptimization, reason: dependent prototype chain changed]
+MARK still opt after modification: false
+MARK still opt after call: false
+===== protoAddMethodCall / d8
+MARK optimized: true
+MARK P.prototype.other=1 (no call)
+[marking dependent code  <Code TURBOFAN_JS> ( <SharedFunctionInfo callM>) (opt id 0) for deoptimization, reason: dependent prototype chain changed]
+MARK still opt after modification: false
+MARK still opt after call: false
+===== protoAddMissing / node20
+MARK optimized: true
+MARK P.prototype.zzz=1 (no call)
+[marking dependent code  <Code TURBOFAN> ( <SharedFunctionInfo readMissing>) (opt id 0) for deoptimization, reason: code dependencies]
+MARK still opt after modification: false
+MARK still opt after call: false
+===== protoAddMissing / node22
+MARK optimized: true
+MARK P.prototype.zzz=1 (no call)
+[marking dependent code  <Code TURBOFAN> ( <SharedFunctionInfo readMissing>) (opt id 0) for deoptimization, reason: code dependencies]
+MARK still opt after modification: false
+MARK still opt after call: false
+===== protoAddMissing / node24
+MARK optimized: true
+MARK P.prototype.zzz=1 (no call)
+[marking dependent code  <Code TURBOFAN_JS> ( <SharedFunctionInfo readMissing>) (opt id 1) for deoptimization, reason: dependent prototype chain changed]
+MARK still opt after modification: false
+MARK still opt after call: false
+===== protoAddMissing / d8
+MARK optimized: true
+MARK P.prototype.zzz=1 (no call)
+[marking dependent code  <Code TURBOFAN_JS> ( <SharedFunctionInfo readMissing>) (opt id 0) for deoptimization, reason: dependent prototype chain changed]
+MARK still opt after modification: false
+MARK still opt after call: false
+===== constFieldGlobal / node20
+MARK optimized: true
+MARK gobj.name="y" (no call)
+[marking dependent code  <Code TURBOFAN> ( <SharedFunctionInfo>) (opt id 0) for deoptimization, reason: code dependencies]
+MARK still opt after modification: false
+MARK still opt after call: false
+===== constFieldGlobal / node22
+MARK optimized: true
+MARK gobj.name="y" (no call)
+[marking dependent code  <Code TURBOFAN> ( <SharedFunctionInfo>) (opt id 0) for deoptimization, reason: code dependencies]
+MARK still opt after modification: false
+MARK still opt after call: false
+===== constFieldGlobal / node24
+MARK optimized: true
+MARK gobj.name="y" (no call)
+[marking dependent code  <Code TURBOFAN_JS> ( <SharedFunctionInfo>) (opt id 1) for deoptimization, reason: dependent field type constness changed]
+MARK still opt after modification: false
+MARK still opt after call: false
+===== constFieldGlobal / d8
+MARK optimized: true
+MARK gobj.name="y" (no call)
+[marking dependent code  <Code TURBOFAN_JS> ( <SharedFunctionInfo>) (opt id 0) for deoptimization, reason: dependent field type constness changed]
+MARK still opt after modification: false
+MARK still opt after call: false
+===== fnCounterNamed / node20
+MARK optimized: true
+MARK doExpr.counter=1 (no call)
+MARK still opt after modification: true
+MARK still opt after call: true
+===== fnCounterNamed / node22
+MARK optimized: true
+MARK doExpr.counter=1 (no call)
+MARK still opt after modification: true
+MARK still opt after call: true
+===== fnCounterNamed / node24
+MARK optimized: true
+MARK doExpr.counter=1 (no call)
+MARK still opt after modification: true
+MARK still opt after call: true
+===== fnCounterNamed / d8
+MARK optimized: true
+MARK doExpr.counter=1 (no call)
+MARK still opt after modification: true
+MARK still opt after call: true
+===== fnCounterIndex / node20
+MARK optimized: true
+MARK doExpr[0]=1 (no call)
+MARK still opt after modification: true
+MARK still opt after call: true
+===== fnCounterIndex / node22
+MARK optimized: true
+MARK doExpr[0]=1 (no call)
+MARK still opt after modification: true
+MARK still opt after call: true
+===== fnCounterIndex / node24
+MARK optimized: true
+MARK doExpr[0]=1 (no call)
+MARK still opt after modification: true
+MARK still opt after call: true
+===== fnCounterIndex / d8
+MARK optimized: true
+MARK doExpr[0]=1 (no call)
+MARK still opt after modification: true
+MARK still opt after call: true
+===== callTarget / node20
+MARK optimized: true
+MARK call with doConst15
+[bailout (kind: deopt-eager, reason: wrong call target): begin. deoptimizing  <JSFunction doThing (sfi = )>,  <Code TURBOFAN>, opt id 0, bytecode offset 0, deopt exit 0, FP to SP delta 32, caller SP , pc ]
+MARK still opt: false
+===== callTarget / node22
+MARK optimized: true
+MARK call with doConst15
+[bailout (kind: deopt-eager, reason: wrong call target): begin. deoptimizing  <JSFunction doThing (sfi = )>,  <Code TURBOFAN>, opt id 0, bytecode offset 0, deopt exit 0, FP to SP delta 32, caller SP , pc ]
+MARK still opt: false
+===== callTarget / node24
+MARK optimized: true
+MARK call with doConst15
+[bailout (kind: deopt-eager, reason: wrong call target): begin. deoptimizing  <JSFunction doThing (sfi = )>,  <Code TURBOFAN_JS>, opt id 1, bytecode offset 0, deopt exit 0, FP to SP delta 32, caller SP , pc ]
+MARK still opt: false
+===== callTarget / d8
+MARK optimized: true
+MARK call with doConst15
+[bailout (kind: deopt-eager, reason: wrong call target): begin. deoptimizing  <JSFunction doThing (sfi = )>,  <Code TURBOFAN_JS>, opt id 0, bytecode offset 0, deopt exit 0, FP to SP delta 32, caller SP , pc ]
+MARK still opt: false

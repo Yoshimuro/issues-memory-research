@@ -1,0 +1,84 @@
+V8 is running with developer-only features enabled. Stability and security will suffer.
+[OSR - setting osr urgency. function: doLoop, old urgency: 0, new urgency: 1]
+[OSR - compilation started. function: doLoop, osr offset: 25, mode: ConcurrencyMode::kConcurrent]
+[OSR - unavailable (failed or in progress). function: doLoop, osr offset: 25, mode: ConcurrencyMode::kConcurrent]
+[OSR - setting osr urgency. function: doLoop, old urgency: 0, new urgency: 1]
+[OSR - entry. function: doLoop, osr offset: 25]
+[OSR - compilation started. function: doLoop, osr offset: 25, mode: ConcurrencyMode::kConcurrent]
+[OSR - unavailable (failed or in progress). function: doLoop, osr offset: 25, mode: ConcurrencyMode::kConcurrent]
+[OSR - compilation finished. function: doLoop, osr offset: 25]
+[OSR - entry. function: doLoop, osr offset: 25]
+[OSR - setting osr urgency. function: doLoop, old urgency: 0, new urgency: 1]
+[OSR - compilation started. function: doLoop, osr offset: 25, mode: ConcurrencyMode::kConcurrent]
+[OSR - unavailable (failed or in progress). function: doLoop, osr offset: 25, mode: ConcurrencyMode::kConcurrent]
+[OSR - setting osr urgency. function: doLoop, old urgency: 0, new urgency: 1]
+[OSR - entry. function: doLoop, osr offset: 25]
+[OSR - compilation started. function: doLoop, osr offset: 25, mode: ConcurrencyMode::kConcurrent]
+[OSR - unavailable (failed or in progress). function: doLoop, osr offset: 25, mode: ConcurrencyMode::kConcurrent]
+[OSR - compilation finished. function: doLoop, osr offset: 25]
+[OSR - setting osr urgency. function: doLoop, old urgency: 0, new urgency: 1]
+[OSR - entry. function: doLoop, osr offset: 25]
+DebugPrint: 0xf370101da3d: [Function] in OldSpace
+ - map: 0x0f3701004c89 <Map[32](HOLEY_ELEMENTS)> [FastProperties]
+ - prototype: 0x0f3701004db1 <JSFunction (sfi = 0xf37010014c9)>
+ - elements: 0x0f37000007e5 <FixedArray[0]> [HOLEY_ELEMENTS]
+ - function prototype: 
+ - initial_map: 
+ - shared_info: 0x0f370101d9b1 <SharedFunctionInfo doLoop>
+ - name: 0x0f370101d915 <String[6]: #doLoop>
+ - builtin: InterpreterEntryTrampoline
+ - formal_parameter_count: 2
+ - kind: NormalFunction
+ - context: 0x0f370100458d <NativeContext[308]>
+ - code: 0x0f3700b61a7d <Code BUILTIN InterpreterEntryTrampoline>
+ - dispatch_handle: 0x135700
+ - tiering request StartMaglevOptimizeJob
+ - interpreted
+ - bytecode: 0x36cc010000e5 <BytecodeArray[41]>
+ - source code: (n) { let s = 0; for (let i = 0; i < n; i++) s += i; %DebugPrint(doLoop); return s }
+ - properties: 0x0f37000007e5 <FixedArray[0]>
+ - All own properties (excluding elements): {
+    0xf3700000e39: [String] in ReadOnlySpace: #length: 0x0f3700b5fe2d <AccessorInfo name= 0x0f3700000e39 <String[6]: #length>, data= 0x0f3700000011 <undefined>> (const accessor descriptor, attrs: [__C])
+    0xf3700000e29: [String] in ReadOnlySpace: #name: 0x0f3700b5fe15 <AccessorInfo name= 0x0f3700000e29 <String[4]: #name>, data= 0x0f3700000011 <undefined>> (const accessor descriptor, attrs: [__C])
+    0xf3700000e11: [String] in ReadOnlySpace: #prototype: 0x0f3700b5fe45 <AccessorInfo name= 0x0f3700000e11 <String[9]: #prototype>, data= 0x0f3700000011 <undefined>> (const accessor descriptor, attrs: [W__])
+ }
+ - feedback vector: 0xf370101db01: [FeedbackVector] in OldSpace
+ - map: 0x0f3700000895 <Map(FEEDBACK_VECTOR_TYPE)>
+ - length: 4
+ - shared function info: 0x0f370101d9b1 <SharedFunctionInfo doLoop>
+ - tiering_in_progress: 0
+ - osr_tiering_in_progress: 0
+ - invocation count: 1
+ - closure feedback cell array: 0xf37000020b9: [ClosureFeedbackCellArray] in ReadOnlySpace
+ - map: 0x0f370000086d <Map(CLOSURE_FEEDBACK_CELL_ARRAY_TYPE)>
+ - length: 0
+ - elements:
+
+ - slot #0 JumpLoop JumpLoop {
+     [0]: [weak] 0x0f370101dbbd <CodeWrapper>
+     [1]: 0
+  }
+ - slot #2 LoadGlobalNotInsideTypeof MONOMORPHIC
+   [weak] 0x0f370101da5d <PropertyCell name=0x0f370101d915 <String[6]: #doLoop> value=0x0f370101da3d <JSFunction doLoop (sfi = 0xf370101d9b1)>> {
+     [2]: [weak] 0x0f370101da5d <PropertyCell name=0x0f370101d915 <String[6]: #doLoop> value=0x0f370101da3d <JSFunction doLoop (sfi = 0xf370101d9b1)>>
+     [3]: 0x0f3700000eb5 <Symbol: (uninitialized_symbol)>
+  }
+0xf3701004c89: [Map] in OldSpace
+ - map: 0x0f370100453d <MetaMap (0x0f370100458d <NativeContext[308]>)>
+ - type: JS_FUNCTION_WITH_PROTOTYPE_TYPE
+ - instance size: 32
+ - inobject properties: 0
+ - unused property fields: 0
+ - elements kind: HOLEY_ELEMENTS
+ - enum length: invalid
+ - stable_map
+ - callable
+ - constructor
+ - back pointer: 0x0f3700000011 <undefined>
+ - prototype_validity_cell: 0x0f3700000b15 <Cell value= [cleared]>
+ - instance descriptors (own) #3: 0x0f3701004cb1 <DescriptorArray[3]>
+ - prototype: 0x0f3701004db1 <JSFunction (sfi = 0xf37010014c9)>
+ - constructor: 0x0f3701004c55 <JSFunction Function (sfi = 0xf3700b9468d)>
+ - dependent code: 0x0f37000007f5 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 0
+

@@ -1,0 +1,12 @@
+## node20
+rep0 withArrow=40.2 withNamedDecl=123.2 withNamedConst=123.4 withLocalNamed=126.5
+rep1 withArrow=38.8 withNamedDecl=34.3 withNamedConst=34.0 withLocalNamed=37.2
+rep2 withArrow=35.3 withNamedDecl=34.0 withNamedConst=34.5 withLocalNamed=34.8
+## node24
+rep0 withArrow=39.2 withNamedDecl=124.6 withNamedConst=124.9 withLocalNamed=130.6
+rep1 withArrow=39.5 withNamedDecl=124.0 withNamedConst=130.5 withLocalNamed=122.9
+rep2 withArrow=39.9 withNamedDecl=125.6 withNamedConst=107.3 withLocalNamed=101.9
+## d8
+rep0 withArrow=79.1 withNamedDecl=56.5 withNamedConst=130.7 withLocalNamed=123.5
+rep1 withArrow=46.2 withNamedDecl=49.9 withNamedConst=127.1 withLocalNamed=119.9
+rep2 withArrow=42.8 withNamedDecl=44.9 withNamedConst=114.5 withLocalNamed=115.8

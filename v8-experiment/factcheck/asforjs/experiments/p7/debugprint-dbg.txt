@@ -1,0 +1,82 @@
+DebugPrint: 0x14d01089771: [JSArray]
+ - map: 0x014d0100ca31 <Map[16](PACKED_SMI_ELEMENTS)> [FastProperties]
+ - prototype: 0x014d0100ca59 <JSArray[0]>
+ - elements: 0x014d0101db49 <FixedArray[3]> [PACKED_SMI_ELEMENTS (COW)]
+ - length: 3
+ - properties: 0x014d000007e5 <FixedArray[0]>
+ - All own properties (excluding elements): {
+    0x14d00000e39: [String] in ReadOnlySpace: #length: 0x014d00b5fdcd <AccessorInfo name= 0x014d00000e39 <String[6]: #length>, data= 0x014d00000011 <undefined>> (const accessor descriptor, attrs: [W__])
+ }
+ - elements: 0x014d0101db49 <FixedArray[3]> {
+           0: 1
+           1: 2
+           2: 3
+ }
+0x14d0100ca31: [Map] in OldSpace
+ - map: 0x014d0100453d <MetaMap (0x014d0100458d <NativeContext[308]>)>
+ - type: JS_ARRAY_TYPE
+ - instance size: 16
+ - inobject properties: 0
+ - unused property fields: 0
+ - elements kind: PACKED_SMI_ELEMENTS
+ - enum length: invalid
+ - back pointer: 0x014d00000011 <undefined>
+ - prototype_validity_cell: 0x014d00000b15 <Cell value= [cleared]>
+ - instance descriptors #1: 0x014d0100d071 <DescriptorArray[1]>
+ - transitions #1: 0x014d0100d08d <TransitionArray[5]>
+   Transitions #1:
+     0x014d00000ed5 <Symbol: (elements_transition_symbol)>: (transition to HOLEY_SMI_ELEMENTS) -> 0x014d0100d0a9 <Map[16](HOLEY_SMI_ELEMENTS)>
+ - prototype: 0x014d0100ca59 <JSArray[0]>
+ - constructor: 0x014d0100c981 <JSFunction Array (sfi = 0x14d00b9486d)>
+ - dependent code: 0x014d000007f5 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 0
+
+DebugPrint: 0x14d0101dc39: [Function] in OldSpace
+ - map: 0x014d01004c89 <Map[32](HOLEY_ELEMENTS)> [FastProperties]
+ - prototype: 0x014d01004db1 <JSFunction (sfi = 0x14d010014c9)>
+ - elements: 0x014d000007e5 <FixedArray[0]> [HOLEY_ELEMENTS]
+ - function prototype: 
+ - initial_map: 
+ - shared_info: 0x014d0101dab9 <SharedFunctionInfo doSum>
+ - name: 0x014d0101d915 <String[5]: #doSum>
+ - builtin: InterpreterEntryTrampoline
+ - formal_parameter_count: 2
+ - kind: NormalFunction
+ - context: 0x014d0101dc25 <ScriptContext[3]>
+ - code: 0x014d00b61a7d <Code BUILTIN InterpreterEntryTrampoline>
+ - dispatch_handle: 0x135700
+ - interpreted
+ - bytecode: 0x0a7401000191 <BytecodeArray[6]>
+ - source code: (a) { return a + 1; }
+ - properties: 0x014d000007e5 <FixedArray[0]>
+ - All own properties (excluding elements): {
+    0x14d00000e39: [String] in ReadOnlySpace: #length: 0x014d00b5fe2d <AccessorInfo name= 0x014d00000e39 <String[6]: #length>, data= 0x014d00000011 <undefined>> (const accessor descriptor, attrs: [__C])
+    0x14d00000e29: [String] in ReadOnlySpace: #name: 0x014d00b5fe15 <AccessorInfo name= 0x014d00000e29 <String[4]: #name>, data= 0x014d00000011 <undefined>> (const accessor descriptor, attrs: [__C])
+    0x14d00000e11: [String] in ReadOnlySpace: #prototype: 0x014d00b5fe45 <AccessorInfo name= 0x014d00000e11 <String[9]: #prototype>, data= 0x014d00000011 <undefined>> (const accessor descriptor, attrs: [W__])
+ }
+ - feedback vector: No feedback vector, but we have a closure feedback cell array
+0x14d000020b9: [ClosureFeedbackCellArray] in ReadOnlySpace
+ - map: 0x014d0000086d <Map(CLOSURE_FEEDBACK_CELL_ARRAY_TYPE)>
+ - length: 0
+ - elements:
+0x14d01004c89: [Map] in OldSpace
+ - map: 0x014d0100453d <MetaMap (0x014d0100458d <NativeContext[308]>)>
+ - type: JS_FUNCTION_WITH_PROTOTYPE_TYPE
+ - instance size: 32
+ - inobject properties: 0
+ - unused property fields: 0
+ - elements kind: HOLEY_ELEMENTS
+ - enum length: invalid
+ - stable_map
+ - callable
+ - constructor
+ - back pointer: 0x014d00000011 <undefined>
+ - prototype_validity_cell: 0x014d00000b15 <Cell value= [cleared]>
+ - instance descriptors (own) #3: 0x014d01004cb1 <DescriptorArray[3]>
+ - prototype: 0x014d01004db1 <JSFunction (sfi = 0x14d010014c9)>
+ - constructor: 0x014d01004c55 <JSFunction Function (sfi = 0x14d00b9468d)>
+ - dependent code: 0x014d000007f5 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 0
+
+HaveSameMap returns: true boolean
+Has*Elements: true true true true false

@@ -1,0 +1,31 @@
+== N20: optimizations / deopts of getV
+      1 reason: small function
+      1 completed optimizing
+      1 reason: wrong map
+      1 reason: small function
+      1 completed optimizing
+== N24: optimizations / deopts of getV
+      1 reason: hot and stable
+      1 reason: wrong map
+      2 reason: hot and stable
+      1 reason: wrong map
+      1 reason: hot and stable
+      1 reason: wrong map
+      1 reason: hot and stable
+      1 completed optimizing
+      1 reason: wrong map
+      1 reason: hot and stable
+      1 reason: wrong map
+      2 reason: hot and stable
+      1 completed optimizing
+== D8: optimizations / deopts of getV
+      1 reason: hot and stable
+      1 reason: wrong map
+      1 reason: hot and stable
+      1 reason: wrong map
+      1 reason: hot and stable
+      1 reason: wrong map
+      1 reason: hot and stable
+      1 reason: wrong map
+      2 reason: hot and stable
+      1 completed optimizing

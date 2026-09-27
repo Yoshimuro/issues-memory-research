@@ -1,0 +1,41 @@
+## node20
+[bailout (kind: deopt-eager, reason: Insufficient type feedback for generic named access): begin. deoptimizing  <JSFunction (sfi = )>,  <Code TURBOFAN>, opt id 1, bytecode offset 239, deopt 
+MARK status before value change 1010001
+[marking dependent code  <Code TURBOFAN> ( <SharedFunctionInfo>) (opt id 1) for deoptimization, reason: code dependencies]
+[marking dependent code  <Code TURBOFAN> ( <SharedFunctionInfo doGetAge>) (opt id 0) for deoptimization, reason: code dependencies]
+MARK status after value change 1
+[bailout (kind: deopt-eager, reason: Insufficient type feedback for generic named access): begin. deoptimizing  <JSFunction (sfi = )>,  <Code TURBOFAN>, opt id 2, bytecode offset 470, deopt 
+MARK status after rewarm 1010001
+MARK status after 2nd value change 1010001
+## node22
+[bailout (kind: deopt-eager, reason: Insufficient type feedback for generic named access): begin. deoptimizing  <JSFunction (sfi = )>,  <Code TURBOFAN>, opt id 1, bytecode offset 239, deopt 
+MARK status before value change 1010001
+[marking dependent code  <Code TURBOFAN> ( <SharedFunctionInfo>) (opt id 1) for deoptimization, reason: code dependencies]
+[marking dependent code  <Code TURBOFAN> ( <SharedFunctionInfo doGetAge>) (opt id 0) for deoptimization, reason: code dependencies]
+MARK status after value change 1
+[bailout (kind: deopt-eager, reason: Insufficient type feedback for generic named access): begin. deoptimizing  <JSFunction (sfi = )>,  <Code TURBOFAN>, opt id 3, bytecode offset 470, deopt 
+MARK status after rewarm 1010001
+MARK status after 2nd value change 1010001
+## node24
+[bailout (kind: deopt-eager, reason: Insufficient type feedback for generic named access): begin. deoptimizing  <JSFunction (sfi = )>,  <Code MAGLEV>, opt id 3, bytecode offset 242, deopt ex
+MARK status before value change 1010001
+[marking dependent code  <Code TURBOFAN_JS> ( <SharedFunctionInfo>) (opt id 4) for deoptimization, reason: dependent field type constness changed]
+[marking dependent code  <Code TURBOFAN_JS> ( <SharedFunctionInfo doGetAge>) (opt id 2) for deoptimization, reason: dependent field type constness changed]
+[marking dependent code  <Code MAGLEV> ( <SharedFunctionInfo>) (opt id 3) for deoptimization, reason: dependent field type constness changed]
+[marking dependent code  <Code MAGLEV> ( <SharedFunctionInfo doGetAge>) (opt id 1) for deoptimization, reason: dependent field type constness changed]
+MARK status after value change 1
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. deoptimizing  <JSFunction (sfi = )>,  <Code MAGLEV>, opt id 6, bytecode offset 459, deopt exit 20, FP to 
+[bailout (kind: deopt-eager, reason: Insufficient type feedback for generic named access): begin. deoptimizing  <JSFunction (sfi = )>,  <Code TURBOFAN_JS>, opt id 7, bytecode offset 476, deo
+MARK status after rewarm 1010001
+MARK status after 2nd value change 1010001
+## d8
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. deoptimizing  <JSFunction (sfi = )>,  <Code MAGLEV>, opt id 1, bytecode offset 239, deopt exit 23, FP to 
+[bailout (kind: deopt-eager, reason: Insufficient type feedback for generic named access): begin. deoptimizing  <JSFunction (sfi = )>,  <Code TURBOFAN_JS>, opt id 2, bytecode offset 262, deo
+MARK status before value change 11001
+[marking dependent code  <Code TURBOFAN_JS> ( <SharedFunctionInfo>) (opt id 2) for deoptimization, reason: dependent field type constness changed]
+[marking dependent code  <Code MAGLEV> ( <SharedFunctionInfo>) (opt id 1) for deoptimization, reason: dependent field type constness changed]
+[marking dependent code  <Code MAGLEV> ( <SharedFunctionInfo doGetAge>) (opt id 0) for deoptimization, reason: dependent field type constness changed]
+MARK status after value change 1000001
+[bailout (kind: deopt-eager, reason: Insufficient type feedback for generic named access): begin. deoptimizing  <JSFunction (sfi = )>,  <Code MAGLEV>, opt id 4, bytecode offset 509, deopt ex
+MARK status after rewarm 11001
+MARK status after 2nd value change 11001

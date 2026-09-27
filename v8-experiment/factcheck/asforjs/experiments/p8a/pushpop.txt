@@ -1,0 +1,16 @@
+## d8
+rep0: k=4  boundary len=1289: 29ms | inside len=1500: 27ms || k=700 from len=900 (crosses trim/grow thresholds): 21ms | k=700 from len=2000 (inside cap 2944): 20ms
+rep1: k=4  boundary len=1289: 26ms | inside len=1500: 31ms || k=700 from len=900 (crosses trim/grow thresholds): 25ms | k=700 from len=2000 (inside cap 2944): 17ms
+rep2: k=4  boundary len=1289: 26ms | inside len=1500: 25ms || k=700 from len=900 (crosses trim/grow thresholds): 19ms | k=700 from len=2000 (inside cap 2944): 20ms
+## node24
+rep0: k=4  boundary len=1289: 30ms | inside len=1500: 31ms || k=700 from len=900 (crosses trim/grow thresholds): 27ms | k=700 from len=2000 (inside cap 2944): 19ms
+rep1: k=4  boundary len=1289: 26ms | inside len=1500: 28ms || k=700 from len=900 (crosses trim/grow thresholds): 26ms | k=700 from len=2000 (inside cap 2944): 21ms
+rep2: k=4  boundary len=1289: 29ms | inside len=1500: 30ms || k=700 from len=900 (crosses trim/grow thresholds): 22ms | k=700 from len=2000 (inside cap 2944): 21ms
+## node22
+rep0: k=4  boundary len=1289: 25ms | inside len=1500: 26ms || k=700 from len=900 (crosses trim/grow thresholds): 22ms | k=700 from len=2000 (inside cap 2944): 18ms
+rep1: k=4  boundary len=1289: 23ms | inside len=1500: 24ms || k=700 from len=900 (crosses trim/grow thresholds): 17ms | k=700 from len=2000 (inside cap 2944): 18ms
+rep2: k=4  boundary len=1289: 23ms | inside len=1500: 22ms || k=700 from len=900 (crosses trim/grow thresholds): 17ms | k=700 from len=2000 (inside cap 2944): 17ms
+## node24 ignition only
+rep0: k=4  boundary len=1289: 409ms | inside len=1500: 416ms || k=700 from len=900 (crosses trim/grow thresholds): 327ms | k=700 from len=2000 (inside cap 2944): 396ms
+rep1: k=4  boundary len=1289: 443ms | inside len=1500: 464ms || k=700 from len=900 (crosses trim/grow thresholds): 323ms | k=700 from len=2000 (inside cap 2944): 382ms
+rep2: k=4  boundary len=1289: 459ms | inside len=1500: 412ms || k=700 from len=900 (crosses trim/grow thresholds): 333ms | k=700 from len=2000 (inside cap 2944): 324ms

@@ -1,0 +1,35 @@
+== d8 default n=10000 R=3000
+rep0 viaPush=87ms viaGrowIndex=83ms viaGrowLen=93ms viaNewArray=25ms
+rep1 viaPush=84ms viaGrowIndex=72ms viaGrowLen=84ms viaNewArray=22ms
+rep2 viaPush=69ms viaGrowIndex=69ms viaGrowLen=82ms viaNewArray=21ms
+rep3 viaPush=73ms viaGrowIndex=75ms viaGrowLen=98ms viaNewArray=23ms
+== node24 default
+rep0 viaPush=124ms viaGrowIndex=123ms viaGrowLen=128ms viaNewArray=37ms
+rep1 viaPush=121ms viaGrowIndex=100ms viaGrowLen=99ms viaNewArray=29ms
+rep2 viaPush=79ms viaGrowIndex=94ms viaGrowLen=119ms viaNewArray=38ms
+rep3 viaPush=112ms viaGrowIndex=111ms viaGrowLen=110ms viaNewArray=34ms
+== node22 default
+rep0 viaPush=117ms viaGrowIndex=119ms viaGrowLen=116ms viaNewArray=47ms
+rep1 viaPush=100ms viaGrowIndex=117ms viaGrowLen=117ms viaNewArray=44ms
+rep2 viaPush=94ms viaGrowIndex=108ms viaGrowLen=109ms viaNewArray=40ms
+rep3 viaPush=94ms viaGrowIndex=104ms viaGrowLen=110ms viaNewArray=42ms
+== d8 ignition-only (--no-sparkplug --no-maglev --no-turbofan) R=100
+rep0 viaPush=29ms viaGrowIndex=22ms viaGrowLen=22ms viaNewArray=16ms
+rep1 viaPush=24ms viaGrowIndex=19ms viaGrowLen=22ms viaNewArray=16ms
+rep2 viaPush=24ms viaGrowIndex=22ms viaGrowLen=24ms viaNewArray=16ms
+rep3 viaPush=24ms viaGrowIndex=19ms viaGrowLen=22ms viaNewArray=17ms
+== node24 ignition-only R=100
+rep0 viaPush=29ms viaGrowIndex=24ms viaGrowLen=25ms viaNewArray=18ms
+rep1 viaPush=26ms viaGrowIndex=23ms viaGrowLen=24ms viaNewArray=19ms
+rep2 viaPush=29ms viaGrowIndex=23ms viaGrowLen=25ms viaNewArray=20ms
+rep3 viaPush=26ms viaGrowIndex=24ms viaGrowLen=24ms viaNewArray=19ms
+== d8 n=1e6 R=30
+rep0 viaPush=197ms viaGrowIndex=164ms viaGrowLen=172ms viaNewArray=65ms
+rep1 viaPush=184ms viaGrowIndex=180ms viaGrowLen=214ms viaNewArray=82ms
+rep2 viaPush=189ms viaGrowIndex=198ms viaGrowLen=196ms viaNewArray=57ms
+rep3 viaPush=185ms viaGrowIndex=201ms viaGrowLen=268ms viaNewArray=48ms
+== node24 n=1e6 R=30
+rep0 viaPush=588ms viaGrowIndex=699ms viaGrowLen=605ms viaNewArray=136ms
+rep1 viaPush=550ms viaGrowIndex=545ms viaGrowLen=592ms viaNewArray=155ms
+rep2 viaPush=557ms viaGrowIndex=537ms viaGrowLen=599ms viaNewArray=136ms
+rep3 viaPush=561ms viaGrowIndex=568ms viaGrowLen=564ms viaNewArray=157ms

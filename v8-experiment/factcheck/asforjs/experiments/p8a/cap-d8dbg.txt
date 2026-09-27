@@ -1,0 +1,16 @@
+ - elements: <FixedArray[4433]> [PACKED_SMI_ELEMENTS]
+ - length: 3000
+ - elements: <FixedArray[4433]> {
+ - elements kind: PACKED_SMI_ELEMENTS
+ - elements: <FixedArray[1951]> [PACKED_SMI_ELEMENTS]
+ - length: 1337
+ - elements: <FixedArray[1951]> {
+ - elements kind: PACKED_SMI_ELEMENTS
+ - elements: <FixedArray[1951]> [PACKED_SMI_ELEMENTS]
+ - length: 1338
+ - elements: <FixedArray[1951]> {
+ - elements kind: PACKED_SMI_ELEMENTS
+ - elements: <FixedArray[1951]> [PACKED_SMI_ELEMENTS]
+ - length: 1336
+ - elements: <FixedArray[1951]> {
+ - elements kind: PACKED_SMI_ELEMENTS

@@ -1,0 +1,239 @@
+=============== node20 :: localVar
+  0 : 0d 01             LdaSmi [1]
+  2 : c4                Star0
+  3 : 0d 02             LdaSmi [2]
+  5 : c3                Star1
+  6 : 0b f9             Ldar r1
+  8 : 38 fa 00          Add r0, [0]
+  11 : a9                Return
+0x205dabca4431 <ByteArray[12]>
+=============== node20 :: localLet
+  0 : 0d 01             LdaSmi [1]
+  2 : c4                Star0
+  3 : 0d 02             LdaSmi [2]
+  5 : c3                Star1
+  6 : 0b f9             Ldar r1
+  8 : 38 fa 00          Add r0, [0]
+  11 : a9                Return
+0x20911ae244f9 <ByteArray[13]>
+=============== node20 :: localConst
+  0 : 0d 01             LdaSmi [1]
+  2 : c4                Star0
+  3 : 0d 02             LdaSmi [2]
+  5 : c3                Star1
+  6 : 0b f9             Ldar r1
+  8 : 38 fa 00          Add r0, [0]
+  11 : a9                Return
+0x03c118f245c1 <ByteArray[13]>
+=============== node20 :: noInit
+  0 : 0d 05             LdaSmi [5]
+  2 : c4                Star0
+  3 : a9                Return
+0x23a7ac2a4681 <ByteArray[7]>
+=============== node20 :: sum
+  0 : 83 00 01          CreateFunctionContext [0], [1]
+  3 : 1a fa             PushContext r0
+  5 : 0b 03             Ldar a0
+  7 : 25 02             StaCurrentContextSlot [2]
+  9 : 80 01 00 02       CreateClosure [1], [0], #2
+  13 : a9                Return
+0x2f32e464741: [FixedArray] in OldSpace
+ - map: 0x39cebabc0211 <Map(FIXED_ARRAY_TYPE)>
+ - length: 2
+           0: 0x02f32e464699 <ScopeInfo FUNCTION_SCOPE>
+           1: 0x02f32e4646f1 <SharedFunctionInfo inner>
+0x02f32e4647a9 <ByteArray[10]>
+=============== node20 :: inner
+  0 : 17 02             LdaImmutableCurrentContextSlot [2]
+  2 : c4                Star0
+  3 : 0b 03             Ldar a0
+  5 : 38 fa 00          Add r0, [0]
+  8 : a9                Return
+0x1f7944c64899 <ByteArray[9]>
+=============== node20 :: blocks
+  0 : 0d 02             LdaSmi [2]
+  2 : c4                Star0
+  3 : 0d 03             LdaSmi [3]
+  5 : c3                Star1
+  6 : 0d 04             LdaSmi [4]
+  8 : c2                Star2
+  9 : a9                Return
+0x067f717e4959 <ByteArray[11]>
+=============== node22 :: localVar
+  0 : 0d 01             LdaSmi [1]
+  2 : c9                Star0
+  3 : 0d 02             LdaSmi [2]
+  5 : c8                Star1
+  6 : 0b f8             Ldar r1
+  8 : 3b f9 00          Add r0, [0]
+  11 : ae                Return
+0x10527bf81fe9 <Other heap object (TRUSTED_BYTE_ARRAY_TYPE)>
+=============== node22 :: localLet
+  0 : 0d 01             LdaSmi [1]
+  2 : c9                Star0
+  3 : 0d 02             LdaSmi [2]
+  5 : c8                Star1
+  6 : 0b f8             Ldar r1
+  8 : 3b f9 00          Add r0, [0]
+  11 : ae                Return
+0x01f694c82059 <Other heap object (TRUSTED_BYTE_ARRAY_TYPE)>
+=============== node22 :: localConst
+  0 : 0d 01             LdaSmi [1]
+  2 : c9                Star0
+  3 : 0d 02             LdaSmi [2]
+  5 : c8                Star1
+  6 : 0b f8             Ldar r1
+  8 : 3b f9 00          Add r0, [0]
+  11 : ae                Return
+0x10a121ac20c9 <Other heap object (TRUSTED_BYTE_ARRAY_TYPE)>
+=============== node22 :: noInit
+  0 : 0d 05             LdaSmi [5]
+  2 : c9                Star0
+  3 : ae                Return
+0x1f6e588c2131 <Other heap object (TRUSTED_BYTE_ARRAY_TYPE)>
+=============== node22 :: sum
+  0 : 88 00 01          CreateFunctionContext [0], [1]
+  3 : 1a f9             PushContext r0
+  5 : 0b 03             Ldar a0
+  7 : 25 02             StaCurrentContextSlot [2]
+  9 : 85 01 00 02       CreateClosure [1], [0], #2
+  13 : ae                Return
+0x203b4f02149: [TrustedFixedArray]
+ - map: 0x24e0fcd409a9 <Map(TRUSTED_FIXED_ARRAY_TYPE)>
+ - length: 2
+           0: 0x02fa5e25bc39 <ScopeInfo FUNCTION_SCOPE>
+           1: 0x02fa5e25bc91 <SharedFunctionInfo inner>
+0x0203b4f021b9 <Other heap object (TRUSTED_BYTE_ARRAY_TYPE)>
+=============== node22 :: inner
+  0 : 17 02             LdaImmutableCurrentContextSlot [2]
+  2 : c9                Star0
+  3 : 0b 03             Ldar a0
+  5 : 3b f9 00          Add r0, [0]
+  8 : ae                Return
+0x2321e66c2229 <Other heap object (TRUSTED_BYTE_ARRAY_TYPE)>
+=============== node22 :: blocks
+  0 : 0d 02             LdaSmi [2]
+  2 : c9                Star0
+  3 : 0d 03             LdaSmi [3]
+  5 : c8                Star1
+  6 : 0d 04             LdaSmi [4]
+  8 : c7                Star2
+  9 : ae                Return
+0x347d7bd42299 <Other heap object (TRUSTED_BYTE_ARRAY_TYPE)>
+=============== node24 :: localVar
+  0 : 0d 01             LdaSmi [1]
+  2 : ce                Star0
+  3 : 0d 02             LdaSmi [2]
+  5 : cd                Star1
+  6 : 0b f8             Ldar r1
+  8 : 3f f9 00          Add r0, [0]
+  11 : b3                Return
+0x3787a51c1a39 <Other heap object (TRUSTED_BYTE_ARRAY_TYPE)>
+=============== node24 :: localLet
+  0 : 0d 01             LdaSmi [1]
+  2 : ce                Star0
+  3 : 0d 02             LdaSmi [2]
+  5 : cd                Star1
+  6 : 0b f8             Ldar r1
+  8 : 3f f9 00          Add r0, [0]
+  11 : b3                Return
+0x3487bfb01aa9 <Other heap object (TRUSTED_BYTE_ARRAY_TYPE)>
+=============== node24 :: localConst
+  0 : 0d 01             LdaSmi [1]
+  2 : ce                Star0
+  3 : 0d 02             LdaSmi [2]
+  5 : cd                Star1
+  6 : 0b f8             Ldar r1
+  8 : 3f f9 00          Add r0, [0]
+  11 : b3                Return
+0x23654c6c1b19 <Other heap object (TRUSTED_BYTE_ARRAY_TYPE)>
+=============== node24 :: noInit
+  0 : 0d 05             LdaSmi [5]
+  2 : ce                Star0
+  3 : b3                Return
+0x111c00ec1b81 <Other heap object (TRUSTED_BYTE_ARRAY_TYPE)>
+=============== node24 :: sum
+  0 : 8c 00 01          CreateFunctionContext [0], [1]
+  3 : 1c f9             PushContext r0
+  5 : 0b 03             Ldar a0
+  7 : 27 02             StaCurrentContextSlot [2]
+  9 : 89 01 00 02       CreateClosure [1], [0], #2
+  13 : b3                Return
+0x222d055c1bb1: [TrustedFixedArray]
+ - map: 0x2fa6b84409e1 <Map(TRUSTED_FIXED_ARRAY_TYPE)>
+ - length: 2
+           0: 0x0c39d87e8b09 <ScopeInfo FUNCTION_SCOPE>
+           1: 0x0c39d87e8b61 <SharedFunctionInfo inner>
+0x222d055c1c21 <Other heap object (TRUSTED_BYTE_ARRAY_TYPE)>
+=============== node24 :: inner
+  0 : 19 02             LdaImmutableCurrentContextSlot [2]
+  2 : ce                Star0
+  3 : 0b 03             Ldar a0
+  5 : 3f f9 00          Add r0, [0]
+  8 : b3                Return
+0x0ba377801c91 <Other heap object (TRUSTED_BYTE_ARRAY_TYPE)>
+=============== node24 :: blocks
+  0 : 0d 02             LdaSmi [2]
+  2 : ce                Star0
+  3 : 0d 03             LdaSmi [3]
+  5 : cd                Star1
+  6 : 0d 04             LdaSmi [4]
+  8 : cc                Star2
+  9 : b3                Return
+0x17ad31d41d01 <Other heap object (TRUSTED_BYTE_ARRAY_TYPE)>
+=============== d8 :: localVar
+V8 is running with developer-only features enabled. Stability and security will suffer.
+  0 : 0d 01             LdaSmi [1]
+  2 : d6                Star0
+  3 : 0d 02             LdaSmi [2]
+  5 : d5                Star1
+  6 : 0b f8             Ldar r1
+  8 : 43 f9 00          Add r0, EmbeddedFeedback[None]
+  11 : ba                Return
+=============== d8 :: localLet
+V8 is running with developer-only features enabled. Stability and security will suffer.
+  0 : 0d 01             LdaSmi [1]
+  2 : d6                Star0
+  3 : 0d 02             LdaSmi [2]
+  5 : d5                Star1
+  6 : 0b f8             Ldar r1
+  8 : 43 f9 00          Add r0, EmbeddedFeedback[None]
+  11 : ba                Return
+=============== d8 :: localConst
+V8 is running with developer-only features enabled. Stability and security will suffer.
+  0 : 0d 01             LdaSmi [1]
+  2 : d6                Star0
+  3 : 0d 02             LdaSmi [2]
+  5 : d5                Star1
+  6 : 0b f8             Ldar r1
+  8 : 43 f9 00          Add r0, EmbeddedFeedback[None]
+  11 : ba                Return
+=============== d8 :: noInit
+V8 is running with developer-only features enabled. Stability and security will suffer.
+  0 : 0d 05             LdaSmi [5]
+  2 : d6                Star0
+  3 : ba                Return
+=============== d8 :: sum
+V8 is running with developer-only features enabled. Stability and security will suffer.
+  0 : 92 00 01          CreateFunctionContextWithCells [0:0x2e790101e4b9 <ScopeInfo FUNCTION_SCOPE>], [1]
+  3 : 1d f9             PushContext r0
+  5 : 0b 03             Ldar a0
+  7 : 28 02             StaCurrentContextSlotNoCell [2]
+  9 : 8e 01 00 02       CreateClosure [1:0x2e790101e4e9 <SharedFunctionInfo inner>], FBV[0], #2
+  13 : ba                Return
+=============== d8 :: inner
+V8 is running with developer-only features enabled. Stability and security will suffer.
+  0 : 1a 02             LdaImmutableCurrentContextSlot [2]
+  2 : d6                Star0
+  3 : 0b 03             Ldar a0
+  5 : 43 f9 00          Add r0, EmbeddedFeedback[None]
+  8 : ba                Return
+=============== d8 :: blocks
+V8 is running with developer-only features enabled. Stability and security will suffer.
+  0 : 0d 02             LdaSmi [2]
+  2 : d6                Star0
+  3 : 0d 03             LdaSmi [3]
+  5 : d5                Star1
+  6 : 0d 04             LdaSmi [4]
+  8 : d4                Star2
+  9 : ba                Return

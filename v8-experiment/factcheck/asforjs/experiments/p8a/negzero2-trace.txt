@@ -1,0 +1,41 @@
+## node22 zero
+[completed compiling  <JSFunction sumZero > (target TURBOFAN) - took 0.013, 1.374, 0.018 ms]
+[completed optimizing  <JSFunction sumZero > (target TURBOFAN)]
+[completed compiling  <JSFunction sumZero > (target TURBOFAN) OSR - took 0.004, 1.138, 0.006 ms]
+[completed optimizing  <JSFunction sumZero > (target TURBOFAN) OSR]
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing  <JSFunction sumZero >,  <Code TURBOFAN>, opt id 0, bytecode offset 4, deopt exit 1
+[completed compiling  <JSFunction sumZero > (target TURBOFAN) - took 0.006, 0.947, 0.016 ms]
+[completed optimizing  <JSFunction sumZero > (target TURBOFAN)]
+zero: ints 13 ms, doubles 14 ms, total 27 ms
+## node22 neg
+[completed compiling  <JSFunction sumNegZero > (target TURBOFAN) - took 0.014, 1.558, 0.021 ms]
+[completed optimizing  <JSFunction sumNegZero > (target TURBOFAN)]
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing  <JSFunction sumNegZero >,  <Code TURBOFAN>, opt id 0, bytecode offset 5, deopt exit 1
+[completed compiling  <JSFunction sumNegZero > (target TURBOFAN) - took 0.008, 1.502, 0.018 ms]
+[completed optimizing  <JSFunction sumNegZero > (target TURBOFAN)]
+[completed compiling  <JSFunction sumNegZero > (target TURBOFAN) OSR - took 0.006, 0.905, 0.011 ms]
+[completed optimizing  <JSFunction sumNegZero > (target TURBOFAN) OSR]
+neg: ints 16 ms, doubles 15 ms, total 31 ms
+## node24 zero
+[completed compiling  <JSFunction sumZero > (target MAGLEV) OSR - took 0.001, 0.403, 0.005 ms]
+[completed compiling  <JSFunction sumZero > (target TURBOFAN_JS) - took 0.012, 1.384, 0.018 ms]
+[completed optimizing  <JSFunction sumZero > (target TURBOFAN_JS)]
+[completed compiling  <JSFunction sumZero > (target TURBOFAN_JS) OSR - took 0.004, 0.871, 0.010 ms]
+[completed optimizing  <JSFunction sumZero > (target TURBOFAN_JS) OSR]
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing  <JSFunction sumZero >,  <Code TURBOFAN_JS>, opt id 2, bytecode offset 4, deopt exit 1
+[completed compiling  <JSFunction sumZero > (target MAGLEV) OSR - took 0.001, 0.222, 0.006 ms]
+[completed compiling  <JSFunction sumZero > (target MAGLEV) - took 0.000, 0.093, 0.002 ms]
+[completed compiling  <JSFunction sumZero > (target TURBOFAN_JS) - took 0.006, 0.796, 0.010 ms]
+[completed optimizing  <JSFunction sumZero > (target TURBOFAN_JS)]
+zero: ints 14 ms, doubles 15 ms, total 29 ms
+## node24 neg
+[completed compiling  <JSFunction sumNegZero > (target MAGLEV) OSR - took 0.000, 0.377, 0.006 ms]
+[completed compiling  <JSFunction sumNegZero > (target MAGLEV) - took 0.001, 0.271, 0.004 ms]
+[completed compiling  <JSFunction sumNegZero > (target TURBOFAN_JS) OSR - took 0.016, 1.527, 0.023 ms]
+[completed optimizing  <JSFunction sumNegZero > (target TURBOFAN_JS) OSR]
+[completed compiling  <JSFunction sumNegZero > (target TURBOFAN_JS) - took 0.003, 1.163, 0.007 ms]
+[completed optimizing  <JSFunction sumNegZero > (target TURBOFAN_JS)]
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing  <JSFunction sumNegZero >,  <Code TURBOFAN_JS>, opt id 4, bytecode offset 5, deopt exit 1
+[completed compiling  <JSFunction sumNegZero > (target MAGLEV) OSR - took 0.001, 0.286, 0.004 ms]
+[completed compiling  <JSFunction sumNegZero > (target MAGLEV) - took 0.000, 0.123, 0.003 ms]
+neg: ints 16 ms, doubles 15 ms, total 31 ms

@@ -1,0 +1,7 @@
+Inlining  { <SharedFunctionInfo withThrow>} into  { <SharedFunctionInfo withTry>} (inside try-block)
+Inlining  { <SharedFunctionInfo m>} into  { <SharedFunctionInfo callers>}
+Inlining  { <SharedFunctionInfo free>} into  { <SharedFunctionInfo callers>}
+Inlining  { <SharedFunctionInfo m>} into  { <SharedFunctionInfo callers>}
+withThrow TurboFanned: true
+withTry TurboFanned: true
+callers TurboFanned: true

@@ -1,0 +1,39 @@
+[marking 0x1c2a1ba668d1 <JSFunction doConst7 (sfi = 0x1a0545dba99)> for optimization to TURBOFAN, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x1c2a1ba668d1 <JSFunction doConst7 (sfi = 0x1a0545dba99)> (target TURBOFAN), mode: ConcurrencyMode::kSynchronous]
+[completed compiling 0x1c2a1ba668d1 <JSFunction doConst7 (sfi = 0x1a0545dba99)> (target TURBOFAN) - took 0.022, 0.725, 0.012 ms]
+[marking 0x1c2a1ba66991 <JSFunction doThingObj (sfi = 0x1a0545dbba1)> for optimization to TURBOFAN, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x1c2a1ba66991 <JSFunction doThingObj (sfi = 0x1a0545dbba1)> (target TURBOFAN), mode: ConcurrencyMode::kSynchronous]
+Considering 0x27fea3d0 {0x01a0545dba99 <SharedFunctionInfo doConst7>} for inlining with 0x27fea8e0 {0x01a0545de1f1 <FeedbackVector[0]>}
+Inlining small function(s) at call site #40:JSCall
+Inlining 0x27fea3d0 {0x01a0545dba99 <SharedFunctionInfo doConst7>} into 0x27fe9fe0 {0x01a0545dbba1 <SharedFunctionInfo doThingObj>}
+[completed compiling 0x1c2a1ba66991 <JSFunction doThingObj (sfi = 0x1a0545dbba1)> (target TURBOFAN) - took 0.010, 1.060, 0.036 ms]
+[marking 0x1c2a1ba669d1 <JSFunction warm (sfi = 0x1a0545dbbf9)> for optimization to TURBOFAN, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x1c2a1ba669d1 <JSFunction warm (sfi = 0x1a0545dbbf9)> (target TURBOFAN) OSR, mode: ConcurrencyMode::kSynchronous]
+Considering 0x27fea3c0 {0x01a0545dbba1 <SharedFunctionInfo doThingObj>} for inlining with 0x27fea518 {0x01a0545de229 <FeedbackVector[8]>}
+1 candidate(s) for inlining:
+- candidate: JSCall node #40 with frequency 4562, 1 target(s):
+  - target: 0x27fea3c0 {0x01a0545dbba1 <SharedFunctionInfo doThingObj>}, bytecode size: 39, existing opt code's inlined bytecode size: 3
+Inlining 0x27fea3c0 {0x01a0545dbba1 <SharedFunctionInfo doThingObj>} into 0x27fe9fe0 {0x01a0545dbbf9 <SharedFunctionInfo warm>}
+Considering 0x27fea5e8 {0x01a0545dba99 <SharedFunctionInfo doConst7>} for inlining with 0x27feae88 {0x01a0545de1f1 <FeedbackVector[0]>}
+Inlining small function(s) at call site #89:JSCall
+Inlining 0x27fea5e8 {0x01a0545dba99 <SharedFunctionInfo doConst7>} into 0x27fe9fe0 {0x01a0545dbbf9 <SharedFunctionInfo warm>}
+[completed compiling 0x1c2a1ba669d1 <JSFunction warm (sfi = 0x1a0545dbbf9)> (target TURBOFAN) OSR - took 0.010, 1.260, 0.019 ms]
+after {run:doConst7}: 1010001
+--- switching to {run:doConst15} (same map)
+[marking dependent code 0x387d4cd03319 <Code TURBOFAN> (0x01a0545dbbf9 <SharedFunctionInfo warm>) (opt id 2) for deoptimization, reason: code dependencies]
+[marking dependent code 0x387d4cd030f1 <Code TURBOFAN> (0x01a0545dbba1 <SharedFunctionInfo doThingObj>) (opt id 1) for deoptimization, reason: code dependencies]
+[marking 0x1c2a1ba66991 <JSFunction doThingObj (sfi = 0x1a0545dbba1)> for optimization to TURBOFAN, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x1c2a1ba66991 <JSFunction doThingObj (sfi = 0x1a0545dbba1)> (target TURBOFAN), mode: ConcurrencyMode::kSynchronous]
+[completed compiling 0x1c2a1ba66991 <JSFunction doThingObj (sfi = 0x1a0545dbba1)> (target TURBOFAN) - took 0.007, 0.771, 0.016 ms]
+[marking 0x1c2a1ba66911 <JSFunction doConst15 (sfi = 0x1a0545dbaf1)> for optimization to TURBOFAN, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x1c2a1ba66911 <JSFunction doConst15 (sfi = 0x1a0545dbaf1)> (target TURBOFAN), mode: ConcurrencyMode::kSynchronous]
+[completed compiling 0x1c2a1ba66911 <JSFunction doConst15 (sfi = 0x1a0545dbaf1)> (target TURBOFAN) - took 0.006, 0.267, 0.008 ms]
+[marking 0x1c2a1ba669d1 <JSFunction warm (sfi = 0x1a0545dbbf9)> for optimization to TURBOFAN, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x1c2a1ba669d1 <JSFunction warm (sfi = 0x1a0545dbbf9)> (target TURBOFAN) OSR, mode: ConcurrencyMode::kSynchronous]
+Considering 0x28000650 {0x01a0545dbba1 <SharedFunctionInfo doThingObj>} for inlining with 0x280007a8 {0x01a0545de229 <FeedbackVector[8]>}
+1 candidate(s) for inlining:
+- candidate: JSCall node #40 with frequency 2161, 1 target(s):
+  - target: 0x28000650 {0x01a0545dbba1 <SharedFunctionInfo doThingObj>}, bytecode size: 39
+Inlining 0x28000650 {0x01a0545dbba1 <SharedFunctionInfo doThingObj>} into 0x28000270 {0x01a0545dbbf9 <SharedFunctionInfo warm>}
+[completed compiling 0x1c2a1ba669d1 <JSFunction warm (sfi = 0x1a0545dbbf9)> (target TURBOFAN) OSR - took 0.004, 1.233, 0.026 ms]
+after: 1010001

@@ -1,0 +1,10 @@
+## /opt/node20/bin/node
+strings + objects alive        +149.5 MB
+after dropping strings, 1 GC:  +40.8 MB (strings freed: 108.8 MB)
+after dropping objects, 1 GC:  +0.3 MB
+dict with 300k internalized keys: +25.7 MB, after drop: +0.0 MB
+## /opt/nvm/versions/node/v24.21.0/bin/node
+strings + objects alive        +149.5 MB
+after dropping strings, 1 GC:  +40.8 MB (strings freed: 108.7 MB)
+after dropping objects, 1 GC:  +0.3 MB
+dict with 300k internalized keys: +25.7 MB, after drop: +0.0 MB

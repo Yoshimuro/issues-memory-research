@@ -1,0 +1,16 @@
+== d8 default R=500
+rep0 byIndex=181ms(4000000) byCode=155ms(4000000)
+rep1 byIndex=169ms(4000000) byCode=152ms(4000000)
+rep2 byIndex=169ms(4000000) byCode=147ms(4000000)
+== node24 default
+rep0 byIndex=248ms(4000000) byCode=166ms(4000000)
+rep1 byIndex=183ms(4000000) byCode=183ms(4000000)
+rep2 byIndex=184ms(4000000) byCode=174ms(4000000)
+== d8 ignition R=10
+rep0 byIndex=27ms(80000) byCode=33ms(80000)
+rep1 byIndex=27ms(80000) byCode=34ms(80000)
+rep2 byIndex=27ms(80000) byCode=33ms(80000)
+== node22 ignition
+rep0 byIndex=32ms(80000) byCode=31ms(80000)
+rep1 byIndex=24ms(80000) byCode=32ms(80000)
+rep2 byIndex=26ms(80000) byCode=31ms(80000)

@@ -1,0 +1,34 @@
+## named / node20
+fresh fns same map true
+after a[0]=1 same map true
+after b.counter=1 same map false
+named counter 500000
+## named / node24
+fresh fns same map true
+after a[0]=1 same map true
+after b.counter=1 same map false
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. deoptimizing  <JSFunction hot (sfi = )>,  <Code MAGLEV>, opt id 3, bytecode offset 18
+named counter 500000
+## named / d8
+fresh fns same map true
+after a[0]=1 same map true
+after b.counter=1 same map false
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. deoptimizing  <JSFunction hot (sfi = )>,  <Code MAGLEV>, opt id 1, bytecode offset 18
+named counter 500000
+## index / node20
+fresh fns same map true
+after a[0]=1 same map true
+after b.counter=1 same map false
+index counter 500000
+## index / node24
+fresh fns same map true
+after a[0]=1 same map true
+after b.counter=1 same map false
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. deoptimizing  <JSFunction hot (sfi = )>,  <Code MAGLEV>, opt id 3, bytecode offset 18
+index counter 500000
+## index / d8
+fresh fns same map true
+after a[0]=1 same map true
+after b.counter=1 same map false
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. deoptimizing  <JSFunction hot (sfi = )>,  <Code MAGLEV>, opt id 1, bytecode offset 18
+index counter 500000

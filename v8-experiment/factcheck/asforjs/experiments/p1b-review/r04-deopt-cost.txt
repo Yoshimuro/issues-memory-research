@@ -1,0 +1,9 @@
+N22 run1: median ms: plain call 0.0003 | TF compile+call 0.4196 | deopt+call 0.0103
+N24 run1: median ms: plain call 0.0004 | TF compile+call 0.5032 | deopt+call 0.0124
+D8R run1: median ms: plain call 0.0000 | TF compile+call 0.4820 | deopt+call 0.0130
+N22 run2: median ms: plain call 0.0004 | TF compile+call 0.4708 | deopt+call 0.0118
+N24 run2: median ms: plain call 0.0004 | TF compile+call 0.5192 | deopt+call 0.0132
+D8R run2: median ms: plain call 0.0000 | TF compile+call 0.4880 | deopt+call 0.0130
+N22 run3: median ms: plain call 0.0004 | TF compile+call 0.4745 | deopt+call 0.0116
+N24 run3: median ms: plain call 0.0004 | TF compile+call 0.5273 | deopt+call 0.0140
+D8R run3: median ms: plain call 0.0000 | TF compile+call 0.4990 | deopt+call 0.0150

@@ -1,0 +1,24 @@
+## /opt/node20/bin/node
+after push("x"): ELEMENTS/PACKED
+after a.fill(0): ELEMENTS/PACKED
+after push(1.5): DOUBLE/PACKED
+after b.fill(7): DOUBLE/PACKED
+assign ints to every slot: ELEMENTS/PACKED
+## /opt/node22/bin/node
+after push("x"): ELEMENTS/PACKED
+after a.fill(0): ELEMENTS/PACKED
+after push(1.5): DOUBLE/PACKED
+after b.fill(7): DOUBLE/PACKED
+assign ints to every slot: ELEMENTS/PACKED
+## /opt/nvm/versions/node/v24.21.0/bin/node
+after push("x"): ELEMENTS/PACKED
+after a.fill(0): SMI/PACKED
+after push(1.5): DOUBLE/PACKED
+after b.fill(7): SMI/PACKED
+assign ints to every slot: ELEMENTS/PACKED
+## d8
+after push("x"): ELEMENTS/PACKED
+after a.fill(0): SMI/PACKED
+after push(1.5): DOUBLE/PACKED
+after b.fill(7): SMI/PACKED
+assign ints to every slot: ELEMENTS/PACKED

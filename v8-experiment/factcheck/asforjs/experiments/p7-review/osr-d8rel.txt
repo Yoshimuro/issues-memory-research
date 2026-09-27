@@ -1,0 +1,6 @@
+== d8 rel --trace-opt --trace-osr osr-print.js (TurboFan OSR happens?)
+[compiling method 0x11350101e061 <JSFunction doLoop (sfi = 0x11350101dfb9)> (target MAGLEV) OSR, mode: ConcurrencyMode::kConcurrent]
+[OSR - entry. function: doLoop, osr offset: 28]
+[compiling method 0x11350101e061 <JSFunction doLoop (sfi = 0x11350101dfb9)> (target TURBOFAN_JS) OSR, mode: ConcurrencyMode::kConcurrent]
+[OSR - entry. function: doLoop, osr offset: 28]
+result 1050000000

@@ -1,0 +1,67 @@
+
+<--- Last few GCs --->
+
+[31383:0x1b767000]      625 ms: Mark-Compact 172.0 (237.0) -> 108.0 (236.7) MB, pooled: 0 MB, 74.12 / 0.00 ms  (average mu = 0.327, current mu = 0.334) allocation failure; scavenge might not succeed
+[31383:0x1b767000]      721 ms: Mark-Compact 172.0 (236.7) -> 107.3 (237.0) MB, pooled: 0 MB, 77.47 / 0.00 ms  (average mu = 0.267, current mu = 0.192) allocation failure; scavenge might not succeed
+
+FATAL ERROR: Ineffective mark-compacts near heap limit Allocation failed - JavaScript heap out of memory
+----- Native stack trace -----
+
+ 1: 0x931db0  [/opt/nvm/versions/node/v24.21.0/bin/node]
+ 2: 0x75968e node::OOMErrorHandler(char const*, v8::OOMDetails const&) [/opt/nvm/versions/node/v24.21.0/bin/node]
+ 3: 0xc70d60  [/opt/nvm/versions/node/v24.21.0/bin/node]
+ 4: 0xc70e4f  [/opt/nvm/versions/node/v24.21.0/bin/node]
+ 5: 0xf14725  [/opt/nvm/versions/node/v24.21.0/bin/node]
+ 6: 0xf14752  [/opt/nvm/versions/node/v24.21.0/bin/node]
+ 7: 0xf14a4a  [/opt/nvm/versions/node/v24.21.0/bin/node]
+ 8: 0xf2574a  [/opt/nvm/versions/node/v24.21.0/bin/node]
+ 9: 0xf29af0  [/opt/nvm/versions/node/v24.21.0/bin/node]
+10: 0x19c77d1  [/opt/nvm/versions/node/v24.21.0/bin/node]
+/bin/bash: line 19: 31383 Aborted                 /opt/nvm/versions/node/v24.21.0/bin/node --max-old-space-size=$m heap-limit-perf.js
+max-old=--max-old-space-size=200 time 4323 ms, live 600000
+max-old=--max-old-space-size=2000 time 1654 ms, live 600000
+
+<--- Last few GCs --->
+
+[31419:0xf735000]      599 ms: Mark-Compact 172.0 (236.7) -> 108.0 (237.0) MB, pooled: 2 MB, 71.32 / 0.00 ms  (average mu = 0.316, current mu = 0.321) allocation failure; scavenge might not succeed
+[31419:0xf735000]      692 ms: Mark-Compact 172.0 (237.0) -> 107.3 (236.7) MB, pooled: 2 MB, 75.58 / 0.00 ms  (average mu = 0.257, current mu = 0.187) allocation failure; scavenge might not succeed
+
+FATAL ERROR: Ineffective mark-compacts near heap limit Allocation failed - JavaScript heap out of memory
+----- Native stack trace -----
+
+ 1: 0x931db0  [/opt/nvm/versions/node/v24.21.0/bin/node]
+ 2: 0x75968e node::OOMErrorHandler(char const*, v8::OOMDetails const&) [/opt/nvm/versions/node/v24.21.0/bin/node]
+ 3: 0xc70d60  [/opt/nvm/versions/node/v24.21.0/bin/node]
+ 4: 0xc70e4f  [/opt/nvm/versions/node/v24.21.0/bin/node]
+ 5: 0xf14725  [/opt/nvm/versions/node/v24.21.0/bin/node]
+ 6: 0xf14752  [/opt/nvm/versions/node/v24.21.0/bin/node]
+ 7: 0xf14a4a  [/opt/nvm/versions/node/v24.21.0/bin/node]
+ 8: 0xf2574a  [/opt/nvm/versions/node/v24.21.0/bin/node]
+ 9: 0xf29af0  [/opt/nvm/versions/node/v24.21.0/bin/node]
+10: 0x19c77d1  [/opt/nvm/versions/node/v24.21.0/bin/node]
+/bin/bash: line 19: 31419 Aborted                 /opt/nvm/versions/node/v24.21.0/bin/node --max-old-space-size=$m heap-limit-perf.js
+max-old=--max-old-space-size=200 time 1007 ms, live 600000
+max-old=--max-old-space-size=2000 time 1732 ms, live 600000
+
+<--- Last few GCs --->
+
+[31452:0x17f54000]      562 ms: Mark-Compact 172.0 (237.0) -> 108.0 (236.7) MB, pooled: 0 MB, 110.23 / 0.00 ms  (average mu = 0.251, current mu = 0.206) allocation failure; scavenge might not succeed
+[31452:0x17f54000]      666 ms: Mark-Compact 172.0 (236.7) -> 107.3 (237.0) MB, pooled: 0 MB, 75.16 / 0.00 ms  (average mu = 0.260, current mu = 0.271) allocation failure; scavenge might not succeed
+
+FATAL ERROR: Ineffective mark-compacts near heap limit Allocation failed - JavaScript heap out of memory
+----- Native stack trace -----
+
+ 1: 0x931db0  [/opt/nvm/versions/node/v24.21.0/bin/node]
+ 2: 0x75968e node::OOMErrorHandler(char const*, v8::OOMDetails const&) [/opt/nvm/versions/node/v24.21.0/bin/node]
+ 3: 0xc70d60  [/opt/nvm/versions/node/v24.21.0/bin/node]
+ 4: 0xc70e4f  [/opt/nvm/versions/node/v24.21.0/bin/node]
+ 5: 0xf14725  [/opt/nvm/versions/node/v24.21.0/bin/node]
+ 6: 0xf14752  [/opt/nvm/versions/node/v24.21.0/bin/node]
+ 7: 0xf14a4a  [/opt/nvm/versions/node/v24.21.0/bin/node]
+ 8: 0xf2574a  [/opt/nvm/versions/node/v24.21.0/bin/node]
+ 9: 0xf29af0  [/opt/nvm/versions/node/v24.21.0/bin/node]
+10: 0x19c77d1  [/opt/nvm/versions/node/v24.21.0/bin/node]
+/bin/bash: line 19: 31452 Aborted                 /opt/nvm/versions/node/v24.21.0/bin/node --max-old-space-size=$m heap-limit-perf.js
+max-old=--max-old-space-size=200 time 903 ms, live 600000
+max-old=--max-old-space-size=2000 time 1576 ms, live 600000
+NOTE: result inconclusive/noisy; not used for any verdict

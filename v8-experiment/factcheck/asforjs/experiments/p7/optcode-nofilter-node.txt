@@ -1,0 +1,8 @@
+== /opt/node22/bin/node --print-opt-code (no filter) on optcode.js: optimized-code blocks by name
+      1 name = doProp
+== same, empty.js
+0
+== /opt/nvm/versions/node/v24.21.0/bin/node --print-opt-code (no filter) on optcode.js: optimized-code blocks by name
+      1 name = doProp
+== same, empty.js
+0

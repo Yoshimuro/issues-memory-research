@@ -1,0 +1,25 @@
+## /opt/node20/bin/node
+0 locals   max depth 11417
+5 locals   max depth 7849
+20 locals  max depth 4050
+## /opt/node20/bin/node --jitless
+Warning: disabling flag --expose_wasm due to conflicting flags
+0 locals   max depth 11417
+5 locals   max depth 7849
+20 locals  max depth 4050
+## /opt/nvm/versions/node/v24.21.0/bin/node
+0 locals   max depth 10452
+5 locals   max depth 7378
+20 locals  max depth 3919
+## /opt/nvm/versions/node/v24.21.0/bin/node --jitless
+0 locals   max depth 10452
+5 locals   max depth 7378
+20 locals  max depth 3919
+## /tmp/claude-0/-home-user-issues-memory-research/dacf359b-9898-588d-b8f1-20fd1e3f2945/scratchpad/d8/rel/d8
+0 locals   max depth 12276
+5 locals   max depth 7380
+20 locals  max depth 3920
+## /tmp/claude-0/-home-user-issues-memory-research/dacf359b-9898-588d-b8f1-20fd1e3f2945/scratchpad/d8/rel/d8 --jitless
+0 locals   max depth 10456
+5 locals   max depth 7380
+20 locals  max depth 3920

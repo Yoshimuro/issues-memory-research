@@ -1,0 +1,13 @@
+== N24
+optimized, status=1010001
+--- changing P.m now (callIt is NOT running) ---
+[marking dependent code 0x08e94ba01d59 <Code TURBOFAN_JS> (0x3332bbae8519 <SharedFunctionInfo callIt>) (opt id 1) for deoptimization, reason: dependent field type constness changed]
+after change, before any call: status=1
+call -> 2
+== D8
+V8 is running with developer-only features enabled. Stability and security will suffer.
+optimized, status=101001
+--- changing P.m now (callIt is NOT running) ---
+[marking dependent code 0x129301000445 <Code TURBOFAN_JS> (0x1ada0101e119 <SharedFunctionInfo callIt>) (opt id 0) for deoptimization, reason: dependent field type constness changed]
+after change, before any call: status=1000001
+call -> 2

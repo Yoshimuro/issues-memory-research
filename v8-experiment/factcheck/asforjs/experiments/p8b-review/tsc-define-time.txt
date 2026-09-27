@@ -1,0 +1,15 @@
+== d8
+rep0 PDefine=1314ms(28064) PAssign=51ms(28064) PField=57ms(28064)
+rep1 PDefine=1491ms(28064) PAssign=76ms(28064) PField=73ms(28064)
+rep2 PDefine=1575ms(28064) PAssign=64ms(28064) PField=68ms(28064)
+rep3 PDefine=1278ms(28064) PAssign=61ms(28064) PField=62ms(28064)
+== node24
+rep0 PDefine=1370ms(28064) PAssign=80ms(28064) PField=81ms(28064)
+rep1 PDefine=1379ms(28064) PAssign=77ms(28064) PField=74ms(28064)
+rep2 PDefine=1357ms(28064) PAssign=75ms(28064) PField=86ms(28064)
+rep3 PDefine=1417ms(28064) PAssign=74ms(28064) PField=74ms(28064)
+== node22
+rep0 PDefine=1250ms(28064) PAssign=73ms(28064) PField=71ms(28064)
+rep1 PDefine=1210ms(28064) PAssign=85ms(28064) PField=79ms(28064)
+rep2 PDefine=1315ms(28064) PAssign=91ms(28064) PField=83ms(28064)
+rep3 PDefine=1398ms(28064) PAssign=81ms(28064) PField=79ms(28064)

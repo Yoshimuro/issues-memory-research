@@ -1,0 +1,12 @@
+## node22
+aC immediate 3.14 
+aF immediate 3.14 
+aL immediate 3.14 
+aR NO immediate 
+aV immediate 3.14 
+## node24
+aC immediate 3.14 
+aF immediate 3.14 
+aL immediate 3.14 
+aR NO immediate 
+aV immediate 3.14 

@@ -1,0 +1,217 @@
+=============== node20 :: thrice
+LdaImmutableCurrentContextSlot [2]
+ThrowReferenceErrorIfHole [0]
+Star0
+Add r0, [0]
+Star0
+LdaImmutableCurrentContextSlot [2]
+ThrowReferenceErrorIfHole [0]
+Add r0, [1]
+Return
+=============== node20 :: three
+LdaImmutableCurrentContextSlot [2]
+ThrowReferenceErrorIfHole [0]
+Star0
+LdaImmutableCurrentContextSlot [3]
+ThrowReferenceErrorIfHole [1]
+Add r0, [0]
+Star0
+LdaImmutableCurrentContextSlot [4]
+ThrowReferenceErrorIfHole [2]
+Add r0, [1]
+Return
+=============== node20 :: inLoop
+LdaZero
+Star0
+LdaZero
+Star1
+Ldar a0
+TestLessThan r1, [0]
+JumpIfFalse [26] (0x20cfd9764b41 @ 35)
+LdaImmutableCurrentContextSlot [2]
+ThrowReferenceErrorIfHole [0]
+Star3
+Add r3, [2]
+Add r0, [1]
+Mov r0, r2
+Star0
+Ldar r1
+Inc [3]
+Star1
+JumpLoop [27], [0], [4] (0x20cfd9764b22 @ 4)
+Ldar r0
+Return
+=============== node20 :: branchy
+LdaZero
+Star0
+Ldar a0
+JumpIfToBooleanFalse [7] (0x30d1c5ce4db1 @ 11)
+LdaImmutableCurrentContextSlot [2]
+ThrowReferenceErrorIfHole [0]
+Star0
+LdaImmutableCurrentContextSlot [2]
+ThrowReferenceErrorIfHole [0]
+Add r0, [0]
+Return
+=============== node22 :: thrice
+LdaImmutableCurrentContextSlot [2]
+ThrowReferenceErrorIfHole [0]
+Star0
+Add r0, [0]
+Star0
+LdaImmutableCurrentContextSlot [2]
+Add r0, [1]
+Return
+=============== node22 :: three
+LdaImmutableCurrentContextSlot [2]
+ThrowReferenceErrorIfHole [0]
+Star0
+LdaImmutableCurrentContextSlot [3]
+ThrowReferenceErrorIfHole [1]
+Add r0, [0]
+Star0
+LdaImmutableCurrentContextSlot [4]
+ThrowReferenceErrorIfHole [2]
+Add r0, [1]
+Return
+=============== node22 :: inLoop
+LdaZero
+Star0
+LdaZero
+Star1
+Ldar a0
+TestLessThan r1, [0]
+JumpIfFalse [26] (0xd33c78c22fb @ 35)
+LdaImmutableCurrentContextSlot [2]
+ThrowReferenceErrorIfHole [0]
+Star3
+Add r3, [2]
+Add r0, [1]
+Mov r0, r2
+Star0
+Ldar r1
+Inc [3]
+Star1
+JumpLoop [27], [0], [4] (0xd33c78c22dc @ 4)
+Ldar r0
+Return
+=============== node22 :: branchy
+LdaZero
+Star0
+Ldar a0
+JumpIfToBooleanFalse [7] (0x2e7473e0242b @ 11)
+LdaImmutableCurrentContextSlot [2]
+ThrowReferenceErrorIfHole [0]
+Star0
+LdaImmutableCurrentContextSlot [2]
+ThrowReferenceErrorIfHole [0]
+Add r0, [0]
+Return
+=============== node24 :: thrice
+LdaImmutableCurrentContextSlot [2]
+ThrowReferenceErrorIfHole [0]
+Star0
+Add r0, [0]
+Star0
+LdaImmutableCurrentContextSlot [2]
+Add r0, [1]
+Return
+=============== node24 :: three
+LdaImmutableCurrentContextSlot [2]
+ThrowReferenceErrorIfHole [0]
+Star0
+LdaImmutableCurrentContextSlot [3]
+ThrowReferenceErrorIfHole [1]
+Add r0, [0]
+Star0
+LdaImmutableCurrentContextSlot [4]
+ThrowReferenceErrorIfHole [2]
+Add r0, [1]
+Return
+=============== node24 :: inLoop
+LdaZero
+Star0
+LdaZero
+Star1
+Ldar a0
+TestLessThan r1, [0]
+JumpIfFalse [26] (0x314f02c1d8b @ 35)
+LdaImmutableCurrentContextSlot [2]
+ThrowReferenceErrorIfHole [0]
+Star3
+Add r3, [2]
+Add r0, [1]
+Mov r0, r2
+Star0
+Ldar r1
+Inc [3]
+Star1
+JumpLoop [27], [0], [4] (0x314f02c1d6c @ 4)
+Ldar r0
+Return
+=============== node24 :: branchy
+LdaZero
+Star0
+Ldar a0
+JumpIfToBooleanFalse [7] (0x1c5c6a81ed3 @ 11)
+LdaImmutableCurrentContextSlot [2]
+ThrowReferenceErrorIfHole [0]
+Star0
+LdaImmutableCurrentContextSlot [2]
+ThrowReferenceErrorIfHole [0]
+Add r0, [0]
+Return
+=============== d8 :: thrice
+LdaImmutableCurrentContextSlot [2]
+ThrowReferenceErrorIfTdzHole [0:"a"]
+Star0
+Add r0, EmbeddedFeedback[None]
+Star0
+LdaImmutableCurrentContextSlot [2]
+Add r0, EmbeddedFeedback[None]
+Return
+=============== d8 :: three
+LdaImmutableCurrentContextSlot [2]
+ThrowReferenceErrorIfTdzHole [0:"a"]
+Star0
+LdaImmutableCurrentContextSlot [3]
+ThrowReferenceErrorIfTdzHole [1:"b"]
+Add r0, EmbeddedFeedback[None]
+Star0
+LdaImmutableCurrentContextSlot [4]
+ThrowReferenceErrorIfTdzHole [2:"c"]
+Add r0, EmbeddedFeedback[None]
+Return
+=============== d8 :: inLoop
+LdaZero
+Star0
+LdaZero
+Star1
+Ldar a0
+TestLessThan r1, EmbeddedFeedback[None]
+JumpIfFalse [26] (0x34e401000377 @ 35)
+LdaImmutableCurrentContextSlot [2]
+ThrowReferenceErrorIfTdzHole [0:"a"]
+Star3
+Add r3, EmbeddedFeedback[None]
+Add r0, EmbeddedFeedback[None]
+Mov r0, r2
+Star0
+Ldar r1
+Inc EmbeddedFeedback[None]
+Star1
+JumpLoop [27], [0], FBV[0] (0x34e401000358 @ 4)
+Ldar r0
+Return
+=============== d8 :: branchy
+LdaZero
+Star0
+Ldar a0
+JumpIfToBooleanFalse [7] (0x302b0100041b @ 11)
+LdaImmutableCurrentContextSlot [2]
+ThrowReferenceErrorIfTdzHole [0:"a"]
+Star0
+LdaImmutableCurrentContextSlot [2]
+ThrowReferenceErrorIfTdzHole [0:"a"]
+Add r0, EmbeddedFeedback[None]
+Return

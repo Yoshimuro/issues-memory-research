@@ -1,0 +1,4 @@
+worker startup: 36.73 ms
+n=10000: worker round trip (clone+sum) 0.400 ms vs main-thread sum 0.005 ms
+n=100000: worker round trip (clone+sum) 2.809 ms vs main-thread sum 0.057 ms
+n=1000000: worker round trip (clone+sum) 27.623 ms vs main-thread sum 0.732 ms

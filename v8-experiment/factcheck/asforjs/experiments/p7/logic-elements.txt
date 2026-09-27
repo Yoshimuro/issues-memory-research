@@ -1,0 +1,42 @@
+== --log-ic d8: files
+ic.js
+stdout.txt
+v8.log
+stdout lines: 0
+StoreGlobalIC,0x2d2f010000e8,21807,1,9,X,X,0x000000000000,g,,
+LoadGlobalIC,0x2d2f010000f4,21833,3,31,X,X,0x365b0101d555,doOuter,,
+StoreIC,0x2d2f010000ff,21864,3,44,X,X,0x000000000000,x,,
+LoadGlobalIC,0x2d2f010001bc,21936,2,23,X,X,0x365b0101d555,g,,
+StoreGlobalIC,0x2d2f010001c7,21952,2,25,X,X,0x000000000000,g,,
+LoadGlobalIC,0x2d2f010001ca,21966,2,36,X,X,0x365b0101d555,g,,
+LoadGlobalIC,0x2d2f010000f4,21972,3,31,X,X,0x365b0101d555,doOuter,,
+StoreIC,0x2d2f010000ff,21985,3,44,X,X,0x000000000000,x,,
+LoadGlobalIC,0x2d2f010001bc,21998,2,23,X,X,0x365b0101d555,g,,
+StoreGlobalIC,0x2d2f010001c7,22012,2,25,X,X,0x000000000000,g,,
+LoadGlobalIC,0x2d2f010001ca,22016,2,36,X,X,0x365b0101d555,g,,
+LoadGlobalIC,0x2d2f010000f4,22036,3,31,X,X,0x365b0101d555,doOuter,,
+== --trace-elements-transitions d8
+Flag processing error: Contradictory value for readonly flag --trace-elements-transitions.
+If a test variant caused this, it might be necessary to specify additional contradictory flags in tools/testrunner/local/variants.py.
+== --print-deopt-code d8
+Warning: unknown flag --print-deopt-code.
+Try --help for options
+== --print-deopt-code node24
+/opt/nvm/versions/node/v24.21.0/bin/node: bad option: --print-deopt-code
+== --trace-elements-transitions d8 debug
+elements transition [PACKED_SMI_ELEMENTS -> PACKED_DOUBLE_ELEMENTS] in push+0 at <unknown>:<unknown> for 0x1e130101ddbd <JSArray[3]> from 0x1e130101da1d <FixedArray[3]> to 0x1e130108a125 <FixedDoubleArray[3]>
+elements transition [PACKED_SMI_ELEMENTS -> PACKED_DOUBLE_ELEMENTS] in push+0 at <unknown>:<unknown> for 0x1e1301089ff5 <JSArray[3]> from 0x1e130108a00d <FixedArray[22]> to 0x1e130108a06d <FixedDoubleArray[22]>
+elements transition [PACKED_DOUBLE_ELEMENTS -> PACKED_ELEMENTS] in push+0 at <unknown>:<unknown> for 0x1e130101ddbd <JSArray[3]> from 0x1e130108a125 <FixedDoubleArray[3]> to 0x1e130108a1b1 <FixedArray[3]>
+elements transition [PACKED_DOUBLE_ELEMENTS -> PACKED_ELEMENTS] in push+0 at <unknown>:<unknown> for 0x1e1301089ff5 <JSArray[4]> from 0x1e130108a06d <FixedDoubleArray[22]> to 0x1e130108a145 <FixedArray[22]>
+== node22
+elements transition [PACKED_SMI_ELEMENTS -> PACKED_ELEMENTS] in from+1840 at <unknown>:<unknown> for 0x3687d675baa1 <JSArray[0]> from 0x3687d675bc51 <FixedArray[17]> to 0x3687d675bc51 <FixedArray[17]>
+elements transition [PACKED_SMI_ELEMENTS -> PACKED_DOUBLE_ELEMENTS] in push+808 at <unknown>:<unknown> for 0x22226039bfe1 <JSArray[3]> from 0x22226039b989 <FixedArray[3]> to 0x3687d6767811 <FixedDoubleArray[3]>
+elements transition [PACKED_SMI_ELEMENTS -> PACKED_DOUBLE_ELEMENTS] in push+808 at <unknown>:<unknown> for 0x3687d6767661 <JSArray[3]> from 0x3687d6767691 <FixedArray[22]> to 0x3687d6767751 <FixedDoubleArray[22]>
+elements transition [PACKED_DOUBLE_ELEMENTS -> PACKED_ELEMENTS] in push+1690 at <unknown>:<unknown> for 0x22226039bfe1 <JSArray[3]> from 0x3687d6767811 <FixedDoubleArray[3]> to 0x3687d6767909 <FixedArray[3]>
+elements transition [PACKED_DOUBLE_ELEMENTS -> PACKED_ELEMENTS] in push+1690 at <unknown>:<unknown> for 0x3687d6767661 <JSArray[4]> from 0x3687d6767751 <FixedDoubleArray[22]> to 0x3687d6767839 <FixedArray[22]>
+== node24
+elements transition [PACKED_SMI_ELEMENTS -> PACKED_ELEMENTS] in from+0 at <unknown>:<unknown> for 0x3c8b3199b959 <JSArray[0]> from 0x3c8b3199b9c9 <FixedArray[17]> to 0x3c8b3199b9c9 <FixedArray[17]>
+elements transition [PACKED_SMI_ELEMENTS -> PACKED_ELEMENTS] in from+0 at <unknown>:<unknown> for 0x3c8b3199c941 <JSArray[0]> from 0x3c8b3199c9c9 <FixedArray[17]> to 0x3c8b3199c9c9 <FixedArray[17]>
+elements transition [PACKED_SMI_ELEMENTS -> PACKED_DOUBLE_ELEMENTS] in push+0 at <unknown>:<unknown> for 0x33e6ee7a8ef9 <JSArray[3]> from 0x33e6ee7a8691 <FixedArray[3]> to 0x3c8b319a7699 <FixedDoubleArray[3]>
+elements transition [PACKED_SMI_ELEMENTS -> PACKED_DOUBLE_ELEMENTS] in push+0 at <unknown>:<unknown> for 0x3c8b319a74e9 <JSArray[3]> from 0x3c8b319a7519 <FixedArray[22]> to 0x3c8b319a75d9 <FixedDoubleArray[22]>
+elements transition [PACKED_DOUBLE_ELEMENTS -> PACKED_ELEMENTS] in push+0 at <unknown>:<unknown> for 0x33e6ee7a8ef9 <JSArray[3]> from 0x3c8b319a7699 <FixedDoubleArray[3]> to 0x3c8b319a7791 <FixedArray[3]>

@@ -1,0 +1,16 @@
+## /opt/node20/bin/node
+         0x1c29fdb65170 @    2 : 6c 03 00          TestEqualStrict a0, [0]
+         0x1c29fdb6517a @   12 : 6c fa 00          TestEqualStrict r0, [0]
+         0x1c29fdb65181 @   19 : 6c fa 00          TestEqualStrict r0, [0]
+         0xf3808b247a5 @   39 : 6c f9 03          TestEqualStrict r1, [3]
+         0xf3808b247ac @   46 : a0 00 06 00       SwitchOnSmiNoFeedback [0], [6], [0] { 0: @54, 1: @57, 2: @60, 3: @63, 4: @66, 5: @69 }
+## /opt/nvm/versions/node/v24.21.0/bin/node
+         0x3cb1e7d8234a @    2 : 74 03 00          TestEqualStrict a0, [0]
+         0x3cb1e7d82354 @   12 : 74 f9 00          TestEqualStrict r0, [0]
+         0x3cb1e7d8235b @   19 : 74 f9 00          TestEqualStrict r0, [0]
+         0x303a8101c2f @   39 : 74 f8 03          TestEqualStrict r1, [3]
+         0x303a8101c36 @   46 : ab 00 06 00       SwitchOnSmiNoFeedback [0], [6], [0] { 0: @54, 1: @57, 2: @60, 3: @63, 4: @66, 5: @69 }
+## d8
+         0x1ec8010006b6 @    2 : 79 03 00          TestEqualStrict a0, EmbeddedFeedback[None]
+         0x1ec8010006c0 @   12 : 79 f9 00          TestEqualStrict r0, EmbeddedFeedback[None]
+         0x1ec8010006c7 @   19 : 79 f9 00          TestEqualStrict r0, EmbeddedFeedback[None]

@@ -1,0 +1,16 @@
+V8 is running with developer-only features enabled. Stability and security will suffer.
+--- A: this.v = null, later 1.5
+[generalizing]v:h{Any;const}->t{Any;mutable} (uninitialized field) [~+49 at gen.js:1]
+[generalizing]v:h{Any;const}->t{Any;mutable} (field type generalization) [~+49 at gen.js:1]
+--- A2: this.v = null, later {}
+[generalizing]v:h{Any;const}->h{Any;mutable} (uninitialized field) [~+93 at gen.js:1]
+[generalizing]v:h{Any;const}->h{Any;mutable} (field type generalization) [~+93 at gen.js:1]
+--- B: this.v = 0, later 1.5
+[generalizing]v:s{Any;const}->d{Any;mutable} (+1 maps) [~+135 at gen.js:1]
+--- B2: this.v = 0.5, later 1.5
+[generalizing]v:d{Any;const}->d{Any;mutable} (uninitialized field) [~+177 at gen.js:1]
+[generalizing]v:d{Any;const}->d{Any;mutable} (field type generalization) [~+177 at gen.js:1]
+--- B3: this.v = 0.5, later "s"
+[generalizing]v:d{Any;const}->t{Any;mutable} (uninitialized field) [~+219 at gen.js:1]
+[generalizing]v:d{Any;const}->t{Any;mutable} (field type generalization) [~+219 at gen.js:1]
+--- end

@@ -1,0 +1,12 @@
+## node22
+rep0: literal 43.7 | class 41.3 | function-ctor 54.5
+rep1: literal 43.1 | class 42.4 | function-ctor 41.4
+rep2: literal 46.5 | class 41.3 | function-ctor 40.8
+## node24
+rep0: literal 48.8 | class 46.3 | function-ctor 47.2
+rep1: literal 46.1 | class 41.2 | function-ctor 40.9
+rep2: literal 40.7 | class 41.1 | function-ctor 45.2
+## d8
+rep0: literal 24.3 | class 35.1 | function-ctor 25.0
+rep1: literal 21.9 | class 34.0 | function-ctor 24.1
+rep2: literal 21.8 | class 24.7 | function-ctor 24.3

@@ -1,0 +1,35 @@
+===== node20 =====
+top-level 100 keyed fast? false
+fn noCheck 200 keyed fast? false
+fn with check [firstSlow, fastAtEnd] [20,false]
+top-level 100 keyed (new names q) fast? false
+top-level 1000 keyed fast? false
+top-level 2000 keyed fast? false
+===== node22 =====
+top-level 100 keyed fast? false
+fn noCheck 200 keyed fast? false
+fn with check [firstSlow, fastAtEnd] [20,false]
+top-level 100 keyed (new names q) fast? false
+top-level 1000 keyed fast? false
+top-level 2000 keyed fast? false
+===== node24 =====
+top-level 100 keyed fast? false
+fn noCheck 200 keyed fast? false
+fn with check [firstSlow, fastAtEnd] [20,false]
+top-level 100 keyed (new names q) fast? false
+top-level 1000 keyed fast? false
+top-level 2000 keyed fast? false
+===== d8rel =====
+top-level 100 keyed fast? false
+fn noCheck 200 keyed fast? false
+fn with check [firstSlow, fastAtEnd] [20,false]
+top-level 100 keyed (new names q) fast? false
+top-level 1000 keyed fast? false
+top-level 2000 keyed fast? false
+===== d8dbg =====
+top-level 100 keyed fast? false
+fn noCheck 200 keyed fast? false
+fn with check [firstSlow, fastAtEnd] [20,false]
+top-level 100 keyed (new names q) fast? false
+top-level 1000 keyed fast? false
+top-level 2000 keyed fast? false

@@ -1,0 +1,30 @@
+=== node20
+warm 100000 100000 100000
+--- cross 2^30 only: 1e6 * 1500 = 1.5e9
+r 1500000000
+--- cross 2^31: 1e6 * 3000 = 3e9
+[bailout (kind: deopt-eager, reason: overflow):
+r 3000000000
+=== node22
+warm 100000 100000 100000
+--- cross 2^30 only: 1e6 * 1500 = 1.5e9
+r 1500000000
+--- cross 2^31: 1e6 * 3000 = 3e9
+[bailout (kind: deopt-eager, reason: overflow):
+r 3000000000
+=== node24
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)):
+warm 100000 100000 100000
+--- cross 2^30 only: 1e6 * 1500 = 1.5e9
+r 1500000000
+--- cross 2^31: 1e6 * 3000 = 3e9
+[bailout (kind: deopt-eager, reason: overflow):
+r 3000000000
+=== d8
+warm 100000 100000 100000
+--- cross 2^30 only: 1e6 * 1500 = 1.5e9
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)):
+r 1500000000
+--- cross 2^31: 1e6 * 3000 = 3e9
+[bailout (kind: deopt-eager, reason: overflow):
+r 3000000000

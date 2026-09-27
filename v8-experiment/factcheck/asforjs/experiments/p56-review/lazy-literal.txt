@@ -1,0 +1,20 @@
+## /opt/node20/bin/node nocall
+TOPLEVEL_LITERAL_q7w8e9          exact string in snapshot: true
+LAZY_LITERAL_z1x2c3              exact string in snapshot: false
+CALLED_LITERAL_r4t5y6            exact string in snapshot: true
+DataView.prototype.setFloat32    exact string in snapshot: true
+## /opt/node20/bin/node call
+TOPLEVEL_LITERAL_q7w8e9          exact string in snapshot: true
+LAZY_LITERAL_z1x2c3              exact string in snapshot: true
+CALLED_LITERAL_r4t5y6            exact string in snapshot: true
+DataView.prototype.setFloat32    exact string in snapshot: true
+## /opt/nvm/versions/node/v24.21.0/bin/node nocall
+TOPLEVEL_LITERAL_q7w8e9          exact string in snapshot: true
+LAZY_LITERAL_z1x2c3              exact string in snapshot: false
+CALLED_LITERAL_r4t5y6            exact string in snapshot: true
+DataView.prototype.setFloat32    exact string in snapshot: true
+## /opt/nvm/versions/node/v24.21.0/bin/node call
+TOPLEVEL_LITERAL_q7w8e9          exact string in snapshot: true
+LAZY_LITERAL_z1x2c3              exact string in snapshot: true
+CALLED_LITERAL_r4t5y6            exact string in snapshot: true
+DataView.prototype.setFloat32    exact string in snapshot: true

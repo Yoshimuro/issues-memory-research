@@ -1,0 +1,30 @@
+== /opt/node22/bin/node
+[OSR - setting osr urgency. function: once, old urgency: 0, new urgency: 1]
+[OSR - compilation started. function: once, osr offset: 29, mode: ConcurrencyMode::kConcurrent]
+[compiling method  <JSFunction once (sfi = )> (target TURBOFAN) OSR, mode: ConcurrencyMode::kConcurrent]
+[OSR - unavailable (failed or in progress). function: once, osr offset: 29, mode: ConcurrencyMode::kConcurrent]
+[completed compiling  <JSFunction once (sfi = )> (target TURBOFAN) OSR - took 0.024, 1.028, 0.014 ms]
+[completed optimizing  <JSFunction once (sfi = )> (target TURBOFAN) OSR]
+[OSR - compilation finished. function: once, osr offset: 29]
+[OSR - setting osr urgency. function: once, old urgency: 0, new urgency: 1]
+[OSR - entry. function: once, osr offset: 29]
+[completed compiling  <JSFunction (sfi = )> (target TURBOFAN) - took 0.014, 0.668, 0.019 ms]
+[completed optimizing  <JSFunction (sfi = )> (target TURBOFAN)]
+[compiling method  <JSFunction cb (sfi = )> (target TURBOFAN), mode: ConcurrencyMode::kConcurrent]
+== /opt/nvm/versions/node/v24.21.0/bin/node
+[completed compiling  <JSFunction isPosixPathSeparator (sfi = )> (target MAGLEV) - took 0.000, 0.376, 0.006 ms]
+[OSR - setting osr urgency. function: once, old urgency: 0, new urgency: 1]
+[OSR - compilation started. function: once, osr offset: 29, mode: ConcurrencyMode::kConcurrent]
+[compiling method  <JSFunction once (sfi = )> (target MAGLEV) OSR, mode: ConcurrencyMode::kConcurrent]
+[OSR - unavailable (failed or in progress). function: once, osr offset: 29, mode: ConcurrencyMode::kConcurrent]
+[completed compiling  <JSFunction once (sfi = )> (target MAGLEV) OSR - took 0.001, 0.227, 0.004 ms]
+[OSR - setting osr urgency. function: once, old urgency: 0, new urgency: 1]
+[OSR - entry. function: once, osr offset: 29]
+[OSR - compilation started. function: once, osr offset: 29, mode: ConcurrencyMode::kConcurrent]
+[compiling method  <JSFunction once (sfi = )> (target TURBOFAN_JS) OSR, mode: ConcurrencyMode::kConcurrent]
+[OSR - unavailable (failed or in progress). function: once, osr offset: 29, mode: ConcurrencyMode::kConcurrent]
+[completed compiling  <JSFunction once (sfi = )> (target TURBOFAN_JS) OSR - took 0.019, 1.451, 0.020 ms]
+== /opt/node22/bin/node
+cb calls: 200000 first call seen running optimized (turbofan bit 4): 11054
+== /opt/nvm/versions/node/v24.21.0/bin/node
+cb calls: 200000 first call seen running optimized (turbofan bit 4): 2421

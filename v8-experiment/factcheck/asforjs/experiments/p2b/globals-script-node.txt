@@ -1,0 +1,22 @@
+== /opt/node20/bin/node -e (script scope)
+0 : 21 00 00          LdaGlobal [0], [0]
+3 : c4                Star0
+4 : 16 02             LdaCurrentContextSlot [2]
+6 : aa 01             ThrowReferenceErrorIfHole [1]
+8 : 38 fa 02          Add r0, [2]
+11 : c4                Star0
+12 : 17 03             LdaImmutableCurrentContextSlot [3]
+14 : aa 02             ThrowReferenceErrorIfHole [2]
+16 : 38 fa 03          Add r0, [3]
+19 : a9                Return
+== /opt/nvm/versions/node/v24.21.0/bin/node -e (script scope)
+0 : 23 00 00          LdaGlobal [0], [0]
+3 : ce                Star0
+4 : 18 03             LdaCurrentScriptContextSlot [3]
+6 : b4 01             ThrowReferenceErrorIfHole [1]
+8 : 3f f9 02          Add r0, [2]
+11 : ce                Star0
+12 : 19 04             LdaImmutableCurrentContextSlot [4]
+14 : b4 02             ThrowReferenceErrorIfHole [2]
+16 : 3f f9 03          Add r0, [3]
+19 : b3                Return

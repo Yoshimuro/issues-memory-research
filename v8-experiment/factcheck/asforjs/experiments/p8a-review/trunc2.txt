@@ -1,0 +1,16 @@
+## /opt/node20/bin/node
+trunc tiny 47ms | or tiny 39ms | trunc mid 28ms | or mid 37ms | trunc tiny acc=-0 30ms | or tiny acc=-0 38ms
+trunc tiny 36ms | or tiny 42ms | trunc mid 34ms | or mid 41ms | trunc tiny acc=-0 33ms | or tiny acc=-0 39ms
+trunc tiny 30ms | or tiny 42ms | trunc mid 26ms | or mid 32ms | trunc tiny acc=-0 28ms | or tiny acc=-0 34ms
+## /opt/node22/bin/node
+trunc tiny 43ms | or tiny 36ms | trunc mid 20ms | or mid 37ms | trunc tiny acc=-0 24ms | or tiny acc=-0 37ms
+trunc tiny 21ms | or tiny 36ms | trunc mid 23ms | or mid 39ms | trunc tiny acc=-0 30ms | or tiny acc=-0 34ms
+trunc tiny 19ms | or tiny 34ms | trunc mid 17ms | or mid 33ms | trunc tiny acc=-0 20ms | or tiny acc=-0 33ms
+## /opt/nvm/versions/node/v24.21.0/bin/node
+trunc tiny 43ms | or tiny 34ms | trunc mid 20ms | or mid 35ms | trunc tiny acc=-0 20ms | or tiny acc=-0 33ms
+trunc tiny 18ms | or tiny 33ms | trunc mid 18ms | or mid 33ms | trunc tiny acc=-0 20ms | or tiny acc=-0 33ms
+trunc tiny 19ms | or tiny 33ms | trunc mid 18ms | or mid 34ms | trunc tiny acc=-0 19ms | or tiny acc=-0 35ms
+## d8
+trunc tiny 38ms | or tiny 31ms | trunc mid 16ms | or mid 33ms | trunc tiny acc=-0 20ms | or tiny acc=-0 34ms
+trunc tiny 31ms | or tiny 40ms | trunc mid 30ms | or mid 39ms | trunc tiny acc=-0 33ms | or tiny acc=-0 38ms
+trunc tiny 17ms | or tiny 35ms | trunc mid 16ms | or mid 40ms | trunc tiny acc=-0 21ms | or tiny acc=-0 34ms

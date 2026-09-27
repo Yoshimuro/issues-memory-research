@@ -1,0 +1,12 @@
+== /opt/node22/bin/node
+rep0 nonEscaping temp/reuse 22/22 ms = 1.01x | noInline temp/reuse 141/65 = 2.16x | ring(inlined) temp/reuse 158/35 = 4.52x
+rep1 nonEscaping temp/reuse 23/24 ms = 0.95x | noInline temp/reuse 160/65 = 2.46x | ring(inlined) temp/reuse 157/34 = 4.59x
+rep2 nonEscaping temp/reuse 22/22 ms = 1.00x | noInline temp/reuse 124/66 = 1.88x | ring(inlined) temp/reuse 154/34 = 4.48x
+== /opt/nvm/versions/node/v24.21.0/bin/node
+rep0 nonEscaping temp/reuse 20/19 ms = 1.09x | noInline temp/reuse 117/55 = 2.13x | ring(inlined) temp/reuse 142/28 = 5.08x
+rep1 nonEscaping temp/reuse 94/22 ms = 4.31x | noInline temp/reuse 136/85 = 1.60x | ring(inlined) temp/reuse 173/32 = 5.48x
+rep2 nonEscaping temp/reuse 100/22 ms = 4.60x | noInline temp/reuse 124/67 = 1.86x | ring(inlined) temp/reuse 174/32 = 5.37x
+== /tmp/claude-0/-home-user-issues-memory-research/dacf359b-9898-588d-b8f1-20fd1e3f2945/scratchpad/d8/rel/d8
+rep0 nonEscaping temp/reuse 18/20 ms = 0.90x | noInline temp/reuse 254/65 = 3.89x | ring(inlined) temp/reuse 163/38 = 4.34x
+rep1 nonEscaping temp/reuse 35/36 ms = 0.95x | noInline temp/reuse 267/64 = 4.16x | ring(inlined) temp/reuse 158/38 = 4.20x
+rep2 nonEscaping temp/reuse 17/18 ms = 0.94x | noInline temp/reuse 246/66 = 3.70x | ring(inlined) temp/reuse 161/38 = 4.18x

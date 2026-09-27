@@ -1,0 +1,21 @@
+== node24
+rep0 viaFor=306ms viaReduce=124ms
+rep1 viaFor=285ms viaReduce=122ms
+rep2 viaFor=280ms viaReduce=121ms
+cb status bits=1010001 viaFor bits=1000000000000001
+OSR events for viaFor: 0
+== node22
+rep0 viaFor=216ms viaReduce=95ms
+rep1 viaFor=209ms viaReduce=88ms
+rep2 viaFor=209ms viaReduce=94ms
+cb status bits=1010001 viaFor bits=1000000000000001
+== d8
+rep0 viaFor=181ms viaReduce=124ms
+rep1 viaFor=175ms viaReduce=123ms
+rep2 viaFor=178ms viaReduce=122ms
+cb status bits=101001 viaFor bits=100000000000001
+== d8 --no-sparkplug
+rep0 viaFor=387ms viaReduce=128ms
+rep1 viaFor=405ms viaReduce=123ms
+rep2 viaFor=354ms viaReduce=98ms
+cb status bits=101001 viaFor bits=1000001

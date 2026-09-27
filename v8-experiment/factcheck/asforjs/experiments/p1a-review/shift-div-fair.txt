@@ -1,0 +1,19 @@
+== D8 --max-opt=0
+sh 200  dv 243  sh2 233  
+sh 209  dv 244  sh2 224  
+sh 227  dv 219  sh2 185  
+sh 169  dv 210  sh2 225  
+== N24 --max-opt=0
+sh 145  dv 176  sh2 195  
+sh 181  dv 193  sh2 222  
+sh 216  dv 200  sh2 206  
+sh 180  dv 227  sh2 198  
+== N20 --max-opt=0
+sh 193  dv 202  sh2 214  
+sh 178  dv 165  sh2 201  
+sh 194  dv 167  sh2 166  
+sh 156  dv 168  sh2 212  
+== D8 --print-bytecode sh/dv loop bodies
+         0x14d501000555 @   13 : 59 01 00          ShiftLeftSmi [1], EmbeddedFeedback[None]
+         0x14d50100055b @   19 : 53 02 00          DivSmi [2], EmbeddedFeedback[None]
+         0x14d501000561 @   25 : 56 00 00          BitwiseOrSmi [0], EmbeddedFeedback[None]

@@ -1,0 +1,22 @@
+== /opt/node20/bin/node
+status 1000000000000001 baseline(bit15)= true optimized(bit4)= false interpreted(bit7)= false turbofanned(bit5)= false maglev(bit6) false
+max-opt=0: status 10000011 baseline(bit15)= false optimized(bit4)= false interpreted(bit7)= true turbofanned(bit5)= false maglev(bit6) false
+[Baseline batch compilation] Enqueued SFI requireBuiltin with estimated size 532 (current budget: 532/4096)
+[Baseline batch compilation] Enqueued SFI compileForInternalLoader with estimated size 1225 (current budget: 1757/4096)
+[Baseline batch compilation] Enqueued SFI internalBinding with estimated size 483 (current budget: 2240/4096)
+== /opt/node22/bin/node
+status 1000000000000001 baseline(bit15)= true optimized(bit4)= false interpreted(bit7)= false turbofanned(bit5)= false maglev(bit6) false
+max-opt=0: status 10000011 baseline(bit15)= false optimized(bit4)= false interpreted(bit7)= true turbofanned(bit5)= false maglev(bit6) false
+[Baseline batch compilation] Enqueued SFI requireBuiltin with estimated size 532 (current budget: 532/4096)
+[Baseline batch compilation] Enqueued SFI compileForInternalLoader with estimated size 1225 (current budget: 1757/4096)
+[Baseline batch compilation] Enqueued SFI internalBinding with estimated size 469 (current budget: 2226/4096)
+== /opt/nvm/versions/node/v24.21.0/bin/node
+status 1000000000000001 baseline(bit15)= true optimized(bit4)= false interpreted(bit7)= false turbofanned(bit5)= false maglev(bit6) false
+max-opt=0: status 10000011 baseline(bit15)= false optimized(bit4)= false interpreted(bit7)= true turbofanned(bit5)= false maglev(bit6) false
+[Baseline batch compilation] Enqueued SFI requireBuiltin with estimated size 532 (current budget: 532/4096)
+[Baseline batch compilation] Enqueued SFI compileForInternalLoader with estimated size 1239 (current budget: 1771/4096)
+[Baseline batch compilation] Enqueued SFI internalBinding with estimated size 469 (current budget: 2240/4096)
+== d8 15.6
+status 100000000000001 baseline(bit15)= false optimized(bit4)= false interpreted(bit7)= false turbofanned(bit5)= false maglev(bit6) false
+max-opt=0: status 1000011 baseline(bit15)= false optimized(bit4)= false interpreted(bit7)= false turbofanned(bit5)= false maglev(bit6) true
+# NOTE: d8 15.6 uses the shifted OptimizationStatus layout (15.6.67 src/runtime/runtime.h: kBaseline=1<<14, kInterpreted=1<<6, kMaglevved=1<<4). So d8 'status 100000000000001' = baseline(Sparkplug) under %NeverOptimizeFunction; with --max-opt=0 '1000011' = interpreted. The per-bit labels printed above apply to 11.3..13.6 only.

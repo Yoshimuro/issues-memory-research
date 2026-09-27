@@ -1,0 +1,45 @@
+## d8 15.6
+one-byte length 60000: large-object space = false (flat seq: true}
+one-byte length 65535: large-object space = false (flat seq: true}
+one-byte length 65536: large-object space = false (flat seq: true}
+one-byte length 66000: large-object space = false (flat seq: true}
+one-byte length 131000: large-object space = false (flat seq: true}
+one-byte length 131072: large-object space = true (flat seq: true}
+one-byte length 132000: large-object space = true (flat seq: true}
+two-byte length 60000: large-object space = false (flat seq: true}
+two-byte length 65535: large-object space = true (flat seq: true}
+two-byte length 65536: large-object space = true (flat seq: true}
+two-byte length 66000: large-object space = true (flat seq: true}
+two-byte length 131000: large-object space = true (flat seq: true}
+two-byte length 131072: large-object space = true (flat seq: true}
+two-byte length 132000: large-object space = true (flat seq: true}
+## node24
+one-byte length 60000: large-object space = false (flat seq: true}
+one-byte length 65535: large-object space = false (flat seq: true}
+one-byte length 65536: large-object space = false (flat seq: true}
+one-byte length 66000: large-object space = false (flat seq: true}
+one-byte length 131000: large-object space = false (flat seq: true}
+one-byte length 131072: large-object space = true (flat seq: true}
+one-byte length 132000: large-object space = true (flat seq: true}
+two-byte length 60000: large-object space = false (flat seq: true}
+two-byte length 65535: large-object space = true (flat seq: true}
+two-byte length 65536: large-object space = true (flat seq: true}
+two-byte length 66000: large-object space = true (flat seq: true}
+two-byte length 131000: large-object space = true (flat seq: true}
+two-byte length 131072: large-object space = true (flat seq: true}
+two-byte length 132000: large-object space = true (flat seq: true}
+## node20
+one-byte length 60000: large-object space = false (flat seq: true}
+one-byte length 65535: large-object space = false (flat seq: true}
+one-byte length 65536: large-object space = false (flat seq: true}
+one-byte length 66000: large-object space = false (flat seq: true}
+one-byte length 131000: large-object space = false (flat seq: true}
+one-byte length 131072: large-object space = true (flat seq: true}
+one-byte length 132000: large-object space = true (flat seq: true}
+two-byte length 60000: large-object space = false (flat seq: true}
+two-byte length 65535: large-object space = true (flat seq: true}
+two-byte length 65536: large-object space = true (flat seq: true}
+two-byte length 66000: large-object space = true (flat seq: true}
+two-byte length 131000: large-object space = true (flat seq: true}
+two-byte length 131072: large-object space = true (flat seq: true}
+two-byte length 132000: large-object space = true (flat seq: true}

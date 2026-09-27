@@ -1,0 +1,41 @@
+=== node20
+elements transition [PACKED_SMI_ELEMENTS -> PACKED_ELEMENTS] in from+1782 at <unknown>:<unknown>
+--- A: top-level [1,2,3].push(1.5)
+--- B: [] then push ints then push double (interpreted fn)
+--- C: optimized pusher gets a double
+--- D: store past the end a[5] = 1 on [1,2,3] then push 0.5
+elements transition [PACKED_SMI_ELEMENTS -> HOLEY_SMI_ELEMENTS] in ~+154 at push_transitions.js:15
+--- E: arr.length = 10 on [1,2] then push 0.5
+elements transition [PACKED_SMI_ELEMENTS -> HOLEY_SMI_ELEMENTS] in ~+185 at push_transitions.js:17
+--- end
+=== node22
+elements transition [PACKED_SMI_ELEMENTS -> PACKED_ELEMENTS] in from+1840 at <unknown>:<unknown>
+--- A: top-level [1,2,3].push(1.5)
+--- B: [] then push ints then push double (interpreted fn)
+--- C: optimized pusher gets a double
+--- D: store past the end a[5] = 1 on [1,2,3] then push 0.5
+elements transition [PACKED_SMI_ELEMENTS -> HOLEY_SMI_ELEMENTS] in ~+154 at push_transitions.js:15
+--- E: arr.length = 10 on [1,2] then push 0.5
+elements transition [PACKED_SMI_ELEMENTS -> HOLEY_SMI_ELEMENTS] in ~+185 at push_transitions.js:17
+--- end
+=== node24
+elements transition [PACKED_SMI_ELEMENTS -> PACKED_ELEMENTS] in from+0 at <unknown>:<unknown>
+elements transition [PACKED_SMI_ELEMENTS -> PACKED_ELEMENTS] in from+0 at <unknown>:<unknown>
+--- A: top-level [1,2,3].push(1.5)
+--- B: [] then push ints then push double (interpreted fn)
+--- C: optimized pusher gets a double
+--- D: store past the end a[5] = 1 on [1,2,3] then push 0.5
+elements transition [PACKED_SMI_ELEMENTS -> HOLEY_SMI_ELEMENTS] in ~+154 at push_transitions.js:15
+--- E: arr.length = 10 on [1,2] then push 0.5
+elements transition [PACKED_SMI_ELEMENTS -> HOLEY_SMI_ELEMENTS] in ~+185 at push_transitions.js:17
+--- end
+=== d8 debug
+V8 is running with developer-only features enabled. Stability and security will suffer.
+--- A: top-level [1,2,3].push(1.5)
+--- B: [] then push ints then push double (interpreted fn)
+--- C: optimized pusher gets a double
+--- D: store past the end a[5] = 1 on [1,2,3] then push 0.5
+elements transition [PACKED_SMI_ELEMENTS -> HOLEY_SMI_ELEMENTS] in ~+200 at push_transitions.js:1
+--- E: arr.length = 10 on [1,2] then push 0.5
+elements transition [PACKED_SMI_ELEMENTS -> HOLEY_SMI_ELEMENTS] in ~+241 at push_transitions.js:1
+--- end

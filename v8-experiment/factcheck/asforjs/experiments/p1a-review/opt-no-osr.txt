@@ -1,0 +1,8 @@
+== d8 inner opt (doMain optimized before the call) --trace-osr
+inner              mode=opt n=3000000 ms=22 r=165000000
+== node24 inner opt
+inner              mode=opt n=3000000 ms=34 r=165000000
+== d8 globalConst opt (doMain optimized before the call) --trace-osr
+globalConst        mode=opt n=3000000 ms=33 r=165000000
+== node24 globalConst opt
+globalConst        mode=opt n=3000000 ms=21 r=165000000

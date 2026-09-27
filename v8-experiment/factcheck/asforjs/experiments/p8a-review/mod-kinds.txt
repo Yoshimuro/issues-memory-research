@@ -1,0 +1,20 @@
+## /opt/node22/bin/node
+smi array: HasSmiElements true  dbl array: HasDoubleElements true
+smi x&1 79ms | smi x%2 76ms | dbl x&1 85ms | dbl x%2 407ms
+smi x&1 70ms | smi x%2 74ms | dbl x&1 83ms | dbl x%2 397ms
+smi x&1 68ms | smi x%2 71ms | dbl x&1 81ms | dbl x%2 405ms
+## /opt/nvm/versions/node/v24.21.0/bin/node
+smi array: HasSmiElements true  dbl array: HasDoubleElements true
+smi x&1 74ms | smi x%2 77ms | dbl x&1 81ms | dbl x%2 483ms
+smi x&1 58ms | smi x%2 74ms | dbl x&1 80ms | dbl x%2 491ms
+smi x&1 58ms | smi x%2 73ms | dbl x&1 80ms | dbl x%2 492ms
+## d8
+smi array: HasSmiElements true  dbl array: HasDoubleElements true
+smi x&1 46ms | smi x%2 52ms | dbl x&1 81ms | dbl x%2 483ms
+smi x&1 46ms | smi x%2 52ms | dbl x&1 81ms | dbl x%2 416ms
+smi x&1 70ms | smi x%2 77ms | dbl x&1 96ms | dbl x%2 535ms
+## node24 --no-opt --no-maglev --no-sparkplug
+smi array: HasSmiElements true  dbl array: HasDoubleElements true
+smi x&1 1067ms | smi x%2 1062ms | dbl x&1 1079ms | dbl x%2 2302ms
+smi x&1 1042ms | smi x%2 1042ms | dbl x&1 1268ms | dbl x%2 2475ms
+smi x&1 1030ms | smi x%2 1002ms | dbl x&1 1194ms | dbl x%2 2464ms

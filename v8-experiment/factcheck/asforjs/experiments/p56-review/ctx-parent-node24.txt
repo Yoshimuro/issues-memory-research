@@ -1,0 +1,4 @@
+=== mk (top-level fn) in script WITHOUT let/const
+ - context: 0x12151a1c0109 <NativeContext[302]>
+=== mk (top-level fn) in script WITH let/const
+ - context: 0x2934f39c0109 <NativeContext[302]>

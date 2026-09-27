@@ -1,0 +1,20 @@
+== N20
+tiny      {"turbofan":12796} true
+withLoop  {"baseline":856,"turbofan":857} true
+ [sync] tiny      {"turbofan":11275} true
+ [sync] withLoop  {"turbofan":120} true
+== N22
+tiny      {"baseline":3852,"turbofan":4500} true
+withLoop  {"baseline":1,"turbofan":1646} true
+ [sync] tiny      {"turbofan":3011} true
+ [sync] withLoop  {"baseline":1,"turbofan":179} true
+== N24
+tiny      {"maglev":663,"turbofan":14296} true
+withLoop  {"maglev":408,"turbofan":3009} true
+ [sync] tiny      {"maglev":411,"turbofan":12412} true
+ [sync] withLoop  {"maglev":26,"turbofan":871} true
+== D8
+tiny      {"maglev":1400,"turbofan":23340} true
+withLoop  {"maglev":705,"turbofan":6160} true
+ [sync] tiny      {"maglev":411,"turbofan":19612} true
+ [sync] withLoop  {"maglev":26,"turbofan":1379} true

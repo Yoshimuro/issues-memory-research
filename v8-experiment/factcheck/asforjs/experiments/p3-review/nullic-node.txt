@@ -1,0 +1,9 @@
+/opt/node20/bin/node smi: null->sameMap true final sameMap true true
+/opt/node20/bin/node double: null->sameMap true final sameMap true true
+/opt/node20/bin/node object: null->sameMap true final sameMap true true
+/opt/node22/bin/node smi: null->sameMap true final sameMap true true
+/opt/node22/bin/node double: null->sameMap true final sameMap true true
+/opt/node22/bin/node object: null->sameMap true final sameMap true true
+/opt/nvm/versions/node/v24.21.0/bin/node smi: null->sameMap true final sameMap true true
+/opt/nvm/versions/node/v24.21.0/bin/node double: null->sameMap true final sameMap true true
+/opt/nvm/versions/node/v24.21.0/bin/node object: null->sameMap true final sameMap true true

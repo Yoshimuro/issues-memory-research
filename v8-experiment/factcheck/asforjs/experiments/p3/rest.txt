@@ -1,0 +1,40 @@
+===== node20 =====
+rest(lit) ~ lit false
+rest(ctor) ~ rest(lit) true  rest(ctor) ~ lit false
+rest(dyn {}+a+b) ~ rest(lit) true
+rest({b,a}) ~ rest({a,b}) false
+rest({a:1.5,b}) ~ rest({a:1,b}) false
+rest returns new object true
+array rest new array true true
+===== node22 =====
+rest(lit) ~ lit false
+rest(ctor) ~ rest(lit) true  rest(ctor) ~ lit false
+rest(dyn {}+a+b) ~ rest(lit) true
+rest({b,a}) ~ rest({a,b}) false
+rest({a:1.5,b}) ~ rest({a:1,b}) false
+rest returns new object true
+array rest new array true true
+===== node24 =====
+rest(lit) ~ lit false
+rest(ctor) ~ rest(lit) true  rest(ctor) ~ lit false
+rest(dyn {}+a+b) ~ rest(lit) true
+rest({b,a}) ~ rest({a,b}) false
+rest({a:1.5,b}) ~ rest({a:1,b}) false
+rest returns new object true
+array rest new array true true
+===== d8rel =====
+rest(lit) ~ lit true
+rest(ctor) ~ rest(lit) true  rest(ctor) ~ lit true
+rest(dyn {}+a+b) ~ rest(lit) false
+rest({b,a}) ~ rest({a,b}) false
+rest({a:1.5,b}) ~ rest({a:1,b}) false
+rest returns new object true
+array rest new array true true
+===== d8dbg =====
+rest(lit) ~ lit true
+rest(ctor) ~ rest(lit) true  rest(ctor) ~ lit true
+rest(dyn {}+a+b) ~ rest(lit) false
+rest({b,a}) ~ rest({a,b}) false
+rest({a:1.5,b}) ~ rest({a:1,b}) false
+rest returns new object true
+array rest new array true true

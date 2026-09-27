@@ -1,0 +1,10 @@
+round 0 viaPush        374 ms  len=10000000
+round 0 viaPrealloc    482 ms  len=10000000
+round 0 viaPushDouble  517 ms  len=10000000
+round 1 viaPush        1481 ms  len=10000000
+round 1 viaPrealloc    443 ms  len=10000000
+round 1 viaPushDouble  238 ms  len=10000000
+round 2 viaPush        318 ms  len=10000000
+round 2 viaPrealloc    89 ms  len=10000000
+round 2 viaPushDouble  220 ms  len=10000000
+NOTE: timings too noisy (parallel load); not used for any verdict

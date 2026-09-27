@@ -1,0 +1,24 @@
+== d8 default R=40000
+rep0 viaFor=39ms viaForEach=103ms viaReduce=127ms
+rep1 viaFor=25ms viaForEach=79ms viaReduce=25ms
+rep2 viaFor=25ms viaForEach=76ms viaReduce=25ms
+== node24 default
+rep0 viaFor=36ms viaForEach=73ms viaReduce=88ms
+rep1 viaFor=26ms viaForEach=59ms viaReduce=27ms
+rep2 viaFor=25ms viaForEach=59ms viaReduce=28ms
+== node22 default
+rep0 viaFor=30ms viaForEach=88ms viaReduce=39ms
+rep1 viaFor=21ms viaForEach=54ms viaReduce=21ms
+rep2 viaFor=22ms viaForEach=53ms viaReduce=23ms
+== node20 default
+rep0 viaFor=27ms viaForEach=76ms viaReduce=51ms
+rep1 viaFor=26ms viaForEach=58ms viaReduce=24ms
+rep2 viaFor=26ms viaForEach=58ms viaReduce=24ms
+== d8 ignition-only (--no-opt --no-maglev --no-sparkplug) R=300
+rep0 viaFor=7ms viaForEach=6ms viaReduce=4ms
+rep1 viaFor=6ms viaForEach=7ms viaReduce=4ms
+rep2 viaFor=7ms viaForEach=6ms viaReduce=5ms
+== node24 ignition-only R=300
+rep0 viaFor=6ms viaForEach=5ms viaReduce=5ms
+rep1 viaFor=6ms viaForEach=5ms viaReduce=5ms
+rep2 viaFor=6ms viaForEach=6ms viaReduce=4ms

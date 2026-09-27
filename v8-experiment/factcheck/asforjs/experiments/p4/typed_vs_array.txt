@@ -1,0 +1,12 @@
+##### node22 (ms per 50 passes over 1e6 elements)
+round 0: loop smi[]=119  loop Int32Array=116  loop Int8Array=137  loop double[]=115  loop Float64Array=110  reduce smi[]=300  reduce Int8Array=317  reduce Int32Array=335
+round 1: loop smi[]=141  loop Int32Array=147  loop Int8Array=211  loop double[]=116  loop Float64Array=107  reduce smi[]=413  reduce Int8Array=314  reduce Int32Array=340
+round 2: loop smi[]=124  loop Int32Array=133  loop Int8Array=140  loop double[]=120  loop Float64Array=126  reduce smi[]=299  reduce Int8Array=308  reduce Int32Array=338
+##### node24 (ms per 50 passes over 1e6 elements)
+round 0: loop smi[]=118  loop Int32Array=117  loop Int8Array=118  loop double[]=115  loop Float64Array=128  reduce smi[]=333  reduce Int8Array=310  reduce Int32Array=318
+round 1: loop smi[]=124  loop Int32Array=116  loop Int8Array=115  loop double[]=112  loop Float64Array=139  reduce smi[]=356  reduce Int8Array=320  reduce Int32Array=324
+round 2: loop smi[]=121  loop Int32Array=122  loop Int8Array=119  loop double[]=122  loop Float64Array=171  reduce smi[]=345  reduce Int8Array=342  reduce Int32Array=290
+##### d8 (ms per 50 passes over 1e6 elements)
+round 0: loop smi[]=116  loop Int32Array=132  loop Int8Array=143  loop double[]=112  loop Float64Array=123  reduce smi[]=316  reduce Int8Array=365  reduce Int32Array=374
+round 1: loop smi[]=116  loop Int32Array=132  loop Int8Array=145  loop double[]=115  loop Float64Array=123  reduce smi[]=368  reduce Int8Array=377  reduce Int32Array=438
+round 2: loop smi[]=122  loop Int32Array=166  loop Int8Array=194  loop double[]=121  loop Float64Array=115  reduce smi[]=324  reduce Int8Array=383  reduce Int32Array=431

@@ -1,0 +1,14 @@
+=== node22 (last optimized doSum)
+0x7f29b6fc6735    b5  49c1f820             REX.W sarq r8, 32
+0x7f29b6fc673c    bc  c4c1032ac0           vcvtlsi2sd xmm0,xmm15,r8
+0x7f29b6fc6780   100  49c1f920             REX.W sarq r9, 32
+0x7f29b6fc6787   107  c4c1032ac9           vcvtlsi2sd xmm1,xmm15,r9
+0x7f29b6fc678f   10f  49c1f920             REX.W sarq r9, 32
+0x7f29b6fc6796   116  4183c101             addl r9,0x1
+0x7f29b6fc679a   11a  0f8094010000         jo 0x7f29b6fc6934  <+0x2b4>
+0x7f29b6fc67a0   120  c5fb58c1             vaddsd xmm0,xmm0,xmm1
+0x7f29b6fc67d3   153  83c101               addl rcx,0x1
+0x7f29b6fc67d6   156  0f805c010000         jo 0x7f29b6fc6938  <+0x2b8>
+0x7f29b6fc67dc   15c  c5f358c0             vaddsd xmm0,xmm1,xmm0
+0x7f29b6fc67ec   16c  c5fb2cc8             vcvttsd2si rcx,xmm0
+0x7f29b6fc67f0   170  c5832ac9             vcvtlsi2sd xmm1,xmm15,rcx

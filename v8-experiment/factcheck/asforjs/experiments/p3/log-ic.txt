@@ -1,0 +1,38 @@
+== node24.log
+== node20.log
+== d8.log
+StoreGlobalIC,1,15,X,X,0x000000000000,counter
+LoadGlobalIC,1,18,X,X,0x108b0101d555,globalThis
+LoadGlobalIC,3,1,X,X,0x108b0101d555,f
+LoadGlobalIC,2,16,X,X,0x108b0101d555,counter
+LoadGlobalIC,2,36,X,X,0x108b0101d555,gx
+StoreGlobalIC,2,24,X,X,0x000000000000,counter
+LoadGlobalIC,3,11,X,X,0x108b0101d555,f
+LoadGlobalIC,2,16,X,X,0x108b0101d555,counter
+== isolate-0x10475000-22845-v8.log
+LoadIC,425,29,0,1,0x180341a5b771,map
+LoadIC,425,33,0,1,0x345a25e06f51,get
+LoadIC,429,14,0,1,0x276d065d15f9,compileForInternalLoader
+LoadIC,384,14,0,1,0x276d065d15f9,loaded
+LoadIC,385,19,0,1,0x276d065d15f9,exports
+LoadIC,1260,16,X,X,0x2b92ede00129,length
+LoadIC,98,29,X,X,0x2b92ede00639,length
+LoadIC,99,18,X,X,0x2b92ede00639,length
+== isolate-0x3fcb8000-22837-node24.log
+LoadIC,425,29,0,1,0x00b17e09b771,map
+LoadIC,425,33,0,1,0x0a05e7d46f51,get
+LoadIC,429,14,0,1,0x0fd7f05915f9,compileForInternalLoader
+LoadIC,384,14,0,1,0x0fd7f05915f9,loaded
+LoadIC,385,19,0,1,0x0fd7f05915f9,exports
+LoadIC,1260,16,X,X,0x3ed96b4c0129,length
+LoadIC,98,29,X,X,0x3ed96b4c0639,length
+LoadIC,99,18,X,X,0x3ed96b4c0639,length
+== isolate-0x4216a550-22862-v8.log
+LoadIC,425,29,0,1,0x16206c061921,map
+LoadIC,425,33,0,1,0x16206c04c511,get
+LoadIC,429,14,0,1,0x098274544971,compileForInternalLoader
+LoadIC,384,14,0,1,0x098274544971,loaded
+LoadIC,385,19,0,1,0x098274544971,exports
+LoadIC,1226,16,X,X,0x0fdbbf080879,length
+LoadIC,100,29,X,X,0x0fdbbf081be9,length
+LoadIC,101,18,X,X,0x0fdbbf081be9,length

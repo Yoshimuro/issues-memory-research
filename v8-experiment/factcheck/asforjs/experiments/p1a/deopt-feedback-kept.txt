@@ -1,0 +1,8 @@
+before deopt status=101001
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing 0x063c0101db95 <JSFunction getX (sfi = 0x63c0101daa9)>, 0x123601000359 <Code TURBOFAN_JS>, opt id 0, node id 37, bytecode offset 0,
+after deopt status=1000001
+ - feedback vector: 0x63c0101dd31: [FeedbackVector] in OldSpace
+ - invocation count: 100
+ - slot #0 LoadProperty POLYMORPHIC
+     [0]: 0x063c01089b09 <WeakFixedArray[4]>
+     [1]: 0x063c00000eb5 <Symbol: (uninitialized_symbol)>

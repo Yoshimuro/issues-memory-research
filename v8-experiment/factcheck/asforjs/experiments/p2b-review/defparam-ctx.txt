@@ -1,0 +1,156 @@
+=============== node20 :: defCapOnly
+CreateFunctionContext [0], [1]
+PushContext r0
+LdaTheHole
+StaCurrentContextSlot [2]
+Ldar a0
+JumpIfNotUndefined [6] (0xb0b5b424366 @ 16)
+LdaSmi [7]
+Jump [4] (0xb0b5b424368 @ 18)
+Ldar a0
+StaCurrentContextSlot [2]
+CreateClosure [1], [0], #2
+Return
+=============== node20 :: defCapBody
+CreateFunctionContext [0], [1]
+PushContext r0
+LdaTheHole
+StaCurrentContextSlot [2]
+Ldar a0
+JumpIfNotUndefined [6] (0x145f2fa645de @ 16)
+LdaSmi [7]
+Jump [4] (0x145f2fa645e0 @ 18)
+Ldar a0
+StaCurrentContextSlot [2]
+CreateBlockContext [1]
+PushContext r1
+LdaSmi [1]
+StaCurrentContextSlot [2]
+CreateClosure [2], [0], #2
+Return
+=============== node20 :: simpleCapBody
+CreateFunctionContext [0], [2]
+PushContext r0
+Ldar a0
+StaCurrentContextSlot [2]
+LdaSmi [1]
+StaCurrentContextSlot [3]
+CreateClosure [1], [0], #2
+Return
+=============== node22 :: defCapOnly
+CreateFunctionContext [0], [1]
+PushContext r0
+LdaTheHole
+StaCurrentContextSlot [2]
+Ldar a0
+JumpIfNotUndefined [6] (0x3a35ca6c1fd0 @ 16)
+LdaSmi [7]
+Jump [4] (0x3a35ca6c1fd2 @ 18)
+Ldar a0
+StaCurrentContextSlot [2]
+CreateClosure [1], [0], #2
+Return
+=============== node22 :: defCapBody
+CreateFunctionContext [0], [1]
+PushContext r0
+LdaTheHole
+StaCurrentContextSlot [2]
+Ldar a0
+JumpIfNotUndefined [6] (0x11037a1c20f0 @ 16)
+LdaSmi [7]
+Jump [4] (0x11037a1c20f2 @ 18)
+Ldar a0
+StaCurrentContextSlot [2]
+CreateBlockContext [1]
+PushContext r1
+LdaSmi [1]
+StaCurrentContextSlot [2]
+CreateClosure [2], [0], #2
+Return
+=============== node22 :: simpleCapBody
+CreateFunctionContext [0], [2]
+PushContext r0
+Ldar a0
+StaCurrentContextSlot [2]
+LdaSmi [1]
+StaCurrentContextSlot [3]
+CreateClosure [1], [0], #2
+Return
+=============== node24 :: defCapOnly
+CreateFunctionContext [0], [1]
+PushContext r0
+LdaTheHole
+StaCurrentContextSlot [2]
+Ldar a0
+JumpIfNotUndefined [6] (0x13ca76a419f8 @ 16)
+LdaSmi [7]
+Jump [4] (0x13ca76a419fa @ 18)
+Ldar a0
+StaCurrentContextSlot [2]
+CreateClosure [1], [0], #2
+Return
+=============== node24 :: defCapBody
+CreateFunctionContext [0], [1]
+PushContext r0
+LdaTheHole
+StaCurrentContextSlot [2]
+Ldar a0
+JumpIfNotUndefined [6] (0x2d0b5a4c1b30 @ 16)
+LdaSmi [7]
+Jump [4] (0x2d0b5a4c1b32 @ 18)
+Ldar a0
+StaCurrentContextSlot [2]
+CreateBlockContext [1]
+PushContext r1
+LdaSmi [1]
+StaCurrentContextSlot [2]
+CreateClosure [2], [0], #2
+Return
+=============== node24 :: simpleCapBody
+CreateFunctionContext [0], [2]
+PushContext r0
+Ldar a0
+StaCurrentContextSlot [2]
+LdaSmi [1]
+StaCurrentContextSlot [3]
+CreateClosure [1], [0], #2
+Return
+=============== d8 :: defCapOnly
+CreateFunctionContextWithCells [0:0x32760101e1fd <ScopeInfo FUNCTION_SCOPE>], [1]
+PushContext r0
+LdaTdzHole
+StaCurrentContextSlotNoCell [2]
+Ldar a0
+JumpIfNotUndefined [6] (0xa8f0100017c @ 16)
+LdaSmi [7]
+Jump [4] (0xa8f0100017e @ 18)
+Ldar a0
+StaCurrentContextSlotNoCell [2]
+CreateClosure [1:0x32760101e22d <SharedFunctionInfo>], FBV[0], #2
+Return
+=============== d8 :: defCapBody
+CreateFunctionContextWithCells [0:0x2eb90101e2b9 <ScopeInfo FUNCTION_SCOPE>], [1]
+PushContext r0
+LdaTdzHole
+StaCurrentContextSlotNoCell [2]
+Ldar a0
+JumpIfNotUndefined [6] (0x3b9501000214 @ 16)
+LdaSmi [7]
+Jump [4] (0x3b9501000216 @ 18)
+Ldar a0
+StaCurrentContextSlotNoCell [2]
+CreateBlockContext [1:0x2eb90101e2e9 <ScopeInfo BLOCK_SCOPE>]
+PushContext r1
+LdaSmi [1]
+StaCurrentContextSlotNoCell [2]
+CreateClosure [2:0x2eb90101e30d <SharedFunctionInfo>], FBV[0], #2
+Return
+=============== d8 :: simpleCapBody
+CreateFunctionContextWithCells [0:0x7e730101e399 <ScopeInfo FUNCTION_SCOPE>], [2]
+PushContext r0
+Ldar a0
+StaCurrentContextSlotNoCell [2]
+LdaSmi [1]
+StaCurrentContextSlotNoCell [3]
+CreateClosure [1:0x7e730101e3d1 <SharedFunctionInfo>], FBV[0], #2
+Return

@@ -1,0 +1,40 @@
+## /opt/node20/bin/node
+interp sub(2**40, 2**40-5) isSmi false
+interp mul(0.5, 8) isSmi false
+sub optimized status 1010001
+opt sub(2**40, 2**40-5) = 5 isSmi true
+opt mul(0.5, 8) = 4 isSmi true
+opt sub(2**40, 2**40-0.5) isSmi false
+sub optimized status after 1010001
+## /opt/node22/bin/node
+interp sub(2**40, 2**40-5) isSmi false
+interp mul(0.5, 8) isSmi false
+sub optimized status 1010001
+opt sub(2**40, 2**40-5) = 5 isSmi true
+opt mul(0.5, 8) = 4 isSmi true
+opt sub(2**40, 2**40-0.5) isSmi false
+sub optimized status after 1010001
+## /opt/nvm/versions/node/v24.21.0/bin/node
+interp sub(2**40, 2**40-5) isSmi false
+interp mul(0.5, 8) isSmi false
+sub optimized status 1010001
+opt sub(2**40, 2**40-5) = 5 isSmi true
+opt mul(0.5, 8) = 4 isSmi true
+opt sub(2**40, 2**40-0.5) isSmi false
+sub optimized status after 1010001
+## d8 turbofan
+interp sub(2**40, 2**40-5) isSmi false
+interp mul(0.5, 8) isSmi false
+sub optimized status 101001
+opt sub(2**40, 2**40-5) = 5 isSmi true
+opt mul(0.5, 8) = 4 isSmi true
+opt sub(2**40, 2**40-0.5) isSmi false
+sub optimized status after 101001
+## d8 maglev (no turbofan)
+interp sub(2**40, 2**40-5) isSmi false
+interp mul(0.5, 8) isSmi false
+sub optimized status 1000001
+opt sub(2**40, 2**40-5) = 5 isSmi false
+opt mul(0.5, 8) = 4 isSmi false
+opt sub(2**40, 2**40-0.5) isSmi false
+sub optimized status after 1000001

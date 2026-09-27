@@ -1,0 +1,43 @@
+== d8dbg --max-opt=2 --print-maglev-code literal
+kind = MAGLEV
+compiler = maglev
+Inlined functions (count = 0)
+kind = MAGLEV
+name = literal
+compiler = maglev
+Inlined functions (count = 0)
+[OSR - entry. function: literal, osr offset: 43]
+literal            mode=plain n=300000 ms=499 r=16500000
+== d8dbg --max-opt=2 --print-maglev-code inner
+kind = MAGLEV
+name = doInner
+compiler = maglev
+Inlined functions (count = 0)
+kind = MAGLEV
+name = inner
+compiler = maglev
+Inlined functions (count = 0)
+[OSR - entry. function: inner, osr offset: 43]
+inner              mode=plain n=300000 ms=520 r=16500000
+== d8dbg --max-opt=2 --print-maglev-code globalFn
+kind = MAGLEV
+name = doOuter
+compiler = maglev
+Inlined functions (count = 0)
+kind = MAGLEV
+name = globalFn
+compiler = maglev
+Inlined functions (count = 0)
+[OSR - entry. function: globalFn, osr offset: 42]
+globalFn           mode=plain n=300000 ms=477 r=16500000
+== d8dbg --max-opt=2 --print-maglev-code globalConst
+kind = MAGLEV
+name = doOuterConst
+compiler = maglev
+Inlined functions (count = 0)
+kind = MAGLEV
+name = globalConst
+compiler = maglev
+Inlined functions (count = 0)
+[OSR - entry. function: globalConst, osr offset: 41]
+globalConst        mode=plain n=300000 ms=473 r=16500000

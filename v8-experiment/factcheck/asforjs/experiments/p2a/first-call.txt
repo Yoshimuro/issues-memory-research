@@ -1,0 +1,12 @@
+## d8 15.6
+rep 0: 1st call 22.40 ms, 2nd 0.05 ms, 3rd 0.05 ms, ratio 1st/2nd 407.3x
+rep 1: 1st call 21.26 ms, 2nd 0.06 ms, 3rd 0.05 ms, ratio 1st/2nd 360.4x
+rep 2: 1st call 21.24 ms, 2nd 0.05 ms, 3rd 0.05 ms, ratio 1st/2nd 400.7x
+## node24
+rep 0: 1st call 21.30 ms, 2nd 0.06 ms, 3rd 0.07 ms, ratio 1st/2nd 334.7x
+rep 1: 1st call 21.81 ms, 2nd 0.07 ms, 3rd 0.07 ms, ratio 1st/2nd 334.1x
+rep 2: 1st call 19.39 ms, 2nd 0.07 ms, 3rd 0.06 ms, ratio 1st/2nd 283.4x
+## node20
+rep 0: 1st call 20.71 ms, 2nd 0.07 ms, 3rd 0.07 ms, ratio 1st/2nd 286.3x
+rep 1: 1st call 21.76 ms, 2nd 0.10 ms, 3rd 0.08 ms, ratio 1st/2nd 215.5x
+rep 2: 1st call 19.46 ms, 2nd 0.08 ms, 3rd 0.08 ms, ratio 1st/2nd 256.1x

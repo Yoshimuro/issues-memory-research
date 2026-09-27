@@ -1,0 +1,10 @@
+##### node22
+[bailout (kind: deopt-eager, reason: not a Smi): begin. 
+##### node24
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. 
+[bailout (kind: deopt-eager, reason: not a Smi): begin. 
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. 
+##### d8
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. 
+[bailout (kind: deopt-eager, reason: not a Smi): begin. 
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. 

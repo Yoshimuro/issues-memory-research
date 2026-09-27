@@ -1,0 +1,15 @@
+DebugPrint: 0x3f4f010896fd: [JSArray]
+ - elements: 0x3f4f0108bac1 <FixedArray[1289]> [PACKED_SMI_ELEMENTS]
+ - length: 1000
+ - elements: 0x3f4f0108bac1 <FixedArray[1289]> {
+ - elements kind: PACKED_SMI_ELEMENTS
+DebugPrint: 0x3f4f010896fd: [JSArray]
+ - elements: 0x3f4f0108bac1 <FixedArray[100]> [PACKED_SMI_ELEMENTS]
+ - length: 100
+ - elements: 0x3f4f0108bac1 <FixedArray[100]> {
+ - elements kind: PACKED_SMI_ELEMENTS
+DebugPrint: 0x3f4f010896fd: [JSArray]
+ - elements: 0x3f4f0108bac1 <FixedArray[70]> [PACKED_SMI_ELEMENTS]
+ - length: 40
+ - elements: 0x3f4f0108bac1 <FixedArray[70]> {
+ - elements kind: PACKED_SMI_ELEMENTS

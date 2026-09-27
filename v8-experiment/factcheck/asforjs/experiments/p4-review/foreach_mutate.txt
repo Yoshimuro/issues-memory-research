@@ -1,0 +1,37 @@
+=== node22
+--- warm done; now the kind-changing call
+  [bailout (kind: deopt-eager, reason: Insufficient type feedback for generic keyed access):
+--- end
+      1 reason: Insufficient type feedback for generic keyed access)
+=== node24
+  [bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)):
+  [bailout (kind: deopt-eager, reason: Insufficient type feedback for call):
+--- warm done; now the kind-changing call
+  [bailout (kind: deopt-eager, reason: Insufficient type feedback for generic keyed access):
+--- end
+      1 <JSFunction kindChange
+      1 reason: Insufficient type feedback for call)
+      1 reason: Insufficient type feedback for generic keyed access)
+      1 reason: prepare for on stack replacement (OSR)
+=== d8
+  [bailout (kind: deopt-eager, reason: Insufficient type feedback for call):
+--- warm done; now the kind-changing call
+  [bailout (kind: deopt-eager, reason: Insufficient type feedback for generic keyed access):
+--- end
+      1 <JSFunction kindChange
+      1 reason: Insufficient type feedback for call)
+      1 reason: Insufficient type feedback for generic keyed access)
+== /opt/nvm/versions/node/v24.21.0/bin/node
+reason: Insufficient type feedback for generic named access)
+<JSFunction (sfi
+reason: prepare for on stack replacement (OSR)
+<JSFunction (sfi
+reason: Insufficient type feedback for call)
+<JSFunction (sfi
+reason: Insufficient type feedback for generic keyed access)
+<JSFunction kindChange
+== /tmp/claude-0/-home-user-issues-memory-research/dacf359b-9898-588d-b8f1-20fd1e3f2945/scratchpad/d8/rel/d8
+reason: Insufficient type feedback for call)
+<JSFunction (sfi
+reason: Insufficient type feedback for generic keyed access)
+<JSFunction kindChange

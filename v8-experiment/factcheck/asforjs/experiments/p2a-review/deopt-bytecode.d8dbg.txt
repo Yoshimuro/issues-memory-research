@@ -1,0 +1,97 @@
+V8 is running with developer-only features enabled. Stability and security will suffer.
+DebugPrint: 0x3a710101db29: [Function] in OldSpace
+ - map: 0x3a7101004c89 <Map[32](HOLEY_ELEMENTS)> [FastProperties]
+ - prototype: 0x3a7101004db1 <JSFunction (sfi = 0x3a71010014c9)>
+ - elements: 0x3a71000007e5 <FixedArray[0]> [HOLEY_ELEMENTS]
+ - function prototype: 
+ - initial_map: 
+ - shared_info: 0x3a710101da8d <SharedFunctionInfo doHot>
+ - name: 0x3a710101d949 <String[5]: #doHot>
+ - builtin: InterpreterEntryTrampoline
+ - formal_parameter_count: 2
+ - kind: NormalFunction
+ - context: 0x3a710100458d <NativeContext[308]>
+ - code: 0x3a7100b61a7d <Code BUILTIN InterpreterEntryTrampoline>
+ - dispatch_handle: 0x135700
+ - interpreted
+ - bytecode: 0x2e2f010001cd <BytecodeArray[6]>
+ - source code: (a) { return a + 1 }
+ - properties: 0x3a71000007e5 <FixedArray[0]>
+ - All own properties (excluding elements): {
+    0x3a7100000e39: [String] in ReadOnlySpace: #length: 0x3a7100b5fe2d <AccessorInfo name= 0x3a7100000e39 <String[6]: #length>, data= 0x3a7100000011 <undefined>> (const accessor descriptor, attrs: [__C])
+    0x3a7100000e29: [String] in ReadOnlySpace: #name: 0x3a7100b5fe15 <AccessorInfo name= 0x3a7100000e29 <String[4]: #name>, data= 0x3a7100000011 <undefined>> (const accessor descriptor, attrs: [__C])
+    0x3a7100000e11: [String] in ReadOnlySpace: #prototype: 0x3a7100b5fe45 <AccessorInfo name= 0x3a7100000e11 <String[9]: #prototype>, data= 0x3a7100000011 <undefined>> (const accessor descriptor, attrs: [W__])
+ }
+ - feedback vector: No feedback vector, but we have a closure feedback cell array
+0x3a71000020b9: [ClosureFeedbackCellArray] in ReadOnlySpace
+ - map: 0x3a710000086d <Map(CLOSURE_FEEDBACK_CELL_ARRAY_TYPE)>
+ - length: 0
+ - elements:
+0x3a7101004c89: [Map] in OldSpace
+ - map: 0x3a710100453d <MetaMap (0x3a710100458d <NativeContext[308]>)>
+ - type: JS_FUNCTION_WITH_PROTOTYPE_TYPE
+ - instance size: 32
+ - inobject properties: 0
+ - unused property fields: 0
+ - elements kind: HOLEY_ELEMENTS
+ - enum length: invalid
+ - stable_map
+ - callable
+ - constructor
+ - back pointer: 0x3a7100000011 <undefined>
+ - prototype_validity_cell: 0x3a7100000b15 <Cell value= [cleared]>
+ - instance descriptors (own) #3: 0x3a7101004cb1 <DescriptorArray[3]>
+ - prototype: 0x3a7101004db1 <JSFunction (sfi = 0x3a71010014c9)>
+ - constructor: 0x3a7101004c55 <JSFunction Function (sfi = 0x3a7100b9468d)>
+ - dependent code: 0x3a71000007f5 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 0
+
+optimized: 101001
+[bailout (kind: deopt-eager, reason: not a Smi): begin. deoptimizing 0x3a710101db29 <JSFunction doHot (sfi = 0x3a710101da8d)>, 0x2e2f01000349 <Code TURBOFAN_JS>, opt id 0, node id 33, bytecode offset 2, deopt exit 0, FP to SP delta 32, caller SP 0x7ffe2fbaa628, pc 0x7f44cce0031f]
+after deopt: 1000001
+DebugPrint: 0x3a710101db29: [Function] in OldSpace
+ - map: 0x3a7101004c89 <Map[32](HOLEY_ELEMENTS)> [FastProperties]
+ - prototype: 0x3a7101004db1 <JSFunction (sfi = 0x3a71010014c9)>
+ - elements: 0x3a71000007e5 <FixedArray[0]> [HOLEY_ELEMENTS]
+ - function prototype: 
+ - initial_map: 
+ - shared_info: 0x3a710101da8d <SharedFunctionInfo doHot>
+ - name: 0x3a710101d949 <String[5]: #doHot>
+ - builtin: InterpreterEntryTrampoline
+ - formal_parameter_count: 2
+ - kind: NormalFunction
+ - context: 0x3a710100458d <NativeContext[308]>
+ - code: 0x3a7100b61a7d <Code BUILTIN InterpreterEntryTrampoline>
+ - dispatch_handle: 0x135700
+ - tiering request MarkLazyDeoptimized
+ - interpreted
+ - bytecode: 0x2e2f010001cd <BytecodeArray[6]>
+ - source code: (a) { return a + 1 }
+ - properties: 0x3a71000007e5 <FixedArray[0]>
+ - All own properties (excluding elements): {
+    0x3a7100000e39: [String] in ReadOnlySpace: #length: 0x3a7100b5fe2d <AccessorInfo name= 0x3a7100000e39 <String[6]: #length>, data= 0x3a7100000011 <undefined>> (const accessor descriptor, attrs: [__C])
+    0x3a7100000e29: [String] in ReadOnlySpace: #name: 0x3a7100b5fe15 <AccessorInfo name= 0x3a7100000e29 <String[4]: #name>, data= 0x3a7100000011 <undefined>> (const accessor descriptor, attrs: [__C])
+    0x3a7100000e11: [String] in ReadOnlySpace: #prototype: 0x3a7100b5fe45 <AccessorInfo name= 0x3a7100000e11 <String[9]: #prototype>, data= 0x3a7100000011 <undefined>> (const accessor descriptor, attrs: [W__])
+ }
+ - feedback vector: 0x3a710101dbdd: [FeedbackVector] in OldSpace
+ - map: 0x3a7100000895 <Map(FEEDBACK_VECTOR_TYPE)>
+ - length: 0 (empty)
+0x3a7101004c89: [Map] in OldSpace
+ - map: 0x3a710100453d <MetaMap (0x3a710100458d <NativeContext[308]>)>
+ - type: JS_FUNCTION_WITH_PROTOTYPE_TYPE
+ - instance size: 32
+ - inobject properties: 0
+ - unused property fields: 0
+ - elements kind: HOLEY_ELEMENTS
+ - enum length: invalid
+ - stable_map
+ - callable
+ - constructor
+ - back pointer: 0x3a7100000011 <undefined>
+ - prototype_validity_cell: 0x3a7100000b15 <Cell value= [cleared]>
+ - instance descriptors (own) #3: 0x3a7101004cb1 <DescriptorArray[3]>
+ - prototype: 0x3a7101004db1 <JSFunction (sfi = 0x3a71010014c9)>
+ - constructor: 0x3a7101004c55 <JSFunction Function (sfi = 0x3a7100b9468d)>
+ - dependent code: 0x3a71000007f5 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 0
+

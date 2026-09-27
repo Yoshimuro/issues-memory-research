@@ -1,0 +1,3 @@
+    0x18b40101dba1 <Symbol: #p>: 1 (const data field 3, in-obj, attrs: [W_C])
+    0x18b400000e29: [String] in ReadOnlySpace: #name: 0x18b4000033ad <String[1]: #a> (const data field 4, in-obj, attrs: [WEC])
+ - inobject properties: 10

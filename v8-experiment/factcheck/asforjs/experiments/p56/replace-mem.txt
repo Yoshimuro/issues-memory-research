@@ -1,0 +1,32 @@
+## /opt/node20/bin/node
+str    result retained: +-0.0 MB
+ - type: CONS_ONE_BYTE_STRING_TYPE
+str    after flattening result: +9.8 MB
+re     result retained: +-0.0 MB
+ - type: CONS_ONE_BYTE_STRING_TYPE
+re     after flattening result: +9.8 MB
+reg    result retained: +-0.0 MB
+ - type: CONS_ONE_BYTE_STRING_TYPE
+reg    after flattening result: +9.8 MB
+all    result retained: +-0.0 MB
+ - type: CONS_ONE_BYTE_STRING_TYPE
+all    after flattening result: +9.8 MB
+upper  result retained: +9.5 MB
+ - type: ONE_BYTE_STRING_TYPE
+upper  after flattening result: +9.8 MB
+## /opt/nvm/versions/node/v24.21.0/bin/node
+str    result retained: +0.0 MB
+ - type: CONS_ONE_BYTE_STRING_TYPE
+str    after flattening result: +9.9 MB
+re     result retained: +0.0 MB
+ - type: CONS_ONE_BYTE_STRING_TYPE
+re     after flattening result: +9.9 MB
+reg    result retained: +0.0 MB
+ - type: CONS_ONE_BYTE_STRING_TYPE
+reg    after flattening result: +9.9 MB
+all    result retained: +0.0 MB
+ - type: CONS_ONE_BYTE_STRING_TYPE
+all    after flattening result: +9.9 MB
+upper  result retained: +9.5 MB
+ - type: SEQ_ONE_BYTE_STRING_TYPE
+upper  after flattening result: +9.9 MB

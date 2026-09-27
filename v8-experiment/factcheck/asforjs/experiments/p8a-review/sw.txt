@@ -1,0 +1,35 @@
+## /opt/node20/bin/node
+--- sw(4) unseen case
+--- ifc(4) unseen branch
+[bailout (kind: deopt-eager, reason: Insufficient type feedback for compare operation): begin. 
+--- sws("c") unseen case
+--- done
+## /opt/node22/bin/node
+--- sw(4) unseen case
+--- ifc(4) unseen branch
+[bailout (kind: deopt-eager, reason: Insufficient type feedback for compare operation): begin. 
+--- sws("c") unseen case
+--- done
+## /opt/nvm/versions/node/v24.21.0/bin/node
+--- sw(4) unseen case
+--- ifc(4) unseen branch
+[bailout (kind: deopt-eager, reason: Insufficient type feedback for compare operation): begin. 
+--- sws("c") unseen case
+--- done
+## d8
+--- sw(4) unseen case
+--- ifc(4) unseen branch
+[bailout (kind: deopt-eager, reason: Insufficient type feedback for compare operation): begin. 
+--- sws("c") unseen case
+[bailout (kind: deopt-eager, reason: Insufficient type feedback for compare operation): begin. 
+--- done
+## node24 bytecode sw
+## node20 bytecode sw
+## d8 bytecode sw
+         0x8be010002bb @    7 : a9 2b             JumpIfFalse [43] (0x8be010002e6 @ 50)
+         0x8be010002c7 @   19 : a9 1f             JumpIfFalse [31] (0x8be010002e6 @ 50)
+         0x8be010002d3 @   31 : a9 13             JumpIfFalse [19] (0x8be010002e6 @ 50)
+         0x8be010002db @   39 : 79 f8 00          TestEqualStrict r1, EmbeddedFeedback[None]
+         0x8be010002de @   42 : a9 08             JumpIfFalse [8] (0x8be010002e6 @ 50)
+         0x8be010002e2 @   46 : b1 00 06 00       SwitchOnSmiNoFeedback [0:8], [6], [0] { 0: @54, 1: @57, 2: @60, 3: @63, 4: @66, 5: @69 }
+         0x8be010002e8 @   52 : 99 14             Jump [20] (0x8be010002fc @ 72)

@@ -1,0 +1,24 @@
+## /opt/node20/bin/node
+array literal JSArray young:     true
+new Array(3) young:              true
+double literal JSArray young:    true
+literal 'ABC' young:             false
+literal 'Math2' young:           false
+runtime concat young:            true
+rest object young:               true
+## /opt/nvm/versions/node/v24.21.0/bin/node
+array literal JSArray young:     true
+new Array(3) young:              true
+double literal JSArray young:    true
+literal 'ABC' young:             false
+literal 'Math2' young:           false
+runtime concat young:            true
+rest object young:               true
+## /tmp/claude-0/-home-user-issues-memory-research/dacf359b-9898-588d-b8f1-20fd1e3f2945/scratchpad/d8/rel/d8
+array literal JSArray young:     true
+new Array(3) young:              true
+double literal JSArray young:    true
+literal 'ABC' young:             false
+literal 'Math2' young:           false
+runtime concat young:            true
+rest object young:               true

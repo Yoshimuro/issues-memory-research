@@ -1,0 +1,25 @@
+== d8 default N=5e7
+rep0 viaTrunc=84ms(4824) viaOr=58ms(4824)
+rep1 viaTrunc=84ms(4824) viaOr=52ms(4824)
+rep2 viaTrunc=89ms(4824) viaOr=66ms(4824)
+rep3 viaTrunc=86ms(4824) viaOr=40ms(4824)
+== node24 default N=5e7
+rep0 viaTrunc=73ms(4824) viaOr=53ms(4824)
+rep1 viaTrunc=77ms(4824) viaOr=52ms(4824)
+rep2 viaTrunc=77ms(4824) viaOr=52ms(4824)
+rep3 viaTrunc=85ms(4824) viaOr=51ms(4824)
+== d8 ignition-only N=3e6
+rep0 viaTrunc=106ms(57780) viaOr=78ms(57780)
+rep1 viaTrunc=120ms(57780) viaOr=77ms(57780)
+rep2 viaTrunc=120ms(57780) viaOr=79ms(57780)
+rep3 viaTrunc=126ms(57780) viaOr=78ms(57780)
+== node24 ignition-only N=3e6
+rep0 viaTrunc=133ms(57780) viaOr=85ms(57780)
+rep1 viaTrunc=131ms(57780) viaOr=78ms(57780)
+rep2 viaTrunc=129ms(57780) viaOr=76ms(57780)
+rep3 viaTrunc=120ms(57780) viaOr=79ms(57780)
+== d8 sparkplug-top N=3e6
+rep0 viaTrunc=67ms(57780) viaOr=51ms(57780)
+rep1 viaTrunc=69ms(57780) viaOr=45ms(57780)
+rep2 viaTrunc=61ms(57780) viaOr=42ms(57780)
+rep3 viaTrunc=62ms(57780) viaOr=59ms(57780)

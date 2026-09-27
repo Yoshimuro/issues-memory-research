@@ -1,0 +1,318 @@
+=============== node20 :: ifFalse
+Ldar a0
+Return
+=============== node20 :: ifTrue
+Ldar a0
+Return
+=============== node20 :: andTern
+Ldar a0
+BitwiseAndSmi [1], [0]
+JumpIfToBooleanFalse [6] (0x18a48ffe4931 @ 11)
+Ldar a0
+Jump [3] (0x18a48ffe4932 @ 12)
+LdaZero
+Return
+=============== node20 :: modIf
+Ldar a0
+ModSmi [2], [0]
+JumpIfToBooleanFalse [5] (0x1cc343d249f8 @ 10)
+Ldar a0
+Return
+LdaZero
+Return
+=============== node20 :: modTern
+Ldar a0
+ModSmi [2], [0]
+JumpIfToBooleanFalse [6] (0x206d18e24ac1 @ 11)
+Ldar a0
+Jump [3] (0x206d18e24ac2 @ 12)
+LdaZero
+Return
+=============== node20 :: andIf
+Ldar a0
+BitwiseAndSmi [1], [0]
+JumpIfToBooleanFalse [5] (0x143739aa4b88 @ 10)
+Ldar a0
+Return
+LdaZero
+Return
+=============== node20 :: forLayout
+LdaZero
+Star0
+LdaZero
+Star1
+Ldar a0
+TestLessThan r1, [0]
+JumpIfFalse [20] (0x2353e3364c63 @ 29)
+Ldar r1
+Add r0, [1]
+Mov r0, r2
+Star0
+Ldar r1
+Inc [2]
+Star1
+JumpLoop [21], [0], [3] (0x2353e3364c4a @ 4)
+Ldar r0
+Return
+=============== node20 :: siblings
+LdaSmi [1]
+Star1
+Inc [0]
+Star1
+LdaSmi [2]
+Star0
+Inc [1]
+Star0
+LdaZero
+Return
+=============== node20 :: exprFold
+LdaSmi [10]
+Return
+=============== node20 :: stmtNoFold
+LdaSmi [6]
+Star0
+AddSmi [4], [0]
+Return
+=============== node20 :: strConcat
+LdaConstant [0]
+Star0
+LdaConstant [1]
+Add r0, [0]
+Return
+=============== node22 :: ifFalse
+Ldar a0
+Return
+=============== node22 :: ifTrue
+Ldar a0
+Return
+=============== node22 :: andTern
+Ldar a0
+BitwiseAndSmi [1], [0]
+JumpIfToBooleanFalse [6] (0x39324a74210b @ 11)
+Ldar a0
+Jump [3] (0x39324a74210c @ 12)
+LdaZero
+Return
+=============== node22 :: modIf
+Ldar a0
+ModSmi [2], [0]
+JumpIfToBooleanFalse [5] (0x3fcc5018217a @ 10)
+Ldar a0
+Return
+LdaZero
+Return
+=============== node22 :: modTern
+Ldar a0
+ModSmi [2], [0]
+JumpIfToBooleanFalse [6] (0x1e6ff9d421eb @ 11)
+Ldar a0
+Jump [3] (0x1e6ff9d421ec @ 12)
+LdaZero
+Return
+=============== node22 :: andIf
+Ldar a0
+BitwiseAndSmi [1], [0]
+JumpIfToBooleanFalse [5] (0x1dc5bf6c225a @ 10)
+Ldar a0
+Return
+LdaZero
+Return
+=============== node22 :: forLayout
+LdaZero
+Star0
+LdaZero
+Star1
+Ldar a0
+TestLessThan r1, [0]
+JumpIfFalse [20] (0x950cbbc22dd @ 29)
+Ldar r1
+Add r0, [1]
+Mov r0, r2
+Star0
+Ldar r1
+Inc [2]
+Star1
+JumpLoop [21], [0], [3] (0x950cbbc22c4 @ 4)
+Ldar r0
+Return
+=============== node22 :: siblings
+LdaSmi [1]
+Star1
+Inc [0]
+Star1
+LdaSmi [2]
+Star0
+Inc [1]
+Star0
+LdaZero
+Return
+=============== node22 :: exprFold
+LdaSmi [10]
+Return
+=============== node22 :: stmtNoFold
+LdaSmi [6]
+Star0
+AddSmi [4], [0]
+Return
+=============== node22 :: strConcat
+LdaConstant [0]
+Star0
+LdaConstant [1]
+Add r0, [0]
+Return
+=============== node24 :: ifFalse
+Ldar a0
+Return
+=============== node24 :: ifTrue
+Ldar a0
+Return
+=============== node24 :: andTern
+Ldar a0
+BitwiseAndSmi [1], [0]
+JumpIfToBooleanFalse [6] (0x6b92da01bdb @ 11)
+Ldar a0
+Jump [3] (0x6b92da01bdc @ 12)
+LdaZero
+Return
+=============== node24 :: modIf
+Ldar a0
+ModSmi [2], [0]
+JumpIfToBooleanFalse [5] (0x1702d3a41c4a @ 10)
+Ldar a0
+Return
+LdaZero
+Return
+=============== node24 :: modTern
+Ldar a0
+ModSmi [2], [0]
+JumpIfToBooleanFalse [6] (0x166fe4381cbb @ 11)
+Ldar a0
+Jump [3] (0x166fe4381cbc @ 12)
+LdaZero
+Return
+=============== node24 :: andIf
+Ldar a0
+BitwiseAndSmi [1], [0]
+JumpIfToBooleanFalse [5] (0x1221fe6c1d2a @ 10)
+Ldar a0
+Return
+LdaZero
+Return
+=============== node24 :: forLayout
+LdaZero
+Star0
+LdaZero
+Star1
+Ldar a0
+TestLessThan r1, [0]
+JumpIfFalse [20] (0x9c6e3481dad @ 29)
+Ldar r1
+Add r0, [1]
+Mov r0, r2
+Star0
+Ldar r1
+Inc [2]
+Star1
+JumpLoop [21], [0], [3] (0x9c6e3481d94 @ 4)
+Ldar r0
+Return
+=============== node24 :: siblings
+LdaSmi [1]
+Star1
+Inc [0]
+Star1
+LdaSmi [2]
+Star0
+Inc [1]
+Star0
+LdaZero
+Return
+=============== node24 :: exprFold
+LdaSmi [10]
+Return
+=============== node24 :: stmtNoFold
+LdaSmi [6]
+Star0
+AddSmi [4], [0]
+Return
+=============== node24 :: strConcat
+LdaConstant [0]
+Return
+=============== d8 :: ifFalse
+Ldar a0
+Return
+=============== d8 :: ifTrue
+Ldar a0
+Return
+=============== d8 :: andTern
+Ldar a0
+BitwiseAndSmi [1], EmbeddedFeedback[None]
+JumpIfToBooleanFalse [6] (0x1117010002af @ 11)
+Ldar a0
+Jump [3] (0x1117010002b0 @ 12)
+LdaZero
+Return
+=============== d8 :: modIf
+Ldar a0
+ModSmi [2], EmbeddedFeedback[None]
+JumpIfToBooleanFalse [5] (0x10d9010002e6 @ 10)
+Ldar a0
+Return
+LdaZero
+Return
+=============== d8 :: modTern
+Ldar a0
+ModSmi [2], EmbeddedFeedback[None]
+JumpIfToBooleanFalse [6] (0x25020100031b @ 11)
+Ldar a0
+Jump [3] (0x25020100031c @ 12)
+LdaZero
+Return
+=============== d8 :: andIf
+Ldar a0
+BitwiseAndSmi [1], EmbeddedFeedback[None]
+JumpIfToBooleanFalse [5] (0x282701000352 @ 10)
+Ldar a0
+Return
+LdaZero
+Return
+=============== d8 :: forLayout
+LdaZero
+Star0
+LdaZero
+Star1
+Ldar a0
+TestLessThan r1, EmbeddedFeedback[None]
+JumpIfFalse [20] (0x144101000399 @ 29)
+Ldar r1
+Add r0, EmbeddedFeedback[None]
+Mov r0, r2
+Star0
+Ldar r1
+Inc EmbeddedFeedback[None]
+Star1
+JumpLoop [21], [0], FBV[0] (0x144101000380 @ 4)
+Ldar r0
+Return
+=============== d8 :: siblings
+LdaSmi [1]
+Star1
+Inc EmbeddedFeedback[None]
+Star1
+LdaSmi [2]
+Star0
+Inc EmbeddedFeedback[None]
+Star0
+LdaZero
+Return
+=============== d8 :: exprFold
+LdaSmi [10]
+Return
+=============== d8 :: stmtNoFold
+LdaSmi [6]
+Star0
+AddSmi [4], EmbeddedFeedback[None]
+Return
+=============== d8 :: strConcat
+LdaConstant [0:"ab"]
+Return

@@ -1,0 +1,29 @@
+blocks#EEGFNm:[0x7fa05a0fd7c0->0x7fa05a0ed980, NoneFunctionCall, 11 (StrictMode)]: 5 instructions (0 16-bit instructions, 0 32-bit instructions, 0 instructions with metadata); 11 bytes (0 metadata bytes); 1 parameter(s); 8 callee register(s); 5 variable(s); scope at loc4
+bb#1
+Predecessors: [ ]
+[   0] enter              
+[   1] mov                dst:loc5, src:Int32: 2(const1)
+[   4] mov                dst:loc6, src:Int32: 3(const2)
+[   7] ret                value:Int32: 4(const3)
+Successors: [ ]
+bb#2
+Predecessors: [ ]
+[   9] ret                value:Undefined(const4)
+Successors: [ ]
+----
+blockCap#BuG3Ow:[0x7fa05a0fd8a0->0x7fa05a0eda00, NoneFunctionCall, 28 (StrictMode)]: 8 instructions (0 16-bit instructions, 0 32-bit instructions, 1 instructions with metadata); 128 bytes (100 metadata bytes); 1 parameter(s); 8 callee register(s); 5 variable(s); scope at loc4
+bb#1
+Predecessors: [ ]
+[   0] enter              
+[   1] create_lexical_environment dst:loc5, scope:loc4, symbolTable:Cell: 0x7fa05a184dc0 (0x7f8e01000aa0:[0x1000aa0/16779936, SymbolTable, (0/0, 0/0){}, NonArray, Unknown, Leaf]), StructureID: 16779936(const0), initialValue:<JSValue()>(const1)
+[   6] mov                dst:loc4, src:loc5
+[   9] put_to_scope       scope:loc5, var:0, value:Int32: 2(const2), getPutInfo:1073741828<ThrowIfNotFound|ResolvedClosureVar|Initialization|StrictMode>, symbolTableOrScopeDepth:0, offset:0
+[  17] new_func_exp       dst:loc6, scope:loc4, functionDecl:0
+[  21] ret                value:loc6
+Successors: [ ]
+bb#2
+Predecessors: [ ]
+[  23] get_parent_scope   dst:loc4, scope:loc5
+[  26] ret                value:Undefined(const3)
+Successors: [ ]
+----

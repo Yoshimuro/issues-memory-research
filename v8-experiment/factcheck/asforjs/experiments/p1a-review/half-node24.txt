@@ -1,0 +1,19 @@
+-- name = half
+0x7f371c00411d    1d  f6c201               testb rdx,0x1
+0x7f371c004120    20  0f855f000000         jnz 0x7f371c004185  <+0x85>
+0x7f371c004129    29  48c1f920             REX.W sarq rcx, 32
+0x7f371c00412d    2d  f6c101               testb rcx,0x1
+0x7f371c004130    30  0f8553000000         jnz 0x7f371c004189  <+0x89>
+0x7f371c004136    36  d1f9                 sarl rcx, 1
+-- name = mod2
+0x7f371c00421d    1d  f6c201               testb rdx,0x1
+0x7f371c004220    20  0f857c000000         jnz 0x7f371c0042a2  <+0xa2>
+0x7f371c004229    29  48c1f920             REX.W sarq rcx, 32
+0x7f371c00422f    2f  85c9                 testl rcx,rcx
+0x7f371c004231    31  0f8c24000000         jl 0x7f371c00425b  <+0x5b>
+0x7f371c004237    37  83e701               andl rdi,0x1
+0x7f371c00425b    5b  f7df                 negl rdi
+0x7f371c00425d    5d  83e701               andl rdi,0x1
+0x7f371c004260    60  85ff                 testl rdi,rdi
+0x7f371c004262    62  0f843e000000         jz 0x7f371c0042a6  <+0xa6>
+0x7f371c004268    68  f7df                 negl rdi

@@ -1,0 +1,91 @@
+#### true
+DebugPrint: 0x2f2200000071: [Oddball] in ReadOnlySpace: #true
+0x2f22000004ed: [Map] in ReadOnlySpace
+ - map: 0x2f2200000475 <MetaMap (0x2f220000002d <null>)>
+ - type: ODDBALL_TYPE
+ - instance size: 28
+ - elements kind: HOLEY_ELEMENTS
+ - enum length: invalid
+ - stable_map
+ - non-extensible
+ - back pointer: 0x2f2200000011 <undefined>
+ - prototype_validity_cell: 0
+ - instance descriptors (own) #0: 0x2f220000080d <DescriptorArray[0]>
+ - prototype: 0x2f220000002d <null>
+ - constructor: 0x2f220000002d <null>
+ - dependent code: 0x2f22000007f5 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 0
+
+#### false
+DebugPrint: 0x2f2200000055: [Oddball] in ReadOnlySpace: #false
+0x2f22000004ed: [Map] in ReadOnlySpace
+ - map: 0x2f2200000475 <MetaMap (0x2f220000002d <null>)>
+ - type: ODDBALL_TYPE
+ - instance size: 28
+ - elements kind: HOLEY_ELEMENTS
+ - enum length: invalid
+ - stable_map
+ - non-extensible
+ - back pointer: 0x2f2200000011 <undefined>
+ - prototype_validity_cell: 0
+ - instance descriptors (own) #0: 0x2f220000080d <DescriptorArray[0]>
+ - prototype: 0x2f220000002d <null>
+ - constructor: 0x2f220000002d <null>
+ - dependent code: 0x2f22000007f5 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 0
+
+#### undefined
+DebugPrint: 0x2f2200000011: [Oddball] in ReadOnlySpace: #undefined
+0x2f220000049d: [Map] in ReadOnlySpace
+ - map: 0x2f2200000475 <MetaMap (0x2f220000002d <null>)>
+ - type: ODDBALL_TYPE
+ - instance size: 28
+ - elements kind: HOLEY_ELEMENTS
+ - enum length: invalid
+ - stable_map
+ - undetectable
+ - non-extensible
+ - back pointer: 0x2f2200000011 <undefined>
+ - prototype_validity_cell: 0
+ - instance descriptors (own) #0: 0x2f220000080d <DescriptorArray[0]>
+ - prototype: 0x2f220000002d <null>
+ - constructor: 0x2f220000002d <null>
+ - dependent code: 0x2f22000007f5 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 0
+
+#### null
+DebugPrint: 0x2f220000002d: [Oddball] in ReadOnlySpace: #null
+0x2f22000004c5: [Map] in ReadOnlySpace
+ - map: 0x2f2200000475 <MetaMap (0x2f220000002d <null>)>
+ - type: ODDBALL_TYPE
+ - instance size: 28
+ - elements kind: HOLEY_ELEMENTS
+ - enum length: invalid
+ - stable_map
+ - undetectable
+ - non-extensible
+ - back pointer: 0x2f2200000011 <undefined>
+ - prototype_validity_cell: 0
+ - instance descriptors (own) #0: 0x2f220000080d <DescriptorArray[0]>
+ - prototype: 0x2f220000002d <null>
+ - constructor: 0x2f220000002d <null>
+ - dependent code: 0x2f22000007f5 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 0
+
+#### ""
+DebugPrint: 0x2f2200000049: [String] in ReadOnlySpace: #
+0x2f2200000155: [Map] in ReadOnlySpace
+ - map: 0x2f2200000475 <MetaMap (0x2f220000002d <null>)>
+ - type: INTERNALIZED_ONE_BYTE_STRING_TYPE
+ - instance size: variable
+ - elements kind: HOLEY_ELEMENTS
+ - enum length: invalid
+ - non-extensible
+ - back pointer: 0x2f2200000011 <undefined>
+ - prototype_validity_cell: 0
+ - instance descriptors (own) #0: 0x2f220000080d <DescriptorArray[0]>
+ - prototype: 0x2f220000002d <null>
+ - constructor: 0x2f220000002d <null>
+ - dependent code: 0x2f22000007f5 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 0
+

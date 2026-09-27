@@ -1,0 +1,135 @@
+## Crankshaft inlining (V8 3.0.0 src/hydrogen.cc)
+  // Don't inline functions that uses the arguments object or that
+  // have a mismatching number of parameters.
+  int arity = expr->arguments()->length();
+  if (function->scope()->arguments() != NULL ||
+      arity != target->shared()->formal_parameter_count()) {
+    return false;
+## V8 3.0.0 src/ast.cc IfStatement/ReturnStatement inlineable
+bool IfStatement::IsInlineable() const {
+  return condition()->IsInlineable() && then_statement()->IsInlineable() &&
+      else_statement()->IsInlineable();
+}
+
+
+bool ReturnStatement::IsInlineable() const {
+  return expression()->IsInlineable();
+}
+## V8 3.6.6 hydrogen.cc
+  // Don't inline functions that uses the arguments object or that
+  // have a mismatching number of parameters.
+  int arity = expr->arguments()->length();
+  if (function->scope()->arguments() != NULL ||
+      arity != target_shared->formal_parameter_count()) {
+    TraceInline(target, caller, "target requires special argument handling");
+    return false;
+## V8 3.14.5 flag-definitions.h inline_arguments
+175:DEFINE_int(max_inlined_nodes, 196,
+177:DEFINE_int(max_inlined_nodes_cumulative, 196,
+217:DEFINE_bool(inline_arguments, true, "inline functions with arguments object")
+## TooManyFastProperties 12.4 / 13.6 / 15.6 (src/objects/map-inl.h)
+bool Map::TooManyFastProperties(StoreOrigin store_origin) const {
+  if (UnusedPropertyFields() != 0) return false;
+  if (is_prototype_map()) return false;
+  if (store_origin == StoreOrigin::kNamed) {
+    int limit = std::max(
+        {v8_flags.max_fast_properties.value(), GetInObjectProperties()});
+    FieldCounts counts = GetFieldCounts();
+    // Only count mutable fields so that objects with large numbers of
+    // constant functions do not go to dictionary mode. That would be bad
+    // because such objects have often been used as modules.
+    int external = counts.mutable_count() - GetInObjectProperties();
+    return external > limit || counts.GetTotal() > kMaxNumberOfDescriptors;
+  } else {
+    int limit = std::max(
+        {v8_flags.fast_properties_soft_limit.value(), GetInObjectProperties()});
+bool Map::TooManyFastProperties(StoreOrigin store_origin) const {
+  if (UnusedPropertyFields() != 0) return false;
+  if (store_origin != StoreOrigin::kMaybeKeyed) return false;
+  if (is_prototype_map()) return false;
+  int limit = std::max(
+      {v8_flags.fast_properties_soft_limit.value(), GetInObjectProperties()});
+  int external =
+      NumberOfFields(ConcurrencyMode::kSynchronous) - GetInObjectProperties();
+  return external > limit;
+}
+## 11.3 map.h
+977:  static const int kFastPropertiesSoftLimit = 12;
+978:  static const int kMaxFastProperties = 128;
+## flag max_fast_properties
+12.4.254.21/flag-definitions.h:2293:DEFINE_INT(max_fast_properties, 128,
+13.6.233.17/flag-definitions.h:2693:DEFINE_INT(max_fast_properties, 128,
+## HOMOMORPHIC (src/common/globals.h)
+p9r/globals-15.6.67.h:1910:  HOMOMORPHIC,
+p9r/globals-15.6.67.h:1934:    case InlineCacheState::HOMOMORPHIC:
+p9r/globals-15.6.67.h:1935:      return "HOMOMORPHIC";
+## kMaxPolymorphicMapCount occurrences in ic.h/ic.cc 11.3/13.6/15.6:
+p9r/ic-11.3.244.8.h:0
+p9r/ic-13.6.233.17.h:0
+p9r/ic-15.6.67.h:0
+p9r/ic-11.3.244.8.cc:0
+p9r/ic-13.6.233.17.cc:0
+p9r/ic-15.6.67.cc:0
+## wasm flags
+13.6.233.17/flag-definitions.h:1787:DEFINE_BOOL(wasm_deopt, false, "enable deopts in optimized wasm functions")
+13.6.233.17/flag-definitions.h:1856:DEFINE_BOOL(wasm_inlining_call_indirect, false,
+flag-defs-main.h:2120:DEFINE_BOOL(wasm_deopt, true, "enable deopts in optimized wasm functions")
+flag-defs-main.h:2205:DEFINE_BOOL(wasm_inlining_call_indirect, true,
+## script-context bytecodes
+bytecodes-11.3.244.8.h: 
+bytecodes-13.6.233.17.h: V(LdaCurrentScriptContextSlot V(LdaLookupScriptContextSlot V(LdaScriptContextSlot V(StaCurrentScriptContextSlot V(StaScriptContextSlot 
+bytecodes-15.6.67.h: V(CreateFunctionContextWithCells V(LdaContextSlotNoCell V(LdaCurrentContextSlotNoCell V(LdaLookupContextSlotNoCell V(StaContextSlotNoCell V(StaCurrentContextSlotNoCell 
+## const_tracking_let
+12.4.254.21/flag-definitions.h:676:DEFINE_BOOL(const_tracking_let, true,
+13.6.233.17/flag-definitions.h:737:DEFINE_BOOL(const_tracking_let, true,
+flag-defs-main.h:800:DEFINE_BOOL(function_context_cells, true,
+## sparkplug default 11.3
+#if ENABLE_SPARKPLUG && !defined(ANDROID)
+// Enable Sparkplug by default on desktop-only.
+#define ENABLE_SPARKPLUG_BY_DEFAULT true
+#else
+#define ENABLE_SPARKPLUG_BY_DEFAULT false
+#endif
+752:DEFINE_BOOL(sparkplug, ENABLE_SPARKPLUG_BY_DEFAULT,
+## V8.CompileCode (13.6 compiler.cc)
+MaybeHandle<SharedFunctionInfo> CompileToplevel(
+    ParseInfo* parse_info, Handle<Script> script,
+    MaybeDirectHandle<ScopeInfo> maybe_outer_scope_info, Isolate* isolate,
+    IsCompiledScope* is_compiled_scope) {
+  TimerEventScope<TimerEventCompileCode> top_level_timer(isolate);
+  TRACE_EVENT0(TRACE_DISABLED_BY_DEFAULT("v8.compile"), "V8.CompileCode");
+  TimerEventScope<TimerEventCompileCode> compile_timer(isolate);
+  RCS_SCOPE(isolate, RuntimeCallCounterId::kCompileFunction);
+  TRACE_EVENT0(TRACE_DISABLED_BY_DEFAULT("v8.compile"), "V8.CompileCode");
+  AggregatedHistogramTimerScope timer(isolate->counters()->compile_lazy());
+## DevTools TraceEvents.ts / Styles.ts
+  COMPILE_CODE = 'V8.CompileCode',
+  COMPILE_MODULE = 'V8.CompileModule',
+  // Although V8 emits the V8.CompileScript event, the event that actually
+  // contains the useful information about the script (URL, etc), is contained
+  // in the v8.compile event.
+  // Yes, it is all lowercase compared to all the rest of the V8... events,
+  // that is not a typo :)
+  COMPILE = 'v8.compile',
+  COMPILE_SCRIPT = 'V8.CompileScript',
+    [Types.Events.Name.COMPILE]:
+        new TimelineRecordStyle(i18nString(UIStrings.compileScript), defaultCategoryStyles.scripting),
+
+    [Types.Events.Name.CACHE_SCRIPT]:
+        new TimelineRecordStyle(i18nString(UIStrings.cacheScript), defaultCategoryStyles.scripting),
+
+    [Types.Events.Name.COMPILE_CODE]:
+        new TimelineRecordStyle(i18nString(UIStrings.compileCode), defaultCategoryStyles.scripting),
+## maglev.md (Sparkplug vs Ignition)
+
+## Node configure.py
+643:parser.add_argument('--experimental-enable-pointer-compression',
+644-    action='store_true',
+645-    dest='enable_pointer_compression',
+646-    default=None,
+647-    help='[Experimental] Enable V8 pointer compression (limits max heap to 4GB and breaks ABI compatibility)')
+991:parser.add_argument('--v8-enable-maglev',
+992-    action='store_true',
+993-    dest='v8_enable_maglev',
+994-    default=None,
+995-    help='Enable V8 Maglev compiler. Not available on all platforms.')

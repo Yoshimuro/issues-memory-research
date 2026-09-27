@@ -1,0 +1,27 @@
+== a1 = [1,2,3]
+DebugPrint: 0x3bdb010898e5: [JSArray]
+ - elements: 0x3bdb0101dd89 <FixedArray[3]> [PACKED_SMI_ELEMENTS (COW)]
+== a2 = [1,2,3] (second evaluation)
+DebugPrint: 0x3bdb010898f5: [JSArray]
+ - elements: 0x3bdb0101dd89 <FixedArray[3]> [PACKED_SMI_ELEMENTS (COW)]
+== a1 after a1[0]=1
+DebugPrint: 0x3bdb010898e5: [JSArray]
+ - elements: 0x3bdb01089905 <FixedArray[3]> [PACKED_SMI_ELEMENTS]
+== a1 after a1[1]=5
+DebugPrint: 0x3bdb010898e5: [JSArray]
+ - elements: 0x3bdb01089905 <FixedArray[3]> [PACKED_SMI_ELEMENTS]
+== litD
+DebugPrint: 0x3bdb01089939: [JSArray]
+ - elements: 0x3bdb01089919 <FixedDoubleArray[3]> [PACKED_DOUBLE_ELEMENTS]
+== litD second
+DebugPrint: 0x3bdb01089969: [JSArray]
+ - elements: 0x3bdb01089949 <FixedDoubleArray[3]> [PACKED_DOUBLE_ELEMENTS]
+== litO
+DebugPrint: 0x3bdb010899a5: [JSArray]
+ - elements: 0x3bdb01089979 <FixedArray[2]> [PACKED_ELEMENTS]
+== Array(1,2,3)
+DebugPrint: 0x3bdb010899b5: [JSArray]
+ - elements: 0x3bdb010899c5 <FixedArray[3]> [PACKED_SMI_ELEMENTS]
+== new Array(3)
+DebugPrint: 0x3bdb010899d9: [JSArray]
+ - elements: 0x3bdb010899e9 <FixedArray[3]> [HOLEY_SMI_ELEMENTS]

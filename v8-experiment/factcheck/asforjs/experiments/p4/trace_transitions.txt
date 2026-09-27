@@ -1,0 +1,16 @@
+##### node20
+elements transition [PACKED_SMI_ELEMENTS -> PACKED_ELEMENTS] in from+1782 at <unknown>:<unknown> for 0x0866f8ed4ef9 <JSArray[0]> from 0x0866f8ed50a9 <FixedArray[17]> to 0x0866f8ed50a9 <FixedArray[17]>
+elements transition [PACKED_SMI_ELEMENTS -> PACKED_DOUBLE_ELEMENTS] in ~+22 at /home/user/issues-memory-research/v8-experiment/factcheck/asforjs/experiments/p4/trace_transitions.js:4 for 0x0866f8ee06e1 <JSArray[3]> from 
+elements transition [PACKED_DOUBLE_ELEMENTS -> HOLEY_ELEMENTS] in ~+31 at /home/user/issues-memory-research/v8-experiment/factcheck/asforjs/experiments/p4/trace_transitions.js:4 for 0x0866f8ee06e1 <JSArray[3]> from 0x086
+##### node22
+elements transition [PACKED_SMI_ELEMENTS -> PACKED_ELEMENTS] in from+1840 at <unknown>:<unknown> for 0x15258181ba71 <JSArray[0]> from 0x15258181bc21 <FixedArray[17]> to 0x15258181bc21 <FixedArray[17]>
+elements transition [PACKED_SMI_ELEMENTS -> PACKED_DOUBLE_ELEMENTS] in ~+22 at /home/user/issues-memory-research/v8-experiment/factcheck/asforjs/experiments/p4/trace_transitions.js:4 for 0x152581826251 <JSArray[3]> from 
+elements transition [PACKED_DOUBLE_ELEMENTS -> HOLEY_ELEMENTS] in ~+31 at /home/user/issues-memory-research/v8-experiment/factcheck/asforjs/experiments/p4/trace_transitions.js:4 for 0x152581826251 <JSArray[3]> from 0x152
+##### node24
+elements transition [PACKED_SMI_ELEMENTS -> PACKED_ELEMENTS] in from+0 at <unknown>:<unknown> for 0x25dc5391b929 <JSArray[0]> from 0x25dc5391b999 <FixedArray[17]> to 0x25dc5391b999 <FixedArray[17]>
+elements transition [PACKED_SMI_ELEMENTS -> PACKED_ELEMENTS] in from+0 at <unknown>:<unknown> for 0x25dc5391c911 <JSArray[0]> from 0x25dc5391c999 <FixedArray[17]> to 0x25dc5391c999 <FixedArray[17]>
+elements transition [PACKED_SMI_ELEMENTS -> PACKED_DOUBLE_ELEMENTS] in ~+22 at /home/user/issues-memory-research/v8-experiment/factcheck/asforjs/experiments/p4/trace_transitions.js:4 for 0x25dc53926231 <JSArray[3]> from 
+elements transition [PACKED_DOUBLE_ELEMENTS -> HOLEY_ELEMENTS] in ~+31 at /home/user/issues-memory-research/v8-experiment/factcheck/asforjs/experiments/p4/trace_transitions.js:4 for 0x25dc53926231 <JSArray[3]> from 0x25d
+##### d8
+Flag processing error: Contradictory value for readonly flag --trace-elements-transitions.
+If a test variant caused this, it might be necessary to specify additional contradictory flags in tools/testrunner/local/variants.py.

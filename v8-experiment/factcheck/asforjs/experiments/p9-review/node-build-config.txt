@@ -1,0 +1,9 @@
+v20.20.2 11.3.244.8-node.38 {"pc":0,"smi31":0,"maglev":0,"sandbox":0,"lite":0}
+v21.7.3 11.8.172.17-node.20 {"pc":0,"smi31":0,"maglev":0,"lite":0}
+v22.22.2 12.4.254.21-node.39 {"pc":0,"smi31":0,"maglev":0,"sandbox":0,"lite":0}
+v24.21.0 13.6.233.17-node.53 {"pc":0,"smi31":0,"maglev":1,"sandbox":0,"lite":0}
+== /opt/node22/bin/node
+Maglev is not enabled.
+10000001
+== /opt/nvm/versions/node/v24.21.0/bin/node
+110001

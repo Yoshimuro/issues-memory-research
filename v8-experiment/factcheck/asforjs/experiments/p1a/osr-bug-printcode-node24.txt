@@ -1,0 +1,71 @@
+== node24 --print-opt-code literal
+optimization_id = 2
+source_position = 688
+kind = TURBOFAN_JS
+compiler = turbofan
+Inlined functions (count = 0)
+optimization_id = 4
+source_position = 643
+kind = TURBOFAN_JS
+name = literal
+compiler = turbofan
+Inlined functions (count = 1)
+== node24 --print-maglev-code literal
+ - osr_tiering_in_progress: 0
+ - osr_offset: -1
+kind = MAGLEV
+name = isPosixPathSeparator
+compiler = maglev
+Inlined functions (count = 0)
+ - osr_tiering_in_progress: 0
+ - osr_offset: -1
+kind = MAGLEV
+compiler = maglev
+== node24 --print-opt-code inner
+optimization_id = 2
+source_position = 751
+kind = TURBOFAN_JS
+name = doInner
+compiler = turbofan
+Inlined functions (count = 0)
+optimization_id = 4
+source_position = 729
+kind = TURBOFAN_JS
+name = inner
+compiler = turbofan
+Inlined functions (count = 0)
+== node24 --print-maglev-code inner
+ - osr_tiering_in_progress: 0
+ - osr_offset: -1
+kind = MAGLEV
+name = isPosixPathSeparator
+compiler = maglev
+Inlined functions (count = 0)
+ - osr_tiering_in_progress: 0
+ - osr_offset: -1
+kind = MAGLEV
+name = doInner
+== node24 --print-opt-code globalConst
+optimization_id = 2
+source_position = 560
+kind = TURBOFAN_JS
+name = doOuterConst
+compiler = turbofan
+Inlined functions (count = 0)
+optimization_id = 4
+source_position = 1127
+kind = TURBOFAN_JS
+name = globalConst
+compiler = turbofan
+Inlined functions (count = 0)
+== node24 --print-maglev-code globalConst
+ - osr_tiering_in_progress: 0
+ - osr_offset: -1
+kind = MAGLEV
+name = isPosixPathSeparator
+compiler = maglev
+Inlined functions (count = 0)
+ - osr_tiering_in_progress: 0
+ - osr_offset: -1
+kind = MAGLEV
+name = doOuterConst

@@ -1,0 +1,90 @@
+add: 0x7f21aec400b9    79  0f8658000000         jna 0x7f21aec40117  <+0xd7>
+add: 0x7f21aec400bf    7f  488b4d18             REX.W movq rcx,[rbp+0x18]
+add: 0x7f21aec400c3    83  f6c101               testb rcx,0x1
+add: 0x7f21aec400c6    86  0f8565020000         jnz 0x7f21aec40331  <+0x2f1>
+add: 0x7f21aec400cc    8c  488bf9               REX.W movq rdi,rcx
+add: 0x7f21aec400cf    8f  d1ff                 sarl rdi,1
+add: 0x7f21aec400d1    91  4c8b4520             REX.W movq r8,[rbp+0x20]
+add: 0x7f21aec400d5    95  41f6c001             testb r8,0x1
+add: 0x7f21aec400d9    99  0f8556020000         jnz 0x7f21aec40335  <+0x2f5>
+add: 0x7f21aec400df    9f  4d8bc8               REX.W movq r9,r8
+add: 0x7f21aec400e2    a2  41d1f9               sarl r9,1
+add: 0x7f21aec400e5    a5  4403cf               addl r9,rdi
+add: 0x7f21aec400e8    a8  0f804b020000         jo 0x7f21aec40339  <+0x2f9>
+add: 0x7f21aec400ee    ae  498bc9               REX.W movq rcx,r9
+add: 0x7f21aec400f1    b1  4103c9               addl rcx,r9
+add: 0x7f21aec400f4    b4  0f8043000000         jo 0x7f21aec4013d  <+0xfd>
+add: 0x7f21aec400fa    ba  488bc1               REX.W movq rax,rcx
+add: 0x7f21aec4010b    cb  c21800               ret 0x18
+getAge: 0x7f21aec403f9    79  0f8638000000         jna 0x7f21aec40437  <+0xb7>
+getAge: 0x7f21aec403ff    7f  488b5518             REX.W movq rdx,[rbp+0x18]
+getAge: 0x7f21aec40403    83  f6c201               testb rdx,0x1
+getAge: 0x7f21aec40406    86  0f8452000000         jz 0x7f21aec4045e  <+0xde>
+getAge: 0x7f21aec4040c    8c  b9d5df0101           movl rcx,0x101dfd5    ;; (compressed) object: 0x3ec20101dfd5 <Map[20](HOLEY_ELE
+getAge: 0x7f21aec40411    91  394aff               cmpl [rdx-0x1],rcx
+getAge: 0x7f21aec40414    94  0f8548000000         jnz 0x7f21aec40462  <+0xe2>
+getAge: 0x7f21aec4041a    9a  8b420f               movl rax,[rdx+0xf]
+getAge: 0x7f21aec4042b    ab  c21000               ret 0x10
+half: 0x7f21aec40539    79  0f8645000000         jna 0x7f21aec40584  <+0xc4>
+half: 0x7f21aec4053f    7f  488b4d18             REX.W movq rcx,[rbp+0x18]
+half: 0x7f21aec40543    83  f6c101               testb rcx,0x1
+half: 0x7f21aec40546    86  0f8551020000         jnz 0x7f21aec4079d  <+0x2dd>
+half: 0x7f21aec4054c    8c  488bf9               REX.W movq rdi,rcx
+half: 0x7f21aec4054f    8f  40f6c702             testb rdi,0x2
+half: 0x7f21aec40553    93  0f8548020000         jnz 0x7f21aec407a1  <+0x2e1>
+half: 0x7f21aec40559    99  c1ff02               sarl rdi,2
+half: 0x7f21aec4055c    9c  488bcf               REX.W movq rcx,rdi
+half: 0x7f21aec4055f    9f  03cf                 addl rcx,rdi
+half: 0x7f21aec40561    a1  0f8043000000         jo 0x7f21aec405aa  <+0xea>
+half: 0x7f21aec40567    a7  488bc1               REX.W movq rax,rcx
+half: 0x7f21aec40578    b8  c21000               ret 0x10
+halfInt: 0x7f21aec40879    79  0f8658000000         jna 0x7f21aec408d7  <+0xd7>
+halfInt: 0x7f21aec4087f    7f  488b4d18             REX.W movq rcx,[rbp+0x18]
+halfInt: 0x7f21aec40883    83  f6c101               testb rcx,0x1
+halfInt: 0x7f21aec40886    86  0f8564020000         jnz 0x7f21aec40af0  <+0x2f0>
+halfInt: 0x7f21aec4088c    8c  d1f9                 sarl rcx,1
+halfInt: 0x7f21aec4088e    8e  8bf9                 movl rdi,rcx
+halfInt: 0x7f21aec40890    90  c1ef1f               shrl rdi,31
+halfInt: 0x7f21aec40893    93  03cf                 addl rcx,rdi
+halfInt: 0x7f21aec40895    95  41baffffffff         movl r10,0xffffffff
+halfInt: 0x7f21aec4089b    9b  493bca               REX.W cmpq rcx,r10
+halfInt: 0x7f21aec4089e    9e  760d                 jna 0x7f21aec408ad  <+0xad>
+halfInt: 0x7f21aec408a0    a0  ba02000000           movl rdx,0x2
+halfInt: 0x7f21aec408a5    a5  41ff9530640000       call [r13+0x6430]
+halfInt: 0x7f21aec408ac    ac  cc                   int3l
+halfInt: 0x7f21aec408ad    ad  d1f9                 sarl rcx,1
+halfInt: 0x7f21aec408af    af  488bf9               REX.W movq rdi,rcx
+halfInt: 0x7f21aec408b2    b2  03f9                 addl rdi,rcx
+halfInt: 0x7f21aec408b4    b4  0f8043000000         jo 0x7f21aec408fd  <+0xfd>
+halfInt: 0x7f21aec408ba    ba  488bc7               REX.W movq rax,rdi
+halfInt: 0x7f21aec408cb    cb  c21000               ret 0x10
+mod2: 0x7f21aec40bb9    79  0f8663000000         jna 0x7f21aec40c22  <+0xe2>
+mod2: 0x7f21aec40bbf    7f  488b4d18             REX.W movq rcx,[rbp+0x18]
+mod2: 0x7f21aec40bc3    83  f6c101               testb rcx,0x1
+mod2: 0x7f21aec40bc6    86  0f8573020000         jnz 0x7f21aec40e3f  <+0x2ff>
+mod2: 0x7f21aec40bcc    8c  488bf9               REX.W movq rdi,rcx
+mod2: 0x7f21aec40bcf    8f  448bc7               movl r8,rdi
+mod2: 0x7f21aec40bd2    92  41d1f8               sarl r8,1
+mod2: 0x7f21aec40bd5    95  85ff                 testl rdi,rdi
+mod2: 0x7f21aec40bd7    97  0f8c09000000         jl 0x7f21aec40be6  <+0xa6>
+mod2: 0x7f21aec40bdd    9d  4183e001             andl r8,0x1
+mod2: 0x7f21aec40be1    a1  e913000000           jmp 0x7f21aec40bf9  <+0xb9>
+mod2: 0x7f21aec40be6    a6  41f7d8               negl r8
+mod2: 0x7f21aec40be9    a9  4183e001             andl r8,0x1
+mod2: 0x7f21aec40bed    ad  4585c0               testl r8,r8
+mod2: 0x7f21aec40bf0    b0  0f844d020000         jz 0x7f21aec40e43  <+0x303>
+mod2: 0x7f21aec40bf6    b6  41f7d8               negl r8
+mod2: 0x7f21aec40bf9    b9  498bc8               REX.W movq rcx,r8
+mod2: 0x7f21aec40bfc    bc  4103c8               addl rcx,r8
+mod2: 0x7f21aec40bff    bf  0f8046000000         jo 0x7f21aec40c4b  <+0x10b>
+mod2: 0x7f21aec40c05    c5  488bc1               REX.W movq rax,rcx
+mod2: 0x7f21aec40c16    d6  c21000               ret 0x10
+withConst: 0x7f21aec40ef9    79  0f8643000000         jna 0x7f21aec40f42  <+0xc2>
+withConst: 0x7f21aec40eff    7f  488b4d18             REX.W movq rcx,[rbp+0x18]
+withConst: 0x7f21aec40f03    83  f6c101               testb rcx,0x1
+withConst: 0x7f21aec40f06    86  0f854f020000         jnz 0x7f21aec4115b  <+0x2db>
+withConst: 0x7f21aec40f0c    8c  488bf9               REX.W movq rdi,rcx
+withConst: 0x7f21aec40f0f    8f  d1ff                 sarl rdi,1
+withConst: 0x7f21aec40f11    91  83c707               addl rdi,0x7
+withConst: 0x7f21aec40f14    94  0f8045020000         jo 0x7f21aec4115f  <+0x2df>
+withConst: 0x7f21aec40f1a    9a  488bcf               REX.W movq rcx,rdi

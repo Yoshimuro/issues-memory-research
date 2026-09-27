@@ -1,0 +1,7 @@
+== d8 DEBUG 15.6, N=1e6, --max-opt=0
+var       median 587.1 ms  ratio_vs_var 1.000   all 607/591/587/531/586
+let       median 618.3 ms  ratio_vs_var 1.053   all 641/606/646/577/618
+const     median 602.6 ms  ratio_vs_var 1.026   all 603/631/689/600/545
+letArrow  median 606.8 ms  ratio_vs_var 1.034   all 634/607/564/626/596
+local     median 508.1 ms  ratio_vs_var 0.866   all 508/500/514/507/527
+letCopy   median 490.4 ms  ratio_vs_var 0.835   all 489/492/507/487/490

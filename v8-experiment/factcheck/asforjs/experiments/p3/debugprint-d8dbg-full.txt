@@ -1,0 +1,463 @@
+===== d8dbg =====
+### literal {name}
+DebugPrint: 0x39fc01089a69: [JS_OBJECT_TYPE]
+ - map: 0x39fc0101e18d <Map[16](HOLEY_ELEMENTS)> [FastProperties]
+ - prototype: 0x39fc01005721 <Object map = 0x39fc01004ab9>
+ - elements: 0x39fc000007e5 <FixedArray[0]> [HOLEY_ELEMENTS]
+ - properties: 0x39fc000007e5 <FixedArray[0]>
+ - All own properties (excluding elements): {
+    0x39fc00000e29: [String] in ReadOnlySpace: #name: 0x39fc0000351d <String[1]: #x> (const data field 3, in-obj, attrs: [WEC])
+ }
+0x39fc0101e18d: [Map] in OldSpace
+ - map: 0x39fc0100453d <MetaMap (0x39fc0100458d <NativeContext[308]>)>
+ - type: JS_OBJECT_TYPE
+ - instance size: 16
+ - inobject properties: 1
+ - unused property fields: 0
+ - elements kind: HOLEY_ELEMENTS
+ - enum length: invalid
+ - stable_map
+ - back pointer: 0x39fc0101e165 <Map[16](HOLEY_ELEMENTS)>
+ - prototype_validity_cell: 0x39fc00000b15 <Cell value= [cleared]>
+ - instance descriptors (own) #1: 0x39fc01089a4d <DescriptorArray[1]>
+ - prototype: 0x39fc01005721 <Object map = 0x39fc01004ab9>
+ - constructor: 0x39fc01004fc1 <JSFunction Object (sfi = 0x39fc00b93d5d)>
+ - dependent code: 0x39fc000007f5 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 0
+
+### literal {name} + h
+DebugPrint: 0x39fc01089a69: [JS_OBJECT_TYPE]
+ - map: 0x39fc0101e209 <Map[16](HOLEY_ELEMENTS)> [FastProperties]
+ - prototype: 0x39fc01005721 <Object map = 0x39fc01004ab9>
+ - elements: 0x39fc000007e5 <FixedArray[0]> [HOLEY_ELEMENTS]
+ - properties: 0x39fc01089ad5 <PropertyArray[3]>
+ - All own properties (excluding elements): {
+    0x39fc00000e29: [String] in ReadOnlySpace: #name: 0x39fc0000351d <String[1]: #x> (const data field 3, in-obj, attrs: [WEC])
+    0x39fc0000341d: [String] in ReadOnlySpace: #h: 47 (const data field 2, ooo, attrs: [WEC])
+ }
+0x39fc0101e209: [Map] in OldSpace
+ - map: 0x39fc0100453d <MetaMap (0x39fc0100458d <NativeContext[308]>)>
+ - type: JS_OBJECT_TYPE
+ - instance size: 16
+ - inobject properties: 1
+ - unused property fields: 2
+ - elements kind: HOLEY_ELEMENTS
+ - enum length: invalid
+ - stable_map
+ - back pointer: 0x39fc0101e18d <Map[16](HOLEY_ELEMENTS)>
+ - prototype_validity_cell: 0x39fc0101e231 <Cell value= [weak] 0x39fc0100458d <NativeContext[308]>>
+ - instance descriptors (own) #2: 0x39fc01089aad <DescriptorArray[2]>
+ - prototype: 0x39fc01005721 <Object map = 0x39fc01004ab9>
+ - constructor: 0x39fc01004fc1 <JSFunction Object (sfi = 0x39fc00b93d5d)>
+ - dependent code: 0x39fc000007f5 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 0
+
+### new Ctor (2 props), 1st instance
+DebugPrint: 0x39fc01089ba9: [JS_OBJECT_TYPE]
+ - map: 0x39fc0101e399 <Map[52](HOLEY_ELEMENTS)> [FastProperties]
+ - prototype: 0x39fc01089b21 <Object map = 0x39fc0101e341>
+ - elements: 0x39fc000007e5 <FixedArray[0]> [HOLEY_ELEMENTS]
+ - properties: 0x39fc000007e5 <FixedArray[0]>
+ - All own properties (excluding elements): {
+    0x39fc000033ad: [String] in ReadOnlySpace: #a: 1 (const data field 3, in-obj, attrs: [WEC])
+    0x39fc000033bd: [String] in ReadOnlySpace: #b: 2 (const data field 4, in-obj, attrs: [WEC])
+ }
+0x39fc0101e399: [Map] in OldSpace
+ - map: 0x39fc0100453d <MetaMap (0x39fc0100458d <NativeContext[308]>)>
+ - type: JS_OBJECT_TYPE
+ - instance size: 52
+ - inobject properties: 10
+ - unused property fields: 8
+ - elements kind: HOLEY_ELEMENTS
+ - enum length: invalid
+ - stable_map
+ - back pointer: 0x39fc0101e369 <Map[52](HOLEY_ELEMENTS)>
+ - prototype_validity_cell: 0x39fc0101e391 <Cell value= [weak] 0x39fc0100458d <NativeContext[308]>>
+ - instance descriptors (own) #2: 0x39fc01089c21 <DescriptorArray[2]>
+ - prototype: 0x39fc01089b21 <Object map = 0x39fc0101e341>
+ - constructor: 0x39fc0101e079 <JSFunction Ctor (sfi = 0x39fc0101dd25)>
+ - dependent code: 0x39fc000007f5 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 6
+
+### new Ctor + p
+DebugPrint: 0x39fc01089ba9: [JS_OBJECT_TYPE]
+ - map: 0x39fc0101e3c1 <Map[52](HOLEY_ELEMENTS)> [FastProperties]
+ - prototype: 0x39fc01089b21 <Object map = 0x39fc0101e341>
+ - elements: 0x39fc000007e5 <FixedArray[0]> [HOLEY_ELEMENTS]
+ - properties: 0x39fc000007e5 <FixedArray[0]>
+ - All own properties (excluding elements): {
+    0x39fc000033ad: [String] in ReadOnlySpace: #a: 1 (const data field 3, in-obj, attrs: [WEC])
+    0x39fc000033bd: [String] in ReadOnlySpace: #b: 2 (const data field 4, in-obj, attrs: [WEC])
+    0x39fc0000349d: [String] in ReadOnlySpace: #p: 10 (const data field 5, in-obj, attrs: [WEC])
+ }
+0x39fc0101e3c1: [Map] in OldSpace
+ - map: 0x39fc0100453d <MetaMap (0x39fc0100458d <NativeContext[308]>)>
+ - type: JS_OBJECT_TYPE
+ - instance size: 52
+ - inobject properties: 10
+ - unused property fields: 7
+ - elements kind: HOLEY_ELEMENTS
+ - enum length: invalid
+ - stable_map
+ - back pointer: 0x39fc0101e399 <Map[52](HOLEY_ELEMENTS)>
+ - prototype_validity_cell: 0x39fc0101e391 <Cell value= [weak] 0x39fc0100458d <NativeContext[308]>>
+ - instance descriptors (own) #3: 0x39fc01089c8d <DescriptorArray[3]>
+ - prototype: 0x39fc01089b21 <Object map = 0x39fc0101e341>
+ - constructor: 0x39fc0101e079 <JSFunction Ctor (sfi = 0x39fc0101dd25)>
+ - dependent code: 0x39fc000007f5 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 6
+
+### new Ctor after 20 instances (slack tracking done)
+DebugPrint: 0x39fc01089f79: [JS_OBJECT_TYPE]
+ - map: 0x39fc0101e399 <Map[24](HOLEY_ELEMENTS)> [FastProperties]
+ - prototype: 0x39fc01089b21 <Object map = 0x39fc0101e341>
+ - elements: 0x39fc000007e5 <FixedArray[0]> [HOLEY_ELEMENTS]
+ - properties: 0x39fc000007e5 <FixedArray[0]>
+ - All own properties (excluding elements): {
+    0x39fc000033ad: [String] in ReadOnlySpace: #a: 1 (const data field 3, in-obj, attrs: [WEC])
+    0x39fc000033bd: [String] in ReadOnlySpace: #b: 2 (const data field 4, in-obj, attrs: [WEC])
+ }
+0x39fc0101e399: [Map] in OldSpace
+ - map: 0x39fc0100453d <MetaMap (0x39fc0100458d <NativeContext[308]>)>
+ - type: JS_OBJECT_TYPE
+ - instance size: 24
+ - inobject properties: 3
+ - unused property fields: 1
+ - elements kind: HOLEY_ELEMENTS
+ - enum length: invalid
+ - back pointer: 0x39fc0101e369 <Map[24](HOLEY_ELEMENTS)>
+ - prototype_validity_cell: 0x39fc0101e391 <Cell value= [weak] 0x39fc0100458d <NativeContext[308]>>
+ - instance descriptors #2: 0x39fc01089c8d <DescriptorArray[3]>
+ - transitions #1: 0x39fc0101e3c1 <Map[24](HOLEY_ELEMENTS)>
+     0x39fc0000349d: [String] in ReadOnlySpace: #p: (transition to (const data field, in-obj, attrs: [WEC]) @ Any) -> 0x39fc0101e3c1 <Map[24](HOLEY_ELEMENTS)>
+ - prototype: 0x39fc01089b21 <Object map = 0x39fc0101e341>
+ - constructor: 0x39fc0101e079 <JSFunction Ctor (sfi = 0x39fc0101dd25)>
+ - dependent code: 0x39fc000007f5 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 0
+
+### class K 2 props
+DebugPrint: 0x39fc0108a0b1: [JS_OBJECT_TYPE]
+ - map: 0x39fc0101e5d9 <Map[52](HOLEY_ELEMENTS)> [FastProperties]
+ - prototype: 0x39fc0108a019 <K map = 0x39fc0101e4ed>
+ - elements: 0x39fc000007e5 <FixedArray[0]> [HOLEY_ELEMENTS]
+ - properties: 0x39fc000007e5 <FixedArray[0]>
+ - All own properties (excluding elements): {
+    0x39fc000033ad: [String] in ReadOnlySpace: #a: 1 (const data field 3, in-obj, attrs: [WEC])
+    0x39fc000033bd: [String] in ReadOnlySpace: #b: 2 (const data field 4, in-obj, attrs: [WEC])
+ }
+0x39fc0101e5d9: [Map] in OldSpace
+ - map: 0x39fc0100453d <MetaMap (0x39fc0100458d <NativeContext[308]>)>
+ - type: JS_OBJECT_TYPE
+ - instance size: 52
+ - inobject properties: 10
+ - unused property fields: 8
+ - elements kind: HOLEY_ELEMENTS
+ - enum length: invalid
+ - stable_map
+ - back pointer: 0x39fc0101e5a9 <Map[52](HOLEY_ELEMENTS)>
+ - prototype_validity_cell: 0x39fc0101e5d1 <Cell value= [weak] 0x39fc0100458d <NativeContext[308]>>
+ - instance descriptors (own) #2: 0x39fc0108a101 <DescriptorArray[2]>
+ - prototype: 0x39fc0108a019 <K map = 0x39fc0101e4ed>
+ - constructor: 0x39fc01089ff9 <JSFunction K (sfi = 0x39fc0101ddb5)>
+ - dependent code: 0x39fc000007f5 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 6
+
+### literal 2 + p,p2,p3
+DebugPrint: 0x39fc0108a1a1: [JS_OBJECT_TYPE]
+ - map: 0x39fc0101e6d5 <Map[20](HOLEY_ELEMENTS)> [FastProperties]
+ - prototype: 0x39fc01005721 <Object map = 0x39fc01004ab9>
+ - elements: 0x39fc000007e5 <FixedArray[0]> [HOLEY_ELEMENTS]
+ - properties: 0x39fc0108a1e9 <PropertyArray[3]>
+ - All own properties (excluding elements): {
+    0x39fc000033ad: [String] in ReadOnlySpace: #a: 1 (const data field 3, in-obj, attrs: [WEC])
+    0x39fc000033bd: [String] in ReadOnlySpace: #b: 2 (const data field 4, in-obj, attrs: [WEC])
+    0x39fc0000349d: [String] in ReadOnlySpace: #p: 1 (const data field 2, ooo, attrs: [WEC])
+    0x39fc0101da6d: [String] in OldSpace: #p2: 2 (const data field 3, ooo, attrs: [WEC])
+    0x39fc0101da7d: [String] in OldSpace: #p3: 3 (const data field 4, ooo, attrs: [WEC])
+ }
+0x39fc0101e6d5: [Map] in OldSpace
+ - map: 0x39fc0100453d <MetaMap (0x39fc0100458d <NativeContext[308]>)>
+ - type: JS_OBJECT_TYPE
+ - instance size: 20
+ - inobject properties: 2
+ - unused property fields: 0
+ - elements kind: HOLEY_ELEMENTS
+ - enum length: invalid
+ - stable_map
+ - back pointer: 0x39fc0101e6ad <Map[20](HOLEY_ELEMENTS)>
+ - prototype_validity_cell: 0x39fc0101e231 <Cell value= [weak] 0x39fc0100458d <NativeContext[308]>>
+ - instance descriptors (own) #5: 0x39fc0108a23d <DescriptorArray[5]>
+ - prototype: 0x39fc01005721 <Object map = 0x39fc01004ab9>
+ - constructor: 0x39fc01004fc1 <JSFunction Object (sfi = 0x39fc00b93d5d)>
+ - dependent code: 0x39fc000007f5 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 0
+
+### literal 2 + p..p4
+DebugPrint: 0x39fc0108a1a1: [JS_OBJECT_TYPE]
+ - map: 0x39fc0101e6fd <Map[20](HOLEY_ELEMENTS)> [FastProperties]
+ - prototype: 0x39fc01005721 <Object map = 0x39fc01004ab9>
+ - elements: 0x39fc000007e5 <FixedArray[0]> [HOLEY_ELEMENTS]
+ - properties: 0x39fc0108a319 <PropertyArray[6]>
+ - All own properties (excluding elements): {
+    0x39fc000033ad: [String] in ReadOnlySpace: #a: 1 (const data field 3, in-obj, attrs: [WEC])
+    0x39fc000033bd: [String] in ReadOnlySpace: #b: 2 (const data field 4, in-obj, attrs: [WEC])
+    0x39fc0000349d: [String] in ReadOnlySpace: #p: 1 (const data field 2, ooo, attrs: [WEC])
+    0x39fc0101da6d: [String] in OldSpace: #p2: 2 (const data field 3, ooo, attrs: [WEC])
+    0x39fc0101da7d: [String] in OldSpace: #p3: 3 (const data field 4, ooo, attrs: [WEC])
+    0x39fc0101daad: [String] in OldSpace: #p4: 4 (const data field 5, ooo, attrs: [WEC])
+ }
+0x39fc0101e6fd: [Map] in OldSpace
+ - map: 0x39fc0100453d <MetaMap (0x39fc0100458d <NativeContext[308]>)>
+ - type: JS_OBJECT_TYPE
+ - instance size: 20
+ - inobject properties: 2
+ - unused property fields: 2
+ - elements kind: HOLEY_ELEMENTS
+ - enum length: invalid
+ - stable_map
+ - back pointer: 0x39fc0101e6d5 <Map[20](HOLEY_ELEMENTS)>
+ - prototype_validity_cell: 0x39fc0101e231 <Cell value= [weak] 0x39fc0100458d <NativeContext[308]>>
+ - instance descriptors (own) #6: 0x39fc0108a2c1 <DescriptorArray[6]>
+ - prototype: 0x39fc01005721 <Object map = 0x39fc01004ab9>
+ - constructor: 0x39fc01004fc1 <JSFunction Object (sfi = 0x39fc00b93d5d)>
+ - dependent code: 0x39fc000007f5 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 0
+
+### empty literal {}
+DebugPrint: 0x39fc0108a371: [JS_OBJECT_TYPE]
+ - map: 0x39fc010052cd <Map[28](HOLEY_ELEMENTS)> [FastProperties]
+ - prototype: 0x39fc01005721 <Object map = 0x39fc01004ab9>
+ - elements: 0x39fc000007e5 <FixedArray[0]> [HOLEY_ELEMENTS]
+ - properties: 0x39fc000007e5 <FixedArray[0]>
+ - All own properties (excluding elements): {}
+0x39fc010052cd: [Map] in OldSpace
+ - map: 0x39fc0100453d <MetaMap (0x39fc0100458d <NativeContext[308]>)>
+ - type: JS_OBJECT_TYPE
+ - instance size: 28
+ - inobject properties: 4
+ - unused property fields: 4
+ - elements kind: HOLEY_ELEMENTS
+ - enum length: invalid
+ - back pointer: 0x39fc00000011 <undefined>
+ - prototype_validity_cell: 0x39fc00000b15 <Cell value= [cleared]>
+ - instance descriptors (own) #0: 0x39fc0000080d <DescriptorArray[0]>
+ - transitions #1: 0x39fc0101e2cd <TransitionArray[7]>
+   Transitions #1:
+     0x39fc00005e3d: [String] in ReadOnlySpace: #constructor: (transition to (const data field, in-obj, attrs: [W_C]) @ Class(0x39fc01004c89)) -> 0x39fc0101e2a5 <Map[28](HOLEY_ELEMENTS)>
+   Prototype transitions #1: 0x39fc01005309 <WeakFixedArray[2]>
+ - prototype: 0x39fc01005721 <Object map = 0x39fc01004ab9>
+ - constructor: 0x39fc01004fc1 <JSFunction Object (sfi = 0x39fc00b93d5d)>
+ - dependent code: 0x39fc000007f5 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 0
+
+### JSON.parse 3 keys
+DebugPrint: 0x39fc0108a439: [JS_OBJECT_TYPE]
+ - map: 0x39fc0101e7bd <Map[24](HOLEY_ELEMENTS)> [FastProperties]
+ - prototype: 0x39fc01005721 <Object map = 0x39fc01004ab9>
+ - elements: 0x39fc000007e5 <FixedArray[0]> [HOLEY_ELEMENTS]
+ - properties: 0x39fc000007e5 <FixedArray[0]>
+ - All own properties (excluding elements): {
+    0x39fc000033ad: [String] in ReadOnlySpace: #a: 1 (const data field 3, in-obj, attrs: [WEC])
+    0x39fc000033bd: [String] in ReadOnlySpace: #b: 0x39fc000034cd <String[1]: #s> (const data field 4, in-obj, attrs: [WEC])
+    0x39fc000033cd: [String] in ReadOnlySpace: #c: 3 (const data field 5, in-obj, attrs: [WEC])
+ }
+0x39fc0101e7bd: [Map] in OldSpace
+ - map: 0x39fc0100453d <MetaMap (0x39fc0100458d <NativeContext[308]>)>
+ - type: JS_OBJECT_TYPE
+ - instance size: 24
+ - inobject properties: 3
+ - unused property fields: 0
+ - elements kind: HOLEY_ELEMENTS
+ - enum length: invalid
+ - stable_map
+ - back pointer: 0x39fc0101e795 <Map[24](HOLEY_ELEMENTS)>
+ - prototype_validity_cell: 0x39fc00000b15 <Cell value= [cleared]>
+ - instance descriptors (own) #3: 0x39fc0108a405 <DescriptorArray[3]>
+ - prototype: 0x39fc01005721 <Object map = 0x39fc01004ab9>
+ - constructor: 0x39fc01004fc1 <JSFunction Object (sfi = 0x39fc00b93d5d)>
+ - dependent code: 0x39fc000007f5 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 0
+
+### JSON.parse 30 keys
+DebugPrint: 0x39fc0108b7b9: [JS_OBJECT_TYPE]
+ - map: 0x39fc0101ef11 <Map[132](HOLEY_ELEMENTS)> [FastProperties]
+ - prototype: 0x39fc01005721 <Object map = 0x39fc01004ab9>
+ - elements: 0x39fc000007e5 <FixedArray[0]> [HOLEY_ELEMENTS]
+ - properties: 0x39fc000007e5 <FixedArray[0]>
+ - All own properties (excluding elements): {
+    0x39fc0101e8a9: [String] in OldSpace: #k0: 0 (const data field 3, in-obj, attrs: [WEC])
+    0x39fc0101e8e1: [String] in OldSpace: #k1: 1 (const data field 4, in-obj, attrs: [WEC])
+    0x39fc0101e919: [String] in OldSpace: #k2: 2 (const data field 5, in-obj, attrs: [WEC])
+    0x39fc0101e951: [String] in OldSpace: #k3: 3 (const data field 6, in-obj, attrs: [WEC])
+    0x39fc0101e989: [String] in OldSpace: #k4: 4 (const data field 7, in-obj, attrs: [WEC])
+    0x39fc0101e9c1: [String] in OldSpace: #k5: 5 (const data field 8, in-obj, attrs: [WEC])
+    0x39fc0101e9f9: [String] in OldSpace: #k6: 6 (const data field 9, in-obj, attrs: [WEC])
+    0x39fc0101ea31: [String] in OldSpace: #k7: 7 (const data field 10, in-obj, attrs: [WEC])
+    0x39fc0101ea69: [String] in OldSpace: #k8: 8 (const data field 11, in-obj, attrs: [WEC])
+    0x39fc0101eaa1: [String] in OldSpace: #k9: 9 (const data field 12, in-obj, attrs: [WEC])
+    0x39fc0101ead9: [String] in OldSpace: #k10: 10 (const data field 13, in-obj, attrs: [WEC])
+    0x39fc0101eb11: [String] in OldSpace: #k11: 11 (const data field 14, in-obj, attrs: [WEC])
+    0x39fc0101eb49: [String] in OldSpace: #k12: 12 (const data field 15, in-obj, attrs: [WEC])
+    0x39fc0101eb81: [String] in OldSpace: #k13: 13 (const data field 16, in-obj, attrs: [WEC])
+    0x39fc0101ebb9: [String] in OldSpace: #k14: 14 (const data field 17, in-obj, attrs: [WEC])
+    0x39fc0101ebf1: [String] in OldSpace: #k15: 15 (const data field 18, in-obj, attrs: [WEC])
+    0x39fc0101ec29: [String] in OldSpace: #k16: 16 (const data field 19, in-obj, attrs: [WEC])
+    0x39fc0101ec61: [String] in OldSpace: #k17: 17 (const data field 20, in-obj, attrs: [WEC])
+    0x39fc0101ec99: [String] in OldSpace: #k18: 18 (const data field 21, in-obj, attrs: [WEC])
+    0x39fc0101ecd1: [String] in OldSpace: #k19: 19 (const data field 22, in-obj, attrs: [WEC])
+    0x39fc0101ed09: [String] in OldSpace: #k20: 20 (const data field 23, in-obj, attrs: [WEC])
+    0x39fc0101ed41: [String] in OldSpace: #k21: 21 (const data field 24, in-obj, attrs: [WEC])
+    0x39fc0101ed79: [String] in OldSpace: #k22: 22 (const data field 25, in-obj, attrs: [WEC])
+    0x39fc0101edb1: [String] in OldSpace: #k23: 23 (const data field 26, in-obj, attrs: [WEC])
+    0x39fc0101ede9: [String] in OldSpace: #k24: 24 (const data field 27, in-obj, attrs: [WEC])
+    0x39fc0101ee21: [String] in OldSpace: #k25: 25 (const data field 28, in-obj, attrs: [WEC])
+    0x39fc0101ee59: [String] in OldSpace: #k26: 26 (const data field 29, in-obj, attrs: [WEC])
+    0x39fc0101ee91: [String] in OldSpace: #k27: 27 (const data field 30, in-obj, attrs: [WEC])
+    0x39fc0101eec9: [String] in OldSpace: #k28: 28 (const data field 31, in-obj, attrs: [WEC])
+    0x39fc0101ef01: [String] in OldSpace: #k29: 29 (const data field 32, in-obj, attrs: [WEC])
+ }
+0x39fc0101ef11: [Map] in OldSpace
+ - map: 0x39fc0100453d <MetaMap (0x39fc0100458d <NativeContext[308]>)>
+ - type: JS_OBJECT_TYPE
+ - instance size: 132
+ - inobject properties: 30
+ - unused property fields: 0
+ - elements kind: HOLEY_ELEMENTS
+ - enum length: invalid
+ - stable_map
+ - back pointer: 0x39fc0101eed9 <Map[132](HOLEY_ELEMENTS)>
+ - prototype_validity_cell: 0x39fc00000b15 <Cell value= [cleared]>
+ - instance descriptors (own) #30: 0x39fc0108b61d <DescriptorArray[30]>
+ - prototype: 0x39fc01005721 <Object map = 0x39fc01004ab9>
+ - constructor: 0x39fc01004fc1 <JSFunction Object (sfi = 0x39fc00b93d5d)>
+ - dependent code: 0x39fc000007f5 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 0
+
+### rest {...r} of literal {a,b}
+DebugPrint: 0x39fc0108b89d: [JS_OBJECT_TYPE]
+ - map: 0x39fc0101e65d <Map[20](HOLEY_ELEMENTS)> [FastProperties]
+ - prototype: 0x39fc01005721 <Object map = 0x39fc01004ab9>
+ - elements: 0x39fc000007e5 <FixedArray[0]> [HOLEY_ELEMENTS]
+ - properties: 0x39fc000007e5 <FixedArray[0]>
+ - All own properties (excluding elements): {
+    0x39fc000033ad: [String] in ReadOnlySpace: #a: 1 (const data field 3, in-obj, attrs: [WEC])
+    0x39fc000033bd: [String] in ReadOnlySpace: #b: 2 (const data field 4, in-obj, attrs: [WEC])
+ }
+0x39fc0101e65d: [Map] in OldSpace
+ - map: 0x39fc0100453d <MetaMap (0x39fc0100458d <NativeContext[308]>)>
+ - type: JS_OBJECT_TYPE
+ - instance size: 20
+ - inobject properties: 2
+ - unused property fields: 0
+ - elements kind: HOLEY_ELEMENTS
+ - enum length: invalid
+ - back pointer: 0x39fc0101e601 <Map[20](HOLEY_ELEMENTS)>
+ - prototype_validity_cell: 0x39fc00000b15 <Cell value= [cleared]>
+ - instance descriptors #2: 0x39fc0108a2c1 <DescriptorArray[6]>
+ - transitions #1: 0x39fc0101ef7d <TransitionArray[5]>
+   Transitions #1:
+     0x39fc0000349d: [String] in ReadOnlySpace: #p: (transition to (const data field, ooo, attrs: [WEC]) @ Any) -> 0x39fc0101e685 <Map[20](HOLEY_ELEMENTS)>
+   Sidestep transitions #3: 0x39fc0108b889 <WeakFixedArray[3]>
+     Clone-object-IC-map -> [weak] 0x39fc0101e65d <Map[20](HOLEY_ELEMENTS)>
+     Object.assign-map -> 0
+     Object.assign-validity-cell -> 0
+ - prototype: 0x39fc01005721 <Object map = 0x39fc01004ab9>
+ - constructor: 0x39fc01004fc1 <JSFunction Object (sfi = 0x39fc00b93d5d)>
+ - dependent code: 0x39fc000007f5 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 0
+
+### empty array
+DebugPrint: 0x39fc0108b8f1: [JSArray]
+ - map: 0x39fc0100ca31 <Map[16](PACKED_SMI_ELEMENTS)> [FastProperties]
+ - prototype: 0x39fc0100ca59 <JSArray[0]>
+ - elements: 0x39fc000007e5 <FixedArray[0]> [PACKED_SMI_ELEMENTS]
+ - length: 0
+ - properties: 0x39fc000007e5 <FixedArray[0]>
+ - All own properties (excluding elements): {
+    0x39fc00000e39: [String] in ReadOnlySpace: #length: 0x39fc00b5fdcd <AccessorInfo name= 0x39fc00000e39 <String[6]: #length>, data= 0x39fc00000011 <undefined>> (const accessor descriptor, attrs: [W__])
+ }
+0x39fc0100ca31: [Map] in OldSpace
+ - map: 0x39fc0100453d <MetaMap (0x39fc0100458d <NativeContext[308]>)>
+ - type: JS_ARRAY_TYPE
+ - instance size: 16
+ - inobject properties: 0
+ - unused property fields: 0
+ - elements kind: PACKED_SMI_ELEMENTS
+ - enum length: invalid
+ - back pointer: 0x39fc00000011 <undefined>
+ - prototype_validity_cell: 0x39fc00000b15 <Cell value= [cleared]>
+ - instance descriptors #1: 0x39fc0100d071 <DescriptorArray[1]>
+ - transitions #1: 0x39fc0100d08d <TransitionArray[5]>
+   Transitions #1:
+     0x39fc00000ed5 <Symbol: (elements_transition_symbol)>: (transition to HOLEY_SMI_ELEMENTS) -> 0x39fc0100d0a9 <Map[16](HOLEY_SMI_ELEMENTS)>
+ - prototype: 0x39fc0100ca59 <JSArray[0]>
+ - constructor: 0x39fc0100c981 <JSFunction Array (sfi = 0x39fc00b9486d)>
+ - dependent code: 0x39fc000007f5 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 0
+
+### function before call
+DebugPrint: 0x39fc0101e0e1: [Function] in OldSpace
+ - map: 0x39fc01004c89 <Map[32](HOLEY_ELEMENTS)> [FastProperties]
+ - prototype: 0x39fc01004db1 <JSFunction (sfi = 0x39fc010014c9)>
+ - elements: 0x39fc000007e5 <FixedArray[0]> [HOLEY_ELEMENTS]
+ - function prototype: 
+ - initial_map: 
+ - shared_info: 0x39fc0101dd85 <SharedFunctionInfo lazyFn>
+ - name: 0x39fc0101dbd1 <String[6]: #lazyFn>
+ - builtin: CompileLazy
+ - formal_parameter_count: 1
+ - kind: NormalFunction
+ - context: 0x39fc0101e019 <ScriptContext[9]>
+ - code: 0x39fc00b62161 <Code BUILTIN CompileLazy>
+ - dispatch_handle: 0x135c00
+ - source code: (){ return 1; }
+ - properties: 0x39fc000007e5 <FixedArray[0]>
+ - All own properties (excluding elements): {
+    0x39fc00000e39: [String] in ReadOnlySpace: #length: 0x39fc00b5fe2d <AccessorInfo name= 0x39fc00000e39 <String[6]: #length>, data= 0x39fc00000011 <undefined>> (const accessor descriptor, attrs: [__C])
+    0x39fc00000e29: [String] in ReadOnlySpace: #name: 0x39fc00b5fe15 <AccessorInfo name= 0x39fc00000e29 <String[4]: #name>, data= 0x39fc00000011 <undefined>> (const accessor descriptor, attrs: [__C])
+    0x39fc00000e11: [String] in ReadOnlySpace: #prototype: 0x39fc00b5fe45 <AccessorInfo name= 0x39fc00000e11 <String[9]: #prototype>, data= 0x39fc00000011 <undefined>> (const accessor descriptor, attrs: [W__])
+ }
+ - feedback vector: feedback metadata is not available in SFI
+0x39fc01004c89: [Map] in OldSpace
+ - map: 0x39fc0100453d <MetaMap (0x39fc0100458d <NativeContext[308]>)>
+ - type: JS_FUNCTION_WITH_PROTOTYPE_TYPE
+ - instance size: 32
+ - inobject properties: 0
+ - unused property fields: 0
+ - elements kind: HOLEY_ELEMENTS
+ - enum length: invalid
+ - stable_map
+ - callable
+ - constructor
+ - back pointer: 0x39fc00000011 <undefined>
+ - prototype_validity_cell: 0x39fc00000b15 <Cell value= [cleared]>
+ - instance descriptors (own) #3: 0x39fc01004cb1 <DescriptorArray[3]>
+ - prototype: 0x39fc01004db1 <JSFunction (sfi = 0x39fc010014c9)>
+ - constructor: 0x39fc01004c55 <JSFunction Function (sfi = 0x39fc00b9468d)>
+ - dependent code: 0x39fc000007f5 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 0
+
+### Symbol
+DebugPrint: 0x39fc0101ef99: [Symbol] in OldSpace
+ - map: 0x39fc0000044d <Map[16](SYMBOL_TYPE)>
+ - hash: 108972828
+ - description: 0x39fc000034cd <String[1]: #s>
+ - private_symbol_kind: Public
+ - is_interesting_symbol: 0
+ - is_well_known_symbol: 0
+0x39fc0000044d: [Map] in ReadOnlySpace
+ - map: 0x39fc00000475 <MetaMap (0x39fc0000002d <null>)>
+ - type: SYMBOL_TYPE
+ - instance size: 16
+ - elements kind: HOLEY_ELEMENTS
+ - enum length: invalid
+ - stable_map
+ - non-extensible
+ - back pointer: 0x39fc00000011 <undefined>
+ - prototype_validity_cell: 0
+ - instance descriptors (own) #0: 0x39fc0000080d <DescriptorArray[0]>
+ - prototype: 0x39fc0000002d <null>
+ - constructor: 0x39fc0000002d <null>
+ - dependent code: 0x39fc000007f5 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 0
+

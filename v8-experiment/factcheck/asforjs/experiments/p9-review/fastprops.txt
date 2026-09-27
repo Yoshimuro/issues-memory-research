@@ -1,0 +1,4 @@
+node 11.3.244.8-node.38 keyed const: 20  keyed mutable: 20  named const: 1021  named mutable: 134
+node 12.4.254.21-node.39 keyed const: 20  keyed mutable: 20  named const: 1021  named mutable: 134
+node 13.6.233.17-node.53 keyed const: 20  keyed mutable: 20  named const: 1021  named mutable: 1021
+d8 15.6 keyed const: 20  keyed mutable: 20  named const: 1021  named mutable: 1021

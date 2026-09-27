@@ -1,0 +1,21 @@
+## d8 15.6 --log-function-events: parse events per function (preparse = lazy first, full-parse at first call)
+full-parse doParen
+full-parse doBang
+preparse-no-resolution doPlus
+preparse-no-resolution doVoid
+preparse-no-resolution doPlainExpr
+preparse-no-resolution doDecl
+interpreter doBang
+interpreter doParen
+full-parse doPlus
+parse-function doPlus
+interpreter doPlus
+full-parse doVoid
+parse-function doVoid
+interpreter doVoid
+full-parse doPlainExpr
+parse-function doPlainExpr
+interpreter doPlainExpr
+full-parse doDecl
+parse-function doDecl
+interpreter doDecl

@@ -1,0 +1,32 @@
+== d8 --no-turbofan --trace-maglev-inlining
+      2 [90m[ML:33557] [0m[92m⚡ INLINE [0m[96mtinyMulti                     [0m Small function, skipping max-depth[0m
+      2 [90m[ML:33557] [0m[92m⚡ INLINE [0m[96mtinyOne                       [0m Small function, skipping max-depth[0m
+      2 [90m[ML:39613] [0m[92m⚡ INLINE [0m[96mtinyMulti                     [0m Small function, skipping max-depth[0m
+      2 [90m[ML:39613] [0m[92m⚡ INLINE [0m[96mtinyOne                       [0m Small function, skipping max-depth[0m
+      1 Begin compiling method multiRet using Maglev
+      1 Begin compiling method oneRet using Maglev
+      1 Begin compiling method tinyMulti using Maglev
+      1 Begin compiling method tinyOne using Maglev
+      1 Finished compiling method multiRet using Maglev
+      1 Finished compiling method oneRet using Maglev
+      1 Finished compiling method tinyMulti using Maglev
+      1 Finished compiling method tinyOne using Maglev
+== node24 --no-turbofan --trace-maglev-inlining
+      2   greedy inlining 0x39e6a700 {0x17ccec868319 <SharedFunctionInfo tinyMulti>}: small function, skipping max-depth
+      2   greedy inlining 0x39e6b158 {0x17ccec868319 <SharedFunctionInfo tinyMulti>}: small function, skipping max-depth
+      2   greedy inlining 0x39e6c7a0 {0x17ccec868361 <SharedFunctionInfo tinyOne>}: small function, skipping max-depth
+      2   greedy inlining 0x39e6e880 {0x17ccec868361 <SharedFunctionInfo tinyOne>}: small function, skipping max-depth
+      2   greedy inlining 0x39e749f0 {0x0f7825655109 <SharedFunctionInfo isPosixPathSeparator>}: small function, skipping max-depth
+== d8 default --trace-turbo-inlining
+      2 Inlining 0x66c00edaea0 {0x31a60101e00d <SharedFunctionInfo tinyMulti>} into 0x66c00edabf8 {0x31a60101e0cd <SharedFunctionInfo caller>}
+      2 Inlining 0x66c00edb4a0 {0x31a60101e03d <SharedFunctionInfo tinyOne>} into 0x66c00edabf8 {0x31a60101e0cd <SharedFunctionInfo caller>}
+      2 Inlining 0x66c00edb580 {0x31a60101e06d <SharedFunctionInfo multiRet>} into 0x66c00edabf8 {0x31a60101e0cd <SharedFunctionInfo caller>}
+      2 Inlining 0x66c00edb688 {0x31a60101e09d <SharedFunctionInfo oneRet>} into 0x66c00edabf8 {0x31a60101e0cd <SharedFunctionInfo caller>}
+      1 Inlining small function(s) at call site #45:JSCall
+      1 Inlining small function(s) at call site #53:JSCall
+      1 Inlining small function(s) at call site #55:JSCall
+      1 Inlining small function(s) at call site #63:JSCall
+      1 Inlining small function(s) at call site #66:JSCall
+      1 Inlining small function(s) at call site #74:JSCall
+      1 Inlining small function(s) at call site #77:JSCall
+      1 Inlining small function(s) at call site #85:JSCall

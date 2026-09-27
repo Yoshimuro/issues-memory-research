@@ -1,0 +1,8 @@
+## /opt/node20/bin/node
+ - code: 0x18fe65c643f1 <Code TURBOFAN>
+## /opt/node22/bin/node
+ - code: 0x24f774342081 <Code TURBOFAN>
+## /opt/nvm/versions/node/v24.21.0/bin/node
+ - code: 0x184209501b39 <Code TURBOFAN_JS>
+## d8 debug 15.6
+ - code: 0x16d001000209 <Code TURBOFAN_JS>

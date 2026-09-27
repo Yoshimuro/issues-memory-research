@@ -1,0 +1,22 @@
+## /opt/node20/bin/node
+reg_many   result retained: +91.6 MB len 10000000 young false
+reg_many   after flatten:   +9.8 MB
+all_many   result retained: +91.6 MB len 10000000 young false
+all_many   after flatten:   +9.8 MB
+fn_many    result retained: +9.5 MB len 10000000 young false
+fn_many    after flatten:   +9.8 MB
+split_join result retained: +47.7 MB len 10000000 young false
+split_join after flatten:   +9.8 MB
+one_mid    result retained: +-0.0 MB len 10000000 young false
+one_mid    after flatten:   +9.8 MB
+## /opt/nvm/versions/node/v24.21.0/bin/node
+reg_many   result retained: +91.6 MB len 10000000 young false
+reg_many   after flatten:   +9.9 MB
+all_many   result retained: +91.6 MB len 10000000 young false
+all_many   after flatten:   +9.9 MB
+fn_many    result retained: +9.5 MB len 10000000 young false
+fn_many    after flatten:   +9.9 MB
+split_join result retained: +47.7 MB len 10000000 young false
+split_join after flatten:   +9.9 MB
+one_mid    result retained: +0.0 MB len 10000000 young false
+one_mid    after flatten:   +9.9 MB

@@ -1,0 +1,15 @@
+== /opt/node22/bin/node
+[] -> 1024
+[1,2,3,4,5] -> 1029
+new Array(5) -> 1029
+push x5 (cap 17) -> 1041
+== /opt/nvm/versions/node/v24.21.0/bin/node
+[] -> 1024
+[1,2,3,4,5] -> 1029
+new Array(5) -> 1029
+push x5 (cap 17) -> 1041
+== /tmp/claude-0/-home-user-issues-memory-research/dacf359b-9898-588d-b8f1-20fd1e3f2945/scratchpad/d8/rel/d8
+[] -> 1024
+[1,2,3,4,5] -> 1029
+new Array(5) -> 1029
+push x5 (cap 17) -> 1041

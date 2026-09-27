@@ -1,0 +1,29 @@
+d8 literal time=17ms r=45888
+d8 inner time=180ms r=45888
+d8 globalFn time=21ms r=45888
+d8 globalConst time=179ms r=45888
+node24 literal time=16ms r=45888
+node24 inner time=173ms r=45888
+node24 globalFn time=164ms r=45888
+node24 globalConst time=142ms r=45888
+node22 literal time=22ms r=45888
+node22 inner time=159ms r=45888
+node22 globalFn time=163ms r=45888
+node22 globalConst time=279ms r=45888
+d8 literal time=20ms r=45888
+d8 inner time=188ms r=45888
+d8 globalFn time=20ms r=45888
+d8 globalConst time=180ms r=45888
+node24 literal time=23ms r=45888
+node24 inner time=171ms r=45888
+node24 globalFn time=124ms r=45888
+node24 globalConst time=147ms r=45888
+node22 literal time=19ms r=45888
+node22 inner time=139ms r=45888
+node22 globalFn time=135ms r=45888
+node22 globalConst time=134ms r=45888
+== d8 --no-use-osr
+literal time=277ms r=45888
+inner time=275ms r=45888
+globalFn time=240ms r=45888
+globalConst time=260ms r=45888

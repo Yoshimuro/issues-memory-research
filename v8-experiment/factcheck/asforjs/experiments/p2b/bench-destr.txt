@@ -1,0 +1,36 @@
+== node22 mode=[--max-opt=0]
+arrPat  median 427.3 ms  ratio_vs_objPat 3.49   all 460/449/427/410/351
+objPat  median 122.4 ms  ratio_vs_objPat 1.00   all 132/138/122/109/116
+manual  median 118.2 ms  ratio_vs_objPat 0.97   all 132/127/118/111/108
+== node24 mode=[--max-opt=0]
+arrPat  median 408.6 ms  ratio_vs_objPat 2.87   all 407/409/412/401/436
+objPat  median 142.2 ms  ratio_vs_objPat 1.00   all 142/142/142/146/141
+manual  median 127.6 ms  ratio_vs_objPat 0.90   all 127/128/123/138/128
+== d8 mode=[--max-opt=0]
+arrPat  median 383.9 ms  ratio_vs_objPat 2.98   all 392/384/388/378/363
+objPat  median 129.0 ms  ratio_vs_objPat 1.00   all 142/129/128/134/111
+manual  median 119.2 ms  ratio_vs_objPat 0.92   all 119/120/116/127/99
+== node22 mode=[--max-opt=1]
+arrPat  median 286.0 ms  ratio_vs_objPat 3.93   all 308/286/304/227/276
+objPat  median 72.7 ms  ratio_vs_objPat 1.00   all 73/73/70/64/99
+manual  median 71.0 ms  ratio_vs_objPat 0.98   all 72/72/71/62/67
+== node24 mode=[--max-opt=1]
+arrPat  median 294.7 ms  ratio_vs_objPat 4.33   all 295/330/291/292/312
+objPat  median 68.1 ms  ratio_vs_objPat 1.00   all 62/72/66/69/68
+manual  median 66.3 ms  ratio_vs_objPat 0.97   all 61/65/67/87/66
+== d8 mode=[--max-opt=1]
+arrPat  median 177.2 ms  ratio_vs_objPat 3.19   all 178/177/178/176/162
+objPat  median 55.6 ms  ratio_vs_objPat 1.00   all 56/55/56/56/50
+manual  median 54.8 ms  ratio_vs_objPat 0.99   all 56/55/55/52/52
+== node22 mode=[]
+arrPat  median 13.7 ms  ratio_vs_objPat 1.08   all 14/14/14/14/15
+objPat  median 12.7 ms  ratio_vs_objPat 1.00   all 15/13/13/13/13
+manual  median 12.8 ms  ratio_vs_objPat 1.01   all 17/13/13/12/12
+== node24 mode=[]
+arrPat  median 14.8 ms  ratio_vs_objPat 0.82   all 10/16/17/15/15
+objPat  median 18.0 ms  ratio_vs_objPat 1.00   all 19/18/27/17/14
+manual  median 17.0 ms  ratio_vs_objPat 0.94   all 17/18/20/14/16
+== d8 mode=[]
+arrPat  median 13.5 ms  ratio_vs_objPat 1.01   all 8/17/13/14/13
+objPat  median 13.4 ms  ratio_vs_objPat 1.00   all 17/16/13/13/13
+manual  median 13.5 ms  ratio_vs_objPat 1.01   all 15/14/14/13/12

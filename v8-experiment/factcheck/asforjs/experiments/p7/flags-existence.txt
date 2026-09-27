@@ -1,0 +1,60 @@
+== d8: total flags (lines starting with '  --'): 1003
+   MISSING: --print-deopt-code
+   MISSING: --always-turbofan
+== node20: total flags (lines starting with '  --'): 687
+   MISSING: --print-deopt-code
+== node22: total flags (lines starting with '  --'): 791
+   MISSING: --print-deopt-code
+== node24: total flags (lines starting with '  --'): 861
+   MISSING: --print-deopt-code
+== max-opt help text
+help-d8.txt:  --max-opt (Set the maximal optimisation tier: > 3 == any, 0 == ignition/interpreter, 1 == sparkplug/baseline, 2 == maglev, 3 == turbofan)
+help-d8.txt-        type: uint  default: --max-opt=999
+help-d8.txt-  --efficiency-mode (Forces efficiency mode on or off, disregarding any dynamic signals. Efficiency mode is optimized for situations with no latency requirements and uses fewer threads.)
+--
+help-d8.txt:  --max-optimized-bytecode-size (maximum bytecode size to be considered for turbofan optimization; too high values may cause the compiler to hit (release) assertions)
+help-d8.txt-        type: int  default: --max-optimized-bytecode-size=61440
+help-d8.txt-  --max-maglev-optimized-bytecode-size (maximum bytecode size to be considered for maglev optimization)
+--
+help-node20.txt:  --max-opt (Set the maximal optimisation tier: > 3 == any, 0 == ignition/interpreter, 1 == sparkplug/baseline, 2 == maglev, 3 == turbofan)
+help-node20.txt-        type: uint  default: --max-opt=999
+help-node20.txt-  --wasm-trace-native (Select which native code sequence to use for wasm trace instruction: default or cpuid)
+--
+help-node20.txt:  --max-optimized-bytecode-size (maximum bytecode size to be considered for optimization; too high values may cause the compiler to hit (release) assertions)
+help-node20.txt-        type: int  default: --max-optimized-bytecode-size=61440
+help-node20.txt-  --min-inlining-frequency (minimum frequency for inlining)
+== readonly flags in d8 rel
+  --print-maglev-code (print maglev code (developer-only))
+        type: bool  default: --no-print-maglev-code
+  --trace-with-compilation-id (prefix maglev/turbolev trace line with a compilation id)
+        type: bool  default: --trace-with-compilation-id
+--
+  --trace-maglev-inlining (trace maglev inlining (developer-only))
+        type: bool  default: --no-trace-maglev-inlining
+  --trace-maglev-kna-processor (trace maglev known node aspects processor (developer-only))
+        type: bool  default: --no-trace-maglev-kna-processor
+--
+  --trace-turbo-inlining (trace TurboFan inlining (developer-only))
+        type: bool  default: --no-trace-turbo-inlining
+  --turbo-inline-array-builtins (inline array builtins in TurboFan code)
+        type: bool  default: --turbo-inline-array-builtins
+--
+  --print-wasm-code (print WebAssembly code (developer-only))
+        type: bool  default: --no-print-wasm-code
+  --print-wasm-code-function-index (print WebAssembly code for function at index)
+        type: int  default: --print-wasm-code-function-index=-1
+--
+  --trace-file-names (include file names in trace-opt/trace-deopt output (developer-only))
+        type: bool  default: --no-trace-file-names
+  --always-osr (always try to OSR functions)
+        type: bool  default: --no-always-osr
+--
+  --print-ast (print source AST (developer-only))
+        type: bool  default: --no-print-ast
+  --print-scopes (print scopes (developer-only))
+        type: bool  default: --no-print-scopes
+--
+  --print-opt-code (print optimized code (developer-only))
+        type: bool  default: --no-print-opt-code
+  --print-opt-code-filter (filter for printing optimized code)
+        type: string  default: --print-opt-code-filter="*"

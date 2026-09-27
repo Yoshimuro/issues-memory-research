@@ -1,0 +1,13 @@
+== node20
+before
+Invalidating protector cell NoElements
+after Array.prototype[3]=1
+== node24
+before
+Invalidating protector cell NoElements
+after Array.prototype[3]=1
+== d8
+V8 is running with developer-only features enabled. Stability and security will suffer.
+before
+Invalidating protector cell NoElements
+after Array.prototype[3]=1

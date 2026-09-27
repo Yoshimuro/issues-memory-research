@@ -1,0 +1,35 @@
+===== node20 =====
+smallDict dict true
+assign({}, smallDict(3 props), {x,y}) fast? true
+fast100 fast true
+assign({}, fast100) fast? false
+dict100 dict true
+assign({}, dict100) fast? false
+===== node22 =====
+smallDict dict true
+assign({}, smallDict(3 props), {x,y}) fast? true
+fast100 fast true
+assign({}, fast100) fast? false
+dict100 dict true
+assign({}, dict100) fast? false
+===== node24 =====
+smallDict dict true
+assign({}, smallDict(3 props), {x,y}) fast? true
+fast100 fast true
+assign({}, fast100) fast? false
+dict100 dict true
+assign({}, dict100) fast? false
+===== d8rel =====
+smallDict dict true
+assign({}, smallDict(3 props), {x,y}) fast? true
+fast100 fast true
+assign({}, fast100) fast? false
+dict100 dict true
+assign({}, dict100) fast? false
+===== d8dbg =====
+smallDict dict true
+assign({}, smallDict(3 props), {x,y}) fast? true
+fast100 fast true
+assign({}, fast100) fast? false
+dict100 dict true
+assign({}, dict100) fast? false

@@ -1,0 +1,19 @@
+== /opt/node20/bin/node
+opt status bits after warmup 1010001
+after ctor input 1010001
+after dynamic input 1010001
+== /opt/node22/bin/node
+opt status bits after warmup 1010001
+after ctor input 1010001
+after dynamic input 1010001
+== /opt/nvm/versions/node/v24.21.0/bin/node
+opt status bits after warmup 1010001
+after ctor input 1010001
+after dynamic input 1010001
+== /tmp/claude-0/-home-user-issues-memory-research/dacf359b-9898-588d-b8f1-20fd1e3f2945/scratchpad/d8/rel/d8
+opt status bits after warmup 101001
+after ctor input 101001
+[bailout (kind: deopt-eager, reason: wrong map): begin. deoptimizing  <JSFunction f (sfi = )>,  <Code TURBOFAN_JS>, opt id 0, bytecode offse
+after dynamic input 1000001
+== bytecode d8
+== bytecode node24

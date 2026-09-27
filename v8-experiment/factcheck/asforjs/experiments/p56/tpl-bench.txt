@@ -1,0 +1,15 @@
+## /opt/nvm/versions/node/v24.21.0/bin/node
+round 0: plus 135 ms, tpl 335 ms, tagged 382 ms
+round 1: plus 306 ms, tpl 284 ms, tagged 400 ms
+round 2: plus 350 ms, tpl 331 ms, tagged 370 ms
+round 3: plus 325 ms, tpl 292 ms, tagged 341 ms
+## /opt/node20/bin/node
+round 0: plus 361 ms, tpl 371 ms, tagged 438 ms
+round 1: plus 302 ms, tpl 334 ms, tagged 371 ms
+round 2: plus 258 ms, tpl 271 ms, tagged 336 ms
+round 3: plus 259 ms, tpl 288 ms, tagged 341 ms
+## /tmp/claude-0/-home-user-issues-memory-research/dacf359b-9898-588d-b8f1-20fd1e3f2945/scratchpad/d8/rel/d8
+round 0: plus 137 ms, tpl 253 ms, tagged 318 ms
+round 1: plus 226 ms, tpl 323 ms, tagged 369 ms
+round 2: plus 292 ms, tpl 312 ms, tagged 391 ms
+round 3: plus 325 ms, tpl 314 ms, tagged 441 ms

@@ -1,0 +1,30 @@
+=== sloppyArgs
+0 : 8c 00 02          CreateFunctionContext [0], [2]
+3 : 1c f8             PushContext r1
+5 : 0b 03             Ldar a0
+7 : 27 03             StaCurrentContextSlot [3]
+9 : 0b 04             Ldar a1
+11 : 27 02             StaCurrentContextSlot [2]
+13 : 8f                CreateMappedArguments
+14 : ce                Star0
+15 : 17 03             LdaCurrentContextSlot [3]
+17 : cc                Star2
+18 : 17 02             LdaCurrentContextSlot [2]
+20 : 3f f7 00          Add r2, [0]
+23 : cc                Star2
+24 : 33 f9 01 01       GetNamedProperty r0, [1], [1]
+28 : 3f f7 03          Add r2, [3]
+31 : b3                Return
+=== strictArgs
+0 : 90                CreateUnmappedArguments
+1 : ce                Star0
+2 : 0b 04             Ldar a1
+4 : 3f 03 00          Add a0, [0]
+7 : cd                Star1
+8 : 33 f9 00 01       GetNamedProperty r0, [0], [1]
+12 : 3f f8 03          Add r1, [3]
+15 : b3                Return
+=== noArgs
+0 : 0b 04             Ldar a1
+2 : 3f 03 00          Add a0, [0]
+5 : b3                Return

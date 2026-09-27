@@ -1,0 +1,78 @@
+##### dosum_init_zero.js node20
+r1 10000000
+r2 -10000000
+[bailout (kind: deopt-eager, reason: not a Smi): begin. 
+r3 999999.9998389754
+ms 30
+##### dosum_init_zero.js node22
+r1 10000000
+r2 -10000000
+[bailout (kind: deopt-eager, reason: not a Smi): begin. 
+r3 999999.9998389754
+ms 31
+##### dosum_init_zero.js node24
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. 
+r1 10000000
+r2 -10000000
+[bailout (kind: deopt-eager, reason: not a Smi): begin. 
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. 
+r3 999999.9998389754
+ms 33
+##### dosum_init_zero.js d8
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. 
+r1 10000000
+r2 -10000000
+[bailout (kind: deopt-eager, reason: not a Smi): begin. 
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. 
+r3 999999.9998389754
+ms 20
+##### dosum_init_negzero.js node20
+r1 10000000
+r2 -10000000
+r3 999999.9998389754
+ms 33
+##### dosum_init_negzero.js node22
+r1 10000000
+r2 -10000000
+r3 999999.9998389754
+ms 32
+##### dosum_init_negzero.js node24
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. 
+r1 10000000
+r2 -10000000
+r3 999999.9998389754
+ms 26
+##### dosum_init_negzero.js d8
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. 
+r1 10000000
+r2 -10000000
+r3 999999.9998389754
+ms 22
+##### dosum_init_zerodot.js node20
+r1 10000000
+r2 -10000000
+[bailout (kind: deopt-eager, reason: not a Smi): begin. 
+r3 999999.9998389754
+ms 30
+##### dosum_init_zerodot.js node22
+r1 10000000
+r2 -10000000
+[bailout (kind: deopt-eager, reason: not a Smi): begin. 
+r3 999999.9998389754
+ms 33
+##### dosum_init_zerodot.js node24
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. 
+r1 10000000
+r2 -10000000
+[bailout (kind: deopt-eager, reason: not a Smi): begin. 
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. 
+r3 999999.9998389754
+ms 30
+##### dosum_init_zerodot.js d8
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. 
+r1 10000000
+r2 -10000000
+[bailout (kind: deopt-eager, reason: not a Smi): begin. 
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. 
+r3 999999.9998389754
+ms 19

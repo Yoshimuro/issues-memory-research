@@ -1,0 +1,12 @@
+=== node22
+round 0 array=10.8 newInt32Array=71.8 Int32Array.of=97.2 ta/array=6.6 of/array=9.0
+round 1 array=10.9 newInt32Array=71.0 Int32Array.of=96.8 ta/array=6.5 of/array=8.9
+round 2 array=11.5 newInt32Array=65.1 Int32Array.of=94.9 ta/array=5.6 of/array=8.2
+=== node24
+round 0 array=10.9 newInt32Array=72.1 Int32Array.of=97.0 ta/array=6.6 of/array=8.9
+round 1 array=11.1 newInt32Array=84.6 Int32Array.of=160.8 ta/array=7.6 of/array=14.5
+round 2 array=10.8 newInt32Array=79.5 Int32Array.of=95.0 ta/array=7.4 of/array=8.8
+=== d8
+round 0 array=10.9 newInt32Array=74.0 Int32Array.of=94.4 ta/array=6.8 of/array=8.6
+round 1 array=11.2 newInt32Array=77.4 Int32Array.of=112.1 ta/array=6.9 of/array=10.0
+round 2 array=11.4 newInt32Array=71.3 Int32Array.of=96.9 ta/array=6.2 of/array=8.5

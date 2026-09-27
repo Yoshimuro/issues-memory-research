@@ -1,0 +1,14 @@
+== d8
+top-level   rep0 var=150ms let=105ms const=105ms
+top-level   rep1 var=32ms let=22ms const=17ms
+top-level   rep2 var=29ms let=27ms const=27ms
+in-function rep0 var=127ms let=151ms const=119ms
+in-function rep1 var=5ms let=5ms const=6ms
+in-function rep2 var=4ms let=4ms const=4ms
+== node24
+top-level   rep0 var=203ms let=96ms const=89ms
+top-level   rep1 var=101ms let=36ms const=26ms
+top-level   rep2 var=85ms let=24ms const=23ms
+in-function rep0 var=96ms let=98ms const=105ms
+in-function rep1 var=6ms let=5ms const=5ms
+in-function rep2 var=5ms let=5ms const=6ms

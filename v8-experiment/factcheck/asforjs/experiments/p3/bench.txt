@@ -1,0 +1,60 @@
+===== node22
+dict fast? false
+rep0 named=30.9ms indexed=32.5ms ratio indexed/named=1.05
+rep0 plainGet=1.6ms proxyGet=23.0ms ratio proxyGet/plainGet=14.51
+rep0 plainGet=1.7ms proxyTrapGet=33.4ms ratio proxyTrapGet/plainGet=19.74
+rep0 viaField=24.0ms viaGetter=23.4ms ratio viaGetter/viaField=0.98
+rep0 mapGet=12.9ms dictGet=16.5ms ratio dictGet/mapGet=1.28
+rep0 makeLiteral=35.6ms makeClass=40.5ms ratio makeClass/makeLiteral=1.14
+rep1 named=26.4ms indexed=40.5ms ratio indexed/named=1.53
+rep1 plainGet=1.9ms proxyGet=34.6ms ratio proxyGet/plainGet=18.39
+rep1 plainGet=2.3ms proxyTrapGet=41.2ms ratio proxyTrapGet/plainGet=17.61
+rep1 viaField=30.7ms viaGetter=28.1ms ratio viaGetter/viaField=0.91
+rep1 mapGet=16.1ms dictGet=20.4ms ratio dictGet/mapGet=1.27
+rep1 makeLiteral=40.7ms makeClass=39.5ms ratio makeClass/makeLiteral=0.97
+rep2 named=31.1ms indexed=39.1ms ratio indexed/named=1.26
+rep2 plainGet=1.9ms proxyGet=26.2ms ratio proxyGet/plainGet=13.97
+rep2 plainGet=1.9ms proxyTrapGet=41.4ms ratio proxyTrapGet/plainGet=22.21
+rep2 viaField=28.4ms viaGetter=28.4ms ratio viaGetter/viaField=1.00
+rep2 mapGet=15.8ms dictGet=20.3ms ratio dictGet/mapGet=1.29
+rep2 makeLiteral=40.8ms makeClass=39.3ms ratio makeClass/makeLiteral=0.96
+===== node24
+dict fast? false
+rep0 named=31.4ms indexed=37.8ms ratio indexed/named=1.20
+rep0 plainGet=1.7ms proxyGet=27.6ms ratio proxyGet/plainGet=16.46
+rep0 plainGet=1.7ms proxyTrapGet=41.6ms ratio proxyTrapGet/plainGet=25.04
+rep0 viaField=37.6ms viaGetter=41.8ms ratio viaGetter/viaField=1.11
+rep0 mapGet=27.0ms dictGet=23.8ms ratio dictGet/mapGet=0.88
+rep0 makeLiteral=41.9ms makeClass=41.7ms ratio makeClass/makeLiteral=0.99
+rep1 named=31.5ms indexed=37.5ms ratio indexed/named=1.19
+rep1 plainGet=1.7ms proxyGet=27.6ms ratio proxyGet/plainGet=16.43
+rep1 plainGet=1.7ms proxyTrapGet=43.4ms ratio proxyTrapGet/plainGet=25.35
+rep1 viaField=31.9ms viaGetter=29.1ms ratio viaGetter/viaField=0.91
+rep1 mapGet=22.7ms dictGet=22.8ms ratio dictGet/mapGet=1.01
+rep1 makeLiteral=60.7ms makeClass=48.9ms ratio makeClass/makeLiteral=0.81
+rep2 named=29.8ms indexed=35.4ms ratio indexed/named=1.19
+rep2 plainGet=1.6ms proxyGet=23.8ms ratio proxyGet/plainGet=15.25
+rep2 plainGet=1.4ms proxyTrapGet=45.1ms ratio proxyTrapGet/plainGet=32.55
+rep2 viaField=28.3ms viaGetter=28.3ms ratio viaGetter/viaField=1.00
+rep2 mapGet=17.5ms dictGet=21.6ms ratio dictGet/mapGet=1.23
+rep2 makeLiteral=46.3ms makeClass=47.3ms ratio makeClass/makeLiteral=1.02
+===== d8
+dict fast? false
+rep0 named=22.2ms indexed=28.9ms ratio indexed/named=1.31
+rep0 plainGet=1.8ms proxyGet=32.1ms ratio proxyGet/plainGet=17.95
+rep0 plainGet=1.5ms proxyTrapGet=44.2ms ratio proxyTrapGet/plainGet=30.33
+rep0 viaField=25.4ms viaGetter=23.8ms ratio viaGetter/viaField=0.94
+rep0 mapGet=17.8ms dictGet=22.6ms ratio dictGet/mapGet=1.28
+rep0 makeLiteral=45.6ms makeClass=55.6ms ratio makeClass/makeLiteral=1.22
+rep1 named=24.5ms indexed=40.9ms ratio indexed/named=1.67
+rep1 plainGet=2.6ms proxyGet=34.5ms ratio proxyGet/plainGet=13.27
+rep1 plainGet=1.6ms proxyTrapGet=47.7ms ratio proxyTrapGet/plainGet=30.74
+rep1 viaField=25.1ms viaGetter=24.7ms ratio viaGetter/viaField=0.98
+rep1 mapGet=18.3ms dictGet=21.4ms ratio dictGet/mapGet=1.17
+rep1 makeLiteral=45.2ms makeClass=50.3ms ratio makeClass/makeLiteral=1.11
+rep2 named=23.7ms indexed=30.4ms ratio indexed/named=1.28
+rep2 plainGet=1.4ms proxyGet=31.5ms ratio proxyGet/plainGet=22.24
+rep2 plainGet=2.1ms proxyTrapGet=47.6ms ratio proxyTrapGet/plainGet=22.99
+rep2 viaField=27.8ms viaGetter=27.9ms ratio viaGetter/viaField=1.00
+rep2 mapGet=18.5ms dictGet=25.2ms ratio dictGet/mapGet=1.36
+rep2 makeLiteral=53.4ms makeClass=47.8ms ratio makeClass/makeLiteral=0.89

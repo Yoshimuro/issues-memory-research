@@ -1,0 +1,40 @@
+== d8 --trace-baseline (help)
+  --trace-baseline (trace baseline compilation (developer-only))
+        type: bool  default: --no-trace-baseline
+  --trace-baseline-batch-compilation (trace baseline batch compilation (developer-only))
+        type: bool  default: --no-trace-baseline-batch-compilation
+== d8 --trace-baseline output
+[Baseline batch compilation] Enqueued SFI doAdd with estimated size 56 (current budget: 56/4096)
+[Baseline batch compilation] Enqueued SFI  with estimated size 1148 (current budget: 1204/4096)
+[Baseline batch compilation] Enqueued SFI doAdd with estimated size 56 (current budget: 1260/4096)
+[Baseline batch compilation] Enqueued SFI  with estimated size 1148 (current budget: 2408/4096)
+[Baseline batch compilation] Enqueued SFI  with estimated size 1148 (current budget: 3556/4096)
+== d8 --trace-baseline-batch-compilation
+[Baseline batch compilation] Enqueued SFI doAdd with estimated size 56 (current budget: 56/4096)
+[Baseline batch compilation] Enqueued SFI  with estimated size 1148 (current budget: 1204/4096)
+[Baseline batch compilation] Enqueued SFI doAdd with estimated size 56 (current budget: 1260/4096)
+[Baseline batch compilation] Enqueued SFI  with estimated size 1148 (current budget: 2408/4096)
+[Baseline batch compilation] Enqueued SFI  with estimated size 1148 (current budget: 3556/4096)
+== node20 --trace-baseline
+[compiling method 0x1d94acfe6151 <SharedFunctionInfo normalizeString> (target BASELINE)]
+[completed compiling 0x1d94acfe6151 <SharedFunctionInfo normalizeString> (target BASELINE) - took 0.095 ms]
+[compiling method 0x11204e6bd159 <SharedFunctionInfo requireBuiltin> (target BASELINE)]
+== --no-maglev trace-opt
+0
+== single-threaded implications
+1216:DEFINE_NEG_IMPLICATION(single_threaded, concurrent_sparkplug)
+1986:DEFINE_VALUE_IMPLICATION(single_threaded, wasm_num_compilation_tasks, 0)
+2071:DEFINE_IMPLICATION(single_threaded, wasm_sync_tier_up)
+4212:DEFINE_IMPLICATION(single_threaded, single_threaded_gc)
+4213:DEFINE_NEG_IMPLICATION(single_threaded, concurrent_recompilation)
+4214:DEFINE_NEG_IMPLICATION(single_threaded, concurrent_builtin_generation)
+4215:DEFINE_NEG_IMPLICATION(single_threaded, stress_concurrent_inlining)
+4216:DEFINE_NEG_IMPLICATION(single_threaded, lazy_compile_dispatcher)
+4217:DEFINE_NEG_IMPLICATION(single_threaded,
+4219:DEFINE_NEG_IMPLICATION(single_threaded, parallel_compile_tasks_for_lazy)
+4229:DEFINE_NEG_IMPLICATION(single_threaded_gc, concurrent_marking)
+4230:DEFINE_NEG_IMPLICATION(single_threaded_gc, concurrent_sweeping)
+4231:DEFINE_NEG_IMPLICATION(single_threaded_gc, parallel_compaction)
+== lazy feedback: status with/without --no-lazy-feedback-allocation
+ - feedback vector: No feedback vector, but we have a closure feedback cell array
+ - feedback vector: 0x36b10101db95: [FeedbackVector] in OldSpace

@@ -1,0 +1,12 @@
+== /opt/node22/bin/node
+rep 0: for 2.61 ms, forEach(this) 6.52 ms (x2.5), forEach(arrow) 5.90 ms (x2.3)
+rep 1: for 2.25 ms, forEach(this) 6.45 ms (x2.9), forEach(arrow) 7.15 ms (x3.2)
+rep 2: for 2.57 ms, forEach(this) 6.69 ms (x2.6), forEach(arrow) 8.44 ms (x3.3)
+== /opt/nvm/versions/node/v24.21.0/bin/node
+rep 0: for 1.33 ms, forEach(this) 5.97 ms (x4.5), forEach(arrow) 7.17 ms (x5.4)
+rep 1: for 1.76 ms, forEach(this) 6.10 ms (x3.5), forEach(arrow) 7.46 ms (x4.2)
+rep 2: for 1.43 ms, forEach(this) 6.09 ms (x4.2), forEach(arrow) 6.86 ms (x4.8)
+== /tmp/claude-0/-home-user-issues-memory-research/dacf359b-9898-588d-b8f1-20fd1e3f2945/scratchpad/d8/rel/d8
+rep 0: for 1.29 ms, forEach(this) 4.87 ms (x3.8), forEach(arrow) 5.82 ms (x4.5)
+rep 1: for 0.88 ms, forEach(this) 4.71 ms (x5.3), forEach(arrow) 5.94 ms (x6.7)
+rep 2: for 0.95 ms, forEach(this) 5.70 ms (x6.0), forEach(arrow) 5.92 ms (x6.2)

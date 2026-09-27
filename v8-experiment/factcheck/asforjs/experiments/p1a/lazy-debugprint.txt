@@ -1,0 +1,12 @@
+DebugPrint: 0x32ab0101dab9: [Function] in OldSpace
+ - shared_info: 0x32ab0101d9e9 <SharedFunctionInfo neverCalled>
+ - kind: NormalFunction
+ - code: 0x32ab00b62161 <Code BUILTIN CompileLazy>
+ - feedback vector: feedback metadata is not available in SFI
+-----
+DebugPrint: 0x32ab0101daed: [Function] in OldSpace
+ - shared_info: 0x32ab0101da19 <SharedFunctionInfo called>
+ - kind: NormalFunction
+ - code: 0x32ab00b61a7d <Code BUILTIN InterpreterEntryTrampoline>
+ - bytecode: 0x243001000115 <BytecodeArray[6]>
+ - feedback vector: No feedback vector, but we have a closure feedback cell array

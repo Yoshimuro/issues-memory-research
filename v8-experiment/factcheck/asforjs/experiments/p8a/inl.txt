@@ -1,0 +1,38 @@
+#### node22
+Considering  { <SharedFunctionInfo multiRet>} for inlining with  { <FeedbackVector[2]>}
+Inlining small function(s) at call site #37:JSCall
+Inlining  { <SharedFunctionInfo multiRet>} into  { <SharedFunctionInfo callMultiRet>}
+Considering  { <SharedFunctionInfo three>} for inlining with  { <FeedbackVector[2]>}
+Inlining small function(s) at call site #44:JSCall
+Inlining  { <SharedFunctionInfo three>} into  { <SharedFunctionInfo callMismatch>}
+Considering  { <SharedFunctionInfo three>} for inlining with  { <FeedbackVector[2]>}
+Inlining small function(s) at call site #36:JSCall
+Inlining  { <SharedFunctionInfo three>} into  { <SharedFunctionInfo callMismatch>}
+Considering  { <SharedFunctionInfo useArgs>} for inlining with  { <FeedbackVector[5]>}
+Inlining small function(s) at call site #36:JSCall
+Inlining  { <SharedFunctionInfo useArgs>} into  { <SharedFunctionInfo callArgs>}
+Considering  { <SharedFunctionInfo useRest>} for inlining with  { <FeedbackVector[5]>}
+Inlining small function(s) at call site #36:JSCall
+Inlining  { <SharedFunctionInfo useRest>} into  { <SharedFunctionInfo callRest>}
+Considering  { <SharedFunctionInfo switchRet>} for inlining with  { <FeedbackVector[1]>}
+Inlining small function(s) at call site #37:JSCall
+Inlining  { <SharedFunctionInfo switchRet>} into  { <SharedFunctionInfo callSwitch>}
+#### node24
+Considering  { <SharedFunctionInfo multiRet>} for inlining with  { <FeedbackVector[2]>}
+Inlining small function(s) at call site #37:JSCall
+Inlining  { <SharedFunctionInfo multiRet>} into  { <SharedFunctionInfo callMultiRet>}
+Considering  { <SharedFunctionInfo three>} for inlining with  { <FeedbackVector[2]>}
+Inlining small function(s) at call site #44:JSCall
+Inlining  { <SharedFunctionInfo three>} into  { <SharedFunctionInfo callMismatch>}
+Considering  { <SharedFunctionInfo three>} for inlining with  { <FeedbackVector[2]>}
+Inlining small function(s) at call site #36:JSCall
+Inlining  { <SharedFunctionInfo three>} into  { <SharedFunctionInfo callMismatch>}
+Considering  { <SharedFunctionInfo useArgs>} for inlining with  { <FeedbackVector[5]>}
+Inlining small function(s) at call site #36:JSCall
+Inlining  { <SharedFunctionInfo useArgs>} into  { <SharedFunctionInfo callArgs>}
+Considering  { <SharedFunctionInfo useRest>} for inlining with  { <FeedbackVector[5]>}
+Inlining small function(s) at call site #36:JSCall
+Inlining  { <SharedFunctionInfo useRest>} into  { <SharedFunctionInfo callRest>}
+Considering  { <SharedFunctionInfo switchRet>} for inlining with  { <FeedbackVector[1]>}
+Inlining small function(s) at call site #37:JSCall
+Inlining  { <SharedFunctionInfo switchRet>} into  { <SharedFunctionInfo callSwitch>}

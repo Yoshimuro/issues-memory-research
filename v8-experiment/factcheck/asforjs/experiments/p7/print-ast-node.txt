@@ -1,0 +1,5 @@
+== node22 --print-ast -e '1+2' (no output expected if readonly)
+exit=0
+== node24
+== Date.now advances inside a sync loop (d8)
+Date.now changed after 4720 iterations

@@ -1,0 +1,6 @@
+Considering 0x38c2d708 {0x26a7c4d28561 <SharedFunctionInfo sumRest>} for inlining with 0x38c2d8a8 {0x26a7c4d28f81 <FeedbackVector[8]>}
+1 candidate(s) for inlining:
+- candidate: JSCall node #20 with frequency 0.997512, 1 target(s):
+  - target: 0x38c2d708 {0x26a7c4d28561 <SharedFunctionInfo sumRest>}, bytecode size: 40
+Inlining 0x38c2d708 {0x26a7c4d28561 <SharedFunctionInfo sumRest>} into 0x38c2d3c0 {0x26a7c4d285f1 <SharedFunctionInfo callDirect3>}
+varying: callSpread=1010001 callDirect3=1010001 sumRest=1010001 t=200260000

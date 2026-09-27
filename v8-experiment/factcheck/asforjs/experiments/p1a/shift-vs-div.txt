@@ -1,0 +1,8 @@
+== D8 --max-opt=0
+sh 179.5 dv 260.5 dvi 241.2 sh 174.6 dv 231.7 dvi 236.1 sh 164.2 dv 182.8 dvi 196.0
+== D8 default
+sh 44.7 dv 42.8 dvi 46.6 sh 45.3 dv 45.5 dvi 45.7 sh 45.5 dv 44.2 dvi 44.1
+== N24 --max-opt=0
+sh 151.4 dv 216.1 dvi 206.5 sh 151.0 dv 242.8 dvi 258.1 sh 195.8 dv 215.3 dvi 294.3
+== N24 default
+sh 51.7 dv 53.0 dvi 10.5 sh 51.5 dv 51.9 dvi 7.0 sh 52.9 dv 52.7 dvi 7.0

@@ -1,0 +1,12 @@
+--- key length
+DebugPrint: 0xa4e00000e39: [String] in ReadOnlySpace: #length
+ - type: INTERNALIZED_ONE_BYTE_STRING_TYPE
+ - prototype: 0x0a4e0000002d <null>
+--- key prototype
+DebugPrint: 0xa4e00000e11: [String] in ReadOnlySpace: #prototype
+ - type: INTERNALIZED_ONE_BYTE_STRING_TYPE
+ - prototype: 0x0a4e0000002d <null>
+--- key myUniqueKeyXyz
+DebugPrint: 0xa4e0101d915: [String] in OldSpace: #myUniqueKeyXyz
+ - type: INTERNALIZED_ONE_BYTE_STRING_TYPE
+ - prototype: 0x0a4e0000002d <null>

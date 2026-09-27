@@ -1,0 +1,36 @@
+## run 1 /opt/nvm/versions/node/v24.21.0/bin/node
+24 ms: Mark-Compact 3.7 (6.5) -> 3.7 (6.5) MB, pooled: 0 MB, 2.64 / 0.
+--- baseline
+--
+235 ms: Mark-Compact 60.1 (125.5) -> 60.1 (125.5) MB, pooled: 0 MB, 54
+--- built 200000
+## run 1 /opt/node20/bin/node
+18 ms: Mark-Compact 2.5 (5.0) -> 2.5 (5.0) MB, 1.88 / 0.00 ms  (averag
+--- baseline
+--
+372 ms: Mark-Compact 77.3 (115.9) -> 77.3 (115.9) MB, 67.62 / 0.00 ms 
+--- built 200000
+## run 1 /tmp/claude-0/-home-user-issues-memory-research/dacf359b-9898-588d-b8f1-20fd1e3f2945/scratchpad/d8/rel/d8
+5 ms: Mark-Compact 0.1 (0.8) -> 0.1 (0.8) MB, pooled: 0.0 MB, 0.61 / 0
+--- baseline
+--
+181 ms: Mark-Compact 34.5 (36.2) -> 34.5 (36.2) MB, pooled: 0.0 MB, 48
+--- built 200000
+## run 2 /opt/nvm/versions/node/v24.21.0/bin/node
+25 ms: Mark-Compact 3.7 (6.5) -> 3.7 (6.5) MB, pooled: 0 MB, 5.98 / 0.
+--- baseline
+--
+231 ms: Mark-Compact 60.1 (190.5) -> 60.1 (190.5) MB, pooled: 0 MB, 53
+--- built 200000
+## run 2 /opt/node20/bin/node
+28 ms: Mark-Compact 2.5 (5.0) -> 2.5 (5.0) MB, 2.33 / 0.00 ms  (averag
+--- baseline
+--
+429 ms: Mark-Compact 77.0 (116.2) -> 77.0 (116.2) MB, 90.12 / 0.00 ms 
+--- built 200000
+## run 2 /tmp/claude-0/-home-user-issues-memory-research/dacf359b-9898-588d-b8f1-20fd1e3f2945/scratchpad/d8/rel/d8
+5 ms: Mark-Compact 0.1 (0.8) -> 0.1 (0.8) MB, pooled: 0.0 MB, 0.46 / 0
+--- baseline
+--
+160 ms: Mark-Compact 35.0 (36.7) -> 35.0 (36.7) MB, pooled: 0.0 MB, 50
+--- built 200000

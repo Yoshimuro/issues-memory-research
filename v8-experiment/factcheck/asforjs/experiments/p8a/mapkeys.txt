@@ -1,0 +1,8 @@
+node22 string: 50.9 MB for 1000000 entries; sample key is SMI: false / last key SMI: false
+node22 smi-bits: 28.0 MB for 1000000 entries; sample key is SMI: true / last key SMI: true
+node22 mul-small: 28.0 MB for 1000000 entries; sample key is SMI: true / last key SMI: true
+node22 mul-big: 43.3 MB for 1000000 entries; sample key is SMI: true / last key SMI: false
+node24 string: 50.9 MB for 1000000 entries; sample key is SMI: false / last key SMI: false
+node24 smi-bits: 28.0 MB for 1000000 entries; sample key is SMI: true / last key SMI: true
+node24 mul-small: 28.0 MB for 1000000 entries; sample key is SMI: true / last key SMI: true
+node24 mul-big: 43.3 MB for 1000000 entries; sample key is SMI: true / last key SMI: false

@@ -1,0 +1,4 @@
+functions executed at least once (first-execution events): 6270
+distinct functions marked for MAGLEV: 1084
+distinct functions compiled by TURBOFAN (non-OSR): 226
+distinct functions with any TURBOFAN compile incl OSR: 227

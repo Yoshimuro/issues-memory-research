@@ -1,0 +1,32 @@
+== node20
+sloppyMappedWrite  status 1010001
+leakUser           status 1010001
+lenLoop            status 1010001
+applyArgs          status 1010001
+strictArgs         status 1010001
+withEval           status 1010001
+withTry            status 1010001
+== node22
+sloppyMappedWrite  status 1010001
+leakUser           status 1010001
+lenLoop            status 1010001
+applyArgs          status 1010001
+strictArgs         status 1010001
+withEval           status 1010001
+withTry            status 1010001
+== node24
+sloppyMappedWrite  status 1010001
+leakUser           status 1010001
+lenLoop            status 1010001
+applyArgs          status 1010001
+strictArgs         status 1010001
+withEval           status 1010001
+withTry            status 1010001
+== d8
+sloppyMappedWrite  status 101001
+leakUser           status 101001
+lenLoop            status 101001
+applyArgs          status 101001
+strictArgs         status 101001
+withEval           status 101001
+withTry            status 101001

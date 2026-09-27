@@ -1,0 +1,12 @@
+rep 1 limit 130MB: scavenges 9 (42 ms), mark-compacts 45 (1673 ms) done true 300000
+rep 1 limit 160MB: scavenges 11 (87 ms), mark-compacts 12 (565 ms) done true 300000
+rep 1 limit 250MB: scavenges 25 (279 ms), mark-compacts 4 (143 ms) done true 300000
+rep 1 limit 2000MB: scavenges 10 (53 ms), mark-compacts 3 (111 ms) done true 300000
+rep 2 limit 130MB: scavenges 9 (44 ms), mark-compacts 45 (1709 ms) done true 300000
+rep 2 limit 160MB: scavenges 11 (86 ms), mark-compacts 12 (649 ms) done true 300000
+rep 2 limit 250MB: scavenges 25 (303 ms), mark-compacts 4 (150 ms) done true 300000
+rep 2 limit 2000MB: scavenges 10 (48 ms), mark-compacts 3 (121 ms) done true 300000
+rep 3 limit 130MB: scavenges 10 (66 ms), mark-compacts 12 (530 ms) done true 300000
+rep 3 limit 160MB: scavenges 11 (83 ms), mark-compacts 12 (569 ms) done true 300000
+rep 3 limit 250MB: scavenges 25 (349 ms), mark-compacts 4 (147 ms) done true 300000
+rep 3 limit 2000MB: scavenges 10 (48 ms), mark-compacts 3 (113 ms) done true 300000

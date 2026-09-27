@@ -1,0 +1,13 @@
+## /opt/node22/bin/node
+[completed compiling 0x1186ef5a6199 <JSFunction add (sfi = 0x12393931b619)> (target TURBOFAN) - took 0.017, 0.830, 0.016 ms]
+[bailout (kind: deopt-eager, reason: not a Smi): begin. deoptimizing 0x1186ef5a6199 <JSFunction add (sfi = 0x12393931b619)>, 0x1fefa4542121 <Code TURBOFAN>, opt id 0, bytecode offset 2, deopt exit 0, FP to SP delta 32, caller SP 0x7fffbe4f2358, pc 0x7fd8a4005ff5]
+[bailout end. took 0.145 ms]
+## /opt/nvm/versions/node/v24.21.0/bin/node
+[completed compiling 0x2b525d549d49 <JSFunction isPosixPathSeparator (sfi = 0xc85b015109)> (target MAGLEV) - took 0.001, 0.364, 0.019 ms]
+[completed compiling 0x0267bd2a6171 <JSFunction add (sfi = 0x2b98296a83f1)> (target TURBOFAN_JS) - took 0.015, 0.962, 0.017 ms]
+[bailout (kind: deopt-eager, reason: not a Smi): begin. deoptimizing 0x0267bd2a6171 <JSFunction add (sfi = 0x2b98296a83f1)>, 0x02c31efc1c01 <Code TURBOFAN_JS>, opt id 1, bytecode offset 2, deopt exit 0, FP to SP delta 32, caller SP 0x7ffc2429af00, pc 0x7fe1a40041a4]
+[bailout end. took 0.079 ms]
+## d8
+[completed compiling 0x398b0101e0b9 <JSFunction add (sfi = 0x398b0101e00d)> (target TURBOFAN_JS) - took 0.019, 0.844, 0.035 ms]
+[bailout (kind: deopt-eager, reason: not a Smi): begin. deoptimizing 0x398b0101e0b9 <JSFunction add (sfi = 0x398b0101e00d)>, 0x0ad801000319 <Code TURBOFAN_JS>, opt id 0, bytecode offset 2, deopt exit 0, FP to SP delta 32, caller SP 0x7ffcf9a472d8, pc 0x55e6ceb0012b]
+[bailout end. code_invalidation: invalidated, took 0.038 ms]

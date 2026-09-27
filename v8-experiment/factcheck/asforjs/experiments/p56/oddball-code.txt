@@ -1,0 +1,151 @@
+##### /opt/nvm/versions/node/v24.21.0/bin/node cmpTrue
+0x7f248200410b     b  493b65a0             REX.W cmpq rsp,[r13-0x60] (external value (StackGuard::address_of_jslimit()))
+0x7f2482004120    20  483bca               REX.W cmpq rcx,rdx
+0x7f248200413b    3b  4883f902             REX.W cmpq rcx,0x2
+##### /opt/nvm/versions/node/v24.21.0/bin/node cmpOne
+0x7fad9b0041cf     f  493b65a0             REX.W cmpq rsp,[r13-0x60] (external value (StackGuard::address_of_jslimit()))
+0x7fad9b0041dd    1d  f6c201               testb rdx,0x1
+0x7fad9b0041f0    30  483bca               REX.W cmpq rcx,rdx
+0x7fad9b00420b    4b  4883f902             REX.W cmpq rcx,0x2
+##### /tmp/claude-0/-home-user-issues-memory-research/dacf359b-9898-588d-b8f1-20fd1e3f2945/scratchpad/d8/dbg/d8 cmpTrue
+0x7fca9a440047     7  483bd9               REX.W cmpq rbx,rcx
+0x7fca9a44006f    2f  83fb02               cmpl rbx,0x2
+0x7fca9a44008b    4b  f6432380             testb [rbx+0x23],0x80
+0x7fca9a4400af    6f  83fa71               cmpl rdx,0x71
+0x7fca9a4400bd    7d  493b65a0             REX.W cmpq rsp,[r13-0x60] (external value (StackGuard::address_of_jslimit()))
+0x7fca9a4400c7    87  85c9                 testl rcx,rcx
+0x7fca9a4400dc    9c  4883f902             REX.W cmpq rcx,0x2
+##### /tmp/claude-0/-home-user-issues-memory-research/dacf359b-9898-588d-b8f1-20fd1e3f2945/scratchpad/d8/dbg/d8 cmpOne
+0x7f4ee0000187     7  483bd9               REX.W cmpq rbx,rcx
+0x7f4ee00001af    2f  83fb02               cmpl rbx,0x2
+0x7f4ee00001cb    4b  f6432380             testb [rbx+0x23],0x80
+0x7f4ee00001f5    75  493b65a0             REX.W cmpq rsp,[r13-0x60] (external value (StackGuard::address_of_jslimit()))
+0x7f4ee0000203    83  f6c201               testb rdx,0x1
+0x7f4ee000020c    8c  83fa02               cmpl rdx,0x2
+0x7f4ee0000222    a2  4883f902             REX.W cmpq rcx,0x2
+
+=== full body lines (mov/cmp/test/j) ===
+##### /opt/nvm/versions/node/v24.21.0/bin/node cmpTrue
+0x7f0460004100     0  55                   push rbp
+0x7f0460004101     1  4889e5               REX.W movq rbp,rsp
+0x7f0460004104     4  56                   push rsi
+0x7f0460004105     5  57                   push rdi
+0x7f0460004106     6  50                   push rax
+0x7f0460004107     7  4883ec08             REX.W subq rsp,0x8
+0x7f046000410b     b  493b65a0             REX.W cmpq rsp,[r13-0x60] (external value (StackGuard::address_of_jslimit()))
+0x7f046000410f     f  0f8644000000         jna 0x7f0460004159  <+0x59>
+0x7f0460004115    15  488b5518             REX.W movq rdx,[rbp+0x18]
+0x7f0460004119    19  498b8d38020000       REX.W movq rcx,[r13+0x238] (root (true_value))
+0x7f0460004120    20  483bca               REX.W cmpq rcx,rdx
+0x7f0460004123    23  0f8424000000         jz 0x7f046000414d  <+0x4d>
+0x7f0460004129    29  48b80000000014000000 REX.W movq rax,0x1400000000
+0x7f0460004133    33  488b4de8             REX.W movq rcx,[rbp-0x18]
+0x7f0460004137    37  488be5               REX.W movq rsp,rbp
+0x7f046000413a    3a  5d                   pop rbp
+0x7f046000413b    3b  4883f902             REX.W cmpq rcx,0x2
+0x7f046000413f    3f  7f03                 jg 0x7f0460004144  <+0x44>
+0x7f0460004141    41  c21000               ret 0x10
+0x7f0460004144    44  415a                 pop r10
+0x7f0460004146    46  488d24cc             REX.W leaq rsp,[rsp+rcx*8]
+0x7f046000414a    4a  4152                 push r10
+0x7f046000414c    4c  c3                   retl
+0x7f046000414d    4d  48b8000000000a000000 REX.W movq rax,0xa00000000
+0x7f0460004157    57  ebda                 jmp 0x7f0460004133  <+0x33>
+0x7f0460004159    59  48ba0000000018000000 REX.W movq rdx,0x1800000000
+0x7f0460004163    63  52                   push rdx
+0x7f0460004164    64  488975e0             REX.W movq [rbp-0x20],rsi
+0x7f0460004168    68  48bb10863c0100000000 REX.W movq rbx,0x13c8610
+0x7f0460004172    72  b801000000           movl rax,0x1
+##### /opt/nvm/versions/node/v24.21.0/bin/node cmpOne
+0x7f06040041c0     0  55                   push rbp
+0x7f06040041c1     1  4889e5               REX.W movq rbp,rsp
+0x7f06040041c4     4  56                   push rsi
+0x7f06040041c5     5  57                   push rdi
+0x7f06040041c6     6  50                   push rax
+0x7f06040041c7     7  4883ec08             REX.W subq rsp,0x8
+0x7f06040041cb     b  488975e0             REX.W movq [rbp-0x20],rsi
+0x7f06040041cf     f  493b65a0             REX.W cmpq rsp,[r13-0x60] (external value (StackGuard::address_of_jslimit()))
+0x7f06040041d3    13  0f8650000000         jna 0x7f0604004229  <+0x69>
+0x7f06040041d9    19  488b5518             REX.W movq rdx,[rbp+0x18]
+0x7f06040041dd    1d  f6c201               testb rdx,0x1
+0x7f06040041e0    20  0f856f000000         jnz 0x7f0604004255  <+0x95>
+0x7f06040041e6    26  48b90000000001000000 REX.W movq rcx,0x100000000
+0x7f06040041f0    30  483bca               REX.W cmpq rcx,rdx
+0x7f06040041f3    33  0f8424000000         jz 0x7f060400421d  <+0x5d>
+0x7f06040041f9    39  48b80000000014000000 REX.W movq rax,0x1400000000
+0x7f0604004203    43  488b4de8             REX.W movq rcx,[rbp-0x18]
+0x7f0604004207    47  488be5               REX.W movq rsp,rbp
+0x7f060400420a    4a  5d                   pop rbp
+0x7f060400420b    4b  4883f902             REX.W cmpq rcx,0x2
+0x7f060400420f    4f  7f03                 jg 0x7f0604004214  <+0x54>
+0x7f0604004211    51  c21000               ret 0x10
+0x7f0604004214    54  415a                 pop r10
+0x7f0604004216    56  488d24cc             REX.W leaq rsp,[rsp+rcx*8]
+0x7f060400421a    5a  4152                 push r10
+0x7f060400421c    5c  c3                   retl
+0x7f060400421d    5d  48b8000000000a000000 REX.W movq rax,0xa00000000
+0x7f0604004227    67  ebda                 jmp 0x7f0604004203  <+0x43>
+0x7f0604004229    69  48ba0000000018000000 REX.W movq rdx,0x1800000000
+0x7f0604004233    73  52                   push rdx
+##### /tmp/claude-0/-home-user-issues-memory-research/dacf359b-9898-588d-b8f1-20fd1e3f2945/scratchpad/d8/dbg/d8 cmpTrue
+0x7fb9b1440040     0  488d1df9ffffff       REX.W leaq rbx,[rip+0xfffffff9]
+0x7fb9b1440047     7  483bd9               REX.W cmpq rbx,rcx
+0x7fb9b144004a     a  740d                 jz 0x7fb9b1440059  <+0x19>
+0x7fb9b144004c     c  ba92000000           movl rdx,0x92
+0x7fb9b1440051    11  41ff9530640000       call [r13+0x6430]
+0x7fb9b1440058    18  cc                   int3l
+0x7fb9b1440059    19  4d8b95d0020000       REX.W movq r10,[r13+0x2d0] (external value (IsolateData::js_dispatch_table_))
+0x7fb9b1440060    20  498bdf               REX.W movq rbx,r15
+0x7fb9b1440063    23  c1eb08               shrl rbx,8
+0x7fb9b1440066    26  c1e304               shll rbx,4
+0x7fb9b1440069    29  410fb75c1a08         movzxwl rbx,[r10+rbx*1+0x8]
+0x7fb9b144006f    2f  83fb02               cmpl rbx,0x2
+0x7fb9b1440072    32  740d                 jz 0x7fb9b1440081  <+0x41>
+0x7fb9b1440074    34  ba96000000           movl rdx,0x96
+0x7fb9b1440079    39  41ff9530640000       call [r13+0x6430]
+0x7fb9b1440080    40  cc                   int3l
+0x7fb9b1440081    41  8b59f0               movl rbx,[rcx-0x10]
+0x7fb9b1440084    44  490b9d98020000       REX.W orq rbx,[r13+0x298] (external value (IsolateData::trusted_cage_base_))
+0x7fb9b144008b    4b  f6432380             testb [rbx+0x23],0x80
+0x7fb9b144008f    4f  740d                 jz 0x7fb9b144009e  <+0x5e>
+0x7fb9b1440091    51  ba26000000           movl rdx,0x26
+0x7fb9b1440096    56  41ff9530640000       call [r13+0x6430]
+0x7fb9b144009d    5d  cc                   int3l
+0x7fb9b144009e    5e  55                   push rbp
+0x7fb9b144009f    5f  488bec               REX.W movq rbp,rsp
+0x7fb9b14400a2    62  56                   push rsi
+0x7fb9b14400a3    63  57                   push rdi
+0x7fb9b14400a4    64  50                   push rax
+0x7fb9b14400a5    65  4883ec10             REX.W subq rsp,0x10
+0x7fb9b14400a9    69  488b5518             REX.W movq rdx,[rbp+0x18]
+##### /tmp/claude-0/-home-user-issues-memory-research/dacf359b-9898-588d-b8f1-20fd1e3f2945/scratchpad/d8/dbg/d8 cmpOne
+0x7f85cf400180     0  488d1df9ffffff       REX.W leaq rbx,[rip+0xfffffff9]
+0x7f85cf400187     7  483bd9               REX.W cmpq rbx,rcx
+0x7f85cf40018a     a  740d                 jz 0x7f85cf400199  <+0x19>
+0x7f85cf40018c     c  ba92000000           movl rdx,0x92
+0x7f85cf400191    11  41ff9530640000       call [r13+0x6430]
+0x7f85cf400198    18  cc                   int3l
+0x7f85cf400199    19  4d8b95d0020000       REX.W movq r10,[r13+0x2d0] (external value (IsolateData::js_dispatch_table_))
+0x7f85cf4001a0    20  498bdf               REX.W movq rbx,r15
+0x7f85cf4001a3    23  c1eb08               shrl rbx,8
+0x7f85cf4001a6    26  c1e304               shll rbx,4
+0x7f85cf4001a9    29  410fb75c1a08         movzxwl rbx,[r10+rbx*1+0x8]
+0x7f85cf4001af    2f  83fb02               cmpl rbx,0x2
+0x7f85cf4001b2    32  740d                 jz 0x7f85cf4001c1  <+0x41>
+0x7f85cf4001b4    34  ba96000000           movl rdx,0x96
+0x7f85cf4001b9    39  41ff9530640000       call [r13+0x6430]
+0x7f85cf4001c0    40  cc                   int3l
+0x7f85cf4001c1    41  8b59f0               movl rbx,[rcx-0x10]
+0x7f85cf4001c4    44  490b9d98020000       REX.W orq rbx,[r13+0x298] (external value (IsolateData::trusted_cage_base_))
+0x7f85cf4001cb    4b  f6432380             testb [rbx+0x23],0x80
+0x7f85cf4001cf    4f  740d                 jz 0x7f85cf4001de  <+0x5e>
+0x7f85cf4001d1    51  ba26000000           movl rdx,0x26
+0x7f85cf4001d6    56  41ff9530640000       call [r13+0x6430]
+0x7f85cf4001dd    5d  cc                   int3l
+0x7f85cf4001de    5e  55                   push rbp
+0x7f85cf4001df    5f  488bec               REX.W movq rbp,rsp
+0x7f85cf4001e2    62  56                   push rsi
+0x7f85cf4001e3    63  57                   push rdi
+0x7f85cf4001e4    64  50                   push rax
+0x7f85cf4001e5    65  4883ec08             REX.W subq rsp,0x8
+0x7f85cf4001e9    69  49c7457800000000     REX.W movq [r13+0x78] (external value (last_young_allocation_address)),0x0

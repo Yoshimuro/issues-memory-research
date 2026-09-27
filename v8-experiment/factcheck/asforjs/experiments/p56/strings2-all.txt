@@ -1,0 +1,100 @@
+##### /opt/node20/bin/node
+=== vars 'мурыч'+'хмурыч' (11)
+ - type: STRING_TYPE
+=== vars 'мурыч'+' '+'мурыч' (11)
+ - type: STRING_TYPE
+=== vars asin+atan (8)
+ - type: ONE_BYTE_STRING_TYPE
+=== concat 12
+ - type: ONE_BYTE_STRING_TYPE
+=== concat 13
+ - type: CONS_ONE_BYTE_STRING_TYPE
+=== slice 12
+ - type: ONE_BYTE_STRING_TYPE
+=== slice 13
+ - type: SLICED_ONE_BYTE_STRING_TYPE
+=== 'murych'+ghost (8)
+ - type: STRING_TYPE
+=== ghost*10+'мурыч'
+ - type: CONS_STRING_TYPE
+=== small replace middle
+ - type: ONE_BYTE_STRING_TYPE
+=== small replace edge
+ - type: ONE_BYTE_STRING_TYPE
+=== big.replace('NEEDLE','X') (string pattern)
+ - type: CONS_ONE_BYTE_STRING_TYPE
+##### /opt/node22/bin/node
+=== vars 'мурыч'+'хмурыч' (11)
+ - type: SEQ_TWO_BYTE_STRING_TYPE
+=== vars 'мурыч'+' '+'мурыч' (11)
+ - type: SEQ_TWO_BYTE_STRING_TYPE
+=== vars asin+atan (8)
+ - type: SEQ_ONE_BYTE_STRING_TYPE
+=== concat 12
+ - type: SEQ_ONE_BYTE_STRING_TYPE
+=== concat 13
+ - type: CONS_ONE_BYTE_STRING_TYPE
+=== slice 12
+ - type: SEQ_ONE_BYTE_STRING_TYPE
+=== slice 13
+ - type: SLICED_ONE_BYTE_STRING_TYPE
+=== 'murych'+ghost (8)
+ - type: SEQ_TWO_BYTE_STRING_TYPE
+=== ghost*10+'мурыч'
+ - type: CONS_TWO_BYTE_STRING_TYPE
+=== small replace middle
+ - type: SEQ_ONE_BYTE_STRING_TYPE
+=== small replace edge
+ - type: SEQ_ONE_BYTE_STRING_TYPE
+=== big.replace('NEEDLE','X') (string pattern)
+ - type: CONS_ONE_BYTE_STRING_TYPE
+##### /opt/nvm/versions/node/v24.21.0/bin/node
+=== vars 'мурыч'+'хмурыч' (11)
+ - type: SEQ_TWO_BYTE_STRING_TYPE
+=== vars 'мурыч'+' '+'мурыч' (11)
+ - type: SEQ_TWO_BYTE_STRING_TYPE
+=== vars asin+atan (8)
+ - type: SEQ_ONE_BYTE_STRING_TYPE
+=== concat 12
+ - type: SEQ_ONE_BYTE_STRING_TYPE
+=== concat 13
+ - type: CONS_ONE_BYTE_STRING_TYPE
+=== slice 12
+ - type: SEQ_ONE_BYTE_STRING_TYPE
+=== slice 13
+ - type: SLICED_ONE_BYTE_STRING_TYPE
+=== 'murych'+ghost (8)
+ - type: SEQ_TWO_BYTE_STRING_TYPE
+=== ghost*10+'мурыч'
+ - type: CONS_TWO_BYTE_STRING_TYPE
+=== small replace middle
+ - type: SEQ_ONE_BYTE_STRING_TYPE
+=== small replace edge
+ - type: SEQ_ONE_BYTE_STRING_TYPE
+=== big.replace('NEEDLE','X') (string pattern)
+ - type: CONS_ONE_BYTE_STRING_TYPE
+##### /tmp/claude-0/-home-user-issues-memory-research/dacf359b-9898-588d-b8f1-20fd1e3f2945/scratchpad/d8/dbg/d8
+=== vars 'мурыч'+'хмурыч' (11)
+ - type: SEQ_TWO_BYTE_STRING_TYPE
+=== vars 'мурыч'+' '+'мурыч' (11)
+ - type: SEQ_TWO_BYTE_STRING_TYPE
+=== vars asin+atan (8)
+ - type: SEQ_ONE_BYTE_STRING_TYPE
+=== concat 12
+ - type: SEQ_ONE_BYTE_STRING_TYPE
+=== concat 13
+ - type: CONS_ONE_BYTE_STRING_TYPE
+=== slice 12
+ - type: SEQ_ONE_BYTE_STRING_TYPE
+=== slice 13
+ - type: SLICED_ONE_BYTE_STRING_TYPE
+=== 'murych'+ghost (8)
+ - type: SEQ_TWO_BYTE_STRING_TYPE
+=== ghost*10+'мурыч'
+ - type: CONS_TWO_BYTE_STRING_TYPE
+=== small replace middle
+ - type: SEQ_ONE_BYTE_STRING_TYPE
+=== small replace edge
+ - type: SEQ_ONE_BYTE_STRING_TYPE
+=== big.replace('NEEDLE','X') (string pattern)
+ - type: CONS_ONE_BYTE_STRING_TYPE

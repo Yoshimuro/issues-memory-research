@@ -1,0 +1,347 @@
+Concurrent maglev has been disabled for tracing.
+Compiling 0x10e3d8b89d49 <JSFunction isPosixPathSeparator (sfi = 0x11eff3a15109)> with Maglev
+Parameter count 2
+Register count 0
+Frame size 0
+ 2161 S> 0x295133a8b1d8 @    0 : 19 17             LdaImmutableCurrentContextSlot [23]
+ 2177 E> 0x295133a8b1da @    2 : b4 00             ThrowReferenceErrorIfHole [0]
+ 2173 E> 0x295133a8b1dc @    4 : 74 03 00          TestEqualStrict a0, [0]
+ 2196 S> 0x295133a8b1df @    7 : b3                Return
+Constant pool (size = 1)
+0x295133a8b201: [TrustedFixedArray]
+ - map: 0x3af75ee009e1 <Map(TRUSTED_FIXED_ARRAY_TYPE)>
+ - length: 1
+           0: 0x19ecfdc52d19 <String[18]: #CHAR_FORWARD_SLASH>
+Handler Table (size = 0)
+Source Position Table (size = 11)
+0x295133a8b1e1 <Other heap object (TRUSTED_BYTE_ARRAY_TYPE)>
+0x3e6745ce5881: [FeedbackVector]
+ - map: 0x3af75ee00e49 <Map(FEEDBACK_VECTOR_TYPE)>
+ - length: 1
+ - shared function info: 0x11eff3a15109 <SharedFunctionInfo isPosixPathSeparator>
+ - tiering_in_progress: 0
+ - osr_tiering_in_progress: 0
+ - invocation count: 402
+ - closure feedback cell array: 0x3af75ee03ba9: [ClosureFeedbackCellArray] in ReadOnlySpace
+ - map: 0x3af75ee00e01 <Map(CLOSURE_FEEDBACK_CELL_ARRAY_TYPE)>
+ - length: 0
+ - elements:
+
+ - slot #0 CompareOp CompareOp:SignedSmall {
+     [0]: 1
+  }
+0x2cf4d6401981: [Code]
+ - map: 0x3af75ee017e9 <Map[88](CODE_TYPE)>
+ - kind: MAGLEV
+ - deoptimization_data_or_interpreter_data: 0x2cf4d6401819 <ProtectedFixedArray[18]>
+ - position_table: 0x2cf4d64017f1 <Other heap object (TRUSTED_BYTE_ARRAY_TYPE)>
+ - parameter_count: 2
+ - instruction_stream: 0x7f72c00015a1 <InstructionStream MAGLEV>
+ - instruction_start: 0x7f72c00015c0
+ - is_turbofanned: 0
+ - stack_slots: 5
+ - marked_for_deoptimization: 0
+ - embedded_objects_cleared: 0
+ - can_have_weak_objects: 0
+ - instruction_size: 164
+ - metadata_size: 28
+ - inlined_bytecode_size: 0
+ - osr_offset: -1
+ - handler_table_offset: 28
+ - unwinding_info_offset: 28
+ - code_comments_offset: 28
+ - instruction_stream.relocation_info: 0x2cf4d6401941 <Other heap object (TRUSTED_BYTE_ARRAY_TYPE)>
+ - instruction_stream.body_size: 192
+
+--- Disassembly: ---
+kind = MAGLEV
+name = isPosixPathSeparator
+compiler = maglev
+address = 0x2cf4d6401981
+
+Instructions (size = 164)
+0x7f72c00015c0     0  55                   push rbp
+0x7f72c00015c1     1  4889e5               REX.W movq rbp,rsp
+0x7f72c00015c4     4  56                   push rsi
+0x7f72c00015c5     5  57                   push rdi
+0x7f72c00015c6     6  50                   push rax
+0x7f72c00015c7     7  493b65a0             REX.W cmpq rsp,[r13-0x60] (external value (StackGuard::address_of_jslimit()))
+0x7f72c00015cb     b  730f                 jnc 0x7f72c00015dc  <+0x1c>
+0x7f72c00015cd     d  48b800000000e0000000 REX.W movq rax,0xe000000000
+0x7f72c00015d7    17  e8a4cfdc1f           call 0x7f72dfdce580  (MaglevFunctionEntryStackCheck_WithoutNewTarget)    ;; near builtin entry
+0x7f72c00015dc    1c  488b4518             REX.W movq rax,[rbp+0x18]
+0x7f72c00015e0    20  a801                 test al,0x1
+0x7f72c00015e2    22  0f8574000000         jnz 0x7f72c000165c  <+0x9c>
+0x7f72c00015e8    28  48c1e820             REX.W shrq rax, 32
+0x7f72c00015ec    2c  83f82f               cmpl rax,0x2f
+0x7f72c00015ef    2f  740c                 jz 0x7f72c00015fd  <+0x3d>
+0x7f72c00015f1    31  498b8d40020000       REX.W movq rcx,[r13+0x240] (root (false_value))
+0x7f72c00015f8    38  e907000000           jmp 0x7f72c0001604  <+0x44>
+0x7f72c00015fd    3d  498b8d38020000       REX.W movq rcx,[r13+0x238] (root (true_value))
+0x7f72c0001604    44  48b8899db8d8e3100000 REX.W movq rax,0x10e3d8b89d89    ;; object: 0x10e3d8b89d89 <FeedbackCell[one closure]>
+0x7f72c000160e    4e  83681307             subl [rax+0x13],0x7
+0x7f72c0001612    52  0f8c21000000         jl 0x7f72c0001639  <+0x79>
+0x7f72c0001618    58  488bc1               REX.W movq rax,rcx
+0x7f72c000161b    5b  4c8b45e8             REX.W movq r8,[rbp-0x18]
+0x7f72c000161f    5f  488be5               REX.W movq rsp,rbp
+0x7f72c0001622    62  5d                   pop rbp
+0x7f72c0001623    63  4983f802             REX.W cmpq r8,0x2
+0x7f72c0001627    67  0f8f03000000         jg 0x7f72c0001630  <+0x70>
+0x7f72c000162d    6d  c21000               ret 0x10
+0x7f72c0001630    70  4159                 pop r9
+0x7f72c0001632    72  4a8d24c4             REX.W leaq rsp,[rsp+r8*8]
+0x7f72c0001636    76  4151                 push r9
+0x7f72c0001638    78  c3                   retl
+0x7f72c0001639    79  51                   push rcx
+0x7f72c000163a    7a  48be0901742175360000 REX.W movq rsi,0x367521740109    ;; object: 0x367521740109 <NativeContext[302]>
+0x7f72c0001644    84  ff75f0               push [rbp-0x10]
+0x7f72c0001647    87  b801000000           movl rax,0x1
+0x7f72c000164c    8c  498d9d10e812ca       REX.W leaq rbx,[r13-0x35ed17f0]
+0x7f72c0001653    93  e82853e71f           call 0x7f72dfe76980  (CEntry_Return1_ArgvOnStack_NoBuiltinExit)    ;; near builtin entry
+0x7f72c0001658    98  59                   pop rcx
+0x7f72c0001659    99  ebbd                 jmp 0x7f72c0001618  <+0x58>
+0x7f72c000165b    9b  cc                   int3l
+0x7f72c000165c    9c  41ff55d8             call [r13-0x28]    ;; debug: deopt position, script offset '87d'
+                                                             ;; debug: deopt position, inlining id 'ffffffff'
+                                                             ;; debug: deopt reason 'not a Smi'
+                                                             ;; debug: deopt index 0
+0x7f72c0001660    a0  41ff55e0             call [r13-0x20]    ;; debug: deopt position, script offset '866'
+                                                             ;; debug: deopt position, inlining id 'ffffffff'
+                                                             ;; debug: deopt reason '(unknown)'
+                                                             ;; debug: deopt index 1
+
+Source positions:
+ pc offset  position
+         7      2150
+         7      2150
+         7      2150
+        1c      2150
+        20      2173
+        2c      2173
+        4e      2196
+        5b      2196
+
+Inlined functions (count = 0)
+
+Deoptimization Input Data (deopt points = 2)
+ index  bytecode-offset    pc
+     0                4    9c 
+     1               -1    a0 
+
+Safepoints (stack slots = 5, entries = 2, byte size = 26, tagged slots = 0)
+0x7f72c00015dc     1c  num extra spill slots: 0  deopt      1 trampoline:     a0
+0x7f72c0001658     98  num extra spill slots: 1  registers: 1
+
+RelocInfo (size = 48)
+0x7f72c00015d8  near builtin entry
+0x7f72c0001606  full embedded object  (0x10e3d8b89d89 <FeedbackCell[one closure]>)
+0x7f72c000163c  full embedded object  (0x367521740109 <NativeContext[302]>)
+0x7f72c0001654  near builtin entry
+0x7f72c000165c  deopt script offset  (2173)
+0x7f72c000165c  deopt inlining id  (-1)
+0x7f72c000165c  deopt reason  (not a Smi)
+0x7f72c000165c  deopt index
+0x7f72c0001660  deopt script offset  (2150)
+0x7f72c0001660  deopt inlining id  (-1)
+0x7f72c0001660  deopt reason  ((unknown))
+0x7f72c0001660  deopt index
+
+Compiling 0x1664a3c260c1 <JSFunction mg (sfi = 0x3e6745ce8439)> with Maglev
+Parameter count 2
+Register count 0
+Frame size 0
+   84 S> 0x2cf4d6401d80 @    0 : 0b 03             Ldar a0
+   93 E> 0x2cf4d6401d82 @    2 : 4d 02 01          MulSmi [2], [1]
+   97 E> 0x2cf4d6401d85 @    5 : 4b 01 00          AddSmi [1], [0]
+  101 S> 0x2cf4d6401d88 @    8 : b3                Return
+Constant pool (size = 0)
+Handler Table (size = 0)
+Source Position Table (size = 11)
+0x2cf4d6401d91 <Other heap object (TRUSTED_BYTE_ARRAY_TYPE)>
+0x3e6745ce8911: [FeedbackVector]
+ - map: 0x3af75ee00e49 <Map(FEEDBACK_VECTOR_TYPE)>
+ - length: 2
+ - shared function info: 0x3e6745ce8439 <SharedFunctionInfo mg>
+ - tiering_in_progress: 0
+ - osr_tiering_in_progress: 0
+ - invocation count: 2
+ - closure feedback cell array: 0x3af75ee03ba9: [ClosureFeedbackCellArray] in ReadOnlySpace
+ - map: 0x3af75ee00e01 <Map(CLOSURE_FEEDBACK_CELL_ARRAY_TYPE)>
+ - length: 0
+ - elements:
+
+ - slot #0 BinaryOp BinaryOp:SignedSmall {
+     [0]: 1
+  }
+ - slot #1 BinaryOp BinaryOp:SignedSmall {
+     [1]: 1
+  }
+0x2cf4d6401fa1: [Code]
+ - map: 0x3af75ee017e9 <Map[88](CODE_TYPE)>
+ - kind: MAGLEV
+ - deoptimization_data_or_interpreter_data: 0x2cf4d6401dd9 <ProtectedFixedArray[24]>
+ - position_table: 0x2cf4d6401db1 <Other heap object (TRUSTED_BYTE_ARRAY_TYPE)>
+ - parameter_count: 2
+ - instruction_stream: 0x7f72c00017a1 <InstructionStream MAGLEV>
+ - instruction_start: 0x7f72c00017c0
+ - is_turbofanned: 0
+ - stack_slots: 5
+ - marked_for_deoptimization: 0
+ - embedded_objects_cleared: 0
+ - can_have_weak_objects: 0
+ - instruction_size: 284
+ - metadata_size: 36
+ - inlined_bytecode_size: 0
+ - osr_offset: -1
+ - handler_table_offset: 36
+ - unwinding_info_offset: 36
+ - code_comments_offset: 36
+ - instruction_stream.relocation_info: 0x2cf4d6401f31 <Other heap object (TRUSTED_BYTE_ARRAY_TYPE)>
+ - instruction_stream.body_size: 320
+
+--- Disassembly: ---
+kind = MAGLEV
+name = mg
+compiler = maglev
+address = 0x2cf4d6401fa1
+
+Instructions (size = 284)
+0x7f72c00017c0     0  55                   push rbp
+0x7f72c00017c1     1  4889e5               REX.W movq rbp,rsp
+0x7f72c00017c4     4  56                   push rsi
+0x7f72c00017c5     5  57                   push rdi
+0x7f72c00017c6     6  50                   push rax
+0x7f72c00017c7     7  493b65a0             REX.W cmpq rsp,[r13-0x60] (external value (StackGuard::address_of_jslimit()))
+0x7f72c00017cb     b  730f                 jnc 0x7f72c00017dc  <+0x1c>
+0x7f72c00017cd     d  48b800000000e0000000 REX.W movq rax,0xe000000000
+0x7f72c00017d7    17  e8a4cddc1f           call 0x7f72dfdce580  (MaglevFunctionEntryStackCheck_WithoutNewTarget)    ;; near builtin entry
+0x7f72c00017dc    1c  488b4518             REX.W movq rax,[rbp+0x18]
+0x7f72c00017e0    20  a801                 test al,0x1
+0x7f72c00017e2    22  0f85e3000000         jnz 0x7f72c00018cb  <+0x10b>
+0x7f72c00017e8    28  48c1e820             REX.W shrq rax, 32
+0x7f72c00017ec    2c  b902000000           movl rcx,0x2
+0x7f72c00017f1    31  8bd0                 movl rdx,rax
+0x7f72c00017f3    33  0fafc1               imull rax,rcx
+0x7f72c00017f6    36  0f80d3000000         jo 0x7f72c00018cf  <+0x10f>
+0x7f72c00017fc    3c  83f800               cmpl rax,0x0
+0x7f72c00017ff    3f  0f850b000000         jnz 0x7f72c0001810  <+0x50>
+0x7f72c0001805    45  0bd1                 orl rdx,rcx
+0x7f72c0001807    47  83fa00               cmpl rdx,0x0
+0x7f72c000180a    4a  0f8cbf000000         jl 0x7f72c00018cf  <+0x10f>
+0x7f72c0001810    50  83c001               addl rax,0x1
+0x7f72c0001813    53  0f80ba000000         jo 0x7f72c00018d3  <+0x113>
+0x7f72c0001819    59  48b9b184ce45673e0000 REX.W movq rcx,0x3e6745ce84b1    ;; object: 0x3e6745ce84b1 <FeedbackCell[one closure]>
+0x7f72c0001823    63  83691308             subl [rcx+0x13],0x8
+0x7f72c0001827    67  0f8c28000000         jl 0x7f72c0001855  <+0x95>
+0x7f72c000182d    6d  488bc8               REX.W movq rcx,rax
+0x7f72c0001830    70  48c1e120             REX.W shlq rcx, 32
+0x7f72c0001834    74  488bc1               REX.W movq rax,rcx
+0x7f72c0001837    77  4c8b45e8             REX.W movq r8,[rbp-0x18]
+0x7f72c000183b    7b  488be5               REX.W movq rsp,rbp
+0x7f72c000183e    7e  5d                   pop rbp
+0x7f72c000183f    7f  4983f802             REX.W cmpq r8,0x2
+0x7f72c0001843    83  0f8f03000000         jg 0x7f72c000184c  <+0x8c>
+0x7f72c0001849    89  c21000               ret 0x10
+0x7f72c000184c    8c  4159                 pop r9
+0x7f72c000184e    8e  4a8d24c4             REX.W leaq rsp,[rsp+r8*8]
+0x7f72c0001852    92  4151                 push r9
+0x7f72c0001854    94  c3                   retl
+0x7f72c0001855    95  50                   push rax
+0x7f72c0001856    96  48be0901742175360000 REX.W movq rsi,0x367521740109    ;; object: 0x367521740109 <NativeContext[302]>
+0x7f72c0001860    a0  ff75f0               push [rbp-0x10]
+0x7f72c0001863    a3  b801000000           movl rax,0x1
+0x7f72c0001868    a8  498d9d10e812ca       REX.W leaq rbx,[r13-0x35ed17f0]
+0x7f72c000186f    af  e80c51e71f           call 0x7f72dfe76980  (CEntry_Return1_ArgvOnStack_NoBuiltinExit)    ;; near builtin entry
+0x7f72c0001874    b4  58                   pop rax
+0x7f72c0001875    b5  ebb6                 jmp 0x7f72c000182d  <+0x6d>
+0x7f72c0001877    b7  cc                   int3l
+0x7f72c0001878    b8  c5032af8             vcvtlsi2sd xmm15,xmm15,rax
+0x7f72c000187c    bc  498b4d50             REX.W movq rcx,[r13+0x50] (external value (Heap::NewSpaceAllocationTopAddress()))
+0x7f72c0001880    c0  4c8d5110             REX.W leaq r10,[rcx+0x10]
+0x7f72c0001884    c4  4d3b5558             REX.W cmpq r10,[r13+0x58] (external value (Heap::NewSpaceAllocationLimitAddress()))
+0x7f72c0001888    c8  0f831b000000         jnc 0x7f72c00018a9  <+0xe9>
+0x7f72c000188e    ce  4d895550             REX.W movq [r13+0x50] (external value (Heap::NewSpaceAllocationTopAddress())),r10
+0x7f72c0001892    d2  4883c101             REX.W addq rcx,0x1
+0x7f72c0001896    d6  4d8b95c8020000       REX.W movq r10,[r13+0x2c8] (root (heap_number_map))
+0x7f72c000189d    dd  4c8951ff             REX.W movq [rcx-0x1],r10
+0x7f72c00018a1    e1  c57b117907           vmovsd [rcx+0x7],xmm15
+0x7f72c00018a6    e6  eb8c                 jmp 0x7f72c0001834  <+0x74>
+0x7f72c00018a8    e8  cc                   int3l
+0x7f72c00018a9    e9  4883ec08             REX.W subq rsp,0x8
+0x7f72c00018ad    ed  c57b113c24           vmovsd [rsp],xmm15
+0x7f72c00018b2    f2  ba10000000           movl rdx,0x10
+0x7f72c00018b7    f7  e8c4dcdc1f           call 0x7f72dfdcf580  (AllocateInYoungGeneration)    ;; near builtin entry
+0x7f72c00018bc    fc  488bc8               REX.W movq rcx,rax
+0x7f72c00018bf    ff  c57b103c24           vmovsd xmm15,[rsp]
+0x7f72c00018c4   104  4883c408             REX.W addq rsp,0x8
+0x7f72c00018c8   108  ebcc                 jmp 0x7f72c0001896  <+0xd6>
+0x7f72c00018ca   10a  cc                   int3l
+0x7f72c00018cb   10b  41ff55d8             call [r13-0x28]    ;; debug: deopt position, script offset '5d'
+                                                             ;; debug: deopt position, inlining id 'ffffffff'
+                                                             ;; debug: deopt reason 'not a Smi'
+                                                             ;; debug: deopt index 0
+0x7f72c00018cf   10f  41ff55d8             call [r13-0x28]    ;; debug: deopt position, script offset '5d'
+                                                             ;; debug: deopt position, inlining id 'ffffffff'
+                                                             ;; debug: deopt reason 'overflow'
+                                                             ;; debug: deopt index 1
+0x7f72c00018d3   113  41ff55d8             call [r13-0x28]    ;; debug: deopt position, script offset '5d'
+                                                             ;; debug: deopt position, inlining id 'ffffffff'
+                                                             ;; debug: deopt reason 'overflow'
+                                                             ;; debug: deopt index 2
+0x7f72c00018d7   117  41ff55e0             call [r13-0x20]    ;; debug: deopt position, script offset '4e'
+                                                             ;; debug: deopt position, inlining id 'ffffffff'
+                                                             ;; debug: deopt reason '(unknown)'
+                                                             ;; debug: deopt index 3
+0x7f72c00018db   11b  90                   nop
+
+Source positions:
+ pc offset  position
+         7        78
+         7        78
+         7        78
+        1c        78
+        20        93
+        31        93
+        50        97
+        63       101
+        6d       101
+        77       101
+
+Inlined functions (count = 0)
+
+Deoptimization Input Data (deopt points = 4)
+ index  bytecode-offset    pc
+     0                2   10b 
+     1                2   10f 
+     2                2   113 
+     3               -1   117 
+
+Safepoints (stack slots = 5, entries = 3, byte size = 34, tagged slots = 0)
+0x7f72c00017dc     1c  num extra spill slots: 0  deopt      3 trampoline:    117
+0x7f72c0001874     b4  num extra spill slots: 1
+0x7f72c00018bc     fc  num extra spill slots: 1
+
+RelocInfo (size = 96)
+0x7f72c00017d8  near builtin entry
+0x7f72c000181b  full embedded object  (0x3e6745ce84b1 <FeedbackCell[one closure]>)
+0x7f72c0001858  full embedded object  (0x367521740109 <NativeContext[302]>)
+0x7f72c0001870  near builtin entry
+0x7f72c00018b8  near builtin entry
+0x7f72c00018cb  deopt script offset  (93)
+0x7f72c00018cb  deopt inlining id  (-1)
+0x7f72c00018cb  deopt reason  (not a Smi)
+0x7f72c00018cb  deopt index
+0x7f72c00018cf  deopt script offset  (93)
+0x7f72c00018cf  deopt inlining id  (-1)
+0x7f72c00018cf  deopt reason  (overflow)
+0x7f72c00018cf  deopt index
+0x7f72c00018d3  deopt script offset  (93)
+0x7f72c00018d3  deopt inlining id  (-1)
+0x7f72c00018d3  deopt reason  (overflow)
+0x7f72c00018d3  deopt index
+0x7f72c00018d7  deopt script offset  (78)
+0x7f72c00018d7  deopt inlining id  (-1)
+0x7f72c00018d7  deopt reason  ((unknown))
+0x7f72c00018d7  deopt index
+
+status 110001

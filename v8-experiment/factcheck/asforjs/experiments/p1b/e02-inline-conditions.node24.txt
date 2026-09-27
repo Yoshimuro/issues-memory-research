@@ -1,0 +1,118 @@
+[marking 0x0857bf249d49 <JSFunction isPosixPathSeparator (sfi = 0x3d7c950d5109)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x0857bf249d49 <JSFunction isPosixPathSeparator (sfi = 0x3d7c950d5109)> (target MAGLEV), mode: ConcurrencyMode::kConcurrent]
+[marking 0x0857bf249e71 <JSFunction normalizeString (sfi = 0x3d7c950d5349)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x0857bf249e71 <JSFunction normalizeString (sfi = 0x3d7c950d5349)> (target MAGLEV), mode: ConcurrencyMode::kConcurrent]
+[completed compiling 0x0857bf249d49 <JSFunction isPosixPathSeparator (sfi = 0x3d7c950d5109)> (target MAGLEV) - took 0.001, 0.191, 0.006 ms]
+[marking 0x1db302766aa9 <JSFunction usesArgs (sfi = 0x283036f68951)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x1db302766aa9 <JSFunction usesArgs (sfi = 0x283036f68951)> (target MAGLEV), mode: ConcurrencyMode::kConcurrent]
+[marking 0x1db302766ae9 <JSFunction usesRest (sfi = 0x283036f68999)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x1db302766ae9 <JSFunction usesRest (sfi = 0x283036f68999)> (target MAGLEV), mode: ConcurrencyMode::kConcurrent]
+[marking 0x1db302766b29 <JSFunction caller_multiRet (sfi = 0x283036f689e1)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[marking 0x1db302766a29 <JSFunction switchRet (sfi = 0x283036f688c1)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x1db302766a29 <JSFunction switchRet (sfi = 0x283036f688c1)> (target MAGLEV), mode: ConcurrencyMode::kConcurrent]
+[marking 0x1db302766b69 <JSFunction caller_switchRet (sfi = 0x283036f68a29)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[marking 0x1db302766ba9 <JSFunction caller_sideEffect (sfi = 0x283036f68a71)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[marking 0x1db302766be9 <JSFunction caller_usesArgs (sfi = 0x283036f68ab9)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[marking 0x1db302766c29 <JSFunction caller_usesRest (sfi = 0x283036f68b01)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[marking 0x1db302778b81 <JSFunction (sfi = 0x283036f69d81)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x1db302778b81 <JSFunction (sfi = 0x283036f69d81)> (target MAGLEV), mode: ConcurrencyMode::kConcurrent]
+[marking 0x1db302766d39 <JSFunction named (sfi = 0x283036f68bd9)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x1db302766d39 <JSFunction named (sfi = 0x283036f68bd9)> (target MAGLEV), mode: ConcurrencyMode::kConcurrent]
+[compiling method 0x1db302766b29 <JSFunction caller_multiRet (sfi = 0x283036f689e1)> (target MAGLEV), mode: ConcurrencyMode::kConcurrent]
+[compiling method 0x1db302766b69 <JSFunction caller_switchRet (sfi = 0x283036f68a29)> (target MAGLEV), mode: ConcurrencyMode::kConcurrent]
+[compiling method 0x1db302766ba9 <JSFunction caller_sideEffect (sfi = 0x283036f68a71)> (target MAGLEV), mode: ConcurrencyMode::kConcurrent]
+[marking 0x1db302766a69 <JSFunction sideEffect (sfi = 0x283036f68909)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x1db302766a69 <JSFunction sideEffect (sfi = 0x283036f68909)> (target MAGLEV), mode: ConcurrencyMode::kConcurrent]
+[compiling method 0x1db302766be9 <JSFunction caller_usesArgs (sfi = 0x283036f68ab9)> (target MAGLEV), mode: ConcurrencyMode::kConcurrent]
+[compiling method 0x1db302766c29 <JSFunction caller_usesRest (sfi = 0x283036f68b01)> (target MAGLEV), mode: ConcurrencyMode::kConcurrent]
+[marking 0x1db3027669e9 <JSFunction multiRet (sfi = 0x283036f68879)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x1db3027669e9 <JSFunction multiRet (sfi = 0x283036f68879)> (target MAGLEV), mode: ConcurrencyMode::kConcurrent]
+[completed compiling 0x1db302766aa9 <JSFunction usesArgs (sfi = 0x283036f68951)> (target MAGLEV) - took 0.001, 0.949, 0.050 ms]
+[completed compiling 0x1db302766ae9 <JSFunction usesRest (sfi = 0x283036f68999)> (target MAGLEV) - took 0.000, 0.186, 0.002 ms]
+[completed compiling 0x1db302766a29 <JSFunction switchRet (sfi = 0x283036f688c1)> (target MAGLEV) - took 0.000, 0.091, 0.001 ms]
+[completed compiling 0x1db302778b81 <JSFunction (sfi = 0x283036f69d81)> (target MAGLEV) - took 0.000, 0.033, 0.002 ms]
+[completed compiling 0x1db302766d39 <JSFunction named (sfi = 0x283036f68bd9)> (target MAGLEV) - took 0.000, 0.030, 0.001 ms]
+[completed compiling 0x0857bf249e71 <JSFunction normalizeString (sfi = 0x3d7c950d5349)> (target MAGLEV) - took 0.000, 2.407, 0.002 ms]
+[completed compiling 0x1db302766b29 <JSFunction caller_multiRet (sfi = 0x283036f689e1)> (target MAGLEV) - took 0.000, 0.205, 0.002 ms]
+[completed compiling 0x1db302766b69 <JSFunction caller_switchRet (sfi = 0x283036f68a29)> (target MAGLEV) - took 0.000, 0.334, 0.002 ms]
+[marking 0x1db302766aa9 <JSFunction usesArgs (sfi = 0x283036f68951)> for optimization to TURBOFAN_JS, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x1db302766aa9 <JSFunction usesArgs (sfi = 0x283036f68951)> (target TURBOFAN_JS), mode: ConcurrencyMode::kConcurrent]
+[completed compiling 0x1db302766ba9 <JSFunction caller_sideEffect (sfi = 0x283036f68a71)> (target MAGLEV) - took 0.000, 0.411, 0.004 ms]
+[completed compiling 0x1db302766a69 <JSFunction sideEffect (sfi = 0x283036f68909)> (target MAGLEV) - took 0.000, 0.307, 0.004 ms]
+[completed compiling 0x05ce38bc2619 <JSFunction caller_usesArgs (sfi = 0x283036f68ab9)> (target MAGLEV) - took 0.000, 0.412, 0.006 ms]
+[marking 0x05ce38bc3619 <JSFunction usesRest (sfi = 0x283036f68999)> for optimization to TURBOFAN_JS, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x05ce38bc3619 <JSFunction usesRest (sfi = 0x283036f68999)> (target TURBOFAN_JS), mode: ConcurrencyMode::kConcurrent]
+[completed compiling 0x05ce38bc3509 <JSFunction multiRet (sfi = 0x283036f68879)> (target MAGLEV) - took 0.000, 1.215, 0.002 ms]
+[completed compiling 0x05ce38bc2751 <JSFunction caller_usesRest (sfi = 0x283036f68b01)> (target MAGLEV) - took 0.000, 1.953, 0.004 ms]
+[marking 0x2c15a150a2a1 <JSFunction (sfi = 0x283036f69d81)> for optimization to TURBOFAN_JS, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x2c15a150a2a1 <JSFunction (sfi = 0x283036f69d81)> (target TURBOFAN_JS), mode: ConcurrencyMode::kConcurrent]
+[marking 0x368188a4c0e1 <JSFunction named (sfi = 0x283036f68bd9)> for optimization to TURBOFAN_JS, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x368188a4c0e1 <JSFunction named (sfi = 0x283036f68bd9)> (target TURBOFAN_JS), mode: ConcurrencyMode::kConcurrent]
+[marking 0x368188a428f9 <JSFunction caller_multiRet (sfi = 0x283036f689e1)> for optimization to TURBOFAN_JS, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x368188a428f9 <JSFunction caller_multiRet (sfi = 0x283036f689e1)> (target TURBOFAN_JS), mode: ConcurrencyMode::kConcurrent]
+[marking 0x368188a426a1 <JSFunction caller_usesArgs (sfi = 0x283036f68ab9)> for optimization to TURBOFAN_JS, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x368188a426a1 <JSFunction caller_usesArgs (sfi = 0x283036f68ab9)> (target TURBOFAN_JS), mode: ConcurrencyMode::kConcurrent]
+[marking 0x368188a428b9 <JSFunction caller_switchRet (sfi = 0x283036f68a29)> for optimization to TURBOFAN_JS, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[marking 0x368188a42879 <JSFunction caller_sideEffect (sfi = 0x283036f68a71)> for optimization to TURBOFAN_JS, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x368188a428b9 <JSFunction caller_switchRet (sfi = 0x283036f68a29)> (target TURBOFAN_JS), mode: ConcurrencyMode::kConcurrent]
+[compiling method 0x368188a42879 <JSFunction caller_sideEffect (sfi = 0x283036f68a71)> (target TURBOFAN_JS), mode: ConcurrencyMode::kConcurrent]
+[completed compiling 0x368188a4c0e1 <JSFunction named (sfi = 0x283036f68bd9)> (target TURBOFAN_JS) - took 0.005, 0.558, 0.018 ms]
+[completed optimizing 0x368188a4c0e1 <JSFunction named (sfi = 0x283036f68bd9)> (target TURBOFAN_JS)]
+Considering 0x46324c30 {0x283036f68909 <SharedFunctionInfo sideEffect>} for inlining with 0x46324dc8 {0x283036f698f1 <FeedbackVector[6]>}
+1 candidate(s) for inlining:
+- candidate: JSCall node #35 with frequency 99.807, 1 target(s):
+  - target: 0x46324c30 {0x283036f68909 <SharedFunctionInfo sideEffect>}, bytecode size: 30
+Inlining 0x46324c30 {0x283036f68909 <SharedFunctionInfo sideEffect>} into 0x46324850 {0x283036f68a71 <SharedFunctionInfo caller_sideEffect>}
+[completed compiling 0x368188a435f1 <JSFunction usesRest (sfi = 0x283036f68999)> (target TURBOFAN_JS) - took 0.021, 6.500, 0.011 ms]
+[completed optimizing 0x368188a435f1 <JSFunction usesRest (sfi = 0x283036f68999)> (target TURBOFAN_JS)]
+[completed compiling 0x368188a43631 <JSFunction usesArgs (sfi = 0x283036f68951)> (target TURBOFAN_JS) - took 0.021, 7.914, 0.007 ms]
+[completed optimizing 0x368188a43631 <JSFunction usesArgs (sfi = 0x283036f68951)> (target TURBOFAN_JS)]
+Considering 0x462f41c0 {0x283036f68879[marking 0x368188a42839 <JSFunction caller_usesRest (sfi = 0x283036f68b01)> <SharedFunctionInfo multiRet>} for inlining with 0x462f4358 {0x283036f69629 <FeedbackVector[ for optimization to TURBOFAN_JS, ConcurrencyMode::kConcurrent, reason: hot and stable]
+3]>}
+[compiling method 0x368188a42839 <JSFunction caller_usesRest (sfi = 0x283036f68b01)> (target TURBOFAN_JS), mode: ConcurrencyMode::kConcurrent]
+1 candidate(s) for inlining:
+- candidate: JSCall node #35 with frequency 99.7179, 1 target(s):
+  - target: 0x462f41c0 {0x283036f68879 <SharedFunctionInfo multiRet>}, bytecode size: 35
+Inlining 0x462f41c0 {0x283036f68879 <SharedFunctionInfo multiRet>} into 0x462f3de0 {0x283036f689e1 <SharedFunctionInfo caller_multiRet>}
+[completed compiling 0x085093b80ca9 <JSFunction (sfi = 0x283036f69d81)> (target TURBOFAN_JS) - took 0.010, 2.060, 0.005 ms]
+[completed optimizing 0x085093b80ca9 <JSFunction (sfi = 0x283036f69d81)> (target TURBOFAN_JS)]
+Considering 0x462d2210 {0x283036f68999 <SharedFunctionInfo usesRest>} for inlining with 0x462d23a8 {0x283036f69c61 <FeedbackVector[8]>}
+1 candidate(s) for inlining:
+- candidate: JSCall node #37 with frequency 99.9035, 1 target(s):
+  - target: 0x462d2210 {0x283036f68999 <SharedFunctionInfo usesRest>}, bytecode size: 40
+Inlining 0x462d2210 {0x283036f68999 <SharedFunctionInfo usesRest>} into 0x462d1e30 {0x283036f68b01 <SharedFunctionInfo caller_usesRest>}
+Considering 0x46304340 {0x283036f68951 <SharedFunctionInfo usesArgs>} for inlining with 0x463044d8 {0x283036f69aa1 <FeedbackVector[8]>}
+Considering 0x463144c0 {0x283036f688c1 <SharedFunctionInfo switchRet>} for inlining with 0x46314658 {0x283036f69761 <FeedbackVector[2]>}
+1 candidate(s) for inlining:
+- candidate: JSCall node #35 with frequency 99.807, 1 target(s):
+  - target: 0x463144c0 {0x283036f688c1 <SharedFunctionInfo switchRet>}, bytecode size: 40
+Inlining 0x463144c0 {0x283036f688c1 <SharedFunctionInfo switchRet>} into 0x463140e0 {0x283036f68a29 <SharedFunctionInfo caller_switchRet>}
+1 candidate(s) for inlining:
+- candidate: JSCall node #37 with frequency 99.8226, 1 target(s):
+  - target: 0x46304340 {0x283036f68951 <SharedFunctionInfo usesArgs>}, bytecode size: 39
+Inlining 0x46304340 {0x283036f68951 <SharedFunctionInfo usesArgs>} into 0x46303f60 {0x283036f68ab9 <SharedFunctionInfo caller_usesArgs>}
+[completed compiling 0x368188a428f9 <JSFunction caller_multiRet (sfi = 0x283036f689e1)> (target TURBOFAN_JS) - took 0.011, 2.249, 0.031 ms]
+[completed optimizing 0x368188a428f9 <JSFunction caller_multiRet (sfi = 0x283036f689e1)> (target TURBOFAN_JS)]
+[completed compiling 0x368188a42879 <JSFunction caller_sideEffect (sfi = 0x283036f68a71)> (target TURBOFAN_JS) - took 0.006, 2.679, 0.008 ms]
+[completed optimizing 0x368188a42879 <JSFunction caller_sideEffect (sfi = 0x283036f68a71)> (target TURBOFAN_JS)]
+[completed compiling 0x368188a428b9 <JSFunction caller_switchRet (sfi = 0x283036f68a29)> (target TURBOFAN_JS) - took 0.010, 1.496, 0.004 ms]
+[completed optimizing 0x368188a428b9 <JSFunction caller_switchRet (sfi = 0x283036f68a29)> (target TURBOFAN_JS)]
+[completed compiling 0x368188a42839 <JSFunction caller_usesRest (sfi = 0x283036f68b01)> (target TURBOFAN_JS) - took 0.006, 3.203, 0.005 ms]
+[completed optimizing 0x368188a42839 <JSFunction caller_usesRest (sfi = 0x283036f68b01)> (target TURBOFAN_JS)]
+[completed compiling 0x368188a426a1 <JSFunction caller_usesArgs (sfi = 0x283036f68ab9)> (target TURBOFAN_JS) - took 0.008, 4.199, 0.007 ms]
+[completed optimizing 0x368188a426a1 <JSFunction caller_usesArgs (sfi = 0x283036f68ab9)> (target TURBOFAN_JS)]
+[marking 0x368188a427f9 <JSFunction caller_reduceLiteral (sfi = 0x283036f68b49)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[marking 0x368188a427b9 <JSFunction caller_reduceNamed (sfi = 0x283036f68b91)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x368188a427f9 <JSFunction caller_reduceLiteral (sfi = 0x283036f68b49)> (target MAGLEV), mode: ConcurrencyMode::kConcurrent]
+[compiling method 0x368188a427b9 <JSFunction caller_reduceNamed (sfi = 0x283036f68b91)> (target MAGLEV), mode: ConcurrencyMode::kConcurrent]
+[completed compiling 0x368188a427b9 <JSFunction caller_reduceNamed (sfi = 0x283036f68b91)> (target MAGLEV) - took 0.000, 0.566, 0.008 ms]
+[completed compiling 0x368188a427f9 <JSFunction caller_reduceLiteral (sfi = 0x283036f68b49)> (target MAGLEV) - took 0.001, 0.622, 0.010 ms]
+caller_multiRet: status bits=1010001
+caller_switchRet: status bits=1010001
+caller_sideEffect: status bits=1010001
+caller_usesArgs: status bits=1010001
+caller_usesRest: status bits=1010001
+caller_reduceLiteral: status bits=110001
+caller_reduceNamed: status bits=110001
+usesArgs: status bits=1010001
+usesRest: status bits=1010001

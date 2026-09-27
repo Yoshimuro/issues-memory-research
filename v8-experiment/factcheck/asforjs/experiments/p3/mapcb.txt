@@ -1,0 +1,18 @@
+## node22
+rep0 arrow=38.9 named=121.9 named/arrow=3.13
+rep1 arrow=38.8 named=124.2 named/arrow=3.20
+rep2 arrow=38.5 named=119.9 named/arrow=3.12
+JSON.parse 300 keys fast? false
+JSON.parse 120 keys fast? true
+## node24
+rep0 arrow=40.1 named=123.5 named/arrow=3.08
+rep1 arrow=40.1 named=122.4 named/arrow=3.06
+rep2 arrow=39.3 named=122.1 named/arrow=3.11
+JSON.parse 300 keys fast? false
+JSON.parse 120 keys fast? true
+## d8
+rep0 arrow=53.3 named=50.6 named/arrow=0.95
+rep1 arrow=47.9 named=52.6 named/arrow=1.10
+rep2 arrow=48.0 named=47.1 named/arrow=0.98
+JSON.parse 300 keys fast? false
+JSON.parse 120 keys fast? true

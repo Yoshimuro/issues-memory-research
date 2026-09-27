@@ -1,0 +1,95 @@
+== [1,2,3] smi=true dbl=false obj=false holey=false dict=false
+ - elements: 0x1840eaf63f89 <FixedArray[3]> [PACKED_SMI_ELEMENTS (COW)]
+ - elements: 0x1840eaf63f89 <FixedArray[3]> {
+ - elements kind: PACKED_SMI_ELEMENTS
+== a[1]=1.5 smi=false dbl=true obj=false holey=false dict=false
+ - elements: 0x3ca290f9ea51 <FixedDoubleArray[3]> [PACKED_DOUBLE_ELEMENTS]
+ - elements: 0x3ca290f9ea51 <FixedDoubleArray[3]> {
+ - elements kind: PACKED_DOUBLE_ELEMENTS
+== a[1]='x' smi=false dbl=false obj=true holey=false dict=false
+ - elements: 0x3ca290f9efd9 <FixedArray[3]> [PACKED_ELEMENTS]
+ - elements: 0x3ca290f9efd9 <FixedArray[3]> {
+ - elements kind: PACKED_ELEMENTS
+== a[1]=2 (back to number) smi=false dbl=false obj=true holey=false dict=false
+ - elements: 0x3ca290f9efd9 <FixedArray[3]> [PACKED_ELEMENTS]
+ - elements: 0x3ca290f9efd9 <FixedArray[3]> {
+ - elements kind: PACKED_ELEMENTS
+== delete a[1] smi=false dbl=false obj=true holey=true dict=false
+ - elements: 0x3ca290f9efd9 <FixedArray[3]> [HOLEY_ELEMENTS]
+ - elements: 0x3ca290f9efd9 <FixedArray[3]> {
+ - elements kind: HOLEY_ELEMENTS
+== a[1]=2 (fill hole) smi=false dbl=false obj=true holey=true dict=false
+ - elements: 0x3ca290f9efd9 <FixedArray[3]> [HOLEY_ELEMENTS]
+ - elements: 0x3ca290f9efd9 <FixedArray[3]> {
+ - elements kind: HOLEY_ELEMENTS
+== [] smi=true dbl=false obj=false holey=false dict=false
+ - elements: 0x3d046f740259 <FixedArray[0]> [PACKED_SMI_ELEMENTS]
+ - elements kind: PACKED_SMI_ELEMENTS
+== [Infinity]-> smi=false dbl=true obj=false holey=false dict=false
+ - elements: 0x3ca290fa0c09 <FixedDoubleArray[2]> [PACKED_DOUBLE_ELEMENTS]
+ - elements: 0x3ca290fa0c09 <FixedDoubleArray[2]> {
+ - elements kind: PACKED_DOUBLE_ELEMENTS
+== [NaN]-> smi=false dbl=true obj=false holey=false dict=false
+ - elements: 0x3ca290fa1229 <FixedDoubleArray[2]> [PACKED_DOUBLE_ELEMENTS]
+ - elements: 0x3ca290fa1229 <FixedDoubleArray[2]> {
+ - elements kind: PACKED_DOUBLE_ELEMENTS
+== [-0]-> smi=false dbl=true obj=false holey=false dict=false
+ - elements: 0x3ca290fa1801 <FixedDoubleArray[2]> [PACKED_DOUBLE_ELEMENTS]
+ - elements: 0x3ca290fa1801 <FixedDoubleArray[2]> {
+ - elements kind: PACKED_DOUBLE_ELEMENTS
+== [+0]-> smi=true dbl=false obj=false holey=false dict=false
+ - elements: 0x3ca290fa1e59 <FixedArray[2]> [PACKED_SMI_ELEMENTS]
+ - elements: 0x3ca290fa1e59 <FixedArray[2]> {
+ - elements kind: PACKED_SMI_ELEMENTS
+== [0.0]-> smi=true dbl=false obj=false holey=false dict=false
+ - elements: 0x3ca290fa2441 <FixedArray[2]> [PACKED_SMI_ELEMENTS]
+ - elements: 0x3ca290fa2441 <FixedArray[2]> {
+ - elements kind: PACKED_SMI_ELEMENTS
+== read beyond length smi=true dbl=false obj=false holey=false dict=false
+ - elements: 0x1840eaf63fc9 <FixedArray[3]> [PACKED_SMI_ELEMENTS (COW)]
+ - elements: 0x1840eaf63fc9 <FixedArray[3]> {
+ - elements kind: PACKED_SMI_ELEMENTS
+== new Array(10) smi=true dbl=false obj=false holey=true dict=false
+ - elements: 0x3ca290fa3119 <FixedArray[10]> [HOLEY_SMI_ELEMENTS]
+ - elements: 0x3ca290fa3119 <FixedArray[10]> {
+ - elements kind: HOLEY_SMI_ELEMENTS
+== new Array(10).fill(0) smi=true dbl=false obj=false holey=true dict=false
+ - elements: 0x3ca290fa3711 <FixedArray[10]> [HOLEY_SMI_ELEMENTS]
+ - elements: 0x3ca290fa3711 <FixedArray[10]> {
+ - elements kind: HOLEY_SMI_ELEMENTS
+== Array() smi=true dbl=false obj=false holey=false dict=false
+ - elements: 0x3ca290fa3d31 <FixedArray[4]> [PACKED_SMI_ELEMENTS]
+ - elements: 0x3ca290fa3d31 <FixedArray[4]> {
+ - elements kind: PACKED_SMI_ELEMENTS
+== [1,,3] smi=true dbl=false obj=false holey=true dict=false
+ - elements: 0x1840eaf64009 <FixedArray[3]> [HOLEY_SMI_ELEMENTS (COW)]
+ - elements: 0x1840eaf64009 <FixedArray[3]> {
+ - elements kind: HOLEY_SMI_ELEMENTS
+== Array.from({length:10},()=>0) smi=true dbl=false obj=false holey=false dict=false
+ - elements: 0x3ca290fa49e9 <FixedArray[10]> [PACKED_SMI_ELEMENTS]
+ - elements: 0x3ca290fa49e9 <FixedArray[10]> {
+ - elements kind: PACKED_SMI_ELEMENTS
+== Array.from({length:10},()=>-0) smi=false dbl=true obj=false holey=false dict=false
+ - elements: 0x3ca290fa50a9 <FixedDoubleArray[10]> [PACKED_DOUBLE_ELEMENTS]
+ - elements: 0x3ca290fa50a9 <FixedDoubleArray[10]> {
+ - elements kind: PACKED_DOUBLE_ELEMENTS
+== Array.from({length:10}) smi=false dbl=false obj=true holey=false dict=false
+ - elements: 0x3ca290fa5771 <FixedArray[10]> [PACKED_ELEMENTS]
+ - elements: 0x3ca290fa5771 <FixedArray[10]> {
+ - elements kind: PACKED_ELEMENTS
+== Array.from({length:10},(_, i)=>i) smi=true dbl=false obj=false holey=false dict=false
+ - elements: 0x3ca290fa5dc9 <FixedArray[10]> [PACKED_SMI_ELEMENTS]
+ - elements: 0x3ca290fa5dc9 <FixedArray[10]> {
+ - elements kind: PACKED_SMI_ELEMENTS
+== [1.1,2.2] smi=false dbl=true obj=false holey=false dict=false
+ - elements: 0x3ca290fa63b9 <FixedDoubleArray[2]> [PACKED_DOUBLE_ELEMENTS]
+ - elements: 0x3ca290fa63b9 <FixedDoubleArray[2]> {
+ - elements kind: PACKED_DOUBLE_ELEMENTS
+== [1.1,2.2].push(heapnumber) smi=false dbl=true obj=false holey=false dict=false
+ - elements: 0x3ca290fa6b31 <FixedDoubleArray[20]> [PACKED_DOUBLE_ELEMENTS]
+ - elements: 0x3ca290fa6b31 <FixedDoubleArray[20]> {
+ - elements kind: PACKED_DOUBLE_ELEMENTS
+== [1,2].push(heapnumber) smi=false dbl=true obj=false holey=false dict=false
+ - elements: 0x3ca290fa7239 <FixedDoubleArray[20]> [PACKED_DOUBLE_ELEMENTS]
+ - elements: 0x3ca290fa7239 <FixedDoubleArray[20]> {
+ - elements kind: PACKED_DOUBLE_ELEMENTS

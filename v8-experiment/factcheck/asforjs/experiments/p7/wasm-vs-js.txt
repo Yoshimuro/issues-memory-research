@@ -1,0 +1,15 @@
+rep1 --max-opt=0: wasm ms 153 js ms 1492 true
+rep1 --max-opt=1: wasm ms 147 js ms 610 true
+rep1 --max-opt=2: wasm ms 147 js ms 108 true
+rep1 --max-opt=3: wasm ms 126 js ms 39 true
+rep2 --max-opt=0: wasm ms 149 js ms 1475 true
+rep2 --max-opt=1: wasm ms 127 js ms 496 true
+rep2 --max-opt=2: wasm ms 119 js ms 97 true
+rep2 --max-opt=3: wasm ms 143 js ms 51 true
+rep3 --max-opt=0: wasm ms 169 js ms 1659 true
+rep3 --max-opt=1: wasm ms 126 js ms 610 true
+rep3 --max-opt=2: wasm ms 154 js ms 105 true
+rep3 --max-opt=3: wasm ms 149 js ms 47 true
+--- wasm tiers: --liftoff-only vs --no-liftoff
+--liftoff-only: wasm ms 79 js ms 59 true
+--no-liftoff: wasm ms 44 js ms 49 true

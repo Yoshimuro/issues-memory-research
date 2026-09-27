@@ -1,0 +1,34 @@
+## d8 (31-bit Smi)
+--- loopSum crossing 2^30
+1610612736
+--- loopSum crossing 2^31
+[bailout (kind: deopt-eager, reason: overflow): begin. 
+2684354560
+--- add(2^29, 2^29) -> 2^30 result
+1073741824
+--- add(2^30, 1): 2^30 as input
+[bailout (kind: deopt-eager, reason: not a Smi): begin. 
+1073741825
+--- done
+## /opt/node22/bin/node (32-bit Smi)
+--- loopSum crossing 2^30
+1610612736
+--- loopSum crossing 2^31
+[bailout (kind: deopt-eager, reason: overflow): begin. 
+2684354560
+--- add(2^29, 2^29) -> 2^30 result
+1073741824
+--- add(2^30, 1): 2^30 as input
+1073741825
+--- done
+## /opt/nvm/versions/node/v24.21.0/bin/node (32-bit Smi)
+--- loopSum crossing 2^30
+1610612736
+--- loopSum crossing 2^31
+[bailout (kind: deopt-eager, reason: overflow): begin. 
+2684354560
+--- add(2^29, 2^29) -> 2^30 result
+1073741824
+--- add(2^30, 1): 2^30 as input
+1073741825
+--- done

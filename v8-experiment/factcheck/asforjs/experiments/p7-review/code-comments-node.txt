@@ -1,0 +1,4 @@
+node24 JS opt code lines without/with --code-comments: 128 / 128
+  --code-comments ()
+        type: bool  default: --no-code-comments
+1 dis=undefined ["debug_node","debug_symbols","node_debug_lib","debug_nghttp2","v8_optimized_debug"]

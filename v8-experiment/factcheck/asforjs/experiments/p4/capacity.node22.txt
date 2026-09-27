@@ -1,0 +1,73 @@
+== [] length=0
+ - elements: 0x3b725d840c31 <FixedArray[0]> [PACKED_SMI_ELEMENTS]
+== [] push x1 length=1
+ - elements: 0x0b61f7b237a1 <FixedArray[17]> [PACKED_SMI_ELEMENTS]
+ - elements: 0x0b61f7b237a1 <FixedArray[17]> {
+== push x3 length=3
+ - elements: 0x0b61f7b237a1 <FixedArray[17]> [PACKED_SMI_ELEMENTS]
+ - elements: 0x0b61f7b237a1 <FixedArray[17]> {
+== push x17 length=17
+ - elements: 0x0b61f7b237a1 <FixedArray[17]> [PACKED_SMI_ELEMENTS]
+ - elements: 0x0b61f7b237a1 <FixedArray[17]> {
+== push x18 length=18
+ - elements: 0x0b61f7b241a1 <FixedArray[43]> [PACKED_SMI_ELEMENTS]
+ - elements: 0x0b61f7b241a1 <FixedArray[43]> {
+== push x43 length=43
+ - elements: 0x0b61f7b241a1 <FixedArray[43]> [PACKED_SMI_ELEMENTS]
+ - elements: 0x0b61f7b241a1 <FixedArray[43]> {
+== push x44 length=44
+ - elements: 0x0b61f7b24a19 <FixedArray[82]> [PACKED_SMI_ELEMENTS]
+ - elements: 0x0b61f7b24a19 <FixedArray[82]> {
+== [1,2,3,4] length=4
+ - elements: 0x21846d39b7d1 <FixedArray[4]> [PACKED_SMI_ELEMENTS (COW)]
+ - elements: 0x21846d39b7d1 <FixedArray[4]> {
+== [1,2,3,4].push(5) length=5
+ - elements: 0x0b61f7b25351 <FixedArray[23]> [PACKED_SMI_ELEMENTS]
+ - elements: 0x0b61f7b25351 <FixedArray[23]> {
+== [9,10,11].push(12) length=4
+ - elements: 0x0b61f7b25751 <FixedArray[22]> [PACKED_SMI_ELEMENTS]
+ - elements: 0x0b61f7b25751 <FixedArray[22]> {
+== [9,10,11].push(12,13,14) length=6
+ - elements: 0x0b61f7b25f49 <FixedArray[25]> [PACKED_SMI_ELEMENTS]
+ - elements: 0x0b61f7b25f49 <FixedArray[25]> {
+== new Array(10) length=10
+ - elements: 0x0b61f7b26371 <FixedArray[10]> [HOLEY_SMI_ELEMENTS]
+ - elements: 0x0b61f7b26371 <FixedArray[10]> {
+== new Array() length=0
+ - elements: 0x0b61f7b26731 <FixedArray[4]> [PACKED_SMI_ELEMENTS]
+ - elements: 0x0b61f7b26731 <FixedArray[4]> {
+== Array() length=0
+ - elements: 0x0b61f7b26ad1 <FixedArray[4]> [PACKED_SMI_ELEMENTS]
+ - elements: 0x0b61f7b26ad1 <FixedArray[4]> {
+== [1,2,3,4,5] length=5
+ - elements: 0x21846d39b899 <FixedArray[5]> [PACKED_SMI_ELEMENTS (COW)]
+ - elements: 0x21846d39b899 <FixedArray[5]> {
+== index-filled 100 length=100
+ - elements: 0x0b61f7b27621 <FixedArray[140]> [PACKED_SMI_ELEMENTS]
+ - elements: 0x0b61f7b27621 <FixedArray[140]> {
+== push-filled 100 length=100
+ - elements: 0x0b61f7b28291 <FixedArray[140]> [PACKED_SMI_ELEMENTS]
+ - elements: 0x0b61f7b28291 <FixedArray[140]> {
+== pop down to 41 length=41
+ - elements: 0x0b61f7b28291 <FixedArray[70]> [PACKED_SMI_ELEMENTS]
+ - elements: 0x0b61f7b28291 <FixedArray[70]> {
+== pop down to 30 length=30
+ - elements: 0x0b61f7b28291 <FixedArray[70]> [PACKED_SMI_ELEMENTS]
+ - elements: 0x0b61f7b28291 <FixedArray[70]> {
+== push 140 length=140
+ - elements: 0x0b61f7b29579 <FixedArray[140]> [PACKED_SMI_ELEMENTS]
+ - elements: 0x0b61f7b29579 <FixedArray[140]> {
+== length=70 length=70
+ - elements: 0x0b61f7b29579 <FixedArray[140]> [PACKED_SMI_ELEMENTS]
+ - elements: 0x0b61f7b29579 <FixedArray[140]> {
+== length=0 length=0
+ - elements: 0x3b725d840c31 <FixedArray[0]> [PACKED_SMI_ELEMENTS]
+== [] then length=100 length=100
+ - elements: 0x0b61f7b2a3a9 <FixedArray[100]> [HOLEY_SMI_ELEMENTS]
+ - elements: 0x0b61f7b2a3a9 <FixedArray[100]> {
+== push 100 (before shift) length=100
+ - elements: 0x0b61f7b2aed9 <FixedArray[140]> [PACKED_SMI_ELEMENTS]
+ - elements: 0x0b61f7b2aed9 <FixedArray[140]> {
+== after shift length=99
+ - elements: 0x0b61f7b2aed9 <FixedArray[140]> [PACKED_SMI_ELEMENTS]
+ - elements: 0x0b61f7b2aed9 <FixedArray[140]> {

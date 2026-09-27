@@ -1,0 +1,28 @@
+== /opt/node20/bin/node
+Considering 0x1ac1e5c8 {0x32d896ce3659 <SharedFunctionInfo twoReturns>} for inlining with 0x1ac1e9e8 {0x32d896ce44e9 <FeedbackVector[3]>}
+Inlining small function(s) at call site #18:JSCall
+Inlining 0x1ac1e5c8 {0x32d896ce3659 <SharedFunctionInfo twoReturns>} into 0x1ac1e4e8 {0x32d896ce36f9 <SharedFunctionInfo caller>}
+Considering 0x1ac1e890 {0x32d896ce36a9 <SharedFunctionInfo usesArguments>} for inlining with 0x1ac1eaf8 {0x32d896ce4649 <FeedbackVector[8]>}
+1 candidate(s) for inlining:
+Inlining 0x1ac1e890 {0x32d896ce36a9 <SharedFunctionInfo usesArguments>} into 0x1ac1e4e8 {0x32d896ce36f9 <SharedFunctionInfo caller>}
+== /opt/node22/bin/node
+Considering 0x442462c8 {0x2e9ca5a1b429 <SharedFunctionInfo twoReturns>} for inlining with 0x44246550 {0x2e9ca5a1ba31 <FeedbackVector[3]>}
+Inlining small function(s) at call site #18:JSCall
+Inlining 0x442462c8 {0x2e9ca5a1b429 <SharedFunctionInfo twoReturns>} into 0x44245f80 {0x2e9ca5a1b4d9 <SharedFunctionInfo caller>}
+Considering 0x442463f8 {0x2e9ca5a1b481 <SharedFunctionInfo usesArguments>} for inlining with 0x44246a60 {0x2e9ca5a1bb01 <FeedbackVector[8]>}
+1 candidate(s) for inlining:
+Inlining 0x442463f8 {0x2e9ca5a1b481 <SharedFunctionInfo usesArguments>} into 0x44245f80 {0x2e9ca5a1b4d9 <SharedFunctionInfo caller>}
+== /opt/nvm/versions/node/v24.21.0/bin/node
+Considering 0x3a4b9128 {0x3da6bfde82e1 <SharedFunctionInfo twoReturns>} for inlining with 0x3a4b93c0 {0x3da6bfde8941 <FeedbackVector[3]>}
+Inlining small function(s) at call site #18:JSCall
+Inlining 0x3a4b9128 {0x3da6bfde82e1 <SharedFunctionInfo twoReturns>} into 0x3a4b8de0 {0x3da6bfde8371 <SharedFunctionInfo caller>}
+Considering 0x3a4b9258 {0x3da6bfde8329 <SharedFunctionInfo usesArguments>} for inlining with 0x3a4b98d0 {0x3da6bfde8a01 <FeedbackVector[8]>}
+1 candidate(s) for inlining:
+Inlining 0x3a4b9258 {0x3da6bfde8329 <SharedFunctionInfo usesArguments>} into 0x3a4b8de0 {0x3da6bfde8371 <SharedFunctionInfo caller>}
+== /tmp/claude-0/-home-user-issues-memory-research/dacf359b-9898-588d-b8f1-20fd1e3f2945/scratchpad/d8/rel/d8
+Considering 0x1b5400edfea0 {0x2bed0101e029 <SharedFunctionInfo twoReturns>} for inlining with 0x1b5400ee0730 {0x2bed0101e2d9 <FeedbackVector[0]>}
+Inlining small function(s) at call site #21:JSCall
+Inlining 0x1b5400edfea0 {0x2bed0101e029 <SharedFunctionInfo twoReturns>} into 0x1b5400edfbf8 {0x2bed0101e089 <SharedFunctionInfo caller>}
+Considering 0x1b5400ee04a0 {0x2bed0101e059 <SharedFunctionInfo usesArguments>} for inlining with 0x1b5400ee0e80 {0x2bed0101e335 <FeedbackVector[6]>}
+Budget used: 0/920 -- 1 candidate(s) for inlining:
+Inlining 0x1b5400ee04a0 {0x2bed0101e059 <SharedFunctionInfo usesArguments>} into 0x1b5400edfbf8 {0x2bed0101e089 <SharedFunctionInfo caller>}

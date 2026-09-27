@@ -1,0 +1,78 @@
+== node20
+Considering 0x126ce018 {0x16524e463899 <SharedFunctionInfo fixed>} for inlining with 0x126ce340 {0x16524e465499 <FeedbackVector[2]>}
+Inlining small function(s) at call site #20:JSCall
+Inlining 0x126ce018 {0x16524e463899 <SharedFunctionInfo fixed>} into 0x126cdf38 {0x16524e463989 <SharedFunctionInfo callFixed>}
+Considering 0x126ce018 {0x16524e4638e9 <SharedFunctionInfo rest>} for inlining with 0x126ce340 {0x16524e4655c1 <FeedbackVector[8]>}
+Inlining small function(s) at call site #20:JSCall
+Inlining 0x126ce018 {0x16524e4638e9 <SharedFunctionInfo rest>} into 0x126cdf38 {0x16524e4639d9 <SharedFunctionInfo callRest>}
+Considering 0x126ce018 {0x16524e463939 <SharedFunctionInfo useArgs>} for inlining with 0x126ce340 {0x16524e465719 <FeedbackVector[8]>}
+Inlining small function(s) at call site #20:JSCall
+Inlining 0x126ce018 {0x16524e463939 <SharedFunctionInfo useArgs>} into 0x126cdf38 {0x16524e463a29 <SharedFunctionInfo callArgs>}
+callFixed status 1010001 optimized(bit4 in <=13.6) true
+callRest status 1010001 optimized(bit4 in <=13.6) true
+callArgs status 1010001 optimized(bit4 in <=13.6) true
+callSpread status 1010001 optimized(bit4 in <=13.6) true
+callApply status 1010001 optimized(bit4 in <=13.6) true
+fixed status 1010001 optimized(bit4 in <=13.6) true
+rest status 1010001 optimized(bit4 in <=13.6) true
+useArgs status 1010001 optimized(bit4 in <=13.6) true
+== node22
+Considering 0x274dc2d8 {0x3f7c0a41b641 <SharedFunctionInfo fixed>} for inlining with 0x274dc468 {0x3f7c0a41c231 <FeedbackVector[2]>}
+Inlining small function(s) at call site #20:JSCall
+Inlining 0x274dc2d8 {0x3f7c0a41b641 <SharedFunctionInfo fixed>} into 0x274dbf90 {0x3f7c0a41b749 <SharedFunctionInfo callFixed>}
+Considering 0x274dc2d8 {0x3f7c0a41b699 <SharedFunctionInfo rest>} for inlining with 0x274dc468 {0x3f7c0a41c2f9 <FeedbackVector[8]>}
+Inlining small function(s) at call site #20:JSCall
+Inlining 0x274dc2d8 {0x3f7c0a41b699 <SharedFunctionInfo rest>} into 0x274dbf90 {0x3f7c0a41b7a1 <SharedFunctionInfo callRest>}
+Considering 0x274dc2d8 {0x3f7c0a41b6f1 <SharedFunctionInfo useArgs>} for inlining with 0x274dc468 {0x3f7c0a41c3f1 <FeedbackVector[8]>}
+Inlining small function(s) at call site #20:JSCall
+Inlining 0x274dc2d8 {0x3f7c0a41b6f1 <SharedFunctionInfo useArgs>} into 0x274dbf90 {0x3f7c0a41b7f9 <SharedFunctionInfo callArgs>}
+callFixed status 1010001 optimized(bit4 in <=13.6) true
+callRest status 1010001 optimized(bit4 in <=13.6) true
+callArgs status 1010001 optimized(bit4 in <=13.6) true
+callSpread status 1010001 optimized(bit4 in <=13.6) true
+callApply status 1010001 optimized(bit4 in <=13.6) true
+fixed status 1010001 optimized(bit4 in <=13.6) true
+rest status 1010001 optimized(bit4 in <=13.6) true
+useArgs status 1010001 optimized(bit4 in <=13.6) true
+== node24
+Considering 0x18c6b198 {0x2e1cfcd28439 <SharedFunctionInfo fixed>} for inlining with 0x18c6b338 {0x2e1cfcd290c9 <FeedbackVector[2]>}
+Inlining small function(s) at call site #20:JSCall
+Inlining 0x18c6b198 {0x2e1cfcd28439 <SharedFunctionInfo fixed>} into 0x18c6ae50 {0x2e1cfcd28511 <SharedFunctionInfo callFixed>}
+Considering 0x18c6b198 {0x2e1cfcd28481 <SharedFunctionInfo rest>} for inlining with 0x18c6b338 {0x2e1cfcd29181 <FeedbackVector[8]>}
+Inlining small function(s) at call site #20:JSCall
+Inlining 0x18c6b198 {0x2e1cfcd28481 <SharedFunctionInfo rest>} into 0x18c6ae50 {0x2e1cfcd28559 <SharedFunctionInfo callRest>}
+Considering 0x18c6b198 {0x2e1cfcd284c9 <SharedFunctionInfo useArgs>} for inlining with 0x18c6b338 {0x2e1cfcd29269 <FeedbackVector[8]>}
+Inlining small function(s) at call site #20:JSCall
+Inlining 0x18c6b198 {0x2e1cfcd284c9 <SharedFunctionInfo useArgs>} into 0x18c6ae50 {0x2e1cfcd285a1 <SharedFunctionInfo callArgs>}
+callFixed status 1010001 optimized(bit4 in <=13.6) true
+callRest status 1010001 optimized(bit4 in <=13.6) true
+callArgs status 1010001 optimized(bit4 in <=13.6) true
+callSpread status 1010001 optimized(bit4 in <=13.6) true
+callApply status 1010001 optimized(bit4 in <=13.6) true
+fixed status 1010001 optimized(bit4 in <=13.6) true
+rest status 1010001 optimized(bit4 in <=13.6) true
+useArgs status 1010001 optimized(bit4 in <=13.6) true
+== d8
+Considering 0x1ce400edfeb0 {0x38070101e15d <SharedFunctionInfo fixed>} for inlining with 0x1ce400ee0638 {0x38070101e935 <FeedbackVector[0]>}
+Inlining small function(s) at call site #23:JSCall
+Inlining 0x1ce400edfeb0 {0x38070101e15d <SharedFunctionInfo fixed>} into 0x1ce400edfc78 {0x38070101e1ed <SharedFunctionInfo callFixed>}
+Considering 0x1ce400edaeb0 {0x38070101e18d <SharedFunctionInfo rest>} for inlining with 0x1ce400edb638 {0x38070101e995 <FeedbackVector[6]>}
+Inlining small function(s) at call site #23:JSCall
+Inlining 0x1ce400edaeb0 {0x38070101e18d <SharedFunctionInfo rest>} into 0x1ce400edac78 {0x38070101e21d <SharedFunctionInfo callRest>}
+Considering 0x1ce400edfeb0 {0x38070101e1bd <SharedFunctionInfo useArgs>} for inlining with 0x1ce400ee0638 {0x38070101ea0d <FeedbackVector[6]>}
+Inlining small function(s) at call site #23:JSCall
+Inlining 0x1ce400edfeb0 {0x38070101e1bd <SharedFunctionInfo useArgs>} into 0x1ce400edfc78 {0x38070101e24d <SharedFunctionInfo callArgs>}
+Considering 0x1ce400edaec0 {0x38070101e15d <SharedFunctionInfo fixed>} for inlining with 0x1ce400edbde0 {0x38070101e935 <FeedbackVector[0]>}
+Inlining small function(s) at call site #33:JSCall
+Inlining 0x1ce400edaec0 {0x38070101e15d <SharedFunctionInfo fixed>} into 0x1ce400edac78 {0x38070101e27d <SharedFunctionInfo callSpread>}
+Considering 0x1ce400ee01d0 {0x38070101e15d <SharedFunctionInfo fixed>} for inlining with 0x1ce400ee1810 {0x38070101e935 <FeedbackVector[0]>}
+Inlining small function(s) at call site #38:JSCall
+Inlining 0x1ce400ee01d0 {0x38070101e15d <SharedFunctionInfo fixed>} into 0x1ce400edfc78 {0x38070101e2ad <SharedFunctionInfo callApply>}
+callFixed status 101001 optimized(bit4 in <=13.6) false
+callRest status 101001 optimized(bit4 in <=13.6) false
+callArgs status 101001 optimized(bit4 in <=13.6) false
+callSpread status 101001 optimized(bit4 in <=13.6) false
+callApply status 101001 optimized(bit4 in <=13.6) false
+fixed status 101001 optimized(bit4 in <=13.6) false
+rest status 101001 optimized(bit4 in <=13.6) false
+useArgs status 101001 optimized(bit4 in <=13.6) false

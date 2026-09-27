@@ -1,0 +1,32 @@
+== node20
+before: u1 true u2 true u3 true u4 true
+sameMap(doExpr, other) before true
+after doExpr[0]=1: u1 true u2 true u3 true u4 true sameMap true
+[marking dependent code  <Code TURBOFAN> ( <SharedFunctionInfo user4>) (opt id 3) for deoptimization, reason: code dependencies]
+[marking dependent code  <Code TURBOFAN> ( <SharedFunctionInfo user1>) (opt id 0) for deoptimization, reason: code dependencies]
+after doExpr.counter=1 (no call): u1 false u2 true u3 true u4 false sameMap false
+after calls: u1 false u2 true u3 true u4 false
+== node22
+before: u1 true u2 true u3 true u4 true
+sameMap(doExpr, other) before true
+after doExpr[0]=1: u1 true u2 true u3 true u4 true sameMap true
+[marking dependent code  <Code TURBOFAN> ( <SharedFunctionInfo user4>) (opt id 3) for deoptimization, reason: code dependencies]
+[marking dependent code  <Code TURBOFAN> ( <SharedFunctionInfo user1>) (opt id 0) for deoptimization, reason: code dependencies]
+after doExpr.counter=1 (no call): u1 false u2 true u3 true u4 false sameMap false
+after calls: u1 false u2 true u3 true u4 false
+== node24
+before: u1 true u2 true u3 true u4 true
+sameMap(doExpr, other) before true
+after doExpr[0]=1: u1 true u2 true u3 true u4 true sameMap true
+[marking dependent code  <Code TURBOFAN_JS> ( <SharedFunctionInfo user4>) (opt id 4) for deoptimization, reason: dependent prototype chain changed]
+[marking dependent code  <Code TURBOFAN_JS> ( <SharedFunctionInfo user1>) (opt id 1) for deoptimization, reason: dependent prototype chain changed]
+after doExpr.counter=1 (no call): u1 false u2 true u3 true u4 false sameMap false
+after calls: u1 false u2 true u3 true u4 false
+== d8rel
+before: u1 true u2 true u3 true u4 true
+sameMap(doExpr, other) before true
+after doExpr[0]=1: u1 true u2 true u3 true u4 true sameMap true
+[marking dependent code  <Code TURBOFAN_JS> ( <SharedFunctionInfo user4>) (opt id 3) for deoptimization, reason: dependent prototype chain changed]
+[marking dependent code  <Code TURBOFAN_JS> ( <SharedFunctionInfo user1>) (opt id 0) for deoptimization, reason: dependent prototype chain changed]
+after doExpr.counter=1 (no call): u1 false u2 true u3 true u4 false sameMap false
+after calls: u1 false u2 true u3 true u4 false

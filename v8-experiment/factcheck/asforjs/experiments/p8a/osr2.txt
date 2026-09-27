@@ -1,0 +1,12 @@
+## node20 D-ctx: 737 ms s=51149967232 | scavenges: 1487
+## node20 D-local: 291 ms s=51149967232 | scavenges: 1487
+## node20 A-local: 327 ms s=51149967232 | scavenges: 1487
+## node20 A-ctx-smi: 189 ms s=429952 | scavenges: 0
+## node22 D-ctx: 750 ms s=51149967232 | scavenges: 1487
+## node22 D-local: 83 ms s=51149967232 | scavenges: 1
+## node22 A-local: 99 ms s=51149967232 | scavenges: 1
+## node22 A-ctx-smi: 184 ms s=429952 | scavenges: 0
+## node24 D-ctx: 720 ms s=51149967232 | scavenges: 1462
+## node24 D-local: 87 ms s=51149967232 | scavenges: 0
+## node24 A-local: 97 ms s=51149967232 | scavenges: 0
+## node24 A-ctx-smi: 146 ms s=429952 | scavenges: 0

@@ -1,0 +1,12 @@
+d8 --no-maglev literal            mode=plain n=3000000 ms=23 r=165000000
+d8 --no-maglev-osr literal            mode=plain n=3000000 ms=32 r=165000000
+d8 --max-opt=2 literal            mode=plain n=3000000 ms=273 r=165000000
+d8 --no-maglev inner              mode=plain n=3000000 ms=231 r=165000000
+d8 --no-maglev-osr inner              mode=plain n=3000000 ms=196 r=165000000
+d8 --max-opt=2 inner              mode=plain n=3000000 ms=245 r=165000000
+d8 --no-maglev globalFn           mode=plain n=3000000 ms=20 r=165000000
+d8 --no-maglev-osr globalFn           mode=plain n=3000000 ms=24 r=165000000
+d8 --max-opt=2 globalFn           mode=plain n=3000000 ms=244 r=165000000
+d8 --no-maglev globalConst        mode=plain n=3000000 ms=196 r=165000000
+d8 --no-maglev-osr globalConst        mode=plain n=3000000 ms=215 r=165000000
+d8 --max-opt=2 globalConst        mode=plain n=3000000 ms=235 r=165000000

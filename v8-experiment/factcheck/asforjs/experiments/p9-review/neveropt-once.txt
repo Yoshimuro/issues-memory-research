@@ -1,0 +1,40 @@
+== /opt/node20/bin/node
+once: at i=10  status=0x10881 baseline=false topInterp=true topBaseline=false opt=false
+once: at end   status=0x28801 baseline=true topInterp=false topBaseline=true opt=false
+many: 1st call status=0x10881 baseline=false topInterp=true topBaseline=false opt=false
+many: 5000th   status=0x28801 baseline=true topInterp=false topBaseline=true opt=false
+-- with --no-sparkplug
+once: at i=10  status=0x10881 baseline=false topInterp=true topBaseline=false opt=false
+once: at end   status=0x10881 baseline=false topInterp=true topBaseline=false opt=false
+many: 1st call status=0x10881 baseline=false topInterp=true topBaseline=false opt=false
+many: 5000th   status=0x10881 baseline=false topInterp=true topBaseline=false opt=false
+== /opt/node22/bin/node
+once: at i=10  status=0x10881 baseline=false topInterp=true topBaseline=false opt=false
+once: at end   status=0x28801 baseline=true topInterp=false topBaseline=true opt=false
+many: 1st call status=0x10881 baseline=false topInterp=true topBaseline=false opt=false
+many: 5000th   status=0x28801 baseline=true topInterp=false topBaseline=true opt=false
+-- with --no-sparkplug
+once: at i=10  status=0x10881 baseline=false topInterp=true topBaseline=false opt=false
+once: at end   status=0x10881 baseline=false topInterp=true topBaseline=false opt=false
+many: 1st call status=0x10881 baseline=false topInterp=true topBaseline=false opt=false
+many: 5000th   status=0x10881 baseline=false topInterp=true topBaseline=false opt=false
+== /opt/nvm/versions/node/v24.21.0/bin/node
+once: at i=10  status=0x10881 baseline=false topInterp=true topBaseline=false opt=false
+once: at end   status=0x20801 baseline=false topInterp=false topBaseline=true opt=false
+many: 1st call status=0x10881 baseline=false topInterp=true topBaseline=false opt=false
+many: 5000th   status=0x28801 baseline=true topInterp=false topBaseline=true opt=false
+-- with --no-sparkplug
+once: at i=10  status=0x10881 baseline=false topInterp=true topBaseline=false opt=false
+once: at end   status=0x10881 baseline=false topInterp=true topBaseline=false opt=false
+many: 1st call status=0x10881 baseline=false topInterp=true topBaseline=false opt=false
+many: 5000th   status=0x10881 baseline=false topInterp=true topBaseline=false opt=false
+== /tmp/claude-0/-home-user-issues-memory-research/dacf359b-9898-588d-b8f1-20fd1e3f2945/scratchpad/d8/rel/d8
+once: at i=10  status=0x8441 baseline=true topInterp=false topBaseline=false opt=false
+once: at end   status=0x10401 baseline=false topInterp=true topBaseline=false opt=false
+many: 1st call status=0x8441 baseline=true topInterp=false topBaseline=false opt=false
+many: 5000th   status=0x14401 baseline=false topInterp=true topBaseline=false opt=false
+-- with --no-sparkplug
+once: at i=10  status=0x8441 baseline=true topInterp=false topBaseline=false opt=false
+once: at end   status=0x8441 baseline=true topInterp=false topBaseline=false opt=false
+many: 1st call status=0x8441 baseline=true topInterp=false topBaseline=false opt=false
+many: 5000th   status=0x8441 baseline=true topInterp=false topBaseline=false opt=false

@@ -1,0 +1,20 @@
+== d8
+rep0 useBool=124ms useInt=139ms ifBool=256ms ifInt=232ms
+rep1 useBool=118ms useInt=108ms ifBool=195ms ifInt=150ms
+rep2 useBool=100ms useInt=103ms ifBool=187ms ifInt=149ms
+rep3 useBool=102ms useInt=139ms ifBool=224ms ifInt=171ms
+== node22
+rep0 useBool=212ms useInt=240ms ifBool=240ms ifInt=273ms
+rep1 useBool=160ms useInt=206ms ifBool=220ms ifInt=210ms
+rep2 useBool=159ms useInt=208ms ifBool=221ms ifInt=206ms
+rep3 useBool=159ms useInt=207ms ifBool=221ms ifInt=208ms
+== node24
+rep0 useBool=147ms useInt=201ms ifBool=256ms ifInt=220ms
+rep1 useBool=125ms useInt=176ms ifBool=224ms ifInt=180ms
+rep2 useBool=127ms useInt=179ms ifBool=223ms ifInt=239ms
+rep3 useBool=153ms useInt=206ms ifBool=232ms ifInt=178ms
+== d8 ignition-only R=100
+rep0 useBool=194ms useInt=198ms ifBool=168ms ifInt=172ms
+rep1 useBool=190ms useInt=197ms ifBool=171ms ifInt=174ms
+rep2 useBool=191ms useInt=200ms ifBool=167ms ifInt=174ms
+rep3 useBool=191ms useInt=199ms ifBool=188ms ifInt=231ms

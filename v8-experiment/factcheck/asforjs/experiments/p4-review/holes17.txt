@@ -1,0 +1,5 @@
+ - elements: 0x7e7e01089629 <FixedArray[17]> {
+           0: 1
+        1-16: 0x7e7e0002fffd <the_hole_value>
+ }
+0x7e7e0100ca31: [Map] in OldSpace

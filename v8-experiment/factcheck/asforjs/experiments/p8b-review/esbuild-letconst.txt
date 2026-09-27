@@ -1,0 +1,35 @@
+input in.js:
+import { helper } from './dep.js';
+const A = 1; let b = 2; class C { m() { return A + b; } }
+export function run() { const local = 3; let x = local + helper(); return new C().m() + x; }
+dep.js:
+export const helper = () => 5; let counter = 0; export function inc(){ return ++counter; }
+esbuild version: 0.28.2
+== esbuild --bundle --format=esm
+// dep.js
+var helper = () => 5;
+
+// in.js
+var A = 1;
+var b = 2;
+var C = class {
+  m() {
+    return A + b;
+  }
+};
+function run() {
+  const local = 3;
+  let x = local + helper();
+  return new C().m() + x;
+}
+export {
+  run
+};
+== esbuild --bundle --minify --format=esm
+var e=()=>5;var o=1,c=2,t=class{m(){return o+c}};function p(){let n=3+e();return new t().m()+n}export{p as run};
+
+== esbuild (no bundle) --minify
+import{helper as e}from"./dep.js";const l=1;let n=2;class o{m(){return l+n}}export function run(){let t=3+e();return new o().m()+t}
+
+== terser terser 5.51.2 --module -c -m (top-level let b kept as let? A/b inlined)
+export const helper=()=>5;let e=0;export function inc(){return++e}

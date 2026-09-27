@@ -1,0 +1,30 @@
+== /opt/node20/bin/node
+      1 0x7fa18800767b    3b  c1e91f               shrl rcx, 31
+      1 REX.W sarq rdx, 32
+      1 REX.W shrq rcx, 32
+      1 name = arrsum
+      1 name = o
+      1 name = t
+== /opt/node22/bin/node
+      1 0x7f99bf7c609f    5f  48c1f920             REX.W sarq rcx, 32
+      1 0x7f99bf7c623d    3d  c1e91f               shrl rcx, 31
+      1 0x7f99bf7c634c    4c  48c1f920             REX.W sarq rcx, 32
+      1 0x7f99bf7c637c    7c  49c1f820             REX.W sarq r8, 32
+      1 0x7f99bf7c63d4    d4  49c1fb20             REX.W sarq r11, 32
+      1 REX.W sarq rdx, 32
+      1 name = arrsum
+      1 name = o
+      1 name = t
+== /opt/nvm/versions/node/v24.21.0/bin/node
+      1 0x7fdec40042ef    2f  c1e91f               shrl rcx, 31
+      1 0x7fdec40043be    3e  48c1f920             REX.W sarq rcx, 32
+      1 0x7fdec40043ee    6e  49c1f820             REX.W sarq r8, 32
+      1 0x7fdec400444e    ce  49c1fb20             REX.W sarq r11, 32
+      1 0x7fdec4004470    f0  49c1f820             REX.W sarq r8, 32
+      1 REX.W sarq r11, 32
+      1 REX.W sarq r8, 32
+      1 REX.W sarq rcx, 32
+      1 REX.W sarq rdx, 32
+      1 name = arrsum
+      1 name = o
+      1 name = t

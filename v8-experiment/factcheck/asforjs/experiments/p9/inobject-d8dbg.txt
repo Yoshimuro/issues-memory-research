@@ -1,0 +1,6 @@
+ - map: 0x25f20103213d <Map[1020](HOLEY_ELEMENTS)> [FastProperties]
+ - map: 0x25f20100453d <MetaMap (0x25f20100458d <NativeContext[308]>)>
+ - instance size: 1020
+ - inobject properties: 252
+ - unused property fields: 0
+ - elements kind: HOLEY_ELEMENTS

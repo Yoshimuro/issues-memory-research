@@ -1,0 +1,12 @@
+== /opt/node20/bin/node
+never ms 848 status 32769 | free ms 49 status 33281
+never ms 764 status 32769 | free ms 49 status 33281
+== /opt/node22/bin/node
+never ms 778 status 32769 | free ms 65 status 33281
+never ms 755 status 32769 | free ms 75 status 33281
+== /opt/nvm/versions/node/v24.21.0/bin/node
+never ms 720 status 1 | free ms 45 status 1
+never ms 830 status 1 | free ms 55 status 1
+== /tmp/claude-0/-home-user-issues-memory-research/dacf359b-9898-588d-b8f1-20fd1e3f2945/scratchpad/d8/rel/d8
+never ms 436 status 1 | free ms 67 status 4194305
+never ms 412 status 1 | free ms 55 status 4194305

@@ -1,0 +1,20 @@
+== rel
+0x0be60101e0bd <JSFunction doAdd <tfn.js> (sfi = 0xbe60101dfdd)>
+[marking 0x0be60101e0bd <JSFunction doAdd <tfn.js> (sfi = 0xbe60101dfdd)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x0be60101e0bd <JSFunction doAdd <tfn.js> (sfi = 0xbe60101dfdd)> (target MAGLEV), mode: ConcurrencyMode::kConcurrent]
+[marking 0x0be60101e069 <JSFunction <tfn.js> (sfi = 0xbe60101df75)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x0be60101e069 <JSFunction <tfn.js> (sfi = 0xbe60101df75)> (target MAGLEV) OSR, mode: ConcurrencyMode::kConcurrent]
+[completed compiling 0x0be60101e0bd <JSFunction doAdd <tfn.js> (sfi = 0xbe60101dfdd)> (target MAGLEV) - took 0.001, 0.565, 0.009 ms]
+exit=0
+== dbg
+ - shared_info: 0x14080101d9d9 <SharedFunctionInfo doAdd>
+ - name: 0x14080101d935 <String[5]: #doAdd>
+0x140801004c89: [Map] in OldSpace
+[marking 0x14080101dab9 <JSFunction doAdd <tfn.js> (sfi = 0x14080101d9d9)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+[compiling method 0x14080101dab9 <JSFunction doAdd <tfn.js> (sfi = 0x14080101d9d9)> (target MAGLEV), mode: ConcurrencyMode::kConcurrent]
+[marking 0x14080101da65 <JSFunction <tfn.js> (sfi = 0x14080101d971)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]
+exit=0
+== node24
+ - shared_info: 0x26d094e68239 <SharedFunctionInfo doAdd>
+ - name: 0x26d094e68099 <String[5]: #doAdd>
+[marking 0x1f5e48565ee1 <JSFunction doAdd </home/user/issues-memory-research/v8-experiment/factcheck/asforjs/experiments/p7/tfn.js> (sfi = 0x26d094e68239)> for optimization to MAGLEV, ConcurrencyMode::kConcurrent, reason: hot and stable]

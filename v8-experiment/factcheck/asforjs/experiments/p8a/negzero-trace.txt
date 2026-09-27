@@ -1,0 +1,24 @@
+## node22 zero
+[bailout (kind: deopt-eager, reason: Insufficient type feedback for binary operation): begin. deoptimizing  <JSFunction (sfi = )>,  <Code TURBOFAN>, opt id 0, bytecode offset 111, deopt exit 9
+[bailout (kind: deopt-eager, reason: Insufficient type feedback for generic named access): begin. deoptimizing  <JSFunction (sfi = )>,  <Code TURBOFAN>, opt id 1, bytecode offset 138, deopt exit 1
+zero: 36 ms r=190000000
+## node22 neg
+[bailout (kind: deopt-eager, reason: Insufficient type feedback for binary operation): begin. deoptimizing  <JSFunction (sfi = )>,  <Code TURBOFAN>, opt id 0, bytecode offset 111, deopt exit 9
+[bailout (kind: deopt-eager, reason: Insufficient type feedback for generic named access): begin. deoptimizing  <JSFunction (sfi = )>,  <Code TURBOFAN>, opt id 1, bytecode offset 138, deopt exit 1
+neg: 34 ms r=190000000
+## node24 zero
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. deoptimizing  <JSFunction (sfi = )>,  <Code MAGLEV>, opt id 1, bytecode offset 127, deopt exit 16
+[bailout (kind: deopt-eager, reason: Insufficient type feedback for binary operation): begin. deoptimizing  <JSFunction (sfi = )>,  <Code TURBOFAN_JS>, opt id 2, bytecode offset 111, deopt exit 9
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. deoptimizing  <JSFunction (sfi = )>,  <Code MAGLEV>, opt id 3, bytecode offset 127, deopt exit 16
+[bailout (kind: deopt-eager, reason: Insufficient type feedback for generic named access): begin. deoptimizing  <JSFunction (sfi = )>,  <Code TURBOFAN_JS>, opt id 4, bytecode offset 138, deopt exit 1
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. deoptimizing  <JSFunction sumZero (sfi = )>,  <Code MAGLEV>, opt id 5, bytecode offset 8, deopt exit 8
+[bailout (kind: deopt-eager, reason: Insufficient type feedback for binary operation): begin. deoptimizing  <JSFunction (sfi = )>,  <Code MAGLEV>, opt id 7, bytecode offset 255, deopt exit 16
+zero: 38 ms r=190000000
+## node24 neg
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. deoptimizing  <JSFunction (sfi = )>,  <Code MAGLEV>, opt id 1, bytecode offset 127, deopt exit 16
+[bailout (kind: deopt-eager, reason: Insufficient type feedback for binary operation): begin. deoptimizing  <JSFunction (sfi = )>,  <Code TURBOFAN_JS>, opt id 2, bytecode offset 111, deopt exit 9
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. deoptimizing  <JSFunction (sfi = )>,  <Code MAGLEV>, opt id 3, bytecode offset 127, deopt exit 16
+[bailout (kind: deopt-eager, reason: Insufficient type feedback for generic named access): begin. deoptimizing  <JSFunction (sfi = )>,  <Code TURBOFAN_JS>, opt id 4, bytecode offset 138, deopt exit 1
+[bailout (kind: deopt-eager, reason: prepare for on stack replacement (OSR)): begin. deoptimizing  <JSFunction sumNegZero (sfi = )>,  <Code MAGLEV>, opt id 5, bytecode offset 9, deopt exit 8
+[bailout (kind: deopt-eager, reason: Insufficient type feedback for binary operation): begin. deoptimizing  <JSFunction (sfi = )>,  <Code MAGLEV>, opt id 7, bytecode offset 255, deopt exit 16
+neg: 38 ms r=190000000
