@@ -1,0 +1,16 @@
+== /opt/node20/bin/node
+  117 o1.txt
+  117 o2.txt
+0
+== /opt/node22/bin/node
+  120 o1.txt
+  120 o2.txt
+0
+== /opt/nvm/versions/node/v24.21.0/bin/node
+  113 o1.txt
+  113 o2.txt
+0
+[34m                  -- Prologue: check code start register -- - void v8::internal::compiler::CodeGenerator::AssembleCode()@../../src/compiler/backend/code-generator.cc:252[;m
+[34m                  -- Prologue: check dispatch handle register -- - void v8::internal::compiler::CodeGenerator::AssembleCode()@../../src/compiler/backend/code-generator.cc:258[;m
+[34m                  -- Prologue: check for deoptimization -- - void v8::internal::compiler::CodeGenerator::AssembleCode()@../../src/compiler/backend/code-generator.cc:267[;m
+node24: --print-opt-code with and without --code-comments: identical output (cmp exit 1); d8 debug: comments present

@@ -1,0 +1,97 @@
+== /opt/node20/bin/node
+v8_enable_31bit_smis_on_64bit_arch=0
+v8_enable_extensible_ro_snapshot=0
+v8_enable_external_code_space=0
+v8_enable_gdbjit=0
+v8_enable_hugepage=0
+v8_enable_i18n_support=1
+v8_enable_inspector=1
+v8_enable_javascript_promise_hooks=1
+v8_enable_lite_mode=0
+v8_enable_maglev=0
+v8_enable_object_print=1
+v8_enable_pointer_compression=0
+v8_enable_pointer_compression_shared_cage=0
+v8_enable_sandbox=0
+v8_enable_shared_ro_heap=1
+v8_enable_short_builtin_calls=1
+v8_enable_v8_checks=0
+v8_enable_webassembly=1
+v8_no_strict_aliasing=1
+v8_optimized_debug=1
+v8_promise_internal_field_count=1
+v8_random_seed=0
+v8_trace_maps=0
+v8_use_siphash=1
+ --incremental-marking (use incremental marking)	 type: bool default: --incremental-marking
+ --incremental-marking-wrappers (use incremental marking for marking wrappers)	 --parallel-scavenge (parallel scavenge)
+ type: bool default: --parallel-scavenge	 --minor-gc-task (schedule scavenge tasks)
+ --concurrent-marking (use concurrent marking)	 type: bool default: --concurrent-marking
+ --concurrent-marking-max-worker-num (max worker number of concurrent marking, 0 for NumberOfWorkerThreads)	 --concurrent-sweeping (use concurrent sweeping)
+ type: bool default: --concurrent-sweeping	 --parallel-compaction (use parallel compaction)
+ type: bool default: --parallel-compaction	 --parallel-pointer-update (use parallel pointer update during compaction)
+== /opt/node22/bin/node
+v8_enable_webassembly=1
+v8_enable_javascript_promise_hooks=1
+v8_enable_lite_mode=0
+v8_enable_gdbjit=0
+v8_optimized_debug=1
+v8_enable_object_print=1
+v8_random_seed=0
+v8_promise_internal_field_count=1
+v8_use_siphash=1
+v8_enable_maglev=0
+v8_enable_pointer_compression=0
+v8_enable_sandbox=0
+v8_enable_pointer_compression_shared_cage=0
+v8_enable_external_code_space=0
+v8_enable_31bit_smis_on_64bit_arch=0
+v8_enable_shared_ro_heap=1
+v8_enable_extensible_ro_snapshot=0
+v8_trace_maps=0
+v8_enable_hugepage=0
+v8_enable_short_builtin_calls=1
+v8_enable_wasm_simd256_revec=1
+v8_enable_i18n_support=1
+v8_enable_inspector=1
+ --incremental-marking (use incremental marking)	 type: bool default: --incremental-marking
+ --incremental-marking-bailout-when-ahead-of-schedule (bails out of incremental marking when ahead of schedule)	 --parallel-scavenge (parallel scavenge)
+ type: bool default: --parallel-scavenge	 --minor-gc-task (schedule scavenge tasks)
+ --concurrent-marking (use concurrent marking)	 type: bool default: --concurrent-marking
+ --concurrent-marking-max-worker-num (max worker number of concurrent marking, 0 for NumberOfWorkerThreads)	 --concurrent-sweeping (use concurrent sweeping)
+ type: bool default: --concurrent-sweeping	 --parallel-compaction (use parallel compaction)
+ type: bool default: --parallel-compaction	 --parallel-pointer-update (use parallel pointer update during compaction)
+ --minor-ms (perform young generation mark sweep GCs)	 type: bool default: --no-minor-ms
+ --concurrent-minor-ms-marking (perform young generation marking concurrently)	
+== /opt/nvm/versions/node/v24.21.0/bin/node
+v8_enable_webassembly=1
+v8_enable_javascript_promise_hooks=1
+v8_enable_lite_mode=0
+v8_enable_gdbjit=1
+v8_optimized_debug=1
+v8_enable_object_print=1
+v8_random_seed=0
+v8_promise_internal_field_count=1
+v8_use_siphash=1
+v8_enable_maglev=1
+v8_enable_pointer_compression=0
+v8_enable_sandbox=0
+v8_enable_pointer_compression_shared_cage=0
+v8_enable_external_code_space=0
+v8_enable_31bit_smis_on_64bit_arch=0
+v8_enable_extensible_ro_snapshot=0
+v8_trace_maps=0
+v8_enable_hugepage=0
+v8_enable_short_builtin_calls=1
+v8_enable_wasm_simd256_revec=1
+v8_enable_i18n_support=1
+v8_enable_inspector=1
+ --incremental-marking (use incremental marking)	 type: bool default: --incremental-marking
+ --incremental-marking-task (use tasks for incremental marking)	 --parallel-scavenge (parallel scavenge)
+ type: bool default: --parallel-scavenge	 --minor-gc-task (schedule minor GC tasks)
+ --concurrent-marking (use concurrent marking)	 type: bool default: --concurrent-marking
+ --concurrent-marking-max-worker-num (max worker number of concurrent marking, 0 for NumberOfWorkerThreads)	 --concurrent-sweeping (use concurrent sweeping)
+ type: bool default: --concurrent-sweeping	 --parallel-compaction (use parallel compaction)
+ type: bool default: --parallel-compaction	 --parallel-pointer-update (use parallel pointer update during compaction)
+ --minor-ms (perform young generation mark sweep GCs)	 type: bool default: --no-minor-ms
+ --concurrent-minor-ms-marking (perform young generation marking concurrently)	
