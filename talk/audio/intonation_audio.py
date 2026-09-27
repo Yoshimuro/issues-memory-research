@@ -21,9 +21,13 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 FLAT_Q = 4.0      # пик вопроса ниже +4 полутонов над медианой — вопрос звучит плоско
 
 
+def fresh(path, src):
+    return os.path.exists(path) and os.path.getmtime(path) >= os.path.getmtime(src)
+
+
 def wav16(mp3):
     out = mp3[:-4] + '.16k.wav'
-    if not os.path.exists(out):
+    if not fresh(out, mp3):
         subprocess.run(['ffmpeg', '-y', '-v', 'error', '-i', mp3, '-ac', '1', '-ar', '16000', out], check=True)
     return out
 
@@ -53,6 +57,11 @@ def main():
                                   range_st=round(float(np.percentile(st, 95) - np.percentile(st, 5)), 2), sd_st=round(float(np.std(st)), 2)))
             if '?' not in text:
                 continue
+            cached = f[:-4] + '.sentences.json'   # разметка предложений кэшируется по куску
+            if fresh(cached, f):
+                sentences += json.load(open(cached, encoding='utf-8'))
+                continue
+            mine = []
             segs, _ = model.transcribe(w, language='ru', word_timestamps=True, beam_size=5)
             cur = []
             for s in segs:
@@ -63,9 +72,11 @@ def main():
                         m = (t >= a) & (t <= b) & (f0 > 0)
                         if m.sum() > 5:
                             s_st = 12 * np.log2(f0[m] / med)
-                            sentences.append(dict(n=x['n'], q=wd.word.strip().endswith('?'), text=''.join(z.word for z in cur).strip(),
-                                                  peak=round(float(np.percentile(s_st, 97)), 2), end=round(float(np.mean(s_st[-15:])), 2)))
+                            mine.append(dict(n=x['n'], q=wd.word.strip().endswith('?'), text=''.join(z.word for z in cur).strip(),
+                                             peak=round(float(np.percentile(s_st, 97)), 2), end=round(float(np.mean(s_st[-15:])), 2)))
                         cur = []
+            json.dump(mine, open(cached, 'w', encoding='utf-8'), ensure_ascii=False)
+            sentences += mine
             print(x['n'], len(sentences), flush=True)
     json.dump(dict(chunks=per_chunk, sentences=sentences), open(os.path.join(CACHE, 'intonation.json'), 'w', encoding='utf-8'), ensure_ascii=False)
     report()

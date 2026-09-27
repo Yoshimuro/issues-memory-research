@@ -74,9 +74,9 @@ def main():
         for t in said_txt:
             f = os.path.join(CACHE, hashlib.sha1(f'{VOICE}|{RATE}|{t}'.encode()).hexdigest()[:16] + '.mp3')
             txt = f[:-4] + f'.{name}.txt'      # расшифровка кэшируется рядом с куском
-            if not os.path.exists(txt):
-                while not os.path.exists(f):   # можно запускать параллельно со сборкой
-                    time.sleep(5)
+            while not os.path.exists(f):         # можно запускать параллельно со сборкой
+                time.sleep(5)
+            if not os.path.exists(txt) or os.path.getmtime(txt) < os.path.getmtime(f):   # кусок переозвучен — расшифровка устарела
                 segs, _ = model.transcribe(f, language='ru', beam_size=5, vad_filter=False)
                 open(txt, 'w', encoding='utf-8').write(' '.join(s.text.strip() for s in segs))
             hyp.append(open(txt, encoding='utf-8').read())

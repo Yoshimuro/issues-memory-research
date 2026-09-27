@@ -9,7 +9,7 @@ spoken.json — тот же текст в произносимой форме (�
 без разметки); правила в NORMALIZE.md. Голос — ru-RU-DmitryNeural через edge-tts.
 Куски кэшируются в .cache/ по хешу текста, повторная сборка озвучивает только изменённое.
 """
-import asyncio, hashlib, json, os, re, subprocess, sys, difflib
+import asyncio, difflib, glob, hashlib, json, os, re, subprocess, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ANN = os.path.join(HERE, '..', 'annotations.md')
@@ -158,7 +158,9 @@ def build():
                 plan.append((x, kind, val, None))
     for _, k, v, f in plan:
         if k == 'say' and os.path.exists(f) and len(v.split()) / duration(f) * 60 > MAX_WPM:
-            print(f'оборванный кусок в кэше, переозвучиваю: {v[:50]}…'); os.remove(f)
+            print(f'оборванный кусок в кэше, переозвучиваю: {v[:50]}…')
+            for g in [f] + glob.glob(f[:-4] + '.*'):   # вместе с расшифровками и производными
+                os.remove(g)
     todo = [(v, f) for _, k, v, f in plan if k == 'say' and not os.path.exists(f)]
     print(f'{len(plan)} кусков, озвучить {len(todo)}', flush=True)
 
