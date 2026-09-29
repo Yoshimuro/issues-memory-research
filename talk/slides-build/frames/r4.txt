@@ -1,0 +1,15 @@
+$ node --allow-natives-syntax --log-ic --no-logfile-per-isolate \
+    --logfile=b.log shape-analyzer.js ref-b.js > /dev/null
+$ grep ^LoadIC b.log | grep ',30,9,' | cut -d, -f1,4-9
+LoadIC,30,9,0,1,0x3093ac1963b1,plan
+LoadIC,30,9,1,P,0x3093ac195f81,plan
+LoadIC,30,9,P,P,0x3093ac196279,plan
+LoadIC,30,9,P,P,0x3093ac196011,plan
+LoadIC,30,9,P,N,0x3093ac196b49,plan
+LoadIC,30,9,N,N,0x3093ac196c91,plan
+LoadIC,30,9,N,N,0x3093ac1964b9,plan
+LoadIC,30,9,N,N,0x3093ac196159,plan
+$ node --allow-natives-syntax --log-ic --no-logfile-per-isolate \
+    --logfile=a.log shape-analyzer.js ref-a.js > /dev/null
+$ grep ^LoadIC a.log | grep ',30,9,' | cut -d, -f1,4-9
+LoadIC,30,9,0,1,0x3c9e6d815ff9,plan

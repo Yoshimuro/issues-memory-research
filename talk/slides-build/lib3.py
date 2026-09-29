@@ -35,6 +35,13 @@ def seg(s, x1, y1, x2, y2, color=MUTED, w=1.25, dash=False):
     return c
 
 
+def arrow(s, x1, y1, x2, y2, color=INK, w=2.0, dash=False):
+    from lxml import etree
+    c = seg(s, x1, y1, x2, y2, color, w, dash)
+    t = etree.SubElement(c.line._get_or_add_ln(), qn('a:tailEnd')); t.set('type', 'triangle'); t.set('w', 'med'); t.set('len', 'med')
+    return c
+
+
 def box(s, x, y, w, h, label, fill='FFFFFF', line=None, color=INK, size=11, mono=False, bold=False, radius=0.1, align='c'):
     rect(s, x, y, w, h, fill, line, radius=radius)
     text(s, x + 0.06, y, w - 0.12, h, label if not mono else [('`%s`' % l) for l in ([label] if isinstance(label, str) else label)],
@@ -53,11 +60,13 @@ def term(s, x, y, w, h, lines, size=13, caption=None, hl=()):
     tb = s.shapes.add_textbox(Inches(x + 0.25), Inches(y + 0.42), Inches(w - 0.5), Inches(h - 0.55)); tf = tb.text_frame
     tf.word_wrap = True; tf.margin_left = tf.margin_right = tf.margin_top = tf.margin_bottom = 0
     rx = re.compile('(' + '|'.join(re.escape(k) for k in hl) + ')') if hl else None
+    cont = False                                   # строка-продолжение команды после « \\» красится как команда
     for i, ln in enumerate(lines):
         p = tf.paragraphs[0] if i == 0 else tf.add_paragraph()
         p.space_after = Pt(2)
-        base = 'AADC00' if ln.startswith('$') else ('8FB09A' if ln.startswith('#') or ln.startswith('(') else TERM_FG)
-        parts = rx.split(ln) if (rx and not ln.startswith('$')) else [ln]
+        cmd = ln.startswith('$') or cont; cont = cmd and ln.endswith('\\')
+        base = 'AADC00' if cmd else ('8FB09A' if ln.startswith('#') or ln.startswith('(') else TERM_FG)
+        parts = rx.split(ln) if (rx and not cmd) else [ln]
         for part in parts:
             if part == '': continue
             r = p.add_run(); r.text = part; f = r.font; f.name = MONO; f.size = Pt(size)
@@ -70,12 +79,13 @@ def code(s, x, y, w, h, lines, size=13, accent=None, hl=(), hlcolor=None, label=
     clone(s, 'white' if accent != 'red' else 'pinkcard', x, y, w, h)
     top = y + 0.2
     if label:
-        lw = 0.1 * len(label) + 0.4
-        clone(s, 'lime' if accent != 'red' else 'pink', x + 0.2, y + 0.16, lw, 0.34)
-        text(s, x + 0.2, y + 0.16, lw, 0.34, label, size=11, color=INK if accent != 'red' else BRED, align='c', anchor='m', font='X5 Sans Medium')
-        top = y + 0.6
+        lw = 0.115 * len(label) + 0.4
+        clone(s, 'lime' if accent != 'red' else 'pink', x + 0.2, y + 0.16, lw, 0.38)
+        text(s, x + 0.2, y + 0.16, lw, 0.38, label, size=13, color=INK if accent != 'red' else BRED, align='c', anchor='m', font='X5 Sans Medium')
+        top = y + 0.7
     tb = s.shapes.add_textbox(Inches(x + 0.3), Inches(top), Inches(w - 0.5), Inches(h - (top - y) - 0.15)); tf = tb.text_frame
-    tf.word_wrap = True; tf.margin_left = tf.margin_right = tf.margin_top = tf.margin_bottom = 0; tf.vertical_anchor = MSO_ANCHOR.MIDDLE
+    tf.word_wrap = True; tf.margin_left = tf.margin_right = tf.margin_top = tf.margin_bottom = 0
+    tf.vertical_anchor = MSO_ANCHOR.TOP if label else MSO_ANCHOR.MIDDLE     # с ярлыком — код сразу под ним
     for i, ln in enumerate(lines):
         p = tf.paragraphs[0] if i == 0 else tf.add_paragraph(); p.space_after = Pt(2)
         r = p.add_run(); r.text = ln if ln else ' '; f = r.font; f.name = MONO; f.size = Pt(size)
@@ -128,59 +138,149 @@ def line_chart(s, x, y, w, h, cats, series, fmt='"×"0.00', size=11, vmax=None):
     return ch
 
 
+# ---------- план доклада: на 1.2–1.5 — вопросы, на 11.2 — те же вопросы с ответами ----------
+PLAN = [
+    dict(q='Где расходятся две одинаковые функции', short='развилка', nodes='узлы 1–3',
+         pts=['две версии normalizeUser: дифф в три строки, результат одинаковый',
+              'прибор: 0.12 против 0.79 мс — разница в шесть с лишним раз',
+              'как движок описывает объект — и сколько описаний у каждой версии',
+              'платит не сборка объекта, а каждое чтение его полей'],
+         a='в форме объекта: у A одна, у B восемь — выбор сделан в тексте, до первого вызова'),
+    dict(q='Почему компилятор не спасает — и во что это обходится', short='цена', nodes='узлы 4–6',
+         pts=['как V8 разгоняет функцию — от интерпретатора до TurboFan',
+              'что компилятор предполагает о входе — и что, если он ошибся',
+              'во что это обходится сервису: 2302 против 1180 запросов в секунду',
+              'где это не важно'],
+         a='оптимизатор ставит на увиденные формы; восемь форм — общий путь: ×6.6 на функции, ×1.95 на сервисе'),
+    dict(q='Три эпохи V8: что менялось за 18 лет, а что нет', short='эпохи', nodes='узлы 7–10',
+         pts=['2014: full-codegen и Crankshaft — байткода ещё нет',
+              '2017–2022: байткод, новый граф компилятора, Sparkplug',
+              '2023–2027: Maglev, Turboshaft и Turbolev — лев из названия',
+              'пережила ли разница все три эпохи — и кто на самом деле пишет B'],
+         a='ярусы менялись, ставка — нет: ×6.6–6.9 на трёх лестницах ярусов; формы и записи — с 2008'),
+    dict(q='Как увидеть это в своём коде', short='у себя', nodes='узлы 11–12',
+         pts=['карта целиком: от сборки объекта до числа на сервере',
+              'три команды, которые покажут это в вашем коде',
+              'репозиторий: все числа пересчитываются одной командой',
+              'в конце — те же четыре пункта, с ответами'],
+         a='%HaveSameMap · --log-ic · docker/run.sh — команды на следующем слайде'),
+]
+
+
+def plan_slide(s, k):
+    """План, пункт k (0..3): вопрос, четыре подпункта, внизу полоса из четырёх частей — текущая подсвечена."""
+    it = PLAN[k]
+    rect(s, 0.37, 1.35, 0.8, 0.8, 'AADC00', shape=MSO_SHAPE.OVAL)
+    text(s, 0.37, 1.35, 0.8, 0.8, f'**{k + 1}**', size=28, align='c', anchor='m')
+    text(s, 1.4, 1.3, 9.6, 0.9, f'**{it["q"]}**', size=28, anchor='m')
+    text(s, 11.0, 1.3, 1.96, 0.9, it['nodes'], size=15, color=MUTED, align='r', anchor='m')
+    for i, pt in enumerate(it['pts']):
+        y = 2.5 + i * 0.8
+        clone(s, 'white', 1.4, y, 11.56, 0.68)
+        text(s, 1.65, y, 11.1, 0.68, pt, size=20, anchor='m')
+    sw = (12.59 - 3 * 0.15) / 4
+    for i, p_ in enumerate(PLAN):
+        x = 0.37 + i * (sw + 0.15); on = i == k
+        rect(s, x, 5.85, sw, 0.1, 'AADC00' if on else ('1E5B28' if i < k else 'D9DDE3'), radius=0.03)
+        text(s, x, 5.98, sw, 0.35, f'{i + 1} · {p_["short"]}', size=14, color=INK if on else MUTED, align='c', font='X5 Sans Medium' if on else 'X5 Sans')
+
+
 # ---------- карта доклада: 12 шагов, две дорожки ----------
 STEPS = [  # (название, когда, A, B, чем увидеть)
     ('две функции', 'хук', '0.12 мс', '0.79 мс', 'shape-analyzer'),
     ('форма объекта', 'вызов 1', '1 форма', '8 форм', '%HaveSameMap'),
     ('место чтения', 'первые вызовы', 'MONO', 'MEGA', '--log-ic'),
-    ('ярусы', 'первые миллисекунды', 'одна лестница', 'одна лестница', '--max-opt'),
-    ('ставка', 'после компиляции', 'сыграла', 'wrong map → общий путь', '--trace-deopt'),
+    ('ярусы', 'первые мс', 'одна лестница', 'одна лестница', '--trace-opt'),
+    ('ставка', 'после компиляции', 'сыграла', 'не сыграла', '--trace-deopt'),
     ('сервис', 'прод', '2302 rps', '1180 rps', 'autocannon'),
-    ('агент', 'до первого вызова', 'автор: ?', 'без правил · 30/30', 'claude -p + прибор'),
-    ('корпус', 'до первого вызова', 'живое', 'мёртвое рядом', 'матрица по версиям'),
-    ('правила', 'до первого вызова', 'с файлом · 30/30', 'без файла', 'v8-rules.md'),
-    ('лев', 'верхняя ступень', 'ставка та же', 'ставка та же', '--turbolev'),
-    ('карта целиком', '—', 'форма + файл', 'форма + нет файла', 'как проверить у себя'),
+    ('эпоха 2014', '2010–2017', 'ставка', 'мега', 'Crankshaft'),
+    ('эпоха 2022', '2017–2022', 'ставка', 'мега', 'TurboFan'),
+    ('эпоха 2027', '2023–', 'ставка', 'мега', 'Maglev · Turbolev'),
+    ('ставка та же', 'с 2010', '×1', '×6.6–6.9', 'Node 22 · 24'),
+    ('карта целиком', '—', '1 форма', '8 форм', 'как проверить у себя'),
     ('снова слайд 1', 'финал', '1 → MONO → 2302', '8 → MEGA → 1180', 'репо'),
 ]
 BREATHERS = (3, 5, 8)
 
 
-def talk_map(s, x, y, w, h, upto=12, current=None, size=None):
-    """Одна линия из 12 шагов; пройденное проявлено, текущее обведено, дальнейшее приглушено. Масштабируется по h."""
-    k = max(0.8, min(1.7, h / 3.0)); fs = (size or 8) * (0.85 + 0.25 * k)
-    n = len(STEPS); lab_w = 0.5 * k; step = (w - lab_w) / n
-    ax = y + 0.62 * k; ra = ax + 1.0 * k; rb = ax + 1.55 * k; rt = ax + 2.12 * k; d = 0.36 * k
+def talk_map(s, x, y, w, h, upto=12, current=None, size=None, detail=True, when=None, tools=None):
+    """Одна линия из 12 шагов; пройденное проявлено, текущее обведено, дальнейшее приглушено. Масштабируется по h.
+    when / tools — строки «когда» и «чем увидеть» (по умолчанию обе = detail)."""
+    when = detail if when is None else when; tools = detail if tools is None else tools
+    k = max(0.8, min(1.7, h / (2.4 + (0.3 if when else 0) + (0.45 if tools else 0)))); fs = (size or 8) * (0.85 + 0.25 * k)
+    if not when: y -= 0.3 * k        # без строки «когда»
+    n = len(STEPS); lab_w = 0.5 * k; step = (w - lab_w) / n; vh = 0.5 * k; ts = min(fs - 1.5, 10)
+    ns = min(fs + 1.5, (step - 0.06) * 72 / 4.6)      # название шага: самое длинное слово («функции», «целиком») — в одну строку
+    ax = y + 0.62 * k; ra = ax + 0.98 * k; rb = ra + 0.58 * k; rt = rb + vh + 0.06 * k; d = 0.36 * k
     seg(s, x + lab_w, ax, x + w - 0.05, ax, FAINT, 2)
     for nm, ry, col in (('A', ra, INK), ('B', rb, BRED)):
-        rect(s, x, ry, 0.34 * k, 0.4 * k, 'E0FBCC' if nm == 'A' else 'FFD9E4', radius=0.08)
-        text(s, x, ry, 0.34 * k, 0.4 * k, nm, size=fs + 2, color=col, align='c', anchor='m', font='X5 Sans Medium')
-    for i, (name, when, a_, b_, tool) in enumerate(STEPS, 1):
+        rect(s, x, ry, 0.34 * k, vh, 'E0FBCC' if nm == 'A' else 'FFD9E4', radius=0.08)
+        text(s, x, ry, 0.34 * k, vh, nm, size=fs + 2, color=col, align='c', anchor='m', font='X5 Sans Medium')
+    for i, (name, when_, a_, b_, tool) in enumerate(STEPS, 1):
         cx = x + lab_w + step * (i - 0.5); on = i <= upto; cur = (i == current)
         if cur: rect(s, cx - d * 0.72, ax - d * 0.72, d * 1.44, d * 1.44, 'AADC00', shape=MSO_SHAPE.OVAL)
         rect(s, cx - d / 2, ax - d / 2, d, d, INK if on else 'E5E7EB', shape=MSO_SHAPE.OVAL)
         text(s, cx - d / 2, ax - d / 2, d, d, str(i), size=fs + 2, color='FFFFFF' if on else '9CA3AF', align='c', anchor='m', font='X5 Sans Medium')
-        text(s, cx - step / 2, y, step, 0.3 * k, when, size=fs - 1.5, color=MUTED if on else FAINT, align='c', anchor='m')
-        text(s, cx - step / 2 + 0.02, ax + 0.3 * k, step - 0.04, 0.6 * k, name, size=fs + 1.5, color=INK if on else 'B6BCC6', align='c', font='X5 Sans Medium')
+        if when: text(s, cx - step / 2, y, step, 0.3 * k, when_, size=ts, color=MUTED if on else FAINT, align='c', anchor='m')
+        text(s, cx - step / 2 + 0.02, ax + 0.3 * k, step - 0.04, 0.6 * k, name, size=ns, color=INK if on else 'B6BCC6', align='c', font='X5 Sans Medium')
         if on:
             for val, ry, col, bg in ((a_, ra, INK, 'F1FBE8'), (b_, rb, BRED, 'FFEAF0')):
-                rect(s, cx - step / 2 + 0.03, ry, step - 0.06, 0.44 * k, bg, radius=0.06)
-                text(s, cx - step / 2 + 0.05, ry, step - 0.1, 0.44 * k, val, size=fs - 0.5, color=col, align='c', anchor='m')
-            text(s, cx - step / 2 + 0.02, rt, step - 0.04, 0.4 * k, tool, size=fs - 1.5, color=MUTED, align='c')
+                rect(s, cx - step / 2 + 0.03, ry, step - 0.06, vh, bg, radius=0.06)
+                text(s, cx - step / 2 + 0.05, ry, step - 0.1, vh, val, size=fs - 0.5, color=col, align='c', anchor='m')
+            if tools: text(s, cx - step / 2 + 0.02, rt, step - 0.04, 0.4 * k, tool, size=ts, color=MUTED, align='c')
         if i in BREATHERS:
             rect(s, cx + step / 2 - 0.09 * k, ax - 0.09 * k, 0.18 * k, 0.18 * k, 'FFD166' if i <= upto else 'E5E7EB', shape=MSO_SHAPE.DIAMOND)
 
 
 def minimap(s, x, y, w, h, current):
     clone(s, 'white', x, y, w, h)
-    text(s, x + 0.15, y + 0.1, w - 0.3, 0.22, 'карта доклада', size=9, color=MUTED)
-    n = 12; st = (w - 0.4) / (n - 1); cy = y + 0.62
+    n = 12; st = (w - 0.4) / (n - 1); cy = y + 0.36
     seg(s, x + 0.2, cy, x + w - 0.2, cy, FAINT, 1.5)
     for i in range(1, n + 1):
         cx = x + 0.2 + st * (i - 1); d = 0.26 if i == current else 0.13
         fill = 'AADC00' if i == current else (INK if i < current else 'D9DDE3')
         rect(s, cx - d / 2, cy - d / 2, d, d, fill, line=INK if i == current else None, lw=1.5, shape=MSO_SHAPE.OVAL)
-    text(s, x + 0.12, y + 0.9, w - 0.24, h - 1.0, [f'**шаг {current} из 12**', STEPS[current - 1][0]], size=11, color=INK, align='c', anchor='m', gap=2)
+    text(s, x + 0.1, y + 0.58, w - 0.2, h - 0.64, [f'шаг {current} из 12', f'**{STEPS[current - 1][0]}**'], size=13, color=INK, align='c', anchor='m', gap=1)
+
+
+# ---------- три эпохи V8: кадры нарастанием (узлы 7, 8, 10; и talk/v8-by-year/talk-*.png) ----------
+ERAS = [('2014', [('full-codegen', 'soft'), None, None, ('Crankshaft', 'opt')],
+         'Первый код — сразу машинный. Горячую функцию Crankshaft перекомпилирует со ставкой на формы.'),
+        ('2022', [('Ignition', 'soft'), ('Sparkplug', 'soft'), None, ('TurboFan', 'opt')],
+         'С 2017 первый код — байткод, вместо Crankshaft — TurboFan. В 2021 между ними встал Sparkplug.'),
+        ('2027', [('Ignition', 'soft'), ('Sparkplug', 'soft'), ('Maglev', 'opt'), ('Turbolev?', 'forecast')],
+         'С 2023 есть Maglev. Turbolev сменит TurboFan — дата не объявлена.')]
+
+
+def schema_eras(s, k, x0=0.37, x1=12.96):
+    """Кадр k (0..2): строки эпох до k-й; текущая яркая, прошлые бледные. Сетка общая — при листании коробки на месте."""
+    lx, g = x0 + 1.45, 0.45
+    cw = (x1 - lx - 3 * g) / 4
+    cx = [lx + i * (cw + g) for i in range(4)]
+    for (i0, i1, lab, col) in ((0, 1, 'без ставки', MUTED), (2, 3, 'ставка на формы', INK)):
+        xa, xb = cx[i0], cx[i1] + cw
+        seg(s, xa, 1.78, xb, 1.78, col, 1.5); seg(s, xa, 1.78, xa, 1.9, col, 1.5); seg(s, xb, 1.78, xb, 1.9, col, 1.5)
+        text(s, xa, 1.3, xb - xa, 0.42, lab, size=20, color=col, align='c', anchor='m', font='X5 Sans Medium')
+    rh = 0.95
+    for r in range(k + 1):
+        yr, cells, _ = ERAS[r]
+        now = r == k
+        ink = INK if now else 'B6BCC6'
+        y = 2.05 + r * 1.1
+        text(s, x0, y, 1.3, rh, f'**{yr}**', size=30, color=ink, anchor='m')
+        for i, c in enumerate(cells):
+            if not c: continue
+            nm, kind = c
+            fill = ('E0FBCC' if kind == 'opt' else ('F1F3F5' if kind == 'soft' else 'FFFFFF')) if now else 'F7F8F9'
+            rect(s, cx[i], y, cw, rh, fill, line=INK if (now and kind == 'forecast') else None, lw=2, dash=kind == 'forecast', radius=0.12)
+            text(s, cx[i] + 0.1, y, cw - 0.2, rh, f'**{nm}**', size=26, color=ink, align='c', anchor='m')
+        path = [i for i, c in enumerate(cells) if c]
+        for i, j in zip(path, path[1:]):
+            arrow(s, cx[i] + cw + 0.04, y + rh / 2, cx[j] - 0.05, y + rh / 2, INK if now else FAINT, 2.25)
+    text(s, x0, 5.35, x1 - x0, 0.45, ERAS[k][2], size=19, color=INK)
+    if k == 2:
+        clone(s, 'dark', x0, 5.9, x1 - x0, 0.6)
+        text(s, x0 + 0.3, 5.9, x1 - x0 - 0.6, 0.6, ['**Формы и записи мест чтения — с 2008.** На них ставит каждый верхний ярус.'], size=20, color=WHITE, anchor='m')
 
 
 # ---------- схемы узлов ----------
@@ -225,20 +325,22 @@ def schema_tree(s, x, y, w, h):
         for j in range(cnt):
             cx, cy = pos[(k, j)]
             box(s, cx - bwid / 2, cy - 0.22, bwid, 0.46, names[k], fill='E3F5F9', size=11 if k == 2 else 13, mono=True)
-    lw = (bw - 0.5) / 8 - 0.06
+    lw = (bw - 0.5) / 8 - 0.04
     for j in range(8):
         cx, cy = pos[(3, j)]
-        box(s, cx - lw / 2, cy - 0.06, lw, 0.46, leaves[j], fill='FFD9E4', color=BRED, size=10)
-    text(s, bx, y + h - 0.6, bw, 0.5, '**2³ = 8 форм**', size=22, color=BRED, align='c', anchor='m')
+        rect(s, cx - lw / 2, cy - 0.06, lw, 0.5, 'FFD9E4', radius=0.1)
+        text(s, cx - lw / 2, cy - 0.06, lw, 0.5, leaves[j], size=12, color=BRED, align='c', anchor='m')
+    text(s, bx + 0.2, y + 0.5, 2.3, 0.6, ['r — referrer · t — trialUntil', 'i — teamId'], size=12, color=MUTED)
+    text(s, bx, y + h - 0.5, bw, 0.45, '**2³ = 8 форм**', size=22, color=BRED, align='c', anchor='m')
 
 
 def schema_ic(s, x, y, w, h):
     """Узел 3: место чтения u.plan — MONO / POLY / MEGA."""
     cw = (w - 0.4) / 3
-    spec = (('MONO', '1 форма', 1, 'быстрый путь: одна проверка, одно чтение', 'lime', INK, 'читатель объектов A'),
-            ('POLY', '2–4 формы', 3, 'перебор короткого списка форм', 'blue', INK, ''),
-            ('MEGA', '5+ форм', 8, 'общий словарь: поиск по имени поля и форме', 'pink', BRED, 'читатель объектов B'))
-    for i, (nm, cnt, k, cap, key, col, who) in enumerate(spec):
+    spec = (('MONO', '1 форма', 1, 'быстрый путь: одна проверка, одно чтение', 'lime', INK, 'читатель объектов A', '1 форма: ×1'),
+            ('POLY', '2–4 формы', 3, 'перебор короткого списка форм', 'blue', INK, '', '4 формы: ×1.3'),
+            ('MEGA', '5+ форм', 8, 'общий словарь движка: форма + имя поля → где лежит', 'pink', BRED, 'читатель объектов B', '8 форм: ×2.7'))
+    for i, (nm, cnt, k, cap, key, col, who, cost) in enumerate(spec):
         cx = x + i * (cw + 0.2)
         clone(s, key, cx, y, cw, h)
         text(s, cx + 0.2, y + 0.12, cw - 0.4, 0.45, f'**{nm}**', size=26, color=col)
@@ -249,45 +351,48 @@ def schema_ic(s, x, y, w, h):
             text(s, cx + 0.22 + j * (cs + 0.04), y + 0.7, cs, cs, str(j + 1), size=8, color=col, align='c', anchor='m')
         seg(s, cx + 0.22 + cs / 2, y + 0.7 + cs, cx + 0.22 + cs / 2, y + 1.22, col, 1.25)
         box(s, cx + 0.22, y + 1.22, 1.3, 0.44, 'u.plan', fill='FFFFFF', line=col, color=col, size=14, mono=True)
-        text(s, cx + 0.22, y + 1.8, cw - 0.44, h - 2.3, cap, size=15, color=col)
+        text(s, cx + 0.22, y + 1.8, cw - 0.44, 0.95, cap, size=15, color=col)
+        text(s, cx + 0.22, y + h - 1.0, cw - 0.44, 0.45, cost, size=20, color=col, font='X5 Sans Medium')
         if who: text(s, cx + 0.22, y + h - 0.5, cw - 0.44, 0.35, who, size=13, color=col, font='X5 Sans Medium')
 
 
 TIERS = (('Ignition', 'интерпретатор', 'байткод, без предположений', 505), ('Sparkplug', 'быстрый компилятор', 'без предположений', 775),
-         ('Maglev', 'компилятор со ставкой', 'смотрит записи мест чтения', 70), ('TurboFan', 'лучший компилятор', 'со ставкой', 38))
+         ('Maglev', 'первый оптимизирующий', 'смотрит записи мест чтения', 70), ('TurboFan', 'самый сильный', 'со ставкой', 38))
 
 
-def schema_tiers(s, x, y, w, h, top_label=None, numbers=True):
-    """Узлы 4 и 10: лестница по числу вызовов."""
+def schema_tiers(s, x, y, w, h, top_label=None, numbers=True, brackets=True, footnote=True, compact=False):
+    """Узлы 4 и 9: лестница по числу вызовов."""
     base = y + h - 0.75; sw = (w - 0.2) / 4; hs = (0.9, 1.35, 2.05, 2.75)
     scale = (h - 1.75) / 2.75
     seg(s, x, base, x + w, base, INK, 1.75)
-    text(s, x + w - 2.6, base + 0.4, 2.6, 0.25, 'количество вызовов функции →', size=11, color=MUTED, align='r')
-    ticks = ('вызов 1', 'десятки', 'сотни', 'тысячи')
+    if not compact: text(s, x + w - 3.1, base + 0.4, 3.1, 0.25, 'количество вызовов → (Node 24)', size=12, color=MUTED, align='r')
+    ticks = ('вызов 1', 'десятки', '~тысяча', '>10 тысяч')   # NUMBERS: Maglev 923–1170, TurboFan 13 108–13 601
     for i, (nm, role, note, ms) in enumerate(TIERS):
         bx = x + 0.1 + i * sw; bh = hs[i] * scale
         spec = i >= 2
         fill = 'E0FBCC' if spec else 'F1F3F5'
         if top_label and i == 3: fill = 'AADC00'
         rect(s, bx, base - bh, sw - 0.06, bh, fill, line=INK if (top_label and i == 3) else None, lw=2, radius=0.08)
-        lab = [f'**{top_label if (top_label and i == 3) else nm}**', role]
+        lab = [f'**{top_label if (top_label and i == 3) else nm}**'] + ([] if compact and not (top_label and i == 3) else [role])
         if numbers: lab.append(f'**{ms} мс**')
-        text(s, bx + 0.08, base - bh + 0.04, sw - 0.22, bh - 0.08, lab, size=11 if bh < 1.0 else 13, align='c', anchor='m', gap=1)
+        text(s, bx + 0.08, base - bh + 0.04, sw - 0.22, bh - 0.08, lab, size=12.5 if bh < 1.0 else 14, align='c', anchor='m', gap=1)
         seg(s, bx, base, bx, base + 0.1, INK, 1.25)
         text(s, bx - 0.02, base + 0.12, sw, 0.3, ticks[i], size=12, color=INK, font='X5 Sans Medium')
     # скобки
     by = y + 0.05
-    for (i0, i1, lab, col) in ((0, 1, 'читают записи мест чтения, ничего не предполагают', MUTED), (2, 3, 'вшивают ставку «сюда приходит одна форма» — проверка одним сравнением', INK)):
+    brk = (('ничего не предполагают', 'ставка на форму') if compact else ('читают записи мест чтения, ничего не предполагают', 'вшивают в код ставку на увиденные формы'))
+    for (i0, i1, lab, col) in (((0, 1, brk[0], MUTED), (2, 3, brk[1], INK)) if brackets else ()):
         x0 = x + 0.1 + i0 * sw; x1 = x + 0.1 + (i1 + 1) * sw - 0.06
         seg(s, x0, by + 0.42, x1, by + 0.42, col, 1.25); seg(s, x0, by + 0.42, x0, by + 0.52, col, 1.25); seg(s, x1, by + 0.42, x1, by + 0.52, col, 1.25)
-        text(s, x0, by - 0.05, x1 - x0, 0.45, lab, size=11.5, color=col, align='c', anchor='m')
-    text(s, x + 0.1, base + 0.4, w - 3.0, 0.25, 'чем чаще вызывают функцию, тем серьёзнее компилятор · функция, которую зовут на каждый запрос, окажется наверху в первые миллисекунды работы', size=9.5, color=MUTED)
+        text(s, x0, by - 0.15, x1 - x0, 0.55, lab, size=13, color=col, align='c', anchor='m')
+    if footnote and not compact:
+        text(s, x + 0.1, base + 0.4, w - 3.4, 0.25, 'следующий ярус компилируется в фоне — функция не ждёт', size=12, color=MUTED)
 
 
 def chips(s, x, y, labels, h=0.5, fill='FFFFFF', line=INK, color=INK, size=12.5, gap=0.3, mark=None):
     cx = x
     for i, lab in enumerate(labels):
-        wd = 0.098 * len(lab) + 0.32
+        wd = 0.104 * len(lab) + 0.32
         box(s, cx, y, wd, h, lab, fill=fill, line=line, color=color, size=size)
         if i < len(labels) - 1:
             seg(s, cx + wd, y + h / 2, cx + wd + gap, y + h / 2, line, 1.25)
@@ -302,18 +407,20 @@ def schema_deopt(s, x, y, w, h):
     lh = (h - 0.2) / 2
     clone(s, 'white', x, y, w, lh)
     text(s, x + 0.25, y + 0.12, w - 0.5, 0.3, '**A** · читатель объектов A на оптимизирующем ярусе', size=14)
-    text(s, x + 0.25, y + 0.12, w - 0.5, 0.3, 'записи: MONO, 1 форма', size=11.5, color=MUTED, align='r')
-    ex = chips(s, x + 0.3, y + 0.7, ['проверка формы', 'быстрый путь вшит'])
-    seg(s, ex - 0.3, y + 0.95, x + w - 0.3, y + 0.95, '3FA34D', 3)
-    text(s, x + 0.3, y + 1.3, w - 0.6, 0.4, 'ставка играет каждый вызов · у читателя строки wrong map нет (0 из 5 прогонов)', size=12, color=MUTED)
+    text(s, x + 0.25, y + 0.12, w - 0.5, 0.3, 'записи: MONO, 1 форма', size=13, color=MUTED, align='r')
+    ex = chips(s, x + 0.3, y + 0.7, ['проверка формы', 'быстрый путь вшит'])     # gap 0.3: ex — край последнего чипа + 0.3
+    if ex - 0.3 < x + w - 0.5: seg(s, ex - 0.3, y + 0.95, x + w - 0.3, y + 0.95, '3FA34D', 3)
+    text(s, x + 0.3, y + 1.3, w - 0.6, 0.4, 'ставка играет каждый вызов · у читателя строки wrong map нет (0 из 5 прогонов)', size=13, color=MUTED)
     by = y + lh + 0.2
     clone(s, 'pinkcard', x, by, w, lh)
     text(s, x + 0.25, by + 0.12, w - 0.5, 0.3, '**B** · читатель объектов B на оптимизирующем ярусе', size=14, color=BRED)
-    text(s, x + 0.25, by + 0.12, w - 0.5, 0.3, 'сначала одна форма → потом восемь', size=11.5, color=MUTED, align='r')
-    ex = chips(s, x + 0.3, by + 0.7, ['ставка на одну форму', 'откат', 'записи обновлены', 'перекомпиляция без ставки'], line=BRED, color=BRED, mark=0)
-    seg(s, ex - 0.3, by + 0.95, x + w - 0.3, by + 0.95, 'D6336C', 3)
-    text(s, x + 2.9, by + 0.36, 3.4, 0.3, '↑ `reason: wrong map`', size=11, color=BRED)
-    text(s, x + 0.3, by + 1.3, w - 0.6, 0.5, 'один откат (5 из 5 прогонов) · дальше — общий путь MEGA, стационарно · в приборе ставки не было вовсе: 0 откатов, TurboFan, и всё равно ×6.6', size=11.5, color=MUTED)
+    text(s, x + 0.25, by + 0.12, w - 0.5, 0.3, 'сначала одна форма → потом другая', size=13, color=MUTED, align='r')
+    ex = chips(s, x + 0.3, by + 0.7, ['ставка на одну форму', 'деопт: откат', 'записи дополнены', 'новый код без ставки'], line=BRED, color=BRED, mark=0, gap=0.2)
+    end = ex - 0.2                                                               # gap 0.2: край последнего чипа
+    if end < x + w - 0.5: seg(s, end, by + 0.95, x + w - 0.3, by + 0.95, 'D6336C', 3)
+    mx = x + 0.3 + (0.104 * len('ставка на одну форму') + 0.32) + 0.1
+    text(s, mx - 0.07, by + 0.36, 3.4, 0.3, '↑ `reason: wrong map`', size=12, color=BRED)
+    text(s, x + 0.3, by + 1.25, w - 0.6, 0.45, 'один откат (5 из 5) · дальше — общий путь MEGA · в приборе ставки не было: 0 откатов, и всё равно ×6.6', size=13, color=MUTED)
 
 
 def qr_png(url, path):

@@ -10,7 +10,7 @@ CW = X1 - X0
 Y0, Y1 = 1.3, 6.9
 RX, RW = 10.45, 2.51          # колонка шапок
 BRED = '8A1538'
-SLOTS = (('форма', 2), ('чтение', 3), ('путь', 5), ('сервер', 6), ('автор', 7))
+SLOTS = (('форма', 2), ('чтение', 3), ('путь', 5), ('сервер', 6), ('эпохи', 10))
 
 def ab_pairs(sid):
     raw = SL[sid]['Шапки A/B']
@@ -85,9 +85,9 @@ def zones(s, y, h, a, b, size=18, labels=('A · ?? null', 'B · условный
     for i, (key, lab, paras, col) in enumerate((('white', labels[0], a, GREEN), ('pinkcard', labels[1], b, BRED))):
         yy = y + i * (h + gapy)
         clone(s, key, x, yy, w, h)
-        lw = 0.105 * len(lab) + 0.45
+        lw = 0.115 * len(lab) + 0.45
         clone(s, 'lime' if i == 0 else 'pink', x + 0.22, yy + 0.18, lw, 0.38)
-        text(s, x + 0.22, yy + 0.18, lw, 0.38, lab, size=12, color=col, align='c', anchor='m', font='X5 Sans Medium')
+        text(s, x + 0.22, yy + 0.18, lw, 0.38, lab, size=13, color=col, align='c', anchor='m', font='X5 Sans Medium')
         text(s, x + 0.35, yy + 0.62, w - 0.7, h - 0.75, paras, size=size, color=GREEN, anchor='m', **kw)
 
 def row(s, key, items, y, h, x0=X0, x1=X1, gapx=0.25, **kw):
