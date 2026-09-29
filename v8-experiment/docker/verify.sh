@@ -24,7 +24,7 @@ echo "## 3. лестница ярусов"; : > $OUT/tiers.jsonl
 for k in 1 2 3 4 5; do for n in 0 1 2 3; do printf '{"maxopt":%s,"r":%s}\n' $n "$(node --max-opt=$n docker/tier-bench.js)" >> $OUT/tiers.jsonl; done; done
 echo "## 4. мифы"; myths
 [ -f lab/real/dataset.ndjson ] || (cd lab/real && node gen-dataset.js)
-echo "## 5. пайплайн 90 ячеек"; : > $OUT/pipeline.jsonl
+echo "## 5. пайплайн: 5 вариантов × 2 батча × 3 R × 5 повторов = 150 прогонов"; : > $OUT/pipeline.jsonl
 for v in mono-llm guard-llm mixed-mono ref-a ref-b; do [ -f lab/real/variants/$v.js ] || cp lab/$v.js lab/real/variants/$v.js; done
 for v in mono-llm guard-llm mixed-mono ref-a ref-b; do for b in 500 5000; do for r in 1 5 20; do for rep in 1 2 3 4 5; do
   (cd lab/real && VARIANT=$v BATCH=$b R=$r REP=$rep node pipeline.js) >> $OUT/pipeline.jsonl; done; done; done; echo "pipeline $v done"; done
@@ -46,4 +46,6 @@ echo "## 10. статус читателя, log-ic, samemap"
 for f in ref-a ref-b; do node --allow-natives-syntax docker/shape-analyzer-status.js lab/$f.js 2>&1 | head -1 | sed "s/^/$f /"; done > $OUT/reader-status.txt
 for f in ref-a ref-b; do node --allow-natives-syntax --log-ic --no-logfile-per-isolate --logfile=$OUT/ic-$f.log lab/shape-analyzer.js lab/$f.js >/dev/null 2>&1; done
 node --allow-natives-syntax lab/demo-samemap.js > $OUT/samemap.txt 2>&1
+echo "## 11. почему не сразу TurboFan"
+bash docker/why-not-turbofan.sh > $OUT/why-not-turbofan.txt 2>&1
 echo VERIFY_DONE
