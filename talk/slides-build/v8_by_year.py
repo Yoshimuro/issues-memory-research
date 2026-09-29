@@ -21,13 +21,6 @@ DY = 4.8                                   # путь деопта — под я
 SOFT, OPT, NONE = 'F1F3F5', PALE, 'FFFFFF'
 
 
-def arrow(s, x1, y1, x2, y2, color=GREEN, w=2.0, dash=False):
-    c = seg(s, x1, y1, x2, y2, color, w, dash)
-    ln = c.line._get_or_add_ln()
-    t = etree.SubElement(ln, qn('a:tailEnd')); t.set('type', 'triangle'); t.set('w', 'med'); t.set('len', 'med')
-    return c
-
-
 def tier(s, col, name, lines, kind='soft', y=BY, h=BH, tag=None, foot=None, role=True):
     """kind: soft — без ставки, opt — со ставкой на формы, none — яруса нет, flag — в коде за флагом, forecast — прогноз."""
     x = COLX[col]
@@ -191,63 +184,16 @@ clone(s, 'dark', X0, 5.55, X1 - X0, 0.85)
 text(s, X0 + 0.3, 5.55, X1 - X0 - 0.6, 0.85, ['**Не менялось с 2008:** формы объектов (maps) и записи мест чтения (IC) · промах ставки — деопт вниз · оптимизация в фоне'],
      size=15, color=WHITE, anchor='m')
 
-# ======================= для доклада: три кадра нарастанием =======================
-# Одна сетка на все кадры: при листании коробки стоят на месте, добавляется только новый год.
-LX, G = X0 + 1.45, 0.45
-TCW = (X1 - LX - 3 * G) / 4
-TCX = [LX + i * (TCW + G) for i in range(4)]
-TROWS = [('2014', [('full-codegen', 'soft'), None, None, ('Crankshaft', 'opt')],
-          '2014: full-codegen и Crankshaft',
-          'Первый код — сразу машинный. Горячую функцию Crankshaft перекомпилирует со ставкой на формы.'),
-         ('2022', [('Ignition', 'soft'), ('Sparkplug', 'soft'), None, ('TurboFan', 'opt')],
-          '2022: байткод, Sparkplug, TurboFan',
-          'С 2017 первый код — байткод, вместо Crankshaft — TurboFan. В 2021 между ними встал Sparkplug.'),
-         ('2027', [('Ignition', 'soft'), ('Sparkplug', 'soft'), ('Maglev', 'opt'), ('Turbolev?', 'forecast')],
-          '2027: Maglev и Turbolev',
-          'С 2023 есть Maglev. Turbolev сменит TurboFan — дата не объявлена.')]
-PAST_FILL, PAST_INK = 'F7F8F9', 'B6BCC6'
-
-
-def talk_frame(k):
+# ======================= для доклада: три кадра нарастанием (те же, что в колоде: 7.2, 8.3, 10.2) =======================
+TITLES = ('2014: full-codegen и Crankshaft', '2022: байткод, Sparkplug, TurboFan', '2027: Maglev и Turbolev')
+for k in range(3):
     s = prs.slides.add_slide(LAY['white'])
-    set_title(s, TROWS[k][2])
+    set_title(s, TITLES[k])
     tt = s.shapes.title
     tt.left, tt.top, tt.width, tt.height = Inches(0.37), Inches(0.40), Inches(11.0), Inches(0.58)
     drop_empty_placeholders(s)
     text(s, 11.4, 0.42, 1.55, 0.3, f'V8 · {k + 1} из 3', size=11, color=MUTED, align='r')
-    for (i0, i1, lab, col) in ((0, 1, 'без ставки', MUTED), (2, 3, 'ставка на формы', GREEN)):
-        xa, xb = TCX[i0], TCX[i1] + TCW
-        seg(s, xa, 1.78, xb, 1.78, col, 1.5); seg(s, xa, 1.78, xa, 1.9, col, 1.5); seg(s, xb, 1.78, xb, 1.9, col, 1.5)
-        text(s, xa, 1.3, xb - xa, 0.42, lab, size=20, color=col, align='c', anchor='m', font='X5 Sans Medium')
-    RH = 0.95
-    for r in range(k + 1):
-        yr, cells, _, _ = TROWS[r]
-        now = r == k                                   # текущий год — ярко, прошлые — бледно
-        ink = GREEN if now else PAST_INK
-        y = 2.05 + r * 1.1
-        text(s, X0, y, 1.3, RH, f'**{yr}**', size=30, color=ink, anchor='m')
-        path = [i for i, c in enumerate(cells) if c]
-        for i, c in enumerate(cells):
-            if not c: continue
-            nm, kind = c
-            if now:
-                fill = OPT if kind == 'opt' else (SOFT if kind == 'soft' else 'FFFFFF')
-                line = GREEN if kind == 'forecast' else None
-            else:
-                fill, line = PAST_FILL, None
-            rect(s, TCX[i], y, TCW, RH, fill, line=line, lw=2, dash=kind == 'forecast', radius=0.12)
-            text(s, TCX[i] + 0.1, y, TCW - 0.2, RH, f'**{nm}**', size=26, color=ink, align='c', anchor='m')
-        for i, j in zip(path, path[1:]):
-            arrow(s, TCX[i] + TCW + 0.04, y + RH / 2, TCX[j] - 0.05, y + RH / 2, GREEN if now else FAINT, 2.25)
-    text(s, X0, 5.35, X1 - X0, 0.45, TROWS[k][3], size=19, color=GREEN)
-    if k == 2:
-        clone(s, 'dark', X0, 5.9, X1 - X0, 0.6)
-        text(s, X0 + 0.3, 5.9, X1 - X0 - 0.6, 0.6, ['**Формы и записи мест чтения — с 2008.** На них ставит каждый верхний ярус.'],
-             size=20, color=WHITE, anchor='m')
-
-
-for k in range(3):
-    talk_frame(k)
+    schema_eras(s, k)
 
 # ---------- выкинуть слайды шаблона, сохранить
 lst = prs.slides._sldIdLst

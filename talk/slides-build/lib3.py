@@ -35,6 +35,13 @@ def seg(s, x1, y1, x2, y2, color=MUTED, w=1.25, dash=False):
     return c
 
 
+def arrow(s, x1, y1, x2, y2, color=INK, w=2.0, dash=False):
+    from lxml import etree
+    c = seg(s, x1, y1, x2, y2, color, w, dash)
+    t = etree.SubElement(c.line._get_or_add_ln(), qn('a:tailEnd')); t.set('type', 'triangle'); t.set('w', 'med'); t.set('len', 'med')
+    return c
+
+
 def box(s, x, y, w, h, label, fill='FFFFFF', line=None, color=INK, size=11, mono=False, bold=False, radius=0.1, align='c'):
     rect(s, x, y, w, h, fill, line, radius=radius)
     text(s, x + 0.06, y, w - 0.12, h, label if not mono else [('`%s`' % l) for l in ([label] if isinstance(label, str) else label)],
@@ -139,11 +146,11 @@ STEPS = [  # (название, когда, A, B, чем увидеть)
     ('ярусы', 'первые мс', 'одна лестница', 'одна лестница', '--trace-opt'),
     ('ставка', 'после компиляции', 'сыграла', 'не сыграла', '--trace-deopt'),
     ('сервис', 'прод', '2302 rps', '1180 rps', 'autocannon'),
-    ('агент', 'до первого вызова', 'автор: ?', 'без правил · 30/30', 'claude -p + прибор'),
-    ('корпус', 'до первого вызова', 'живое правило', 'норма корпуса', 'матрица по версиям'),
-    ('правила', 'до первого вызова', 'с файлом · 30/30', 'без файла', 'v8-rules.md'),
-    ('лев', 'верхняя ступень', 'ставка та же', 'ставка та же', '--turbolev'),
-    ('карта целиком', '—', 'форма + файл', 'форма + нет файла', 'как проверить у себя'),
+    ('эпоха 2014', '2010–2017', 'ставка', 'мега', 'Crankshaft'),
+    ('эпоха 2017', '2017–2023', 'ставка', 'мега', 'TurboFan'),
+    ('эпоха 2027', '2023–', 'ставка', 'мега', 'Maglev · Turbolev'),
+    ('ставка та же', 'с 2008', '×1', '×6.6–6.9', '3 компилятора'),
+    ('карта целиком', '—', '1 форма', '8 форм', 'как проверить у себя'),
     ('снова слайд 1', 'финал', '1 → MONO → 2302', '8 → MEGA → 1180', 'репо'),
 ]
 BREATHERS = (3, 5, 8)
@@ -170,7 +177,6 @@ def talk_map(s, x, y, w, h, upto=12, current=None, size=None, detail=True, when=
         if when: text(s, cx - step / 2, y, step, 0.3 * k, when_, size=ts, color=MUTED if on else FAINT, align='c', anchor='m')
         text(s, cx - step / 2 + 0.02, ax + 0.3 * k, step - 0.04, 0.6 * k, name, size=ns, color=INK if on else 'B6BCC6', align='c', font='X5 Sans Medium')
         if on:
-            if i == 7 and upto >= 9: a_ = 'агент + файл · 30/30'   # ответ дан в узле 9
             for val, ry, col, bg in ((a_, ra, INK, 'F1FBE8'), (b_, rb, BRED, 'FFEAF0')):
                 rect(s, cx - step / 2 + 0.03, ry, step - 0.06, vh, bg, radius=0.06)
                 text(s, cx - step / 2 + 0.05, ry, step - 0.1, vh, val, size=fs - 0.5, color=col, align='c', anchor='m')
@@ -188,6 +194,46 @@ def minimap(s, x, y, w, h, current):
         fill = 'AADC00' if i == current else (INK if i < current else 'D9DDE3')
         rect(s, cx - d / 2, cy - d / 2, d, d, fill, line=INK if i == current else None, lw=1.5, shape=MSO_SHAPE.OVAL)
     text(s, x + 0.1, y + 0.58, w - 0.2, h - 0.64, [f'шаг {current} из 12', f'**{STEPS[current - 1][0]}**'], size=13, color=INK, align='c', anchor='m', gap=1)
+
+
+# ---------- три эпохи V8: кадры нарастанием (узлы 7, 8, 10; и talk/v8-by-year/talk-*.png) ----------
+ERAS = [('2014', [('full-codegen', 'soft'), None, None, ('Crankshaft', 'opt')],
+         'Первый код — сразу машинный. Горячую функцию Crankshaft перекомпилирует со ставкой на формы.'),
+        ('2022', [('Ignition', 'soft'), ('Sparkplug', 'soft'), None, ('TurboFan', 'opt')],
+         'С 2017 первый код — байткод, вместо Crankshaft — TurboFan. В 2021 между ними встал Sparkplug.'),
+        ('2027', [('Ignition', 'soft'), ('Sparkplug', 'soft'), ('Maglev', 'opt'), ('Turbolev?', 'forecast')],
+         'С 2023 есть Maglev. Turbolev сменит TurboFan — дата не объявлена.')]
+
+
+def schema_eras(s, k, x0=0.37, x1=12.96):
+    """Кадр k (0..2): строки эпох до k-й; текущая яркая, прошлые бледные. Сетка общая — при листании коробки на месте."""
+    lx, g = x0 + 1.45, 0.45
+    cw = (x1 - lx - 3 * g) / 4
+    cx = [lx + i * (cw + g) for i in range(4)]
+    for (i0, i1, lab, col) in ((0, 1, 'без ставки', MUTED), (2, 3, 'ставка на формы', INK)):
+        xa, xb = cx[i0], cx[i1] + cw
+        seg(s, xa, 1.78, xb, 1.78, col, 1.5); seg(s, xa, 1.78, xa, 1.9, col, 1.5); seg(s, xb, 1.78, xb, 1.9, col, 1.5)
+        text(s, xa, 1.3, xb - xa, 0.42, lab, size=20, color=col, align='c', anchor='m', font='X5 Sans Medium')
+    rh = 0.95
+    for r in range(k + 1):
+        yr, cells, _ = ERAS[r]
+        now = r == k
+        ink = INK if now else 'B6BCC6'
+        y = 2.05 + r * 1.1
+        text(s, x0, y, 1.3, rh, f'**{yr}**', size=30, color=ink, anchor='m')
+        for i, c in enumerate(cells):
+            if not c: continue
+            nm, kind = c
+            fill = ('E0FBCC' if kind == 'opt' else ('F1F3F5' if kind == 'soft' else 'FFFFFF')) if now else 'F7F8F9'
+            rect(s, cx[i], y, cw, rh, fill, line=INK if (now and kind == 'forecast') else None, lw=2, dash=kind == 'forecast', radius=0.12)
+            text(s, cx[i] + 0.1, y, cw - 0.2, rh, f'**{nm}**', size=26, color=ink, align='c', anchor='m')
+        path = [i for i, c in enumerate(cells) if c]
+        for i, j in zip(path, path[1:]):
+            arrow(s, cx[i] + cw + 0.04, y + rh / 2, cx[j] - 0.05, y + rh / 2, INK if now else FAINT, 2.25)
+    text(s, x0, 5.35, x1 - x0, 0.45, ERAS[k][2], size=19, color=INK)
+    if k == 2:
+        clone(s, 'dark', x0, 5.9, x1 - x0, 0.6)
+        text(s, x0 + 0.3, 5.9, x1 - x0 - 0.6, 0.6, ['**Формы и записи мест чтения — с 2008.** На них ставит каждый верхний ярус.'], size=20, color=WHITE, anchor='m')
 
 
 # ---------- схемы узлов ----------
