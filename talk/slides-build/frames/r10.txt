@@ -1,0 +1,4 @@
+$ node --allow-natives-syntax --turbolev shape-analyzer.js ref-a.js
+{"shapes":1,"ic":"MONO","p50_ms":0.13,"correct":true}
+$ node --allow-natives-syntax --turbolev shape-analyzer.js ref-b.js
+{"shapes":8,"ic":"MEGA","p50_ms":0.88,"correct":true}
