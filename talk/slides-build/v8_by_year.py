@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Схемы V8 по годам (2014 / 2022 / 2027-прогноз) в стиле колоды: 4 подробных слайда для статьи + 1 крупный для доклада.
+# Схемы V8 по годам (2014 / 2022 / 2027-прогноз) в стиле колоды: 4 подробных слайда для статьи + 3 кадра для доклада (нарастанием).
 #   python v8_by_year.py /tmp/v8-by-year.pptx   # pptx с нативными фигурами — копировать слайды в колоду; в git только PNG (talk/v8-by-year/)
 # Факты сверены по исходникам V8 на тегах, блогу v8.dev и changelog Node (сентябрь 2026); 2027 — прогноз по состоянию main.
 # Сетка общая для всех лет: одна роль — одна колонка, поэтому видно, что появилось и что ушло.
@@ -191,41 +191,63 @@ clone(s, 'dark', X0, 5.55, X1 - X0, 0.85)
 text(s, X0 + 0.3, 5.55, X1 - X0 - 0.6, 0.85, ['**Не менялось с 2008:** формы объектов (maps) и записи мест чтения (IC) · промах ставки — деопт вниз · оптимизация в фоне'],
      size=15, color=WHITE, anchor='m')
 
-# ======================= для доклада: одна мысль, крупно =======================
-s = prs.slides.add_slide(LAY['white'])
-set_title(s, 'Ярусы менялись, ставка — нет')
-tt = s.shapes.title
-tt.left, tt.top, tt.width, tt.height = Inches(0.37), Inches(0.40), Inches(11.0), Inches(0.58)
-drop_empty_placeholders(s)
-text(s, 11.4, 0.42, 1.55, 0.3, 'V8 · доклад', size=11, color=MUTED, align='r')
+# ======================= для доклада: три кадра нарастанием =======================
+# Одна сетка на все кадры: при листании коробки стоят на месте, добавляется только новый год.
 LX, G = X0 + 1.45, 0.45
-cw = (X1 - LX - 3 * G) / 4
-cx = [LX + i * (cw + G) for i in range(4)]
-# две группы — как скобки на лестнице узла 4
-for (i0, i1, lab, col) in ((0, 1, 'без ставки', MUTED), (2, 3, 'ставка на формы', GREEN)):
-    xa, xb = cx[i0], cx[i1] + cw
-    seg(s, xa, 1.78, xb, 1.78, col, 1.5); seg(s, xa, 1.78, xa, 1.9, col, 1.5); seg(s, xb, 1.78, xb, 1.9, col, 1.5)
-    text(s, xa, 1.3, xb - xa, 0.42, lab, size=20, color=col, align='c', anchor='m', font='X5 Sans Medium')
-TROWS = [('2014', [('full-codegen', 'soft'), None, None, ('Crankshaft', 'opt')]),
-         ('2022', [('Ignition', 'soft'), ('Sparkplug', 'soft'), None, ('TurboFan', 'opt')]),
-         ('2027', [('Ignition', 'soft'), ('Sparkplug', 'soft'), ('Maglev', 'opt'), ('Turbolev?', 'forecast')])]
-RH = 0.95
-for r, (yr, cells) in enumerate(TROWS):
-    y = 2.05 + r * 1.1
-    text(s, X0, y, 1.3, RH, f'**{yr}**', size=30, anchor='m')
-    path = [i for i, c in enumerate(cells) if c]
-    for i, c in enumerate(cells):
-        if not c: continue
-        nm, kind = c
-        fill = OPT if kind == 'opt' else (SOFT if kind == 'soft' else 'FFFFFF')
-        rect(s, cx[i], y, cw, RH, fill, line=GREEN if kind == 'forecast' else None, lw=2, dash=kind == 'forecast', radius=0.12)
-        text(s, cx[i] + 0.1, y, cw - 0.2, RH, f'**{nm}**', size=26, color=GREEN, align='c', anchor='m')
-    for i, j in zip(path, path[1:]):
-        arrow(s, cx[i] + cw + 0.04, y + RH / 2, cx[j] - 0.05, y + RH / 2, GREEN, 2.25)
-text(s, cx[3], 2.05 + 2 * 1.1 + RH + 0.04, cw, 0.3, 'прогноз', size=14, color=MUTED, align='c')
-clone(s, 'dark', X0, 5.62, X1 - X0, 0.82)
-text(s, X0 + 0.3, 5.62, X1 - X0 - 0.6, 0.82, ['**Формы и записи мест чтения — с 2008.** На них ставит каждый верхний ярус.'],
-     size=21, color=WHITE, anchor='m')
+TCW = (X1 - LX - 3 * G) / 4
+TCX = [LX + i * (TCW + G) for i in range(4)]
+TROWS = [('2014', [('full-codegen', 'soft'), None, None, ('Crankshaft', 'opt')],
+          '2014: full-codegen и Crankshaft',
+          'Первый код — сразу машинный. Горячую функцию Crankshaft перекомпилирует со ставкой на формы.'),
+         ('2022', [('Ignition', 'soft'), ('Sparkplug', 'soft'), None, ('TurboFan', 'opt')],
+          '2022: байткод, Sparkplug, TurboFan',
+          'С 2017 первый код — байткод, вместо Crankshaft — TurboFan. В 2021 между ними встал Sparkplug.'),
+         ('2027', [('Ignition', 'soft'), ('Sparkplug', 'soft'), ('Maglev', 'opt'), ('Turbolev?', 'forecast')],
+          '2027: Maglev и Turbolev',
+          'С 2023 есть Maglev. Turbolev сменит TurboFan — дата не объявлена.')]
+PAST_FILL, PAST_INK = 'F7F8F9', 'B6BCC6'
+
+
+def talk_frame(k):
+    s = prs.slides.add_slide(LAY['white'])
+    set_title(s, TROWS[k][2])
+    tt = s.shapes.title
+    tt.left, tt.top, tt.width, tt.height = Inches(0.37), Inches(0.40), Inches(11.0), Inches(0.58)
+    drop_empty_placeholders(s)
+    text(s, 11.4, 0.42, 1.55, 0.3, f'V8 · {k + 1} из 3', size=11, color=MUTED, align='r')
+    for (i0, i1, lab, col) in ((0, 1, 'без ставки', MUTED), (2, 3, 'ставка на формы', GREEN)):
+        xa, xb = TCX[i0], TCX[i1] + TCW
+        seg(s, xa, 1.78, xb, 1.78, col, 1.5); seg(s, xa, 1.78, xa, 1.9, col, 1.5); seg(s, xb, 1.78, xb, 1.9, col, 1.5)
+        text(s, xa, 1.3, xb - xa, 0.42, lab, size=20, color=col, align='c', anchor='m', font='X5 Sans Medium')
+    RH = 0.95
+    for r in range(k + 1):
+        yr, cells, _, _ = TROWS[r]
+        now = r == k                                   # текущий год — ярко, прошлые — бледно
+        ink = GREEN if now else PAST_INK
+        y = 2.05 + r * 1.1
+        text(s, X0, y, 1.3, RH, f'**{yr}**', size=30, color=ink, anchor='m')
+        path = [i for i, c in enumerate(cells) if c]
+        for i, c in enumerate(cells):
+            if not c: continue
+            nm, kind = c
+            if now:
+                fill = OPT if kind == 'opt' else (SOFT if kind == 'soft' else 'FFFFFF')
+                line = GREEN if kind == 'forecast' else None
+            else:
+                fill, line = PAST_FILL, None
+            rect(s, TCX[i], y, TCW, RH, fill, line=line, lw=2, dash=kind == 'forecast', radius=0.12)
+            text(s, TCX[i] + 0.1, y, TCW - 0.2, RH, f'**{nm}**', size=26, color=ink, align='c', anchor='m')
+        for i, j in zip(path, path[1:]):
+            arrow(s, TCX[i] + TCW + 0.04, y + RH / 2, TCX[j] - 0.05, y + RH / 2, GREEN if now else FAINT, 2.25)
+    text(s, X0, 5.35, X1 - X0, 0.45, TROWS[k][3], size=19, color=GREEN)
+    if k == 2:
+        clone(s, 'dark', X0, 5.9, X1 - X0, 0.6)
+        text(s, X0 + 0.3, 5.9, X1 - X0 - 0.6, 0.6, ['**Формы и записи мест чтения — с 2008.** На них ставит каждый верхний ярус.'],
+             size=20, color=WHITE, anchor='m')
+
+
+for k in range(3):
+    talk_frame(k)
 
 # ---------- выкинуть слайды шаблона, сохранить
 lst = prs.slides._sldIdLst
