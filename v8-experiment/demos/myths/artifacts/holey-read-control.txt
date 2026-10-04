@@ -1,0 +1,4 @@
+# HOLEY-READ контроль (вне матрицы): настоящая дырка, чтение ВСЕХ индексов с s += a[i] ?? 0
+# node24 v24.18.0, изолированные процессы:
+{"bench":"holey-control","case":"SMI-coerce","ms":14.4}
+{"bench":"holey-control","case":"HOLEY-READ","ms":31.7}

@@ -1,0 +1,10 @@
+=== mono-llm ===
+ready mono-llm :3000
+{"rps_avg":914.3,"rps_p50":925,"lat_p50_ms":52,"lat_p99_ms":83,"throughput_mb_s":7.3,"errors":0,"non2xx":0}
+=== guard-llm ===
+ready guard-llm :3000
+{"rps_avg":530.05,"rps_p50":533,"lat_p50_ms":92,"lat_p99_ms":139,"throughput_mb_s":3.5,"errors":0,"non2xx":0}
+=== mixed-mono ===
+ready mixed-mono :3000
+{"rps_avg":848.8,"rps_p50":860,"lat_p50_ms":57,"lat_p99_ms":92,"throughput_mb_s":6.8,"errors":0,"non2xx":0}
+HTTP_DONE
