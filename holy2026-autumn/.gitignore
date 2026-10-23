@@ -1,0 +1,15 @@
+# Local dependencies and generated artifacts
+.DS_Store
+node_modules/
+*.log
+*.pptx
+*.mp3
+*.zip
+*.pdf
+!/final.pdf
+/v8-experiment/docker/out/
+/v8-experiment/lab/real/dataset.ndjson
+/v8-experiment/lab/real/variants/ref-a.js
+/v8-experiment/lab/real/variants/ref-b.js
+/v8-experiment/lab/out/**/raw_*.txt
+/v8-experiment/lab/out/**/err_*.log

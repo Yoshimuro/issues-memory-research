@@ -1,0 +1,22 @@
+function normalizeUser(raw) {
+  const src = raw != null ? raw : {};
+
+  const id = src.id != null ? String(src.id) : '';
+  const name = typeof src.name === 'string' ? src.name : '';
+  const email = typeof src.email === 'string' ? src.email : '';
+  const plan = typeof src.plan === 'string' ? src.plan : 'free';
+  const credits = Number.isFinite(src.credits) ? (src.credits | 0) : 0;
+
+  return {
+    id,
+    name,
+    email,
+    plan,
+    credits,
+    referrer: src.referrer != null ? String(src.referrer) : null,
+    trialUntil: src.trialUntil != null ? String(src.trialUntil) : null,
+    teamId: src.teamId != null ? String(src.teamId) : null,
+  };
+}
+
+module.exports = { normalizeUser };
