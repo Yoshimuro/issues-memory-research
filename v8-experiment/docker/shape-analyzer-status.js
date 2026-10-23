@@ -56,7 +56,7 @@ try {
   const steady = lat.slice(100).sort((a, b) => a - b);
   const p50 = steady[Math.floor(steady.length * 0.5)];
   const st = %GetOptimizationStatus(score);
-  const bits = { function:1, neverOpt:2, alwaysOpt:4, maybeDeopted:8, optimized:16, maglev:32, turbofan:64, interpreted:128, markedForOpt:256, markedConcurrent:512, osr:1024, baseline:1<<14, topmostTurbo:1<<15, };
+  const bits = { function:1, neverOpt:2, alwaysOpt:4, maybeDeopted:8, optimized:16, maglev:32, turbofan:64, interpreted:128, markedForOpt:256, markedConcurrent:512, optimizingConcurrently:1<<10, topmostTurbo:1<<12, markedForDeopt:1<<14, baseline:1<<15, topmostInterpreted:1<<16, topmostBaseline:1<<17, topmostMaglev:1<<19, }; // V8 11.3–13.6 (Node 20–24); в V8 14+ биты сдвинуты — см. demos/tiers/tier-status.js
   console.error('score status=' + st + ' [' + Object.keys(bits).filter(k => st & bits[k]).join(',') + ']');
   const ic = reps.length === 1 ? 'MONO' : reps.length <= 4 ? 'POLY' : 'MEGA';
   console.log(JSON.stringify({
