@@ -1,0 +1,2 @@
+$ node --allow-natives-syntax shape-analyzer.js out/p1-rules/candidate_1.js
+{"shapes":1,"ic":"MONO","p50_ms":0.12,"correct":true}

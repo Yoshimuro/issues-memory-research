@@ -1,3 +1,6 @@
 node_modules/
 # 21 МБ, детерминированный: восстанавливается `node lab/real/gen-dataset.js`
 lab/real/dataset.ndjson
+docker/out/
+lab/real/variants/ref-a.js
+lab/real/variants/ref-b.js

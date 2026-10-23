@@ -1,0 +1,2 @@
+$ node --allow-natives-syntax shape-analyzer.js out/p1-no-rules/candidate_1.js
+{"shapes":8,"ic":"MEGA","p50_ms":0.76,"correct":true}
